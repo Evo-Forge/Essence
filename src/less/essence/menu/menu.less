@@ -1,0 +1,117 @@
+.e-nav-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.e-nav-menu .e-paper {
+  padding: 0 !important;
+}
+
+.e-nav-menu .e-nav {
+  position: absolute;
+  &.right {
+    right: 0;
+  }
+}
+
+.e-nav-menu ul {
+  background-color: #fff;
+  display: table;
+  z-index: 1;
+  margin: 0;
+  li {
+    display: block;
+    font-size: 15px;
+    &.active {
+      >  ul {
+        display: inline-block;
+      }
+    }
+    i {
+      
+    }
+  }
+
+}
+.e-nav-menu > ul{
+
+  a {
+    white-space: nowrap;
+    color: inherit;
+  }
+
+  & > li{
+    position: relative;
+    height: @e-unit * 4;
+    line-height: @e-unit * 4;
+    padding: 0 @e-unit;
+
+    &:hover {
+      background-color: @e-color-grey-300;
+    }
+
+  }
+
+  .e-nav {
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    display: none;
+    padding: @e-unit 0;
+    z-index: 50;
+  }
+
+  .e-nav li {
+    position: relative;
+    padding: 0 @e-unit * 2;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: @e-color-grey-300;
+    }
+
+    &.more {
+      padding-right: @e-unit * 3.5;
+
+      &.active > ul {
+        display: block !important;
+      }
+    }
+  }
+}
+
+.e-nav-menu.mobile ul li {
+  height: @e-unit * 6;
+  line-height: @e-unit * 6;
+
+  .more:before {
+    top: @e-unit * 2.5;
+  }
+}
+
+hr.divider {
+  display: block;
+  height: 1px !important;
+  margin: (@e-unit * 3) 0;
+}
+
+.e-nav-menu ul li.divider {
+  display: block;
+  height: 1px !important;
+  margin: @e-unit 0;
+
+  background-color: rgba(0,0,0, 0.12);
+}
+
+.e-nav-menu.cover ul.e-nav {
+  top: 0;
+}
+  
+
+.e-menu-shortcut {
+  min-width: 150px;
+  text-align: right;
+
+  opacity: 0.5;
+}

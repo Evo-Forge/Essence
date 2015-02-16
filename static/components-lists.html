@@ -1,0 +1,611 @@
+<div class="e-container">
+  <!--  Component - Lists       -->
+  <div class="lists e-padding-top-50" id="components-lists">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Lists</h3>
+        <p class="e-subhead">Lists are best suited to presenting a homogeneous data type or sets of data types, such as images and text. Take a look at the examples below and pick one - and keep it consistent as much as possible.</p>
+        <h3 class="e-text-green-500">Single line list with avatar and icon</h3>
+      </div>
+      <div class="brick brick-6 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-lists-single-line">
+        <ul class="e-list single-line has-avatar has-icon">
+          <li>
+            <a href="#">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="pic"/>
+                <span>Some Text</span>
+              </span>
+            </a>
+            <a href="#">
+              <img class="e-list-icon" src="assets/img/card-user-img.jpg" alt="pic" />
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="pic"/>
+                <span>Some Text</span>
+              </span>
+            </a>
+            <a href="#">
+              <img class="e-list-icon" src="assets/img/card-user-img.jpg" alt="pic" />
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="pic">
+                <span>Some Text</span>
+              </span>
+            </a>
+            <a href="#">
+              <img class="e-list-icon" src="assets/img/card-user-img.jpg" alt="pic" />
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="pic"/>
+                <span>Some Text</span>
+              </span>
+            </a>
+            <a href="#">
+              <img class="e-list-icon" src="assets/img/card-user-img.jpg" alt="pic" />
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;ul class=&quot;e-list single-line has-avatar has-icon&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+            &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;Attractions&lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-communication-contacts&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;Fun&lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-communication-vpn-key&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;Food&lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-editor-insert-emoticon&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;Kids&lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-hardware-security&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;List
+  type='single-line'
+  avatar={true}
+  icon={true}
+&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentText='Attractions'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='communication-contacts'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentText='Fun'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='communication-vpn-key'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentText='Food'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='editor-insert-emoticon'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentText='Kids'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='hardware-security'
+  /&gt;
+
+&lt;/List&gt;
+</pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Two-line list with avatar and icon</h3>
+      </div>
+      <div class="brick brick-6 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-lists-two-line">
+        <ul class="e-list single-line has-avatar has-icon">
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                    <strong>Attractions</strong>
+                    <br>
+                    <span>Here are more information about Attractions</span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-communication-contacts"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                    <strong>Fun</strong>
+                    <br>
+                    <span>Here are more information about Fun</span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-communication-vpn-key"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                    <strong>Food</strong>
+                    <br>
+                    <span>Here are more information about Food</span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-editor-insert-emoticon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                  <strong>Kids</strong>
+                  <br>
+                  <span>Here are more information about Kids</span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-hardware-security"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;ul class=&quot;e-list single-line has-avatar has-icon&quot;&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;
+                    &lt;strong&gt;Attractions&lt;/strong&gt;
+                    &lt;br&gt;
+                    &lt;span&gt;Here are more information about Attractions&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-communication-contacts&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;
+                    &lt;strong&gt;Fun&lt;/strong&gt;
+                    &lt;br&gt;
+                    &lt;span&gt;Here are more information about Fun&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-communication-vpn-key&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;
+                    &lt;strong&gt;Food&lt;/strong&gt;
+                    &lt;br&gt;
+                    &lt;span&gt;Here are more information about Food&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-editor-insert-emoticon&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;a href=&quot;#user&quot;&gt;
+            &lt;span class=&quot;e-list-content&quot;&gt;
+                &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+                &lt;span&gt;
+                    &lt;strong&gt;Kids&lt;/strong&gt;
+                    &lt;br&gt;
+                    &lt;span&gt;Here are more information about Kids&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+            &lt;i class=&quot;e-list-icon e-icon-hardware-security&quot;&gt;&lt;/i&gt;
+        &lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;List
+  type='two-line'
+  avatar={true}
+  icon={true}
+&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Attractions'
+    contentText='Here are more information about Attractions'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='communication-contacts'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Fun'
+    contentText='Here are more information about Fun'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='communication-vpn-key'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Food'
+    contentText='Here are more information about Food'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='editor-insert-emoticon'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Kids'
+    contentText='Here are more information about Kids'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='hardware-security'
+  /&gt;
+
+&lt;/List&gt;
+</pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Multi-line list with avatar and icon</h3>
+      </div>
+      <div class="brick brick-6 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-lists-multi-line">
+        <ul class="e-list single-line multi-line has-avatar has-icon">
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                  <strong>
+                    Attractions
+                  </strong>
+                  <br />
+                  <em>
+                    Info about Attractions
+                  </em>
+                  <br />
+                  <span>
+                    Here are more information about Attractions
+                  </span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-communication-contacts"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                  <strong>
+                    Fun
+                  </strong>
+                  <br />
+                  <em>
+                    Info about Fun
+                  </em>
+                  <br />
+                  <span>
+                    Here are more information about Fun
+                  </span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-communication-vpn-key"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                  <strong>
+                    Food
+                  </strong>
+                  <br />
+                  <em>
+                    Info about Food
+                  </em>
+                  <br />
+                  <span>
+                    Here are more information about Food
+                  </span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-editor-insert-emoticon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#user">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="I am your Avatar">
+                <span>
+                  <strong>
+                    Kids
+                  </strong>
+                  <br />
+                  <em>
+                    Info about Kids
+                  </em>
+                  <br />
+                  <span>
+                    Here are more information about Kids
+                  </span>
+              </span>
+              </span>
+            </a>
+            <a href="#">
+              <i class="e-list-icon e-icon-hardware-security"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;ul class=&quot;e-list single-line multi-line has-avatar has-icon&quot;&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#user&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            Attractions
+          &lt;/strong&gt;
+          &lt;br /&gt;
+          &lt;em&gt;
+            Info about Attractions
+          &lt;/em&gt;
+          &lt;br /&gt;
+          &lt;span&gt;
+            Here are more information about Attractions
+          &lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;i class=&quot;e-list-icon e-icon-communication-contacts&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#user&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            Fun
+          &lt;/strong&gt;
+          &lt;br /&gt;
+          &lt;em&gt;
+            Info about Fun
+          &lt;/em&gt;
+          &lt;br /&gt;
+          &lt;span&gt;
+            Here are more information about Fun
+          &lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;i class=&quot;e-list-icon e-icon-communication-vpn-key&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#user&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            Food
+          &lt;/strong&gt;
+          &lt;br /&gt;
+          &lt;em&gt;
+            Info about Food
+          &lt;/em&gt;
+          &lt;br /&gt;
+          &lt;span&gt;
+            Here are more information about Food
+          &lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;i class=&quot;e-list-icon e-icon-editor-insert-emoticon&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#user&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;I am your Avatar&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            Kids
+          &lt;/strong&gt;
+          &lt;br /&gt;
+          &lt;em&gt;
+            Info about Kids
+          &lt;/em&gt;
+          &lt;br /&gt;
+          &lt;span&gt;
+            Here are more information about Kids
+          &lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;i class=&quot;e-list-icon e-icon-hardware-security&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;List
+    type='multi-line'
+    avatar={true}
+    icon={true}
+  &gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Attractions'
+    contentSubTitle='Info about Attractions'
+    contentText='Here are more information about Attractions'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='communication-contacts'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Fun'
+    contentSubTitle='Info about Fun'
+    contentText='Here are more information about Fun'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='communication-vpn-key'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Food'
+    contentSubTitle='Info about Food'
+    contentText='Here are more information about Food'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='editor-insert-emoticon'
+  /&gt;
+  &lt;ListItem
+    contentLink='#'
+    contentTitle='Kids'
+    contentSubTitle='Info about Kids'
+    contentText='Here are more information about Kids'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='I am your Avatar'
+    avatarLink='#user'
+    icon='hardware-security'
+  /&gt;
+
+&lt;/List&gt;
+</pre>
+      </div>
+    </div>
+
+  </div>
+  <!-- END Component - Lists       -->
+</div>

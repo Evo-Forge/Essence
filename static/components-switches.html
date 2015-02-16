@@ -1,0 +1,123 @@
+<div class="e-container">
+  <!--   Component - Switches       -->
+
+  <div class="switches e-padding-top-50" id="components-switches">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Switches</h3>
+
+        <div id="components-switches-reactjs">
+          <div class="e-switch">
+            <div class="e-radio e-radio-success">
+              <label>
+                <input type="radio" name="radioButton" value="value1"><span class="absolute circle"></span><span class="absolute e-check"></span><span>Radio Button 1</span>
+              </label>
+            </div>
+          </div>
+          <div class="e-switch">
+            <div class="e-radio e-radio-success">
+              <label>
+                <input type="radio" name="radioButton" value="value2"><span class="absolute circle"></span><span class="absolute e-check"></span><span>Radio Button 2</span>
+              </label>
+            </div>
+          </div>
+          <div class="e-switch">
+            <div class="e-checkbox">
+              <label>
+                <input type="checkbox" name="checkbox1" class="toggle"><span class="absolute e-wave"></span><span class="absolute e-check-valid"></span><span>Switch Checkbox</span>
+              </label>
+            </div>
+          </div>
+          <div class="e-switch">
+            <div class="e-switches">
+              <label><span>Switches before</span>
+                <input type="checkbox"><span class="e-switches-toggle"></span><span>Switches after</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="brick brick-12">
+        <p class="e-subhead">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor. </p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-radio e-radio-success"&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="radioButton" value="value1"&gt;&lt;span class="absolute circle"&gt;&lt;/span&gt;&lt;span class="absolute e-check"&gt;&lt;/span&gt;&lt;span&gt;Radio Button 1&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-radio e-radio-success"&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="radioButton" value="value2"&gt;&lt;span class="absolute circle"&gt;&lt;/span&gt;&lt;span class="absolute e-check"&gt;&lt;/span&gt;&lt;span&gt;Radio Button 2&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-checkbox"&gt;
+    &lt;label&gt;
+      &lt;input type="checkbox" name="checkbox1" class="toggle"&gt;&lt;span class="absolute e-wave"&gt;&lt;/span&gt;&lt;span class="absolute e-check-valid"&gt;&lt;/span&gt;&lt;span&gt;Switch Checkbox&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-switches"&gt;
+    &lt;label&gt;&lt;span&gt;Switches before&lt;/span&gt;
+      &lt;input type="checkbox"&gt;&lt;span class="e-switches-toggle"&gt;&lt;/span&gt;&lt;span&gt;Switches after&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Switch&gt;
+  &lt;SwitchItem
+    type='radio'
+    text='Radio Button 1'
+    name='radioButton'
+    defaultValue='value1'
+  &gt;
+  &lt;/SwitchItem&gt;
+
+  &lt;SwitchItem
+    type='radio'
+    text='Radio Button 2'
+    name='radioButton'
+    defaultValue='value2'
+  &gt;
+  &lt;/SwitchItem&gt;
+
+  &lt;SwitchItem
+    type='checkbox'
+    text='Switch Checkbox'
+    name='checkbox1'
+  &gt;
+  &lt;/SwitchItem&gt;
+
+  &lt;SwitchItem
+    type='switches'
+    beforeText='Switches before'
+    afterText='Switches after'
+    checked={false}
+    name='switches1'
+  &gt;
+  &lt;/SwitchItem&gt;
+&lt;/Switch&gt;
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- END Component - Switches       -->
+</div>

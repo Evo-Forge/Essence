@@ -1,0 +1,187 @@
+<div class="e-container">
+  <!--   Component - Snackbars and Toasts       -->
+
+  <div class="snackbars-toast e-padding-top-50" id="components-snackbars-toast">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Snackbars &amp; toasts</h3>
+
+        <div id="components-snackbars-toast-buttons">
+        </div>
+
+        <div id="components-snackbars-toast-list">
+        </div>
+
+        <div id="components-snackbars-toast-toasts">
+        </div>
+
+      </div>
+      <div class="brick brick-12">
+        <p class="e-subhead">Remember those confirmation messages from long time ago? They’re now called snackbars and toasts and they come with rules. Head onto Google to check out how to use them. Then check out the below examples hot to integrate them from Essence. </p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div id="snackbar-btn"&gt;
+  &lt;div&gt;
+    &lt;button class="raised e-btn-primary e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Show me Snackbar 1&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-primary e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Show me Snackbar 2&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-primary e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Show me Snackbar 3&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-succes e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Toast 1 chicken&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-succes e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Toast 2 chicken&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-succes e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Toast 3 chicken&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="snackbars"&gt;
+  &lt;div&gt;
+    &lt;div id="snackbar1" class="snackbar"&gt;
+      &lt;div class="snackbar-message"&gt;Hello to you&lt;/div&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="snackbar2" class="snackbar"&gt;
+      &lt;div class="snackbar-message"&gt;Hello to me&lt;/div&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="snackbar3" class="snackbar"&gt;
+      &lt;div class="snackbar-message"&gt;Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.&lt;/div&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="toasts"&gt;
+  &lt;div&gt;
+    &lt;div id="toast1" class="toast"&gt;&lt;span&gt;Hello to you&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="toast2" class="toast"&gt;&lt;span&gt;Hello to me&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="toast3" class="toast"&gt;&lt;span&gt;Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Btn&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Show me Snackbar 1'
+    type='primary'
+    disabled={false}
+    rippleEffect={true}
+    snackbar='snackbar1'
+  &gt;
+  &lt;/BtnItem&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Show me Snackbar 2'
+    type='primary'
+    disabled={false}
+    rippleEffect={true}
+    snackbar='snackbar2'
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Show me Snackbar 3'
+    type='primary'
+    disabled={false}
+    snackbar='snackbar3'
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Toast 1 chicken'
+    type='succes'
+    disabled={false}
+    rippleEffect={true}
+    toast='toast1'
+  &gt;
+  &lt;/BtnItem&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Toast 2 chicken'
+    type='succes'
+    disabled={false}
+    rippleEffect={true}
+    toast='toast2'
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Toast 3 chicken'
+    type='succes'
+    disabled={false}
+    toast='toast3'
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;Snackbar&gt;
+  &lt;SnackbarItem
+    id={'snackbar1'}
+    classes={'snackbar-item'}
+  &gt;
+    Hello to you
+  &lt;/SnackbarItem&gt;
+  &lt;SnackbarItem
+    id={'snackbar2'}
+    classes={'snackbar-item'}
+  &gt;
+    Hello to me
+  &lt;/SnackbarItem&gt;
+  &lt;SnackbarItem
+    id={'snackbar3'}
+    classes={'snackbar-item'}
+  &gt;
+    Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.
+  &lt;/SnackbarItem&gt;
+&lt;/Snackbar&gt;
+
+&lt;Toast&gt;
+  &lt;ToastItem
+    id={'toast1'}
+    classes={'toasts'}
+  &gt;
+    Hello to you
+  &lt;/ToastItem&gt;
+  &lt;ToastItem
+    id={'toast2'}
+    classes={'toasts'}
+  &gt;
+    Hello to me
+  &lt;/ToastItem&gt;
+  &lt;ToastItem
+    id={'toast3'}
+    classes={'toasts'}
+  &gt;
+    Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.
+  &lt;/ToastItem&gt;
+&lt;/Toast&gt;
+</pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- END Component - Snackbars and Toasts       -->
+</div>

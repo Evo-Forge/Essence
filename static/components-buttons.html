@@ -1,0 +1,272 @@
+<div class="e-container">
+  <!--   Component - BUTTONS       -->
+  <div class="buttons e-padding-top-50" id="components-buttons">
+
+    <!--   Component - BUTTONS  - FAB     -->
+    <div class="e-row e-display-2">
+      <div class="brick brick-12 icon-container">
+        <h3 class="e-display-1 e-text-green-500">Buttons</h3>
+        <p class="e-subhead">There are 3 types of material buttons: FAB (floating action button), Raised and Flat.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Button FAB</h3>
+        <div id="components-buttons-fab">
+          <button class="e-btn-fab">
+            <i class="e-icon-action-favorite"></i>
+          </button>
+          <button class="e-btn-fab-mini">
+            <i class="e-icon-action-favorite"></i>
+          </button>
+        </div>
+
+        <p class="e-subhead">We believe FAB stands for fabulous. Here’s a fabulous class for it: <code>.e-btn-fab</code>. The small one has the "<code>-mini</code>" addition to the class.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;button class="e-btn-fab"&gt;
+  &lt;i class="e-icon-action-favorite"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button class="e-btn-fab-mini"&gt;
+  &lt;i class="e-icon-action-favorite"&gt;&lt;/i&gt;
+&lt;/button&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Btn&gt;
+  &lt;BtnItem
+    icon='action-favorite'
+    type='fab'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    icon='action-favorite'
+    type='fab'
+    rippleEffect={true}
+    mini={true}
+  /&gt;
+&lt;/Btn&gt;
+              </pre>
+      </div>
+    </div>
+    <!--   END Component - BUTTONS  - FAB     -->
+
+    <!--   Component - BUTTONS  - RAISED     -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Button Raised</h3>
+        <div id="components-buttons-raised" class="e-padding-bottom-25 e-padding-top-25">
+          <button class="e-btn-default raised">
+            default
+          </button>
+          <button class="e-btn-primary raised">
+            primary
+          </button>
+          <button class="e-btn-succes raised">
+            succes
+          </button>
+          <button class="e-btn-info raised">
+            info
+          </button>
+          <button class="e-btn-warning raised">
+            warning
+          </button>
+          <button class="e-btn-danger raised">
+            danger
+          </button>
+        </div>
+        
+        <p class="e-subhead">The main colors of buttons <code>.default .primary .succes .info .warning .danger</code> can be used for all buttons.</p>
+        <p class="e-subhead">Buttons are also fabulous, whether they’re raised or flat. We’ve created several button types, which can be used by adding a button class  - <code>.raised</code> or <code>.flat</code>.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;button class="e-btn-default raised"&gt;
+  default
+&lt;/button&gt;
+&lt;button class="e-btn-primary raised"&gt;
+  primary
+&lt;/button&gt;
+&lt;button class="e-btn-succes raised"&gt;
+  succes
+&lt;/button&gt;
+&lt;button class="e-btn-info raised"&gt;
+  info
+&lt;/button&gt;
+&lt;button class="e-btn-warning raised"&gt;
+  warning
+&lt;/button&gt;
+&lt;button class="e-btn-danger raised"&gt;
+  danger
+&lt;/button&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Btn&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Default'
+    tooltip='Tooltip Default'
+    type='default'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Primary'
+    tooltip='Tooltip Primary'
+    type='primary'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Succes'
+    tooltip='Tooltip Succes'
+    type='succes'
+    rippleEffect={true}
+    disabled={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Info'
+    tooltip='Tooltip Info'
+    type='info'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Warning'
+    tooltip='Tooltip Warning'
+    type='warning'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Danger'
+    tooltip='Tooltip Danger'
+    type='danger'
+    rippleEffect={true}
+  /&gt;
+&lt;/Btn&gt;
+              </pre>
+      </div>
+    </div>
+    <!--   END Component - BUTTONS  - RAISED     -->
+
+    <!--   Component - BUTTONS  - FLAT     -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Button Flat</h3>
+        <div id="components-buttons-flat">
+          <button class="e-btn-default flat">
+            default
+          </button>
+          <button class="e-btn-primary flat">
+            primary
+          </button>
+          <button class="e-btn-succes flat">
+            succes
+          </button>
+          <button class="e-btn-info flat">
+            info
+          </button>
+          <button class="e-btn-warning flat">
+            warning
+          </button>
+          <button class="e-btn-danger flat">
+            danger
+          </button>
+        </div>
+
+        <p class="e-subhead">If you want flat buttons, just add the <code>.flat</code> class to your button.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;button class="e-btn-default flat"&gt;
+  default
+&lt;/button&gt;
+&lt;button class="e-btn-primary flat"&gt;
+  primary
+&lt;/button&gt;
+&lt;button class="e-btn-succes flat"&gt;
+  succes
+&lt;/button&gt;
+&lt;button class="e-btn-info flat"&gt;
+  info
+&lt;/button&gt;
+&lt;button class="e-btn-warning flat"&gt;
+  warning
+&lt;/button&gt;
+&lt;button class="e-btn-danger flat"&gt;
+  danger
+&lt;/button&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Btn&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Default'
+    type='default'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Primary'
+    type='primary'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Succes'
+    type='succes'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Info'
+    type='info'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Warning'
+    type='warning'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Danger'
+    type='danger'
+    rippleEffect={true}
+  /&gt;
+&lt;/Btn&gt;
+              </pre>
+      </div>
+    </div>
+    <!--   END Component - BUTTONS  - FLAT     -->
+  </div>
+  <!--  END Component - BUTTONS       -->
+</div>

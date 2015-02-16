@@ -1,0 +1,49 @@
+//Font and color:
+//Text: Roboto Regular 16sp,  #000 87%
+//Title (optional): Roboto Regular 16sp, #000 54%
+//Default bottom sheet background fill: #FFF
+//Overlay shield fill: #000 20%
+
+.e-bottom-sheet{
+
+  .e-list > li a .e-list-avatar {
+    height: @e-unit * 3;
+    width: @e-unit * 3;
+  }
+
+  .e-list-content > span {
+    padding-left: 16px;
+    color: lighten(@e-text-color, 13%);
+    font-family: 'Roboto Regular';
+    line-height: @e-unit * 2;
+    strong {
+      font-weight: normal;
+    }
+  }
+
+  .e-list-bigicon{
+    padding: 0 (@e-unit * 3) (@e-unit * 3);
+    list-style: none;
+    text-align: center;
+
+    i {
+      display: block;
+      color: #000;
+      font-size: @e-unit * 6;
+      line-height: @e-unit * 6;
+    }
+
+    .e-bs-title {
+      box-sizing: border-box;
+      font-family: 'Roboto Regular';
+      line-height: @e-unit * 2;
+      color: lighten(@e-text-color, 46%);
+    }
+  }
+
+
+  hr {
+    border: 1px solid #121212;
+  }
+
+}

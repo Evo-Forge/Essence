@@ -1,0 +1,352 @@
+<div class="e-container">
+  <!--   Component - Text-fields       -->
+
+  <div class="text-fields e-padding-top-50" id="components-text-fields">
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Inputs</h3>
+
+        <div id="components-text-fields-reactjs">
+          <div class="e-input-group has-success">
+            <input type="text" placeholder="Did you know a bear has 42 teeth" value="" name="label" class="e-input empty"><span></span><span class="e-input-efects"></span><span></span><span></span>
+          </div>
+
+          <div class="e-input-group has-success">
+            <input type="text" placeholder="Did you know 8% of people have an extra rib" value="" name="label" class="e-input empty"><span class="e-count"><span >0</span><span>/</span><span>50</span></span><span class="e-input-efects"></span><span></span><span></span>
+          </div>
+
+          <div class="e-input-group has-error">
+            <input type="text" placeholder="Did you know 11% of people are left handed" value="" name="label" class="e-input empty"><span class="e-count"><span >0</span><span>/</span><span>20</span></span><span class="e-input-efects"></span><span></span><span></span>
+          </div>
+
+          <div class="e-input-group">
+            <input type="text" placeholder="Did you know the Hawaiian alphabet has 12 letters" disabled="" value="" name="label" class="e-input empty"><span></span><span class="e-input-efects"></span><span></span><span></span>
+          </div>
+
+          <div class="e-input-group">
+            <input type="text" placeholder="" value="" name="label" class="e-input empty"><span></span><span class="e-input-efects"></span><span class="floating-label">Did you know birds need gravity to swallow</span><span></span>
+          </div>
+        </div>
+
+        <p class="e-subhead">Text fields allow the user to input text. They can be single line, with or without scrolling, or multi-line, and can have an icon. Touching a text field places the cursor and automatically displays the keyboard. Check out our examples and use the one that fits your scenario.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="e-input-group has-success"&gt;
+  &lt;input type="text" placeholder="Did you know a bear has 42 teeth" value="" name="label" class="e-input empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group has-success"&gt;
+  &lt;input type="text" placeholder="Did you know 8% of people have an extra rib" value="" name="label" class="e-input empty"&gt;&lt;span class="e-count"&gt;&lt;span &gt;0&lt;/span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;50&lt;/span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group has-error"&gt;
+  &lt;input type="text" placeholder="Did you know 11% of people are left handed" value="" name="label" class="e-input empty"&gt;&lt;span class="e-count"&gt;&lt;span &gt;0&lt;/span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;20&lt;/span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group"&gt;
+  &lt;input type="text" placeholder="Did you know the Hawaiian alphabet has 12 letters" disabled="" value="" name="label" class="e-input empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group"&gt;
+  &lt;input type="text" placeholder="" value="" name="label" class="e-input empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span class="floating-label"&gt;Did you know birds need gravity to swallow&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Input&gt;
+  &lt;InputItem
+    classes={'e-input-group has-success'}
+    inputClasses={'e-input empty'}
+    type='text'
+    name='label'
+    placeholder='Did you know a bear has 42 teeth'
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group has-success'}
+    inputClasses={'e-input empty'}
+    type='text'
+    name='label'
+    placeholder='Did you know 8% of people have an extra rib'
+    counter={50}
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group has-error'}
+    inputClasses={'e-input empty'}
+    type='text'
+    name='label'
+    placeholder='Did you know 11% of people are left handed'
+    counter={20}
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-input empty'}
+    type='text'
+    name='label'
+    placeholder='Did you know the Hawaiian alphabet has 12 letters'
+    disabled={true}
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-input empty'}
+    type='text'
+    name='label'
+    label='Did you know birds need gravity to swallow'
+  &gt;
+  &lt;/InputItem&gt;
+&lt;/Input&gt;
+</pre>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Textarea</h3>
+
+        <div id="components-text-fields-textarea">
+          <div class="e-input-group">
+            <textarea placeholder="Did you know Topolino is the name for Mickey Mouse Italy" name="label" class="e-input empty"></textarea><span></span><span class="e-input-efects"></span><span></span><span></span>
+          </div>
+          <div class="e-input-group">
+            <textarea placeholder="" name="label" class="e-input empty"></textarea><span></span><span class="e-input-efects"></span><span class="floating-label">Did you know there is no sound in space</span><span></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="e-input-group"&gt;
+  &lt;textarea placeholder="Did you know Topolino is the name for Mickey Mouse Italy" name="label" type="textarea" class="e-input empty"&gt;&lt;/textarea&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group"&gt;
+  &lt;textarea placeholder="" name="label" type="textarea" class="e-input empty"&gt;&lt;/textarea&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span class="floating-label"&gt;Did you know there is no sound in space&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Input&gt;
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-input empty'}
+    type='textarea'
+    name='label'
+    placeholder='Did you know Topolino is the name for Mickey Mouse Italy'
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-input empty'}
+    type='textarea'
+    name='label'
+    label='Did you know there is no sound in space'
+  &gt;
+  &lt;/InputItem&gt;
+&lt;/Input&gt;
+</pre>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Validation</h3>
+
+        <div id="components-text-fields-validation">
+          <div class="e-input-group">
+            <input type="email" placeholder="" value="" name="label" class="e-input empty"><span></span><span class="e-input-efects"></span><span class="floating-label">Did you know melophobia is the fear of music</span><span></span>
+          </div>
+          <div class="e-input-group">
+            <input type="number" placeholder="Did you know womens hearts beat faster than mens" value="" name="label" class="e-input empty"><span></span><span class="e-input-efects"></span><span></span><span class="e-hint">Did you know womens hearts beat faster than mens</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="e-input-group"&gt;
+  &lt;input type="email" placeholder="" value="" name="label" class="e-input empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span class="floating-label"&gt;Did you know melophobia is the fear of music&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group"&gt;
+  &lt;input type="number" placeholder="Did you know womens hearts beat faster than mens" value="" name="label" class="e-input empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-hint"&gt;Did you know womens hearts beat faster than mens&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Input&gt;
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-input empty'}
+    type='email'
+    name='label'
+    label='Did you know melophobia is the fear of music'
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-input empty'}
+    type='number'
+    name='label'
+    placeholder='Did you know womens hearts beat faster than mens'
+    hint='Did you know womens hearts beat faster than mens'
+  &gt;
+  &lt;/InputItem&gt;
+&lt;/Input&gt;
+    </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Hints</h3>
+
+        <div id="components-text-fields-hints">
+          <div class="e-input-group has-error">
+            <input type="text" placeholder="" value="" name="label" class="e-input empty"><span></span><span class="e-input-efects"></span><span class="floating-label">Did you know each time you see a full moon you always see the same side</span><span class="e-hint">Did you know each time you see a full moon you always see the same side</span>
+          </div>
+          <div class="e-input-group ">
+            <input type="email" placeholder="" value="" name="label" class="e-input empty"><span class="e-count"><span >0</span><span>/</span><span>40</span></span><span class="e-input-efects"></span><span class="floating-label">Email is required</span><span class="e-hint">A valid email should contains @</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="e-input-group has-error"&gt;
+  &lt;input type="text" placeholder="" value="" name="label" class="e-input empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span class="floating-label"&gt;Did you know each time you see a full moon you always see the same side&lt;/span&gt;&lt;span class="e-hint"&gt;Did you know each time you see a full moon you always see the same side&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group "&gt;
+  &lt;input type="email" placeholder="" value="" name="label" class="e-input empty"&gt;&lt;span class="e-count"&gt;&lt;span &gt;0&lt;/span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span&gt;40&lt;/span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span class="floating-label"&gt;Email is required&lt;/span&gt;&lt;span class="e-hint"&gt;A valid email should contains @&lt;/span&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Input&gt;
+  &lt;InputItem
+    classes={'e-input-group has-error'}
+    inputClasses={'e-input empty'}
+    type='text'
+    name='label'
+    label='Did you know each time you see a full moon you always see the same side'
+    hint='Did you know each time you see a full moon you always see the same side'
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group '}
+    inputClasses={'e-input empty'}
+    type='email'
+    name='label'
+    label='Email is required'
+    hint='A valid email should contains @'
+    counter={40}
+  &gt;
+  &lt;/InputItem&gt;
+&lt;/Input&gt;
+</pre>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Styling</h3>
+
+        <div id="components-text-fields-styling">
+          <div class="e-input-group has-warning">
+            <input type="text" placeholder="Did you know each time you see a full moon you always see the same side" value="" name="label" class="e-input e-input-success empty"><span></span><span class="e-input-efects"></span><span></span><span></span>
+          </div>
+          <div class="e-input-group has-info">
+            <input type="email" placeholder="" value="" name="label" class="e-input e-input-success empty"><span></span><span class="e-input-efects"></span><span class="floating-label">Floating label</span><span></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="e-input-group has-warning"&gt;
+  &lt;input type="text" placeholder="Did you know each time you see a full moon you always see the same side" value="" name="label" class="e-input e-input-success empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group has-info"&gt;
+  &lt;input type="email" placeholder="" value="" name="label" class="e-input e-input-success empty"&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="e-input-efects"&gt;&lt;/span&gt;&lt;span class="floating-label"&gt;Floating label&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="e-input-group"&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Input&gt;
+  &lt;InputItem
+    classes={'e-input-group has-warning'}
+    inputClasses={'e-input e-input-success empty'}
+    type='text'
+    name='label'
+    placeholder='Did you know each time you see a full moon you always see the same side'
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group has-info'}
+    inputClasses={'e-input e-input-success empty'}
+    type='email'
+    name='label'
+    label='Floating label'
+  &gt;
+  &lt;/InputItem&gt;
+
+  &lt;InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-search'}
+    type='search'
+    name='search'
+    placeholder='Search...'
+    required={true}
+  &gt;
+  &lt;/InputItem&gt;
+&lt;/Input&gt;
+</pre>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END - Component - Text Fields       -->
+</div>

@@ -1,0 +1,480 @@
+<div class="e-container">
+  <!--   Component - CARDS       -->
+  <div class="cards e-padding-top-50" id="components-cards">
+
+    <div class="e-row e-display-2">
+      <div class="brick brick-12 icon-container">
+        <h3 class="e-display-1 e-text-green-500">Cards</h3>
+        <p class="e-subhead">There are several types of cards which can be used in different situations. These range from informational panels to prompts and single choice ones. Take a look at the examples to see how you can use them.</p>
+      </div>
+    </div>
+
+    <!-- CARD one -->
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Image card with description and links</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-default">
+        <div class="card">
+          <div class="card-main-image"><img src="assets/img/card-img.jpg" alt="Card Image">
+            <h2 class="e-headline">Going to Ibiza</h2><span></span>
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+          <div>
+            <button class="flat e-btn-default"><span>No</span>
+            </button>
+            <button class="flat e-btn-danger"><span>Yes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="card" &gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Card Image" &gt;
+    &lt;h2 class="e-headline"&gt;Going to Ibiza&lt;/h2&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text"&gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div &gt;
+    &lt;button class="flat e-btn-default" &gt;&lt;span &gt;No&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="flat e-btn-danger" &gt;&lt;span &gt;Yes&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Card&gt;
+  &lt;CardItem
+    image='assets/img/card-img.jpg'
+    imageAlt='Card Image'
+    headline='Going to Ibiza'
+    text='Limit supplemental actions to two actions, in addition to an overflow menu.'
+    action={true}
+  &gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='No'
+      type='default'
+    /&gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='Yes'
+      type='danger'
+    /&gt;
+
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+              </pre>
+      </div>
+    </div>
+    <!--END CARD one -->
+
+    <!-- CARD two -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Image card with avatar, title and subtitle</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-header">
+        <div class="card">
+          <div class="card-header clearfix">
+            <div class="card-header-image"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+            </div>
+            <div class="card-header-text">
+              <h2 class="e-title">Title</h2>
+              <h3 class="e-subhead">Subhead</h3>
+            </div>
+          </div>
+          <div class="card-main-image"><img src="assets/img/card-img.jpg" alt="Card Image">
+            <h2 class="e-headline">Going to Ibiza</h2><span></span>
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="card" &gt;
+  &lt;div class="card-header clearfix" &gt;
+    &lt;div class="card-header-image" &gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image" &gt;
+    &lt;/div&gt;
+    &lt;div class="card-header-text" &gt;
+      &lt;h2 class="e-title" &gt;Title&lt;/h2&gt;
+      &lt;h3 class="e-subhead" &gt;Subhead&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-main-image" &gt;&lt;img src="assets/img/card-img.jpg" alt="Card Image" &gt;
+    &lt;h2 class="e-headline" &gt;Going to Ibiza&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text" &gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Card&gt;
+  &lt;CardItem
+    image='assets/img/card-img.jpg'
+    imageAlt='Card Image'
+    headline='Going to Ibiza'
+    text='Limit supplemental actions to two actions, in addition to an overflow menu.'
+    header={true}
+    headerImage='assets/img/card-user-img.jpg'
+    headerImageAlt='Card Image'
+    headerTitle='Title'
+    headerSubhead='Subhead'
+  &gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+              </pre>
+      </div>
+    </div>
+    <!-- END CARD two -->
+
+    <!-- CARD three -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Gallery card with avatar, title and links</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-gallery">
+        <div class="card">
+          <div class="card-header clearfix">
+            <div class="card-header-image"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+            </div>
+            <div class="card-header-text">
+              <h2 class="e-title">Title 1</h2>
+              <h3 class="e-subhead">Subhead 1</h3>
+            </div>
+          </div>
+          <div class="card-main-image"><img src="" alt="">
+            <div class="card-gallery"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image">
+            </div>
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+          <div class="card-suplimentary-actions clearfix">
+            <div class="e-left">
+              <button class="flat e-btn-default"><span>No</span>
+              </button>
+            </div>
+            <div class="e-right">
+              <button class="flat e-btn-danger"><span>Yes</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="card" &gt;
+  &lt;div class="card-header clearfix" &gt;
+    &lt;div class="card-header-image" &gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image" &gt;
+    &lt;/div&gt;
+    &lt;div class="card-header-text" &gt;
+      &lt;h2 class="e-title"&gt;Title 1&lt;/h2&gt;
+      &lt;h3 class="e-subhead" &gt;Subhead 1&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="" alt="" &gt;
+    &lt;div class="card-gallery"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image" &gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text"&gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class="card-suplimentary-actions clearfix"&gt;
+    &lt;div class="e-left"&gt;
+      &lt;button class="flat e-btn-default"&gt;&lt;span&gt;No&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="e-right"&gt;
+      &lt;button class="flat e-btn-danger"&gt;&lt;span&gt;Yes&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Card&gt;
+  &lt;CardItem
+    imageGallery={imageGallery}
+    headline='Going to Ibiza'
+    text='Limit supplemental actions to two actions, in addition to an overflow menu.'
+    header={true}
+    headerImage='assets/img/card-user-img.jpg'
+    headerImageAlt='Card Image'
+    headerTitle='Title 1'
+    headerSubhead='Subhead 1'
+  &gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='No'
+      type='default'
+    /&gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='Yes'
+      type='danger'
+    /&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+
+var imageGallery = [
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  },
+  {
+    src: 'assets/img/card-img.jpg',
+    alt: 'Car image'
+  }
+];
+              </pre>
+      </div>
+    </div>
+    <!-- END CARD three -->
+
+    <!-- CARD four -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Image card with choices</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-divider">
+        <div class="card"><span></span>
+          <div class="card-main-image"><img src="assets/img/card-img.jpg" alt="">
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+          <div class="card-suplimentary-actions clearfix">
+            <div class="e-left">
+              <button class="flat e-btn-succes"><span>A</span>
+              </button>
+            </div>
+            <div class="e-right">
+              <button class="flat e-btn-warning"><span>B</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="card" &gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="assets/img/card-img.jpg" alt=""&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text" &gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class="card-suplimentary-actions clearfix" &gt;
+    &lt;div class="e-left" &gt;
+      &lt;button class="flat e-btn-succes" &gt;&lt;span &gt;A&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="e-right"&gt;
+      &lt;button class="flat e-btn-warning"&gt;&lt;span&gt;B&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Card&gt;
+  &lt;CardItem
+    image='assets/img/card-img.jpg'
+    text='Limit supplemental actions to two actions, in addition to an overflow menu.'
+  &gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='A'
+      type='succes'
+    /&gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='B'
+      type='warning'
+    /&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+              </pre>
+      </div>
+    </div>
+    <!-- END CARD four -->
+
+    <!-- CARD five -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-text-green-500">Avatar cards with choices</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-simple">
+        <div class="card">
+          <div class="card-header clearfix">
+            <div class="card-header-image"><img src="assets/img/car.jpg" alt="">
+            </div>
+            <div class="card-header-text">
+              <h2 class="e-title">Car photography</h2>
+              <h3 class="e-subhead">By John Doe</h3>
+            </div>
+          </div>
+          <div class="card-main-image"><img src="" alt="">
+          </div><span></span>
+          <div class="card-suplimentary-actions clearfix">
+            <div class="e-left">
+              <button class="flat e-btn-succes"><span>A</span>
+              </button>
+            </div>
+            <div class="e-right">
+              <button class="flat e-btn-warning"><span>B</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="brick brick-2"></div>
+
+      <div class="brick brick-4">
+        <div class="card">
+          <div class="left-image">
+            <img src="assets/img/car.jpg" alt="Left card image" class="">
+          </div>
+          <div class="content-after-image">
+            <div class="card-supporting-text">
+              <h1 class="e-title">Car photography</h1>
+              <p class="e-subhead">by John Doe</p>
+            </div>
+            <br>
+            <div class="card-suplimentary-actions">
+              <div class="e-left">
+                <button class="e-btn-succes flat">a</button>
+              </div>
+              <div class="e-right">
+                <button class="e-btn-warning flat">b</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class="card"&gt;
+  &lt;div class="card-header clearfix"&gt;
+    &lt;div class="card-header-image"&gt;&lt;img src="assets/img/car.jpg" alt=""&gt;
+    &lt;/div&gt;
+    &lt;div class="card-header-text"&gt;
+      &lt;h2 class="e-title"&gt;Car photography&lt;/h2&gt;
+      &lt;h3 class="e-subhead"&gt;By John Doe&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="" alt=""&gt;
+  &lt;/div&gt;
+  &lt;div class="card-suplimentary-actions clearfix"&gt;
+    &lt;div class="e-left"&gt;
+      &lt;button class="flat e-btn-succes"&gt;&lt;span&gt;A&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="e-right"&gt;
+      &lt;button class="flat e-btn-warning"&gt;&lt;span &gt;B&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Card&gt;
+  &lt;CardItem
+    header={true}
+    headerTitle='Car photography'
+    headerSubhead='By John Doe'
+    leftImage='assets/img/car.jpg'
+  &gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='A'
+      type='succes'
+    /&gt;
+    &lt;BtnItem
+      classes={'flat'}
+      label='B'
+      type='warning'
+    /&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+              </pre>
+      </div>
+    </div>
+    <!-- END CARD five -->
+
+  </div>
+  <!--  END Component - CARDS       -->
+</div>

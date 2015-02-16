@@ -1,0 +1,288 @@
+<div class="e-container">
+  <!--   Component - APPBAR       -->
+  <div class="appbar e-padding-top-50" id="components-appbar">
+    <div class="e-row ">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Appbar</h3>
+        <p class="e-subhead">It’s never been more fun to create an appbar with button and navigation and whatever. Start with the <code>.e-appbar</code> class then add buttons, menus and whatever you need.</p>
+      </div>
+
+      <div class="brick brick-12" id="components-appbar-reactjs">
+        <div class="e-appbar clearfix">
+          <div>
+            <button class="simple-button e-left">
+              <i class="e-icon-navigation-menu">
+              </i>
+            </button>
+          </div>
+          <nav class="e-nav-menu e-text-color-blue-500 e-left" id="1">
+            <span class="" id="text-for-1">
+              <span>
+                Notifications
+              </span>
+              <i class="e-icon-navigation-arrow-drop-down">
+              </i>
+            </span>
+            <ul class="e-nav e-paper e-shadow-1 hide" id="1">
+              <li>
+                <a href="#notifications">
+                  Notifications
+                </a>
+              </li>
+              <li>
+                <a href="#flow">
+                  Flow
+                </a>
+              </li>
+              <li class="divider">
+              </li>
+              <li>
+                <a href="#following">
+                  Following
+                </a>
+              </li>
+              <li>
+                <a href="#favorites">
+                  Favorites
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <nav class="e-nav-menu e-text-color-blue-500 e-right" id="2">
+            <button class="simple-button e-nav-toggle">
+              <i class="e-icon-navigation-more-vert">
+              </i>
+            </button>
+            <ul class="e-nav e-paper e-shadow-1 hide" id="2">
+              <li>
+                <a href="#profile">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a href="#settings">
+                  Settings
+                </a>
+              </li>
+              <li class="divider">
+              </li>
+              <li>
+                <a href="#support">
+                  Support
+                </a>
+              </li>
+              <li>
+                <a href="#logout">
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div>
+            <button class="simple-button e-right">
+              <i class="e-icon-action-favorite">
+              </i>
+            </button>
+            <button class="simple-button e-right">
+              <i class="e-icon-action-search">
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class=&quot;e-appbar clearfix&quot;&gt;
+  &lt;div&gt;
+    &lt;button class=&quot;simple-button e-left&quot;&gt;
+      &lt;i class=&quot;e-icon-navigation-menu&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;nav class=&quot;e-nav-menu e-text-color-blue-500 e-left&quot; id=&quot;1&quot;&gt;
+    &lt;span class=&quot;&quot; id=&quot;text-for-1&quot;&gt;
+      &lt;span&gt;
+        Notifications
+      &lt;/span&gt;
+      &lt;i class=&quot;e-icon-navigation-arrow-drop-down&quot;&gt;
+      &lt;/i&gt;
+    &lt;/span&gt;
+    &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;1&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#notifications&quot;&gt;
+          Notifications
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#flow&quot;&gt;
+          Flow
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;divider&quot;&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#following&quot;&gt;
+          Following
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#favorites&quot;&gt;
+          Favorites
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;nav class=&quot;e-nav-menu e-text-color-blue-500 e-right&quot; id=&quot;2&quot;&gt;
+    &lt;button class=&quot;simple-button e-nav-toggle&quot;&gt;
+      &lt;i class=&quot;e-icon-navigation-more-vert&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;2&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#profile&quot;&gt;
+          Profile
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#settings&quot;&gt;
+          Settings
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;divider&quot;&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#support&quot;&gt;
+          Support
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#logout&quot;&gt;
+          Logout
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;div&gt;
+    &lt;button class=&quot;simple-button e-right&quot;&gt;
+      &lt;i class=&quot;e-icon-action-favorite&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;simple-button e-right&quot;&gt;
+      &lt;i class=&quot;e-icon-action-search&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;AppBar&gt;
+  &lt;Btn&gt;
+    &lt;BtnItem
+      icon='navigation-menu'
+      classes={'simple-button e-left'}
+    /&gt;
+  &lt;/Btn&gt;
+
+  &lt;Menu items={appbar_menu_left} /&gt;
+  &lt;Menu items={appbar_menu_right} /&gt;
+
+  &lt;Btn&gt;
+    &lt;BtnItem
+      icon='action-favorite'
+      classes={'simple-button e-right'}
+    /&gt;
+    &lt;BtnItem
+      icon='action-search'
+      classes={'simple-button e-right'}
+    /&gt;
+  &lt;/Btn&gt;
+&lt;/AppBar&gt;
+
+var appbar_menu_left = [
+  {
+    id: 'menu-appbar-left',
+    type: 'menu',
+    text: 'Options',
+    link: '#',
+    hide: true,
+    classes: 'e-text-color-blue-500 e-left',
+    items: [
+      {
+        type: 'menu',
+        text: 'Notifications',
+        link: '#notifications'
+      },
+      {
+        type: 'menu',
+        text: 'Flow',
+        link: '#flow'
+      },
+      {
+        type: 'divider'
+      },
+      {
+        type: 'menu',
+        text: 'Following',
+        link: '#following'
+      },
+      {
+        type: 'menu',
+        text: 'Favorites',
+        link: '#favorites'
+      },
+
+    ]
+  }
+];
+
+var appbar_menu_right = [
+  {
+    id: 'menu-appbar-right',
+    type: 'menu',
+    text: 'Simple Menu',
+    link: '#',
+    hide: true,
+    icon: 'navigation-more-vert',
+    classes: 'e-text-color-blue-500 e-right',
+    items: [
+      {
+        type: 'menu',
+        text: 'Profile',
+        link: '#profile'
+      },
+      {
+        type: 'menu',
+        text: 'Settings',
+        link: '#settings'
+      },
+      {
+        type: 'divider'
+      },
+      {
+        type: 'menu',
+        text: 'Support',
+        link: '#support'
+      },
+      {
+        type: 'menu',
+        text: 'Logout',
+        link: '#logout'
+      },
+    ]
+  }
+];
+        </pre>
+      </div>
+    </div>
+  </div>
+  <!--  END Component - APPBAR       -->
+</div>

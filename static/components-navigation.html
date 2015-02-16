@@ -1,0 +1,126 @@
+<div class="e-container">
+  <!--   Component - Navigation Drawer       -->
+
+  <div class="paper e-padding-top-50" id="components-navigation">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Navigation Drawer</h3>
+      </div>
+      <div id="components-navigation-reactjs" class="e-paper-container brick brick-12 e-padding-top-25" style="position: relative !important;">
+        Navigation Drawer HTML Code
+      </div>
+      <div class="brick brick-12">
+        <p class="e-subhead">
+          Navigation Drawers help your users browse the site. Here's an example similar to the one we use. Add it to your aplication and customize the menus. 
+        </p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div&gt;
+  &lt;aside class=&quot;e-nav-drawer e-shadow-1&quot;&gt;
+    &lt;nav&gt;
+      &lt;div class=&quot;e-navigation-wrapper&quot;&gt;
+        &lt;header class=&quot;e-nav-header&quot;&gt;
+          &lt;img class=&quot;nav-logo&quot; alt=&quot;Navigation&quot; src=&quot;assets/img/essence_icon.png&quot;&gt;
+          &lt;span class=&quot;example-logo&quot;&gt;
+            Navigation
+          &lt;/span&gt;
+        &lt;/header&gt;
+        &lt;ul class=&quot;e-list-navigation&quot;&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;&quot;&gt;
+              &lt;span&gt;
+                Navigation Drawer
+              &lt;/span&gt;
+              &lt;i class=&quot;e-right e-icon-hardware-keyboard-arrow-down&quot;&gt;
+              &lt;/i&gt;
+            &lt;/a&gt;
+            &lt;ul class=&quot;e-sublist-navigation&quot;&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  Home
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  About
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  Getting Started
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  Contact
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;footer class=&quot;e-nav-footer&quot;&gt;
+        Footer text
+      &lt;/footer&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;Navigation
+  header='Navigation'
+  logo='assets/img/essence_icon.png'
+  footer='Footer text'
+&gt;
+  &lt;List
+    type='navigation'
+    avatar={false}
+    icon={false}
+  &gt;
+    &lt;ListItem
+      contentText='Navigation Drawer'
+      contentLink='#'
+      more={true}
+      submenu={NavigationHome}
+    /&gt;
+  &lt;/List&gt;
+&lt;/Navigation&gt;
+
+var NavigationHome = [
+  {
+    'id': 'components-home',
+    'link': '#',
+    'text': 'Home',
+  },
+  {
+    'id': 'components-about',
+    'link': '#',
+    'text': 'About',
+  },
+  {
+    'id': 'components-getting-started',
+    'link': '#',
+    'text': 'Getting Started',
+  },
+  {
+    'id': 'components-contact',
+    'link': '#',
+    'text': 'Contact',
+  }
+];
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- END Component - Navigation Drawer       -->
+</div>
