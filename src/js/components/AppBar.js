@@ -14,6 +14,14 @@ module.exports = React.createClass({
       };
     },
 
+    componentDidMount: function () {
+      // Empty
+    },
+
+    componentDidUnmount: function () {
+      // Empty
+    },
+
     renderChildren: function () {
       var self = this,
           childrens = React.Children.count(self.props.children),

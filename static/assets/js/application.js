@@ -20339,46 +20339,48 @@ React.render(
 var navigationBtn = document.getElementById('navigationBtn'),
     navigationDrawer = document.getElementById('components-navigation-reactjs'),
     appbar = document.getElementById('components-appbar-reactjs'),
-    contact = document.getElementById('components-contact-reactjs'),
-    toolbar = document.getElementById('components-toolbar-reactjs'),
     buttonsfab = document.getElementById('components-buttons-fab'),
-    buttonsraised = document.getElementById('components-buttons-raised'),
     buttonsflat = document.getElementById('components-buttons-flat'),
+    buttonsraised = document.getElementById('components-buttons-raised'),
     cards_default = document.getElementById('components-cards-default'),
-    cards_header = document.getElementById('components-cards-header'),
-    cards_gallery = document.getElementById('components-cards-gallery'),
     cards_divider = document.getElementById('components-cards-divider'),
+    cards_gallery = document.getElementById('components-cards-gallery'),
+    cards_header = document.getElementById('components-cards-header'),
     cards_simple = document.getElementById('components-cards-simple'),
     chips = document.getElementById('components-chips-reactjs'),
-    paper = document.getElementById('components-paper-reactjs'),
-    tooltips = document.getElementById('components-tooltips-reactjs'),
-    inputs = document.getElementById('components-text-fields-reactjs'),
-    textareas = document.getElementById('components-text-textarea-reactjs'),
-    validations = document.getElementById('components-text-validation-reactjs'),
+    contact = document.getElementById('components-contact-reactjs'),
+    dialogs_buttons = document.getElementById('components-dialogs-buttons-reactjs'),
+    dialogs = document.getElementById('components-dialogs-reactjs'),
     hints = document.getElementById('components-text-hints-reactjs'),
-    stylings = document.getElementById('components-text-styling-reactjs'),
-    tabfixed = document.getElementById('components-tabs-fixed-reactjs'),
-    tabscrollable = document.getElementById('components-tabs-scrollable-reactjs'),
-    tabs = document.getElementById('components-tabs-reactjs'),
-    sliders_simple = document.getElementById('components-sliders-simple'),
-    sliders_editable = document.getElementById('components-sliders-editable'),
-    sliders_disable = document.getElementById('components-sliders-disable'),
-    sliders_discrete = document.getElementById('components-sliders-discrete'),
-    sliders_steps = document.getElementById('components-sliders-steps'),
-    switches = document.getElementById('components-switches-reactjs'),
-    snackbarsbuttons = document.getElementById('components-snackbars-buttons-reactjs'),
-    snackbars = document.getElementById('components-snackbars-reactjs'),
-    toasts = document.getElementById('components-toasts-reactjs'),
-    progress = document.getElementById('components-progress-reactjs'),
-    listsingleline = document.getElementById('components-lists-single-line'),
-    listtwoline = document.getElementById('components-lists-two-line'),
-    listmultiline = document.getElementById('components-lists-multi-line'),
+    inputs = document.getElementById('components-text-fields-reactjs'),
     listcheckbox = document.getElementById('components-list-controls-checkbox'),
     listcheckboxavatar = document.getElementById('components-list-controls-checkbox-avatar'),
-    listswitches = document.getElementById('components-list-controls-switches'),
     listexpand = document.getElementById('components-list-controls-expand'),
+    listmultiline = document.getElementById('components-lists-multi-line'),
+    listsingleline = document.getElementById('components-lists-single-line'),
+    listswitches = document.getElementById('components-list-controls-switches'),
+    listtwoline = document.getElementById('components-lists-two-line'),
+    navigationMenu = document.getElementById('navigationMenu'),
     navigationTitle = document.getElementById('navigationTitle'),
-    navigationMenu = document.getElementById('navigationMenu');
+    paper = document.getElementById('components-paper-reactjs'),
+    progress = document.getElementById('components-progress-reactjs'),
+    sliders_disable = document.getElementById('components-sliders-disable'),
+    sliders_discrete = document.getElementById('components-sliders-discrete'),
+    sliders_editable = document.getElementById('components-sliders-editable'),
+    sliders_simple = document.getElementById('components-sliders-simple'),
+    sliders_steps = document.getElementById('components-sliders-steps'),
+    snackbars = document.getElementById('components-snackbars-reactjs'),
+    snackbarsbuttons = document.getElementById('components-snackbars-buttons-reactjs'),
+    stylings = document.getElementById('components-text-styling-reactjs'),
+    switches = document.getElementById('components-switches-reactjs'),
+    tabfixed = document.getElementById('components-tabs-fixed-reactjs'),
+    tabs = document.getElementById('components-tabs-reactjs'),
+    tabscrollable = document.getElementById('components-tabs-scrollable-reactjs'),
+    textareas = document.getElementById('components-text-textarea-reactjs'),
+    toasts = document.getElementById('components-toasts-reactjs'),
+    toolbar = document.getElementById('components-toolbar-reactjs'),
+    tooltips = document.getElementById('components-tooltips-reactjs'),
+    validations = document.getElementById('components-text-validation-reactjs');
 
 },{"./components/ComponentsList":"/var/www/evozon/reactjs/essence/src/js/components/ComponentsList.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/AppBar.js":[function(require,module,exports){
 'use strict';
@@ -20572,6 +20574,7 @@ module.exports = React.createClass({
           clickPosition = ClickPosition (event, parentPosition),
           bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
+          actionType = self.props.actionType || false,
           actionChildren = self.renderChildren(),
           snackbar = self.props.snackbar || false,
           toast = self.props.toast || false;
@@ -20607,7 +20610,13 @@ module.exports = React.createClass({
       }
 
       if (actionClick && actionClick !== "navigation") {
-        self.publish('actions:'+actionClick, actionChildren);
+
+        if (actionChildren.length > 0) {
+          self.publish('actions:'+actionClick, actionChildren);
+        } else if (actionType) {
+          self.publish('actions:'+actionClick, actionType);
+        }
+
       }
 
       if (snackbar) {
@@ -20953,6 +20962,7 @@ module.exports = React.createClass({
     },
 
     setActive: function (data) {
+      console.log(data);
       this.setState({
         isOpen: data.isOpen
       });
@@ -20965,8 +20975,8 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      this.subscribe('chip:Active', this.setActive);
       this.subscribe('chip:Open', this.setActive);
+      this.subscribe('chip:Active', this.setActive);
       this.subscribe('chip:ActiveItem', this.setActiveItem);
     },
 
@@ -21109,8 +21119,7 @@ module.exports = React.createClass({
       classes['press'] = (ev.type === 'mousedown') ? true : false;
 
       self.setState({
-        classes: classes,
-        isOpen: (ev.type === 'mouseup') ? true : false
+        classes: classes
       });
 
       if (!self.state.isOpen) {
@@ -21124,13 +21133,11 @@ module.exports = React.createClass({
       var self = this,
           isOpen = true;
 
-      if (!self.state.isOpen) {
-        self.publish('chip:Open', {isOpen: isOpen});
+      self.publish('chip:Open', {isOpen: isOpen});
 
-        self.setState({
-          isOpen: isOpen
-        });
-      }
+      self.setState({
+        isOpen: isOpen
+      });
     },
 
     closeChip: function () {
@@ -21217,35 +21224,37 @@ module.exports = React.createClass({
 
 var React = require('react/addons'),
     AppBar =  require('./AppBar'),
-    ToolBar =  require('./ToolBar'),
-    Navigation = require('./Navigation'),
-    Menu = require('./Menu'),
     Btn = require('./Btn'),
     BtnItem = require('./BtnItem'),
-    List = require('./List'),
-    ListItem = require('./ListItem'),
-    Input = require('./Input'),
-    InputItem = require('./InputItem'),
-    Input = require('./Input'),
-    InputItem = require('./InputItem'),
-    Switch = require('./Switch'),
-    SwitchItem = require('./SwitchItem'),
-    Snackbar = require('./Snackbar'),
-    SnackbarItem = require('./SnackbarItem'),
-    Toast = require('./Toast'),
-    ToastItem = require('./ToastItem'),
-    TabMenu = require('./TabMenu'),
-    TabItem = require('./TabItem'),
     Card = require('./Card'),
     CardItem = require('./CardItem'),
-    Paper = require('./Paper'),
-    PaperItem = require('./PaperItem'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
-    Text = require('./Text'),
+    Dialog = require('./Dialog'),
+    DialogItem = require('./DialogItem'),
+    Input = require('./Input'),
+    Input = require('./Input'),
+    InputItem = require('./InputItem'),
+    InputItem = require('./InputItem'),
+    List = require('./List'),
+    ListItem = require('./ListItem'),
+    Menu = require('./Menu'),
+    Navigation = require('./Navigation'),
+    Paper = require('./Paper'),
+    PaperItem = require('./PaperItem'),
+    Progress = require('./Progress'),
     Slider = require('./Slider'),
     SliderItem = require('./SliderItem'),
-    Progress = require('./Progress');
+    Snackbar = require('./Snackbar'),
+    SnackbarItem = require('./SnackbarItem'),
+    Switch = require('./Switch'),
+    SwitchItem = require('./SwitchItem'),
+    TabItem = require('./TabItem'),
+    TabMenu = require('./TabMenu'),
+    Text = require('./Text'),
+    Toast = require('./Toast'),
+    ToastItem = require('./ToastItem'),
+    ToolBar =  require('./ToolBar');
 
 var Component = {};
 
@@ -21876,8 +21885,10 @@ Component.tabs = (
       id: "tab-item-tree"
     }, 
       React.createElement("h2", {className: "e-display-1"}, "Yeap, him again:"), 
-      React.createElement("p", null, 
-"Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends."
+      React.createElement("p", null, "Your bones don\\'t break, mine do. That\\'s clear. Your cells react to bacteria and viruses differently than mine." + ' ' +
+"You don\\'t get sick, I do. That\\'s also clear. But for some reason, you and I react the exact same way to water." + ' ' +
+"We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I." + ' ' +
+"We're on the same curve, just on opposite ends."
       ), 
       React.createElement("div", {className: "brick brick-4"}, 
         React.createElement(Chip, null, 
@@ -22397,6 +22408,54 @@ Component.chips = (
     )
   )
 );
+
+Component.dialogs = [];
+
+Component.dialogs.push({
+  'buttons': (
+    React.createElement(Btn, null, 
+      React.createElement(BtnItem, {
+        type: "primary", 
+        classes: 'raised', 
+        label: "Show dialog", 
+        rippleEffect: true, 
+        actionClick: "dialog", 
+        actionType: "show"}
+      )
+    )
+  )
+});
+
+Component.dialogs.push({
+  'simple': (
+    React.createElement(Dialog, null, 
+      React.createElement(DialogItem, {
+        id: "dialog-simple", 
+        title: "Dialog title", 
+        content: "When text labels exceed the maximum button width," + ' ' +
+        "use stacked buttons to accommodate the text." + ' ' +
+        "Affirmative actions are stacked above dismissive actions."
+      }, 
+        React.createElement(Btn, null, 
+          React.createElement(BtnItem, {
+            type: "danger", 
+            classes: 'flat', 
+            label: "Disagree", 
+            actionClick: "dialog", 
+            actionType: "hide"}
+          ), 
+          React.createElement(BtnItem, {
+            type: "primary", 
+            classes: 'flat', 
+            label: "Agree", 
+            actionClick: "dialog", 
+            actionType: "hide"}
+          )
+        )
+      )
+    )
+  )
+});
 
 Component.tooltip = (
   React.createElement(Btn, null, 
@@ -23156,7 +23215,231 @@ module.exports = function () {
   return Component;
 };
 
-},{"./AppBar":"/var/www/evozon/reactjs/essence/src/js/components/AppBar.js","./Btn":"/var/www/evozon/reactjs/essence/src/js/components/Btn.js","./BtnItem":"/var/www/evozon/reactjs/essence/src/js/components/BtnItem.js","./Card":"/var/www/evozon/reactjs/essence/src/js/components/Card.js","./CardItem":"/var/www/evozon/reactjs/essence/src/js/components/CardItem.js","./Chip":"/var/www/evozon/reactjs/essence/src/js/components/Chip.js","./ChipItem":"/var/www/evozon/reactjs/essence/src/js/components/ChipItem.js","./Input":"/var/www/evozon/reactjs/essence/src/js/components/Input.js","./InputItem":"/var/www/evozon/reactjs/essence/src/js/components/InputItem.js","./List":"/var/www/evozon/reactjs/essence/src/js/components/List.js","./ListItem":"/var/www/evozon/reactjs/essence/src/js/components/ListItem.js","./Menu":"/var/www/evozon/reactjs/essence/src/js/components/Menu.js","./Navigation":"/var/www/evozon/reactjs/essence/src/js/components/Navigation.js","./Paper":"/var/www/evozon/reactjs/essence/src/js/components/Paper.js","./PaperItem":"/var/www/evozon/reactjs/essence/src/js/components/PaperItem.js","./Progress":"/var/www/evozon/reactjs/essence/src/js/components/Progress.js","./Slider":"/var/www/evozon/reactjs/essence/src/js/components/Slider.js","./SliderItem":"/var/www/evozon/reactjs/essence/src/js/components/SliderItem.js","./Snackbar":"/var/www/evozon/reactjs/essence/src/js/components/Snackbar.js","./SnackbarItem":"/var/www/evozon/reactjs/essence/src/js/components/SnackbarItem.js","./Switch":"/var/www/evozon/reactjs/essence/src/js/components/Switch.js","./SwitchItem":"/var/www/evozon/reactjs/essence/src/js/components/SwitchItem.js","./TabItem":"/var/www/evozon/reactjs/essence/src/js/components/TabItem.js","./TabMenu":"/var/www/evozon/reactjs/essence/src/js/components/TabMenu.js","./Text":"/var/www/evozon/reactjs/essence/src/js/components/Text.js","./Toast":"/var/www/evozon/reactjs/essence/src/js/components/Toast.js","./ToastItem":"/var/www/evozon/reactjs/essence/src/js/components/ToastItem.js","./ToolBar":"/var/www/evozon/reactjs/essence/src/js/components/ToolBar.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/Highlighter.js":[function(require,module,exports){
+},{"./AppBar":"/var/www/evozon/reactjs/essence/src/js/components/AppBar.js","./Btn":"/var/www/evozon/reactjs/essence/src/js/components/Btn.js","./BtnItem":"/var/www/evozon/reactjs/essence/src/js/components/BtnItem.js","./Card":"/var/www/evozon/reactjs/essence/src/js/components/Card.js","./CardItem":"/var/www/evozon/reactjs/essence/src/js/components/CardItem.js","./Chip":"/var/www/evozon/reactjs/essence/src/js/components/Chip.js","./ChipItem":"/var/www/evozon/reactjs/essence/src/js/components/ChipItem.js","./Dialog":"/var/www/evozon/reactjs/essence/src/js/components/Dialog.js","./DialogItem":"/var/www/evozon/reactjs/essence/src/js/components/DialogItem.js","./Input":"/var/www/evozon/reactjs/essence/src/js/components/Input.js","./InputItem":"/var/www/evozon/reactjs/essence/src/js/components/InputItem.js","./List":"/var/www/evozon/reactjs/essence/src/js/components/List.js","./ListItem":"/var/www/evozon/reactjs/essence/src/js/components/ListItem.js","./Menu":"/var/www/evozon/reactjs/essence/src/js/components/Menu.js","./Navigation":"/var/www/evozon/reactjs/essence/src/js/components/Navigation.js","./Paper":"/var/www/evozon/reactjs/essence/src/js/components/Paper.js","./PaperItem":"/var/www/evozon/reactjs/essence/src/js/components/PaperItem.js","./Progress":"/var/www/evozon/reactjs/essence/src/js/components/Progress.js","./Slider":"/var/www/evozon/reactjs/essence/src/js/components/Slider.js","./SliderItem":"/var/www/evozon/reactjs/essence/src/js/components/SliderItem.js","./Snackbar":"/var/www/evozon/reactjs/essence/src/js/components/Snackbar.js","./SnackbarItem":"/var/www/evozon/reactjs/essence/src/js/components/SnackbarItem.js","./Switch":"/var/www/evozon/reactjs/essence/src/js/components/Switch.js","./SwitchItem":"/var/www/evozon/reactjs/essence/src/js/components/SwitchItem.js","./TabItem":"/var/www/evozon/reactjs/essence/src/js/components/TabItem.js","./TabMenu":"/var/www/evozon/reactjs/essence/src/js/components/TabMenu.js","./Text":"/var/www/evozon/reactjs/essence/src/js/components/Text.js","./Toast":"/var/www/evozon/reactjs/essence/src/js/components/Toast.js","./ToastItem":"/var/www/evozon/reactjs/essence/src/js/components/ToastItem.js","./ToolBar":"/var/www/evozon/reactjs/essence/src/js/components/ToolBar.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/Dialog.js":[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons');
+
+module.exports = React.createClass({
+    displayName: 'Dialog',
+
+    getInitialState: function() {
+      return {
+        children: []
+      };
+    },
+
+    renderChildren: function () {
+      var self = this,
+          childrens = React.Children.count(self.props.children),
+          children = [];
+
+      if (childrens === 1) {
+        children.push(self.props.children);
+      } else {
+        self.props.children.map(function (item) {
+          children.push(item);
+        });
+      }
+
+      return children;
+    },
+
+    componentWillReceiveProps: function () {
+      var self = this;
+      self.renderChildren();
+    },
+
+    render: function () {
+      var self = this;
+      return self.props.children;
+    }
+});
+
+},{"react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/DialogItem.js":[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    classSet = React.addons.classSet,
+    Mobile = require('../utils/Mobile'),
+    PubSub = require('../utils/PubSub');
+
+module.exports = React.createClass({
+    displayName: 'DialogItem',
+
+    mixins: [PubSub, Mobile],
+
+    getInitialState: function() {
+      return {
+        isMobile: this.isMobile(),
+        classes: {
+          'hide': true,
+          'e-dialog': true,
+          'e-dialog-full': (this.props.fullPage) ? true : false
+        },
+        modalStyle: {
+          display: 'none'
+        }
+      };
+    },
+
+    renderChildren: function () {
+      var self = this,
+          childrens = React.Children.count(self.props.children),
+          children = [];
+
+      if (childrens === 1) {
+        children.push(self.props.children);
+      } else {
+        self.props.children.map(function (item) {
+          children.push(item);
+        });
+      }
+
+      return children;
+    },
+
+    componentDidMount: function () {
+      var self = this;
+
+      self.subscribe('actions:dialog', function (data) {
+        if (data === "hide") {
+          self.hideDialog();
+        } else if (data === "show") {
+          self.showDialog();
+        }
+      });
+
+    },
+
+    showDialog: function () {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      classes['hide'] = false;
+      modalStyle['display'] = 'block !important';
+
+      self.setState({
+        classes: classes,
+        modalStyle: modalStyle
+      });
+
+      document.querySelector('body').className = 'e-navigation-open';
+    },
+
+    hideDialog: function () {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      classes['hide'] = true;
+      modalStyle['display'] = 'block !important';
+
+      self.setState({
+        classes: classes,
+        modalStyle: modalStyle
+      });
+
+      document.querySelector('body').className = '';
+    },
+
+    renderHeader: function () {
+      var self = this;
+
+      if (self.props.title) {
+        return (
+          React.createElement("div", {className: "e-dialogs-header"}, 
+            React.createElement("h2", null, self.props.title)
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderContent: function () {
+      var self = this;
+
+      return (
+        React.createElement("div", {className: "e-dialogs-content"}, 
+          React.createElement("p", null, 
+            self.props.content
+          )
+        )
+      );
+    },
+
+    renderActions: function () {
+      var self = this,
+          childrens = React.Children.count(self.props.children),
+          actions = [];
+
+      if (childrens === 1) {
+        actions.push(self.props.children);
+      } else if (childrens > 1) {
+        self.props.children.map(function (item) {
+          actions.push(item);
+        });
+      }
+
+      if (actions.length > 0) {
+        return (
+          React.createElement("div", {className: "e-dialogs-actions"}, 
+            actions
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderModalBackground: function () {
+      var self = this;
+
+      if (!self.state.classes['hide']) {
+        return (
+          React.createElement("div", {
+            id: 'e-modal-bg-' + self.props.id, 
+            style: {display: 'block'}, 
+            onClick: self.hideDialog, 
+            className: "e-modal-bg"}
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderDialog: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes = classSet(classes);
+
+      return (
+        React.createElement("div", null, 
+          React.createElement("div", {
+            id: self.props.id, 
+            className: classes
+          }, 
+            self.renderHeader(), 
+            self.renderContent(), 
+            self.renderActions()
+          ), 
+          self.renderModalBackground()
+        )
+      );
+    },
+
+    render: function () {
+      var self = this;
+
+      return self.renderDialog();
+    }
+});
+
+},{"../utils/Mobile":"/var/www/evozon/reactjs/essence/src/js/utils/Mobile.js","../utils/PubSub":"/var/www/evozon/reactjs/essence/src/js/utils/PubSub.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/Highlighter.js":[function(require,module,exports){
 'use strict';
 
 var React = require('react'),
@@ -23669,11 +23952,12 @@ module.exports = React.createClass({
     dragEnd: function(ev) {
       var self = this,
           element = ev.target;
-
+      /*
       console.log({
         "fromElement" : self.state.fromElement,
         "toElement" : self.state.toElement
       });
+      */
     },
 
     dragOver: function(ev) {
@@ -23687,7 +23971,7 @@ module.exports = React.createClass({
         toElement: Number(elementId.id),
       });
 
-      console.log("toElement:" + Number(elementId.id));
+      // console.log("toElement:" + Number(elementId.id));
     },
 
     hideNavigation: function (data) {
@@ -23701,8 +23985,6 @@ module.exports = React.createClass({
       if (self.props.eventAction) {
         (self.props.eventAction.split(" ")).map(function(ev) {
           if (ev === "changeText") {
-            console.log("changeText: " + ev + '_' + self.props.changeTextId);
-
             self.publish(
               ev + '_' + self.props.changeTextId, targetText
             );
@@ -24696,6 +24978,7 @@ module.exports = React.createClass({
       if (self.props.live) {
         return (
           React.createElement("div", {
+            id: "e-modal-bg-navigation", 
             className: "e-modal-bg", 
             onClick: self.hideNavigation}
           )
@@ -26166,12 +26449,7 @@ module.exports = {
 
       document.querySelector('.e-main-content').innerHTML = html;
 
-      //console.log([id, Components[ComponentsID], ComponentsID, ComponentsDocumentID]);
-
       if (Components[ComponentsID] && typeof Components[ComponentsID] === 'object') {
-
-        // console.log(Object.prototype.toString.call((Components[ComponentsID])));
-
         if (Object.prototype.toString.call((Components[ComponentsID])) === '[object Object]') {
           React.render(
             Components[ComponentsID],
@@ -26182,14 +26460,13 @@ module.exports = {
             var reactComponentKey = Object.keys(reactComponents).toString(),
                 reactComponentID = (id +"-"+ reactComponentKey).replace("_", "-");
 
-            // console.log(reactComponents, reactComponentKey, reactComponentID);
-
             if (document.querySelector("#" + reactComponentID)) {
               React.render(
                 reactComponents[reactComponentKey],
                 document.querySelector("#" + reactComponentID)
               );
             }
+
           });
         }
       }

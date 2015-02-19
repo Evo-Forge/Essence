@@ -35,6 +35,15 @@ module.exports = React.createClass({
         return;
       }
 
+      /*console.log([
+        elem,
+        width,
+        id,
+        left,
+        right,
+        prevPosition
+      ]);*/
+
       prevPosition.direction = (left <= prevPosition.left) ? 'to-left' : 'to-right';
       prevPosition.left = left;
       prevPosition.right = right;

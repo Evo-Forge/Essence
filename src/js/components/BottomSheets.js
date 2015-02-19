@@ -3,7 +3,7 @@
 var React = require('react/addons');
 
 module.exports = React.createClass({
-    displayName: 'Dialog',
+    displayName: 'BottomSheets',
 
     getInitialState: function() {
       return {
@@ -13,16 +13,11 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
-          childrens = React.Children.count(self.props.children),
           children = [];
 
-      if (childrens === 1) {
-        children.push(self.props.children);
-      } else {
-        self.props.children.map(function (item) {
-          children.push(item);
-        });
-      }
+      self.props.children.map(function (item) {
+        children.push(item);
+      });
 
       return children;
     },
@@ -34,6 +29,6 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this;
-      return self.props.children;
+      return self.renderChildren();
     }
 });

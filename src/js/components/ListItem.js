@@ -73,9 +73,7 @@ module.exports = React.createClass({
     dragEnd: function(ev) {
       var self = this,
           element = ev.target;
-
       /*
-      // debug
       console.log({
         "fromElement" : self.state.fromElement,
         "toElement" : self.state.toElement

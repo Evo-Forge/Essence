@@ -75,8 +75,7 @@ module.exports = React.createClass({
       classes['press'] = (ev.type === 'mousedown') ? true : false;
 
       self.setState({
-        classes: classes,
-        isOpen: (ev.type === 'mouseup') ? true : false
+        classes: classes
       });
 
       if (!self.state.isOpen) {
@@ -90,13 +89,11 @@ module.exports = React.createClass({
       var self = this,
           isOpen = true;
 
-      if (!self.state.isOpen) {
-        self.publish('chip:Open', {isOpen: isOpen});
+      self.publish('chip:Open', {isOpen: isOpen});
 
-        self.setState({
-          isOpen: isOpen
-        });
-      }
+      self.setState({
+        isOpen: isOpen
+      });
     },
 
     closeChip: function () {

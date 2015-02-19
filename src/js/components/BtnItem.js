@@ -61,6 +61,7 @@ module.exports = React.createClass({
           clickPosition = ClickPosition (event, parentPosition),
           bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
+          actionType = self.props.actionType || false,
           actionChildren = self.renderChildren(),
           snackbar = self.props.snackbar || false,
           toast = self.props.toast || false;
@@ -96,7 +97,13 @@ module.exports = React.createClass({
       }
 
       if (actionClick && actionClick !== "navigation") {
-        self.publish('actions:'+actionClick, actionChildren);
+
+        if (actionChildren.length > 0) {
+          self.publish('actions:'+actionClick, actionChildren);
+        } else if (actionType) {
+          self.publish('actions:'+actionClick, actionType);
+        }
+
       }
 
       if (snackbar) {

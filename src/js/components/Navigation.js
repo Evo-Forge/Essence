@@ -197,6 +197,7 @@ module.exports = React.createClass({
       if (self.props.live) {
         return (
           <div
+            id='e-modal-bg-navigation'
             className={"e-modal-bg"}
             onClick={self.hideNavigation}
           />

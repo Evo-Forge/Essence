@@ -20505,6 +20505,7 @@ module.exports = React.createClass({
           clickPosition = ClickPosition (event, parentPosition),
           bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
+          actionType = self.props.actionType || false,
           actionChildren = self.renderChildren(),
           snackbar = self.props.snackbar || false,
           toast = self.props.toast || false;
@@ -20540,7 +20541,13 @@ module.exports = React.createClass({
       }
 
       if (actionClick && actionClick !== "navigation") {
-        self.publish('actions:'+actionClick, actionChildren);
+
+        if (actionChildren.length > 0) {
+          self.publish('actions:'+actionClick, actionChildren);
+        } else if (actionType) {
+          self.publish('actions:'+actionClick, actionType);
+        }
+
       }
 
       if (snackbar) {
@@ -20886,6 +20893,7 @@ module.exports = React.createClass({
     },
 
     setActive: function (data) {
+      console.log(data);
       this.setState({
         isOpen: data.isOpen
       });
@@ -20898,8 +20906,8 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      this.subscribe('chip:Active', this.setActive);
       this.subscribe('chip:Open', this.setActive);
+      this.subscribe('chip:Active', this.setActive);
       this.subscribe('chip:ActiveItem', this.setActiveItem);
     },
 
@@ -21042,8 +21050,7 @@ module.exports = React.createClass({
       classes['press'] = (ev.type === 'mousedown') ? true : false;
 
       self.setState({
-        classes: classes,
-        isOpen: (ev.type === 'mouseup') ? true : false
+        classes: classes
       });
 
       if (!self.state.isOpen) {
@@ -21057,13 +21064,11 @@ module.exports = React.createClass({
       var self = this,
           isOpen = true;
 
-      if (!self.state.isOpen) {
-        self.publish('chip:Open', {isOpen: isOpen});
+      self.publish('chip:Open', {isOpen: isOpen});
 
-        self.setState({
-          isOpen: isOpen
-        });
-      }
+      self.setState({
+        isOpen: isOpen
+      });
     },
 
     closeChip: function () {
@@ -21150,35 +21155,37 @@ module.exports = React.createClass({
 
 var React = require('react/addons'),
     AppBar =  require('./AppBar'),
-    ToolBar =  require('./ToolBar'),
-    Navigation = require('./Navigation'),
-    Menu = require('./Menu'),
     Btn = require('./Btn'),
     BtnItem = require('./BtnItem'),
-    List = require('./List'),
-    ListItem = require('./ListItem'),
-    Input = require('./Input'),
-    InputItem = require('./InputItem'),
-    Input = require('./Input'),
-    InputItem = require('./InputItem'),
-    Switch = require('./Switch'),
-    SwitchItem = require('./SwitchItem'),
-    Snackbar = require('./Snackbar'),
-    SnackbarItem = require('./SnackbarItem'),
-    Toast = require('./Toast'),
-    ToastItem = require('./ToastItem'),
-    TabMenu = require('./TabMenu'),
-    TabItem = require('./TabItem'),
     Card = require('./Card'),
     CardItem = require('./CardItem'),
-    Paper = require('./Paper'),
-    PaperItem = require('./PaperItem'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
-    Text = require('./Text'),
+    Dialog = require('./Dialog'),
+    DialogItem = require('./DialogItem'),
+    Input = require('./Input'),
+    Input = require('./Input'),
+    InputItem = require('./InputItem'),
+    InputItem = require('./InputItem'),
+    List = require('./List'),
+    ListItem = require('./ListItem'),
+    Menu = require('./Menu'),
+    Navigation = require('./Navigation'),
+    Paper = require('./Paper'),
+    PaperItem = require('./PaperItem'),
+    Progress = require('./Progress'),
     Slider = require('./Slider'),
     SliderItem = require('./SliderItem'),
-    Progress = require('./Progress');
+    Snackbar = require('./Snackbar'),
+    SnackbarItem = require('./SnackbarItem'),
+    Switch = require('./Switch'),
+    SwitchItem = require('./SwitchItem'),
+    TabItem = require('./TabItem'),
+    TabMenu = require('./TabMenu'),
+    Text = require('./Text'),
+    Toast = require('./Toast'),
+    ToastItem = require('./ToastItem'),
+    ToolBar =  require('./ToolBar');
 
 var Component = {};
 
@@ -21809,8 +21816,10 @@ Component.tabs = (
       id: "tab-item-tree"
     }, 
       React.createElement("h2", {className: "e-display-1"}, "Yeap, him again:"), 
-      React.createElement("p", null, 
-"Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends."
+      React.createElement("p", null, "Your bones don\\'t break, mine do. That\\'s clear. Your cells react to bacteria and viruses differently than mine." + ' ' +
+"You don\\'t get sick, I do. That\\'s also clear. But for some reason, you and I react the exact same way to water." + ' ' +
+"We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I." + ' ' +
+"We're on the same curve, just on opposite ends."
       ), 
       React.createElement("div", {className: "brick brick-4"}, 
         React.createElement(Chip, null, 
@@ -22330,6 +22339,54 @@ Component.chips = (
     )
   )
 );
+
+Component.dialogs = [];
+
+Component.dialogs.push({
+  'buttons': (
+    React.createElement(Btn, null, 
+      React.createElement(BtnItem, {
+        type: "primary", 
+        classes: 'raised', 
+        label: "Show dialog", 
+        rippleEffect: true, 
+        actionClick: "dialog", 
+        actionType: "show"}
+      )
+    )
+  )
+});
+
+Component.dialogs.push({
+  'simple': (
+    React.createElement(Dialog, null, 
+      React.createElement(DialogItem, {
+        id: "dialog-simple", 
+        title: "Dialog title", 
+        content: "When text labels exceed the maximum button width," + ' ' +
+        "use stacked buttons to accommodate the text." + ' ' +
+        "Affirmative actions are stacked above dismissive actions."
+      }, 
+        React.createElement(Btn, null, 
+          React.createElement(BtnItem, {
+            type: "danger", 
+            classes: 'flat', 
+            label: "Disagree", 
+            actionClick: "dialog", 
+            actionType: "hide"}
+          ), 
+          React.createElement(BtnItem, {
+            type: "primary", 
+            classes: 'flat', 
+            label: "Agree", 
+            actionClick: "dialog", 
+            actionType: "hide"}
+          )
+        )
+      )
+    )
+  )
+});
 
 Component.tooltip = (
   React.createElement(Btn, null, 
@@ -23089,7 +23146,7 @@ module.exports = function () {
   return Component;
 };
 
-},{"./AppBar":165,"./Btn":166,"./BtnItem":167,"./Card":168,"./CardItem":169,"./Chip":170,"./ChipItem":171,"./Input":177,"./InputItem":178,"./List":179,"./ListItem":180,"./Menu":182,"./Navigation":184,"./Paper":185,"./PaperItem":186,"./Progress":187,"./Slider":189,"./SliderItem":190,"./Snackbar":191,"./SnackbarItem":192,"./Switch":193,"./SwitchItem":194,"./TabItem":195,"./TabMenu":196,"./Text":197,"./Toast":198,"./ToastItem":199,"./ToolBar":200,"react/addons":3}],173:[function(require,module,exports){
+},{"./AppBar":165,"./Btn":166,"./BtnItem":167,"./Card":168,"./CardItem":169,"./Chip":170,"./ChipItem":171,"./Dialog":173,"./DialogItem":174,"./Input":177,"./InputItem":178,"./List":179,"./ListItem":180,"./Menu":182,"./Navigation":184,"./Paper":185,"./PaperItem":186,"./Progress":187,"./Slider":189,"./SliderItem":190,"./Snackbar":191,"./SnackbarItem":192,"./Switch":193,"./SwitchItem":194,"./TabItem":195,"./TabMenu":196,"./Text":197,"./Toast":198,"./ToastItem":199,"./ToolBar":200,"react/addons":3}],173:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -23126,11 +23183,7 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this;
-      return (
-        React.createElement("div", null, 
-          self.renderChildren()
-        )
-      );
+      return self.props.children;
     }
 });
 
@@ -23151,8 +23204,12 @@ module.exports = React.createClass({
       return {
         isMobile: this.isMobile(),
         classes: {
-          'e-dialog': (this.props.fullPage) ? false : true,
+          'hide': true,
+          'e-dialog': true,
           'e-dialog-full': (this.props.fullPage) ? true : false
+        },
+        modalStyle: {
+          display: 'none'
         }
       };
     },
@@ -23173,19 +23230,49 @@ module.exports = React.createClass({
       return children;
     },
 
-
     componentDidMount: function () {
       var self = this;
 
-      // Subscribe to Action:Dialog
-      self.subscribe('actions:dialog', function () {
-        console.log("Show me the dialog");
+      self.subscribe('actions:dialog', function (data) {
+        if (data === "hide") {
+          self.hideDialog();
+        } else if (data === "show") {
+          self.showDialog();
+        }
       });
+
     },
 
-    componentWillReceiveProps: function () {
-      var self = this;
-      self.renderChildren();
+    showDialog: function () {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      classes['hide'] = false;
+      modalStyle['display'] = 'block !important';
+
+      self.setState({
+        classes: classes,
+        modalStyle: modalStyle
+      });
+
+      document.querySelector('body').className = 'e-navigation-open';
+    },
+
+    hideDialog: function () {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      classes['hide'] = true;
+      modalStyle['display'] = 'block !important';
+
+      self.setState({
+        classes: classes,
+        modalStyle: modalStyle
+      });
+
+      document.querySelector('body').className = '';
     },
 
     renderHeader: function () {
@@ -23199,7 +23286,7 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderContent: function () {
@@ -23235,24 +23322,43 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
+    },
+
+    renderModalBackground: function () {
+      var self = this;
+
+      if (!self.state.classes['hide']) {
+        return (
+          React.createElement("div", {
+            id: 'e-modal-bg-' + self.props.id, 
+            style: {display: 'block'}, 
+            onClick: self.hideDialog, 
+            className: "e-modal-bg"}
+          )
+        );
+      }
+
+      return null;
     },
 
     renderDialog: function () {
       var self = this,
           classes = self.state.classes;
 
-      if (self.props.disable) {
-        classes['disabled'] = true;
-      }
-
       classes = classSet(classes);
 
       return (
-        React.createElement("div", {className: classes}, 
-          self.renderHeader(), 
-          self.renderContent(), 
-          self.renderActions()
+        React.createElement("div", null, 
+          React.createElement("div", {
+            id: self.props.id, 
+            className: classes
+          }, 
+            self.renderHeader(), 
+            self.renderContent(), 
+            self.renderActions()
+          ), 
+          self.renderModalBackground()
         )
       );
     },
@@ -23260,12 +23366,7 @@ module.exports = React.createClass({
     render: function () {
       var self = this;
 
-      return (
-        React.createElement("div", null, 
-          self.renderDialog(), 
-          React.createElement("br", null)
-        )
-      );
+      return self.renderDialog();
     }
 });
 
@@ -23782,11 +23883,12 @@ module.exports = React.createClass({
     dragEnd: function(ev) {
       var self = this,
           element = ev.target;
-
+      /*
       console.log({
         "fromElement" : self.state.fromElement,
         "toElement" : self.state.toElement
       });
+      */
     },
 
     dragOver: function(ev) {
@@ -23800,7 +23902,7 @@ module.exports = React.createClass({
         toElement: Number(elementId.id),
       });
 
-      console.log("toElement:" + Number(elementId.id));
+      // console.log("toElement:" + Number(elementId.id));
     },
 
     hideNavigation: function (data) {
@@ -23814,8 +23916,6 @@ module.exports = React.createClass({
       if (self.props.eventAction) {
         (self.props.eventAction.split(" ")).map(function(ev) {
           if (ev === "changeText") {
-            console.log("changeText: " + ev + '_' + self.props.changeTextId);
-
             self.publish(
               ev + '_' + self.props.changeTextId, targetText
             );
@@ -24809,6 +24909,7 @@ module.exports = React.createClass({
       if (self.props.live) {
         return (
           React.createElement("div", {
+            id: "e-modal-bg-navigation", 
             className: "e-modal-bg", 
             onClick: self.hideNavigation}
           )
@@ -29013,12 +29114,7 @@ module.exports = {
 
       document.querySelector('.e-main-content').innerHTML = html;
 
-      //console.log([id, Components[ComponentsID], ComponentsID, ComponentsDocumentID]);
-
       if (Components[ComponentsID] && typeof Components[ComponentsID] === 'object') {
-
-        // console.log(Object.prototype.toString.call((Components[ComponentsID])));
-
         if (Object.prototype.toString.call((Components[ComponentsID])) === '[object Object]') {
           React.render(
             Components[ComponentsID],
@@ -29029,14 +29125,13 @@ module.exports = {
             var reactComponentKey = Object.keys(reactComponents).toString(),
                 reactComponentID = (id +"-"+ reactComponentKey).replace("_", "-");
 
-            // console.log(reactComponents, reactComponentKey, reactComponentID);
-
             if (document.querySelector("#" + reactComponentID)) {
               React.render(
                 reactComponents[reactComponentKey],
                 document.querySelector("#" + reactComponentID)
               );
             }
+
           });
         }
       }

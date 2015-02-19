@@ -2,35 +2,37 @@
 
 var React = require('react/addons'),
     AppBar =  require('./AppBar'),
-    ToolBar =  require('./ToolBar'),
-    Navigation = require('./Navigation'),
-    Menu = require('./Menu'),
     Btn = require('./Btn'),
     BtnItem = require('./BtnItem'),
-    List = require('./List'),
-    ListItem = require('./ListItem'),
-    Input = require('./Input'),
-    InputItem = require('./InputItem'),
-    Input = require('./Input'),
-    InputItem = require('./InputItem'),
-    Switch = require('./Switch'),
-    SwitchItem = require('./SwitchItem'),
-    Snackbar = require('./Snackbar'),
-    SnackbarItem = require('./SnackbarItem'),
-    Toast = require('./Toast'),
-    ToastItem = require('./ToastItem'),
-    TabMenu = require('./TabMenu'),
-    TabItem = require('./TabItem'),
     Card = require('./Card'),
     CardItem = require('./CardItem'),
-    Paper = require('./Paper'),
-    PaperItem = require('./PaperItem'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
-    Text = require('./Text'),
+    Dialog = require('./Dialog'),
+    DialogItem = require('./DialogItem'),
+    Input = require('./Input'),
+    Input = require('./Input'),
+    InputItem = require('./InputItem'),
+    InputItem = require('./InputItem'),
+    List = require('./List'),
+    ListItem = require('./ListItem'),
+    Menu = require('./Menu'),
+    Navigation = require('./Navigation'),
+    Paper = require('./Paper'),
+    PaperItem = require('./PaperItem'),
+    Progress = require('./Progress'),
     Slider = require('./Slider'),
     SliderItem = require('./SliderItem'),
-    Progress = require('./Progress');
+    Snackbar = require('./Snackbar'),
+    SnackbarItem = require('./SnackbarItem'),
+    Switch = require('./Switch'),
+    SwitchItem = require('./SwitchItem'),
+    TabItem = require('./TabItem'),
+    TabMenu = require('./TabMenu'),
+    Text = require('./Text'),
+    Toast = require('./Toast'),
+    ToastItem = require('./ToastItem'),
+    ToolBar =  require('./ToolBar');
 
 var Component = {};
 
@@ -661,8 +663,10 @@ You think water moves fast? You should see ice. It moves like it has a mind. Lik
       id='tab-item-tree'
     >
       <h2 className='e-display-1'>Yeap, him again:</h2>
-      <p>
-Your bones don't break, mine do. That's clear. Your cells react to bacteria and viruses differently than mine. You don't get sick, I do. That's also clear. But for some reason, you and I react the exact same way to water. We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I. We're on the same curve, just on opposite ends.
+      <p>Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine.
+You don\'t get sick, I do. That\'s also clear. But for some reason, you and I react the exact same way to water.
+We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I.
+We're on the same curve, just on opposite ends.
       </p>
       <div className='brick brick-4'>
         <Chip>
@@ -1182,6 +1186,54 @@ Component.chips = (
     </ChipItem>
   </Chip>
 );
+
+Component.dialogs = [];
+
+Component.dialogs.push({
+  'buttons': (
+    <Btn>
+      <BtnItem
+        type='primary'
+        classes={'raised'}
+        label='Show dialog'
+        rippleEffect={true}
+        actionClick='dialog'
+        actionType='show'
+      />
+    </Btn>
+  )
+});
+
+Component.dialogs.push({
+  'simple': (
+    <Dialog>
+      <DialogItem
+        id='dialog-simple'
+        title='Dialog title'
+        content='When text labels exceed the maximum button width,
+        use stacked buttons to accommodate the text.
+        Affirmative actions are stacked above dismissive actions.'
+      >
+        <Btn>
+          <BtnItem
+            type='danger'
+            classes={'flat'}
+            label='Disagree'
+            actionClick='dialog'
+            actionType='hide'
+          />
+          <BtnItem
+            type='primary'
+            classes={'flat'}
+            label='Agree'
+            actionClick='dialog'
+            actionType='hide'
+          />
+        </Btn>
+      </DialogItem>
+    </Dialog>
+  )
+});
 
 Component.tooltip = (
   <Btn>

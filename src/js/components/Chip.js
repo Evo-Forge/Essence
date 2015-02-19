@@ -18,6 +18,7 @@ module.exports = React.createClass({
     },
 
     setActive: function (data) {
+      console.log(data);
       this.setState({
         isOpen: data.isOpen
       });
@@ -30,8 +31,8 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      this.subscribe('chip:Active', this.setActive);
       this.subscribe('chip:Open', this.setActive);
+      this.subscribe('chip:Active', this.setActive);
       this.subscribe('chip:ActiveItem', this.setActiveItem);
     },
 

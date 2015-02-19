@@ -14,8 +14,12 @@ module.exports = React.createClass({
       return {
         isMobile: this.isMobile(),
         classes: {
-          'e-dialog': (this.props.fullPage) ? false : true,
+          'hide': true,
+          'e-dialog': true,
           'e-dialog-full': (this.props.fullPage) ? true : false
+        },
+        modalStyle: {
+          display: 'none'
         }
       };
     },
@@ -36,18 +40,49 @@ module.exports = React.createClass({
       return children;
     },
 
-
     componentDidMount: function () {
       var self = this;
-      // Subscribe to Action:Dialog
-      self.subscribe('actions:dialog', function () {
-        // "Show me the dialog"
+
+      self.subscribe('actions:dialog', function (data) {
+        if (data === "hide") {
+          self.hideDialog();
+        } else if (data === "show") {
+          self.showDialog();
+        }
       });
+
     },
 
-    componentWillReceiveProps: function () {
-      var self = this;
-      self.renderChildren();
+    showDialog: function () {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      classes['hide'] = false;
+      modalStyle['display'] = 'block !important';
+
+      self.setState({
+        classes: classes,
+        modalStyle: modalStyle
+      });
+
+      document.querySelector('body').className = 'e-navigation-open';
+    },
+
+    hideDialog: function () {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      classes['hide'] = true;
+      modalStyle['display'] = 'block !important';
+
+      self.setState({
+        classes: classes,
+        modalStyle: modalStyle
+      });
+
+      document.querySelector('body').className = '';
     },
 
     renderHeader: function () {
@@ -61,7 +96,7 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderContent: function () {
@@ -97,24 +132,43 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
+    },
+
+    renderModalBackground: function () {
+      var self = this;
+
+      if (!self.state.classes['hide']) {
+        return (
+          <div
+            id={'e-modal-bg-' + self.props.id}
+            style={{display: 'block'}}
+            onClick={self.hideDialog}
+            className={"e-modal-bg"}
+          />
+        );
+      }
+
+      return null;
     },
 
     renderDialog: function () {
       var self = this,
           classes = self.state.classes;
 
-      if (self.props.disable) {
-        classes['disabled'] = true;
-      }
-
       classes = classSet(classes);
 
       return (
-        <div className={classes}>
-          {self.renderHeader()}
-          {self.renderContent()}
-          {self.renderActions()}
+        <div>
+          <div
+            id={self.props.id}
+            className={classes}
+          >
+            {self.renderHeader()}
+            {self.renderContent()}
+            {self.renderActions()}
+          </div>
+          {self.renderModalBackground()}
         </div>
       );
     },
@@ -122,11 +176,6 @@ module.exports = React.createClass({
     render: function () {
       var self = this;
 
-      return (
-        <div>
-          {self.renderDialog()}
-          <br />
-        </div>
-      );
+      return self.renderDialog();
     }
 });
