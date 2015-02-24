@@ -1,0 +1,16 @@
+{
+    "static": {
+        "open": true
+    },
+    "build": {
+        "autoRun": true,
+        "autoWatch": true,
+        "process": {
+            "commonjs": {
+                "entry": "application.js",
+                "uglify": false,
+                "output": "public/assets/js/application.js"
+            }
+        }
+    }
+}

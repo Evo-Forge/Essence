@@ -1,0 +1,36 @@
+{
+    "static": {
+        "host": "localhost",
+        "port": 3200,
+        "open": false,
+        "files": [
+            "public/**/*",
+            "public/*"
+        ],
+        "open": false,
+        "server": {
+            "baseDir": "./public",
+            "index": "index.html"
+        }
+    },
+    "build": {
+        "process": {
+            "less": {
+                "path": "src/less",
+                "entry": "essence.less",
+                "output": "public/assets/css/essence.css",
+                "files": {
+                    "icons.less" : "public/assets/css/icons.css"
+                }
+            },
+            "commonjs": {
+                "path": "src/js/",
+                "entry": "essence.js",
+                "aliasify": false,
+                "transform": [
+                    ["reactify", {"es6": true}]
+                ]
+            }
+        }
+    }
+}
