@@ -2,21 +2,39 @@
 
 var React = require('react/addons'),
     AppBar =  require('./AppBar'),
+    BottomSheets = require('./BottomSheets'),
+    BottomSheetsItem = require('./BottomSheetsItem'),
     Btn = require('./Btn'),
     BtnItem = require('./BtnItem'),
+    Block = require('./Block'),
     Card = require('./Card'),
     CardItem = require('./CardItem'),
+    CardItemHeader = require('./CardItemHeader'),
+    CardItemContent = require('./CardItemContent'),
+    CardItemFooter = require('./CardItemFooter'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
+    DatePicker = require('./DatePicker'),
+    DatePickerItem = require('./DatePickerItem'),
+    DatePickerHeader = require('./DatePickerHeader'),
+    DatePickerHeaderDay = require('./DatePickerHeaderDay'),
+    DatePickerHeaderDate = require('./DatePickerHeaderDate'),
+    DatePickerContent = require('./DatePickerContent'),
+    DatePickerFooter = require('./DatePickerFooter'),
     Dialog = require('./Dialog'),
     DialogItem = require('./DialogItem'),
-    Input = require('./Input'),
+    DialogItemHeader = require('./DialogItemHeader'),
+    DialogItemContent = require('./DialogItemContent'),
+    DialogItemFooter = require('./DialogItemFooter'),
+    Icon = require('./Icon'),
+    Image = require('./Image'),
     Input = require('./Input'),
     InputItem = require('./InputItem'),
     InputItem = require('./InputItem'),
     List = require('./List'),
     ListItem = require('./ListItem'),
     Menu = require('./Menu'),
+    MenuItem = require('./MenuItem'),
     Navigation = require('./Navigation'),
     Paper = require('./Paper'),
     PaperItem = require('./PaperItem'),
@@ -37,203 +55,309 @@ var React = require('react/addons'),
 var Component = {};
 
 // Essence - Components
-var Home =
-    [
-      {
-        'id': 'components-home',
-        'link': '#',
-        'text': 'Home',
-      },
-      {
-        'id': 'components-material-design',
-        'link': '#',
-        'text': 'About',
-      },
-      {
-        'id': 'components-getting-started',
-        'link': '#',
-        'text': 'Getting Started',
-      },
-      {
-        'id': 'components-contact',
-        'link': '#',
-        'text': 'Contact',
-      }
-    ],
-
-    Styles =
-    [
-      {
-        'id': 'components-colors',
-        'link': '#',
-        'text': 'Colors',
-      },
-      {
-        'id': 'components-icons',
-        'link': '#',
-        'text': 'Icons',
-      },
-      {
-        'id': 'components-typography',
-        'link': '#',
-        'text': 'Typography',
-      },
-      {
-        'id': 'components-classes',
-        'link': '#',
-        'text': 'Useful classes',
-      }
-    ],
-
-    Components =
-    [
-      {
-        'id': 'components-appbar',
-        'link': '#',
-        'text': 'Appbar',
-      },
-      {
-        'id': 'components-bottom-sheets',
-        'link': '#',
-        'text': 'Bottom Sheets',
-      },
-      {
-        'id': 'components-buttons',
-        'link': '#',
-        'text': 'Buttons',
-      },
-      {
-        'id': 'components-cards',
-        'link': '#',
-        'text': 'Cards',
-      },
-      {
-        'id': 'components-chips',
-        'link': '#',
-        'text': 'Chips',
-      },
-      {
-        'id': 'components-dialogs',
-        'link': '#',
-        'text': 'Dialogs',
-      },
-      {
-        'id': 'components-dividers',
-        'link': '#',
-        'text': 'Dividers',
-      },
-      {
-        'id': 'components-grids',
-        'link': '#',
-        'text': 'Grids',
-      },
-      {
-        'id': 'components-lists',
-        'link': '#',
-        'text': 'Lists',
-      },
-      {
-        'id': 'components-list-controls',
-        'link': '#',
-        'text': 'List Controls',
-      },
-      {
-        'id': 'components-menus',
-        'link': '#',
-        'text': 'Menus',
-      },
-      {
-        'id': 'components-navigation',
-        'link': '#',
-        'text': 'Navigation Drawer',
-      },
-      {
-        'id': 'components-paper',
-        'link': '#',
-        'text': 'Paper',
-      },
-      {
-        'id': 'components-progress',
-        'link': '#',
-        'text': 'Progress',
-      },
-      /*
-      {
-        'id': 'components-slider',
-        'link': '#',
-        'text': 'Slider',
-      },
-      */
-      {
-        'id': 'components-snackbars-toast',
-        'link': '#',
-        'text': 'Snackbars and Toast',
-      },
-      {
-        'id': 'components-switches',
-        'link': '#',
-        'text': 'Switches',
-      },
-      {
-        'id': 'components-tabs',
-        'link': '#',
-        'text': 'Tabs',
-      },
-      {
-        'id': 'components-text-fields',
-        'link': '#',
-        'text': 'Text fields',
-      },
-      /*
-      {
-        'id': 'components-toolbar',
-        'link': '#',
-        'text': 'Toolbar',
-      },
-      */
-      {
-        'id': 'components-tooltips',
-        'link': '#',
-        'text': 'Tooltips',
-      }
-    ];
-
 Component.navigation_menu = (
   <Navigation
     live={true}
     header='Essence'
     logo='assets/img/essence_icon.png'
-    footer='Essence &copy; Privacy &amp; Terms'
   >
     <List
-      type='navigation'
-      avatar={false}
-      icon={false}
+      classes='e-list-navigation'
+      id='EssenceNavigation'
     >
       <ListItem
+        listType='navigation'
         eventAction={'changeText'}
         changeTextId='navigationTitle'
+        primaryListImage='assets/img/material-design-b.png'
         contentText='Material Design'
         contentLink='#'
-        more={true}
-        submenu={Home}
-      />
+        hasSubmenu={true}
+      >
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-home'
+          >
+            Home
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-material-design'
+          >
+            About
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-getting-started'
+          >
+            Getting Started
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-contact'
+          >
+            Contact
+          </Text>
+        </Block>
+      </ListItem>
+
       <ListItem
+        listType='navigation'
         eventAction={'changeText'}
         changeTextId='navigationTitle'
+        primaryListImage='assets/img/styles-b.png'
         contentText='Styles'
         contentLink='#styles'
-        more={true}
-        submenu={Styles}
-      />
+        hasSubmenu={true}
+      >
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-colors'
+          >
+            Colors
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-icons'
+          >
+            Icons
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-typography'
+          >
+            Typography
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-classes'
+          >
+            Useful classes
+          </Text>
+        </Block>
+      </ListItem>
+
       <ListItem
+        listType='navigation'
         eventAction={'changeText'}
         changeTextId='navigationTitle'
+        primaryListImage='assets/img/components-b.png'
         contentText='Components'
         contentLink='#components'
-        more={true}
-        submenu={Components}
-      />
+        hasSubmenu={true}
+      >
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-appbar'
+            href='#'
+          >
+            Appbar
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-bottom-sheets'
+            href='#'
+          >
+            Bottom Sheets
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-buttons'
+            href='#'
+          >
+            Buttons
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-cards'
+            href='#'
+          >
+            Cards
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-chips'
+            href='#'
+          >
+            Chips
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-datepicker'
+            href='#'
+          >
+            Date Picker
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-dialogs'
+            href='#'
+          >
+            Dialogs
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-dividers'
+            href='#'
+          >
+            Dividers
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-grids'
+            href='#'
+          >
+            Grids
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-lists'
+            href='#'
+          >
+            Lists
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-list-controls'
+            href='#'
+          >
+            List Controls
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-menus'
+            href='#'
+          >
+            Menus
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-navigation'
+            href='#'
+          >
+            Navigation Drawer
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-paper'
+            href='#'
+          >
+            Paper
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-progress'
+            href='#'
+          >
+            Progress
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-slider'
+            href='#'
+          >
+            Sliders
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-snackbars-toast'
+            href='#'
+          >
+            Snackbars and Toast
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-switches'
+            href='#'
+          >
+            Switches
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-tabs'
+            href='#'
+          >
+            Tabs
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-text-fields'
+            href='#'
+          >
+            Text fields
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            id='components-tooltips'
+            href='#'
+          >
+            Tooltips
+          </Text>
+        </Block>
+      </ListItem>
     </List>
   </Navigation>
 );
@@ -250,7 +374,9 @@ Component.navigation_buttons = (
 );
 
 Component.navigation_title = (
-  <Text text='Essence' id='navigationTitle' />
+  <Text id='navigationTitle'>
+    Essence - Material Design
+  </Text>
 );
 
 var NavigationHome =
@@ -351,43 +477,193 @@ Component.navigation = (
     live={false}
     header='Navigation'
     logo='assets/img/essence_icon.png'
-    footer='Copyright text'
   >
     <List
-      type='navigation'
-      avatar={false}
-      icon={false}
+      classes='e-list-navigation'
+      id='NavigationDrawer'
     >
       <ListItem
+        listType='navigation'
         eventAction={'changeText'}
-        changeTextId='navigationTitle'
         contentText='Material Design'
         contentLink='#'
-        more={true}
-        submenu={NavigationHome}
-      />
+        hasSubmenu={true}
+      >
+        <Block type='li'>
+          <Text>
+            Home
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            About
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Getting Started
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Contact
+          </Text>
+        </Block>
+      </ListItem>
+
       <ListItem
+        listType='navigation'
         eventAction={'changeText'}
         changeTextId='navigationTitle'
         contentText='Styles'
         contentLink='#styles'
-        more={true}
-        submenu={NavigationStyles}
-      />
+        hasSubmenu={true}
+      >
+        <Block type='li'>
+          <Text>
+            Colors
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Icons
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Typography
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Useful classes
+          </Text>
+        </Block>
+      </ListItem>
+
       <ListItem
+        listType='navigation'
         eventAction={'changeText'}
         changeTextId='navigationTitle'
         contentText='Components'
         contentLink='#components'
-        more={true}
-        submenu={NavigationComponents}
-      />
+        hasSubmenu={true}
+      >
+        <Block type='li'>
+          <Text>
+            Appbar
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Bottom Sheets
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Buttons
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Cards
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Chips
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Dialogs
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Dividers
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Grids
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Lists
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            List Controls
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Menus
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Navigation Drawer
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Paper
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Progress
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Slider
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Snackbars and Toast
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Switches
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Tabs
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Text fields
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text>
+            Tooltips
+          </Text>
+        </Block>
+      </ListItem>
     </List>
   </Navigation>
 );
 
 Component.contact = (
   <Input>
+    <InputItem
+      classes={'e-input-group'}
+      inputClasses={'e-input empty'}
+      type='text'
+      name='message'
+      label='Subject'
+    >
+    </InputItem>
     <InputItem
       classes={'e-input-group'}
       inputClasses={'e-input empty'}
@@ -401,13 +677,13 @@ Component.contact = (
       inputClasses={'e-input empty'}
       type='textarea'
       name='message'
-      label='Type your message'
+      label='Message'
     >
     </InputItem>
 
     <Btn>
       <BtnItem
-        classes={'raised'}
+        classes={'raised e-background-indigo-400'}
         label='Send Message'
         type='primary'
         rippleEffect={true}
@@ -501,7 +777,35 @@ Component.appbar = (
       />
     </Btn>
 
-    <Menu items={appbar_menu_left} />
+    <Menu
+      id='menu-appbar-left'
+      classes={'e-text-color-blue-500 cover e-left'}
+      placeholder='Options'
+    >
+      <MenuItem>
+        <Icon name='notification-sms' />
+        <Text>Notifications</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Icon name='notification-tap-and-play' />
+        <Text>Tap & Pay</Text>
+      </MenuItem>
+
+      <Block type='li' classes={'divider'} />
+
+      <MenuItem>
+        <Text type='a' href='http://www.pearlhq.com'>
+          Pearl
+        </Text>
+      </MenuItem>
+      <MenuItem>
+        <Text type='a' href='http://www.google.com'>
+          Google
+        </Text>
+      </MenuItem>
+    </Menu>
+
     <Menu items={appbar_menu_right} />
 
     <Btn>
@@ -516,6 +820,225 @@ Component.appbar = (
     </Btn>
   </AppBar>
 );
+
+Component.bottom_sheets = [];
+
+Component.bottom_sheets.push({
+  'button-simple': (
+    <Btn>
+      <BtnItem
+        type='primary'
+        classes={'raised'}
+        label='Show bottom sheets'
+        rippleEffect={true}
+        actionClick='bottomsheets'
+        actionType={{
+          'action': 'show',
+          'targetID': 'bottomsheet-simple'
+        }}
+      />
+    </Btn>
+  )
+});
+
+Component.bottom_sheets.push({
+  'button-twolines': (
+    <Btn>
+      <BtnItem
+        type='warning'
+        classes={'raised'}
+        label='Show bottom sheets lines'
+        rippleEffect={true}
+        actionClick='bottomsheets'
+        actionType={{
+          'action': 'show',
+          'targetID': 'bottomsheet-twolines'
+        }}
+      />
+    </Btn>
+  )
+});
+
+Component.bottom_sheets.push({
+  'button-bigicons': (
+    <Btn>
+      <BtnItem
+        type='succes'
+        classes={'raised'}
+        label='Show bottom sheets icons'
+        rippleEffect={true}
+        actionClick='bottomsheets'
+        actionType={{
+          'action': 'show',
+          'targetID': 'bottomsheet-bigicons'
+        }}
+      />
+    </Btn>
+  )
+});
+
+Component.bottom_sheets.push({
+  'simple': (
+    <BottomSheets>
+      <BottomSheetsItem
+        id={'bottomsheet-simple'}
+      >
+        <List type='single-line'>
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' href='#phone'>
+                <Icon name='maps-local-phone' classes={'e-list-icon'} />
+                <Text>Mobile</Text>
+              </Text>
+            </Block>
+          </ListItem>
+
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' href='#share'>
+                <Icon name='social-share' classes={'e-list-icon'} />
+                <Text>Share</Text>
+              </Text>
+            </Block>
+          </ListItem>
+
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' href='#upload'>
+                <Icon name='file-cloud-upload' classes={'e-list-icon'} />
+                <Text>Upload</Text>
+              </Text>
+            </Block>
+          </ListItem>
+
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' href='#copy'>
+                <Icon name='content-content-copy' classes={'e-list-icon'} />
+                <Text>Copy</Text>
+              </Text>
+            </Block>
+          </ListItem>
+
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' href='#print'>
+                <Icon name='action-print' classes={'e-list-icon'} />
+                <Text>Print</Text>
+              </Text>
+            </Block>
+          </ListItem>
+        </List>
+      </BottomSheetsItem>
+    </BottomSheets>
+  )
+});
+
+Component.bottom_sheets.push({
+  'twolines': (
+    <BottomSheets>
+      <BottomSheetsItem
+        id={'bottomsheet-twolines'}
+      >
+        <List type='two-line'>
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' href='#attractions'>
+                <Block type='span' classes={'e-list-content'}>
+                  <Image
+                    src='assets/img/card-user-img.jpg'
+                    alt='Attractions'
+                    classes={'e-list-avatar'}
+                  />
+                  <Block type='span'>
+                    <Text type='strong'>Alice</Text>
+                  </Block>
+                </Block>
+              </Text>
+            </Block>
+          </ListItem>
+
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' classes={'brick-12'} href='#fun'>
+                <Block type='span' classes={'e-list-content'}>
+                  <Icon name='maps-local-phone' classes={'e-list-icon'} />
+                  <Block type='span'>
+                    <Text type='strong'>(555) 085-0001</Text>
+                    <br />
+                    <Text>Mobile</Text>
+                  </Block>
+                </Block>
+              </Text>
+            </Block>
+          </ListItem>
+
+          <ListItem>
+            <Block type='li'>
+              <Text type='a' classes={'brick-12'} href='#fun'>
+                <Block type='span' classes={'e-list-content'}>
+                  <Icon name='maps-local-phone' classes={'e-list-icon'} />
+                  <Block type='span'>
+                    <Text type='strong'>(564) 123-4567</Text>
+                    <br />
+                    <Text>Home</Text>
+                  </Block>
+                </Block>
+              </Text>
+            </Block>
+          </ListItem>
+        </List>
+      </BottomSheetsItem>
+    </BottomSheets>
+  )
+});
+
+Component.bottom_sheets.push({
+  'bigicons': (
+    <BottomSheets>
+      <BottomSheetsItem
+        id={'bottomsheet-bigicons'}
+      >
+        <List
+          type='big-icon'
+          icon={true}
+        >
+          <ListItem
+            contentLink='#gmail'
+            contentTitle='Gmail'
+            icon='communication-email'
+          />
+          <ListItem
+            contentLink='#phone'
+            contentTitle='Phone'
+            icon='notification-phone-in-talk'
+          />
+          <ListItem
+            contentLink='#copy'
+            contentTitle='Copy'
+            icon='content-content-copy'
+          />
+          <ListItem
+            contentLink='#social'
+            contentTitle='Group'
+            icon='social-group'
+          />
+          <ListItem
+            contentLink='#map'
+            contentTitle='Map'
+            icon='maps-map'
+          />
+          <ListItem
+            contentLink='#bar'
+            contentTitle='Bar'
+            icon='maps-local-bar'
+          />
+
+        </List>
+      </BottomSheetsItem>
+    </BottomSheets>
+  )
+});
 
 var toolbar_menu_right = [
   {
@@ -579,7 +1102,7 @@ Component.toolbar = (
 Component.paper = (
   <Paper>
     <PaperItem
-      classes={'e-shadow-1'}
+      classes={'e-shadow-1 e-text-blue-grey-400'}
     >
       PaperItem: simple <strong>shadow-1</strong>
     </PaperItem>
@@ -589,7 +1112,7 @@ Component.paper = (
 
     <PaperItem
       type={'sharp'}
-      classes={'e-shadow-2'}
+      classes={'e-shadow-2 e-text-blue-grey-400'}
     >
       PaperItem: sharp <strong>shadow-2</strong>
     </PaperItem>
@@ -599,7 +1122,7 @@ Component.paper = (
 
     <PaperItem
       type={'circle'}
-      classes={'e-shadow-3'}
+      classes={'e-shadow-3 e-text-blue-grey-400'}
     >
       PaperItem: circle <strong>shadow-3</strong>
     </PaperItem>
@@ -619,7 +1142,7 @@ Component.tabs = (
     >
       <h2 className='e-display-1'>As Samuel L Jackson used to say:</h2>
 
-      <p>
+      <p className='e-text-blue-grey-400'>
       The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
       </p>
 
@@ -637,7 +1160,7 @@ Component.tabs = (
       id='tab-item-two'
     >
       <h2 className='e-display-1'>Still Samuel L Jackson:</h2>
-      <p>
+      <p className='e-text-blue-grey-400'>
 You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man.
       </p>
 
@@ -663,7 +1186,7 @@ You think water moves fast? You should see ice. It moves like it has a mind. Lik
       id='tab-item-tree'
     >
       <h2 className='e-display-1'>Yeap, him again:</h2>
-      <p>Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine.
+      <p className='e-text-blue-grey-400'>Your bones don\'t break, mine do. That\'s clear. Your cells react to bacteria and viruses differently than mine.
 You don\'t get sick, I do. That\'s also clear. But for some reason, you and I react the exact same way to water.
 We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I.
 We're on the same curve, just on opposite ends.
@@ -872,22 +1395,127 @@ var menus_cascade = [
 ];
 
 Component.menus = [];
+//<Menu items={menus_simple} />
 
 Component.menus.push({
   'simple': (
-    <Menu items={menus_simple} />
+    <Menu
+      id='menu-simple'
+      placeholder='Show Menu Simple'
+    >
+      <MenuItem>
+        <Icon name='notification-sms' />
+        <Text>SMS Notifications</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Icon name='notification-tap-and-play' />
+        <Text>Tap & Pay</Text>
+      </MenuItem>
+
+      <MenuItem classes={'divider'} />
+
+      <MenuItem>
+        <Text type='a' href='http://www.pearlhq.com'>
+          Pearl
+        </Text>
+      </MenuItem>
+      <MenuItem>
+        <Text type='a' href='http://www.google.com'>
+          Google
+        </Text>
+      </MenuItem>
+    </Menu>
   )
 });
 
+//<Menu items={menus_cover} />
 Component.menus.push({
   'cover': (
-    <Menu items={menus_cover} />
+    <Menu
+      id='menu-cover'
+      classes={'cover mobile'}
+      placeholder='Show Menu Cover'
+    >
+      <MenuItem>
+        <Icon name='notification-sms' />
+        <Text>SMS Notifications</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Icon name='notification-tap-and-play' />
+        <Text>Tap & Pay</Text>
+      </MenuItem>
+
+      <MenuItem classes={'divider'} />
+
+      <MenuItem>
+        <Text type='a' href='http://www.pearlhq.com'>
+          Pearl
+        </Text>
+      </MenuItem>
+      <MenuItem>
+        <Text type='a' href='http://www.google.com'>
+          Google
+        </Text>
+      </MenuItem>
+    </Menu>
   )
 });
+
 
 Component.menus.push({
   'cascade': (
     <Menu items={menus_cascade} />
+  )
+});
+
+Component.menus.push({
+  'checkbox-inactive': (
+    <Menu
+      id='menu-checkbox'
+      placeholder='Menu with Switches'
+      classes='brick-4'
+    >
+      <MenuItem>
+        <SwitchItem
+          type='checkbox'
+          name='notification-sms'
+          classes={'e-left'}
+        />
+        <Text> Receive SMS Notifications</Text>
+        <Icon
+          name='notification-sms'
+          classes={'e-right e-text-green-400'}
+        />
+      </MenuItem>
+
+      <MenuItem>
+        <SwitchItem
+          type='checkbox'
+          name='notification-sms'
+          classes={'e-left'}
+        />
+        <Text> Receive Alerts Notifications</Text>
+        <Icon
+          name='alert-warning'
+          classes={'e-right e-text-green-400'}
+        />
+      </MenuItem>
+
+      <MenuItem>
+        <SwitchItem
+          type='checkbox'
+          name='notification-sms'
+          classes={'e-left'}
+        />
+        <Text> Receive Email Notifications</Text>
+        <Icon
+          name='communication-email'
+          classes={'e-right e-text-green-400'}
+        />
+      </MenuItem>
+    </Menu>
   )
 });
 
@@ -911,47 +1539,53 @@ Component.buttons.push({
 });
 
 Component.buttons.push({
-  'raised': (
+  'raised-1': (
   <Btn>
     <BtnItem
       classes={'raised'}
-      label='Label Default'
+      label='Default'
       tooltip='Tooltip Default'
       type='default'
       rippleEffect={true}
     />
     <BtnItem
       classes={'raised'}
-      label='Label Primary'
+      label='Primary'
       tooltip='Tooltip Primary'
       type='primary'
       rippleEffect={true}
     />
     <BtnItem
       classes={'raised'}
-      label='Label Succes'
+      label='Succes'
       tooltip='Tooltip Succes'
       type='succes'
       rippleEffect={true}
       disabled={true}
     />
+  </Btn>)
+});
+
+Component.buttons.push({
+  'raised-2': (
+  <Btn>
     <BtnItem
       classes={'raised'}
-      label='Label Info'
+      label='Info'
       tooltip='Tooltip Info'
       type='info'
       rippleEffect={true}
     />
     <BtnItem
       classes={'raised'}
-      label='Label Warning'
+      label='Warning'
       tooltip='Tooltip Warning'
       type='warning'
       rippleEffect={true}
     />
     <BtnItem
       classes={'raised'}
-      label='Label Danger'
+      label='Danger'
       tooltip='Tooltip Danger'
       type='danger'
       rippleEffect={true}
@@ -960,41 +1594,46 @@ Component.buttons.push({
 });
 
 Component.buttons.push({
-  'flat': (
+  'flat-1': (
   <Btn>
     <BtnItem
       classes={'flat'}
-      label='Label Default'
+      label='Default'
       type='default'
       rippleEffect={true}
     />
     <BtnItem
       classes={'flat'}
-      label='Label Primary'
+      label='Primary'
       type='primary'
       rippleEffect={true}
     />
     <BtnItem
       classes={'flat'}
-      label='Label Succes'
+      label='Succes'
       type='succes'
       rippleEffect={true}
     />
+  </Btn>)
+});
+Component.buttons.push({
+  'flat-2': (
+  <Btn>
     <BtnItem
       classes={'flat'}
-      label='Label Info'
+      label='Info'
       type='info'
       rippleEffect={true}
     />
     <BtnItem
       classes={'flat'}
-      label='Label Warning'
+      label='Warning'
       type='warning'
       rippleEffect={true}
     />
     <BtnItem
       classes={'flat'}
-      label='Label Danger'
+      label='Danger'
       type='danger'
       rippleEffect={true}
     />
@@ -1041,27 +1680,38 @@ Component.cards = [];
 Component.cards.push({
   'default': (
   <Card>
-    <CardItem
-      image='assets/img/card-img.jpg'
-      imageAlt='Card Image'
-      headline='Going to Ibiza'
-      text='Limit supplemental actions to two actions, in addition to an overflow menu.'
-      action={true}
-    >
-      <BtnItem
-        classes={'flat e-right'}
-        label='Yes'
-        type='danger'
-        rippleEffect={true}
-      />
-      <BtnItem
-        classes={'flat e-right'}
-        label='No'
-        type='default'
-        rippleEffect={true}
-      />
+    <CardItem>
+      <Block type="div" classes={"card-main-image"}>
+        <Image src="assets/img/card-img.jpg" alt="Card Header Image" />
+        <Text type="h1" classes={"e-headline"}>
+          Going to Ibiza
+        </Text>
+      </Block>
 
+      <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
+        <Text type="h4">
+          Limit supplemental actions to two actions, in addition to an overflow menu.
+        </Text>
+      </CardItemContent>
 
+      <CardItemFooter>
+        <Block type="div" classes={"e-left"}>
+          <BtnItem
+            classes={'flat'}
+            label='No'
+            type='default'
+            rippleEffect={true}
+          />
+        </Block>
+        <Block type="div" classes={"e-left"}>
+          <BtnItem
+            classes={'flat e-text-indigo-400'}
+            label='Yes'
+            type='danger'
+            rippleEffect={true}
+          />
+        </Block>
+      </CardItemFooter>
     </CardItem>
   </Card>)
 });
@@ -1069,17 +1719,31 @@ Component.cards.push({
 Component.cards.push({
   'header': (
   <Card>
-    <CardItem
-      image='assets/img/card-img.jpg'
-      imageAlt='Card Image'
-      headline='Going to Ibiza'
-      text='Limit supplemental actions to two actions, in addition to an overflow menu.'
-      header={true}
-      headerImage='assets/img/card-user-img.jpg'
-      headerImageAlt='Card Image'
-      headerTitle='Title'
-      headerSubhead='Subhead'
-    >
+    <CardItem>
+      <CardItemHeader>
+        <Block type="div" classes={"card-header-image"}>
+          <Image src="assets/img/card-user-img.jpg" alt="Card Header Image" />
+        </Block>
+
+        <Block type="div" classes={"card-header-text"}>
+          <Text type="h2" classes={"e-title"}>Card Title</Text>
+          <Text type="h3" classes={"e-subhead e-text-blue-grey-400"}>Card Subhead</Text>
+        </Block>
+      </CardItemHeader>
+
+      <Block type="div" classes={"card-main-image"}>
+        <Image src="assets/img/card-img.jpg" alt="Card Header Image" />
+        <Text type="a" href="#carja" classes={"e-headline"}>
+          Going to Ibiza
+        </Text>
+      </Block>
+
+      <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
+        <Text type="h4">
+          Limit supplemental actions to two actions, in addition to an overflow menu.
+        </Text>
+      </CardItemContent>
+
     </CardItem>
   </Card>)
 });
@@ -1087,28 +1751,55 @@ Component.cards.push({
 Component.cards.push({
   'gallery': (
   <Card>
-    <CardItem
-      imageGallery={imageGallery}
-      headline='Going to Ibiza'
-      text='Limit supplemental actions to two actions, in addition to an overflow menu.'
-      header={true}
-      headerImage='assets/img/card-user-img.jpg'
-      headerImageAlt='Card Image'
-      headerTitle='Title 1'
-      headerSubhead='Subhead 1'
-    >
-      <BtnItem
-        classes={'flat'}
-        label='No'
-        type='default'
-        rippleEffect={true}
-      />
-      <BtnItem
-        classes={'flat'}
-        label='Yes'
-        type='danger'
-        rippleEffect={true}
-      />
+    <CardItem>
+      <CardItemHeader>
+        <Block type="div" classes={"card-header-image"}>
+          <Image src="assets/img/card-user-img.jpg" alt="Card Header Image" />
+        </Block>
+
+        <Block type="div" classes={"card-header-text"}>
+          <Text type="a" href="#card-gallery" classes={"e-title"}>Card Gallery</Text>
+          <Text type="h3" classes={"e-subhead e-text-blue-grey-400"}>Multiple images</Text>
+        </Block>
+      </CardItemHeader>
+
+      <Block type="div" classes={"card-main-image"}>
+        <Block type="div" classes={"card-gallery"}>
+          <Image src="assets/img/card-img.jpg" alt="Card Image 1" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 2" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 3" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 4" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 5" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 6" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 7" />
+          <Image src="assets/img/card-img.jpg" alt="Card Image 8" />
+        </Block>
+      </Block>
+
+      <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
+        <Text type="h4">
+          Limit supplemental actions to two actions, in addition to an overflow menu.
+        </Text>
+      </CardItemContent>
+
+      <CardItemFooter>
+        <Block type="div" classes={"e-left"}>
+          <BtnItem
+            classes={'flat e-left'}
+            label='No'
+            type='default'
+            rippleEffect={true}
+          />
+        </Block>
+        <Block type="div" classes={"e-right"}>
+          <BtnItem
+            classes={'flat e-left e-text-indigo-400'}
+            label='Yes'
+            type='danger'
+            rippleEffect={true}
+          />
+        </Block>
+      </CardItemFooter>
     </CardItem>
   </Card>)
 });
@@ -1116,22 +1807,38 @@ Component.cards.push({
 Component.cards.push({
   'divider': (
   <Card>
-    <CardItem
-      image='assets/img/card-img.jpg'
-      text='Limit supplemental actions to two actions, in addition to an overflow menu.'
-    >
-      <BtnItem
-        classes={'flat'}
-        label='A'
-        type='succes'
-        rippleEffect={true}
-      />
-      <BtnItem
-        classes={'flat'}
-        label='B'
-        type='warning'
-        rippleEffect={true}
-      />
+    <CardItem>
+      <Block type="div" classes={"card-main-image"}>
+        <Image src="assets/img/card-img.jpg" alt="Card Header Image" />
+        <Text type="h1" classes={"e-headline"}>
+          Going to Ibiza
+        </Text>
+      </Block>
+
+      <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
+        <Text type="h4">
+          Limit supplemental actions to two actions, in addition to an overflow menu.
+        </Text>
+      </CardItemContent>
+
+      <CardItemFooter>
+        <Block type="div" classes={"e-right"}>
+          <BtnItem
+            classes={'flat e-text-indigo-400'}
+            label='A'
+            type='danger'
+            rippleEffect={true}
+          />
+        </Block>
+        <Block type="div" classes={"e-left"}>
+          <BtnItem
+            classes={'flat'}
+            label='B'
+            type='default'
+            rippleEffect={true}
+          />
+        </Block>
+      </CardItemFooter>
     </CardItem>
   </Card>)
 });
@@ -1139,24 +1846,73 @@ Component.cards.push({
 Component.cards.push({
   'simple': (
   <Card>
-    <CardItem
-      header={true}
-      headerTitle='Car photography'
-      headerSubhead='By John Doe'
-      leftImage='assets/img/car.jpg'
-    >
-      <BtnItem
-        classes={'flat'}
-        label='A'
-        type='succes'
-        rippleEffect={true}
-      />
-      <BtnItem
-        classes={'flat'}
-        label='B'
-        type='warning'
-        rippleEffect={true}
-      />
+    <CardItem>
+      <CardItemHeader>
+        <Block type="div" classes={"card-header-image"}>
+          <Image src="assets/img/card-user-img.jpg" alt="Card Header Image" />
+        </Block>
+
+        <Block type="div" classes={"card-header-text"}>
+          <Text type="a" href="#card-gallery" classes={"e-title"}>Car photography</Text>
+          <Text type="h3" classes={"e-subhead e-text-blue-grey-400"}>By John Doe</Text>
+        </Block>
+      </CardItemHeader>
+
+      <CardItemFooter>
+        <Block type="div" classes={"e-right"}>
+          <BtnItem
+            classes={'flat e-text-indigo-400'}
+            label='A'
+            type='danger'
+            rippleEffect={true}
+          />
+        </Block>
+        <Block type="div" classes={"e-left"}>
+          <BtnItem
+            classes={'flat'}
+            label='B'
+            type='default'
+            rippleEffect={true}
+          />
+        </Block>
+      </CardItemFooter>
+    </CardItem>
+  </Card>)
+});
+
+Component.cards.push({
+  'left-image': (
+  <Card>
+    <CardItem>
+      <Block type="div" classes={"left-image"}>
+        <Image src="assets/img/car.jpg" alt="Card Header Image" />
+      </Block>
+
+      <Block type="div" classes={"content-after-image"}>
+        <Block type="div" classes={"card-supporting-text"}>
+          <Text type="h1" classes={"e-title"}>Car photography</Text>
+          <Text type="p" classes={"e-subhead"}>By John Doe</Text>
+        </Block>
+
+        <CardItemFooter>
+          <Block type="div" classes={"e-right"}>
+            <BtnItem
+              classes={'flat e-text-indigo-400'}
+              label='A'
+              type='danger'
+              rippleEffect={true}
+            />
+          </Block>
+          <Block type="div" classes={"e-left"}>
+            <BtnItem
+              classes={'flat'}
+              label='B'
+              type='default'
+              rippleEffect={true}
+            />
+          </Block>
+        </CardItemFooter>
+      </Block>
     </CardItem>
   </Card>)
 });
@@ -1187,18 +1943,107 @@ Component.chips = (
   </Chip>
 );
 
+Component.datepicker = [];
+
+Component.datepicker.push({
+  'simple': (
+    <DatePicker>
+      <DatePickerHeader />
+      <DatePickerContent />
+      <DatePickerFooter>
+        <Btn>
+          <BtnItem
+            type='succes'
+            classes={'flat e-right'}
+            label='OK'
+            actionClick='datepicker'
+            actionType={{
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          />
+          <BtnItem
+            type='danger'
+            classes={'flat e-right'}
+            label='CANCEL'
+            actionClick='datepicker'
+            actionType={{
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          />
+        </Btn>
+      </DatePickerFooter>
+    </DatePicker>
+  )
+});
+
+Component.datepicker.push({
+  'horizontal': (
+    <DatePicker classes={'horizontal'}>
+      <DatePickerHeader />
+      <DatePickerContent />
+      <DatePickerFooter>
+        <Btn>
+          <BtnItem
+            type='succes'
+            classes={'flat e-right'}
+            label='OK'
+            actionClick='datepicker'
+            actionType={{
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          />
+          <BtnItem
+            type='danger'
+            classes={'flat e-right'}
+            label='CANCEL'
+            actionClick='datepicker'
+            actionType={{
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          />
+        </Btn>
+      </DatePickerFooter>
+    </DatePicker>
+  )
+});
+
 Component.dialogs = [];
 
 Component.dialogs.push({
-  'buttons': (
+  'button-simple': (
     <Btn>
       <BtnItem
         type='primary'
         classes={'raised'}
-        label='Show dialog'
+        label='Show Simple Dialog'
         rippleEffect={true}
         actionClick='dialog'
-        actionType='show'
+        actionType={{
+          'action': 'show',
+          'id': 'dialog-simple'
+        }}
+      />
+    </Btn>
+  )
+});
+
+Component.dialogs.push({
+  'button-full': (
+    <Btn>
+      <BtnItem
+        type='warning'
+        classes={'raised'}
+        label='Show Full Dialog'
+        rippleEffect={true}
+        actionClick='dialog'
+        actionType={{
+          'action': 'show',
+          'id': 'dialog-full'
+        }}
       />
     </Btn>
   )
@@ -1207,33 +2052,88 @@ Component.dialogs.push({
 Component.dialogs.push({
   'simple': (
     <Dialog>
-      <DialogItem
-        id='dialog-simple'
-        title='Dialog title'
-        content='When text labels exceed the maximum button width,
-        use stacked buttons to accommodate the text.
-        Affirmative actions are stacked above dismissive actions.'
-      >
-        <Btn>
-          <BtnItem
-            type='danger'
-            classes={'flat'}
-            label='Disagree'
-            actionClick='dialog'
-            actionType='hide'
-          />
-          <BtnItem
-            type='primary'
-            classes={'flat'}
-            label='Agree'
-            actionClick='dialog'
-            actionType='hide'
-          />
-        </Btn>
+      <DialogItem id='dialog-simple'>
+        <DialogItemHeader>
+          <Text type='h2'>Dialog title</Text>
+        </DialogItemHeader>
+
+        <DialogItemContent>
+          <Text type='p'>
+            When text labels exceed the maximum button width,
+            use stacked buttons to accommodate the text.
+            Affirmative actions are stacked above dismissive actions.
+          </Text>
+        </DialogItemContent>
+
+        <DialogItemFooter>
+          <Btn>
+            <BtnItem
+              type='danger'
+              classes={'flat'}
+              label='Disagree'
+              actionClick='dialog'
+              actionType={{
+                'action': 'hide',
+                'id': 'dialog-simple'
+              }}
+            />
+            <BtnItem
+              type='primary'
+              classes={'flat'}
+              label='Agree'
+              actionClick='dialog'
+              actionType={{
+                'action': 'hide',
+                'id': 'dialog-simple'
+              }}
+            />
+          </Btn>
+        </DialogItemFooter>
       </DialogItem>
     </Dialog>
   )
 });
+
+Component.dialogs.push({
+  'full': (
+    <Dialog>
+      <DialogItem id='dialog-full' full={true}>
+        <DialogItemHeader classes={'clearfix'}>
+          <Text type='a' href='#' classes={'e-dialog-header-action e-left'}>
+            <Icon name={'action-settings-bluetooth'} />
+          </Text>
+          <Text classes={'e-dialog-header-text'}>New event</Text>
+          <Text classes={'e-dialog-header-action e-right'}>
+            <Btn>
+              <BtnItem
+                classes={'e-button'}
+                label='X'
+                actionClick='dialog'
+                actionType={{
+                  'action': 'hide',
+                  'id': 'dialog-full'
+                }}
+              />
+            </Btn>
+          </Text>
+        </DialogItemHeader>
+
+        <DialogItemContent>
+          <Text type='h2' classes={'e-dialog-second-title'}>
+            Event
+          </Text>
+          <Text type='p'>
+            When text labels exceed the maximum button width,
+            use stacked buttons to accommodate the text.
+            Affirmative actions are stacked above dismissive actions.
+          </Text>
+        </DialogItemContent>
+      </DialogItem>
+    </Dialog>
+  )
+});
+
+
 
 Component.tooltip = (
   <Btn>
@@ -1292,141 +2192,272 @@ Component.lists = [];
 
 Component.lists.push({
   'single-line': (
-  <List
-    type='single-line'
-    avatar={true}
-    icon={true}
-  >
-    <ListItem
-      contentLink='#'
-      contentText='Attractions'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='communication-contacts'
-    />
-    <ListItem
-      contentLink='#'
-      contentText='Fun'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='communication-vpn-key'
-    />
-    <ListItem
-      contentLink='#'
-      contentText='Food'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='editor-insert-emoticon'
-    />
-    <ListItem
-      contentLink='#'
-      contentText='Kids'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='hardware-security'
-    />
+  <List type={'single-line'}>
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#attractions'>
+          <Block type='div' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Attractions'
+              classes={'e-list-avatar'}
+            />
+            <Text>Attractions</Text>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#attractions'>
+          <Icon name='communication-contacts' />
+        </Text>
+      </Block>
+    </ListItem>
 
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#fun'>
+          <Block type='div' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Fun'
+              classes={'e-list-avatar'}
+            />
+            <Text>Fun</Text>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#fun'>
+          <Icon name='communication-vpn-key' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#food'>
+          <Block type='div' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Food'
+              classes={'e-list-avatar'}
+            />
+            <Text>Food</Text>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#food'>
+          <Icon name='editor-insert-emoticon' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#kids'>
+          <Block type='div' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Kids'
+              classes={'e-list-avatar'}
+            />
+            <Text>Kids</Text>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#kids'>
+          <Icon name='hardware-security' />
+        </Text>
+      </Block>
+    </ListItem>
   </List>)
 });
 
 Component.lists.push({
   'two-line': (
-  <List
-    type='two-line'
-    avatar={true}
-    icon={true}
-  >
-    <ListItem
-      contentLink='#'
-      contentTitle='Attractions'
-      contentText='Here are more information about Attractions'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='communication-contacts'
-    />
-    <ListItem
-      contentLink='#'
-      contentTitle='Fun'
-      contentText='Here are more information about Fun'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='communication-vpn-key'
-    />
-    <ListItem
-      contentLink='#'
-      contentTitle='Food'
-      contentText='Here are more information about Food'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='editor-insert-emoticon'
-    />
-    <ListItem
-      contentLink='#'
-      contentTitle='Kids'
-      contentText='Here are more information about Kids'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='hardware-security'
-    />
+  <List type='two-line'>
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#attractions'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Attractions'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Attractions</Text>
+              <br />
+              <Text>Here are more information about Attractions</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#attractions'>
+          <Icon name='communication-contacts' />
+        </Text>
+      </Block>
+    </ListItem>
 
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#fun'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Fun'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Fun</Text>
+              <br />
+              <Text>Here are more information about Fun</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#fun'>
+          <Icon name='communication-vpn-key' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#food'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Food'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Food</Text>
+              <br />
+              <Text>Here are more information about Food</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#food'>
+          <Icon name='editor-insert-emoticon' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#kids'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Kids'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Kids</Text>
+              <br />
+              <Text>Here are more information about Kids</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#kids'>
+          <Icon name='hardware-security' />
+        </Text>
+      </Block>
+    </ListItem>
   </List>)
 });
 
 Component.lists.push({
   'multi-line': (
-  <List
-    type='multi-line'
-    avatar={true}
-    icon={true}
-  >
-    <ListItem
-      contentLink='#'
-      contentTitle='Attractions'
-      contentSubTitle='Info about Attractions'
-      contentText='Here are more information about Attractions'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='communication-contacts'
-    />
-    <ListItem
-      contentLink='#'
-      contentTitle='Fun'
-      contentSubTitle='Info about Fun'
-      contentText='Here are more information about Fun'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='communication-vpn-key'
-    />
-    <ListItem
-      contentLink='#'
-      contentTitle='Food'
-      contentSubTitle='Info about Food'
-      contentText='Here are more information about Food'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='editor-insert-emoticon'
-    />
-    <ListItem
-      contentLink='#'
-      contentTitle='Kids'
-      contentSubTitle='Info about Kids'
-      contentText='Here are more information about Kids'
-      avatarImg='assets/img/card-user-img.jpg'
-      avatarAlt='I am your Avatar'
-      avatarLink='#user'
-      icon='hardware-security'
-    />
+  <List type='multi-line'>
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#attractions'>
+          <Block type='div' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Attractions'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Attractions</Text>
+              <br />
+              <Text type='em'>Attractions subtitle</Text>
+              <br />
+              <Text>Here are more information about Attractions</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#attractions'>
+          <Icon name='communication-contacts' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#fun'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Fun'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Fun</Text>
+              <br />
+              <Text type='em'>Fun subtitle</Text>
+              <br />
+              <Text>Here are more information about Fun</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#fun'>
+          <Icon name='communication-vpn-key' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#food'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Food'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Food</Text>
+              <br />
+              <Text type='em'>Food subtitle</Text>
+              <br />
+              <Text>Here are more information about Food</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#food'>
+          <Icon name='editor-insert-emoticon' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#kids'>
+          <Block type='span' classes={'e-list-content'}>
+            <Image
+              src='assets/img/card-user-img.jpg'
+              alt='Kids'
+              classes={'e-list-avatar'}
+            />
+            <Block type='span'>
+              <Text type='strong'>Kids</Text>
+              <br />
+              <Text type='em'>Kids subtitle</Text>
+              <br />
+              <Text>Here are more information about Kids</Text>
+            </Block>
+          </Block>
+        </Text>
+        <Text type='a' classes={'brick-1'} href='#kids'>
+          <Icon name='hardware-security' />
+        </Text>
+      </Block>
+    </ListItem>
   </List>)
 });
 
@@ -1434,120 +2465,189 @@ Component.list_controls = [];
 
 Component.list_controls.push({
   'checkbox': (
-  <List
-    type='checkbox'
-    avatar={true}
-    icon={true}
-  >
-    <ListItem
-      inputName='input-checkbox'
-      contentLink='#'
-      contentText='First List Checkbox'
-      avatarLink='#'
-      icon='action-view-list'
-      isChecked={true}
-    />
-    <ListItem
-      inputName='input-checkbox'
-      contentLink='#'
-      contentText='Second List Checkbox'
-      avatarLink='#'
-      icon='action-view-week'
-    />
-    <ListItem
-      inputName='input-checkbox'
-      contentLink='#'
-      contentText='Third List Checkbox'
-      avatarLink='#'
-      icon='action-face-unlock'
-      isChecked={true}
-    />
-    <ListItem
-      inputName='input-checkbox'
-      contentLink='#'
-      contentText='Fourth List Checkbox'
-      avatarLink='#'
-      icon='action-settings-input-component'
-    />
+  <List type='checkbox'>
+    <ListItem>
+      <Block type='li'>
+        <SwitchItem
+          type='checkbox'
+          text='First List Checkbox'
+          name='checkbox1'
+        />
+        <Text type='a' classes={'brick-1'} href='#list'>
+          <Icon name='action-view-list' />
+        </Text>
+      </Block>
+    </ListItem>
 
+    <ListItem>
+      <Block type='li'>
+        <SwitchItem
+          type='checkbox'
+          text='Second List Checkbox'
+          name='checkbox2'
+          checked={true}
+        />
+        <Text type='a' classes={'brick-1'} href='#week'>
+          <Icon name='action-view-week' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <SwitchItem
+          type='checkbox'
+          text='Third List Checkbox'
+          name='checkbox3'
+        />
+        <Text type='a' classes={'brick-1'} href='#unlock'>
+          <Icon name='action-face-unlock' />
+        </Text>
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <SwitchItem
+          type='checkbox'
+          text='Fourth List Checkbox'
+          name='checkbox4'
+        />
+        <Text type='a' classes={'brick-1'} href='#settings'>
+          <Icon name='action-settings-input-component' />
+        </Text>
+      </Block>
+    </ListItem>
   </List>)
 });
 
 Component.list_controls.push({
   'checkbox-avatar': (
-  <List
-      type='checkbox'
-      avatar={true}
-      icon={true}
-      position='right'
-    >
-      <ListItem
-        inputName='input-checkbox-1'
-        contentLink='#'
-        contentText='First List Checkbox'
-        avatarLink='#user-image'
-        avatarImg='assets/img/card-user-img.jpg'
-        avatarAlt='User avatar image'
-      />
-      <ListItem
-        inputName='input-checkbox-2'
-        contentLink='#'
-        contentText='Second List Checkbox'
-        avatarLink='#user-image'
-        avatarImg='assets/img/card-user-img.jpg'
-        avatarAlt='User avatar image'
-        isChecked={true}
-      />
-      <ListItem
-        inputName='input-checkbox-3'
-        contentLink='#'
-        contentText='Third List Checkbox'
-        avatarLink='#user-image'
-        avatarImg='assets/img/card-user-img.jpg'
-        avatarAlt='User avatar image'
-      />
-      <ListItem
-        inputName='input-checkbox-4'
-        contentLink='#'
-        contentText='Fourth List Checkbox'
-        avatarLink='#user-image'
-        avatarImg='assets/img/card-user-img.jpg'
-        avatarAlt='User avatar image'
-        isChecked={true}
-      />
+  <List type='checkbox' position='right'>
+      <ListItem>
+        <Block type='li'>
+          <Text type='a' classes={'brick-11'} href='#attractions'>
+            <Block classes={'e-list-content'}>
+              <Image
+                src='assets/img/card-user-img.jpg'
+                alt='1st List checkbox'
+                classes={'e-list-avatar'}
+              />
+              <Block type='span'>
+                <Text type='strong'>1st List checkbox</Text>
+              </Block>
+            </Block>
+          </Text>
+          <SwitchItem
+            type='checkbox'
+            name='checkbox1'
+          />
+        </Block>
+      </ListItem>
+
+      <ListItem>
+        <Block type='li'>
+          <Text type='a' classes={'brick-11'} href='#attractions'>
+            <Block classes={'e-list-content'}>
+              <Image
+                src='assets/img/card-user-img.jpg'
+                alt='2nd List checkbox'
+                classes={'e-list-avatar'}
+              />
+              <Block type='span'>
+                <Text type='strong'>2nd List checkbox</Text>
+              </Block>
+            </Block>
+          </Text>
+          <SwitchItem
+            type='checkbox'
+            name='checkbox2'
+          />
+        </Block>
+      </ListItem>
+
+      <ListItem>
+        <Block type='li'>
+          <Text type='a' classes={'brick-11'} href='#attractions'>
+            <Block classes={'e-list-content'}>
+              <Image
+                src='assets/img/card-user-img.jpg'
+                alt='3rd List checkbox'
+                classes={'e-list-avatar'}
+              />
+              <Block type='span'>
+                <Text type='strong'>3rd List checkbox</Text>
+              </Block>
+            </Block>
+          </Text>
+          <SwitchItem
+            type='checkbox'
+            name='checkbox3'
+          />
+        </Block>
+      </ListItem>
+
+      <ListItem>
+        <Block type='li'>
+          <Text type='a' classes={'brick-11'} href='#attractions'>
+            <Block classes={'e-list-content'}>
+              <Image
+                src='assets/img/card-user-img.jpg'
+                alt='4th List checkbox'
+                classes={'e-list-avatar'}
+              />
+              <Block type='span'>
+                <Text type='strong'>4th List checkbox</Text>
+              </Block>
+            </Block>
+          </Text>
+          <SwitchItem
+            type='checkbox'
+            name='checkbox4'
+          />
+        </Block>
+      </ListItem>
   </List>)
 });
 
 Component.list_controls.push({
   'switches': (
-  <List
-    type='switch'
-    avatar={true}
-    icon={true}
-  >
-    <ListItem
-      inputName='input-network-wifi'
-      contentLink='#network-wifi'
-      icon='device-network-wifi'
-      contentText='Wi-Fi Network'
-      avatarLink='#'
-      isChecked={true}
-    />
-    <ListItem
-      inputName='input-settings-bluetooth'
-      contentLink='#settings-bluetooth'
-      icon='action-settings-bluetooth'
-      contentText='Bluetooth settings'
-      avatarLink='#'
-    />
-    <ListItem
-      inputName='input-data-usage'
-      contentLink='#data-usage'
-      icon='device-data-usage'
-      contentText='Data usage'
-      avatarLink='#'
-      isHidden={true}
-    />
+  <List type='switch'>
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#wifi'>
+          <Icon name='device-network-wifi' classes={'e-text-amber-900'} />
+          <Text type='strong'>Wi-Fi Network</Text>
+        </Text>
+        <SwitchItem
+          type='switches'
+          name='input-network-wifi'
+          checked={true}
+        />
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#bluetooth'>
+          <Icon name='action-settings-bluetooth' classes={'e-text-indigo-400'} />
+          <Text type='strong'>Bluetooth settings</Text>
+        </Text>
+        <SwitchItem
+          type='switches'
+          name='input-settings-bluetooth'
+        />
+      </Block>
+    </ListItem>
+
+    <ListItem>
+      <Block type='li'>
+        <Text type='a' classes={'brick-11'} href='#data-usage'>
+          <Icon name='device-data-usage' classes={'e-text-red-800'} />
+          <Text type='strong'>Data usage</Text>
+        </Text>
+      </Block>
+    </ListItem>
   </List>)
 });
 
@@ -1609,7 +2709,7 @@ var menuAttractions =
     ;
 
 Component.list_controls.push({
-  'expand': (
+  'expand-offline': (
   <List
     type='expand'
     avatar={true}
@@ -1831,6 +2931,7 @@ Component.switches = (
       text='Radio Button 1'
       name='radioButton'
       defaultValue='value1'
+      checked={true}
     >
     </SwitchItem>
 
@@ -1846,6 +2947,7 @@ Component.switches = (
       type='checkbox'
       text='Switch Checkbox'
       name='checkbox1'
+      checked={true}
     >
     </SwitchItem>
 
@@ -1853,7 +2955,7 @@ Component.switches = (
       type='switches'
       beforeText='Switches before'
       afterText='Switches after'
-      checked={false}
+      checked={true}
       name='switches1'
     >
     </SwitchItem>
@@ -1869,13 +2971,13 @@ Component.snackbars_toast.push({
       id={'snackbar1'}
       classes={'snackbar-item'}
     >
-      Hello to you
+      Hello to you from Essence
     </SnackbarItem>
     <SnackbarItem
       id={'snackbar2'}
       classes={'snackbar-item'}
     >
-      Hello to me
+      Hello to them from Essence
     </SnackbarItem>
     <SnackbarItem
       id={'snackbar3'}
@@ -1915,6 +3017,7 @@ Component.snackbars_toast.push({
       rippleEffect={true}
       snackbar='snackbar3'
     />
+    <br />
     <BtnItem
       classes={'raised'}
       label='Toast 1 chicken'

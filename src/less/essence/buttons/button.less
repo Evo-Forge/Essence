@@ -2,7 +2,7 @@
 .e-btn {
   display: inline-block;
   height: @btn-unit*4.5;
-  padding: 0 @btn-unit;
+  padding: 0 @btn-unit*3;
   border: 0;
   margin:@btn-unit*0.75 @btn-unit*0.5;
   cursor: pointer;
@@ -11,7 +11,7 @@
   border-radius: @btn-unit*0.25;
   background-clip: padding-box;
   text-transform: uppercase;
-  font-size: @btn-unit*2;
+  font-size: @btn-unit*1.75;
 
   &:hover:not(.flat) {
     .e-shadow-2();
@@ -29,6 +29,9 @@
   }
 }
 
+.e-dialog .e-btn {
+  padding: 0 @btn-unit;
+}
 // special functions colors : default, primary, succes, info, warning, danger
 .e-btn-default {
   background-color:@e-color-grey-500;

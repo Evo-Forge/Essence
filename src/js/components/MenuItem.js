@@ -3,20 +3,22 @@
 var React = require('react/addons'),
     classSet = React.addons.classSet,
     Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'MenuItem',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub, Mobile, ClassNames],
 
     getInitialState: function() {
       return {
         isMobile: this.isMobile(),
         activeItems: [],
         classes: {
-          'divider': (this.props.options.type === "divider"),
-          'more': (this.props.options.type === "more")
+          'divider': (this.props.options && this.props.options.type === "divider"),
+          'more': (this.props.options && this.props.options.type === "more")
         }
       };
     },
@@ -140,7 +142,14 @@ module.exports = React.createClass({
         }
       }
 
-      return false;
+      return (
+        <li
+          onClick={self.handleEventAction}
+          key={"parent-"+id+"-link"}
+        >
+          {self.props.children}
+        </li>
+      );
     },
 
     render: function () {
@@ -155,6 +164,26 @@ module.exports = React.createClass({
           };
 
       classes = classSet(classes);
+
+      if (!options) {
+        var liClasses = {};
+
+        if (self.props.classes) {
+          liClasses = ClassNames(liClasses, self.props.classes);
+        }
+
+        liClasses = classSet(liClasses);
+
+        return (
+          <li
+            onClick={self.props.onClick}
+            key={"parent-"+self.props.id+"-link"}
+            className={liClasses}
+          >
+            {self.props.children}
+          </li>
+        );
+      }
 
       return (
         <ul

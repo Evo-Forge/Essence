@@ -4,7 +4,8 @@
   <div class="paper e-padding-top-50" id="components-paper">
     <div class="e-row e-margin-bottom-15">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500">Paper</h3>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Paper</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
       </div>
       <div id="components-paper-reactjs" class="e-paper-container brick brick-12 e-padding-top-25 e-margin-bottom-25 clearfix">
         <div class="e-paper-components">
@@ -43,15 +44,15 @@
         </div>
       </div>
       <div class="brick brick-12">
-        <p class="e-subhead">
+        <p class="e-body1 e-text-blue-grey-400">
           In material design, every pixel drawn by an application resides on a sheet of paper. Paper has a flat background color and can be sized to serve a variety of purposes. A typical layout is composed of multiple sheets of paper. Here you have some examples in the most common shapes and states.
         </p>
       </div>
     </div>
 
-    <div class="e-row">
+    <div class="e-row e-padding-bottom-75">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;div class=&quot;e-paper-components&quot;&gt;
   &lt;div class=&quot;e-paper e-shadow-1&quot;&gt;
@@ -91,7 +92,7 @@
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;Paper&gt;
   &lt;PaperItem
@@ -123,6 +124,46 @@
         </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Paper" tag to render a group or single "PaperItem" component. The "Paper" React tag will return a div container with a single or multiple &lt;PaperItem&gt; React tags with the class name "e-paper".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre>
+<span class="e-text-blue-500">&lt;Paper&gt;</span>
+  <span class="e-text-blue-500">&lt;PaperItem&gt;</span>
+    __react-components__
+  <span class="e-text-blue-500">&lt;/PaperItem&gt;</span>
+  <span class="e-text-blue-500">&lt;PaperItem type={'circle'}&gt;</span>
+    __react-components__
+  <span class="e-text-blue-500">&lt;/PaperItem&gt;</span>
+  <span class="e-text-blue-500">&lt;PaperItem type={'sharp'}&gt;</span>
+    __react-components__
+  <span class="e-text-blue-500">&lt;/PaperItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Paper&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to Paper or PaperItem component from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>type</u>
+          <br />
+           1. <strong>circle</strong>: append "circle" to class names list with the use of PaperItem component<br />
+           2. <strong>sharp</strong>: append "sharp" to class names list with the use of PaperItem component<br />
+          - use the examples from above to structure your own List
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Paper       -->

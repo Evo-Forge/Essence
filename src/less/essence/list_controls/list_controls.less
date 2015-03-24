@@ -1,11 +1,11 @@
 
-ul.has-checkbox,ul.has-switches,ul.has-dropdown{
+ul.has-checkbox, ul.has-switches, ul.has-dropdown{
    border: none;
 }
-.e-list.has-checkbox .e-checkbox{
-  margin-top: @e-unit * 1.375;
+.e-list .has-checkbox .e-checkbox{
+  margin-top: 0px;
   label{
-    padding-left: 0px;
+    // padding-left: 0px;
     span:last-child {
       text-indent: @e-unit * 1.875;
     }
@@ -14,11 +14,13 @@ ul.has-checkbox,ul.has-switches,ul.has-dropdown{
 
 //list controls right checkbox
 
-.e-list.has-right-checkbox{
+.e-list .has-right-checkbox {
   .e-checkbox{
-    margin-top:  @e-unit * 1.375;
+    margin-top:  -10px;
+    /*
     margin-right:  @e-unit * 1.25;
     float: right;
+    */
 
     label {
       padding-left: 0;
@@ -27,12 +29,12 @@ ul.has-checkbox,ul.has-switches,ul.has-dropdown{
 }
 
 //list controls switches
-.e-list.has-switches .e-switches{
+.e-list .has-switches .e-switches{
   position: absolute;
   right: @e-unit * 3.5;
   top: 13px;
 }
-.e-list.has-dropdown .e-submenu {
+.e-list .has-dropdown .e-submenu {
   display: block !important;
   border: 1px solid lightgrey;
   margin-left: -@e-unit * 2.125;

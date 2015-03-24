@@ -9,9 +9,11 @@ module.exports = function (element) {
       (element.offsetLeft - element.scrollLeft) + element.clientLeft)
     ;
     yPosition += (
-      (element.offsetTop - element.scrollTop) + element.clientTop
-    );
+      (element.offsetTop - element.scrollTop) + element.clientTop)
+    ;
+    //console.log("Element Position: " + element);
     element = element.offsetParent;
+    //console.log("Element offsetParent Position: " + element);
   }
 
   return { x: xPosition, y: yPosition };

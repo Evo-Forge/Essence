@@ -3,8 +3,9 @@
   <div class="chips e-padding-top-50" id="components-chips">
     <div class="e-row">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500 ">Chips</h3>
-        <p class="e-subhead">They cannot be eaten. But can be used to show complex information, such as calendar events or contacts. Use them wisely by adding the e-chip-image/text/address class, as well as desired button class to your nifty code.</p>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Chips</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">They cannot be eaten. But can be used to show complex information, such as calendar events or contacts. Use them wisely by adding the e-chip-image/text/address class, as well as desired button class to your nifty code.</p>
       </div>
 
       <div class="brick brick-4" id="components-chips-reactjs">
@@ -49,9 +50,9 @@
 
     </div>
 
-    <div class="e-row">
+    <div class="e-row e-padding-bottom-75">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;div id="chips"&gt;
   &lt;ul class=""&gt;
@@ -94,7 +95,7 @@
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;Chip&gt;
   &lt;ChipItem
@@ -122,6 +123,44 @@
               </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Chip components are used in the search results to display contact information. <br />
+          Use the "Chip" tag to render a group or single "ChipItem" components. The "Chip" React tag will return a <strong>&lt;ul&gt;</strong> list container with a single or multiple &lt;li&gt; tag which contains a div with class "e-chip".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre>
+<span class="e-text-blue-500">&lt;Chip&gt;</span>
+  <span class="e-text-blue-600">&lt;ChipItem
+    image='<span class="e-text-blue-900">__image-url__</span>'
+    imageAlt='<span class="e-text-blue-900">__image-alt-text__</span>'
+    name='<span class="e-text-blue-900">__contact-text-or-name__</span>'
+    email='<span class="e-text-blue-900">__contact-email-address__</span>'
+  &gt;</span>
+  <span class="e-text-blue-600">&lt;/ChipItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Chip&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any ChipItem subcomponent from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>image</u>: image file for contact avatar<br />
+          - <u>imageAlt</u>: image alternative text for contact avatar<br />
+          - <u>name</u>: text for contact name<br />
+          - <u>email</u>: email address for contact name<br />
+        </p>
+      </div>
+    </div>
+
   </div>
   <!--   END Component - CHIPS       -->
 </div>

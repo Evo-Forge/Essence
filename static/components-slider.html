@@ -4,7 +4,8 @@
   <div class="slider e-padding-top-50" id="components-slider">
     <div class="e-row e-margin-bottom-15">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500">Slider</h3>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Slider</h3>
+        <div class="e-divider thick short e-background-indigo-400 e-margin-bottom-50"></div>
 
         <div id="components-slider-simple">
           <div>
@@ -90,7 +91,7 @@
       </div>
 
       <div class="brick brick-12">
-        <p class="e-subhead">
+        <p class="e-body1 e-text-blue-grey-400">
 Slider text
         </p>
       </div>
@@ -98,7 +99,7 @@ Slider text
 
     <div class="e-row">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;div&gt;
   &lt;div class=&quot;e-slider&quot;&gt;
@@ -175,7 +176,7 @@ Slider text
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;Slider&gt;
   &lt;SliderItem start={10} fill={false} /&gt;
@@ -193,6 +194,31 @@ Slider text
         </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Slider" tag to render a group of "SliderItem" components. The "Slider" React tag will return a div container with a group of &lt;div&gt; html tags for SliderItem components. Inside the Slider component you can include only the <strong class="e-text-red">SliderItem</strong> component. <br />
+          A "SliderItem" React component will render one &lt;input &gt; html tag for the current value to be set as the input default value.<br />
+          <br />
+<!--
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to SliderItem components from Styles > Colors menu<br />
+          <br />
+ -->
+          &bull; Options<br />
+          - <u>start</u>: integer value to set the initial value; values: 0 to 100<br />
+          - <u>fill</u>: return a colored track to indicate the current value position<br />
+          - <u>discrete</u>: if set to <strong>true</strong> it uses the "discrete" class name to render a indicator for the current value<br />
+          - <u>disabled</u>: if set to <strong>true</strong> it uses the "disabled" class name to render a non-editable component<br />
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Slider       -->

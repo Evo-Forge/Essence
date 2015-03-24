@@ -1,3 +1,11 @@
+.column( @numPerRow, @margin : @gutter ) {
+  @halfMargin   : ( @margin / 2 );
+  @newWidth     : ( (100% - ( @numPerRow * @margin ) ) / @numPerRow );
+  width         : ( @newWidth / 100% ) * 100%;
+  margin        : 0 @halfMargin;
+  margin-bottom : @halfMargin;
+}
+
 .box-shadow(@box-shadow) {
   -webkit-box-shadow: @box-shadow;  /* Safari & Chrome*/
   -moz-box-shadow:    @box-shadow;  /* Mozilla */

@@ -4,30 +4,84 @@
   <div class="dividers e-padding-top-50" id="components-dividers">
     <div class="e-row e-margin-bottom-15">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500">Dividers</h3>
-        <hr class="divider ">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Dividers</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">According to our needs we created some dividers and stored them in a .less file called, you've guest it, dividers.</p>
       </div>
 
       <div class="brick brick-12">
-        <p class="e-subhead">Ironically, the least complex class you’ll ever use. </p>
+        <p class="e-body1 e-text-blue-grey-400">We've created three values for width and five values for height. You can combine them as you please.</p>
+        <p class="e-body1 e-text-blue-grey-400">For example, to get a thin, long divider you add the classes <code>.e-divider .thin .long</code> to an empty &lt;div&gt; and set it's background color.</p>
+        <div class="e-divider thin long e-background-indigo-700"></div>
+        <p class="e-body1 e-text-blue-grey-400">The available values for height are: thinnest, thin, regular, thick, thickest. For width we have: short, medium, long.</p>
       </div>
     </div>
 
     <div class="e-row">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2 small">
-&lt;hr class="divider"&gt;
+&lt;div class="e-divider thin long e-background-indigo-700"&gt;&lt;div&gt;
 </pre>
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2 small">
-&lt;Divider /&gt;
+&lt;Divider classes={'thin long e-background-indigo-700'} /&gt;
+        </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-12">
+        <p class="e-body1 e-text-blue-grey-400">To get a divider to strech the full width of its parent container, simply leave out the width value as in the following example: <code>.e-divider .thick</code></p>
+        <div class="e-divider thick e-background-indigo-700"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2 small">
+&lt;div class="e-divider thick e-background-indigo-700"&gt;&lt;div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2 small">
+&lt;Divider classes={'thick e-background-indigo-700'} /&gt;
 </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          The "Divider" React tag will return a div container with the class name "e-divider" to separate content.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre>
+<span class="e-text-blue-500">&lt;Divider classes={'__css-classes__'} /&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: <strong>thick</strong> - for minimum height of 5px or <strong>thin</strong> for minimum height of 1px
+          <br />
+          - <u>color</u>: change the color with a <strong>e-background</strong> class name from Styles > Colors menu<br />
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Divider       -->

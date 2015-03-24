@@ -2,17 +2,18 @@
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
-    PubSub = require('../utils/PubSub'),
-    Mobile = require('../utils/Mobile'),
-    PositionH = require('../utils/PositionHorizontal'),
     Text = require('./Text'),
     Icon = require('./Icon'),
-    MenuItem = require('./MenuItem');
+    MenuItem = require('./MenuItem'),
+    PubSub = require('../utils/PubSub'),
+    Mobile = require('../utils/Mobile'),
+    ClassNames = require('../utils/ClassNames'),
+    PositionH = require('../utils/PositionHorizontal');
 
 module.exports = React.createClass({
     displayName: 'Menu',
 
-    mixins: [PubSub, Mobile, PositionH],
+    mixins: [PubSub, Mobile, PositionH, ClassNames],
 
     getInitialState: function() {
       var self = this,
@@ -20,7 +21,8 @@ module.exports = React.createClass({
 
       return {
         children: [],
-        isHidden: options.hide,
+        isHidden: true,
+        placeholder: null,
         isRightPosition: false,
         classes: {
           'mobile': this.isMobile(),
@@ -35,9 +37,17 @@ module.exports = React.createClass({
       var self = this,
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
+
       self.subscribe('toggleMenu_for_' + menuID, function(data) {
         self.showMenu(data);
       });
+
+      /*document.addEventListener("click", function(event){
+        self.setState({
+          isHidden: self.state.isHidden ? false : true,
+        });
+      });*/
+
     },
 
     componentDidUnmount: function () {
@@ -45,6 +55,10 @@ module.exports = React.createClass({
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
       this.unsubscribe('toggleMenu_for_' + menuID, null);
+
+      document.removeEventListener("click", function(){
+        /* none */
+      });
     },
 
     renderMenuTitle: function () {
@@ -92,9 +106,11 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
 
       if (extraClasses) {
-        (extraClasses).map(function (item) {
-          classes[item] = true;
-        });
+        classes = ClassNames(classes, extraClasses);
+      }
+
+      if (self.props.classes) {
+        classes = ClassNames(classes, self.props.classes);
       }
 
       classes = classSet(classes);
@@ -113,11 +129,14 @@ module.exports = React.createClass({
 
     showMenu: function (ev) {
       var self = this,
+          target = ev.currentTarget,
+          targetText = target.textContent,
           elemPosition = PositionH(ev.target);
 
       self.setState({
         isRightPosition: elemPosition.position === 'right' ? true : false,
-        isHidden: self.state.isHidden ? false : true
+        isHidden: self.state.isHidden ? false : true,
+        placeholder: targetText
       });
     },
 
@@ -148,6 +167,8 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
+          childPlaceholder = null,
+          children = [],
           items = [];
 
       if (self.props.items) {
@@ -158,7 +179,48 @@ module.exports = React.createClass({
         return items;
       }
 
-      return false;
+      var ulClasses = {
+        "e-nav": true,
+        "e-paper": true,
+        "e-shadow-1": true,
+        "right": self.props.right,
+        "hide": self.state.isHidden
+      },
+      placeholder = (self.state.placeholder) ? self.state.placeholder :
+            self.props.placeholder ? self.props.placeholder : null;
+
+      ulClasses = classSet(ulClasses);
+
+      if (self.props.placeholder) {
+        childPlaceholder = (
+          <Text
+            onClick={self.showMenu}
+            id={"text-for-" + self.props.id}
+          >
+            {placeholder}
+            <Icon name={'navigation-arrow-drop-down'} />
+          </Text>
+        );
+      }
+
+      self.props.children.map(function(item, index) {
+        children.push(
+          React.addons.cloneWithProps(item, {
+            id: self.props.id,
+            key: index,
+            onClick: self.showMenu
+          })
+        );
+      });
+
+      return (
+        <div>
+          {childPlaceholder}
+          <ul className={ulClasses} id={self.props.id}>
+            {children}
+          </ul>
+        </div>
+      );
     },
 
     render: function () {

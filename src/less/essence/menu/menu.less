@@ -5,6 +5,7 @@
 
 .e-nav-menu .e-paper {
   padding: 0 !important;
+  min-width: 200px;
 }
 
 .e-nav-menu .e-nav {
@@ -15,10 +16,6 @@
 }
 
 .e-nav-menu ul {
-  background-color: #fff;
-  display: table;
-  z-index: 1;
-  margin: 0;
   li {
     display: block;
     font-size: 15px;
@@ -28,19 +25,25 @@
       }
     }
     i {
-      
+
     }
   }
 
 }
-.e-nav-menu > ul{
+
+.e-nav-menu ul{
+  background-color: #fff;
+  display: table;
+  z-index: 1;
+  margin: 0;
 
   a {
     white-space: nowrap;
     color: inherit;
+    display: block;
   }
 
-  & > li{
+  li {
     position: relative;
     height: @e-unit * 4;
     line-height: @e-unit * 4;
@@ -90,24 +93,16 @@
   }
 }
 
-hr.divider {
+.e-nav-menu .divider {
   display: block;
-  height: 1px !important;
-  margin: (@e-unit * 3) 0;
-}
-
-.e-nav-menu ul li.divider {
-  display: block;
-  height: 1px !important;
   margin: @e-unit 0;
-
   background-color: rgba(0,0,0, 0.12);
+  height: 1px !important;
 }
 
 .e-nav-menu.cover ul.e-nav {
   top: 0;
 }
-  
 
 .e-menu-shortcut {
   min-width: 150px;

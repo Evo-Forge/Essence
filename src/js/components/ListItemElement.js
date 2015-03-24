@@ -2,17 +2,26 @@
 
 var React = require('react/addons'),
     PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ListItemElement',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         text: false
       };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes;
+
+      this.setState({
+        classes: classes
+      });
     },
 
     componentWillReceiveProps: function () {
@@ -22,19 +31,25 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
-          classes = self.state.classes;
+          classes = classSet( ClassNames(self.state.classes, this.props.classes) );
 
-      classes = classSet(classes);
+      if (self.props.element) {
+        return (
+          <li className={classes}>
+            <a
+              id={self.props.element.id}
+              href={self.props.element.link}
+              onClick={self.props._onClick}
+            >
+              {self.props.element.text}
+            </a>
+          </li>
+        );
+      }
 
       return (
-        <li>
-          <a
-            id={self.props.element.id}
-            href={self.props.element.link}
-            onClick={self.props._onClick}
-          >
-            {self.props.element.text}
-          </a>
+        <li className={classes}>
+          {self.props.children}
         </li>
       );
     },

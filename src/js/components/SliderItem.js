@@ -2,13 +2,14 @@
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
+    PositionHorizontal = require('../utils/PositionHorizontal'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
     displayName: 'SliderItem',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub, Mobile, PositionHorizontal],
 
     getInitialState: function() {
       return {
@@ -20,6 +21,7 @@ module.exports = React.createClass({
           'discrete': (this.props.discrete ? true : false),
           'zero': (this.props.start < 1 ? true : false)
         },
+        inputValue: (this.props.start || 0),
         discrete: (this.props.start || 0),
         handleStyles: { left: this.props.start ? this.props.start+'%' : '0%' },
         fillStyles: { width: this.props.start ? this.props.start+'%' : '0%' },
@@ -65,14 +67,20 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes,
           discreteStyles = self.state.discreteStyles,
-          element = event.target,
-          //width = element.parentNode.offsetParent.offsetWidth,
-          width = event.currentTarget.offsetWidth,
-          widthLeft = event.currentTarget.offsetLeft,
           clientX = (self.state.isMobile) ?
               event.changedTouches[0].clientX : event.clientX,
-          horizontal = (((clientX - widthLeft) / width) * 100).toFixed(0),
+          element = this.refs.sliderHandle.getDOMNode(),
+          //elementBounding = element.getBoundingClientRect(),
+          sliderParent = this.refs.sliderParent.getDOMNode(),
+          offset = clientX - sliderParent.offsetParent.offsetLeft,
+          horizontal = ((offset / sliderParent.offsetWidth ) * 100).toFixed(0),
           horizontalFill = horizontal;
+
+      if (((offset / sliderParent.offsetWidth ) * 100) < 1) {
+          horizontal = horizontalFill = 0;
+      } else if (((offset / sliderParent.offsetWidth ) * 100) > 100) {
+          horizontal = horizontalFill = 100;
+      }
 
       if (self.props.steps) {
         horizontal = horizontalFill = (Math.round((horizontal / 20)) * 20);
@@ -88,7 +96,9 @@ module.exports = React.createClass({
 
           fillStyles: {
             width: horizontalFill + "%"
-          }
+          },
+
+          inputValue: horizontal
         });
 
         discreteStyles.marginLeft = horizontal + '%';
@@ -172,6 +182,7 @@ module.exports = React.createClass({
     renderSlider: function () {
       var self = this,
           classes = self.state.classes,
+          inputName = self.props.name || "sliderInput",
           onMove = self.state.isMoving ? self.renderMove : null;
 
       if (self.props.disable) {
@@ -183,12 +194,14 @@ module.exports = React.createClass({
       return (
         <div
             className={classes}
+            onMouseLeave={self.renderMoveEnd}
             onMouseDown={self.renderMoveStart}
             onMouseUp={self.renderMoveEnd}
             onMouseMove={onMove}
             onTouchStart={self.renderMoveStart}
             onTouchEnd={self.renderMoveEnd}
             onTouchMove={onMove}
+            ref="sliderParent"
           >
           <div className="e-slider-track">
             <div
@@ -201,6 +214,7 @@ module.exports = React.createClass({
           {self.renderFill()}
           {self.renderDiscrete()}
           {self.renderSteps()}
+          <input name={inputName} defaultValue={self.state.inputValue} className={'hide'} />
         </div>
       );
     },

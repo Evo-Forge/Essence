@@ -1,56 +1,47 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'InputItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: "",
+        classes: [],
         counter: {
           current: 0,
           maximum: 50
         },
-        inputClasses: {},
+        inputClasses: [],
         inputValue: ''
       };
     },
 
     componentDidMount: function () {
       var self = this,
-          parentClass = {},
-          inputClass = {},
-          counter = self.state.counter,
-          cx = React.addons.classSet;
-
-      (self.props.classes.split(" ")).map(function (s) {
-        parentClass[s] = true;
-      });
-
-      (self.props.inputClasses.split(" ")).map(function (s) {
-        inputClass[s] = true;
-      });
+          parentClass = self.props.classes || [],
+          inputClass = self.props.inputClasses || [],
+          counter = self.state.counter;
 
       if ( parseInt(self.props.counter) > 0 ) {
         counter.maximum = parseInt(self.props.counter);
       }
 
       self.setState({
-        classes: cx(parentClass),
-        inputClasses: cx(inputClass),
+        classes: parentClass,
+        inputClasses: inputClass,
         counter: counter
       });
-
     },
 
     handleChange: function (eventChange) {
       var self = this,
-          cx = React.addons.classSet,
           counter = self.state.counter,
           inputClasses = {},
           inputValue = eventChange.target.value;
@@ -70,13 +61,13 @@ module.exports = React.createClass({
       self.setState({
         counter: counter,
         inputValue: inputValue,
-        inputClasses: cx(inputClasses)
+        inputClasses: classSet(inputClasses)
       });
     },
 
     renderLabel: function () {
       if (!this.props.label || this.props.placeholder) {
-        return '';
+        return null;
       }
 
       return (
@@ -88,7 +79,7 @@ module.exports = React.createClass({
 
     renderHint: function () {
       if (!this.props.hint) {
-        return '';
+        return null;
       }
 
       return (
@@ -101,7 +92,7 @@ module.exports = React.createClass({
     renderCounter: function () {
       var self = this;
       if (!self.props.counter) {
-        return '';
+        return null;
       }
 
       return (
@@ -122,34 +113,34 @@ module.exports = React.createClass({
           placeholder = (self.props.placeholder ? self.props.placeholder : ''),
           isRequired = (self.props.required ? true : false),
           isDisabled = (self.props.disabled ? true : false),
-          type = (self.props.type ? self.props.type : ''),
+          type = (self.props.type ? self.props.type : 'text'),
           value = (self.props.value ? self.props.value :
             (self.state.inputValue ? self.state.inputValue : '')
           ),
-          name = (self.props.name ? self.props.name : '');
+          name = (self.props.name ? self.props.name : ''),
+          inputClasses = classSet(self.state.inputClasses);
 
       if (type === 'textarea') {
         return (
           <textarea
-            className={self.state.inputClasses}
+            className={inputClasses}
             type={type}
             name={name}
-            value={value}
+            defaultValue={value}
             required={isRequired}
             disabled={isDisabled}
             placeholder={placeholder}
             onChange={self.handleChange}
-          >
-          </textarea>
+          />
         );
       }
 
       return (
         <input
-          className={self.state.inputClasses}
+          className={inputClasses}
           type={type}
           name={name}
-          value={value}
+          defaultValue={value}
           required={isRequired}
           disabled={isDisabled}
           placeholder={placeholder}
@@ -160,7 +151,7 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this,
-          classes = self.state.classes;
+          classes = classSet(self.state.classes);
 
       return (
         <div className={classes}>

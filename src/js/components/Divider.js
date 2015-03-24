@@ -1,45 +1,33 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Divider',
 
-    mixins: [PubSub],
+    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
-        classes: [{
-          'divider': true
-        }],
-        text: false
+        classes: {
+          'e-divider': true
+        }
       };
     },
 
-    componentWillReceiveProps: function () {
-      var self = this;
-      self.renderChildren();
+    componentDidMount: function () {
+      this.setState({
+        classes: this.state.classes
+      });
     },
 
     renderChildren: function () {
       var self = this,
-          classes = self.state.classes,
-          childrens = React.Children.count(self.props.children),
-          children = [];
+          classes = classSet(ClassNames(self.state.classes, self.props.classes));
 
-      if (childrens === 1) {
-        children.push(self.props.children);
-      } else if (childrens > 1) {
-        self.props.children.map(function (item) {
-          children.push(item);
-        });
-      }
-
-      classes = classSet(classes);
-
-      return (<hr className={classes} />);
+      return (<div className={classes} />);
     },
 
     render: function () {

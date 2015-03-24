@@ -14,6 +14,20 @@ module.exports = function (grunt, options) {
         watch: true,
         keepAlive: true
       }
+    },
+
+    example: {
+      files: {
+        '<%= paths.js %>/essence.min.js': ['<%= paths.javascripts %>/example.js'],
+        'examples/project-template/dist/js/essence.min.js': ['<%= paths.javascripts %>/example.js']
+      },
+      options: {
+        transform: [
+          ['reactify', {'es6': true}]
+        ],
+        watch: false,
+        keepAlive: false
+      }
     }
-  }
+  };
 };

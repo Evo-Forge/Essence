@@ -4,9 +4,10 @@
   <div class="switches e-padding-top-50" id="components-switches">
     <div class="e-row e-margin-bottom-15">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500">Switches</h3>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Switches</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
 
-        <div id="components-switches-reactjs">
+        <div id="components-switches-reactjs" class="e-padding-top-25">
           <div class="e-switch">
             <div class="e-radio e-radio-success">
               <label>
@@ -39,13 +40,13 @@
 
       </div>
       <div class="brick brick-12">
-        <p class="e-subhead">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor. </p>
+        <p class="e-body1 e-text-blue-grey-400">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor. </p>
       </div>
     </div>
 
-    <div class="e-row">
+    <div class="e-row e-padding-bottom-75">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;div class="e-switch"&gt;
   &lt;div class="e-radio e-radio-success"&gt;
@@ -79,7 +80,7 @@
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;Switch&gt;
   &lt;SwitchItem
@@ -117,6 +118,51 @@
 </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Switch" tag to render a group of "SwitchItem" components. Inside the Switch component you can include only the <strong class="e-text-red">SwitchItem</strong> component. <br />
+
+          &bull; Structure <br />
+          <pre>
+<span class="e-text-blue-500">&lt;Switch&gt;</span>
+  <span class="e-text-blue-500">&lt;SwitchItem
+  type='__radio-or-checkbox-or-switches'
+  text='__your-text__'
+  name='__input-name__'
+  checked='__true-or-false__'
+  beforeText='__preppend-your-text__'
+  afterText='__append-your-text__'
+  &gt;</span>
+  <span class="e-text-blue-500">&lt;/SwitchItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Switch&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - no styling required<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> with type: <strong>circle</strong> will render a small circle visualization
+          - <u>type</u>
+          <br />
+           1. <strong>slider</strong>: appends "slider" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           2. <strong>circle</strong>: appends "circle" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           3. <strong>dots</strong>: appends "dots" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           4. <strong>fix</strong>: appends "fix" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           5. <strong>dynamic</strong>: appends "dynamic" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+          - <u>defaultValue</u> - set the default value of input<br />
+          - <u>checked</u> - <strong>true</strong> or <strong>false</strong> set the checked attribute value<br />
+          <br />
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Switches       -->

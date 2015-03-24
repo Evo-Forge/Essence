@@ -12,27 +12,19 @@ module.exports = React.createClass({
     },
 
     renderChildren: function () {
-      var self = this,
-          children = [];
-
-      self.props.children.map(function (item) {
-        children.push(item);
-      });
-
-      return children;
-    },
-
-    componentWillReceiveProps: function () {
       var self = this;
-      self.renderChildren();
+
+      if (self.props.children) {
+        return self.props.children;
+      }
+
+      return null;
     },
 
     render: function () {
       var self = this;
       return (
-        <div>
-          {self.renderChildren()}
-        </div>
+        <div>{self.renderChildren()}</div>
       );
     }
 });

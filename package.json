@@ -1,7 +1,7 @@
 {
   "name": "essence",
   "version": "0.0.1",
-  "description": "Essence - The Essential Material Design Framework",
+  "description": "essence - basic material design UI framework",
   "private": true,
   "keywords": [
     "essence",
@@ -23,15 +23,15 @@
     "tasks": "./tasks/*.js"
   },
   "devDependencies": {
-    "react": "^0.12",
+    "browserify": "~3.44.x",
     "grunt": "^0.4.5",
     "grunt-browserify": "~3.2.1",
+    "grunt-contrib-less": "^0.12.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-lesslint": "^1.1.13",
     "load-grunt-configs": "^0.4.1",
     "load-grunt-tasks": "^1.0.0",
-    "reactify": "~0.17.1",
-    "browserify": "~3.44.x",
-    "grunt-contrib-less": "^0.12.0",
-    "grunt-lesslint": "^1.1.13"
+    "react": "^0.12",
+    "reactify": "~0.17.1"
   }
 }

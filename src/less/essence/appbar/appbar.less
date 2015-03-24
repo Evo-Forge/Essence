@@ -2,12 +2,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 777;
+  z-index: 3;
   width: 100%;
   line-height: 20px;
   background: #FAFAFA;
   color: #000;
-  font-size: 24px;
+  font-size: 25px;
   box-sizing: border-box;
   cursor: pointer;
 
@@ -60,12 +60,18 @@
   }
 }
 
-.e-appbar span {
+.e-appbar > span {
 
-  .e-headline();
+  .e-title();
 
   padding-left: 12px;
   color: inherit;
-  line-height: inherit;
+  line-height: 24px;
+  text-transform: uppercase;
+  @media all and (max-width: 640px) {
+    .e-subhead();
+    color: inherit;
+    line-height: 24px;
+  }
 }
 

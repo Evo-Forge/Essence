@@ -35,10 +35,6 @@ module.exports = React.createClass({
     render: function () {
       var self = this;
 
-      return (
-        <div>
-          {self.renderChildren()}
-        </div>
-      );
+      return (<div>{self.renderChildren()}</div>);
     }
 });

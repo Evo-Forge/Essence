@@ -1,10 +1,13 @@
 'use strict';
 
 var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Icon',
+
+    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -12,30 +15,25 @@ module.exports = React.createClass({
       };
     },
 
-    componentDidMount: function () {
+    renderChildren() {
       var self = this,
-          classes = self.state.classes;
-
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
-      }
+          classes = ClassNames([], self.props.classes);
 
       if (self.props.name) {
         classes["e-icon-"+self.props.name] = true;
       }
 
-      self.setState({
-        classes: classSet(classes)
-      });
+      if (self.props.name) {
+        return (
+            <i className={classSet(classes)} />
+        );
+      }
+
+      return null;
     },
 
     render: function () {
       var self = this;
-
-      return (
-          <i className={self.state.classes} />
-      );
+      return self.renderChildren();
     }
 });

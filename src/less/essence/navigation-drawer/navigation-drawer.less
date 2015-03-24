@@ -6,27 +6,37 @@
    background-color: #fff;
    transition: all 0.3s ease-in-out;
 
-   nav {
-     position: relative;
-     box-sizing: border-box;
-     height: 100%;
-     padding-bottom: @e-unit * 12.5;
-
-     .e-navigation-wrapper {
-       height: 100%;
-       overflow-y: auto;
-     }
-   }
-
-   .e-nav-header {
-      padding: 0 (@e-unit * 2);
-      border-bottom: 1px solid #E0E0E0;
-
-      span.example-logo {
-        line-height: 64px;
-        font-size: @e-unit * 3.5;
-      }
+  nav {
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    .e-navigation-wrapper {
+      height: 100%;
+      overflow-y: auto;
     }
+  }
+
+  .e-nav-header {
+    padding: 0 (@e-unit * 2);
+    border-bottom: 1px solid #E0E0E0;
+    span.example-logo {
+      line-height: 64px;
+      font-size: @e-unit * 3.5;
+    }
+  }
+
+  .active .primaryListImage {
+    opacity: 1;
+  }
+
+  .primaryListImage {
+    width: 24px;
+    height: 24px;
+    float: left;
+    padding-top: 12px;
+    padding-right: 14px;
+    opacity: 0.6;
+  }
 
   ul {
     padding: 0 (@e-unit * 2);
@@ -109,6 +119,13 @@
 }
 
 @media all and (max-width: 1400px){
+  .e-modal-open {
+    overflow-y: hidden;
+    .e-main-content {
+
+    }
+  }
+
   .e-navigation-open {
     overflow-y: hidden;
 
@@ -131,6 +148,9 @@
     padding: 0;
   }
   .topmenu .e-appbar {
+    padding-left: 0 !important;
+  }
+  .e-footer {
     padding-left: 0 !important;
   }
 }

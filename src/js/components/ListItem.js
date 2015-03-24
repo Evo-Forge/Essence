@@ -2,30 +2,31 @@
 
 var React = require('react/addons'),
     Icon = require('./Icon'),
-    RippleInk = require('./RippleInk'),
+    Image = require('./Image'),
+    Text = require('./Text'),
     ListItemElement = require('./ListItemElement'),
     PubSub = require('../utils/PubSub'),
     Position = require('../utils/Position'),
     ClickPosition = require('../utils/ClickPosition'),
     BackgroundColor = require('../utils/BackgroundColor'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ListItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
-        classes: {
-          'e-checkbox': false,
-        },
+        classes: {},
         clickPosition: {
           x: 0,
           y: 0
         },
         dragCSS: {},
         isActive: null,
+        activeItem: null,
         expandSubmenu: '',
         fromElement: 0,
         toElement: 0
@@ -34,23 +35,10 @@ module.exports = React.createClass({
 
     componentDidMount: function () {
       var self = this,
-          classes = self.state.classes;
-
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
-      }
-
-      classes['has-avatar'] = (self.props.avatar) ? true : false;
-      classes['has-icon'] = (self.props.icon) ? true : false;
-      classes['has-checkbox'] = (self.props.checkbox) ? true : false;
-      classes['has-switches'] = (self.props.type === 'switch') ? true : false;
-      classes['has-right-checkbox'] = (self.props.position === 'right') ? true : false;
-      classes['multi-line'] = (self.props.type === 'lines') ? true : false;
+          classes = self.props.classes || [];
 
       self.setState({
-        classes: classSet(classes)
+        classes: classes
       });
     },
 
@@ -128,6 +116,8 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
+          classes = classSet( ClassNames(self.state.classes, self.props.classes) ),
+          childrens = React.Children.count(self.props.children),
           inputName = (self.props.inputName) ? self.props.inputName : '',
           contentLink = (self.props.contentLink) ? self.props.contentLink : '',
           contentText = (self.props.contentText) ? self.props.contentText : '',
@@ -136,12 +126,13 @@ module.exports = React.createClass({
           avatarLink = (self.props.avatarLink) ? self.props.avatarLink : '',
           avatarImg = (self.props.avatarImg) ? self.props.avatarImg : '',
           avatarAlt = (self.props.avatarAlt) ? self.props.avatarAlt : '',
+          primaryListImage = false,
           position = (self.props.position) ? self.props.position : false;
 
-      if (self.props.type === 'checkbox') {
+      if (self.props.listType === 'checkbox') {
         if (position === 'right') {
           return (
-            <li>
+            <li className={classes}>
               <a href={avatarLink}>
                   <span className={"e-list-content"}>
                     <img
@@ -169,7 +160,7 @@ module.exports = React.createClass({
         }
 
         return (
-          <li>
+          <li className={classes}>
             <div className={"e-checkbox"}>
               <label className={"e-list-content"}>
                 <input
@@ -190,7 +181,7 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'switch') {
+      if (self.props.listType === 'switch') {
         var showSwitchBox = '';
 
         if (!self.props.isHidden) {
@@ -208,7 +199,7 @@ module.exports = React.createClass({
           );
         }
         return (
-          <li>
+          <li className={classes}>
             <a href={avatarLink}>
               <span className={"e-list-content-fake"}>
                 <Icon classes={"e-list-icon"} name={self.props.icon} />
@@ -220,7 +211,7 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'reorder') {
+      if (self.props.listType === 'reorder') {
         return (
           <li
             id={self.props.id}
@@ -229,6 +220,7 @@ module.exports = React.createClass({
             onDragStart={self.dragStart}
             onDragOver={self.dragOver}
             style={self.state.dragCSS}
+            className={classes}
           >
             <a href={avatarLink}>
                 <span className={"e-list-content"}>
@@ -247,15 +239,58 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'navigation') {
+      if (self.props.listType === 'navigation') {
         var hasMore = null,
-            state_bgColor = this.state.bgColor,
-            state_clickPosition = this.state.clickPosition,
-            hasMenu = null;
+            hasMenu = null,
+            activeClass = (self.props.isActive) ? 'active' : null;
 
         if (self.props.more) {
           hasMore = (
             <Icon classes={"e-right"} name='hardware-keyboard-arrow-down' />
+          );
+        }
+
+        if (self.props.primaryListImage) {
+          primaryListImage = (
+            <img
+              className={'primaryListImage'}
+              src={self.props.primaryListImage}
+              alt={contentText}
+            />
+          );
+        }
+
+        if (self.props.hasSubmenu) {
+          var navigationItems = [];
+
+          self.props.children.map(function (i, k) {
+            var item = i;
+
+            item = (
+              React.addons.cloneWithProps(i, {
+                id: k,
+                key: k,
+                onClick: self.hideNavigation
+              })
+            );
+
+            navigationItems.push(item);
+          });
+
+          return (
+            <li className={activeClass}>
+              <a
+                href={contentLink}
+                onClick={self.showSubmenu}
+                id={self.props.id}
+              >
+                  {primaryListImage}
+                  {contentText}
+              </a>
+              <ul className={"e-sublist-navigation"}>
+                {navigationItems}
+              </ul>
+            </li>
           );
         }
 
@@ -288,6 +323,7 @@ module.exports = React.createClass({
               onClick={self.showSubmenu}
               id={self.props.id}
             >
+                {primaryListImage}
                 {contentText}
                 {hasMore}
             </a>
@@ -296,7 +332,7 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'expand') {
+      if (self.props.listType === 'expand') {
         var hasMore = null,
             hasMenu = null;
 
@@ -311,7 +347,10 @@ module.exports = React.createClass({
 
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
-              <li key={k}>
+              <li
+                key={k}
+                className={classes}
+                >
                 <a href={v.link}>
                   {v.text}
                 </a>
@@ -353,11 +392,11 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'single-line') {
+      if (self.props.listType === 'single-line') {
 
         if (self.props.icon && self.props.avatarImg) {
           return (
-            <li>
+            <li className={classes}>
               <a href={avatarLink}>
                 <span className="e-list-content">
                   {self.hasAvatar()}
@@ -372,7 +411,7 @@ module.exports = React.createClass({
         }
 
         return (
-          <li>
+          <li className={classes}>
             <a href={contentLink}>
               <span className="e-list-content">
                 {self.hasIcon()}
@@ -384,11 +423,10 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'two-line') {
-
-        if (self.props.icon && self.props.avatarImg) {
+      if (self.props.listType === 'two-line') {
+        if (self.props.icon) {
           return (
-            <li>
+            <li className={classes}>
               <a href={avatarLink}>
                 <span className="e-list-content">
                   {self.hasAvatar()}
@@ -407,7 +445,7 @@ module.exports = React.createClass({
         }
 
         return (
-          <li>
+          <li className={classes}>
             <a href={contentLink}>
               <span className="e-list-content">
                 {self.hasIcon()}
@@ -423,11 +461,10 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'multi-line') {
-
-        if (self.props.icon && self.props.avatarImg) {
+      if (self.props.listType === 'multi-line') {
+        if (self.props.icon) {
           return (
-            <li>
+            <li className={classes}>
               <a href={avatarLink}>
                 <span className="e-list-content">
                   {self.hasAvatar()}
@@ -448,7 +485,7 @@ module.exports = React.createClass({
         }
 
         return (
-          <li>
+          <li className={classes}>
             <a href={contentLink}>
               <span className="e-list-content">
                 {self.hasIcon()}
@@ -466,7 +503,30 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      if (self.props.listType === 'big-icon') {
+        return (
+          <li className="brick brick-4">
+            <a href={contentLink}>
+              {self.hasIcon()}
+              <span className={"e-bs-title"}>{contentTitle}</span>
+            </a>
+          </li>
+        );
+      }
+
+      if (childrens > 0) {
+        return self.props.children;
+      }
+
+      return (
+        <li className={classes}>
+          <a href={contentLink}>
+            {self.hasIcon()}
+            {self.hasAvatar()}
+            <span>{contentText}</span>
+          </a>
+        </li>
+      );
     },
 
     hasIcon: function () {
@@ -497,8 +557,14 @@ module.exports = React.createClass({
     },
 
     showSubmenu: function (ev) {
-      this.setState({
-        isActive: this.state.isActive !== 'active' ? 'active' : null,
+      var self = this;
+
+      self.publish('actions:list', {
+        action: 'active', id: self.props.id
+      });
+
+      self.setState({
+        activeItem: self.props.id
       });
 
       ev.preventDefault();

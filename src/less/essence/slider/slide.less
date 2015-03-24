@@ -10,14 +10,22 @@
 .e-slider  {
   position: relative;
   width: 100%;
+  height: 12px;
+  line-height: 24px;
+  padding-top: 12px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .e-slider .e-slider-track {
   width: 100%;
   height: @e-slider-track-size;
   background-color: @e-slider-track-color-selected;
-  margin: auto;
-  transition: all 0.2s ease;
+  //transition: all 0.2s ease;
 }
 
 .e-slider .e-slider-track .e-slider-handle {
@@ -29,14 +37,14 @@
   height: @e-slider-handle-size;
   background-color: @e-slider-selection-color;
   border-radius: 30px;
-  transition: all 0.1s ease;
+  //transition: all 0.1s ease;
 
    &:hover:not(.discrete) {
     top:-6.8px;
     height:@e-slider-handle-size * 1.3;
     width:@e-slider-handle-size * 1.3;
     margin-left: -1.95px;
-    transition: all 0.2s ease;
+    //transition: all 0.2s ease;
    }
    &:active:not(.discrete) {
     top:-11px;
@@ -50,8 +58,8 @@
   position: relative;
   text-align: center;
   display: inline-block;
-  top: -39px;
-  left: -7px; // is modified from js
+  top: -36px;
+  left: -4px; // is modified from js
   width: 26px;
   height: 26px;
   font-size: 11px;
@@ -64,8 +72,8 @@
   content: "";
   position: absolute;
   z-index: -1;
-  top:-6px;
-  left:0;
+  top: -2px;
+  left: 0;
   width: 26px;
   height: 26px;
   background-color: @e-slider-selection-color;
@@ -127,7 +135,7 @@
 
 // discrete slider
 .e-slider.discrete .e-slider-track .e-slider-handle {
-  transition: all 0.2s ease;
+  //transition: all 0.2s ease;
 
    &:hover {
     top:-5px;
@@ -146,7 +154,7 @@
 // discrete slider with steps
 .e-steps {
   height:@e-slider-track-size;
-  margin-top: -35px;
+  //margin-top: -35px;
 }
 .e-step {
   position: absolute;
@@ -156,6 +164,7 @@
   border-radius: 50%;
   background-color: #000;
   cursor: pointer;
+  top: 12px;
 }
 
 // discrete slider position 0

@@ -4,38 +4,25 @@
   <div class="dialog e-padding-top-50" id="components-dialogs">
     <div class="e-row e-margin-bottom-15">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500">Dialogs</h3>
-        <p class="e-subhead">As you might expect, dialog boxes pop. And they have actions - set the dialog content and its actions with <code>.e-dialogs-content</code> and <code>.e-dialogs-actions</code>, as well as the button type &amp; text. That’s it.</p>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Dialogs</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">As you might expect, dialog boxes pop. And they have actions - set the dialog content and its actions with <code>.e-dialogs-content</code> and <code>.e-dialogs-actions</code>, as well as the button type &amp; text. That’s it.</p>
       </div>
-      <div class="brick brick-6 e-dialog-container e-shadow-2 e-background-grey-300 e-margin-bottom-25">
-        <!-- dummy text to simulate the content under the dialog -->
-        <p>
-          Proident butcher narwhal fingerstache et disrupt. Beard laboris quis occaecat organic kogi. Asymmetrical keffiyeh placeat master cleanse synth nulla quis, magna sustainable four dollar toast. Photo booth id yr, eiusmod aute Marfa Carles small batch +1 Portland banjo hella.
-        </p>
-        <p>
-          Labore direct trade sustainable narwhal Schlitz. Raw denim 3 wolf moon try-hard semiotics cillum kitsch, eu heirloom disrupt synth. Mixtape umami cold-pressed, exercitation mlkshk dreamcatcher vinyl lo-fi Echo Park culpa delectus disrupt.
-        </p>
-        <p>
-          XOXO fashion axe photo booth retro ut, blog Shoreditch mixtape dreamcatcher. Ennui cupidatat nihil tilde Odd Future sriracha craft beer fanny pack, artisan anim pour-over seitan deep v consectetur Bushwick.
-        </p>
-        <p>
-          Cronut deep v et cliche slow-carb, biodiesel wayfarers 3 wolf moon you probably haven't heard of them keytar occaecat Godard. Meggings iPhone salvia eiusmod, nulla mollit direct trade leggings small batch kogi gastropub.
-        </p>
-        <p>
-          Before they sold out locavore Echo Park, voluptate single-origin coffee placeat meh taxidermy DIY biodiesel cardigan health goth distillery semiotics.
-        </p>
-        <div id="components-dialogs-buttons"></div>
+      <div class="brick brick-6 e-dialog-container e-margin-bottom-25">
+        <div id="components-dialogs-button-simple"></div>
         <div id="components-dialogs-simple">
-          <div class="e-dialog">
+          <div id="dialog-simple" class="e-dialog">
             <div class="e-dialogs-header">
-              <h2>Title</h2>
+              <h2>Dialog title</h2>
             </div>
             <div class="e-dialogs-content">
-              <p>When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.</p>
+              <p>
+                When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+              </p>
             </div>
             <div class="e-dialogs-actions">
-              <button class="e-btn-danger flat">Disagree</button>
-              <button class="e-btn-primary flat">Agree</button>
+              <button class="flat e-btn-danger">Disagree</button>
+              <button class="flat e-btn-primary">Agree</button>
             </div>
           </div>
         </div>
@@ -44,210 +31,201 @@
     </div>
     <div class="e-row">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
-        <pre class="e-paper e-shadow-2">
-&lt;div class="e-dialog"&gt;
-
-  &lt;div class="e-dialogs-header"&gt;
-    &lt;h2&gt;Title&lt;/h2&gt;
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+          <pre class="e-paper e-shadow-2">
+&lt;div id=&quot;dialog-simple&quot; class=&quot;e-dialog&quot;&gt;
+  &lt;div class=&quot;e-dialogs-header&quot;&gt;
+    &lt;h2&gt;Dialog title&lt;/h2&gt;
   &lt;/div&gt;
-
-  &lt;div class="e-dialogs-content"&gt;
-    &lt;p&gt;When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.&lt;/p&gt;
+  &lt;div class=&quot;e-dialogs-content&quot;&gt;
+    &lt;p&gt;
+      When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+    &lt;/p&gt;
   &lt;/div&gt;
-
-  &lt;div class="e-dialogs-actions"&gt;
-    &lt;button class="e-btn-danger flat"&gt;Disagree&lt;/button&gt;
-    &lt;button class="e-btn-primary flat"&gt;Agree&lt;/button&gt;
+  &lt;div class=&quot;e-dialogs-actions&quot;&gt;
+    &lt;button class=&quot;flat e-btn-danger&quot;&gt;Disagree&lt;/button&gt;
+    &lt;button class=&quot;flat e-btn-primary&quot;&gt;Agree&lt;/button&gt;
   &lt;/div&gt;
-
 &lt;/div&gt;
-</pre>
+        </pre>
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
-To use "Dialogs" component please follow the HTML instructions.
+&lt;Dialog&gt;
+  &lt;DialogItem id='dialog-simple'&gt;
+    &lt;DialogItemHeader&gt;
+      &lt;Text type='h2'&gt;Dialog title&lt;/Text&gt;
+    &lt;/DialogItemHeader&gt;
+
+    &lt;DialogItemContent&gt;
+      &lt;Text type='p'&gt;
+        When text labels exceed the maximum button width,
+        use stacked buttons to accommodate the text.
+        Affirmative actions are stacked above dismissive actions.
+      &lt;/Text&gt;
+    &lt;/DialogItemContent&gt;
+
+    &lt;DialogItemFooter&gt;
+      &lt;Btn&gt;
+        &lt;BtnItem
+          type='danger'
+          classes={'flat'}
+          label='Disagree'
+          actionClick='dialog'
+          actionType={{
+            'action': 'hide',
+            'id': 'dialog-simple'
+          }}
+        /&gt;
+        &lt;BtnItem
+          type='primary'
+          classes={'flat'}
+          label='Agree'
+          actionClick='dialog'
+          actionType={{
+            'action': 'hide',
+            'id': 'dialog-simple'
+          }}
+        /&gt;
+      &lt;/Btn&gt;
+    &lt;/DialogItemFooter&gt;
+  &lt;/DialogItem&gt;
+&lt;/Dialog&gt;
         </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
     </div>
 
-    <div class="e-row e-margin-bottom-15 e-padding-top-50">
-      <div class="brick brick-12">
-        <h3 class="e-text-green-500">Full page dialog</h3>
-      </div>
-      <div class="brick brick-12 e-dialog-container e-no-padding e-shadow-2 e-background-grey-300 e-margin-bottom-25">
-        <!-- dummy text to simulate the content under the dialog -->
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat accusamus nulla expedita molestiae ab soluta obcaecati itaque molestias fugit incidunt voluptatem, quae magnam, perspiciatis qui saepe repellendus, non eius aspernatur.
-        </p>
-        <div class="e-dialog-full">
+    <div class="e-row brick brick-12 e-margin-bottom-15 e-padding-top-50">
+      <div id="components-dialogs-button-full"></div>
+      <div id="components-dialogs-full" style="position: relative;">
+        <div id="dialog-full" class="e-dialog-full">
           <div class="e-dialogs-header clearfix">
-            <a href="#" class="e-dialog-header-action e-left">
+            <a class="e-dialog-header-action e-left" href="#">
               <i class="e-icon-action-settings-bluetooth"></i>
             </a>
             <span class="e-dialog-header-text">New event</span>
-            <a href="#" class="e-dialog-header-action e-right"><span>Save</span></a>
-
+            <span class="e-dialog-header-action e-right">
+              <button class="e-button">X</button>
+            </span>
           </div>
-          <span class="e-dialog-second-title">Event</span>
-          <ul class="e-list two-line e-li-border-bottom">
-            <li>
-              <a href="#">
-                <span class="e-list-content">
-                  <span>
-                    <strong>Heading</strong>
-                    <br>
-                    Some Text
-                  </span>
-                </span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="e-list-content">
-                  <span>
-                    <strong>Heading</strong>
-                    <br>
-                    Some Text
-                  </span>
-                </span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="e-list-content">
-                  <span>
-                    <strong>Heading</strong>
-                    <br>
-                    Some Text
-                  </span>
-                </span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                <span class="e-list-content">
-                  <span>
-                    <strong>Heading</strong>
-                    <br>
-                    Some Text
-                  </span>
-                </span>
-              </a>
-            </li>
-          </ul>
+          <div class="e-dialogs-content">
+            <h2 class="e-dialog-second-title">Event</h2>
+            <p>
+              When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+            </p>
+          </div>
         </div>
       </div>
-
     </div>
 
-
-    <div class="e-row">
+    <div class="e-row e-padding-bottom-75">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
-&lt;div&gt;
-  &lt;span class="e-dialog-second-title"&gt;Event&lt;/span&gt;
-  &lt;ul class="e-list two-line e-li-border-bottom"&gt;
-    &lt;li&gt;
-      &lt;a href="#"&gt;
-        &lt;span class="e-list-content"&gt;
-
-              &lt;span&gt;
-                &lt;strong&gt;Heading&lt;/strong&gt;
-                &lt;br&gt;
-                Some Text
-              &lt;/span&gt;
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-
-    &lt;li&gt;
-      &lt;a href="#"&gt;
-        &lt;span class="e-list-content"&gt;
-
-              &lt;span&gt;
-                &lt;strong&gt;Heading&lt;/strong&gt;
-                &lt;br&gt;
-                Some Text
-              &lt;/span&gt;
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-
-    &lt;li&gt;
-      &lt;a href="#"&gt;
-        &lt;span class="e-list-content"&gt;
-              &lt;span&gt;
-                &lt;strong&gt;Heading&lt;/strong&gt;
-                &lt;br&gt;
-                Some Text
-              &lt;/span&gt;
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-
-    &lt;li&gt;
-      &lt;a href="#"&gt;
-        &lt;span class="e-list-content"&gt;
-              &lt;span&gt;
-                &lt;strong&gt;Heading&lt;/strong&gt;
-                &lt;br&gt;
-                Some Text
-              &lt;/span&gt;
-        &lt;/span&gt;
-      &lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
+&lt;div id=&quot;dialog-full&quot; class=&quot;e-dialog-full&quot;&gt;
+  &lt;div class=&quot;e-dialogs-header clearfix&quot;&gt;
+    &lt;a class=&quot;e-dialog-header-action e-left&quot; href=&quot;#&quot;&gt;
+      &lt;i class=&quot;e-icon-action-settings-bluetooth&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;span class=&quot;e-dialog-header-text&quot;&gt;New event&lt;/span&gt;
+    &lt;span class=&quot;e-dialog-header-action e-right&quot;&gt;
+      &lt;button class=&quot;e-button&quot;&gt;X&lt;/button&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;e-dialogs-content&quot;&gt;
+    &lt;h2 class=&quot;e-dialog-second-title&quot;&gt;Event&lt;/h2&gt;
+    &lt;p&gt;
+      When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+    &lt;/p&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
-</pre>
+        </pre>
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
-To use "Dialogs" component please follow the HTML instructions.
+&lt;Dialog&gt;
+  &lt;DialogItem id='dialog-full' full={true}&gt;
+    &lt;DialogItemHeader classes={'clearfix'}&gt;
+      &lt;Text type='a' href='#' classes={'e-dialog-header-action e-left'}&gt;
+        &lt;Icon name={'action-settings-bluetooth'} /&gt;
+      &lt;/Text&gt;
+      &lt;Text classes={'e-dialog-header-text'}&gt;New event&lt;/Text&gt;
+      &lt;Text classes={'e-dialog-header-action e-right'}&gt;
+        &lt;Btn&gt;
+          &lt;BtnItem
+            classes={'e-button'}
+            label='X'
+            actionClick='dialog'
+            actionType={{
+              'action': 'hide',
+              'id': 'dialog-full'
+            }}
+          /&gt;
+        &lt;/Btn&gt;
+      &lt;/Text&gt;
+    &lt;/DialogItemHeader&gt;
+
+    &lt;DialogItemContent&gt;
+      &lt;Text type='h2' classes={'e-dialog-second-title'}&gt;
+        Event
+      &lt;/Text&gt;
+      &lt;Text type='p'&gt;
+        When text labels exceed the maximum button width,
+        use stacked buttons to accommodate the text.
+        Affirmative actions are stacked above dismissive actions.
+      &lt;/Text&gt;
+    &lt;/DialogItemContent&gt;
+  &lt;/DialogItem&gt;
+&lt;/Dialog&gt;
         </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Dialog" tag to render a group or single "DialogItem" components. The "Dialog" React tag will return a div container with a group or single &lt;div&gt; html tag with the class name "e-dialog".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre>
+<span class="e-text-blue-500">&lt;Dialog&gt;</span>
+  <span class="e-text-blue-500">&lt;DialogItem&gt;</span>
+    <span class="e-text-indigo-400">&lt;DialogItemHeader&gt;</span>
+      <span class="e-text-indigo-400">Header: can be used to include Image and/or Text</span>
+    <span class="e-text-indigo-400">&lt;/DialogItemHeader&gt;</span>
+    <span class="e-text-indigo-600">&lt;DialogItemContent&gt;</span>
+      <span class="e-text-indigo-600">Content: can be used to include any component</span>
+    <span class="e-text-indigo-600">&lt;/DialogItemContent&gt;</span>
+    <span class="e-text-indigo-800">&lt;DialogItemFooter&gt;</span>
+      <span class="e-text-indigo-800">Footer: used for actions from single or multiple BtnItem items</span>
+    <span class="e-text-indigo-800">&lt;/DialogItemFooter&gt;</span>
+  <span class="e-text-blue-500">&lt;/DialogItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Dialog&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any Dialog component or subcomponent from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - id: required for unique DialogItem to be shown
+          - use the examples from above to structure your own Dialog
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Dialog       -->

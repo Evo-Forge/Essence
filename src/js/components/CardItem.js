@@ -1,23 +1,26 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'CardItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: ""
+        classes: {
+          'card': true
+        }
       };
     },
 
     componentDidMount: function () {
-      var self = this,
-          classes = [];
+      var classes = this.state.classes || [];
     },
 
     renderHeader: function () {
@@ -47,7 +50,7 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderImage: function () {
@@ -99,7 +102,7 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderAction: function () {
@@ -143,13 +146,23 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderCard: function () {
-      var self = this;
+      var self = this,
+          classes = classSet(ClassNames(self.state.classes, self.props.classes));
+
+      if (!self.props.text && !self.props.header) {
+        return (
+          <div className={classes}>
+            {this.props.children}
+          </div>
+        );
+      }
+
       return (
-        <div className={"card"}>
+        <div className={classes}>
           {self.renderHeader()}
           {self.renderImage()}
           {self.renderText()}
@@ -160,11 +173,6 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this;
-
-      return (
-        <div>
-          {self.renderCard()}
-        </div>
-      );
+      return self.renderCard();
     }
 });

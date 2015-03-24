@@ -2,17 +2,19 @@
 
 var React = require('react/addons'),
     BtnItem = require('./BtnItem'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'SnackbarItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: ""
+        classes: []
       };
     },
 
@@ -67,7 +69,7 @@ module.exports = React.createClass({
 
     actionBtn: function () {
       if (!this.props.action) {
-        return "";
+        return null;
       }
 
       return (
@@ -83,7 +85,11 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       return (
-        <div className={classes} id={self.props.id} style={style}>
+        <div
+          className={classes}
+          id={self.props.id}
+          style={style}
+        >
           <div className={"snackbar-message"}>
             {self.props.children}
           </div>

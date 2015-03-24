@@ -5,16 +5,19 @@ var React = require('react/addons'),
     Icon = require('./Icon'),
     PubSub = require('../utils/PubSub'),
     Position = require('../utils/Position'),
+    ClassNames = require('../utils/ClassNames'),
     ClickPosition = require('../utils/ClickPosition'),
-    BackgroundColor = require('../utils/BackgroundColor');
+    BackgroundColor = require('../utils/BackgroundColor'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'BtnItem',
 
-    mixins: [PubSub, Position, ClickPosition],
+    mixins: [PubSub, Position, ClickPosition, ClassNames],
 
     getInitialState: function() {
       return {
+        classes: [],
         clicked: false,
         clickPosition: {
           x: 0,
@@ -57,8 +60,9 @@ module.exports = React.createClass({
 
     handleClick: function (event) {
       var self = this,
-          parentPosition = Position (event.currentTarget),
-          clickPosition = ClickPosition (event, parentPosition),
+          parentPosition = Position (this.refs.buttonRippleInk.getDOMNode()),
+          elementBounding = this.refs.buttonRippleInk.getDOMNode().getBoundingClientRect(),
+          clickPosition = ClickPosition (event, elementBounding),
           bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
           actionType = self.props.actionType || false,
@@ -66,44 +70,20 @@ module.exports = React.createClass({
           snackbar = self.props.snackbar || false,
           toast = self.props.toast || false;
 
-      /*
-      //eg
-      var clickCases = {
-        "navigation": function() {
-          return self.publish('showNavigation', true);
-        },
-        "toast": function(click) {
-          return self.publish('toast:' + toast, true);
-        },
-        "snackbar": function(click) {
-          return self.publish('snackbar:' + snackbar, true);
-        },
-        "default": function(click, child) {
-          return self.publish('actions:' + click, child);
-        }
-      };
-
-      if(o[myCase]) {
-        o[myCase].apply(100, [1, 2, 3]);
-      } else {
-        o["default"]();
-      }
-
-      //end of eg
-      */
-
       if (actionClick && actionClick === "navigation") {
         self.publish('showNavigation', true);
       }
 
       if (actionClick && actionClick !== "navigation") {
-
         if (actionChildren.length > 0) {
           self.publish('actions:'+actionClick, actionChildren);
         } else if (actionType) {
           self.publish('actions:'+actionClick, actionType);
         }
+      }
 
+      if (self.props.onClick) {
+        return self.props.onClick;
       }
 
       if (snackbar) {
@@ -159,14 +139,12 @@ module.exports = React.createClass({
 
     renderClass: function () {
       var self = this,
-          classes = self.props.classes;
+          classes = classSet(self.props.classes || []);
 
-      if (self.props.type) {
+      if (self.props.type && self.props.mini) {
+        classes += " e-btn-" + self.props.type + "-mini";
+      } else if (self.props.type) {
         classes += " e-btn-" + self.props.type;
-      }
-
-      if (self.props.mini) {
-        classes += "-mini";
       }
 
       if (self.props.rippleEffect) {
@@ -192,11 +170,12 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this,
-          classes = self.renderClass(),
+          classes = classSet(self.renderClass()),
           isDisabled = (self.props.disabled ? 'disabled' : false);
 
       return (
         <button
+          ref="buttonRippleInk"
           className={classes}
           disabled={isDisabled}
           onClick={self.handleClick}

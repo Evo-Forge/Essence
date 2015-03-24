@@ -3,8 +3,9 @@
   <div class="appbar e-padding-top-50" id="components-appbar">
     <div class="e-row ">
       <div class="brick brick-12">
-        <h3 class="e-display-1 e-text-green-500">Appbar</h3>
-        <p class="e-subhead">It’s never been more fun to create an appbar with button and navigation and whatever. Start with the <code>.e-appbar</code> class then add buttons, menus and whatever you need.</p>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Appbar</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">It’s never been more fun to create an appbar with button and navigation and whatever. Start with the <code>.e-appbar</code> class then add buttons, menus and whatever you need.</p>
       </div>
 
       <div class="brick brick-12" id="components-appbar-reactjs">
@@ -93,9 +94,9 @@
     </div>
 
 
-    <div class="e-row">
+    <div class="e-row e-padding-bottom-75">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;div class=&quot;e-appbar clearfix&quot;&gt;
   &lt;div&gt;
@@ -182,7 +183,7 @@
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;AppBar&gt;
   &lt;Btn&gt;
@@ -281,6 +282,37 @@ var appbar_menu_right = [
   }
 ];
         </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "AppBar" tag to render a div html tag with "e-appbar" classname.
+          <br />
+          Inside the AppBar component you can include any type of components. The default structure is (from left to right): <br />
+          <ol type="1">
+            <li>
+              <strong>Icon</strong> or <strong>Button</strong> component
+            </li>
+            <li>
+              <strong>Menu</strong> component with <strong>MenuItem</strong> subcomponent
+            </li>
+            <li>
+              <strong>Button</strong> component (Search button)
+            </li>
+            <li>
+              <strong>Button</strong> component (Favorit button)
+            </li>
+            <li>
+              <strong>Menu</strong> component with <strong>Icon</strong> option as indication
+            </li>
+          </ol>
+        </p>
       </div>
     </div>
   </div>

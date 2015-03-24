@@ -1,14 +1,33 @@
 'use strict';
 
-var React = require('react/addons');
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Paper',
 
+    mixins: [ClassNames],
+
     getInitialState: function() {
       return {
-        children: []
+        classes: {
+          'e-paper-components': true
+        }
       };
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      if (self.props.classes) {
+        classes = ClassNames(classes, self.props.classes);
+      }
+
+      self.setState({
+        classes: classSet(classes)
+      });
     },
 
     renderChildren: function () {
@@ -42,8 +61,8 @@ module.exports = React.createClass({
       var self = this;
 
       return (
-        <div className={"e-paper-components"}>
-          {self.renderChildren()}
+        <div className={self.state.classes}>
+          {self.props.children}
         </div>
       );
     }

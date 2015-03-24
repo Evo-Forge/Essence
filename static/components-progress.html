@@ -5,17 +5,18 @@
     <div class="e-row e-margin-bottom-15">
       <div class="brick brick-12">
 
-        <h3 class="e-display-1 e-text-green-500">Progress and activity</h3>
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Progress and activity</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
         <div id="components-progress-reactjs" style="max-width: 400px; margin: 30px auto; position: relative;"></div>
       </div>
       <div class="brick brick-12">
-        <p class="e-subhead">Make loading content in your app as delightful and painless as possible by minimizing the amount of visual change a user sees before they can view and interact with content. Each operation should only be represented by one activity indicator—for example, one refresh operation should not display both a refresh bar and an activity circle. Below you’ll find six variations of activity indicators. Use them wisely. </p>
+        <p class="e-body1 e-text-blue-grey-400">Make loading content in your app as delightful and painless as possible by minimizing the amount of visual change a user sees before they can view and interact with content. Each operation should only be represented by one activity indicator—for example, one refresh operation should not display both a refresh bar and an activity circle. Below you’ll find six variations of activity indicators. Use them wisely. </p>
       </div>
     </div>
 
-    <div class="e-row">
+    <div class="e-row e-padding-bottom-75">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;div class="e-progress-slider"&gt;
   &lt;div class="e-progress-slider-line"&gt;&lt;/div&gt;
@@ -95,7 +96,7 @@
       </div>
 
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-blue-600">REACT CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
 &lt;Progress type='slider' /&gt;
 &lt;Progress type='circle' /&gt;
@@ -106,6 +107,44 @@
 </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          The "Progress" React tag will return a div container with the class name "e-progress-" + type option.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre>
+<span class="e-text-blue-500">&lt;Progress type='slider'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='circle'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='circle' small={true}&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='dots'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='fix'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='dynamic'&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - no styling required<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> with type: <strong>circle</strong> will render a small circle visualization
+          - <u>type</u>
+          <br />
+           1. <strong>slider</strong>: appends "slider" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           2. <strong>circle</strong>: appends "circle" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           3. <strong>dots</strong>: appends "dots" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           4. <strong>fix</strong>: appends "fix" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           5. <strong>dynamic</strong>: appends "dynamic" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Progress       -->

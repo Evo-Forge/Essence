@@ -22,6 +22,7 @@ module.exports = {
       }
 
       document.querySelector('.e-main-content').innerHTML = html;
+
       if (Components[ComponentsID] && typeof Components[ComponentsID] === 'object') {
         if (Object.prototype.toString.call((Components[ComponentsID])) === '[object Object]') {
           React.render(
@@ -39,6 +40,7 @@ module.exports = {
                 document.querySelector("#" + reactComponentID)
               );
             }
+
           });
         }
       }

@@ -20378,14 +20378,263 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],166:[function(require,module,exports){
+},{"../utils/PubSub":227,"react/addons":3}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'Text',
+
+    mixins: [PubSub, ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: [],
+        text: false
+      };
+    },
+
+    componentWillReceiveProps: function () {
+      var self = this;
+      self.renderChildren();
+    },
+
+    renderChildren: function () {
+      var self = this,
+          classes = classSet(self.props.classes);
+
+      if (self.props.type) {
+        // type: div => html div tag
+        if (self.props.type === 'div') {
+          return (React.createElement("div", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            href: self.props.link, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+
+        // type: header => html header tag
+        if (self.props.type === 'header') {
+          return (React.createElement("header", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            self.props.children
+          ));
+        }
+
+        // type: footer => html footer tag
+        if (self.props.type === 'footer') {
+          return (React.createElement("footer", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            self.props.children
+          ));
+        }
+
+        // type: ul => html ul tag
+        if (self.props.type === 'ul') {
+          return (React.createElement("ul", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            self.props.children
+          ));
+        }
+
+        // type: li => html li tag
+        if (self.props.type === 'li') {
+          return (React.createElement("li", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            self.props.children
+          ));
+        }
+
+        // type: hr => html hr tag
+        if (self.props.type === 'hr') {
+          return (React.createElement("hr", {
+            className: classes, 
+            key: self.props.id, 
+            id: self.props.id}
+          ));
+        }
+
+        // type: br => html br tag
+        if (self.props.type === 'br') {
+          return (React.createElement("br", {
+            className: classes, 
+            key: self.props.id, 
+            id: self.props.id}
+          ));
+        }
+      }
+
+      return (
+        React.createElement("span", {
+          className: classes, 
+          onClick: self.props.onClick, 
+          key: self.props.id, 
+          id: self.props.id
+        }, 
+          this.props.children
+        )
+      );
+    },
+
+    render: function () {
+      var self = this;
+      return self.renderChildren();
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],167:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons');
+
+module.exports = React.createClass({
+    displayName: 'BottomSheets',
+
+    render: function () {
+      var self = this;
+      return self.props.children;
+    }
+});
+
+},{"react/addons":3}],168:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    classSet = React.addons.classSet,
+    PubSub = require('../utils/PubSub');
+
+module.exports = React.createClass({
+    displayName: 'BottomSheetsItem',
+
+    mixins: [PubSub],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-bottom-sheet': true,
+          'animate': false,
+          'hide': true
+        }
+      };
+    },
+
+    showDialog: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes['hide'] = false;
+      classes['animate'] = true;
+
+      self.setState({
+        classes: classes
+      });
+
+      document.querySelector('body').className = 'e-modal-open';
+    },
+
+    hideDialog: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes['hide'] = true;
+      classes['animate'] = false;
+
+      self.setState({
+        classes: classes
+      });
+
+      document.querySelector('body').className = null;
+    },
+
+    renderModalBackground: function () {
+      var self = this;
+
+      if (!self.state.classes['hide']) {
+        return (
+          React.createElement("div", {
+            id: 'e-modal-bg-' + self.props.id, 
+            style: {display: 'block'}, 
+            onClick: self.hideDialog, 
+            className: "e-modal-bg"}
+          )
+        );
+      }
+
+      return null;
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      self.subscribe('actions:bottomsheets', function (data) {
+        if (data.action === 'show' && data.targetID === self.props.id) {
+          self.showDialog();
+        }
+
+        if (data.action === 'hide' && data.targetID === self.props.id) {
+          self.hideDialog();
+        }
+      });
+    },
+
+    render: function () {
+      var self = this,
+          classes = self.state.classes,
+          style = self.state.style;
+
+      classes = classSet(classes);
+
+      return (
+        React.createElement("div", {style: {'position': 'relative'}}, 
+          React.createElement("div", {
+            id: self.props.id, 
+            style: style, 
+            className: classes
+          }, 
+            self.props.children
+          ), 
+          self.renderModalBackground()
+        )
+      );
+    }
+});
+
+},{"../utils/PubSub":227,"react/addons":3}],169:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Btn',
+
+    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -20410,38 +20659,24 @@ module.exports = React.createClass({
       return children;
     },
 
-    componentDidMount: function () {
-      var self = this,
-          classes = self.state.classes;
-
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
-      }
-
-      self.setState({
-        classes: classSet(classes)
-      });
-    },
-
     componentWillReceiveProps: function () {
       var self = this;
-      self.renderChildren();
+      //self.renderChildren();
     },
 
     render: function () {
-      var self = this;
+      var self = this,
+          classes = self.props.classes || [];
 
       return (
-        React.createElement("div", {className: self.state.classes}, 
-          self.renderChildren()
+        React.createElement("div", {className: classSet(classes)}, 
+          self.props.children
         )
       );
     }
 });
 
-},{"react/addons":3}],167:[function(require,module,exports){
+},{"../utils/ClassNames":220,"react/addons":3}],170:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -20449,16 +20684,19 @@ var React = require('react/addons'),
     Icon = require('./Icon'),
     PubSub = require('../utils/PubSub'),
     Position = require('../utils/Position'),
+    ClassNames = require('../utils/ClassNames'),
     ClickPosition = require('../utils/ClickPosition'),
-    BackgroundColor = require('../utils/BackgroundColor');
+    BackgroundColor = require('../utils/BackgroundColor'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'BtnItem',
 
-    mixins: [PubSub, Position, ClickPosition],
+    mixins: [PubSub, Position, ClickPosition, ClassNames],
 
     getInitialState: function() {
       return {
+        classes: [],
         clicked: false,
         clickPosition: {
           x: 0,
@@ -20501,8 +20739,9 @@ module.exports = React.createClass({
 
     handleClick: function (event) {
       var self = this,
-          parentPosition = Position (event.currentTarget),
-          clickPosition = ClickPosition (event, parentPosition),
+          parentPosition = Position (this.refs.buttonRippleInk.getDOMNode()),
+          elementBounding = this.refs.buttonRippleInk.getDOMNode().getBoundingClientRect(),
+          clickPosition = ClickPosition (event, elementBounding),
           bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
           actionType = self.props.actionType || false,
@@ -20510,44 +20749,20 @@ module.exports = React.createClass({
           snackbar = self.props.snackbar || false,
           toast = self.props.toast || false;
 
-      /*
-      //eg
-      var clickCases = {
-        "navigation": function() {
-          return self.publish('showNavigation', true);
-        },
-        "toast": function(click) {
-          return self.publish('toast:' + toast, true);
-        },
-        "snackbar": function(click) {
-          return self.publish('snackbar:' + snackbar, true);
-        },
-        "default": function(click, child) {
-          return self.publish('actions:' + click, child);
-        }
-      };
-
-      if(o[myCase]) {
-        o[myCase].apply(100, [1, 2, 3]);
-      } else {
-        o["default"]();
-      }
-
-      //end of eg
-      */
-
       if (actionClick && actionClick === "navigation") {
         self.publish('showNavigation', true);
       }
 
       if (actionClick && actionClick !== "navigation") {
-
         if (actionChildren.length > 0) {
           self.publish('actions:'+actionClick, actionChildren);
         } else if (actionType) {
           self.publish('actions:'+actionClick, actionType);
         }
+      }
 
+      if (self.props.onClick) {
+        return self.props.onClick;
       }
 
       if (snackbar) {
@@ -20603,14 +20818,12 @@ module.exports = React.createClass({
 
     renderClass: function () {
       var self = this,
-          classes = self.props.classes;
+          classes = classSet(self.props.classes || []);
 
-      if (self.props.type) {
+      if (self.props.type && self.props.mini) {
+        classes += " e-btn-" + self.props.type + "-mini";
+      } else if (self.props.type) {
         classes += " e-btn-" + self.props.type;
-      }
-
-      if (self.props.mini) {
-        classes += "-mini";
       }
 
       if (self.props.rippleEffect) {
@@ -20636,11 +20849,12 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this,
-          classes = self.renderClass(),
+          classes = classSet(self.renderClass()),
           isDisabled = (self.props.disabled ? 'disabled' : false);
 
       return (
         React.createElement("button", {
+          ref: "buttonRippleInk", 
           className: classes, 
           disabled: isDisabled, 
           onClick: self.handleClick, 
@@ -20655,7 +20869,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/BackgroundColor":202,"../utils/ClickPosition":203,"../utils/Position":206,"../utils/PubSub":208,"./Icon":176,"./RippleInk":188,"react/addons":3}],168:[function(require,module,exports){
+},{"../utils/BackgroundColor":219,"../utils/ClassNames":220,"../utils/ClickPosition":221,"../utils/Position":225,"../utils/PubSub":227,"./Icon":192,"./RippleInk":205,"react/addons":3}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -20663,64 +20877,36 @@ var React = require('react/addons');
 module.exports = React.createClass({
     displayName: 'Card',
 
-    getInitialState: function() {
-      return {
-        children: []
-      };
-    },
-
-    renderChildren: function () {
-      var self = this,
-          childrens = React.Children.count(self.props.children),
-          children = [];
-
-      if (childrens === 1) {
-        children.push(self.props.children);
-      } else {
-        self.props.children.map(function (item) {
-          children.push(item);
-        });
-      }
-
-      return children;
-    },
-
-    componentWillReceiveProps: function () {
-      var self = this;
-      self.renderChildren();
-    },
-
     render: function () {
       var self = this;
-      return (
-        React.createElement("div", null, 
-          self.renderChildren()
-        )
-      );
+      return self.props.children;
     }
 });
 
-},{"react/addons":3}],169:[function(require,module,exports){
+},{"react/addons":3}],172:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'CardItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: ""
+        classes: {
+          'card': true
+        }
       };
     },
 
     componentDidMount: function () {
-      var self = this,
-          classes = [];
+      var classes = this.state.classes || [];
     },
 
     renderHeader: function () {
@@ -20750,7 +20936,7 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderImage: function () {
@@ -20802,7 +20988,7 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderAction: function () {
@@ -20846,13 +21032,23 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      return null;
     },
 
     renderCard: function () {
-      var self = this;
+      var self = this,
+          classes = classSet(ClassNames(self.state.classes, self.props.classes));
+
+      if (!self.props.text && !self.props.header) {
+        return (
+          React.createElement("div", {className: classes}, 
+            this.props.children
+          )
+        );
+      }
+
       return (
-        React.createElement("div", {className: "card"}, 
+        React.createElement("div", {className: classes}, 
           self.renderHeader(), 
           self.renderImage(), 
           self.renderText(), 
@@ -20863,16 +21059,139 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this;
+      return self.renderCard();
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],173:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'CardItemContent',
+
+    mixins: [ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'card-supporting-text': true
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes || [];
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    render: function () {
+      var self = this,
+          classes = classSet(self.state.classes);
 
       return (
-        React.createElement("div", null, 
-          self.renderCard()
+        React.createElement("div", {className: classes}, 
+          this.props.children
         )
       );
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],170:[function(require,module,exports){
+},{"../utils/ClassNames":220,"react/addons":3}],174:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'CardItemFooter',
+
+    mixins: [ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'card-suplimentary-actions': true,
+          'clearfix': true
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes || [];
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    render: function () {
+      var self = this,
+          classes = classSet(self.state.classes);
+
+      return (
+        React.createElement("div", {className: classes}, 
+          this.props.children
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"react/addons":3}],175:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'CardItemHeader',
+
+    mixins: [ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'card-header': true,
+          'clearfix': true
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes || [];
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    render: function () {
+      var self = this,
+          classes = classSet(self.state.classes);
+
+      return (
+        React.createElement("div", {className: classes}, 
+          self.props.children
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"react/addons":3}],176:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -20972,7 +21291,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],171:[function(require,module,exports){
+},{"../utils/PubSub":227,"react/addons":3}],177:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21150,26 +21469,44 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],172:[function(require,module,exports){
+},{"../utils/PubSub":227,"react/addons":3}],178:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     AppBar =  require('./AppBar'),
+    BottomSheets = require('./BottomSheets'),
+    BottomSheetsItem = require('./BottomSheetsItem'),
     Btn = require('./Btn'),
     BtnItem = require('./BtnItem'),
+    Block = require('./Block'),
     Card = require('./Card'),
     CardItem = require('./CardItem'),
+    CardItemHeader = require('./CardItemHeader'),
+    CardItemContent = require('./CardItemContent'),
+    CardItemFooter = require('./CardItemFooter'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
+    DatePicker = require('./DatePicker'),
+    DatePickerItem = require('./DatePickerItem'),
+    DatePickerHeader = require('./DatePickerHeader'),
+    DatePickerHeaderDay = require('./DatePickerHeaderDay'),
+    DatePickerHeaderDate = require('./DatePickerHeaderDate'),
+    DatePickerContent = require('./DatePickerContent'),
+    DatePickerFooter = require('./DatePickerFooter'),
     Dialog = require('./Dialog'),
     DialogItem = require('./DialogItem'),
-    Input = require('./Input'),
+    DialogItemHeader = require('./DialogItemHeader'),
+    DialogItemContent = require('./DialogItemContent'),
+    DialogItemFooter = require('./DialogItemFooter'),
+    Icon = require('./Icon'),
+    Image = require('./Image'),
     Input = require('./Input'),
     InputItem = require('./InputItem'),
     InputItem = require('./InputItem'),
     List = require('./List'),
     ListItem = require('./ListItem'),
     Menu = require('./Menu'),
+    MenuItem = require('./MenuItem'),
     Navigation = require('./Navigation'),
     Paper = require('./Paper'),
     PaperItem = require('./PaperItem'),
@@ -21190,202 +21527,308 @@ var React = require('react/addons'),
 var Component = {};
 
 // Essence - Components
-var Home =
-    [
-      {
-        'id': 'components-home',
-        'link': '#',
-        'text': 'Home',
-      },
-      {
-        'id': 'components-material-design',
-        'link': '#',
-        'text': 'About',
-      },
-      {
-        'id': 'components-getting-started',
-        'link': '#',
-        'text': 'Getting Started',
-      },
-      {
-        'id': 'components-contact',
-        'link': '#',
-        'text': 'Contact',
-      }
-    ],
-
-    Styles =
-    [
-      {
-        'id': 'components-colors',
-        'link': '#',
-        'text': 'Colors',
-      },
-      {
-        'id': 'components-icons',
-        'link': '#',
-        'text': 'Icons',
-      },
-      {
-        'id': 'components-typography',
-        'link': '#',
-        'text': 'Typography',
-      },
-      {
-        'id': 'components-classes',
-        'link': '#',
-        'text': 'Useful classes',
-      }
-    ],
-
-    Components =
-    [
-      {
-        'id': 'components-appbar',
-        'link': '#',
-        'text': 'Appbar',
-      },
-      {
-        'id': 'components-bottom-sheets',
-        'link': '#',
-        'text': 'Bottom Sheets',
-      },
-      {
-        'id': 'components-buttons',
-        'link': '#',
-        'text': 'Buttons',
-      },
-      {
-        'id': 'components-cards',
-        'link': '#',
-        'text': 'Cards',
-      },
-      {
-        'id': 'components-chips',
-        'link': '#',
-        'text': 'Chips',
-      },
-      {
-        'id': 'components-dialogs',
-        'link': '#',
-        'text': 'Dialogs',
-      },
-      {
-        'id': 'components-dividers',
-        'link': '#',
-        'text': 'Dividers',
-      },
-      {
-        'id': 'components-grids',
-        'link': '#',
-        'text': 'Grids',
-      },
-      {
-        'id': 'components-lists',
-        'link': '#',
-        'text': 'Lists',
-      },
-      {
-        'id': 'components-list-controls',
-        'link': '#',
-        'text': 'List Controls',
-      },
-      {
-        'id': 'components-menus',
-        'link': '#',
-        'text': 'Menus',
-      },
-      {
-        'id': 'components-navigation',
-        'link': '#',
-        'text': 'Navigation Drawer',
-      },
-      {
-        'id': 'components-paper',
-        'link': '#',
-        'text': 'Paper',
-      },
-      {
-        'id': 'components-progress',
-        'link': '#',
-        'text': 'Progress',
-      },
-      /*
-      {
-        'id': 'components-slider',
-        'link': '#',
-        'text': 'Slider',
-      },
-      */
-      {
-        'id': 'components-snackbars-toast',
-        'link': '#',
-        'text': 'Snackbars and Toast',
-      },
-      {
-        'id': 'components-switches',
-        'link': '#',
-        'text': 'Switches',
-      },
-      {
-        'id': 'components-tabs',
-        'link': '#',
-        'text': 'Tabs',
-      },
-      {
-        'id': 'components-text-fields',
-        'link': '#',
-        'text': 'Text fields',
-      },
-      /*
-      {
-        'id': 'components-toolbar',
-        'link': '#',
-        'text': 'Toolbar',
-      },
-      */
-      {
-        'id': 'components-tooltips',
-        'link': '#',
-        'text': 'Tooltips',
-      }
-    ];
-
 Component.navigation_menu = (
   React.createElement(Navigation, {
     live: true, 
     header: "Essence", 
-    logo: "assets/img/essence_icon.png", 
-    footer: "Essence © Privacy & Terms"
+    logo: "assets/img/essence_icon.png"
   }, 
     React.createElement(List, {
-      type: "navigation", 
-      avatar: false, 
-      icon: false
+      classes: "e-list-navigation", 
+      id: "EssenceNavigation"
     }, 
       React.createElement(ListItem, {
+        listType: "navigation", 
         eventAction: 'changeText', 
         changeTextId: "navigationTitle", 
+        primaryListImage: "assets/img/material-design-b.png", 
         contentText: "Material Design", 
         contentLink: "#", 
-        more: true, 
-        submenu: Home}
+        hasSubmenu: true
+      }, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-home"
+          }, 
+            "Home"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-material-design"
+          }, 
+            "About"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-getting-started"
+          }, 
+            "Getting Started"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-contact"
+          }, 
+            "Contact"
+          )
+        )
       ), 
+
       React.createElement(ListItem, {
+        listType: "navigation", 
         eventAction: 'changeText', 
         changeTextId: "navigationTitle", 
+        primaryListImage: "assets/img/styles-b.png", 
         contentText: "Styles", 
         contentLink: "#styles", 
-        more: true, 
-        submenu: Styles}
+        hasSubmenu: true
+      }, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-colors"
+          }, 
+            "Colors"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-icons"
+          }, 
+            "Icons"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-typography"
+          }, 
+            "Typography"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-classes"
+          }, 
+            "Useful classes"
+          )
+        )
       ), 
+
       React.createElement(ListItem, {
+        listType: "navigation", 
         eventAction: 'changeText', 
         changeTextId: "navigationTitle", 
+        primaryListImage: "assets/img/components-b.png", 
         contentText: "Components", 
         contentLink: "#components", 
-        more: true, 
-        submenu: Components}
+        hasSubmenu: true
+      }, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-appbar", 
+            href: "#"
+          }, 
+            "Appbar"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-bottom-sheets", 
+            href: "#"
+          }, 
+            "Bottom Sheets"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-buttons", 
+            href: "#"
+          }, 
+            "Buttons"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-cards", 
+            href: "#"
+          }, 
+            "Cards"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-chips", 
+            href: "#"
+          }, 
+            "Chips"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-datepicker", 
+            href: "#"
+          }, 
+            "Date Picker"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-dialogs", 
+            href: "#"
+          }, 
+            "Dialogs"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-dividers", 
+            href: "#"
+          }, 
+            "Dividers"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-grids", 
+            href: "#"
+          }, 
+            "Grids"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-lists", 
+            href: "#"
+          }, 
+            "Lists"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-list-controls", 
+            href: "#"
+          }, 
+            "List Controls"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-menus", 
+            href: "#"
+          }, 
+            "Menus"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-navigation", 
+            href: "#"
+          }, 
+            "Navigation Drawer"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-paper", 
+            href: "#"
+          }, 
+            "Paper"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-progress", 
+            href: "#"
+          }, 
+            "Progress"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-slider", 
+            href: "#"
+          }, 
+            "Sliders"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-snackbars-toast", 
+            href: "#"
+          }, 
+            "Snackbars and Toast"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-switches", 
+            href: "#"
+          }, 
+            "Switches"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-tabs", 
+            href: "#"
+          }, 
+            "Tabs"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-text-fields", 
+            href: "#"
+          }, 
+            "Text fields"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            id: "components-tooltips", 
+            href: "#"
+          }, 
+            "Tooltips"
+          )
+        )
       )
     )
   )
@@ -21403,7 +21846,9 @@ Component.navigation_buttons = (
 );
 
 Component.navigation_title = (
-  React.createElement(Text, {text: "Essence", id: "navigationTitle"})
+  React.createElement(Text, {id: "navigationTitle"}, 
+    "Essence - Material Design"
+  )
 );
 
 var NavigationHome =
@@ -21503,37 +21948,179 @@ Component.navigation = (
   React.createElement(Navigation, {
     live: false, 
     header: "Navigation", 
-    logo: "assets/img/essence_icon.png", 
-    footer: "Copyright text"
+    logo: "assets/img/essence_icon.png"
   }, 
     React.createElement(List, {
-      type: "navigation", 
-      avatar: false, 
-      icon: false
+      classes: "e-list-navigation", 
+      id: "NavigationDrawer"
     }, 
       React.createElement(ListItem, {
+        listType: "navigation", 
         eventAction: 'changeText', 
-        changeTextId: "navigationTitle", 
         contentText: "Material Design", 
         contentLink: "#", 
-        more: true, 
-        submenu: NavigationHome}
+        hasSubmenu: true
+      }, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Home"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "About"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Getting Started"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Contact"
+          )
+        )
       ), 
+
       React.createElement(ListItem, {
+        listType: "navigation", 
         eventAction: 'changeText', 
         changeTextId: "navigationTitle", 
         contentText: "Styles", 
         contentLink: "#styles", 
-        more: true, 
-        submenu: NavigationStyles}
+        hasSubmenu: true
+      }, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Colors"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Icons"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Typography"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Useful classes"
+          )
+        )
       ), 
+
       React.createElement(ListItem, {
+        listType: "navigation", 
         eventAction: 'changeText', 
         changeTextId: "navigationTitle", 
         contentText: "Components", 
         contentLink: "#components", 
-        more: true, 
-        submenu: NavigationComponents}
+        hasSubmenu: true
+      }, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Appbar"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Bottom Sheets"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Buttons"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Cards"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Chips"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Dialogs"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Dividers"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Grids"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Lists"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "List Controls"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Menus"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Navigation Drawer"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Paper"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Progress"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Slider"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Snackbars and Toast"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Switches"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Tabs"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Text fields"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, null, 
+            "Tooltips"
+          )
+        )
       )
     )
   )
@@ -21541,6 +22128,14 @@ Component.navigation = (
 
 Component.contact = (
   React.createElement(Input, null, 
+    React.createElement(InputItem, {
+      classes: 'e-input-group', 
+      inputClasses: 'e-input empty', 
+      type: "text", 
+      name: "message", 
+      label: "Subject"
+    }
+    ), 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
       inputClasses: 'e-input empty', 
@@ -21554,13 +22149,13 @@ Component.contact = (
       inputClasses: 'e-input empty', 
       type: "textarea", 
       name: "message", 
-      label: "Type your message"
+      label: "Message"
     }
     ), 
 
     React.createElement(Btn, null, 
       React.createElement(BtnItem, {
-        classes: 'raised', 
+        classes: 'raised e-background-indigo-400', 
         label: "Send Message", 
         type: "primary", 
         rippleEffect: true
@@ -21654,7 +22249,35 @@ Component.appbar = (
       )
     ), 
 
-    React.createElement(Menu, {items: appbar_menu_left}), 
+    React.createElement(Menu, {
+      id: "menu-appbar-left", 
+      classes: 'e-text-color-blue-500 cover e-left', 
+      placeholder: "Options"
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(Icon, {name: "notification-sms"}), 
+        React.createElement(Text, null, "Notifications")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Icon, {name: "notification-tap-and-play"}), 
+        React.createElement(Text, null, "Tap & Pay")
+      ), 
+
+      React.createElement(Block, {type: "li", classes: 'divider'}), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "http://www.pearlhq.com"}, 
+          "Pearl"
+        )
+      ), 
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "http://www.google.com"}, 
+          "Google"
+        )
+      )
+    ), 
+
     React.createElement(Menu, {items: appbar_menu_right}), 
 
     React.createElement(Btn, null, 
@@ -21669,6 +22292,225 @@ Component.appbar = (
     )
   )
 );
+
+Component.bottom_sheets = [];
+
+Component.bottom_sheets.push({
+  'button-simple': (
+    React.createElement(Btn, null, 
+      React.createElement(BtnItem, {
+        type: "primary", 
+        classes: 'raised', 
+        label: "Show bottom sheets", 
+        rippleEffect: true, 
+        actionClick: "bottomsheets", 
+        actionType: {
+          'action': 'show',
+          'targetID': 'bottomsheet-simple'
+        }}
+      )
+    )
+  )
+});
+
+Component.bottom_sheets.push({
+  'button-twolines': (
+    React.createElement(Btn, null, 
+      React.createElement(BtnItem, {
+        type: "warning", 
+        classes: 'raised', 
+        label: "Show bottom sheets lines", 
+        rippleEffect: true, 
+        actionClick: "bottomsheets", 
+        actionType: {
+          'action': 'show',
+          'targetID': 'bottomsheet-twolines'
+        }}
+      )
+    )
+  )
+});
+
+Component.bottom_sheets.push({
+  'button-bigicons': (
+    React.createElement(Btn, null, 
+      React.createElement(BtnItem, {
+        type: "succes", 
+        classes: 'raised', 
+        label: "Show bottom sheets icons", 
+        rippleEffect: true, 
+        actionClick: "bottomsheets", 
+        actionType: {
+          'action': 'show',
+          'targetID': 'bottomsheet-bigicons'
+        }}
+      )
+    )
+  )
+});
+
+Component.bottom_sheets.push({
+  'simple': (
+    React.createElement(BottomSheets, null, 
+      React.createElement(BottomSheetsItem, {
+        id: 'bottomsheet-simple'
+      }, 
+        React.createElement(List, {type: "single-line"}, 
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", href: "#phone"}, 
+                React.createElement(Icon, {name: "maps-local-phone", classes: 'e-list-icon'}), 
+                React.createElement(Text, null, "Mobile")
+              )
+            )
+          ), 
+
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", href: "#share"}, 
+                React.createElement(Icon, {name: "social-share", classes: 'e-list-icon'}), 
+                React.createElement(Text, null, "Share")
+              )
+            )
+          ), 
+
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", href: "#upload"}, 
+                React.createElement(Icon, {name: "file-cloud-upload", classes: 'e-list-icon'}), 
+                React.createElement(Text, null, "Upload")
+              )
+            )
+          ), 
+
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", href: "#copy"}, 
+                React.createElement(Icon, {name: "content-content-copy", classes: 'e-list-icon'}), 
+                React.createElement(Text, null, "Copy")
+              )
+            )
+          ), 
+
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", href: "#print"}, 
+                React.createElement(Icon, {name: "action-print", classes: 'e-list-icon'}), 
+                React.createElement(Text, null, "Print")
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+});
+
+Component.bottom_sheets.push({
+  'twolines': (
+    React.createElement(BottomSheets, null, 
+      React.createElement(BottomSheetsItem, {
+        id: 'bottomsheet-twolines'
+      }, 
+        React.createElement(List, {type: "two-line"}, 
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", href: "#attractions"}, 
+                React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+                  React.createElement(Image, {
+                    src: "assets/img/card-user-img.jpg", 
+                    alt: "Attractions", 
+                    classes: 'e-list-avatar'}
+                  ), 
+                  React.createElement(Block, {type: "span"}, 
+                    React.createElement(Text, {type: "strong"}, "Alice")
+                  )
+                )
+              )
+            )
+          ), 
+
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", classes: 'brick-12', href: "#fun"}, 
+                React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+                  React.createElement(Icon, {name: "maps-local-phone", classes: 'e-list-icon'}), 
+                  React.createElement(Block, {type: "span"}, 
+                    React.createElement(Text, {type: "strong"}, "(555) 085-0001"), 
+                    React.createElement("br", null), 
+                    React.createElement(Text, null, "Mobile")
+                  )
+                )
+              )
+            )
+          ), 
+
+          React.createElement(ListItem, null, 
+            React.createElement(Block, {type: "li"}, 
+              React.createElement(Text, {type: "a", classes: 'brick-12', href: "#fun"}, 
+                React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+                  React.createElement(Icon, {name: "maps-local-phone", classes: 'e-list-icon'}), 
+                  React.createElement(Block, {type: "span"}, 
+                    React.createElement(Text, {type: "strong"}, "(564) 123-4567"), 
+                    React.createElement("br", null), 
+                    React.createElement(Text, null, "Home")
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+});
+
+Component.bottom_sheets.push({
+  'bigicons': (
+    React.createElement(BottomSheets, null, 
+      React.createElement(BottomSheetsItem, {
+        id: 'bottomsheet-bigicons'
+      }, 
+        React.createElement(List, {
+          type: "big-icon", 
+          icon: true
+        }, 
+          React.createElement(ListItem, {
+            contentLink: "#gmail", 
+            contentTitle: "Gmail", 
+            icon: "communication-email"}
+          ), 
+          React.createElement(ListItem, {
+            contentLink: "#phone", 
+            contentTitle: "Phone", 
+            icon: "notification-phone-in-talk"}
+          ), 
+          React.createElement(ListItem, {
+            contentLink: "#copy", 
+            contentTitle: "Copy", 
+            icon: "content-content-copy"}
+          ), 
+          React.createElement(ListItem, {
+            contentLink: "#social", 
+            contentTitle: "Group", 
+            icon: "social-group"}
+          ), 
+          React.createElement(ListItem, {
+            contentLink: "#map", 
+            contentTitle: "Map", 
+            icon: "maps-map"}
+          ), 
+          React.createElement(ListItem, {
+            contentLink: "#bar", 
+            contentTitle: "Bar", 
+            icon: "maps-local-bar"}
+          )
+
+        )
+      )
+    )
+  )
+});
 
 var toolbar_menu_right = [
   {
@@ -21732,7 +22574,7 @@ Component.toolbar = (
 Component.paper = (
   React.createElement(Paper, null, 
     React.createElement(PaperItem, {
-      classes: 'e-shadow-1'
+      classes: 'e-shadow-1 e-text-blue-grey-400'
     }, 
       "PaperItem: simple ", React.createElement("strong", null, "shadow-1")
     ), 
@@ -21742,7 +22584,7 @@ Component.paper = (
 
     React.createElement(PaperItem, {
       type: 'sharp', 
-      classes: 'e-shadow-2'
+      classes: 'e-shadow-2 e-text-blue-grey-400'
     }, 
       "PaperItem: sharp ", React.createElement("strong", null, "shadow-2")
     ), 
@@ -21752,7 +22594,7 @@ Component.paper = (
 
     React.createElement(PaperItem, {
       type: 'circle', 
-      classes: 'e-shadow-3'
+      classes: 'e-shadow-3 e-text-blue-grey-400'
     }, 
       "PaperItem: circle ", React.createElement("strong", null, "shadow-3")
     )
@@ -21772,7 +22614,7 @@ Component.tabs = (
     }, 
       React.createElement("h2", {className: "e-display-1"}, "As Samuel L Jackson used to say:"), 
 
-      React.createElement("p", null, 
+      React.createElement("p", {className: "e-text-blue-grey-400"}, 
       "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
       )
 
@@ -21790,7 +22632,7 @@ Component.tabs = (
       id: "tab-item-two"
     }, 
       React.createElement("h2", {className: "e-display-1"}, "Still Samuel L Jackson:"), 
-      React.createElement("p", null, 
+      React.createElement("p", {className: "e-text-blue-grey-400"}, 
 "You think water moves fast? You should see ice. It moves like it has a mind. Like it knows it killed the world once and got a taste for murder. After the avalanche, it took us a week to climb out. Now, I don't know exactly when we turned on each other, but I know that seven of us survived the slide... and only five made it out. Now we took an oath, that I'm breaking now. We said we'd say it was the snow that killed the other two, but it wasn't. Nature is lethal but it doesn't hold a candle to man."
       ), 
 
@@ -21816,7 +22658,7 @@ Component.tabs = (
       id: "tab-item-tree"
     }, 
       React.createElement("h2", {className: "e-display-1"}, "Yeap, him again:"), 
-      React.createElement("p", null, "Your bones don\\'t break, mine do. That\\'s clear. Your cells react to bacteria and viruses differently than mine." + ' ' +
+      React.createElement("p", {className: "e-text-blue-grey-400"}, "Your bones don\\'t break, mine do. That\\'s clear. Your cells react to bacteria and viruses differently than mine." + ' ' +
 "You don\\'t get sick, I do. That\\'s also clear. But for some reason, you and I react the exact same way to water." + ' ' +
 "We swallow it too fast, we choke. We get some in our lungs, we drown. However unreal it may seem, we are connected, you and I." + ' ' +
 "We're on the same curve, just on opposite ends."
@@ -22025,22 +22867,127 @@ var menus_cascade = [
 ];
 
 Component.menus = [];
+//<Menu items={menus_simple} />
 
 Component.menus.push({
   'simple': (
-    React.createElement(Menu, {items: menus_simple})
+    React.createElement(Menu, {
+      id: "menu-simple", 
+      placeholder: "Show Menu Simple"
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(Icon, {name: "notification-sms"}), 
+        React.createElement(Text, null, "SMS Notifications")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Icon, {name: "notification-tap-and-play"}), 
+        React.createElement(Text, null, "Tap & Pay")
+      ), 
+
+      React.createElement(MenuItem, {classes: 'divider'}), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "http://www.pearlhq.com"}, 
+          "Pearl"
+        )
+      ), 
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "http://www.google.com"}, 
+          "Google"
+        )
+      )
+    )
   )
 });
 
+//<Menu items={menus_cover} />
 Component.menus.push({
   'cover': (
-    React.createElement(Menu, {items: menus_cover})
+    React.createElement(Menu, {
+      id: "menu-cover", 
+      classes: 'cover mobile', 
+      placeholder: "Show Menu Cover"
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(Icon, {name: "notification-sms"}), 
+        React.createElement(Text, null, "SMS Notifications")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Icon, {name: "notification-tap-and-play"}), 
+        React.createElement(Text, null, "Tap & Pay")
+      ), 
+
+      React.createElement(MenuItem, {classes: 'divider'}), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "http://www.pearlhq.com"}, 
+          "Pearl"
+        )
+      ), 
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "http://www.google.com"}, 
+          "Google"
+        )
+      )
+    )
   )
 });
+
 
 Component.menus.push({
   'cascade': (
     React.createElement(Menu, {items: menus_cascade})
+  )
+});
+
+Component.menus.push({
+  'checkbox-inactive': (
+    React.createElement(Menu, {
+      id: "menu-checkbox", 
+      placeholder: "Menu with Switches", 
+      classes: "brick-4"
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          name: "notification-sms", 
+          classes: 'e-left'}
+        ), 
+        React.createElement(Text, null, " Receive SMS Notifications"), 
+        React.createElement(Icon, {
+          name: "notification-sms", 
+          classes: 'e-right e-text-green-400'}
+        )
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          name: "notification-sms", 
+          classes: 'e-left'}
+        ), 
+        React.createElement(Text, null, " Receive Alerts Notifications"), 
+        React.createElement(Icon, {
+          name: "alert-warning", 
+          classes: 'e-right e-text-green-400'}
+        )
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          name: "notification-sms", 
+          classes: 'e-left'}
+        ), 
+        React.createElement(Text, null, " Receive Email Notifications"), 
+        React.createElement(Icon, {
+          name: "communication-email", 
+          classes: 'e-right e-text-green-400'}
+        )
+      )
+    )
   )
 });
 
@@ -22064,47 +23011,53 @@ Component.buttons.push({
 });
 
 Component.buttons.push({
-  'raised': (
+  'raised-1': (
   React.createElement(Btn, null, 
     React.createElement(BtnItem, {
       classes: 'raised', 
-      label: "Label Default", 
+      label: "Default", 
       tooltip: "Tooltip Default", 
       type: "default", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'raised', 
-      label: "Label Primary", 
+      label: "Primary", 
       tooltip: "Tooltip Primary", 
       type: "primary", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'raised', 
-      label: "Label Succes", 
+      label: "Succes", 
       tooltip: "Tooltip Succes", 
       type: "succes", 
       rippleEffect: true, 
       disabled: true}
-    ), 
+    )
+  ))
+});
+
+Component.buttons.push({
+  'raised-2': (
+  React.createElement(Btn, null, 
     React.createElement(BtnItem, {
       classes: 'raised', 
-      label: "Label Info", 
+      label: "Info", 
       tooltip: "Tooltip Info", 
       type: "info", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'raised', 
-      label: "Label Warning", 
+      label: "Warning", 
       tooltip: "Tooltip Warning", 
       type: "warning", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'raised', 
-      label: "Label Danger", 
+      label: "Danger", 
       tooltip: "Tooltip Danger", 
       type: "danger", 
       rippleEffect: true}
@@ -22113,41 +23066,46 @@ Component.buttons.push({
 });
 
 Component.buttons.push({
-  'flat': (
+  'flat-1': (
   React.createElement(Btn, null, 
     React.createElement(BtnItem, {
       classes: 'flat', 
-      label: "Label Default", 
+      label: "Default", 
       type: "default", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'flat', 
-      label: "Label Primary", 
+      label: "Primary", 
       type: "primary", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'flat', 
-      label: "Label Succes", 
+      label: "Succes", 
       type: "succes", 
       rippleEffect: true}
-    ), 
+    )
+  ))
+});
+Component.buttons.push({
+  'flat-2': (
+  React.createElement(Btn, null, 
     React.createElement(BtnItem, {
       classes: 'flat', 
-      label: "Label Info", 
+      label: "Info", 
       type: "info", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'flat', 
-      label: "Label Warning", 
+      label: "Warning", 
       type: "warning", 
       rippleEffect: true}
     ), 
     React.createElement(BtnItem, {
       classes: 'flat', 
-      label: "Label Danger", 
+      label: "Danger", 
       type: "danger", 
       rippleEffect: true}
     )
@@ -22194,27 +23152,38 @@ Component.cards = [];
 Component.cards.push({
   'default': (
   React.createElement(Card, null, 
-    React.createElement(CardItem, {
-      image: "assets/img/card-img.jpg", 
-      imageAlt: "Card Image", 
-      headline: "Going to Ibiza", 
-      text: "Limit supplemental actions to two actions, in addition to an overflow menu.", 
-      action: true
-    }, 
-      React.createElement(BtnItem, {
-        classes: 'flat e-right', 
-        label: "Yes", 
-        type: "danger", 
-        rippleEffect: true}
+    React.createElement(CardItem, null, 
+      React.createElement(Block, {type: "div", classes: "card-main-image"}, 
+        React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Header Image"}), 
+        React.createElement(Text, {type: "h1", classes: "e-headline"}, 
+          "Going to Ibiza"
+        )
       ), 
-      React.createElement(BtnItem, {
-        classes: 'flat e-right', 
-        label: "No", 
-        type: "default", 
-        rippleEffect: true}
+
+      React.createElement(CardItemContent, {classes: "card-supporting-text e-text-blue-grey-400"}, 
+        React.createElement(Text, {type: "h4"}, 
+          "Limit supplemental actions to two actions, in addition to an overflow menu."
+        )
+      ), 
+
+      React.createElement(CardItemFooter, null, 
+        React.createElement(Block, {type: "div", classes: "e-left"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat', 
+            label: "No", 
+            type: "default", 
+            rippleEffect: true}
+          )
+        ), 
+        React.createElement(Block, {type: "div", classes: "e-left"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat e-text-indigo-400', 
+            label: "Yes", 
+            type: "danger", 
+            rippleEffect: true}
+          )
+        )
       )
-
-
     )
   ))
 });
@@ -22222,17 +23191,31 @@ Component.cards.push({
 Component.cards.push({
   'header': (
   React.createElement(Card, null, 
-    React.createElement(CardItem, {
-      image: "assets/img/card-img.jpg", 
-      imageAlt: "Card Image", 
-      headline: "Going to Ibiza", 
-      text: "Limit supplemental actions to two actions, in addition to an overflow menu.", 
-      header: true, 
-      headerImage: "assets/img/card-user-img.jpg", 
-      headerImageAlt: "Card Image", 
-      headerTitle: "Title", 
-      headerSubhead: "Subhead"
-    }
+    React.createElement(CardItem, null, 
+      React.createElement(CardItemHeader, null, 
+        React.createElement(Block, {type: "div", classes: "card-header-image"}, 
+          React.createElement(Image, {src: "assets/img/card-user-img.jpg", alt: "Card Header Image"})
+        ), 
+
+        React.createElement(Block, {type: "div", classes: "card-header-text"}, 
+          React.createElement(Text, {type: "h2", classes: "e-title"}, "Card Title"), 
+          React.createElement(Text, {type: "h3", classes: "e-subhead e-text-blue-grey-400"}, "Card Subhead")
+        )
+      ), 
+
+      React.createElement(Block, {type: "div", classes: "card-main-image"}, 
+        React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Header Image"}), 
+        React.createElement(Text, {type: "a", href: "#carja", classes: "e-headline"}, 
+          "Going to Ibiza"
+        )
+      ), 
+
+      React.createElement(CardItemContent, {classes: "card-supporting-text e-text-blue-grey-400"}, 
+        React.createElement(Text, {type: "h4"}, 
+          "Limit supplemental actions to two actions, in addition to an overflow menu."
+        )
+      )
+
     )
   ))
 });
@@ -22240,27 +23223,54 @@ Component.cards.push({
 Component.cards.push({
   'gallery': (
   React.createElement(Card, null, 
-    React.createElement(CardItem, {
-      imageGallery: imageGallery, 
-      headline: "Going to Ibiza", 
-      text: "Limit supplemental actions to two actions, in addition to an overflow menu.", 
-      header: true, 
-      headerImage: "assets/img/card-user-img.jpg", 
-      headerImageAlt: "Card Image", 
-      headerTitle: "Title 1", 
-      headerSubhead: "Subhead 1"
-    }, 
-      React.createElement(BtnItem, {
-        classes: 'flat', 
-        label: "No", 
-        type: "default", 
-        rippleEffect: true}
+    React.createElement(CardItem, null, 
+      React.createElement(CardItemHeader, null, 
+        React.createElement(Block, {type: "div", classes: "card-header-image"}, 
+          React.createElement(Image, {src: "assets/img/card-user-img.jpg", alt: "Card Header Image"})
+        ), 
+
+        React.createElement(Block, {type: "div", classes: "card-header-text"}, 
+          React.createElement(Text, {type: "a", href: "#card-gallery", classes: "e-title"}, "Card Gallery"), 
+          React.createElement(Text, {type: "h3", classes: "e-subhead e-text-blue-grey-400"}, "Multiple images")
+        )
       ), 
-      React.createElement(BtnItem, {
-        classes: 'flat', 
-        label: "Yes", 
-        type: "danger", 
-        rippleEffect: true}
+
+      React.createElement(Block, {type: "div", classes: "card-main-image"}, 
+        React.createElement(Block, {type: "div", classes: "card-gallery"}, 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 1"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 2"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 3"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 4"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 5"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 6"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 7"}), 
+          React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Image 8"})
+        )
+      ), 
+
+      React.createElement(CardItemContent, {classes: "card-supporting-text e-text-blue-grey-400"}, 
+        React.createElement(Text, {type: "h4"}, 
+          "Limit supplemental actions to two actions, in addition to an overflow menu."
+        )
+      ), 
+
+      React.createElement(CardItemFooter, null, 
+        React.createElement(Block, {type: "div", classes: "e-left"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat e-left', 
+            label: "No", 
+            type: "default", 
+            rippleEffect: true}
+          )
+        ), 
+        React.createElement(Block, {type: "div", classes: "e-right"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat e-left e-text-indigo-400', 
+            label: "Yes", 
+            type: "danger", 
+            rippleEffect: true}
+          )
+        )
       )
     )
   ))
@@ -22269,21 +23279,37 @@ Component.cards.push({
 Component.cards.push({
   'divider': (
   React.createElement(Card, null, 
-    React.createElement(CardItem, {
-      image: "assets/img/card-img.jpg", 
-      text: "Limit supplemental actions to two actions, in addition to an overflow menu."
-    }, 
-      React.createElement(BtnItem, {
-        classes: 'flat', 
-        label: "A", 
-        type: "succes", 
-        rippleEffect: true}
+    React.createElement(CardItem, null, 
+      React.createElement(Block, {type: "div", classes: "card-main-image"}, 
+        React.createElement(Image, {src: "assets/img/card-img.jpg", alt: "Card Header Image"}), 
+        React.createElement(Text, {type: "h1", classes: "e-headline"}, 
+          "Going to Ibiza"
+        )
       ), 
-      React.createElement(BtnItem, {
-        classes: 'flat', 
-        label: "B", 
-        type: "warning", 
-        rippleEffect: true}
+
+      React.createElement(CardItemContent, {classes: "card-supporting-text e-text-blue-grey-400"}, 
+        React.createElement(Text, {type: "h4"}, 
+          "Limit supplemental actions to two actions, in addition to an overflow menu."
+        )
+      ), 
+
+      React.createElement(CardItemFooter, null, 
+        React.createElement(Block, {type: "div", classes: "e-right"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat e-text-indigo-400', 
+            label: "A", 
+            type: "danger", 
+            rippleEffect: true}
+          )
+        ), 
+        React.createElement(Block, {type: "div", classes: "e-left"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat', 
+            label: "B", 
+            type: "default", 
+            rippleEffect: true}
+          )
+        )
       )
     )
   ))
@@ -22292,23 +23318,72 @@ Component.cards.push({
 Component.cards.push({
   'simple': (
   React.createElement(Card, null, 
-    React.createElement(CardItem, {
-      header: true, 
-      headerTitle: "Car photography", 
-      headerSubhead: "By John Doe", 
-      leftImage: "assets/img/car.jpg"
-    }, 
-      React.createElement(BtnItem, {
-        classes: 'flat', 
-        label: "A", 
-        type: "succes", 
-        rippleEffect: true}
+    React.createElement(CardItem, null, 
+      React.createElement(CardItemHeader, null, 
+        React.createElement(Block, {type: "div", classes: "card-header-image"}, 
+          React.createElement(Image, {src: "assets/img/card-user-img.jpg", alt: "Card Header Image"})
+        ), 
+
+        React.createElement(Block, {type: "div", classes: "card-header-text"}, 
+          React.createElement(Text, {type: "a", href: "#card-gallery", classes: "e-title"}, "Car photography"), 
+          React.createElement(Text, {type: "h3", classes: "e-subhead e-text-blue-grey-400"}, "By John Doe")
+        )
       ), 
-      React.createElement(BtnItem, {
-        classes: 'flat', 
-        label: "B", 
-        type: "warning", 
-        rippleEffect: true}
+
+      React.createElement(CardItemFooter, null, 
+        React.createElement(Block, {type: "div", classes: "e-right"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat e-text-indigo-400', 
+            label: "A", 
+            type: "danger", 
+            rippleEffect: true}
+          )
+        ), 
+        React.createElement(Block, {type: "div", classes: "e-left"}, 
+          React.createElement(BtnItem, {
+            classes: 'flat', 
+            label: "B", 
+            type: "default", 
+            rippleEffect: true}
+          )
+        )
+      )
+    )
+  ))
+});
+
+Component.cards.push({
+  'left-image': (
+  React.createElement(Card, null, 
+    React.createElement(CardItem, null, 
+      React.createElement(Block, {type: "div", classes: "left-image"}, 
+        React.createElement(Image, {src: "assets/img/car.jpg", alt: "Card Header Image"})
+      ), 
+
+      React.createElement(Block, {type: "div", classes: "content-after-image"}, 
+        React.createElement(Block, {type: "div", classes: "card-supporting-text"}, 
+          React.createElement(Text, {type: "h1", classes: "e-title"}, "Car photography"), 
+          React.createElement(Text, {type: "p", classes: "e-subhead"}, "By John Doe")
+        ), 
+
+        React.createElement(CardItemFooter, null, 
+          React.createElement(Block, {type: "div", classes: "e-right"}, 
+            React.createElement(BtnItem, {
+              classes: 'flat e-text-indigo-400', 
+              label: "A", 
+              type: "danger", 
+              rippleEffect: true}
+            )
+          ), 
+          React.createElement(Block, {type: "div", classes: "e-left"}, 
+            React.createElement(BtnItem, {
+              classes: 'flat', 
+              label: "B", 
+              type: "default", 
+              rippleEffect: true}
+            )
+          )
+        )
       )
     )
   ))
@@ -22340,18 +23415,107 @@ Component.chips = (
   )
 );
 
+Component.datepicker = [];
+
+Component.datepicker.push({
+  'simple': (
+    React.createElement(DatePicker, null, 
+      React.createElement(DatePickerHeader, null), 
+      React.createElement(DatePickerContent, null), 
+      React.createElement(DatePickerFooter, null, 
+        React.createElement(Btn, null, 
+          React.createElement(BtnItem, {
+            type: "succes", 
+            classes: 'flat e-right', 
+            label: "OK", 
+            actionClick: "datepicker", 
+            actionType: {
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          ), 
+          React.createElement(BtnItem, {
+            type: "danger", 
+            classes: 'flat e-right', 
+            label: "CANCEL", 
+            actionClick: "datepicker", 
+            actionType: {
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          )
+        )
+      )
+    )
+  )
+});
+
+Component.datepicker.push({
+  'horizontal': (
+    React.createElement(DatePicker, {classes: 'horizontal'}, 
+      React.createElement(DatePickerHeader, null), 
+      React.createElement(DatePickerContent, null), 
+      React.createElement(DatePickerFooter, null, 
+        React.createElement(Btn, null, 
+          React.createElement(BtnItem, {
+            type: "succes", 
+            classes: 'flat e-right', 
+            label: "OK", 
+            actionClick: "datepicker", 
+            actionType: {
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          ), 
+          React.createElement(BtnItem, {
+            type: "danger", 
+            classes: 'flat e-right', 
+            label: "CANCEL", 
+            actionClick: "datepicker", 
+            actionType: {
+              'action': 'hide',
+              'id': 'datepicker-simple'
+            }}
+          )
+        )
+      )
+    )
+  )
+});
+
 Component.dialogs = [];
 
 Component.dialogs.push({
-  'buttons': (
+  'button-simple': (
     React.createElement(Btn, null, 
       React.createElement(BtnItem, {
         type: "primary", 
         classes: 'raised', 
-        label: "Show dialog", 
+        label: "Show Simple Dialog", 
         rippleEffect: true, 
         actionClick: "dialog", 
-        actionType: "show"}
+        actionType: {
+          'action': 'show',
+          'id': 'dialog-simple'
+        }}
+      )
+    )
+  )
+});
+
+Component.dialogs.push({
+  'button-full': (
+    React.createElement(Btn, null, 
+      React.createElement(BtnItem, {
+        type: "warning", 
+        classes: 'raised', 
+        label: "Show Full Dialog", 
+        rippleEffect: true, 
+        actionClick: "dialog", 
+        actionType: {
+          'action': 'show',
+          'id': 'dialog-full'
+        }}
       )
     )
   )
@@ -22360,33 +23524,88 @@ Component.dialogs.push({
 Component.dialogs.push({
   'simple': (
     React.createElement(Dialog, null, 
-      React.createElement(DialogItem, {
-        id: "dialog-simple", 
-        title: "Dialog title", 
-        content: "When text labels exceed the maximum button width," + ' ' +
-        "use stacked buttons to accommodate the text." + ' ' +
-        "Affirmative actions are stacked above dismissive actions."
-      }, 
-        React.createElement(Btn, null, 
-          React.createElement(BtnItem, {
-            type: "danger", 
-            classes: 'flat', 
-            label: "Disagree", 
-            actionClick: "dialog", 
-            actionType: "hide"}
-          ), 
-          React.createElement(BtnItem, {
-            type: "primary", 
-            classes: 'flat', 
-            label: "Agree", 
-            actionClick: "dialog", 
-            actionType: "hide"}
+      React.createElement(DialogItem, {id: "dialog-simple"}, 
+        React.createElement(DialogItemHeader, null, 
+          React.createElement(Text, {type: "h2"}, "Dialog title")
+        ), 
+
+        React.createElement(DialogItemContent, null, 
+          React.createElement(Text, {type: "p"}, 
+            "When text labels exceed the maximum button width," + ' ' +
+            "use stacked buttons to accommodate the text." + ' ' +
+            "Affirmative actions are stacked above dismissive actions."
+          )
+        ), 
+
+        React.createElement(DialogItemFooter, null, 
+          React.createElement(Btn, null, 
+            React.createElement(BtnItem, {
+              type: "danger", 
+              classes: 'flat', 
+              label: "Disagree", 
+              actionClick: "dialog", 
+              actionType: {
+                'action': 'hide',
+                'id': 'dialog-simple'
+              }}
+            ), 
+            React.createElement(BtnItem, {
+              type: "primary", 
+              classes: 'flat', 
+              label: "Agree", 
+              actionClick: "dialog", 
+              actionType: {
+                'action': 'hide',
+                'id': 'dialog-simple'
+              }}
+            )
           )
         )
       )
     )
   )
 });
+
+Component.dialogs.push({
+  'full': (
+    React.createElement(Dialog, null, 
+      React.createElement(DialogItem, {id: "dialog-full", full: true}, 
+        React.createElement(DialogItemHeader, {classes: 'clearfix'}, 
+          React.createElement(Text, {type: "a", href: "#", classes: 'e-dialog-header-action e-left'}, 
+            React.createElement(Icon, {name: 'action-settings-bluetooth'})
+          ), 
+          React.createElement(Text, {classes: 'e-dialog-header-text'}, "New event"), 
+          React.createElement(Text, {classes: 'e-dialog-header-action e-right'}, 
+            React.createElement(Btn, null, 
+              React.createElement(BtnItem, {
+                classes: 'e-button', 
+                label: "X", 
+                actionClick: "dialog", 
+                actionType: {
+                  'action': 'hide',
+                  'id': 'dialog-full'
+                }}
+              )
+            )
+          )
+        ), 
+
+        React.createElement(DialogItemContent, null, 
+          React.createElement(Text, {type: "h2", classes: 'e-dialog-second-title'}, 
+            "Event"
+          ), 
+          React.createElement(Text, {type: "p"}, 
+            "When text labels exceed the maximum button width," + ' ' +
+            "use stacked buttons to accommodate the text." + ' ' +
+            "Affirmative actions are stacked above dismissive actions."
+          )
+        )
+      )
+    )
+  )
+});
+
+
 
 Component.tooltip = (
   React.createElement(Btn, null, 
@@ -22445,140 +23664,271 @@ Component.lists = [];
 
 Component.lists.push({
   'single-line': (
-  React.createElement(List, {
-    type: "single-line", 
-    avatar: true, 
-    icon: true
-  }, 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentText: "Attractions", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "communication-contacts"}
+  React.createElement(List, {type: 'single-line'}, 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+          React.createElement(Block, {type: "div", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Attractions", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Text, null, "Attractions")
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#attractions"}, 
+          React.createElement(Icon, {name: "communication-contacts"})
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentText: "Fun", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "communication-vpn-key"}
-    ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentText: "Food", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "editor-insert-emoticon"}
-    ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentText: "Kids", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "hardware-security"}
-    )
 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#fun"}, 
+          React.createElement(Block, {type: "div", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Fun", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Text, null, "Fun")
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#fun"}, 
+          React.createElement(Icon, {name: "communication-vpn-key"})
+        )
+      )
+    ), 
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#food"}, 
+          React.createElement(Block, {type: "div", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Food", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Text, null, "Food")
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#food"}, 
+          React.createElement(Icon, {name: "editor-insert-emoticon"})
+        )
+      )
+    ), 
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#kids"}, 
+          React.createElement(Block, {type: "div", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Kids", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Text, null, "Kids")
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#kids"}, 
+          React.createElement(Icon, {name: "hardware-security"})
+        )
+      )
+    )
   ))
 });
 
 Component.lists.push({
   'two-line': (
-  React.createElement(List, {
-    type: "two-line", 
-    avatar: true, 
-    icon: true
-  }, 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Attractions", 
-      contentText: "Here are more information about Attractions", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "communication-contacts"}
+  React.createElement(List, {type: "two-line"}, 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Attractions", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Attractions"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Attractions")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#attractions"}, 
+          React.createElement(Icon, {name: "communication-contacts"})
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Fun", 
-      contentText: "Here are more information about Fun", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "communication-vpn-key"}
-    ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Food", 
-      contentText: "Here are more information about Food", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "editor-insert-emoticon"}
-    ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Kids", 
-      contentText: "Here are more information about Kids", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "hardware-security"}
-    )
 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#fun"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Fun", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Fun"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Fun")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#fun"}, 
+          React.createElement(Icon, {name: "communication-vpn-key"})
+        )
+      )
+    ), 
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#food"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Food", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Food"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Food")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#food"}, 
+          React.createElement(Icon, {name: "editor-insert-emoticon"})
+        )
+      )
+    ), 
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#kids"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Kids", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Kids"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Kids")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#kids"}, 
+          React.createElement(Icon, {name: "hardware-security"})
+        )
+      )
+    )
   ))
 });
 
 Component.lists.push({
   'multi-line': (
-  React.createElement(List, {
-    type: "multi-line", 
-    avatar: true, 
-    icon: true
-  }, 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Attractions", 
-      contentSubTitle: "Info about Attractions", 
-      contentText: "Here are more information about Attractions", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "communication-contacts"}
+  React.createElement(List, {type: "multi-line"}, 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+          React.createElement(Block, {type: "div", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Attractions", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Attractions"), 
+              React.createElement("br", null), 
+              React.createElement(Text, {type: "em"}, "Attractions subtitle"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Attractions")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#attractions"}, 
+          React.createElement(Icon, {name: "communication-contacts"})
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Fun", 
-      contentSubTitle: "Info about Fun", 
-      contentText: "Here are more information about Fun", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "communication-vpn-key"}
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#fun"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Fun", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Fun"), 
+              React.createElement("br", null), 
+              React.createElement(Text, {type: "em"}, "Fun subtitle"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Fun")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#fun"}, 
+          React.createElement(Icon, {name: "communication-vpn-key"})
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Food", 
-      contentSubTitle: "Info about Food", 
-      contentText: "Here are more information about Food", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "editor-insert-emoticon"}
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#food"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Food", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Food"), 
+              React.createElement("br", null), 
+              React.createElement(Text, {type: "em"}, "Food subtitle"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Food")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#food"}, 
+          React.createElement(Icon, {name: "editor-insert-emoticon"})
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      contentLink: "#", 
-      contentTitle: "Kids", 
-      contentSubTitle: "Info about Kids", 
-      contentText: "Here are more information about Kids", 
-      avatarImg: "assets/img/card-user-img.jpg", 
-      avatarAlt: "I am your Avatar", 
-      avatarLink: "#user", 
-      icon: "hardware-security"}
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#kids"}, 
+          React.createElement(Block, {type: "span", classes: 'e-list-content'}, 
+            React.createElement(Image, {
+              src: "assets/img/card-user-img.jpg", 
+              alt: "Kids", 
+              classes: 'e-list-avatar'}
+            ), 
+            React.createElement(Block, {type: "span"}, 
+              React.createElement(Text, {type: "strong"}, "Kids"), 
+              React.createElement("br", null), 
+              React.createElement(Text, {type: "em"}, "Kids subtitle"), 
+              React.createElement("br", null), 
+              React.createElement(Text, null, "Here are more information about Kids")
+            )
+          )
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#kids"}, 
+          React.createElement(Icon, {name: "hardware-security"})
+        )
+      )
     )
   ))
 });
@@ -22587,119 +23937,188 @@ Component.list_controls = [];
 
 Component.list_controls.push({
   'checkbox': (
-  React.createElement(List, {
-    type: "checkbox", 
-    avatar: true, 
-    icon: true
-  }, 
-    React.createElement(ListItem, {
-      inputName: "input-checkbox", 
-      contentLink: "#", 
-      contentText: "First List Checkbox", 
-      avatarLink: "#", 
-      icon: "action-view-list", 
-      isChecked: true}
+  React.createElement(List, {type: "checkbox"}, 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          text: "First List Checkbox", 
+          name: "checkbox1"}
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#list"}, 
+          React.createElement(Icon, {name: "action-view-list"})
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      inputName: "input-checkbox", 
-      contentLink: "#", 
-      contentText: "Second List Checkbox", 
-      avatarLink: "#", 
-      icon: "action-view-week"}
-    ), 
-    React.createElement(ListItem, {
-      inputName: "input-checkbox", 
-      contentLink: "#", 
-      contentText: "Third List Checkbox", 
-      avatarLink: "#", 
-      icon: "action-face-unlock", 
-      isChecked: true}
-    ), 
-    React.createElement(ListItem, {
-      inputName: "input-checkbox", 
-      contentLink: "#", 
-      contentText: "Fourth List Checkbox", 
-      avatarLink: "#", 
-      icon: "action-settings-input-component"}
-    )
 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          text: "Second List Checkbox", 
+          name: "checkbox2", 
+          checked: true}
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#week"}, 
+          React.createElement(Icon, {name: "action-view-week"})
+        )
+      )
+    ), 
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          text: "Third List Checkbox", 
+          name: "checkbox3"}
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#unlock"}, 
+          React.createElement(Icon, {name: "action-face-unlock"})
+        )
+      )
+    ), 
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(SwitchItem, {
+          type: "checkbox", 
+          text: "Fourth List Checkbox", 
+          name: "checkbox4"}
+        ), 
+        React.createElement(Text, {type: "a", classes: 'brick-1', href: "#settings"}, 
+          React.createElement(Icon, {name: "action-settings-input-component"})
+        )
+      )
+    )
   ))
 });
 
 Component.list_controls.push({
   'checkbox-avatar': (
-  React.createElement(List, {
-      type: "checkbox", 
-      avatar: true, 
-      icon: true, 
-      position: "right"
-    }, 
-      React.createElement(ListItem, {
-        inputName: "input-checkbox-1", 
-        contentLink: "#", 
-        contentText: "First List Checkbox", 
-        avatarLink: "#user-image", 
-        avatarImg: "assets/img/card-user-img.jpg", 
-        avatarAlt: "User avatar image"}
+  React.createElement(List, {type: "checkbox", position: "right"}, 
+      React.createElement(ListItem, null, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+            React.createElement(Block, {classes: 'e-list-content'}, 
+              React.createElement(Image, {
+                src: "assets/img/card-user-img.jpg", 
+                alt: "1st List checkbox", 
+                classes: 'e-list-avatar'}
+              ), 
+              React.createElement(Block, {type: "span"}, 
+                React.createElement(Text, {type: "strong"}, "1st List checkbox")
+              )
+            )
+          ), 
+          React.createElement(SwitchItem, {
+            type: "checkbox", 
+            name: "checkbox1"}
+          )
+        )
       ), 
-      React.createElement(ListItem, {
-        inputName: "input-checkbox-2", 
-        contentLink: "#", 
-        contentText: "Second List Checkbox", 
-        avatarLink: "#user-image", 
-        avatarImg: "assets/img/card-user-img.jpg", 
-        avatarAlt: "User avatar image", 
-        isChecked: true}
+
+      React.createElement(ListItem, null, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+            React.createElement(Block, {classes: 'e-list-content'}, 
+              React.createElement(Image, {
+                src: "assets/img/card-user-img.jpg", 
+                alt: "2nd List checkbox", 
+                classes: 'e-list-avatar'}
+              ), 
+              React.createElement(Block, {type: "span"}, 
+                React.createElement(Text, {type: "strong"}, "2nd List checkbox")
+              )
+            )
+          ), 
+          React.createElement(SwitchItem, {
+            type: "checkbox", 
+            name: "checkbox2"}
+          )
+        )
       ), 
-      React.createElement(ListItem, {
-        inputName: "input-checkbox-3", 
-        contentLink: "#", 
-        contentText: "Third List Checkbox", 
-        avatarLink: "#user-image", 
-        avatarImg: "assets/img/card-user-img.jpg", 
-        avatarAlt: "User avatar image"}
+
+      React.createElement(ListItem, null, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+            React.createElement(Block, {classes: 'e-list-content'}, 
+              React.createElement(Image, {
+                src: "assets/img/card-user-img.jpg", 
+                alt: "3rd List checkbox", 
+                classes: 'e-list-avatar'}
+              ), 
+              React.createElement(Block, {type: "span"}, 
+                React.createElement(Text, {type: "strong"}, "3rd List checkbox")
+              )
+            )
+          ), 
+          React.createElement(SwitchItem, {
+            type: "checkbox", 
+            name: "checkbox3"}
+          )
+        )
       ), 
-      React.createElement(ListItem, {
-        inputName: "input-checkbox-4", 
-        contentLink: "#", 
-        contentText: "Fourth List Checkbox", 
-        avatarLink: "#user-image", 
-        avatarImg: "assets/img/card-user-img.jpg", 
-        avatarAlt: "User avatar image", 
-        isChecked: true}
+
+      React.createElement(ListItem, null, 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {type: "a", classes: 'brick-11', href: "#attractions"}, 
+            React.createElement(Block, {classes: 'e-list-content'}, 
+              React.createElement(Image, {
+                src: "assets/img/card-user-img.jpg", 
+                alt: "4th List checkbox", 
+                classes: 'e-list-avatar'}
+              ), 
+              React.createElement(Block, {type: "span"}, 
+                React.createElement(Text, {type: "strong"}, "4th List checkbox")
+              )
+            )
+          ), 
+          React.createElement(SwitchItem, {
+            type: "checkbox", 
+            name: "checkbox4"}
+          )
+        )
       )
   ))
 });
 
 Component.list_controls.push({
   'switches': (
-  React.createElement(List, {
-    type: "switch", 
-    avatar: true, 
-    icon: true
-  }, 
-    React.createElement(ListItem, {
-      inputName: "input-network-wifi", 
-      contentLink: "#network-wifi", 
-      icon: "device-network-wifi", 
-      contentText: "Wi-Fi Network", 
-      avatarLink: "#", 
-      isChecked: true}
+  React.createElement(List, {type: "switch"}, 
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#wifi"}, 
+          React.createElement(Icon, {name: "device-network-wifi", classes: 'e-text-amber-900'}), 
+          React.createElement(Text, {type: "strong"}, "Wi-Fi Network")
+        ), 
+        React.createElement(SwitchItem, {
+          type: "switches", 
+          name: "input-network-wifi", 
+          checked: true}
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      inputName: "input-settings-bluetooth", 
-      contentLink: "#settings-bluetooth", 
-      icon: "action-settings-bluetooth", 
-      contentText: "Bluetooth settings", 
-      avatarLink: "#"}
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#bluetooth"}, 
+          React.createElement(Icon, {name: "action-settings-bluetooth", classes: 'e-text-indigo-400'}), 
+          React.createElement(Text, {type: "strong"}, "Bluetooth settings")
+        ), 
+        React.createElement(SwitchItem, {
+          type: "switches", 
+          name: "input-settings-bluetooth"}
+        )
+      )
     ), 
-    React.createElement(ListItem, {
-      inputName: "input-data-usage", 
-      contentLink: "#data-usage", 
-      icon: "device-data-usage", 
-      contentText: "Data usage", 
-      avatarLink: "#", 
-      isHidden: true}
+
+    React.createElement(ListItem, null, 
+      React.createElement(Block, {type: "li"}, 
+        React.createElement(Text, {type: "a", classes: 'brick-11', href: "#data-usage"}, 
+          React.createElement(Icon, {name: "device-data-usage", classes: 'e-text-red-800'}), 
+          React.createElement(Text, {type: "strong"}, "Data usage")
+        )
+      )
     )
   ))
 });
@@ -22762,7 +24181,7 @@ var menuAttractions =
     ;
 
 Component.list_controls.push({
-  'expand': (
+  'expand-offline': (
   React.createElement(List, {
     type: "expand", 
     avatar: true, 
@@ -22983,7 +24402,8 @@ Component.switches = (
       type: "radio", 
       text: "Radio Button 1", 
       name: "radioButton", 
-      defaultValue: "value1"
+      defaultValue: "value1", 
+      checked: true
     }
     ), 
 
@@ -22998,7 +24418,8 @@ Component.switches = (
     React.createElement(SwitchItem, {
       type: "checkbox", 
       text: "Switch Checkbox", 
-      name: "checkbox1"
+      name: "checkbox1", 
+      checked: true
     }
     ), 
 
@@ -23006,7 +24427,7 @@ Component.switches = (
       type: "switches", 
       beforeText: "Switches before", 
       afterText: "Switches after", 
-      checked: false, 
+      checked: true, 
       name: "switches1"
     }
     )
@@ -23022,13 +24443,13 @@ Component.snackbars_toast.push({
       id: 'snackbar1', 
       classes: 'snackbar-item'
     }, 
-      "Hello to you"
+      "Hello to you from Essence"
     ), 
     React.createElement(SnackbarItem, {
       id: 'snackbar2', 
       classes: 'snackbar-item'
     }, 
-      "Hello to me"
+      "Hello to them from Essence"
     ), 
     React.createElement(SnackbarItem, {
       id: 'snackbar3', 
@@ -23068,6 +24489,7 @@ Component.snackbars_toast.push({
       rippleEffect: true, 
       snackbar: "snackbar3"}
     ), 
+    React.createElement("br", null), 
     React.createElement(BtnItem, {
       classes: 'raised', 
       label: "Toast 1 chicken", 
@@ -23146,7 +24568,723 @@ module.exports = function () {
   return Component;
 };
 
-},{"./AppBar":165,"./Btn":166,"./BtnItem":167,"./Card":168,"./CardItem":169,"./Chip":170,"./ChipItem":171,"./Dialog":173,"./DialogItem":174,"./Input":177,"./InputItem":178,"./List":179,"./ListItem":180,"./Menu":182,"./Navigation":184,"./Paper":185,"./PaperItem":186,"./Progress":187,"./Slider":189,"./SliderItem":190,"./Snackbar":191,"./SnackbarItem":192,"./Switch":193,"./SwitchItem":194,"./TabItem":195,"./TabMenu":196,"./Text":197,"./Toast":198,"./ToastItem":199,"./ToolBar":200,"react/addons":3}],173:[function(require,module,exports){
+},{"./AppBar":165,"./Block":166,"./BottomSheets":167,"./BottomSheetsItem":168,"./Btn":169,"./BtnItem":170,"./Card":171,"./CardItem":172,"./CardItemContent":173,"./CardItemFooter":174,"./CardItemHeader":175,"./Chip":176,"./ChipItem":177,"./DatePicker":179,"./DatePickerContent":180,"./DatePickerFooter":181,"./DatePickerHeader":182,"./DatePickerHeaderDate":183,"./DatePickerHeaderDay":184,"./DatePickerItem":185,"./Dialog":186,"./DialogItem":187,"./DialogItemContent":188,"./DialogItemFooter":189,"./DialogItemHeader":190,"./Icon":192,"./Image":193,"./Input":194,"./InputItem":195,"./List":196,"./ListItem":197,"./Menu":199,"./MenuItem":200,"./Navigation":201,"./Paper":202,"./PaperItem":203,"./Progress":204,"./Slider":206,"./SliderItem":207,"./Snackbar":208,"./SnackbarItem":209,"./Switch":210,"./SwitchItem":211,"./TabItem":212,"./TabMenu":213,"./Text":214,"./Toast":215,"./ToastItem":216,"./ToolBar":217,"react/addons":3}],179:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DatePicker',
+
+    mixins: [ClassNames],
+
+    getInitialState:function() {
+      return {
+        classes: {
+          'e-picker-container': true
+        }
+      };
+    },
+
+    componentDidMount:function() {
+      var classes = this.state.classes || [];
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    handleClick:function(ev, newDate) {
+      this.setProps({
+        date: newDate
+      });
+    },
+
+    renderChildren:function() {
+      var self = this,
+          childrens = React.Children.count(self.props.children),
+          children = [];
+
+      if (childrens === 1) {
+        React.addons.cloneWithProps(self.props.children, {
+          onClick: self.handleClick,
+          date: self.props.date,
+          key: 0
+        });
+      } else if (childrens > 1) {
+        self.props.children.map(function (item, key) {
+          /*if (item.props.name === 'DatePickerHeader') {
+            item = (
+              React.addons.cloneWithProps(item, {
+                onClick: self.handleClick,
+                date: self.props.date,
+                key: key
+              })
+            );
+          } else {
+            item = (
+              React.addons.cloneWithProps(item, {
+                onClick: self.handleClick,
+                key: key
+              })
+            );
+          }*/
+
+          item = (
+            React.addons.cloneWithProps(item, {
+              onClick: self.handleClick,
+              date: self.props.date,
+              key: key
+            })
+          );
+
+          children.push(item);
+        });
+      }
+
+      return children;
+    },
+
+    renderInputDate:function() {
+      var self = this,
+          inputDate = (self.props.date.month || "01") + "/" +
+          (self.props.date.day || "01") + "/" + (self.props.year || "2015");
+
+      return (
+        React.createElement("input", {
+        name: self.props.inputName || "DatePickerInput", 
+        defaultValue: inputDate}
+        )
+      );
+    },
+
+    render:function() {
+      var self = this,
+          classes = classSet(self.state.classes);
+
+      return (
+        React.createElement("div", {className: classes}, 
+          self.renderChildren()
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"react/addons":3}],180:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    DateFormat = require('../utils/DateFormat'),
+    Text = require('./Text'),
+    Icon = require('./Icon'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DatePickerContent',
+
+    mixins: [ClassNames, DateFormat],
+
+    getInitialState: function() {
+      var d = new Date();
+
+      return {
+        classes: {
+          'e-picker-calendar-container': true
+        },
+        currentDate: this.props.currentDate || d,
+        dateSelected: d.getDate(),
+        currentWeek: []
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes || [];
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    _monthTotalDays: function (newDate) {
+        var theDate = new Date(newDate.getFullYear(), newDate.getMonth(), 1);
+
+        theDate.setMonth(theDate.getMonth() + 1);
+        theDate.setDate(theDate.getDate() - 1);
+
+        return theDate.getDate();
+    },
+
+    _monthWeekDays: function (newDate) {
+      var self = this,
+          monthTotalDays = self._monthTotalDays(newDate),
+          days = [];
+
+      for (var i = 1; i <= monthTotalDays; i++) {
+        days.push(new Date(newDate.getFullYear(), newDate.getMonth(), i));
+      }
+
+      return days;
+    },
+
+    _monthDays: function (newDate) {
+      var self = this,
+          listDays = self._monthWeekDays(newDate),
+          daysInWeek = [],
+          noDays = 0,
+          weekStart = 0,
+          currentWeek = 0,
+          totalWeekDays = 0;
+
+      while (listDays.length) {
+        weekStart = listDays[0].getDay();
+        totalWeekDays = 7 - weekStart;
+        noDays = 7 - totalWeekDays;
+        currentWeek = listDays.splice(0, totalWeekDays);
+
+        for (var i = 0; i < noDays; i++) {
+          currentWeek.unshift(null);
+        }
+
+        daysInWeek.push(currentWeek);
+      }
+
+      return daysInWeek;
+    },
+
+    _prevMonth: function () {
+      var self = this,
+          d = new Date(self.state.currentDate),
+          n = new Date(d.getFullYear(), d.getMonth() - 1, d.getDate());
+
+      this.setState({
+        currentDate: n
+      });
+    },
+
+    _nextMonth: function () {
+      var self = this,
+          d = new Date(self.state.currentDate),
+          n = new Date(d.getFullYear(), d.getMonth() + 1, d.getDate());
+
+      this.setState({
+        currentDate: n
+      });
+    },
+
+    _setActive:function(newDate) {
+      var self = this;
+
+      self.setState({
+        dateSelected: newDate.day
+      });
+
+      self.props.onClick(this, newDate);
+    },
+
+    renderNavigation: function () {
+      var self = this,
+          month = DateFormat('month', self.state.currentDate.getMonth()),
+          year = self.state.currentDate.getFullYear();
+      return (
+        React.createElement("div", {className: 'e-picker-calendar-slider'}, 
+          React.createElement(Text, {classes: 'e-picker-selected-month'}, month), 
+          React.createElement(Text, null, " "), 
+          React.createElement(Text, {classes: 'e-picker-selected-year'}, year), 
+          React.createElement(Text, {
+            classes: 'simple-button e-picker-control left', 
+            onClick: self._prevMonth
+          }, 
+            React.createElement(Icon, {name: "navigation-chevron-left"})
+          ), 
+          React.createElement(Text, {
+            classes: 'simple-button e-picker-control right', 
+            onClick: self._nextMonth
+          }, 
+            React.createElement(Icon, {name: "navigation-chevron-right"})
+          )
+        )
+      );
+    },
+
+    renderDay: function (weeks) {
+      var self = this;
+
+      return weeks.map(function(day, index) {
+        if (day) {
+          var currentDay = new Date(day),
+              isActive = (currentDay.getDate() === self.state.dateSelected) ? " active" : "",
+              newDate = {
+                day: currentDay.getDate(),
+                dayName: DateFormat('day', currentDay.getDay()),
+                month: DateFormat('month', currentDay.getMonth()),
+                year: currentDay.getFullYear()
+              };
+
+          return (
+            React.createElement("div", {
+              key: index, 
+              className: "e-picker-calendar-week-date" + isActive, 
+              onClick: self._setActive.bind(this, newDate)
+            }, 
+              React.createElement("button", {
+              className: 'simple-button'
+              }, 
+                currentDay ? currentDay.getDate() : currentDay
+              )
+            )
+          );
+        } else {
+          return (
+            React.createElement("div", {
+              key: index, 
+              className: "e-picker-calendar-week-date"}
+            )
+          );
+        }
+      }, this);
+    },
+
+    renderWeeks: function () {
+      var self = this,
+          d = new Date(self.state.currentDate),
+          n = new Date(d.getFullYear(), d.getMonth(), d.getDate()),
+          days = self._monthDays(n);
+
+      return days.map(function (week, index) {
+        return (
+          React.createElement("div", {
+            key: index, 
+            className: "e-picker-calendar-week-dates"
+          }, 
+            self.renderDay(week)
+          )
+        );
+      }, this);
+    },
+
+    renderCalendar: function () {
+      var self = this;
+
+      return (
+        React.createElement("div", {
+          ref: "datepicker-content", 
+          className: 'e-picker-calendar-container-padding'
+        }, 
+          React.createElement("ul", {className: "e-picker-calendar-week-days"}, 
+            React.createElement("li", null, "S"), 
+            React.createElement("li", null, "M"), 
+            React.createElement("li", null, "T"), 
+            React.createElement("li", null, "W"), 
+            React.createElement("li", null, "T"), 
+            React.createElement("li", null, "F"), 
+            React.createElement("li", null, "S")
+          ), 
+          self.renderWeeks()
+        )
+      );
+    },
+
+    render: function () {
+      var self = this,
+          classes = classSet(self.state.classes);
+
+      return (
+        React.createElement("div", {
+          className: classes
+        }, 
+          self.renderNavigation(), 
+          self.renderCalendar()
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/DateFormat":223,"./Icon":192,"./Text":214,"react/addons":3}],181:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DatePickerFooter',
+
+    mixins: [ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-picker-main-actions': true,
+          'clearfix': true
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes || [];
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    render: function () {
+      var self = this,
+          classes = classSet(self.state.classes);
+
+      return (
+        React.createElement("div", {
+          ref: "datepicker-footer", 
+          className: classes
+        }, 
+          self.props.children
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"react/addons":3}],182:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    DateFormat = require('../utils/DateFormat'),
+    classSet = React.addons.classSet,
+    currentDate = new Date();
+
+module.exports = React.createClass({
+    displayName: 'DatePickerHeader',
+
+    mixins: [ClassNames, DateFormat],
+
+    getDefaultProps:function() {
+      return {
+        name: 'DatePickerHeader',
+        date: {
+          day: currentDate.getDate(),
+          year: currentDate.getFullYear(),
+          month: DateFormat('month', currentDate.getMonth()),
+          dayName: DateFormat('day', currentDate.getDay()),
+        }
+      };
+    },
+
+    getInitialState:function () {
+      return {
+        classes: {
+          'e-picker-header': true
+        },
+        date: {
+          day: currentDate.getDate(),
+          year: currentDate.getFullYear(),
+          month: DateFormat('month', currentDate.getMonth()),
+          dayName: DateFormat('day', currentDate.getDay()),
+        }
+      };
+    },
+
+    componentWillReceiveProps:function() {
+      var self = this;
+      self._updateDate();
+    },
+
+    componentDidMount:function() {
+      var self = this,
+          classes = this.state.classes;
+
+      classes = ClassNames(classes, this.props.classes);
+
+      self.setState({
+        classes: classes
+      });
+    },
+
+    _updateDate:function() {
+      var self = this;
+
+      self.setState({
+        month: self.props.date.month,
+        dayName: self.props.date.dayName,
+        day: self.props.date.day,
+        year: self.props.date.year,
+      });
+    },
+
+    renderDateMonth: function () {
+      var self = this;
+
+      if (self.state.month) {
+        return (
+          React.createElement("div", {className: "e-picker-header-month"}, 
+            self.state.month
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderDateDay: function () {
+      var self = this;
+      if (self.state.day) {
+        return (
+          React.createElement("div", {className: "e-picker-header-day"}, 
+            self.state.day
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderDateYear: function () {
+      var self = this;
+      if (self.state.year) {
+        return (
+          React.createElement("div", {className: "e-picker-header-year"}, 
+            self.state.year
+          )
+        );
+      }
+
+      return null;
+    },
+
+    render: function () {
+      var self = this,
+          classes = classSet(self.state.classes);
+
+      return (
+        React.createElement("header", {
+            ref: "DatePickerHeaderDate", 
+            className: classes
+        }, 
+          React.createElement("div", {className: 'e-picker-header-day-text'}, 
+            self.state.dayName
+          ), 
+          React.createElement("div", {className: 'e-picker-header-big-show'}, 
+            self.renderDateMonth(), 
+            self.renderDateDay(), 
+            self.renderDateYear()
+          )
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/DateFormat":223,"react/addons":3}],183:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DatePickerHeaderDate',
+
+    mixins: [PubSub, ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-picker-header-big-show': true
+        },
+        month: null,
+        day: null,
+        year: null,
+      };
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
+        classes: classSet(classes),
+        month: self.state.month || self.props.month,
+        day: self.state.day || self.props.day,
+        year: self.state.year || self.props.year,
+      });
+
+      /*self.subscribe('actions:datepicker', function (data) {
+        if (data.action === "change") {
+          self.setState({
+            month: data.newDate.month,
+            day: data.newDate.day,
+            year: data.newDate.year,
+          });
+        }
+      });*/
+    },
+
+    updateDate: function (newDate) {
+      var self = this;
+
+      self.setState({
+        month: newDate.month,
+        day: newDate.day,
+        year: newDate.year,
+      });
+    },
+
+    renderDateMonth: function () {
+      var self = this;
+
+      if (self.state.month) {
+        return (
+          React.createElement("div", {className: "e-picker-header-month"}, 
+            self.state.month
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderDateDay: function () {
+      var self = this;
+      if (self.state.day) {
+        return (
+          React.createElement("div", {className: "e-picker-header-day"}, 
+            self.state.day
+          )
+        );
+      }
+
+      return null;
+    },
+
+    renderDateYear: function () {
+      var self = this;
+      if (self.state.year) {
+        return (
+          React.createElement("div", {className: "e-picker-header-year"}, 
+            self.state.year
+          )
+        );
+      }
+
+      return null;
+    },
+
+
+    render: function () {
+      var self = this;
+      return (
+        React.createElement("div", {
+          ref: "DatePickerHeaderDate", 
+          className: self.state.classes
+        }, 
+          self.renderDateMonth(), 
+          self.renderDateDay(), 
+          self.renderDateYear()
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],184:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DatePickerHeaderDay',
+
+    mixins: [ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-picker-header-day-text': true
+        },
+        day: null
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes;
+
+      classes = ClassNames(classes, this.props.classes);
+
+      this.setState({
+        classes: classSet(classes),
+        day: this.props.day
+      });
+    },
+
+    render: function () {
+      var self = this;
+      return (
+        React.createElement("div", {className: self.state.classes}, 
+          self.state.day
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"react/addons":3}],185:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DatePickerItem',
+
+    mixins: [PubSub, ClassNames],
+
+    getInitialState: function() {
+      return {
+        style: {},
+        classes: {
+          'e-picker-container': true
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes || [];
+
+      this.setState({
+        classes: classes
+      });
+    },
+
+    renderDatePicker: function () {
+      var self = this,
+          classes = classSet( ClassNames(self.state.classes, self.props.classes) );
+
+      return (
+        React.createElement("div", {className: classes}, 
+          self.props.children
+        )
+      );
+    },
+
+    render: function () {
+      var self = this;
+      return self.renderDatePicker();
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],186:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -23187,26 +25325,27 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],174:[function(require,module,exports){
+},{"react/addons":3}],187:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
-    classSet = React.addons.classSet,
     Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DialogItem',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub, Mobile, ClassNames],
 
     getInitialState: function() {
       return {
         isMobile: this.isMobile(),
         classes: {
+          'e-dialog': (this.props.full) ? false : true,
+          'e-dialog-full': (this.props.full) ? true : false,
           'hide': true,
-          'e-dialog': true,
-          'e-dialog-full': (this.props.fullPage) ? true : false
         },
         modalStyle: {
           display: 'none'
@@ -23214,115 +25353,60 @@ module.exports = React.createClass({
       };
     },
 
-    renderChildren: function () {
-      var self = this,
-          childrens = React.Children.count(self.props.children),
-          children = [];
-
-      if (childrens === 1) {
-        children.push(self.props.children);
-      } else {
-        self.props.children.map(function (item) {
-          children.push(item);
-        });
-      }
-
-      return children;
-    },
-
     componentDidMount: function () {
-      var self = this;
+      var self = this,
+          classes = self.state.classes;
+
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
+        classes: classes
+      });
 
       self.subscribe('actions:dialog', function (data) {
-        if (data === "hide") {
-          self.hideDialog();
-        } else if (data === "show") {
-          self.showDialog();
+        if (data.action === "hide") {
+          self.hideDialog(data.id);
+        } else if (data.action === "show") {
+          self.showDialog(data.id);
         }
       });
 
     },
 
-    showDialog: function () {
+    showDialog: function (dialogID) {
       var self = this,
           modalStyle = self.state.modalStyle,
           classes = self.state.classes;
 
-      classes['hide'] = false;
-      modalStyle['display'] = 'block !important';
+      if (dialogID === self.props.id) {
+        classes['hide'] = false;
 
-      self.setState({
-        classes: classes,
-        modalStyle: modalStyle
-      });
-
-      document.querySelector('body').className = 'e-navigation-open';
-    },
-
-    hideDialog: function () {
-      var self = this,
-          modalStyle = self.state.modalStyle,
-          classes = self.state.classes;
-
-      classes['hide'] = true;
-      modalStyle['display'] = 'block !important';
-
-      self.setState({
-        classes: classes,
-        modalStyle: modalStyle
-      });
-
-      document.querySelector('body').className = '';
-    },
-
-    renderHeader: function () {
-      var self = this;
-
-      if (self.props.title) {
-        return (
-          React.createElement("div", {className: "e-dialogs-header"}, 
-            React.createElement("h2", null, self.props.title)
-          )
-        );
-      }
-
-      return null;
-    },
-
-    renderContent: function () {
-      var self = this;
-
-      return (
-        React.createElement("div", {className: "e-dialogs-content"}, 
-          React.createElement("p", null, 
-            self.props.content
-          )
-        )
-      );
-    },
-
-    renderActions: function () {
-      var self = this,
-          childrens = React.Children.count(self.props.children),
-          actions = [];
-
-      if (childrens === 1) {
-        actions.push(self.props.children);
-      } else if (childrens > 1) {
-        self.props.children.map(function (item) {
-          actions.push(item);
+        modalStyle['display'] = 'block !important';
+        self.setState({
+          classes: classes,
+          modalStyle: modalStyle
         });
-      }
 
-      if (actions.length > 0) {
-        return (
-          React.createElement("div", {className: "e-dialogs-actions"}, 
-            actions
-          )
-        );
+        document.querySelector('body').className = 'e-modal-open';
       }
+    },
 
-      return null;
+    hideDialog: function (dialogID) {
+      var self = this,
+          modalStyle = self.state.modalStyle,
+          classes = self.state.classes;
+
+      if (dialogID === self.props.id) {
+        classes['hide'] = true;
+        modalStyle['display'] = 'block !important';
+
+        self.setState({
+          classes: classes,
+          modalStyle: modalStyle
+        });
+
+        document.querySelector('body').className = '';
+      }
     },
 
     renderModalBackground: function () {
@@ -23333,7 +25417,7 @@ module.exports = React.createClass({
           React.createElement("div", {
             id: 'e-modal-bg-' + self.props.id, 
             style: {display: 'block'}, 
-            onClick: self.hideDialog, 
+            onClick: this.hideDialog.bind(this, self.props.id), 
             className: "e-modal-bg"}
           )
         );
@@ -23344,19 +25428,12 @@ module.exports = React.createClass({
 
     renderDialog: function () {
       var self = this,
-          classes = self.state.classes;
-
-      classes = classSet(classes);
+          classes = classSet(self.state.classes);
 
       return (
         React.createElement("div", null, 
-          React.createElement("div", {
-            id: self.props.id, 
-            className: classes
-          }, 
-            self.renderHeader(), 
-            self.renderContent(), 
-            self.renderActions()
+          React.createElement("div", {id: self.props.id, className: classes}, 
+            self.props.children
           ), 
           self.renderModalBackground()
         )
@@ -23370,7 +25447,136 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":205,"../utils/PubSub":208,"react/addons":3}],175:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],188:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    Mobile = require('../utils/Mobile'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DialogItemContent',
+
+    mixins: [Mobile, ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-dialogs-content': true
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
+        classes: classSet(classes)
+      });
+    },
+
+    render: function () {
+      var self = this;
+
+      return (
+        React.createElement("div", {className: self.state.classes}, 
+          self.props.children
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"react/addons":3}],189:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    Mobile = require('../utils/Mobile'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DialogItemFooter',
+
+    mixins: [Mobile, ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-dialogs-actions': true,
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
+        classes: classSet(classes)
+      });
+    },
+
+    render: function () {
+      var self = this;
+
+      return (
+        React.createElement("div", {className: self.state.classes}, 
+          self.props.children
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"react/addons":3}],190:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    Mobile = require('../utils/Mobile'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'DialogItemHeader',
+
+    mixins: [Mobile, ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {
+          'e-dialogs-header': true,
+        }
+      };
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
+        classes: classSet(classes)
+      });
+    },
+
+    render: function () {
+      var self = this;
+
+      return (
+        React.createElement("div", {className: self.state.classes}, 
+          self.props.children
+        )
+      );
+    }
+});
+
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"react/addons":3}],191:[function(require,module,exports){
 'use strict';
 
 var React = require('react'),
@@ -23421,14 +25627,17 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react":164}],176:[function(require,module,exports){
+},{"../utils/PubSub":227,"react":164}],192:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Icon',
+
+    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -23436,35 +25645,79 @@ module.exports = React.createClass({
       };
     },
 
-    componentDidMount: function () {
+    renderChildren:function() {
       var self = this,
-          classes = self.state.classes;
-
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
-      }
+          classes = ClassNames([], self.props.classes);
 
       if (self.props.name) {
         classes["e-icon-"+self.props.name] = true;
       }
 
-      self.setState({
-        classes: classSet(classes)
-      });
+      if (self.props.name) {
+        return (
+            React.createElement("i", {className: classSet(classes)})
+        );
+      }
+
+      return null;
     },
 
     render: function () {
       var self = this;
-
-      return (
-          React.createElement("i", {className: self.state.classes})
-      );
+      return self.renderChildren();
     }
 });
 
-},{"react/addons":3}],177:[function(require,module,exports){
+},{"../utils/ClassNames":220,"react/addons":3}],193:[function(require,module,exports){
+'use strict';
+
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
+
+module.exports = React.createClass({
+    displayName: 'Image',
+
+    mixins: [ClassNames],
+
+    getInitialState: function() {
+      return {
+        classes: {}
+      };
+    },
+
+    componentWillReceiveProps: function () {
+      var self = this;
+      self.renderChildren();
+    },
+
+    componentDidMount: function () {
+      var self = this;
+    },
+
+    renderChildren: function () {
+      var self = this,
+          classes = classSet(ClassNames(self.state.classes, self.props.classes));
+
+      return (
+        React.createElement("img", {
+          className: classes, 
+          key: self.props.id, 
+          id: self.props.id, 
+          src: self.props.src, 
+          alt: self.props.alt, 
+          width: self.props.width, 
+          height: self.props.height}
+        )
+      );
+    },
+
+    render: function () {
+      return this.renderChildren();
+    }
+});
+
+},{"../utils/ClassNames":220,"react/addons":3}],194:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -23502,68 +25755,55 @@ module.exports = React.createClass({
     render: function () {
       var self = this;
 
-      return (
-        React.createElement("div", null, 
-          self.renderChildren()
-        )
-      );
+      return (React.createElement("div", null, self.renderChildren()));
     }
 });
 
-},{"react/addons":3}],178:[function(require,module,exports){
+},{"react/addons":3}],195:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'InputItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: "",
+        classes: [],
         counter: {
           current: 0,
           maximum: 50
         },
-        inputClasses: {},
+        inputClasses: [],
         inputValue: ''
       };
     },
 
     componentDidMount: function () {
       var self = this,
-          parentClass = {},
-          inputClass = {},
-          counter = self.state.counter,
-          cx = React.addons.classSet;
-
-      (self.props.classes.split(" ")).map(function (s) {
-        parentClass[s] = true;
-      });
-
-      (self.props.inputClasses.split(" ")).map(function (s) {
-        inputClass[s] = true;
-      });
+          parentClass = self.props.classes || [],
+          inputClass = self.props.inputClasses || [],
+          counter = self.state.counter;
 
       if ( parseInt(self.props.counter) > 0 ) {
         counter.maximum = parseInt(self.props.counter);
       }
 
       self.setState({
-        classes: cx(parentClass),
-        inputClasses: cx(inputClass),
+        classes: parentClass,
+        inputClasses: inputClass,
         counter: counter
       });
-
     },
 
     handleChange: function (eventChange) {
       var self = this,
-          cx = React.addons.classSet,
           counter = self.state.counter,
           inputClasses = {},
           inputValue = eventChange.target.value;
@@ -23583,13 +25823,13 @@ module.exports = React.createClass({
       self.setState({
         counter: counter,
         inputValue: inputValue,
-        inputClasses: cx(inputClasses)
+        inputClasses: classSet(inputClasses)
       });
     },
 
     renderLabel: function () {
       if (!this.props.label || this.props.placeholder) {
-        return '';
+        return null;
       }
 
       return (
@@ -23601,7 +25841,7 @@ module.exports = React.createClass({
 
     renderHint: function () {
       if (!this.props.hint) {
-        return '';
+        return null;
       }
 
       return (
@@ -23614,7 +25854,7 @@ module.exports = React.createClass({
     renderCounter: function () {
       var self = this;
       if (!self.props.counter) {
-        return '';
+        return null;
       }
 
       return (
@@ -23635,34 +25875,34 @@ module.exports = React.createClass({
           placeholder = (self.props.placeholder ? self.props.placeholder : ''),
           isRequired = (self.props.required ? true : false),
           isDisabled = (self.props.disabled ? true : false),
-          type = (self.props.type ? self.props.type : ''),
+          type = (self.props.type ? self.props.type : 'text'),
           value = (self.props.value ? self.props.value :
             (self.state.inputValue ? self.state.inputValue : '')
           ),
-          name = (self.props.name ? self.props.name : '');
+          name = (self.props.name ? self.props.name : ''),
+          inputClasses = classSet(self.state.inputClasses);
 
       if (type === 'textarea') {
         return (
           React.createElement("textarea", {
-            className: self.state.inputClasses, 
+            className: inputClasses, 
             type: type, 
             name: name, 
-            value: value, 
+            defaultValue: value, 
             required: isRequired, 
             disabled: isDisabled, 
             placeholder: placeholder, 
-            onChange: self.handleChange
-          }
+            onChange: self.handleChange}
           )
         );
       }
 
       return (
         React.createElement("input", {
-          className: self.state.inputClasses, 
+          className: inputClasses, 
           type: type, 
           name: name, 
-          value: value, 
+          defaultValue: value, 
           required: isRequired, 
           disabled: isDisabled, 
           placeholder: placeholder, 
@@ -23673,7 +25913,7 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this,
-          classes = self.state.classes;
+          classes = classSet(self.state.classes);
 
       return (
         React.createElement("div", {className: classes}, 
@@ -23687,59 +25927,76 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],179:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],196:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub'),
-    ListItem = require('./ListItem'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'List',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub, Mobile, ClassNames],
 
     getInitialState: function() {
       return {
         classes: {
-          'e-list': true,
+          'e-list': false,
+          'e-list-big-icon': false,
           'e-list-navigation': false,
-          'single-line': true,
-          'two-line': false,
-          'multi-line': false,
-          'has-avatar': true,
+          'e-sublist-navigation': false,
           'has-icon': true,
+          'has-avatar': true,
           'has-checkbox': false,
           'has-switches': false,
-          'right': false,
           'left': false,
+          'right': false,
+          'clearfix': false,
+          'two-line': false,
+          'multi-line': false,
+          'single-line': false,
         },
+        activeItem: null,
         isMobile: this.isMobile()
       };
     },
 
     componentDidMount: function () {
       var self = this,
-          classes = self.state.classes;
+          classes = self.state.classes || [];
 
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
+      if (self.props.type) {
+        classes['e-list'] = true;
       }
 
-      classes['has-avatar'] = (self.props.avatar) ? true : false;
+      if (self.props.classes) {
+        classes = ClassNames(classes, self.props.classes);
+      }
+
       classes['has-icon'] = (self.props.icon) ? true : false;
+      classes['has-avatar'] = (self.props.avatar) ? true : false;
+      classes['has-switches'] = (self.props.type === 'switch') ? true : false;
+      classes['has-dropdown'] = (self.props.type === 'expand') ? true : false;
       classes['has-right-checkbox'] = (self.props.position === 'right') ?
           true : false;
       classes['has-checkbox'] = (self.props.type === 'checkbox' &&
           self.props.position !== 'right' ) ? true : false;
+      classes['single-line'] = (self.props.type === 'single-line') ? true : false;
       classes['two-line'] = (self.props.type === 'two-line') ? true : false;
       classes['multi-line'] = (self.props.type === 'multi-line') ? true : false;
-      classes['has-switches'] = (self.props.type === 'switch') ? true : false;
-      classes['has-dropdown'] = (self.props.type === 'expand') ? true : false;
+
+      if (self.props.type === 'big-icon') {
+        classes['e-list'] = false;
+        classes['e-list-big-icon'] = true;
+        classes['clearfix'] = true;
+      }
+
+      if (self.props.type === 'sublist') {
+        classes['e-sublist-navigation'] = true;
+      }
 
       if (self.props.type === 'navigation' || self.props.type === 'expand') {
         classes['e-list'] = false;
@@ -23747,13 +26004,17 @@ module.exports = React.createClass({
         classes['e-list-navigation'] = true;
       }
 
-      self.setState({
-        classes: classSet(classes)
+      self.subscribe('actions:list', function (data) {
+        if (data.action === 'active') {
+          self.setState({
+            activeItem: data.id
+          });
+        }
       });
-    },
 
-    componentDidUnmount: function () {
-      // Empty
+      self.setState({
+        classes: classes
+      });
     },
 
     renderChildren: function () {
@@ -23763,12 +26024,12 @@ module.exports = React.createClass({
 
       if (childrens === 1) {
         var item = self.props.children;
-
         item = (
             React.addons.cloneWithProps(item, {
-              id: 0,
+              id: self.props.id + 0,
               key: 0,
               dataId: 0,
+              isActive: true,
               type: self.props.type,
               position: self.props.position,
             })
@@ -23778,9 +26039,10 @@ module.exports = React.createClass({
         self.props.children.map(function (item, key) {
           item = (
             React.addons.cloneWithProps(item, {
-              id: key,
+              id: self.props.id + key,
               key: key,
               dataId: key,
+              isActive: (self.state.activeItem === (self.props.id + key) || (key === 0 && !self.state.activeItem) ) ? true : false,
               type: self.props.type,
               position: self.props.position,
             })
@@ -23797,45 +26059,47 @@ module.exports = React.createClass({
     },
 
     render: function () {
-      var self = this;
+      var self = this,
+          classes = classSet( self.state.classes );
 
       return (
-        React.createElement("ul", {className: self.state.classes}, 
+        React.createElement("ul", {className: classes}, 
           self.renderChildren()
         )
       );
     }
 });
 
-},{"../utils/Mobile":205,"../utils/PubSub":208,"./ListItem":180,"react/addons":3}],180:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],197:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     Icon = require('./Icon'),
-    RippleInk = require('./RippleInk'),
+    Image = require('./Image'),
+    Text = require('./Text'),
     ListItemElement = require('./ListItemElement'),
     PubSub = require('../utils/PubSub'),
     Position = require('../utils/Position'),
     ClickPosition = require('../utils/ClickPosition'),
     BackgroundColor = require('../utils/BackgroundColor'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ListItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
-        classes: {
-          'e-checkbox': false,
-        },
+        classes: {},
         clickPosition: {
           x: 0,
           y: 0
         },
         dragCSS: {},
         isActive: null,
+        activeItem: null,
         expandSubmenu: '',
         fromElement: 0,
         toElement: 0
@@ -23844,23 +26108,10 @@ module.exports = React.createClass({
 
     componentDidMount: function () {
       var self = this,
-          classes = self.state.classes;
-
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
-      }
-
-      classes['has-avatar'] = (self.props.avatar) ? true : false;
-      classes['has-icon'] = (self.props.icon) ? true : false;
-      classes['has-checkbox'] = (self.props.checkbox) ? true : false;
-      classes['has-switches'] = (self.props.type === 'switch') ? true : false;
-      classes['has-right-checkbox'] = (self.props.position === 'right') ? true : false;
-      classes['multi-line'] = (self.props.type === 'lines') ? true : false;
+          classes = self.props.classes || [];
 
       self.setState({
-        classes: classSet(classes)
+        classes: classes
       });
     },
 
@@ -23938,6 +26189,8 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
+          classes = classSet( ClassNames(self.state.classes, self.props.classes) ),
+          childrens = React.Children.count(self.props.children),
           inputName = (self.props.inputName) ? self.props.inputName : '',
           contentLink = (self.props.contentLink) ? self.props.contentLink : '',
           contentText = (self.props.contentText) ? self.props.contentText : '',
@@ -23946,12 +26199,13 @@ module.exports = React.createClass({
           avatarLink = (self.props.avatarLink) ? self.props.avatarLink : '',
           avatarImg = (self.props.avatarImg) ? self.props.avatarImg : '',
           avatarAlt = (self.props.avatarAlt) ? self.props.avatarAlt : '',
+          primaryListImage = false,
           position = (self.props.position) ? self.props.position : false;
 
-      if (self.props.type === 'checkbox') {
+      if (self.props.listType === 'checkbox') {
         if (position === 'right') {
           return (
-            React.createElement("li", null, 
+            React.createElement("li", {className: classes}, 
               React.createElement("a", {href: avatarLink}, 
                   React.createElement("span", {className: "e-list-content"}, 
                     React.createElement("img", {
@@ -23979,7 +26233,7 @@ module.exports = React.createClass({
         }
 
         return (
-          React.createElement("li", null, 
+          React.createElement("li", {className: classes}, 
             React.createElement("div", {className: "e-checkbox"}, 
               React.createElement("label", {className: "e-list-content"}, 
                 React.createElement("input", {
@@ -24000,7 +26254,7 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'switch') {
+      if (self.props.listType === 'switch') {
         var showSwitchBox = '';
 
         if (!self.props.isHidden) {
@@ -24018,7 +26272,7 @@ module.exports = React.createClass({
           );
         }
         return (
-          React.createElement("li", null, 
+          React.createElement("li", {className: classes}, 
             React.createElement("a", {href: avatarLink}, 
               React.createElement("span", {className: "e-list-content-fake"}, 
                 React.createElement(Icon, {classes: "e-list-icon", name: self.props.icon}), 
@@ -24030,7 +26284,7 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'reorder') {
+      if (self.props.listType === 'reorder') {
         return (
           React.createElement("li", {
             id: self.props.id, 
@@ -24038,7 +26292,8 @@ module.exports = React.createClass({
             onDragEnd: self.dragEnd, 
             onDragStart: self.dragStart, 
             onDragOver: self.dragOver, 
-            style: self.state.dragCSS
+            style: self.state.dragCSS, 
+            className: classes
           }, 
             React.createElement("a", {href: avatarLink}, 
                 React.createElement("span", {className: "e-list-content"}, 
@@ -24057,15 +26312,58 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'navigation') {
+      if (self.props.listType === 'navigation') {
         var hasMore = null,
-            state_bgColor = this.state.bgColor,
-            state_clickPosition = this.state.clickPosition,
-            hasMenu = null;
+            hasMenu = null,
+            activeClass = (self.props.isActive) ? 'active' : null;
 
         if (self.props.more) {
           hasMore = (
             React.createElement(Icon, {classes: "e-right", name: "hardware-keyboard-arrow-down"})
+          );
+        }
+
+        if (self.props.primaryListImage) {
+          primaryListImage = (
+            React.createElement("img", {
+              className: 'primaryListImage', 
+              src: self.props.primaryListImage, 
+              alt: contentText}
+            )
+          );
+        }
+
+        if (self.props.hasSubmenu) {
+          var navigationItems = [];
+
+          self.props.children.map(function (i, k) {
+            var item = i;
+
+            item = (
+              React.addons.cloneWithProps(i, {
+                id: k,
+                key: k,
+                onClick: self.hideNavigation
+              })
+            );
+
+            navigationItems.push(item);
+          });
+
+          return (
+            React.createElement("li", {className: activeClass}, 
+              React.createElement("a", {
+                href: contentLink, 
+                onClick: self.showSubmenu, 
+                id: self.props.id
+              }, 
+                  primaryListImage, 
+                  contentText
+              ), 
+              React.createElement("ul", {className: "e-sublist-navigation"}, 
+                navigationItems
+              )
+            )
           );
         }
 
@@ -24098,6 +26396,7 @@ module.exports = React.createClass({
               onClick: self.showSubmenu, 
               id: self.props.id
             }, 
+                primaryListImage, 
                 contentText, 
                 hasMore
             ), 
@@ -24106,7 +26405,7 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'expand') {
+      if (self.props.listType === 'expand') {
         var hasMore = null,
             hasMenu = null;
 
@@ -24121,7 +26420,10 @@ module.exports = React.createClass({
 
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
-              React.createElement("li", {key: k}, 
+              React.createElement("li", {
+                key: k, 
+                className: classes
+                }, 
                 React.createElement("a", {href: v.link}, 
                   v.text
                 )
@@ -24163,11 +26465,11 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'single-line') {
+      if (self.props.listType === 'single-line') {
 
         if (self.props.icon && self.props.avatarImg) {
           return (
-            React.createElement("li", null, 
+            React.createElement("li", {className: classes}, 
               React.createElement("a", {href: avatarLink}, 
                 React.createElement("span", {className: "e-list-content"}, 
                   self.hasAvatar(), 
@@ -24182,7 +26484,7 @@ module.exports = React.createClass({
         }
 
         return (
-          React.createElement("li", null, 
+          React.createElement("li", {className: classes}, 
             React.createElement("a", {href: contentLink}, 
               React.createElement("span", {className: "e-list-content"}, 
                 self.hasIcon(), 
@@ -24194,11 +26496,10 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'two-line') {
-
-        if (self.props.icon && self.props.avatarImg) {
+      if (self.props.listType === 'two-line') {
+        if (self.props.icon) {
           return (
-            React.createElement("li", null, 
+            React.createElement("li", {className: classes}, 
               React.createElement("a", {href: avatarLink}, 
                 React.createElement("span", {className: "e-list-content"}, 
                   self.hasAvatar(), 
@@ -24217,7 +26518,7 @@ module.exports = React.createClass({
         }
 
         return (
-          React.createElement("li", null, 
+          React.createElement("li", {className: classes}, 
             React.createElement("a", {href: contentLink}, 
               React.createElement("span", {className: "e-list-content"}, 
                 self.hasIcon(), 
@@ -24233,11 +26534,10 @@ module.exports = React.createClass({
         );
       }
 
-      if (self.props.type === 'multi-line') {
-
-        if (self.props.icon && self.props.avatarImg) {
+      if (self.props.listType === 'multi-line') {
+        if (self.props.icon) {
           return (
-            React.createElement("li", null, 
+            React.createElement("li", {className: classes}, 
               React.createElement("a", {href: avatarLink}, 
                 React.createElement("span", {className: "e-list-content"}, 
                   self.hasAvatar(), 
@@ -24258,7 +26558,7 @@ module.exports = React.createClass({
         }
 
         return (
-          React.createElement("li", null, 
+          React.createElement("li", {className: classes}, 
             React.createElement("a", {href: contentLink}, 
               React.createElement("span", {className: "e-list-content"}, 
                 self.hasIcon(), 
@@ -24276,7 +26576,30 @@ module.exports = React.createClass({
         );
       }
 
-      return '';
+      if (self.props.listType === 'big-icon') {
+        return (
+          React.createElement("li", {className: "brick brick-4"}, 
+            React.createElement("a", {href: contentLink}, 
+              self.hasIcon(), 
+              React.createElement("span", {className: "e-bs-title"}, contentTitle)
+            )
+          )
+        );
+      }
+
+      if (childrens > 0) {
+        return self.props.children;
+      }
+
+      return (
+        React.createElement("li", {className: classes}, 
+          React.createElement("a", {href: contentLink}, 
+            self.hasIcon(), 
+            self.hasAvatar(), 
+            React.createElement("span", null, contentText)
+          )
+        )
+      );
     },
 
     hasIcon: function () {
@@ -24307,8 +26630,14 @@ module.exports = React.createClass({
     },
 
     showSubmenu: function (ev) {
-      this.setState({
-        isActive: this.state.isActive !== 'active' ? 'active' : null,
+      var self = this;
+
+      self.publish('actions:list', {
+        action: 'active', id: self.props.id
+      });
+
+      self.setState({
+        activeItem: self.props.id
       });
 
       ev.preventDefault();
@@ -24321,22 +26650,31 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/BackgroundColor":202,"../utils/ClickPosition":203,"../utils/Position":206,"../utils/PubSub":208,"./Icon":176,"./ListItemElement":181,"./RippleInk":188,"react/addons":3}],181:[function(require,module,exports){
+},{"../utils/BackgroundColor":219,"../utils/ClassNames":220,"../utils/ClickPosition":221,"../utils/Position":225,"../utils/PubSub":227,"./Icon":192,"./Image":193,"./ListItemElement":198,"./Text":214,"react/addons":3}],198:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ListItemElement',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         text: false
       };
+    },
+
+    componentDidMount: function () {
+      var classes = this.state.classes;
+
+      this.setState({
+        classes: classes
+      });
     },
 
     componentWillReceiveProps: function () {
@@ -24346,19 +26684,25 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
-          classes = self.state.classes;
+          classes = classSet( ClassNames(self.state.classes, this.props.classes) );
 
-      classes = classSet(classes);
+      if (self.props.element) {
+        return (
+          React.createElement("li", {className: classes}, 
+            React.createElement("a", {
+              id: self.props.element.id, 
+              href: self.props.element.link, 
+              onClick: self.props._onClick
+            }, 
+              self.props.element.text
+            )
+          )
+        );
+      }
 
       return (
-        React.createElement("li", null, 
-          React.createElement("a", {
-            id: self.props.element.id, 
-            href: self.props.element.link, 
-            onClick: self.props._onClick
-          }, 
-            self.props.element.text
-          )
+        React.createElement("li", {className: classes}, 
+          self.props.children
         )
       );
     },
@@ -24369,22 +26713,23 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],182:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],199:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
-    PubSub = require('../utils/PubSub'),
-    Mobile = require('../utils/Mobile'),
-    PositionH = require('../utils/PositionHorizontal'),
     Text = require('./Text'),
     Icon = require('./Icon'),
-    MenuItem = require('./MenuItem');
+    MenuItem = require('./MenuItem'),
+    PubSub = require('../utils/PubSub'),
+    Mobile = require('../utils/Mobile'),
+    ClassNames = require('../utils/ClassNames'),
+    PositionH = require('../utils/PositionHorizontal');
 
 module.exports = React.createClass({
     displayName: 'Menu',
 
-    mixins: [PubSub, Mobile, PositionH],
+    mixins: [PubSub, Mobile, PositionH, ClassNames],
 
     getInitialState: function() {
       var self = this,
@@ -24392,7 +26737,8 @@ module.exports = React.createClass({
 
       return {
         children: [],
-        isHidden: options.hide,
+        isHidden: true,
+        placeholder: null,
         isRightPosition: false,
         classes: {
           'mobile': this.isMobile(),
@@ -24407,9 +26753,17 @@ module.exports = React.createClass({
       var self = this,
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
+
       self.subscribe('toggleMenu_for_' + menuID, function(data) {
         self.showMenu(data);
       });
+
+      /*document.addEventListener("click", function(event){
+        self.setState({
+          isHidden: self.state.isHidden ? false : true,
+        });
+      });*/
+
     },
 
     componentDidUnmount: function () {
@@ -24417,6 +26771,10 @@ module.exports = React.createClass({
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
       this.unsubscribe('toggleMenu_for_' + menuID, null);
+
+      document.removeEventListener("click", function(){
+        /* none */
+      });
     },
 
     renderMenuTitle: function () {
@@ -24464,9 +26822,11 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
 
       if (extraClasses) {
-        (extraClasses).map(function (item) {
-          classes[item] = true;
-        });
+        classes = ClassNames(classes, extraClasses);
+      }
+
+      if (self.props.classes) {
+        classes = ClassNames(classes, self.props.classes);
       }
 
       classes = classSet(classes);
@@ -24485,11 +26845,14 @@ module.exports = React.createClass({
 
     showMenu: function (ev) {
       var self = this,
+          target = ev.currentTarget,
+          targetText = target.textContent,
           elemPosition = PositionH(ev.target);
 
       self.setState({
         isRightPosition: elemPosition.position === 'right' ? true : false,
-        isHidden: self.state.isHidden ? false : true
+        isHidden: self.state.isHidden ? false : true,
+        placeholder: targetText
       });
     },
 
@@ -24520,6 +26883,8 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
+          childPlaceholder = null,
+          children = [],
           items = [];
 
       if (self.props.items) {
@@ -24530,7 +26895,48 @@ module.exports = React.createClass({
         return items;
       }
 
-      return false;
+      var ulClasses = {
+        "e-nav": true,
+        "e-paper": true,
+        "e-shadow-1": true,
+        "right": self.props.right,
+        "hide": self.state.isHidden
+      },
+      placeholder = (self.state.placeholder) ? self.state.placeholder :
+            self.props.placeholder ? self.props.placeholder : null;
+
+      ulClasses = classSet(ulClasses);
+
+      if (self.props.placeholder) {
+        childPlaceholder = (
+          React.createElement(Text, {
+            onClick: self.showMenu, 
+            id: "text-for-" + self.props.id
+          }, 
+            placeholder, 
+            React.createElement(Icon, {name: 'navigation-arrow-drop-down'})
+          )
+        );
+      }
+
+      self.props.children.map(function(item, index) {
+        children.push(
+          React.addons.cloneWithProps(item, {
+            id: self.props.id,
+            key: index,
+            onClick: self.showMenu
+          })
+        );
+      });
+
+      return (
+        React.createElement("div", null, 
+          childPlaceholder, 
+          React.createElement("ul", {className: ulClasses, id: self.props.id}, 
+            children
+          )
+        )
+      );
     },
 
     render: function () {
@@ -24539,26 +26945,28 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":205,"../utils/PositionHorizontal":207,"../utils/PubSub":208,"./Icon":176,"./MenuItem":183,"./Text":197,"react/addons":3}],183:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PositionHorizontal":226,"../utils/PubSub":227,"./Icon":192,"./MenuItem":200,"./Text":214,"react/addons":3}],200:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
     Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'MenuItem',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub, Mobile, ClassNames],
 
     getInitialState: function() {
       return {
         isMobile: this.isMobile(),
         activeItems: [],
         classes: {
-          'divider': (this.props.options.type === "divider"),
-          'more': (this.props.options.type === "more")
+          'divider': (this.props.options && this.props.options.type === "divider"),
+          'more': (this.props.options && this.props.options.type === "more")
         }
       };
     },
@@ -24682,7 +27090,14 @@ module.exports = React.createClass({
         }
       }
 
-      return false;
+      return (
+        React.createElement("li", {
+          onClick: self.handleEventAction, 
+          key: "parent-"+id+"-link"
+        }, 
+          self.props.children
+        )
+      );
     },
 
     render: function () {
@@ -24698,6 +27113,26 @@ module.exports = React.createClass({
 
       classes = classSet(classes);
 
+      if (!options) {
+        var liClasses = {};
+
+        if (self.props.classes) {
+          liClasses = ClassNames(liClasses, self.props.classes);
+        }
+
+        liClasses = classSet(liClasses);
+
+        return (
+          React.createElement("li", {
+            onClick: self.props.onClick, 
+            key: "parent-"+self.props.id+"-link", 
+            className: liClasses
+          }, 
+            self.props.children
+          )
+        );
+      }
+
       return (
         React.createElement("ul", {
           className: classes, 
@@ -24709,7 +27144,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":205,"../utils/PubSub":208,"react/addons":3}],184:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],201:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -24934,18 +27369,37 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ComponentHTML":204,"../utils/Mobile":205,"../utils/PubSub":208,"./Icon":176,"react/addons":3}],185:[function(require,module,exports){
+},{"../utils/ComponentHTML":222,"../utils/Mobile":224,"../utils/PubSub":227,"./Icon":192,"react/addons":3}],202:[function(require,module,exports){
 'use strict';
 
-var React = require('react/addons');
+var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Paper',
 
+    mixins: [ClassNames],
+
     getInitialState: function() {
       return {
-        children: []
+        classes: {
+          'e-paper-components': true
+        }
       };
+    },
+
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      if (self.props.classes) {
+        classes = ClassNames(classes, self.props.classes);
+      }
+
+      self.setState({
+        classes: classSet(classes)
+      });
     },
 
     renderChildren: function () {
@@ -24979,21 +27433,24 @@ module.exports = React.createClass({
       var self = this;
 
       return (
-        React.createElement("div", {className: "e-paper-components"}, 
-          self.renderChildren()
+        React.createElement("div", {className: self.state.classes}, 
+          self.props.children
         )
       );
     }
 });
 
-},{"react/addons":3}],186:[function(require,module,exports){
+},{"../utils/ClassNames":220,"react/addons":3}],203:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'PaperItem',
+
+    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -25013,9 +27470,7 @@ module.exports = React.createClass({
       classes['circle'] = (self.props.type === 'circle') ? true : false;
 
       if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
+        classes = ClassNames(classes, self.props.classes);
       }
 
       self.setState({
@@ -25034,7 +27489,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],187:[function(require,module,exports){
+},{"../utils/ClassNames":220,"react/addons":3}],204:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25146,7 +27601,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":205,"../utils/PubSub":208,"react/addons":3}],188:[function(require,module,exports){
+},{"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],205:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25185,7 +27640,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],189:[function(require,module,exports){
+},{"react/addons":3}],206:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -25193,55 +27648,32 @@ var React = require('react/addons');
 module.exports = React.createClass({
     displayName: 'Slider',
 
-    getInitialState: function() {
-      return {
-        children: []
-      };
-    },
-
     renderChildren: function () {
-      var self = this,
-          childrens = React.Children.count(self.props.children),
-          children = [];
-
-      if (childrens === 1) {
-        children.push(self.props.children);
-      } else {
-        self.props.children.map(function (item) {
-          children.push(item);
-        });
-      }
-
-      return children;
+      return this.props.children;
     },
 
     componentWillReceiveProps: function () {
-      var self = this;
-      self.renderChildren();
+      this.renderChildren();
     },
 
     render: function () {
-      var self = this;
-      return (
-        React.createElement("div", null, 
-          self.renderChildren()
-        )
-      );
+      return this.renderChildren();
     }
 });
 
-},{"react/addons":3}],190:[function(require,module,exports){
+},{"react/addons":3}],207:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
+    PositionHorizontal = require('../utils/PositionHorizontal'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
     displayName: 'SliderItem',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub, Mobile, PositionHorizontal],
 
     getInitialState: function() {
       return {
@@ -25253,6 +27685,7 @@ module.exports = React.createClass({
           'discrete': (this.props.discrete ? true : false),
           'zero': (this.props.start < 1 ? true : false)
         },
+        inputValue: (this.props.start || 0),
         discrete: (this.props.start || 0),
         handleStyles: { left: this.props.start ? this.props.start+'%' : '0%' },
         fillStyles: { width: this.props.start ? this.props.start+'%' : '0%' },
@@ -25298,14 +27731,20 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes,
           discreteStyles = self.state.discreteStyles,
-          element = event.target,
-          //width = element.parentNode.offsetParent.offsetWidth,
-          width = event.currentTarget.offsetWidth,
-          widthLeft = event.currentTarget.offsetLeft,
           clientX = (self.state.isMobile) ?
               event.changedTouches[0].clientX : event.clientX,
-          horizontal = (((clientX - widthLeft) / width) * 100).toFixed(0),
+          element = this.refs.sliderHandle.getDOMNode(),
+          //elementBounding = element.getBoundingClientRect(),
+          sliderParent = this.refs.sliderParent.getDOMNode(),
+          offset = clientX - sliderParent.offsetParent.offsetLeft,
+          horizontal = ((offset / sliderParent.offsetWidth ) * 100).toFixed(0),
           horizontalFill = horizontal;
+
+      if (((offset / sliderParent.offsetWidth ) * 100) < 1) {
+          horizontal = horizontalFill = 0;
+      } else if (((offset / sliderParent.offsetWidth ) * 100) > 100) {
+          horizontal = horizontalFill = 100;
+      }
 
       if (self.props.steps) {
         horizontal = horizontalFill = (Math.round((horizontal / 20)) * 20);
@@ -25321,7 +27760,9 @@ module.exports = React.createClass({
 
           fillStyles: {
             width: horizontalFill + "%"
-          }
+          },
+
+          inputValue: horizontal
         });
 
         discreteStyles.marginLeft = horizontal + '%';
@@ -25405,6 +27846,7 @@ module.exports = React.createClass({
     renderSlider: function () {
       var self = this,
           classes = self.state.classes,
+          inputName = self.props.name || "sliderInput",
           onMove = self.state.isMoving ? self.renderMove : null;
 
       if (self.props.disable) {
@@ -25416,12 +27858,14 @@ module.exports = React.createClass({
       return (
         React.createElement("div", {
             className: classes, 
+            onMouseLeave: self.renderMoveEnd, 
             onMouseDown: self.renderMoveStart, 
             onMouseUp: self.renderMoveEnd, 
             onMouseMove: onMove, 
             onTouchStart: self.renderMoveStart, 
             onTouchEnd: self.renderMoveEnd, 
-            onTouchMove: onMove
+            onTouchMove: onMove, 
+            ref: "sliderParent"
           }, 
           React.createElement("div", {className: "e-slider-track"}, 
             React.createElement("div", {
@@ -25433,7 +27877,8 @@ module.exports = React.createClass({
           ), 
           self.renderFill(), 
           self.renderDiscrete(), 
-          self.renderSteps()
+          self.renderSteps(), 
+          React.createElement("input", {name: inputName, defaultValue: self.state.inputValue, className: 'hide'})
         )
       );
     },
@@ -25445,7 +27890,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":205,"../utils/PubSub":208,"react/addons":3}],191:[function(require,module,exports){
+},{"../utils/Mobile":224,"../utils/PositionHorizontal":226,"../utils/PubSub":227,"react/addons":3}],208:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -25460,47 +27905,41 @@ module.exports = React.createClass({
     },
 
     renderChildren: function () {
-      var self = this,
-          children = [];
-
-      self.props.children.map(function (item) {
-        children.push(item);
-      });
-
-      return children;
-    },
-
-    componentWillReceiveProps: function () {
       var self = this;
-      self.renderChildren();
+
+      if (self.props.children) {
+        return self.props.children;
+      }
+
+      return null;
     },
 
     render: function () {
       var self = this;
       return (
-        React.createElement("div", null, 
-          self.renderChildren()
-        )
+        React.createElement("div", null, self.renderChildren())
       );
     }
 });
 
-},{"react/addons":3}],192:[function(require,module,exports){
+},{"react/addons":3}],209:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     BtnItem = require('./BtnItem'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'SnackbarItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: ""
+        classes: []
       };
     },
 
@@ -25555,7 +27994,7 @@ module.exports = React.createClass({
 
     actionBtn: function () {
       if (!this.props.action) {
-        return "";
+        return null;
       }
 
       return (
@@ -25571,7 +28010,11 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       return (
-        React.createElement("div", {className: classes, id: self.props.id, style: style}, 
+        React.createElement("div", {
+          className: classes, 
+          id: self.props.id, 
+          style: style
+        }, 
           React.createElement("div", {className: "snackbar-message"}, 
             self.props.children
           ), 
@@ -25581,7 +28024,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"./BtnItem":167,"react/addons":3}],193:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"./BtnItem":170,"react/addons":3}],210:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -25626,32 +28069,61 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],194:[function(require,module,exports){
+},{"react/addons":3}],211:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    classSet = React.addons.classSet,
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames');
 
 module.exports = React.createClass({
     displayName: 'SwitchItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: ""
+        classes: {
+          'e-checkbox': false,
+          'e-radio': false,
+          'e-radio-success': false,
+          'e-switches': false,
+        },
+        switchesClasses: {
+          'e-switch': true
+        }
       };
     },
 
+    componentDidMount: function () {
+      var self = this,
+          classes = self.state.classes;
+
+      if (self.props.classes) {
+        classes = ClassNames(classes, self.props.classes);
+      }
+
+      self.setState({
+        switchesClasses: classes
+      });
+    },
+
     renderCheckbox: function () {
-      var self = this;
+      var self = this,
+          classes = self.state.classes;
+
+      classes['e-checkbox'] = true;
+      classes = classSet(classes);
+
       return (
-        React.createElement("div", {className: "e-checkbox"}, 
+        React.createElement("div", {className: classes}, 
           React.createElement("label", null, 
             React.createElement("input", {
               type: "checkbox", 
               name: self.props.name, 
+              defaultChecked: self.props.checked, 
               className: "toggle"}
             ), 
             React.createElement("span", {className: "absolute e-wave"}), 
@@ -25663,13 +28135,20 @@ module.exports = React.createClass({
     },
 
     renderRadio: function () {
-      var self = this;
+      var self = this,
+          classes = self.state.classes;
+
+      classes['e-radio'] = true;
+      classes['e-radio-success'] = true;
+      classes = classSet(classes);
+
       return (
-        React.createElement("div", {className: "e-radio e-radio-success"}, 
+        React.createElement("div", {className: classes}, 
           React.createElement("label", null, 
             React.createElement("input", {
               type: "radio", 
               name: self.props.name, 
+              defaultChecked: self.props.checked, 
               defaultValue: self.props.defaultValue}
             ), 
             React.createElement("span", {className: "absolute circle"}), 
@@ -25681,14 +28160,19 @@ module.exports = React.createClass({
     },
 
     renderSwitches: function () {
-      var self = this;
+      var self = this,
+          classes = self.state.classes;
+
+      classes['e-switches'] = true;
+      classes = classSet(classes);
+
       return (
-        React.createElement("div", {className: "e-switches"}, 
+        React.createElement("div", {className: classes}, 
           React.createElement("label", null, 
             self.props.beforeText, 
             React.createElement("input", {
               type: "checkbox", 
-              defaultChecked: "", 
+              defaultChecked: self.props.checked, 
               disabled: self.props.disable}
             ), 
             React.createElement("span", {className: "e-switches-toggle"}), 
@@ -25700,35 +28184,37 @@ module.exports = React.createClass({
 
     renderSwitch: function () {
       var self = this,
-          switcher = '';
+          switcher = null;
 
       if (self.props.type === "checkbox") {
-        return self.renderCheckbox();
+        switcher = self.renderCheckbox();
       }
 
       if (self.props.type === "radio") {
-        return self.renderRadio();
+        switcher = self.renderRadio();
       }
 
       if (self.props.type === "switches") {
-        return self.renderSwitches();
+        switcher = self.renderSwitches();
       }
 
-      return switcher;
+      var switchesClasses = classSet(self.state.switchesClasses);
+
+      return (
+        React.createElement("div", {className: switchesClasses}, 
+          switcher
+        )
+      );
     },
 
     render: function () {
       var self = this;
 
-      return (
-        React.createElement("div", {className: "e-switch"}, 
-          self.renderSwitch()
-        )
-      );
+      return self.renderSwitch();
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],195:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],212:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25852,7 +28338,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],196:[function(require,module,exports){
+},{"../utils/PubSub":227,"react/addons":3}],213:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -26028,17 +28514,18 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"./Highlighter":175,"./Icon":176,"react/addons":3}],197:[function(require,module,exports){
+},{"../utils/PubSub":227,"./Highlighter":191,"./Icon":192,"react/addons":3}],214:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Text',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
@@ -26053,20 +28540,16 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      var self = this,
-          classes = self.state.classes;
-
-      if (self.props.classes) {
-        (self.props.classes.split(" ")).map(function (s) {
-          classes[s] = true;
-        });
-      }
+      var self = this;
 
       self.setState({
-        classes: classSet(classes)
+        classes: classSet(self.props.classes)
       });
 
-      self.subscribe('changeText_' + self.props.id, self.changeText);
+      if (self.props.id) {
+        self.subscribe('changeText_' + self.props.id, self.changeText);
+      }
+
     },
 
     componentDidUnmount: function () {
@@ -26085,33 +28568,207 @@ module.exports = React.createClass({
     renderChildren: function () {
       var self = this,
           appendText = null,
+          classes = classSet(self.props.classes),
           text = this.state.text ? this.state.text :
-            (self.props.text) ? (self.props.text) : null,
-          childrens = React.Children.count(self.props.children),
-          children = [];
-
-      if (childrens === 1) {
-        children.push(self.props.children);
-      } else if (childrens > 1) {
-        self.props.children.map(function (item) {
-          children.push(item);
-        });
-      }
+            (self.props.text) ? (self.props.text) : null;
 
       if (text && self.props.appendText) {
         appendText = self.props.appendText;
       }
 
+      if (!text) {
+        text = self.props.children;
+      }
+
+      if (self.props.type) {
+        // type: a => html a tag
+        if (self.props.type === 'a') {
+          return (React.createElement("a", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            href: self.props.href, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            self.props.children
+          ));
+        }
+
+        // type: p => html p tag
+        if (self.props.type === 'p') {
+          return (React.createElement("p", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+
+        // type: label => html label tag
+        if (self.props.type === 'label') {
+          return (React.createElement("label", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+
+        // type: strong => html strong tag
+        if (self.props.type === 'strong') {
+          return (React.createElement("strong", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+
+        // type: small => html small tag
+        if (self.props.type === 'small') {
+          return (React.createElement("small", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+
+        // type: caption => html caption tag
+        if (self.props.type === 'caption') {
+          return (React.createElement("caption", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+
+        // type: h1 => html h1 tag
+        if (self.props.type === 'h1') {
+          return (React.createElement("h1", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+        if (self.props.type === 'h2') {
+          return (React.createElement("h2", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+        if (self.props.type === 'h3') {
+          return (React.createElement("h3", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+        if (self.props.type === 'h4') {
+          return (React.createElement("h4", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+        if (self.props.type === 'h5') {
+          return (React.createElement("h5", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+        if (self.props.type === 'h6') {
+          return (React.createElement("h6", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            this.props.children
+          ));
+        }
+
+        // type: sup => html sup tag
+        if (self.props.type === 'sup') {
+          return (React.createElement("sup", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+        // type: sub => html sub tag
+        if (self.props.type === 'sub') {
+          return (React.createElement("sub", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+        // type: em => html em tag
+        if (self.props.type === 'em') {
+          return (React.createElement("em", {
+            className: classes, 
+            onClick: self.props.onClick, 
+            key: self.props.id, 
+            id: self.props.id
+          }, 
+            appendText, 
+            text
+          ));
+        }
+
+      }
+
       return (
         React.createElement("span", {
-          className: self.state.classes, 
+          className: classes, 
           onClick: self.props.onClick, 
           key: self.props.id, 
           id: self.props.id
         }, 
           appendText, 
-          text, 
-          children
+          text
         )
       );
     },
@@ -26122,7 +28779,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"react/addons":3}],198:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],215:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -26162,22 +28819,24 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],199:[function(require,module,exports){
+},{"react/addons":3}],216:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     BtnItem = require('./BtnItem'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ToastItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
         style: {},
-        classes: ""
+        classes: []
       };
     },
 
@@ -26236,7 +28895,11 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       return (
-        React.createElement("div", {className: classes, id: self.props.id, style: style}, 
+        React.createElement("div", {
+          className: classes, 
+          id: self.props.id, 
+          style: style
+        }, 
           React.createElement("span", null, 
             self.props.children
           )
@@ -26245,7 +28908,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"./BtnItem":167,"react/addons":3}],200:[function(require,module,exports){
+},{"../utils/ClassNames":220,"../utils/PubSub":227,"./BtnItem":170,"react/addons":3}],217:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -26322,7 +28985,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":208,"./Text":197,"react/addons":3}],201:[function(require,module,exports){
+},{"../utils/PubSub":227,"./Text":214,"react/addons":3}],218:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -29056,7 +31719,7 @@ if (tabs_desktop) {
   );
 }
 
-},{"./components/AppBar":165,"./components/Btn":166,"./components/BtnItem":167,"./components/Card":168,"./components/CardItem":169,"./components/Chip":170,"./components/ChipItem":171,"./components/Dialog":173,"./components/DialogItem":174,"./components/Icon":176,"./components/Input":177,"./components/InputItem":178,"./components/List":179,"./components/ListItem":180,"./components/Menu":182,"./components/Navigation":184,"./components/Paper":185,"./components/PaperItem":186,"./components/Progress":187,"./components/Slider":189,"./components/SliderItem":190,"./components/Snackbar":191,"./components/SnackbarItem":192,"./components/Switch":193,"./components/SwitchItem":194,"./components/TabItem":195,"./components/TabMenu":196,"./components/Toast":198,"./components/ToastItem":199,"./components/ToolBar":200,"react/addons":3}],202:[function(require,module,exports){
+},{"./components/AppBar":165,"./components/Btn":169,"./components/BtnItem":170,"./components/Card":171,"./components/CardItem":172,"./components/Chip":176,"./components/ChipItem":177,"./components/Dialog":186,"./components/DialogItem":187,"./components/Icon":192,"./components/Input":194,"./components/InputItem":195,"./components/List":196,"./components/ListItem":197,"./components/Menu":199,"./components/Navigation":201,"./components/Paper":202,"./components/PaperItem":203,"./components/Progress":204,"./components/Slider":206,"./components/SliderItem":207,"./components/Snackbar":208,"./components/SnackbarItem":209,"./components/Switch":210,"./components/SwitchItem":211,"./components/TabItem":212,"./components/TabMenu":213,"./components/Toast":215,"./components/ToastItem":216,"./components/ToolBar":217,"react/addons":3}],219:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element) {
@@ -29070,7 +31733,29 @@ module.exports = function (element) {
   return color;
 };
 
-},{}],203:[function(require,module,exports){
+},{}],220:[function(require,module,exports){
+'use strict';
+
+module.exports = function (initClass, ExtraClass) {
+  var classes = initClass,
+      typeInitClass = typeof initClass,
+      typeExtraClass = typeof ExtraClass;
+
+  if (typeExtraClass !== "undefined") {
+    var initClasses = (typeInitClass === "object") ? initClass : initClass.split(" "),
+        extraClasses = (typeExtraClass === "object") ? ExtraClass : ExtraClass.split(" ");
+
+    extraClasses.map(function (s) {
+      initClasses[s] = true;
+    });
+
+    classes = initClasses;
+  }
+
+  return classes;
+};
+
+},{}],221:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element, parentElement) {
@@ -29078,17 +31763,13 @@ module.exports = function (element, parentElement) {
       yPosition = 0;
 
   if (element && parentElement) {
-    xPosition = (element.clientX - parentElement.x);
-    yPosition = (element.clientY - parentElement.y);
+    xPosition = (element.clientX - parentElement.left);
+    yPosition = (element.clientY - parentElement.top);
   }
-
-  // console.log("Element + parentElement: ");
-  // console.log({ x: xPosition, y: yPosition });
-
   return { x: xPosition, y: yPosition };
 };
 
-},{}],204:[function(require,module,exports){
+},{}],222:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -29138,7 +31819,45 @@ module.exports = {
   }
 };
 
-},{"../components/ComponentsList":172,"react/addons":3}],205:[function(require,module,exports){
+},{"../components/ComponentsList":178,"react/addons":3}],223:[function(require,module,exports){
+'use strict';
+
+module.exports = function (type, value) {
+  var ret = null, month = [], daysOfWeek = [];
+
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+
+    daysOfWeek[0] = "Sunday";
+    daysOfWeek[1] = "Monday";
+    daysOfWeek[2] = "Tuesday";
+    daysOfWeek[3] = "Wednesday";
+    daysOfWeek[4] = "Thursday";
+    daysOfWeek[5] = "Friday";
+    daysOfWeek[6] = "Saturday";
+
+  if (type === 'day') {
+    ret = daysOfWeek[value];
+  }
+
+  if (type === 'month') {
+    ret = month[value];
+  }
+
+  return ret;
+};
+
+},{}],224:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -29158,7 +31877,7 @@ module.exports = {
   }
 };
 
-},{}],206:[function(require,module,exports){
+},{}],225:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element) {
@@ -29180,7 +31899,7 @@ module.exports = function (element) {
   return { x: xPosition, y: yPosition };
 };
 
-},{}],207:[function(require,module,exports){
+},{}],226:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element) {
@@ -29196,7 +31915,7 @@ module.exports = function (element) {
   return elementCords;
 };
 
-},{}],208:[function(require,module,exports){
+},{}],227:[function(require,module,exports){
 'use strict';
 
 var EventEmitter = require('events').EventEmitter,
@@ -29218,4 +31937,4 @@ module.exports = {
   }
 };
 
-},{"events":1}]},{},[201]);
+},{"events":1}]},{},[218]);
