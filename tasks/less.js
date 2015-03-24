@@ -5,7 +5,9 @@ module.exports.tasks = {
     development: {
       files: {
         '<%= paths.css %>/essence.css': '<%= paths.less %>/essence.less',
-        '<%= paths.css %>/icons.css': '<%= paths.less %>/icons.less'
+        '<%= paths.css %>/icons.css': '<%= paths.less %>/icons.less',
+        'examples/project-template/dist/css/essence.css': '<%= paths.less %>/essence.less',
+        'examples/project-template/dist/css/icons.css': '<%= paths.less %>/icons.less'
       }
     },
 

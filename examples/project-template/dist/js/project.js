@@ -72,14 +72,14 @@ React.render(
 );
 
 React.render(
-    <Block type='div' classes='e-background-blue-500 e-text-center'>
+    <Block type='div' classes='e-background-yellow-500 e-text-center'>
       your content by class .content here
     </Block>
     ,content
 );
 
 React.render(
-    <Block type='div' classes='e-background-yellow-500 e-text-center'>
+    <Block type='div' classes='e-background-blue-500 e-text-center'>
       your content by class .footer here
     </Block>
     ,footer

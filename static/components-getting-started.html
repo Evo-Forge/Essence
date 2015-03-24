@@ -16,10 +16,6 @@
         <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Get Essence</h3>
         <h3 class="e-headline e-text-blue-grey-400">
           Being an open source project, Essence is available on <a target="_blank" href="https://github.com/PearlVentures/Essence">Github</a>. To start using it you can clone it using git from <a target="_blank" href="https://github.com/PearlVentures/Essence">here</a>, or download it as a .zip archive from <a href="https://github.com/PearlVentures/Essence/archive/master.zip">here</a>. Make sure you have node and grunt installed correctly on your system.</h3>
-        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">Install and compile</h3>
-        <h3 class="e-headline e-text-blue-grey-400">
-          After the cloning is completed, navigate using your console to the newly created folder called "Essence". If you have chosen to download the .zip archive, extract the "Essence-master" folder and navigate with your console inside it. Here you must run two commands in order to start working with Essence. First run <code>npm install</code> to install all the dependencies required for the development environment. Now, if you want to make changes in the less files, to customize variables or create mixins, you must run <code>grunt</code> so all your changes are watched and compiled on save. But if you plan to create your project with a .css file, you don't have to run grunt.
-        </h3>
 
         <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">The files</h3>
         <h3 class="e-headline e-text-blue-grey-400">
@@ -32,6 +28,7 @@
           The simplest way to use Essence is explained here. <br> <br> Using your favourite editor, open the <code>examples/project-template/dist/js/project.js</code> file. Everything you want to see in your browser goes here. You don't need to touch the index.html file. In the <code>project.js</code> file all the components are included, and below you'll find <code>React.render()</code>. All your content goes between those paranthesis. <br><br>
           You will find the code for every ready-to-use component in their specific page, under the visual part. Use the left navigation menu to navigate between them. To make it really clear: if you copy the react code from the buttons component page, to your <code>project.js</code> file, inside the parenthesis, your page will show the buttons we included in the Essence website. Simple, right?
         </h3>
+
         <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">How to use the elements and components</h3>
           <h3 class="e-headline e-text-blue-grey-400">
           Of course, you will have your own structure, but it doesn't mean it gets harder.
@@ -39,6 +36,7 @@
           All the tags you need are splited in two main categories: BLOCK elements, and TEXT elements. So if you need to create a <i>div</i> element, you will write <code>&lt;Block type='div'&gt;</code><code>&lt;/Block&gt;</code>. Or if you need a text element, say a <i>paragraph</i> you'll use <code>&lt;Text type='p'&gt;your text here&lt;/Text&gt;</code>. Below are all the block and text elements you can use. <br>
           <sub>Note: If no type is selected for an element, React will wrap your content inside a <code>span</code> element.</sub>
         </h3>
+
         <br>
         <div class="e-text-blue-grey-400">
           <h4 class="e-headline e-text-blue-grey-400">Block elements:</h4>
@@ -269,8 +267,15 @@
               </code>
             </li>
           </ul>
-
         </div>
+
+        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">Advanced use</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          If you are an advanced user please follow the instructions bellow:
+          <br />
+          <br />
+          After the cloning is completed, navigate using your console to the newly created folder called "Essence". If you have chosen to download the .zip archive, extract the "Essence-master" folder and navigate with your console inside it. Here you must run two commands in order to start working with Essence. First run <code>npm install</code> to install all the dependencies required for the development environment. Now, if you want to make changes in the less files, to customize variables or create mixins, you must run <code>grunt</code> so all your changes are watched and compiled on save.
+        </h3>
       </div>
 
     </div>
