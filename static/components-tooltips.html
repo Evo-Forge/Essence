@@ -22,6 +22,7 @@
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;button class="e-btn-default raised" data-tooltip="Tooltip text"&gt;default&lt;/button&gt;
 
 &lt;button class="e-btn-primary raised" data-tooltip="Tooltip text"&gt;primary&lt;/button&gt;
@@ -33,12 +34,14 @@
 &lt;button class="e-btn-warning raised" data-tooltip="Tooltip text" data-position="down"&gt;warning&lt;/button&gt;
 
 &lt;button class="e-btn-danger raised" data-tooltip="Tooltip text" data-position="up"&gt;danger&lt;/button&gt;
-</pre>
+          </code>
+        </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Btn&gt;
   &lt;BtnItem
     classes={'raised'}
@@ -89,9 +92,32 @@
     rippleEffect={true}
   /&gt;
 &lt;/Btn&gt;
-</pre>
+          </code>
+        </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Btn" tag to render a group of "BtnItem" components. The "Btn" React tag will return a div container with a group of &lt;button&gt; html tags. Inside the Btn component you can include only the <strong class="e-text-red">BtnItem</strong> component. <br />
+          A "BtnItem" React component will render one &lt; button &gt; html tag. <br />
+          <br />
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to BtnItem components from Styles > Colors menu<br />
+          <br />
+          &bull; Options<br />
+          - <u>tooltipText</u>: generates a tooltip message a the bottom of the element<br />
+          - <u>tooltipPosition</u>: position the tooltip message - top / bottom / right / left<br />
+        </p>
+      </div>
+    </div>
+
   </div>
   <!-- END - Component - Tooltips       -->
 </div>

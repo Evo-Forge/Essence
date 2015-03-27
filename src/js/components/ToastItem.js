@@ -14,13 +14,15 @@ module.exports = React.createClass({
     getInitialState: function() {
       return {
         style: {},
-        classes: []
+        classes: {
+          'toast': true
+        }
       };
     },
 
     componentDidMount: function () {
       var self = this,
-          classes = [],
+          classes = ClassNames(self.state.classes, self.props.classes),
           height = parseInt(
             window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('height').replace("px", "")
@@ -29,8 +31,6 @@ module.exports = React.createClass({
               window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('line-height').replace("px", "")
           );
-
-      classes.push("toast");
 
       self.setState({
         classes: classes
@@ -48,8 +48,8 @@ module.exports = React.createClass({
 
         if ( Math.floor(height / lineHeight) > 1 ) {
 
-          if (classes.indexOf("toast-multiline") < 0) {
-            classes.push("toast-multiline");
+          if (!classes["toast-multiline"]) {
+            classes["toast-multiline"] = true;
           }
 
           self.setState({
@@ -70,7 +70,7 @@ module.exports = React.createClass({
     render: function () {
       var self = this,
           style = self.state.style,
-          classes = self.state.classes;
+          classes = classSet(self.state.classes);
 
       return (
         <div
@@ -78,9 +78,7 @@ module.exports = React.createClass({
           id={self.props.id}
           style={style}
         >
-          <span>
-            {self.props.children}
-          </span>
+          {self.props.children}
         </div>
       );
     }

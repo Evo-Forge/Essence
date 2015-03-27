@@ -26,6 +26,7 @@
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;div id="snackbar-btn"&gt;
   &lt;div&gt;
     &lt;button class="raised e-btn-primary e-ripple"&gt;
@@ -79,12 +80,14 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-</pre>
+          </code>
+        </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Btn&gt;
   &lt;BtnItem
     classes={'raised'}
@@ -179,9 +182,53 @@
     elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.
   &lt;/ToastItem&gt;
 &lt;/Toast&gt;
-</pre>
+          </code>
+        </pre>
       </div>
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "SnackBar" tag to render a "SnackBarItem" component. The "SnackBar" React tag will return a div container with class name "snackbar". Inside the SnackBar component you can include only the <strong>SnackBarItem</strong> component. <br />
+          <br />
+          Use the "Toast" tag to render a "ToastItem" component. The "Toast" React tag will return a div container with class name "toast". Inside the Toast component you can include only the <strong>ToastItem</strong> component. <br />
+          <br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;SnackBar&gt;</span>
+  <span class="e-text-blue-500">&lt;SnackbarItem id={'snackbar_id'}&gt;</span>
+    <span class="e-text-indigo-600">can be used to include any component or html code</span>
+  <span class="e-text-blue-500">&lt;/SnackbarItem&gt;</span>
+<span class="e-text-blue-500">&lt;/SnackBar&gt;</span>
+
+
+<span class="e-text-blue-500">&lt;Toast&gt;</span>
+  <span class="e-text-blue-500">&lt;ToastItem id={'toast_id'}&gt;</span>
+    <span class="e-text-indigo-600">can be used to include any component or html code</span>
+  <span class="e-text-blue-500">&lt;/ToastItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Toast&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any Snackbar or Toast component or subcomponent from Styles > Colors menu<br />
+          <br />
+          <br />
+          &bull; Options<br />
+          - id: required for unique Snackbar or Toast to be shown on click<br />
+          - in order to recreate the examples above please use a BtnItem component with the options: <br />
+          &bull; <strong>snackbar='snackbar_id'</strong> where <u>snackbar_id</u> is the SnackBar id option <br />
+          &bull; <strong>toast='toast_id'</strong> where <u>toast_id</u> is the Toast id option<br />
+          - use the examples from above to structure your own SnackBar or Toast
+        </p>
+      </div>
+    </div>
+
   </div>
 
   <!-- END Component - Snackbars and Toasts       -->

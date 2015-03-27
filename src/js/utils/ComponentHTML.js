@@ -44,5 +44,9 @@ module.exports = {
           });
         }
       }
+
+      if (window.Prism) {
+        window.Prism.highlightAll();
+      }
   }
 };

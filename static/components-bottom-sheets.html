@@ -52,6 +52,7 @@
         <div class="brick brick-6">
           <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
           <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;div id=&quot;bottomsheet-simple&quot; class=&quot;e-bottom-sheet animate&quot;&gt;
   &lt;ul class=&quot;e-list has-icon single-line&quot;&gt;
     &lt;li&gt;
@@ -80,12 +81,14 @@
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
+          </code>
           </pre>
         </div>
 
         <div class="brick brick-6">
           <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
           <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Btn&gt;
   &lt;BtnItem
     type=&#39;primary&#39;
@@ -126,6 +129,7 @@
     &lt;/List&gt;
   &lt;/BottomSheetsItem&gt;
 &lt;/BottomSheets&gt;
+          </code>
           </pre>
         </div>
         <div class="brick brick-12">
@@ -152,6 +156,7 @@
                         <br />
                       </span>
                     </span>
+                  </a>
                 </li>
                 <li>
                   <a href="">
@@ -215,6 +220,7 @@
         <div class="brick brick-6">
           <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
           <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;div style=&quot;position:relative;&quot;&gt;
   &lt;div id=&quot;bottomsheet-twolines&quot; class=&quot;e-bottom-sheet hide&quot;&gt;
     &lt;ul class=&quot;e-list has-icon has-avatar two-line&quot;&gt;
@@ -283,12 +289,14 @@
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+          </code>
           </pre>
         </div>
 
         <div class="brick brick-6">
           <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
           <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Btn&gt;
   &lt;BtnItem
     type=&#39;warning&#39;
@@ -345,6 +353,7 @@
     &lt;/List&gt;
   &lt;/BottomSheetsItem&gt;
 &lt;/BottomSheets&gt;
+          </code>
           </pre>
         </div>
         <div class="brick brick-12">
@@ -406,6 +415,7 @@
         <div class="brick brick-6">
           <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
           <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;div id=&quot;bottomsheet-bigicons&quot; class=&quot;e-bottom-sheet hide&quot;&gt;
   &lt;ul class=&quot;e-list-big-icon has-icon clearfix single-line&quot;&gt;
     &lt;li class=&quot;brick brick-4&quot;&gt;
@@ -446,12 +456,14 @@
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/div&gt;
+          </code>
           </pre>
         </div>
 
         <div class="brick brick-6">
           <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
           <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Btn&gt;
   &lt;BtnItem
     type=&#39;succes&#39;
@@ -506,11 +518,48 @@
     &lt;/List&gt;
   &lt;/BottomSheetsItem&gt;
 &lt;/BottomSheets&gt;
+          </code>
           </pre>
         </div>
       </div>
       <!-- END Bottom Sheets - big icons-->
     </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "BottomSheets" tag to render a group of "BottomSheetsItem" components. The "BottomSheets" React tag will return a div container with class name "e-bottom-sheet". Inside the BottomSheets component you can include only the <strong>BottomSheetsItem</strong> component. <br />
+          A "BottomSheetsItem" React component will render one List component. <br />
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;BottomSheets&gt;</span>
+  <span class="e-text-blue-500">&lt;BottomSheetsItem&gt;</span>
+    <span class="e-text-indigo-600">can be used to include List component</span>
+  <span class="e-text-blue-500">&lt;/BottomSheetsItem&gt;</span>
+<span class="e-text-blue-500">&lt;/BottomSheets&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - use the List Styling in order to create your own styles
+          <br />
+          <br />
+          &bull; Options<br />
+          - <u>id</u>: required to work with a Btn component<br />
+          - in order to recreate the example above please use a BtnItem component with the options bellow, where <u>actionClick</u> is the BottomSheet event, <u>actionType.action</u> to show the BottomSheetsItem div and <u>actionType.targetID</u> is the BottomSheetsItem <strong>id option</strong> :<br />
+          &bull; <strong>actionClick='bottomsheets'</strong> and<br />
+          &bull; <strong>actionType={{<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;'action': 'show',<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;'targetID': 'bottomsheet-simple'<br />
+          }}</strong>
+        </p>
+      </div>
+    </div>
+
   </div>
   <!--   END Component - BOTTOM SHEETS       -->
 </div>

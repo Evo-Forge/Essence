@@ -21956,7 +21956,6 @@ Component.navigation = (
     }, 
       React.createElement(ListItem, {
         listType: "navigation", 
-        eventAction: 'changeText', 
         contentText: "Material Design", 
         contentLink: "#", 
         hasSubmenu: true
@@ -21985,8 +21984,6 @@ Component.navigation = (
 
       React.createElement(ListItem, {
         listType: "navigation", 
-        eventAction: 'changeText', 
-        changeTextId: "navigationTitle", 
         contentText: "Styles", 
         contentLink: "#styles", 
         hasSubmenu: true
@@ -22015,8 +22012,6 @@ Component.navigation = (
 
       React.createElement(ListItem, {
         listType: "navigation", 
-        eventAction: 'changeText', 
-        changeTextId: "navigationTitle", 
         contentText: "Components", 
         contentLink: "#components", 
         hasSubmenu: true
@@ -24415,6 +24410,8 @@ Component.switches = (
     }
     ), 
 
+    React.createElement("br", null), 
+
     React.createElement(SwitchItem, {
       type: "checkbox", 
       text: "Switch Checkbox", 
@@ -24422,6 +24419,8 @@ Component.switches = (
       checked: true
     }
     ), 
+
+    React.createElement("br", null), 
 
     React.createElement(SwitchItem, {
       type: "switches", 
@@ -24441,7 +24440,7 @@ Component.snackbars_toast.push({
   React.createElement(Snackbar, null, 
     React.createElement(SnackbarItem, {
       id: 'snackbar1', 
-      classes: 'snackbar-item'
+      classes: 'e-text-yellow-400'
     }, 
       "Hello to you from Essence"
     ), 
@@ -27939,13 +27938,15 @@ module.exports = React.createClass({
     getInitialState: function() {
       return {
         style: {},
-        classes: []
+        classes: {
+          'snackbar': true
+        }
       };
     },
 
     componentDidMount: function () {
       var self = this,
-          classes = [],
+          classes = ClassNames(self.state.classes, self.props.classes),
           height = parseInt(
             window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('height').replace("px", "")
@@ -27954,8 +27955,6 @@ module.exports = React.createClass({
               window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('line-height').replace("px", "")
           );
-
-      classes.push("snackbar");
 
       self.setState({
         classes: classes
@@ -27973,8 +27972,8 @@ module.exports = React.createClass({
 
         if ( Math.floor(height / lineHeight) > 1 ) {
 
-          if (classes.indexOf("snackbar-multiline") < 0) {
-            classes.push("snackbar-multiline");
+          if (!classes["snackbar-multiline"]) {
+            classes["snackbar-multiline"] = true;
           }
 
           self.setState({
@@ -28007,7 +28006,7 @@ module.exports = React.createClass({
     render: function () {
       var self = this,
           style = self.state.style,
-          classes = self.state.classes;
+          classes = classSet(self.state.classes);
 
       return (
         React.createElement("div", {
@@ -28836,13 +28835,15 @@ module.exports = React.createClass({
     getInitialState: function() {
       return {
         style: {},
-        classes: []
+        classes: {
+          'toast': true
+        }
       };
     },
 
     componentDidMount: function () {
       var self = this,
-          classes = [],
+          classes = ClassNames(self.state.classes, self.props.classes),
           height = parseInt(
             window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('height').replace("px", "")
@@ -28851,8 +28852,6 @@ module.exports = React.createClass({
               window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('line-height').replace("px", "")
           );
-
-      classes.push("toast");
 
       self.setState({
         classes: classes
@@ -28870,8 +28869,8 @@ module.exports = React.createClass({
 
         if ( Math.floor(height / lineHeight) > 1 ) {
 
-          if (classes.indexOf("toast-multiline") < 0) {
-            classes.push("toast-multiline");
+          if (!classes["toast-multiline"]) {
+            classes["toast-multiline"] = true;
           }
 
           self.setState({
@@ -28892,7 +28891,7 @@ module.exports = React.createClass({
     render: function () {
       var self = this,
           style = self.state.style,
-          classes = self.state.classes;
+          classes = classSet(self.state.classes);
 
       return (
         React.createElement("div", {
@@ -28900,9 +28899,7 @@ module.exports = React.createClass({
           id: self.props.id, 
           style: style
         }, 
-          React.createElement("span", null, 
-            self.props.children
-          )
+          self.props.children
         )
       );
     }
@@ -31815,6 +31812,10 @@ module.exports = {
 
           });
         }
+      }
+
+      if (window.Prism) {
+        window.Prism.highlightAll();
       }
   }
 };

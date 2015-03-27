@@ -484,7 +484,6 @@ Component.navigation = (
     >
       <ListItem
         listType='navigation'
-        eventAction={'changeText'}
         contentText='Material Design'
         contentLink='#'
         hasSubmenu={true}
@@ -513,8 +512,6 @@ Component.navigation = (
 
       <ListItem
         listType='navigation'
-        eventAction={'changeText'}
-        changeTextId='navigationTitle'
         contentText='Styles'
         contentLink='#styles'
         hasSubmenu={true}
@@ -543,8 +540,6 @@ Component.navigation = (
 
       <ListItem
         listType='navigation'
-        eventAction={'changeText'}
-        changeTextId='navigationTitle'
         contentText='Components'
         contentLink='#components'
         hasSubmenu={true}
@@ -2943,6 +2938,8 @@ Component.switches = (
     >
     </SwitchItem>
 
+    <br />
+
     <SwitchItem
       type='checkbox'
       text='Switch Checkbox'
@@ -2950,6 +2947,8 @@ Component.switches = (
       checked={true}
     >
     </SwitchItem>
+
+    <br />
 
     <SwitchItem
       type='switches'
@@ -2969,7 +2968,7 @@ Component.snackbars_toast.push({
   <Snackbar>
     <SnackbarItem
       id={'snackbar1'}
-      classes={'snackbar-item'}
+      classes={'e-text-yellow-400'}
     >
       Hello to you from Essence
     </SnackbarItem>

@@ -43,6 +43,7 @@
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;nav class=&quot;e-nav-menu&quot;&gt;
   &lt;div&gt;
     &lt;span id=&quot;text-for-menu-simple&quot;&gt;
@@ -66,12 +67,14 @@
       &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
+          </code>
         </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Menu
   id='menu-simple'
   placeholder='Show Menu Simple'
@@ -99,6 +102,7 @@
     &lt;/Text&gt;
   &lt;/MenuItem&gt;
 &lt;/Menu&gt;
+          </code>
         </pre>
       </div>
       <div class="brick brick-12">
@@ -146,6 +150,7 @@
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;nav class=&quot;e-nav-menu cover mobile&quot;&gt;
   &lt;div&gt;
     &lt;span&gt;SMS Notifications&lt;/span&gt;
@@ -169,12 +174,14 @@
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
+          </code>
         </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Menu
   id='menu-cover'
   classes={'cover mobile'}
@@ -203,13 +210,14 @@
     &lt;/Text&gt;
   &lt;/MenuItem&gt;
 &lt;/Menu&gt;
+          </code>
         </pre>
       </div>
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
     </div>
-
+<!--
     <div class="e-row e-margin-bottom-15 e-padding-top-50">
       <div class="brick brick-12">
         <h3>Cascading Menu</h3>
@@ -287,6 +295,7 @@
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;nav class=&quot;e-nav-menu cover&quot;&gt;
   &lt;span id=&quot;text-for-menu-multiple-cover&quot;&gt;
     &lt;span&gt;
@@ -348,12 +357,14 @@
     &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
+          </code>
         </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Menu items={menus_cascade} /&gt;
 
 var menus_cascade = [
@@ -416,10 +427,11 @@ var menus_cascade = [
     ]
   }
 ];
+          </code>
         </pre>
       </div>
     </div>
-<!--
+
     <div class="e-row e-margin-bottom-15 e-padding-top-50">
       <div class="brick brick-12">
         <h3>Checkbox Menu</h3>
@@ -481,6 +493,7 @@ var menus_cascade = [
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;nav class=&quot;e-nav-menu brick-4&quot;&gt;
   &lt;div&gt;
   &lt;span id=&quot;text-for-menu-checkbox&quot;&gt;
@@ -530,12 +543,14 @@ var menus_cascade = [
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/nav&gt;
+          </code>
         </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Menu
   id='menu-checkbox'
   placeholder='Menu with Switches'
@@ -580,10 +595,46 @@ var menus_cascade = [
     /&gt;
   &lt;/MenuItem&gt;
 &lt;/Menu&gt;
+          </code>
         </pre>
       </div>
     </div>
 -->
+
+  <div class="e-row e-margin-bottom-15">
+    <div class="brick brick-12">
+      <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+        How to use
+      </h3>
+      <div class="e-divider thick short e-background-indigo-400"></div>
+      <p class="e-body5 e-padding-top-15">
+        Use the "Menu" tag to render a group of "MenuItem" components. The "Menu" React tag will return a nav container with class name "e-nav-menu". Inside the Menu component you can include only the <strong>MenuItem</strong> component. <br />
+        A "MenuItem" React component will render any component or html code.<br />
+        <br />
+        &bull; Structure <br />
+        <pre class="small">
+<span class="e-text-blue-500">&lt;Menu id='menu-cover'</span>
+  <span class="e-text-blue-500">classes={'cover mobile'}</span>
+  <span class="e-text-blue-500">placeholder='Show Menu Cover'</span>
+<span class="e-text-blue-500">&gt;</span>
+  <span class="e-text-blue-500">&lt;MenuItem&gt;</span>
+    <span class="e-text-indigo-600">can be used to include any component or html code</span>
+  <span class="e-text-blue-500">&lt;/MenuItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Menu&gt;</span>
+        </pre>
+
+        &bull; Styling <br />
+        - <u>classes</u>: add extra class names to any Menu component or subcomponent from Styles > Colors menu<br />
+        <br />
+        <br />
+        &bull; Options<br />
+        - id: required for unique Menu to be shown on click<br />
+        - placeholder: is the text to be shown at the render starting point<br />
+        - use the examples from above to structure your own Menu
+      </p>
+    </div>
+  </div>
+
   </div>
 
   <!-- END Component - Menus       -->

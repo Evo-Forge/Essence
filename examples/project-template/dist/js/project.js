@@ -58,8 +58,8 @@ var body = document.body, // default React render path is html body
     ToolBar = Essence.ToolBar;
 
 React.render(
-    <Block type='div' classes='e-background-green-500 e-text-center'>
-      your content by ID here
+    <Block type='div' classes='e-background-grey-500 e-text-center'>
+      your content by ID # here
     </Block>
     ,byID
 );

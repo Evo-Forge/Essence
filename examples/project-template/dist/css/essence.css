@@ -4223,9 +4223,6 @@ select.e-input.focus {
 .e-radio input[type=radio] {
   display: none;
 }
-.e-radio {
-  margin: 10px 0;
-}
 .e-radio label {
   cursor: pointer;
   padding-left: 45px;
@@ -4391,7 +4388,6 @@ select.e-input.focus {
 /* switch */
 .e-switches {
   vertical-align: middle;
-  margin: 10px 0;
 }
 .e-switches,
 .e-switches * {
@@ -7394,8 +7390,10 @@ html body#e-has-fixed-bar .e-main {
   }
 }
 div[id^="components-"] pre {
-  height: 400px;
-  overflow-y: auto;
+  min-height: 522px;
+}
+div[id^="components-"] pre code {
+  min-height: 448px;
 }
 div[id^="components-"] pre.small {
   max-height: 400px;

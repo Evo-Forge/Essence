@@ -101,6 +101,7 @@ Slider text
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
 &lt;div&gt;
   &lt;div class=&quot;e-slider&quot;&gt;
     &lt;div class=&quot;e-slider-track&quot;&gt;
@@ -172,12 +173,14 @@ Slider text
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+          </code>
         </pre>
       </div>
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
 &lt;Slider&gt;
   &lt;SliderItem start={10} fill={false} /&gt;
   &lt;br /&gt;
@@ -191,6 +194,7 @@ Slider text
   &lt;br /&gt;
   &lt;SliderItem start={20} fill={true} discrete={true} steps={true} /&gt;
 &lt;/Slider&gt;
+          </code>
         </pre>
       </div>
     </div>
@@ -205,6 +209,14 @@ Slider text
           Use the "Slider" tag to render a group of "SliderItem" components. The "Slider" React tag will return a div container with a group of &lt;div&gt; html tags for SliderItem components. Inside the Slider component you can include only the <strong class="e-text-red">SliderItem</strong> component. <br />
           A "SliderItem" React component will render one &lt;input &gt; html tag for the current value to be set as the input default value.<br />
           <br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Slider&gt;</span>
+  <span class="e-text-indigo-600">&lt;SliderItem start={40} fill={true} /&gt;</span>
+<span class="e-text-blue-500">&lt;/Slider&gt;</span>
+        </pre>
+
 <!--
           &bull; Styling <br />
           - <u>classes</u>: add extra class names to SliderItem components from Styles > Colors menu<br />
