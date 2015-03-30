@@ -48,6 +48,13 @@ module.exports = React.createClass({
       }
     },
 
+    _onClick: function(ev) {
+      if (this.props.eventAction) {
+        this.publish('hideNavigation', true);
+        this.publish(this.props.eventAction, ev);
+      }
+    },
+
     renderChildren: function () {
       var self = this,
           appendText = null,
@@ -66,9 +73,12 @@ module.exports = React.createClass({
       if (self.props.type) {
         // type: a => html a tag
         if (self.props.type === 'a') {
+          var hasOnClick = self.props.onClick || self._onClick || null;
+
           return (<a
             className={classes}
-            onClick={self.props.onClick}
+            onClick={hasOnClick}
+            target={self.props.target}
             href={self.props.href}
             key={self.props.id}
             id={self.props.id}

@@ -2080,7 +2080,8 @@ th {
 .raised,
 .e-btn-fab-mini {
   display: inline-block;
-  height: 36px;
+  min-height: 36px;
+  line-height: 36px;
   padding: 0 24px;
   border: 0;
   margin: 6px 4px;
@@ -4545,6 +4546,11 @@ code {
   border: 1px solid #e1e1e8;
   border-radius: 4px;
 }
+pre code {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
 .container {
   display: flex;
   width: auto;
@@ -5696,11 +5702,6 @@ ul.chips li {
 }
 .e-img-rsp {
   max-width: 100% !important;
-}
-code {
-  background-color: #e8f5e9;
-  border: 1px solid #e1e1e8;
-  border-radius: 4px;
 }
 .show {
   display: block !important;

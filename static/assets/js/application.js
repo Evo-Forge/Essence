@@ -21550,6 +21550,31 @@ var React = require('react/addons'),
 var Component = {};
 
 // Essence - Components
+Component.home = [];
+Component.home.push({
+  'download': (
+    React.createElement(Block, {type: "div"}, 
+      React.createElement(Text, {
+        type: "a", 
+        eventAction: "showNavigationComponent", 
+        classes: "e-btn raised e-background-cyan-500", 
+        href: "#getting-started", 
+        id: "components-getting-started"
+      }, 
+        "Getting Started"
+      ), 
+      React.createElement(Text, {
+        type: "a", 
+        classes: "e-btn raised e-background-green-600", 
+        target: "_blank", 
+        href: "https://github.com/PearlVentures/Essence"
+      }, 
+        "GitHub"
+      )
+    )
+  )
+});
+
 Component.navigation_menu = (
   React.createElement(Navigation, {
     live: true, 
@@ -28587,6 +28612,13 @@ module.exports = React.createClass({
       }
     },
 
+    _onClick: function(ev) {
+      if (this.props.eventAction) {
+        this.publish('hideNavigation', true);
+        this.publish(this.props.eventAction, ev);
+      }
+    },
+
     renderChildren: function () {
       var self = this,
           appendText = null,
@@ -28605,9 +28637,12 @@ module.exports = React.createClass({
       if (self.props.type) {
         // type: a => html a tag
         if (self.props.type === 'a') {
+          var hasOnClick = self.props.onClick || self._onClick || null;
+
           return (React.createElement("a", {
             className: classes, 
-            onClick: self.props.onClick, 
+            onClick: hasOnClick, 
+            target: self.props.target, 
             href: self.props.href, 
             key: self.props.id, 
             id: self.props.id
