@@ -5145,6 +5145,15 @@ ul.chips li {
   max-width: 80%;
   margin: 0 auto;
   background-color: #ffffff;
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Safari & Chrome*/
+  -moz-transition: all 0.2s ease-in-out;
+  /* Mozilla */
+  -ms-transition: all 0.2s ease-in-out;
+  /* IE */
+  -o-transition: all 0.2s ease-in-out;
+  /* Opera */
+  transition: all 0.2s ease-in-out;
   border: 0 none;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -5180,6 +5189,15 @@ ul.chips li {
   top: 20%;
   z-index: 5;
   width: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Safari & Chrome*/
+  -moz-transition: all 0.2s ease-in-out;
+  /* Mozilla */
+  -ms-transition: all 0.2s ease-in-out;
+  /* IE */
+  -o-transition: all 0.2s ease-in-out;
+  /* Opera */
+  transition: all 0.2s ease-in-out;
 }
 .e-dialog-full .e-dialogs-header {
   background: #37474f;
@@ -5709,6 +5727,10 @@ ul.chips li {
 .hide {
   display: none !important;
 }
+.transparent {
+  opacity: 0 !important;
+  z-index: -1;
+}
 .e-nav.e-text-black ul:nth(2) {
   display: block !important;
 }
@@ -6010,7 +6032,9 @@ li {
   top: 0;
   display: none;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
+  animation-duration: 0.2s;
+  animation-name: e-modal-anim;
 }
 @media all and (max-width: 1400px) {
   .e-modal-open {
@@ -6130,6 +6154,14 @@ li {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+}
+@keyframes e-modal-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .e-progress-slider {
   width: 100%;
@@ -7031,6 +7063,15 @@ li {
   padding: 0;
   width: 100%;
   z-index: 99999;
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Safari & Chrome*/
+  -moz-transition: all 0.2s ease-in-out;
+  /* Mozilla */
+  -ms-transition: all 0.2s ease-in-out;
+  /* IE */
+  -o-transition: all 0.2s ease-in-out;
+  /* Opera */
+  transition: all 0.2s ease-in-out;
 }
 .e-bottom-sheet .brick-4 {
   width: 32.33333333%;
@@ -7039,15 +7080,6 @@ li {
 }
 .e-bottom-sheet.animate {
   bottom: 0px;
-  -webkit-transition: all 1s ease-in-out;
-  /* Safari & Chrome*/
-  -moz-transition: all 1s ease-in-out;
-  /* Mozilla */
-  -ms-transition: all 1s ease-in-out;
-  /* IE */
-  -o-transition: all 1s ease-in-out;
-  /* Opera */
-  transition: all 1s ease-in-out;
 }
 .e-bottom-sheet .e-list {
   padding: 0;
@@ -7407,6 +7439,7 @@ div[id^="components-"] .e-paper-container .e-paper {
 #navigationMenu {
   margin-top: -64px;
   position: absolute;
+  z-index: 4;
 }
 #navigationMenu .e-nav-drawer nav .e-navigation-wrapper,
 #navigationMenu .e-nav-drawer-mobile nav .e-navigation-wrapper {

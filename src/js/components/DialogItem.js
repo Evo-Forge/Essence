@@ -17,7 +17,7 @@ module.exports = React.createClass({
         classes: {
           'e-dialog': (this.props.full) ? false : true,
           'e-dialog-full': (this.props.full) ? true : false,
-          'hide': true,
+          'transparent': true,
         },
         modalStyle: {
           display: 'none'
@@ -51,7 +51,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (dialogID === self.props.id) {
-        classes['hide'] = false;
+        classes['transparent'] = false;
 
         modalStyle['display'] = 'block !important';
         self.setState({
@@ -69,7 +69,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (dialogID === self.props.id) {
-        classes['hide'] = true;
+        classes['transparent'] = true;
         modalStyle['display'] = 'block !important';
 
         self.setState({
@@ -84,7 +84,7 @@ module.exports = React.createClass({
     renderModalBackground: function () {
       var self = this;
 
-      if (!self.state.classes['hide']) {
+      if (!self.state.classes['transparent']) {
         return (
           <div
             id={'e-modal-bg-' + self.props.id}

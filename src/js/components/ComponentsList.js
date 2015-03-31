@@ -55,6 +55,31 @@ var React = require('react/addons'),
 var Component = {};
 
 // Essence - Components
+Component.home = [];
+Component.home.push({
+  'download': (
+    <Block type='div'>
+      <Text
+        type='a'
+        eventAction='showNavigationComponent'
+        classes='e-btn raised e-background-cyan-500'
+        href='#getting-started'
+        id='components-getting-started'
+      >
+        Getting Started
+      </Text>
+      <Text
+        type='a'
+        classes='e-btn raised e-background-green-600'
+        target='_blank'
+        href='https://github.com/PearlVentures/Essence'
+      >
+        GitHub
+      </Text>
+    </Block>
+  )
+});
+
 Component.navigation_menu = (
   <Navigation
     live={true}

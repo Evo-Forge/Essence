@@ -115,7 +115,9 @@
   top: 0;
   display: none;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
+  animation-duration: 0.2s;
+  animation-name: e-modal-anim;
 }
 
 @media all and (max-width: 1400px){
@@ -274,6 +276,14 @@
   }
 }
 
+@keyframes e-modal-anim {
+  from {
+    opacity: 0; 
+  }
 
+  to {
+    opacity: 1;
+  }
+}
 
 

@@ -14,7 +14,7 @@ module.exports = React.createClass({
         classes: {
           'e-bottom-sheet': true,
           'animate': false,
-          'hide': true
+          'transparent': true
         }
       };
     },
@@ -23,7 +23,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes['hide'] = false;
+      classes['transparent'] = false;
       classes['animate'] = true;
 
       self.setState({
@@ -37,7 +37,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes['hide'] = true;
+      classes['transparent'] = true;
       classes['animate'] = false;
 
       self.setState({
@@ -50,7 +50,7 @@ module.exports = React.createClass({
     renderModalBackground: function () {
       var self = this;
 
-      if (!self.state.classes['hide']) {
+      if (!self.state.classes['transparent']) {
         return (
           <div
             id={'e-modal-bg-' + self.props.id}
