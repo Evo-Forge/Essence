@@ -18,7 +18,10 @@ module.exports = React.createClass({
           current: 0,
           maximum: 50
         },
-        inputClasses: [],
+        inputClasses: {
+          'e-input': true,
+          'empty': true
+        },
         inputValue: ''
       };
     },
@@ -26,18 +29,48 @@ module.exports = React.createClass({
     componentDidMount: function () {
       var self = this,
           parentClass = self.props.classes || [],
-          inputClass = self.props.inputClasses || [],
+          inputClasses = ClassNames(self.state.inputClasses, self.props.inputClasses),
+          inputValue = self.props.inputValue || self.state.inputValue || '',
           counter = self.state.counter;
 
       if ( parseInt(self.props.counter) > 0 ) {
         counter.maximum = parseInt(self.props.counter);
       }
 
+      self.subscribe('actions:input', function (data) {
+        if (data.action === "setValue") {
+          if (self.props.name === data.id) {
+            inputValue = data.value;
+            inputClasses['empty'] = false;
+
+            self.setState({
+              inputValue: inputValue,
+              inputClasses: inputClasses
+            });
+          }
+        }
+      });
+
       self.setState({
         classes: parentClass,
-        inputClasses: inputClass,
+        inputClasses: inputClasses,
+        inputValue: inputValue,
         counter: counter
       });
+    },
+
+    handleClick: function (event) {
+      var self = this,
+          actionClick = self.props.actionClick || false,
+          actionType = self.props.actionType || false;
+
+      if (actionClick && actionType) {
+        self.publish('actions:'+actionClick, actionType);
+      }
+
+      if (self.props.onClick) {
+        return self.props.onClick;
+      }
     },
 
     handleChange: function (eventChange) {
@@ -52,16 +85,14 @@ module.exports = React.createClass({
 
       counter.current = inputValue.length;
 
-      (self.props.inputClasses.split(" ")).map(function (s) {
-        inputClasses[s] = (
-          (s === "empty" && inputValue.length > 0) ? false : true
-        );
-      });
+      if (inputValue.length > 0) {
+        inputClasses['empty'] = false;
+      }
 
       self.setState({
         counter: counter,
         inputValue: inputValue,
-        inputClasses: classSet(inputClasses)
+        inputClasses: ClassNames(inputClasses, self.props.inputClasses)
       });
     },
 
@@ -110,14 +141,12 @@ module.exports = React.createClass({
 
     renderInput: function () {
       var self = this,
-          placeholder = (self.props.placeholder ? self.props.placeholder : ''),
+          placeholder = self.props.placeholder || '',
           isRequired = (self.props.required ? true : false),
           isDisabled = (self.props.disabled ? true : false),
-          type = (self.props.type ? self.props.type : 'text'),
-          value = (self.props.value ? self.props.value :
-            (self.state.inputValue ? self.state.inputValue : '')
-          ),
-          name = (self.props.name ? self.props.name : ''),
+          type = self.props.type || 'text',
+          value = self.props.value || self.state.inputValue || '',
+          name = self.props.name || '',
           inputClasses = classSet(self.state.inputClasses);
 
       if (type === 'textarea') {
@@ -127,10 +156,13 @@ module.exports = React.createClass({
             type={type}
             name={name}
             defaultValue={value}
+            value={value}
             required={isRequired}
             disabled={isDisabled}
             placeholder={placeholder}
             onChange={self.handleChange}
+            onClick={self.handleClick}
+            onTouch={self.handleClick}
           />
         );
       }
@@ -141,10 +173,13 @@ module.exports = React.createClass({
           type={type}
           name={name}
           defaultValue={value}
+          value={value}
           required={isRequired}
           disabled={isDisabled}
           placeholder={placeholder}
           onChange={self.handleChange}
+          onClick={self.handleClick}
+          onTouch={self.handleClick}
         />
       );
     },

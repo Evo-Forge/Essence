@@ -4,6 +4,7 @@ var React = require('react/addons'),
     classSet = React.addons.classSet,
     Text = require('./Text'),
     Icon = require('./Icon'),
+    BtnItem = require('./BtnItem'),
     MenuItem = require('./MenuItem'),
     PubSub = require('../utils/PubSub'),
     Mobile = require('../utils/Mobile'),
@@ -21,8 +22,9 @@ module.exports = React.createClass({
 
       return {
         children: [],
-        isHidden: true,
         placeholder: null,
+        isHidden: true,
+        isActive: false,
         isRightPosition: false,
         classes: {
           'mobile': this.isMobile(),
@@ -88,7 +90,7 @@ module.exports = React.createClass({
     renderMenu: function () {
       var self = this,
           classes = {
-            'e-nav-menu': true
+            'e-nav-menu': self.props.type === 'fab' ? false : true
           },
           options = self.props.items ? self.props.items[0] : false,
           extraClasses = (options.classes) ? options.classes.split(" ") : false,
@@ -102,6 +104,12 @@ module.exports = React.createClass({
 
       if (self.props.classes) {
         classes = ClassNames(classes, self.props.classes);
+      }
+
+      if (self.props.type === 'fab') {
+        classes['e-fab-menu'] = true;
+        classes['fixed'] = true;
+        classes['active'] = self.state.isActive;
       }
 
       classes = classSet(classes);
@@ -127,6 +135,7 @@ module.exports = React.createClass({
       self.setState({
         isRightPosition: elemPosition.position === 'right' ? true : false,
         isHidden: self.state.isHidden ? false : true,
+        isActive: self.state.isActive ? false : true,
         placeholder: targetText
       });
     },
@@ -181,6 +190,12 @@ module.exports = React.createClass({
       placeholder = (self.state.placeholder) ? self.state.placeholder :
             self.props.placeholder ? self.props.placeholder : null;
 
+      if (self.props.type === 'fab') {
+        ulClasses = {
+          'fab-list': true
+        };
+      }
+
       ulClasses = classSet(ulClasses);
 
       if (self.props.placeholder) {
@@ -201,6 +216,18 @@ module.exports = React.createClass({
             name={self.props.icon}
             onClick={self.showMenu}
           />
+        );
+      }
+
+      if (self.props.type === 'fab') {
+        childPlaceholder = (
+          <Text
+            onClick={self.showMenu}
+            id={"fab-for-" + self.props.id}
+            classes='e-btn-fab lines-button'
+          >
+            <Text classes='lines' />
+          </Text>
         );
       }
 

@@ -15,10 +15,7 @@ var React = require('react/addons'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
     DatePicker = require('./DatePicker'),
-    DatePickerItem = require('./DatePickerItem'),
     DatePickerHeader = require('./DatePickerHeader'),
-    DatePickerHeaderDay = require('./DatePickerHeaderDay'),
-    DatePickerHeaderDate = require('./DatePickerHeaderDate'),
     DatePickerContent = require('./DatePickerContent'),
     DatePickerFooter = require('./DatePickerFooter'),
     Dialog = require('./Dialog'),
@@ -62,19 +59,19 @@ Component.home.push({
       <Text
         type='a'
         eventAction='showNavigationComponent'
-        classes='e-btn raised e-background-cyan-500'
+        classes='e-btn raised e-background-indigo-800'
         href='#getting-started'
         id='components-getting-started'
       >
-        Getting Started
+         Get Started with Essence
       </Text>
       <Text
         type='a'
-        classes='e-btn raised e-background-green-600'
+        classes='e-btn raised e-background-white e-text-indigo-800'
         target='_blank'
         href='https://github.com/PearlVentures/Essence'
       >
-        GitHub
+        Download from GitHub
       </Text>
     </Block>
   )
@@ -1381,7 +1378,6 @@ var menus_cascade = [
 ];
 
 Component.menus = [];
-//<Menu items={menus_simple} />
 
 Component.menus.push({
   'simple': (
@@ -1415,7 +1411,6 @@ Component.menus.push({
   )
 });
 
-//<Menu items={menus_cover} />
 Component.menus.push({
   'cover': (
     <Menu
@@ -1443,6 +1438,39 @@ Component.menus.push({
       <MenuItem>
         <Text type='a' href='http://www.google.com'>
           Google
+        </Text>
+      </MenuItem>
+    </Menu>
+  )
+});
+
+Component.menus.push({
+  'fab': (
+    <Menu
+      id='menu-cover'
+      type='fab'
+    >
+      <MenuItem>
+        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+          <Icon name='action-assessment' />
+        </Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+          <Icon name='action-assignment-ind' />
+        </Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+          <Icon name='action-loyalty' />
+        </Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+          <Icon name='action-print' />
         </Text>
       </MenuItem>
     </Menu>
@@ -1932,25 +1960,57 @@ Component.chips = (
 Component.datepicker = [];
 
 Component.datepicker.push({
+  'input-simple': (
+    <InputItem
+      classes={'e-input-group e-text-green-600'}
+      type='text'
+      name='datepicker-simple'
+      label='Select Date'
+      actionClick='datepicker'
+      actionType={{
+        'action': 'show',
+        'id': 'datepicker-simple'
+      }}
+    />
+  )
+});
+
+Component.datepicker.push({
+  'input-horizontal': (
+    <InputItem
+      classes={'e-input-group e-text-green-600'}
+      type='text'
+      name='datepicker-horizontal'
+      label='Select Date'
+      actionClick='datepicker'
+      actionType={{
+        'action': 'show',
+        'id': 'datepicker-horizontal'
+      }}
+    />
+  )
+});
+
+Component.datepicker.push({
   'simple': (
-    <DatePicker>
-      <DatePickerHeader />
+    <DatePicker id='datepicker-simple'>
+      <DatePickerHeader classes='e-background-green-600' />
       <DatePickerContent />
       <DatePickerFooter>
         <Btn>
           <BtnItem
             type='succes'
-            classes={'flat e-right'}
+            classes={'flat e-right e-text-green-600'}
             label='OK'
             actionClick='datepicker'
             actionType={{
-              'action': 'hide',
+              'action': 'setValue',
               'id': 'datepicker-simple'
             }}
           />
           <BtnItem
             type='danger'
-            classes={'flat e-right'}
+            classes={'flat e-right e-text-green-600'}
             label='CANCEL'
             actionClick='datepicker'
             actionType={{
@@ -1966,29 +2026,29 @@ Component.datepicker.push({
 
 Component.datepicker.push({
   'horizontal': (
-    <DatePicker classes={'horizontal'}>
-      <DatePickerHeader />
+    <DatePicker id='datepicker-horizontal' classes={'horizontal'}>
+      <DatePickerHeader classes='e-background-green-600' />
       <DatePickerContent />
       <DatePickerFooter>
         <Btn>
           <BtnItem
             type='succes'
-            classes={'flat e-right'}
+            classes={'flat e-right e-text-green-600'}
             label='OK'
             actionClick='datepicker'
             actionType={{
-              'action': 'hide',
-              'id': 'datepicker-simple'
+              'action': 'setValue',
+              'id': 'datepicker-horizontal'
             }}
           />
           <BtnItem
             type='danger'
-            classes={'flat e-right'}
+            classes={'flat e-right e-text-green-600'}
             label='CANCEL'
             actionClick='datepicker'
             actionType={{
               'action': 'hide',
-              'id': 'datepicker-simple'
+              'id': 'datepicker-horizontal'
             }}
           />
         </Btn>
@@ -2756,7 +2816,7 @@ Component.text_fields.push({
   <Input>
     <InputItem
       classes={'e-input-group has-success'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='text'
       name='label'
       placeholder='Did you know a bear has 42 teeth'
@@ -2765,7 +2825,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group has-success'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='text'
       name='label'
       placeholder='Did you know 8% of people have an extra rib'
@@ -2775,7 +2835,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group has-error'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='text'
       name='label'
       placeholder='Did you know 11% of people are left handed'
@@ -2785,7 +2845,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='text'
       name='label'
       placeholder='Did you know the Hawaiian alphabet has 12 letters'
@@ -2795,7 +2855,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='text'
       name='label'
       label='Did you know birds need gravity to swallow'
@@ -2809,7 +2869,7 @@ Component.text_fields.push({
   <Input>
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='textarea'
       name='label'
       placeholder='Did you know Topolino is the name for Mickey Mouse Italy'
@@ -2818,7 +2878,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='textarea'
       name='label'
       label='Did you know there is no sound in space'
@@ -2832,7 +2892,7 @@ Component.text_fields.push({
   <Input>
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='email'
       name='label'
       label='Did you know melophobia is the fear of music'
@@ -2841,7 +2901,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='number'
       name='label'
       placeholder='Did you know womens hearts beat faster than mens'
@@ -2856,7 +2916,7 @@ Component.text_fields.push({
   <Input>
     <InputItem
       classes={'e-input-group has-error'}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='text'
       name='label'
       label='Did you know each time you see a full moon you always see the same side'
@@ -2866,7 +2926,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group '}
-      inputClasses={'e-input empty'}
+      inputClasses=''
       type='email'
       name='label'
       label='Email is required'
@@ -2882,7 +2942,7 @@ Component.text_fields.push({
   <Input>
     <InputItem
       classes={'e-input-group has-warning'}
-      inputClasses={'e-input e-input-success empty'}
+      inputClasses={'e-input-success'}
       type='text'
       name='label'
       placeholder='Did you know each time you see a full moon you always see the same side'
@@ -2891,7 +2951,7 @@ Component.text_fields.push({
 
     <InputItem
       classes={'e-input-group has-info'}
-      inputClasses={'e-input e-input-success empty'}
+      inputClasses={'e-input-success'}
       type='email'
       name='label'
       label='Floating label'

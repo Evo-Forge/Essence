@@ -1,45 +1,42 @@
 'use strict';
 
 var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
     DateFormat = require('../utils/DateFormat'),
-    classSet = React.addons.classSet,
-    currentDate = new Date();
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePickerHeader',
 
-    mixins: [ClassNames, DateFormat],
+    mixins: [PubSub, ClassNames, DateFormat],
 
     getDefaultProps() {
+      var newDate = new Date(),
+          currentDate = {
+            day: newDate.getDate(),
+            year: newDate.getFullYear(),
+            month: DateFormat('month', newDate.getMonth()),
+            dayName: DateFormat('day', newDate.getDay())
+          };
+
       return {
         name: 'DatePickerHeader',
         date: {
-          day: currentDate.getDate(),
-          year: currentDate.getFullYear(),
-          month: DateFormat('month', currentDate.getMonth()),
-          dayName: DateFormat('day', currentDate.getDay()),
+          day: currentDate.day,
+          year: currentDate.year,
+          month: currentDate.month,
+          dayName: currentDate.dayName,
         }
       };
     },
 
-    getInitialState () {
+    getInitialState() {
       return {
         classes: {
           'e-picker-header': true
-        },
-        date: {
-          day: currentDate.getDate(),
-          year: currentDate.getFullYear(),
-          month: DateFormat('month', currentDate.getMonth()),
-          dayName: DateFormat('day', currentDate.getDay()),
         }
       };
-    },
-
-    componentWillReceiveProps() {
-      var self = this;
-      self._updateDate();
     },
 
     componentDidMount() {
@@ -51,26 +48,29 @@ module.exports = React.createClass({
       self.setState({
         classes: classes
       });
-    },
 
-    _updateDate() {
-      var self = this;
+      self.subscribe('actions:datepicker', function (data) {
+        console.log("DatePickerHeader");
+        console.log(data);
+        console.log(self.props.date);
 
-      self.setState({
-        month: self.props.date.month,
-        dayName: self.props.date.dayName,
-        day: self.props.date.day,
-        year: self.props.date.year,
+        if (data.action === "setValue" && self.props.parentId === data.id) {
+          self.publish('actions:input', {
+            action: 'setValue',
+            value: DateFormat('date', self.props.date),
+            id: data.id
+          });
+        }
       });
     },
 
-    renderDateMonth: function () {
+    renderDateMonth() {
       var self = this;
 
-      if (self.state.month) {
+      if (self.props.date.month) {
         return (
           <div className={"e-picker-header-month"}>
-            {self.state.month}
+            {self.props.date.month}
           </div>
         );
       }
@@ -78,12 +78,12 @@ module.exports = React.createClass({
       return null;
     },
 
-    renderDateDay: function () {
+    renderDateDay() {
       var self = this;
-      if (self.state.day) {
+      if (self.props.date.day) {
         return (
           <div className={"e-picker-header-day"}>
-            {self.state.day}
+            {self.props.date.day}
           </div>
         );
       }
@@ -91,12 +91,12 @@ module.exports = React.createClass({
       return null;
     },
 
-    renderDateYear: function () {
+    renderDateYear() {
       var self = this;
-      if (self.state.year) {
+      if (self.props.date.year) {
         return (
           <div className={"e-picker-header-year"}>
-            {self.state.year}
+            {self.props.date.year}
           </div>
         );
       }
@@ -104,7 +104,7 @@ module.exports = React.createClass({
       return null;
     },
 
-    render: function () {
+    render() {
       var self = this,
           classes = classSet(self.state.classes);
 
@@ -114,7 +114,7 @@ module.exports = React.createClass({
             className={classes}
         >
           <div className={'e-picker-header-day-text'}>
-            {self.state.dayName}
+            {self.props.date.dayName}
           </div>
           <div className={'e-picker-header-big-show'}>
             {self.renderDateMonth()}

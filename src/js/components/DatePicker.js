@@ -1,30 +1,74 @@
 'use strict';
 
 var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
+    DateFormat = require('../utils/DateFormat'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePicker',
 
-    mixins: [ClassNames],
+    mixins: [PubSub, ClassNames, DateFormat],
 
     getInitialState() {
       return {
         classes: {
-          'e-picker-container': true
+          'e-picker-container': true,
+          'transparent': true,
         }
       };
     },
 
     componentDidMount() {
-      var classes = this.state.classes || [];
+      var self = this,
+          classes = this.state.classes || [];
 
-      classes = ClassNames(classes, this.props.classes);
+      self.subscribe('actions:datepicker', function (data) {
+        if (data.action === "hide") {
+          self.hideDatePicker(data.id);
+        } else if (data.action === "show") {
+          self.showDatePicker(data.id);
+        } else if (data.action === "setValue") {
+          self.hideDatePicker(data.id);
+        }
+      });
 
-      this.setState({
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
         classes: classes
       });
+    },
+
+    showDatePicker(componentID) {
+      var self = this,
+          classes = self.state.classes;
+
+      if (componentID === self.props.id) {
+        classes['transparent'] = false;
+
+        self.setState({
+          classes: classes
+        });
+
+        document.querySelector('body').className = 'e-modal-open';
+      }
+    },
+
+    hideDatePicker(componentID) {
+      var self = this,
+          classes = self.state.classes;
+
+      if (componentID === self.props.id) {
+        classes['transparent'] = true;
+
+        self.setState({
+          classes: classes
+        });
+
+        document.querySelector('body').className = '';
+      }
     },
 
     handleClick(ev, newDate) {
@@ -42,31 +86,16 @@ module.exports = React.createClass({
         React.addons.cloneWithProps(self.props.children, {
           onClick: self.handleClick,
           date: self.props.date,
+          parentId: self.props.id,
           key: 0
         });
       } else if (childrens > 1) {
         self.props.children.map(function (item, key) {
-          /*if (item.props.name === 'DatePickerHeader') {
-            item = (
-              React.addons.cloneWithProps(item, {
-                onClick: self.handleClick,
-                date: self.props.date,
-                key: key
-              })
-            );
-          } else {
-            item = (
-              React.addons.cloneWithProps(item, {
-                onClick: self.handleClick,
-                key: key
-              })
-            );
-          }*/
-
           item = (
             React.addons.cloneWithProps(item, {
               onClick: self.handleClick,
               date: self.props.date,
+              parentId: self.props.id,
               key: key
             })
           );
@@ -78,17 +107,21 @@ module.exports = React.createClass({
       return children;
     },
 
-    renderInputDate() {
-      var self = this,
-          inputDate = (self.props.date.month || "01") + "/" +
-          (self.props.date.day || "01") + "/" + (self.props.year || "2015");
+    renderModalBackground() {
+      var self = this;
 
-      return (
-        <input
-        name={self.props.inputName || "DatePickerInput"}
-        defaultValue={inputDate}
-        />
-      );
+      if (!self.state.classes['transparent']) {
+        return (
+          <div
+            id={'e-modal-bg-' + self.props.id}
+            style={{display: 'block'}}
+            onClick={this.hideDatePicker.bind(this, self.props.id)}
+            className={"e-modal-bg"}
+          />
+        );
+      }
+
+      return null;
     },
 
     render() {
@@ -96,8 +129,11 @@ module.exports = React.createClass({
           classes = classSet(self.state.classes);
 
       return (
-        <div className={classes}>
-          {self.renderChildren()}
+        <div>
+          <div className={classes} id={self.props.id}>
+              {self.renderChildren()}
+          </div>
+          {self.renderModalBackground()}
         </div>
       );
     }

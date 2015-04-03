@@ -110,3 +110,113 @@
 
   opacity: 0.5;
 }
+
+
+//FAB MENUS
+
+
+.e-fab-menu {
+  position: relative;
+  display: table;
+  &.fixed {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .fab-list {
+    bottom: 100%;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    
+    li {
+      display: block;
+      margin: 1rem 0;
+      a {
+        display: inline-block;
+        width: @e-unit*5;
+        height: @e-unit*5;
+        line-height: @e-unit*5;
+      }
+    }
+  }
+}
+@button-size : 3.5rem; 
+@transition: .3s; // increase this to see the transformations in slow-motion
+ 
+.lines-button {
+  display: inline-block;
+//  padding: @button-size/2 @button-size/4;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+//  border-radius: @button-size/7;
+ 
+  &:hover {
+    opacity: 1;
+  }
+ 
+  &:active {
+    transition: 0;
+    background: rgba(0,0,0,.1);
+  }
+}
+.line {
+  display: inline-block;
+  width: @button-size;
+  height: @button-size/7;
+  background: white;
+  border-radius: @button-size/14; 
+  transition: @transition;
+}
+.lines {
+   //create middle line
+  .line;
+  position: relative; 
+//  top: -(@button-size/7)/2;
+ 
+  /*create the upper and lower lines as pseudo-elements of the middle line*/
+  &:before, &:after {
+   
+    .line;
+    position: absolute;
+    left:0;
+    content: '';
+    transform-origin: @button-size/14 center;
+  }
+  &:before { top: @button-size/4; }
+  &:after { top: -@button-size/4; }
+}
+
+//.lines-button.x.active .lines{
+//  transform: scale3d(.9,.9,.9);
+//}
+.e-fab-menu.active .fab-list {
+  max-height: 1000px;
+}
+.e-fab-menu.active .lines-button .lines{
+ 
+    /*hide the middle line*/
+    background: transparent;
+ 
+    /*overlay the lines by setting both their top values to 0*/
+    &:before, &:after{
+      transform-origin: 50% 50%;
+      top:0;
+      width: @button-size;
+    }
+ 
+    // rotate the lines to form the x shape
+    &:before{
+      transform: rotate3d(0,0,1,45deg); 
+    }
+    &:after{
+      transform: rotate3d(0,0,1,-45deg); 
+    }
+}

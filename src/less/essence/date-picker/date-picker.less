@@ -1,13 +1,19 @@
+
 .e-picker-container {
-  width: 300px;
+  // Display
   margin: 0 auto;
+  position: fixed;
+  left: auto;
+  top: 20%;
+  z-index: 5;
+
+  width: 300px;
   text-align: center;
-  z-index: 100;
   box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.22);
-  background: @e-color-green-600;
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  background: @e-color-white;
   header {
-    color: #fff;
+    color: @e-color-white;
     .e-picker-header-day-text {
       background: @e-color-green-800;
       transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
@@ -33,7 +39,7 @@
 
   }
   .e-picker-calendar-container {
-    background: #fff;
+    background: @e-color-white;
   }
   .e-picker-calendar-slider {
     position: relative;
@@ -89,7 +95,7 @@
           }
           &:active {
             background: @e-color-green-800;
-            color: #fff;
+            color: @e-color-white;
           }
           &:focus {
             outline: none;
@@ -98,7 +104,7 @@
         &.active {
           button {
             background: @e-color-green-800;
-            color: #fff;
+            color: @e-color-white;
           }
         }
       }

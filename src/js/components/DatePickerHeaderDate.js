@@ -10,7 +10,7 @@ module.exports = React.createClass({
 
     mixins: [PubSub, ClassNames],
 
-    getInitialState: function() {
+    getInitialState() {
       return {
         classes: {
           'e-picker-header-big-show': true
@@ -21,7 +21,7 @@ module.exports = React.createClass({
       };
     },
 
-    componentDidMount: function () {
+    componentDidMount() {
       var self = this,
           classes = self.state.classes;
 
@@ -45,7 +45,7 @@ module.exports = React.createClass({
       });*/
     },
 
-    updateDate: function (newDate) {
+    updateDate(newDate) {
       var self = this;
 
       self.setState({
@@ -55,7 +55,7 @@ module.exports = React.createClass({
       });
     },
 
-    renderDateMonth: function () {
+    renderDateMonth() {
       var self = this;
 
       if (self.state.month) {
@@ -69,7 +69,7 @@ module.exports = React.createClass({
       return null;
     },
 
-    renderDateDay: function () {
+    renderDateDay() {
       var self = this;
       if (self.state.day) {
         return (
@@ -82,7 +82,7 @@ module.exports = React.createClass({
       return null;
     },
 
-    renderDateYear: function () {
+    renderDateYear() {
       var self = this;
       if (self.state.year) {
         return (
@@ -96,7 +96,7 @@ module.exports = React.createClass({
     },
 
 
-    render: function () {
+    render() {
       var self = this;
       return (
         <div
