@@ -20560,7 +20560,7 @@ module.exports = React.createClass({
         classes: {
           'e-bottom-sheet': true,
           'animate': false,
-          'hide': true
+          'transparent': true
         }
       };
     },
@@ -20569,7 +20569,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes['hide'] = false;
+      classes['transparent'] = false;
       classes['animate'] = true;
 
       self.setState({
@@ -20583,7 +20583,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes['hide'] = true;
+      classes['transparent'] = true;
       classes['animate'] = false;
 
       self.setState({
@@ -20596,7 +20596,7 @@ module.exports = React.createClass({
     renderModalBackground: function () {
       var self = this;
 
-      if (!self.state.classes['hide']) {
+      if (!self.state.classes['transparent']) {
         return (
           React.createElement("div", {
             id: 'e-modal-bg-' + self.props.id, 
@@ -22209,86 +22209,28 @@ Component.contact = (
   )
 );
 
-var appbar_menu_left = [
-  {
-    id: 'menu-appbar-left',
-    type: 'menu',
-    text: 'Options',
-    link: '#',
-    hide: true,
-    classes: 'e-text-color-blue-500 cover e-left',
-    items: [
-      {
-        type: 'menu',
-        text: 'Notifications',
-        link: '#notifications'
-      },
-      {
-        type: 'menu',
-        text: 'Flow',
-        link: '#flow'
-      },
-      {
-        type: 'divider'
-      },
-      {
-        type: 'menu',
-        text: 'Following',
-        link: '#following'
-      },
-      {
-        type: 'menu',
-        text: 'Favorites',
-        link: '#favorites'
-      },
-
-    ]
-  }
-];
-
-var appbar_menu_right = [
-  {
-    id: 'menu-appbar-right',
-    type: 'menu',
-    text: 'Simple Menu',
-    link: '#',
-    hide: true,
-    icon: 'navigation-more-vert',
-    classes: 'e-text-color-blue-500 cover e-right',
-    items: [
-      {
-        type: 'menu',
-        text: 'Profile',
-        link: '#profile'
-      },
-      {
-        type: 'menu',
-        text: 'Settings',
-        link: '#settings'
-      },
-      {
-        type: 'divider'
-      },
-      {
-        type: 'menu',
-        text: 'Support',
-        link: '#support'
-      },
-      {
-        type: 'menu',
-        text: 'Logout',
-        link: '#logout'
-      },
-    ]
-  }
-];
 
 Component.appbar = (
   React.createElement(AppBar, null, 
-    React.createElement(Btn, null, 
-      React.createElement(BtnItem, {
-        icon: "navigation-menu", 
-        classes: 'simple-button e-left'}
+    React.createElement(Menu, {
+      id: "menu-appbar-icon-menu", 
+      classes: 'e-text-color-blue-500 cover e-left', 
+      icon: "navigation-menu"
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "New project")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "New user")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "More tools")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "Exit")
       )
     ), 
 
@@ -22321,7 +22263,30 @@ Component.appbar = (
       )
     ), 
 
-    React.createElement(Menu, {items: appbar_menu_right}), 
+    React.createElement(Menu, {
+      id: "menu-appbar-right", 
+      classes: 'e-text-color-blue-500 cover e-right', 
+      icon: "navigation-more-vert", 
+      right: true
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "Profile")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "Settings")
+      ), 
+
+      React.createElement(Block, {type: "li", classes: 'divider'}), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "Support")
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, null, "Logout")
+      )
+    ), 
 
     React.createElement(Btn, null, 
       React.createElement(BtnItem, {
@@ -22645,7 +22610,11 @@ Component.paper = (
 );
 
 Component.tabs = (
-  React.createElement(TabMenu, {type: "simple", id: 'tab_menu_simple'}, 
+  React.createElement(TabMenu, {
+    type: "simple", 
+    id: 'tab_menu_simple', 
+    classes: "e-background-indigo-400"
+  }, 
     React.createElement(TabItem, {
       type: "list", 
       id: "tab-item-one", 
@@ -22660,9 +22629,6 @@ Component.tabs = (
       React.createElement("p", {className: "e-text-blue-grey-400"}, 
       "The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee."
       )
-
-
-
     ), 
 
     React.createElement(TabItem, {
@@ -25392,7 +25358,7 @@ module.exports = React.createClass({
         classes: {
           'e-dialog': (this.props.full) ? false : true,
           'e-dialog-full': (this.props.full) ? true : false,
-          'hide': true,
+          'transparent': true,
         },
         modalStyle: {
           display: 'none'
@@ -25426,7 +25392,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (dialogID === self.props.id) {
-        classes['hide'] = false;
+        classes['transparent'] = false;
 
         modalStyle['display'] = 'block !important';
         self.setState({
@@ -25444,7 +25410,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (dialogID === self.props.id) {
-        classes['hide'] = true;
+        classes['transparent'] = true;
         modalStyle['display'] = 'block !important';
 
         self.setState({
@@ -25459,7 +25425,7 @@ module.exports = React.createClass({
     renderModalBackground: function () {
       var self = this;
 
-      if (!self.state.classes['hide']) {
+      if (!self.state.classes['transparent']) {
         return (
           React.createElement("div", {
             id: 'e-modal-bg-' + self.props.id, 
@@ -25638,6 +25604,7 @@ module.exports = React.createClass({
       return {
         direction: 'to-right',
         styles: {
+          display: 'none',
           left: 0,
           right: 0
         },
@@ -25648,12 +25615,16 @@ module.exports = React.createClass({
     componentDidMount: function () {
       var self = this;
 
-      self.subscribe('highlighterCSS:'+self.props.id, function (position) {
+      self.subscribe('highlighterCSS:'+self.props.id, function (target) {
+        var targetLeft = target.element.parentNode.offsetLeft,
+            stateLeft = self.state.styles.left;
+
         self.setState({
-          direction: position.direction,
+          direction: targetLeft <= stateLeft  ? 'to-left' : 'to-right',
           styles: {
-            left: position.left,
-            right: position.right
+            display: target.display,
+            left: target.left,
+            right: target.right
           },
           highlighter: self
         });
@@ -25702,7 +25673,7 @@ module.exports = React.createClass({
 
       if (self.props.name) {
         return (
-            React.createElement("i", {className: classSet(classes)})
+            React.createElement("i", {className: classSet(classes), onClick: self.props.onClick})
         );
       }
 
@@ -26804,13 +26775,6 @@ module.exports = React.createClass({
       self.subscribe('toggleMenu_for_' + menuID, function(data) {
         self.showMenu(data);
       });
-
-      /*document.addEventListener("click", function(event){
-        self.setState({
-          isHidden: self.state.isHidden ? false : true,
-        });
-      });*/
-
     },
 
     componentDidUnmount: function () {
@@ -26819,9 +26783,7 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
       this.unsubscribe('toggleMenu_for_' + menuID, null);
 
-      document.removeEventListener("click", function(){
-        /* none */
-      });
+      // document.removeEventListener("click");
     },
 
     renderMenuTitle: function () {
@@ -26931,6 +26893,7 @@ module.exports = React.createClass({
     renderChildren: function () {
       var self = this,
           childPlaceholder = null,
+          childIcon = null,
           children = [],
           items = [];
 
@@ -26966,6 +26929,15 @@ module.exports = React.createClass({
         );
       }
 
+      if (self.props.icon) {
+        childIcon = (
+          React.createElement(Icon, {
+            name: self.props.icon, 
+            onClick: self.showMenu}
+          )
+        );
+      }
+
       self.props.children.map(function(item, index) {
         children.push(
           React.addons.cloneWithProps(item, {
@@ -26979,6 +26951,7 @@ module.exports = React.createClass({
       return (
         React.createElement("div", null, 
           childPlaceholder, 
+          childIcon, 
           React.createElement("ul", {className: ulClasses, id: self.props.id}, 
             children
           )
@@ -28265,12 +28238,14 @@ module.exports = React.createClass({
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'TabItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
@@ -28280,7 +28255,8 @@ module.exports = React.createClass({
           left: 0,
           right: 0,
           direction: 'to-right'
-        }
+        },
+        classes: {}
       };
     },
 
@@ -28288,7 +28264,7 @@ module.exports = React.createClass({
       var self = this,
           elem = ev.target,
           id = elem.id,
-          prevPosition = this.state.highlighterCSS,
+          prevPosition = self.state.highlighterCSS,
           width = elem.offsetWidth,
           left = elem.parentNode.offsetLeft,
           right = (elem.parentNode.offsetParent.offsetWidth -
@@ -28299,19 +28275,11 @@ module.exports = React.createClass({
         return;
       }
 
-      /*console.log([
-        elem,
-        width,
-        id,
-        left,
-        right,
-        prevPosition
-      ]);*/
-
-      prevPosition.direction = (left <= prevPosition.left) ? 'to-left' : 'to-right';
+      prevPosition.element = elem;
       prevPosition.left = left;
       prevPosition.right = right;
       prevPosition.width = width;
+      prevPosition.display = 'block';
 
       this.setState({
         highlighterCSS: prevPosition
@@ -28327,7 +28295,6 @@ module.exports = React.createClass({
     },
 
     handleMenuItemKey: function (ev) {
-      var elem = ev;
       if (ev.key === 'Tab') {
         this.handleMenuItemClick(ev);
       }
@@ -28335,18 +28302,24 @@ module.exports = React.createClass({
 
     renderItem: function () {
       var self = this,
+          classes = [],
           type = self.props.type,
           parentType = self.props.parentType,
-          listClasses = (parentType === "fixed") ? "brick brick-2 " : "",
-          isActive = self.props.active ? 'active' :
-              self.state.active ? 'active' : '';
+          isActive = self.props.active ? true : self.state.active ? true : false;
 
       if (type === 'content') {
+
+        classes['e-card'] = true;
+        classes['e-shadow-1'] = true;
+        classes['e-tab-content'] = true;
+        classes['active'] = isActive;
+
+        classes = classSet(ClassNames(classes, self.props.classes));
+
         return (
           React.createElement("div", {
             id: self.state.parentID + "-" + self.props.id, 
-            className: "e-card e-shadow-1 e-tab-content " + isActive
-
+            className: classes
           }, 
             React.createElement("p", {className: "e-subhead"}, 
               self.props.children
@@ -28356,9 +28329,15 @@ module.exports = React.createClass({
       }
 
       if (type === 'list') {
+
+        classes['brick'] = (parentType === "fixed") ? true : false;
+        classes['brick-2'] = (parentType === "fixed") ? true : false;
+        classes['active'] = isActive;
+        classes = classSet(ClassNames(classes, self.props.classes));
+
         return (
           React.createElement("li", {
-            className: listClasses + isActive, 
+            className: classes, 
             'data-disabled': self.props.disabled
           }, 
             React.createElement("a", {
@@ -28385,20 +28364,22 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":"/var/www/evozon/reactjs/essence/src/js/utils/PubSub.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/TabMenu.js":[function(require,module,exports){
+},{"../utils/ClassNames":"/var/www/evozon/reactjs/essence/src/js/utils/ClassNames.js","../utils/PubSub":"/var/www/evozon/reactjs/essence/src/js/utils/PubSub.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/TabMenu.js":[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
-    Highlighter = require('./Highlighter'),
     Icon = require('./Icon'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    Highlighter = require('./Highlighter'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 var classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'TabMenu',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function () {
       return {
@@ -28536,7 +28517,7 @@ module.exports = React.createClass({
             'e-text-grey-50': true
           },
 
-          classList = classSet(classes);
+          classList = classSet(ClassNames(classes, self.props.classes));
 
       return (
         React.createElement("div", null, 
@@ -28561,7 +28542,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":"/var/www/evozon/reactjs/essence/src/js/utils/PubSub.js","./Highlighter":"/var/www/evozon/reactjs/essence/src/js/components/Highlighter.js","./Icon":"/var/www/evozon/reactjs/essence/src/js/components/Icon.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/Text.js":[function(require,module,exports){
+},{"../utils/ClassNames":"/var/www/evozon/reactjs/essence/src/js/utils/ClassNames.js","../utils/PubSub":"/var/www/evozon/reactjs/essence/src/js/utils/PubSub.js","./Highlighter":"/var/www/evozon/reactjs/essence/src/js/components/Highlighter.js","./Icon":"/var/www/evozon/reactjs/essence/src/js/components/Icon.js","react/addons":"/var/www/evozon/reactjs/essence/node_modules/react/addons.js"}],"/var/www/evozon/reactjs/essence/src/js/components/Text.js":[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),

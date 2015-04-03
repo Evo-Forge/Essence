@@ -1,12 +1,14 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'TabItem',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function() {
       return {
@@ -16,7 +18,8 @@ module.exports = React.createClass({
           left: 0,
           right: 0,
           direction: 'to-right'
-        }
+        },
+        classes: {}
       };
     },
 
@@ -24,7 +27,7 @@ module.exports = React.createClass({
       var self = this,
           elem = ev.target,
           id = elem.id,
-          prevPosition = this.state.highlighterCSS,
+          prevPosition = self.state.highlighterCSS,
           width = elem.offsetWidth,
           left = elem.parentNode.offsetLeft,
           right = (elem.parentNode.offsetParent.offsetWidth -
@@ -35,19 +38,11 @@ module.exports = React.createClass({
         return;
       }
 
-      /*console.log([
-        elem,
-        width,
-        id,
-        left,
-        right,
-        prevPosition
-      ]);*/
-
-      prevPosition.direction = (left <= prevPosition.left) ? 'to-left' : 'to-right';
+      prevPosition.element = elem;
       prevPosition.left = left;
       prevPosition.right = right;
       prevPosition.width = width;
+      prevPosition.display = 'block';
 
       this.setState({
         highlighterCSS: prevPosition
@@ -63,7 +58,6 @@ module.exports = React.createClass({
     },
 
     handleMenuItemKey: function (ev) {
-      var elem = ev;
       if (ev.key === 'Tab') {
         this.handleMenuItemClick(ev);
       }
@@ -71,18 +65,24 @@ module.exports = React.createClass({
 
     renderItem: function () {
       var self = this,
+          classes = [],
           type = self.props.type,
           parentType = self.props.parentType,
-          listClasses = (parentType === "fixed") ? "brick brick-2 " : "",
-          isActive = self.props.active ? 'active' :
-              self.state.active ? 'active' : '';
+          isActive = self.props.active ? true : self.state.active ? true : false;
 
       if (type === 'content') {
+
+        classes['e-card'] = true;
+        classes['e-shadow-1'] = true;
+        classes['e-tab-content'] = true;
+        classes['active'] = isActive;
+
+        classes = classSet(ClassNames(classes, self.props.classes));
+
         return (
           <div
             id={self.state.parentID + "-" + self.props.id}
-            className={"e-card e-shadow-1 e-tab-content " + isActive}
-
+            className={classes}
           >
             <p className={"e-subhead"}>
               {self.props.children}
@@ -92,9 +92,15 @@ module.exports = React.createClass({
       }
 
       if (type === 'list') {
+
+        classes['brick'] = (parentType === "fixed") ? true : false;
+        classes['brick-2'] = (parentType === "fixed") ? true : false;
+        classes['active'] = isActive;
+        classes = classSet(ClassNames(classes, self.props.classes));
+
         return (
           <li
-            className={listClasses + isActive}
+            className={classes}
             data-disabled={self.props.disabled}
           >
             <a

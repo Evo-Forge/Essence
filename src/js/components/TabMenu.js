@@ -1,16 +1,18 @@
 'use strict';
 
 var React = require('react/addons'),
-    Highlighter = require('./Highlighter'),
     Icon = require('./Icon'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../utils/PubSub'),
+    Highlighter = require('./Highlighter'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = React.addons.classSet;
 
 var classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'TabMenu',
 
-    mixins: [PubSub],
+    mixins: [PubSub, ClassNames],
 
     getInitialState: function () {
       return {
@@ -148,7 +150,7 @@ module.exports = React.createClass({
             'e-text-grey-50': true
           },
 
-          classList = classSet(classes);
+          classList = classSet(ClassNames(classes, self.props.classes));
 
       return (
         <div>

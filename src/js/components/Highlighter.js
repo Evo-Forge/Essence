@@ -12,6 +12,7 @@ module.exports = React.createClass({
       return {
         direction: 'to-right',
         styles: {
+          display: 'none',
           left: 0,
           right: 0
         },
@@ -22,12 +23,16 @@ module.exports = React.createClass({
     componentDidMount: function () {
       var self = this;
 
-      self.subscribe('highlighterCSS:'+self.props.id, function (position) {
+      self.subscribe('highlighterCSS:'+self.props.id, function (target) {
+        var targetLeft = target.element.parentNode.offsetLeft,
+            stateLeft = self.state.styles.left;
+
         self.setState({
-          direction: position.direction,
+          direction: targetLeft <= stateLeft  ? 'to-left' : 'to-right',
           styles: {
-            left: position.left,
-            right: position.right
+            display: target.display,
+            left: target.left,
+            right: target.right
           },
           highlighter: self
         });

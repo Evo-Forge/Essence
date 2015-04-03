@@ -41,13 +41,6 @@ module.exports = React.createClass({
       self.subscribe('toggleMenu_for_' + menuID, function(data) {
         self.showMenu(data);
       });
-
-      /*document.addEventListener("click", function(event){
-        self.setState({
-          isHidden: self.state.isHidden ? false : true,
-        });
-      });*/
-
     },
 
     componentDidUnmount: function () {
@@ -56,9 +49,7 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
       this.unsubscribe('toggleMenu_for_' + menuID, null);
 
-      document.removeEventListener("click", function(){
-        /* none */
-      });
+      // document.removeEventListener("click");
     },
 
     renderMenuTitle: function () {
@@ -168,6 +159,7 @@ module.exports = React.createClass({
     renderChildren: function () {
       var self = this,
           childPlaceholder = null,
+          childIcon = null,
           children = [],
           items = [];
 
@@ -203,6 +195,15 @@ module.exports = React.createClass({
         );
       }
 
+      if (self.props.icon) {
+        childIcon = (
+          <Icon
+            name={self.props.icon}
+            onClick={self.showMenu}
+          />
+        );
+      }
+
       self.props.children.map(function(item, index) {
         children.push(
           React.addons.cloneWithProps(item, {
@@ -216,6 +217,7 @@ module.exports = React.createClass({
       return (
         <div>
           {childPlaceholder}
+          {childIcon}
           <ul className={ulClasses} id={self.props.id}>
             {children}
           </ul>

@@ -714,88 +714,30 @@ Component.contact = (
   </Input>
 );
 
-var appbar_menu_left = [
-  {
-    id: 'menu-appbar-left',
-    type: 'menu',
-    text: 'Options',
-    link: '#',
-    hide: true,
-    classes: 'e-text-color-blue-500 cover e-left',
-    items: [
-      {
-        type: 'menu',
-        text: 'Notifications',
-        link: '#notifications'
-      },
-      {
-        type: 'menu',
-        text: 'Flow',
-        link: '#flow'
-      },
-      {
-        type: 'divider'
-      },
-      {
-        type: 'menu',
-        text: 'Following',
-        link: '#following'
-      },
-      {
-        type: 'menu',
-        text: 'Favorites',
-        link: '#favorites'
-      },
-
-    ]
-  }
-];
-
-var appbar_menu_right = [
-  {
-    id: 'menu-appbar-right',
-    type: 'menu',
-    text: 'Simple Menu',
-    link: '#',
-    hide: true,
-    icon: 'navigation-more-vert',
-    classes: 'e-text-color-blue-500 cover e-right',
-    items: [
-      {
-        type: 'menu',
-        text: 'Profile',
-        link: '#profile'
-      },
-      {
-        type: 'menu',
-        text: 'Settings',
-        link: '#settings'
-      },
-      {
-        type: 'divider'
-      },
-      {
-        type: 'menu',
-        text: 'Support',
-        link: '#support'
-      },
-      {
-        type: 'menu',
-        text: 'Logout',
-        link: '#logout'
-      },
-    ]
-  }
-];
 
 Component.appbar = (
   <AppBar>
-    <Btn>
-      <BtnItem
-        icon='navigation-menu'
-        classes={'simple-button e-left'}
-      />
-    </Btn>
+    <Menu
+      id='menu-appbar-icon-menu'
+      classes={'e-text-color-blue-500 cover e-left'}
+      icon='navigation-menu'
+    >
+      <MenuItem>
+        <Text>New project</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text>New user</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text>More tools</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text>Exit</Text>
+      </MenuItem>
+    </Menu>
 
     <Menu
       id='menu-appbar-left'
@@ -826,7 +768,30 @@ Component.appbar = (
       </MenuItem>
     </Menu>
 
-    <Menu items={appbar_menu_right} />
+    <Menu
+      id='menu-appbar-right'
+      classes={'e-text-color-blue-500 cover e-right'}
+      icon='navigation-more-vert'
+      right={true}
+    >
+      <MenuItem>
+        <Text>Profile</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text>Settings</Text>
+      </MenuItem>
+
+      <Block type='li' classes={'divider'} />
+
+      <MenuItem>
+        <Text>Support</Text>
+      </MenuItem>
+
+      <MenuItem>
+        <Text>Logout</Text>
+      </MenuItem>
+    </Menu>
 
     <Btn>
       <BtnItem
@@ -1150,7 +1115,11 @@ Component.paper = (
 );
 
 Component.tabs = (
-  <TabMenu type='simple' id={'tab_menu_simple'}>
+  <TabMenu
+    type='simple'
+    id={'tab_menu_simple'}
+    classes='e-background-indigo-400'
+  >
     <TabItem
       type='list'
       id='tab-item-one'
@@ -1165,9 +1134,6 @@ Component.tabs = (
       <p className='e-text-blue-grey-400'>
       The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.
       </p>
-
-
-
     </TabItem>
 
     <TabItem

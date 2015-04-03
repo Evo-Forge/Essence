@@ -25,7 +25,7 @@ module.exports = React.createClass({
 
       if (self.props.name) {
         return (
-            <i className={classSet(classes)} />
+            <i className={classSet(classes)} onClick={self.props.onClick} />
         );
       }
 
