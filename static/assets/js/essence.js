@@ -20378,7 +20378,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":227,"react/addons":3}],166:[function(require,module,exports){
+},{"../utils/PubSub":224,"react/addons":3}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -20506,7 +20506,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],167:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -20624,7 +20624,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":227,"react/addons":3}],169:[function(require,module,exports){
+},{"../utils/PubSub":224,"react/addons":3}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -20676,7 +20676,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],170:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],170:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -20869,7 +20869,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/BackgroundColor":219,"../utils/ClassNames":220,"../utils/ClickPosition":221,"../utils/Position":225,"../utils/PubSub":227,"./Icon":192,"./RippleInk":205,"react/addons":3}],171:[function(require,module,exports){
+},{"../utils/BackgroundColor":216,"../utils/ClassNames":217,"../utils/ClickPosition":218,"../utils/Position":222,"../utils/PubSub":224,"./Icon":189,"./RippleInk":202,"react/addons":3}],171:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -21063,7 +21063,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],173:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],173:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21105,7 +21105,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],174:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],174:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21148,7 +21148,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],175:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],175:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21191,7 +21191,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],176:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],176:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21291,7 +21291,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":227,"react/addons":3}],177:[function(require,module,exports){
+},{"../utils/PubSub":224,"react/addons":3}],177:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21469,7 +21469,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":227,"react/addons":3}],178:[function(require,module,exports){
+},{"../utils/PubSub":224,"react/addons":3}],178:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -21487,10 +21487,7 @@ var React = require('react/addons'),
     Chip = require('./Chip'),
     ChipItem = require('./ChipItem'),
     DatePicker = require('./DatePicker'),
-    DatePickerItem = require('./DatePickerItem'),
     DatePickerHeader = require('./DatePickerHeader'),
-    DatePickerHeaderDay = require('./DatePickerHeaderDay'),
-    DatePickerHeaderDate = require('./DatePickerHeaderDate'),
     DatePickerContent = require('./DatePickerContent'),
     DatePickerFooter = require('./DatePickerFooter'),
     Dialog = require('./Dialog'),
@@ -21534,19 +21531,19 @@ Component.home.push({
       React.createElement(Text, {
         type: "a", 
         eventAction: "showNavigationComponent", 
-        classes: "e-btn raised e-background-cyan-500", 
+        classes: "e-btn raised e-background-indigo-800", 
         href: "#getting-started", 
         id: "components-getting-started"
       }, 
-        "Getting Started"
+         "Get Started with Essence"
       ), 
       React.createElement(Text, {
         type: "a", 
-        classes: "e-btn raised e-background-green-600", 
+        classes: "e-btn raised e-background-white e-text-indigo-800", 
         target: "_blank", 
         href: "https://github.com/PearlVentures/Essence"
       }, 
-        "GitHub"
+        "Download from GitHub"
       )
     )
   )
@@ -22853,7 +22850,6 @@ var menus_cascade = [
 ];
 
 Component.menus = [];
-//<Menu items={menus_simple} />
 
 Component.menus.push({
   'simple': (
@@ -22887,7 +22883,6 @@ Component.menus.push({
   )
 });
 
-//<Menu items={menus_cover} />
 Component.menus.push({
   'cover': (
     React.createElement(Menu, {
@@ -22915,6 +22910,39 @@ Component.menus.push({
       React.createElement(MenuItem, null, 
         React.createElement(Text, {type: "a", href: "http://www.google.com"}, 
           "Google"
+        )
+      )
+    )
+  )
+});
+
+Component.menus.push({
+  'fab': (
+    React.createElement(Menu, {
+      id: "menu-cover", 
+      type: "fab"
+    }, 
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "#", classes: "e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900"}, 
+          React.createElement(Icon, {name: "action-assessment"})
+        )
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "#", classes: "e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900"}, 
+          React.createElement(Icon, {name: "action-assignment-ind"})
+        )
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "#", classes: "e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900"}, 
+          React.createElement(Icon, {name: "action-loyalty"})
+        )
+      ), 
+
+      React.createElement(MenuItem, null, 
+        React.createElement(Text, {type: "a", href: "#", classes: "e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900"}, 
+          React.createElement(Icon, {name: "action-print"})
         )
       )
     )
@@ -23404,25 +23432,57 @@ Component.chips = (
 Component.datepicker = [];
 
 Component.datepicker.push({
+  'input-simple': (
+    React.createElement(InputItem, {
+      classes: 'e-input-group e-text-green-600', 
+      type: "text", 
+      name: "datepicker-simple", 
+      label: "Select Date", 
+      actionClick: "datepicker", 
+      actionType: {
+        'action': 'show',
+        'id': 'datepicker-simple'
+      }}
+    )
+  )
+});
+
+Component.datepicker.push({
+  'input-horizontal': (
+    React.createElement(InputItem, {
+      classes: 'e-input-group e-text-green-600', 
+      type: "text", 
+      name: "datepicker-horizontal", 
+      label: "Select Date", 
+      actionClick: "datepicker", 
+      actionType: {
+        'action': 'show',
+        'id': 'datepicker-horizontal'
+      }}
+    )
+  )
+});
+
+Component.datepicker.push({
   'simple': (
-    React.createElement(DatePicker, null, 
-      React.createElement(DatePickerHeader, null), 
+    React.createElement(DatePicker, {id: "datepicker-simple"}, 
+      React.createElement(DatePickerHeader, {classes: "e-background-green-600"}), 
       React.createElement(DatePickerContent, null), 
       React.createElement(DatePickerFooter, null, 
         React.createElement(Btn, null, 
           React.createElement(BtnItem, {
             type: "succes", 
-            classes: 'flat e-right', 
+            classes: 'flat e-right e-text-green-600', 
             label: "OK", 
             actionClick: "datepicker", 
             actionType: {
-              'action': 'hide',
+              'action': 'setValue',
               'id': 'datepicker-simple'
             }}
           ), 
           React.createElement(BtnItem, {
             type: "danger", 
-            classes: 'flat e-right', 
+            classes: 'flat e-right e-text-green-600', 
             label: "CANCEL", 
             actionClick: "datepicker", 
             actionType: {
@@ -23438,29 +23498,29 @@ Component.datepicker.push({
 
 Component.datepicker.push({
   'horizontal': (
-    React.createElement(DatePicker, {classes: 'horizontal'}, 
-      React.createElement(DatePickerHeader, null), 
+    React.createElement(DatePicker, {id: "datepicker-horizontal", classes: 'horizontal'}, 
+      React.createElement(DatePickerHeader, {classes: "e-background-green-600"}), 
       React.createElement(DatePickerContent, null), 
       React.createElement(DatePickerFooter, null, 
         React.createElement(Btn, null, 
           React.createElement(BtnItem, {
             type: "succes", 
-            classes: 'flat e-right', 
+            classes: 'flat e-right e-text-green-600', 
             label: "OK", 
             actionClick: "datepicker", 
             actionType: {
-              'action': 'hide',
-              'id': 'datepicker-simple'
+              'action': 'setValue',
+              'id': 'datepicker-horizontal'
             }}
           ), 
           React.createElement(BtnItem, {
             type: "danger", 
-            classes: 'flat e-right', 
+            classes: 'flat e-right e-text-green-600', 
             label: "CANCEL", 
             actionClick: "datepicker", 
             actionType: {
               'action': 'hide',
-              'id': 'datepicker-simple'
+              'id': 'datepicker-horizontal'
             }}
           )
         )
@@ -24228,7 +24288,7 @@ Component.text_fields.push({
   React.createElement(Input, null, 
     React.createElement(InputItem, {
       classes: 'e-input-group has-success', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "text", 
       name: "label", 
       placeholder: "Did you know a bear has 42 teeth"
@@ -24237,7 +24297,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group has-success', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "text", 
       name: "label", 
       placeholder: "Did you know 8% of people have an extra rib", 
@@ -24247,7 +24307,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group has-error', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "text", 
       name: "label", 
       placeholder: "Did you know 11% of people are left handed", 
@@ -24257,7 +24317,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "text", 
       name: "label", 
       placeholder: "Did you know the Hawaiian alphabet has 12 letters", 
@@ -24267,7 +24327,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "text", 
       name: "label", 
       label: "Did you know birds need gravity to swallow"
@@ -24281,7 +24341,7 @@ Component.text_fields.push({
   React.createElement(Input, null, 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "textarea", 
       name: "label", 
       placeholder: "Did you know Topolino is the name for Mickey Mouse Italy"
@@ -24290,7 +24350,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "textarea", 
       name: "label", 
       label: "Did you know there is no sound in space"
@@ -24304,7 +24364,7 @@ Component.text_fields.push({
   React.createElement(Input, null, 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "email", 
       name: "label", 
       label: "Did you know melophobia is the fear of music"
@@ -24313,7 +24373,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "number", 
       name: "label", 
       placeholder: "Did you know womens hearts beat faster than mens", 
@@ -24328,7 +24388,7 @@ Component.text_fields.push({
   React.createElement(Input, null, 
     React.createElement(InputItem, {
       classes: 'e-input-group has-error', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "text", 
       name: "label", 
       label: "Did you know each time you see a full moon you always see the same side", 
@@ -24338,7 +24398,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group ', 
-      inputClasses: 'e-input empty', 
+      inputClasses: "", 
       type: "email", 
       name: "label", 
       label: "Email is required", 
@@ -24354,7 +24414,7 @@ Component.text_fields.push({
   React.createElement(Input, null, 
     React.createElement(InputItem, {
       classes: 'e-input-group has-warning', 
-      inputClasses: 'e-input e-input-success empty', 
+      inputClasses: 'e-input-success', 
       type: "text", 
       name: "label", 
       placeholder: "Did you know each time you see a full moon you always see the same side"
@@ -24363,7 +24423,7 @@ Component.text_fields.push({
 
     React.createElement(InputItem, {
       classes: 'e-input-group has-info', 
-      inputClasses: 'e-input e-input-success empty', 
+      inputClasses: 'e-input-success', 
       type: "email", 
       name: "label", 
       label: "Floating label"
@@ -24558,34 +24618,78 @@ module.exports = function () {
   return Component;
 };
 
-},{"./AppBar":165,"./Block":166,"./BottomSheets":167,"./BottomSheetsItem":168,"./Btn":169,"./BtnItem":170,"./Card":171,"./CardItem":172,"./CardItemContent":173,"./CardItemFooter":174,"./CardItemHeader":175,"./Chip":176,"./ChipItem":177,"./DatePicker":179,"./DatePickerContent":180,"./DatePickerFooter":181,"./DatePickerHeader":182,"./DatePickerHeaderDate":183,"./DatePickerHeaderDay":184,"./DatePickerItem":185,"./Dialog":186,"./DialogItem":187,"./DialogItemContent":188,"./DialogItemFooter":189,"./DialogItemHeader":190,"./Icon":192,"./Image":193,"./Input":194,"./InputItem":195,"./List":196,"./ListItem":197,"./Menu":199,"./MenuItem":200,"./Navigation":201,"./Paper":202,"./PaperItem":203,"./Progress":204,"./Slider":206,"./SliderItem":207,"./Snackbar":208,"./SnackbarItem":209,"./Switch":210,"./SwitchItem":211,"./TabItem":212,"./TabMenu":213,"./Text":214,"./Toast":215,"./ToastItem":216,"./ToolBar":217,"react/addons":3}],179:[function(require,module,exports){
+},{"./AppBar":165,"./Block":166,"./BottomSheets":167,"./BottomSheetsItem":168,"./Btn":169,"./BtnItem":170,"./Card":171,"./CardItem":172,"./CardItemContent":173,"./CardItemFooter":174,"./CardItemHeader":175,"./Chip":176,"./ChipItem":177,"./DatePicker":179,"./DatePickerContent":180,"./DatePickerFooter":181,"./DatePickerHeader":182,"./Dialog":183,"./DialogItem":184,"./DialogItemContent":185,"./DialogItemFooter":186,"./DialogItemHeader":187,"./Icon":189,"./Image":190,"./Input":191,"./InputItem":192,"./List":193,"./ListItem":194,"./Menu":196,"./MenuItem":197,"./Navigation":198,"./Paper":199,"./PaperItem":200,"./Progress":201,"./Slider":203,"./SliderItem":204,"./Snackbar":205,"./SnackbarItem":206,"./Switch":207,"./SwitchItem":208,"./TabItem":209,"./TabMenu":210,"./Text":211,"./Toast":212,"./ToastItem":213,"./ToolBar":214,"react/addons":3}],179:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
+    DateFormat = require('../utils/DateFormat'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePicker',
 
-    mixins: [ClassNames],
+    mixins: [PubSub, ClassNames, DateFormat],
 
     getInitialState:function() {
       return {
         classes: {
-          'e-picker-container': true
+          'e-picker-container': true,
+          'transparent': true,
         }
       };
     },
 
     componentDidMount:function() {
-      var classes = this.state.classes || [];
+      var self = this,
+          classes = this.state.classes || [];
 
-      classes = ClassNames(classes, this.props.classes);
+      self.subscribe('actions:datepicker', function (data) {
+        if (data.action === "hide") {
+          self.hideDatePicker(data.id);
+        } else if (data.action === "show") {
+          self.showDatePicker(data.id);
+        } else if (data.action === "setValue") {
+          self.hideDatePicker(data.id);
+        }
+      });
 
-      this.setState({
+      classes = ClassNames(classes, self.props.classes);
+
+      self.setState({
         classes: classes
       });
+    },
+
+    showDatePicker:function(componentID) {
+      var self = this,
+          classes = self.state.classes;
+
+      if (componentID === self.props.id) {
+        classes['transparent'] = false;
+
+        self.setState({
+          classes: classes
+        });
+
+        document.querySelector('body').className = 'e-modal-open';
+      }
+    },
+
+    hideDatePicker:function(componentID) {
+      var self = this,
+          classes = self.state.classes;
+
+      if (componentID === self.props.id) {
+        classes['transparent'] = true;
+
+        self.setState({
+          classes: classes
+        });
+
+        document.querySelector('body').className = '';
+      }
     },
 
     handleClick:function(ev, newDate) {
@@ -24603,31 +24707,16 @@ module.exports = React.createClass({
         React.addons.cloneWithProps(self.props.children, {
           onClick: self.handleClick,
           date: self.props.date,
+          parentId: self.props.id,
           key: 0
         });
       } else if (childrens > 1) {
         self.props.children.map(function (item, key) {
-          /*if (item.props.name === 'DatePickerHeader') {
-            item = (
-              React.addons.cloneWithProps(item, {
-                onClick: self.handleClick,
-                date: self.props.date,
-                key: key
-              })
-            );
-          } else {
-            item = (
-              React.addons.cloneWithProps(item, {
-                onClick: self.handleClick,
-                key: key
-              })
-            );
-          }*/
-
           item = (
             React.addons.cloneWithProps(item, {
               onClick: self.handleClick,
               date: self.props.date,
+              parentId: self.props.id,
               key: key
             })
           );
@@ -24639,17 +24728,21 @@ module.exports = React.createClass({
       return children;
     },
 
-    renderInputDate:function() {
-      var self = this,
-          inputDate = (self.props.date.month || "01") + "/" +
-          (self.props.date.day || "01") + "/" + (self.props.year || "2015");
+    renderModalBackground:function() {
+      var self = this;
 
-      return (
-        React.createElement("input", {
-        name: self.props.inputName || "DatePickerInput", 
-        defaultValue: inputDate}
-        )
-      );
+      if (!self.state.classes['transparent']) {
+        return (
+          React.createElement("div", {
+            id: 'e-modal-bg-' + self.props.id, 
+            style: {display: 'block'}, 
+            onClick: this.hideDatePicker.bind(this, self.props.id), 
+            className: "e-modal-bg"}
+          )
+        );
+      }
+
+      return null;
     },
 
     render:function() {
@@ -24657,14 +24750,17 @@ module.exports = React.createClass({
           classes = classSet(self.state.classes);
 
       return (
-        React.createElement("div", {className: classes}, 
-          self.renderChildren()
+        React.createElement("div", null, 
+          React.createElement("div", {className: classes, id: self.props.id}, 
+              self.renderChildren()
+          ), 
+          self.renderModalBackground()
         )
       );
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],180:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/DateFormat":220,"../utils/PubSub":224,"react/addons":3}],180:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -24896,7 +24992,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/DateFormat":223,"./Icon":192,"./Text":214,"react/addons":3}],181:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/DateFormat":220,"./Icon":189,"./Text":211,"react/addons":3}],181:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -24942,49 +25038,46 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],182:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],182:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
+    PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
     DateFormat = require('../utils/DateFormat'),
-    classSet = React.addons.classSet,
-    currentDate = new Date();
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePickerHeader',
 
-    mixins: [ClassNames, DateFormat],
+    mixins: [PubSub, ClassNames, DateFormat],
 
     getDefaultProps:function() {
+      var newDate = new Date(),
+          currentDate = {
+            day: newDate.getDate(),
+            year: newDate.getFullYear(),
+            month: DateFormat('month', newDate.getMonth()),
+            dayName: DateFormat('day', newDate.getDay())
+          };
+
       return {
         name: 'DatePickerHeader',
         date: {
-          day: currentDate.getDate(),
-          year: currentDate.getFullYear(),
-          month: DateFormat('month', currentDate.getMonth()),
-          dayName: DateFormat('day', currentDate.getDay()),
+          day: currentDate.day,
+          year: currentDate.year,
+          month: currentDate.month,
+          dayName: currentDate.dayName,
         }
       };
     },
 
-    getInitialState:function () {
+    getInitialState:function() {
       return {
         classes: {
           'e-picker-header': true
-        },
-        date: {
-          day: currentDate.getDate(),
-          year: currentDate.getFullYear(),
-          month: DateFormat('month', currentDate.getMonth()),
-          dayName: DateFormat('day', currentDate.getDay()),
         }
       };
-    },
-
-    componentWillReceiveProps:function() {
-      var self = this;
-      self._updateDate();
     },
 
     componentDidMount:function() {
@@ -24996,26 +25089,29 @@ module.exports = React.createClass({
       self.setState({
         classes: classes
       });
-    },
 
-    _updateDate:function() {
-      var self = this;
+      self.subscribe('actions:datepicker', function (data) {
+        console.log("DatePickerHeader");
+        console.log(data);
+        console.log(self.props.date);
 
-      self.setState({
-        month: self.props.date.month,
-        dayName: self.props.date.dayName,
-        day: self.props.date.day,
-        year: self.props.date.year,
+        if (data.action === "setValue" && self.props.parentId === data.id) {
+          self.publish('actions:input', {
+            action: 'setValue',
+            value: DateFormat('date', self.props.date),
+            id: data.id
+          });
+        }
       });
     },
 
-    renderDateMonth: function () {
+    renderDateMonth:function() {
       var self = this;
 
-      if (self.state.month) {
+      if (self.props.date.month) {
         return (
           React.createElement("div", {className: "e-picker-header-month"}, 
-            self.state.month
+            self.props.date.month
           )
         );
       }
@@ -25023,12 +25119,12 @@ module.exports = React.createClass({
       return null;
     },
 
-    renderDateDay: function () {
+    renderDateDay:function() {
       var self = this;
-      if (self.state.day) {
+      if (self.props.date.day) {
         return (
           React.createElement("div", {className: "e-picker-header-day"}, 
-            self.state.day
+            self.props.date.day
           )
         );
       }
@@ -25036,12 +25132,12 @@ module.exports = React.createClass({
       return null;
     },
 
-    renderDateYear: function () {
+    renderDateYear:function() {
       var self = this;
-      if (self.state.year) {
+      if (self.props.date.year) {
         return (
           React.createElement("div", {className: "e-picker-header-year"}, 
-            self.state.year
+            self.props.date.year
           )
         );
       }
@@ -25049,7 +25145,7 @@ module.exports = React.createClass({
       return null;
     },
 
-    render: function () {
+    render:function() {
       var self = this,
           classes = classSet(self.state.classes);
 
@@ -25059,7 +25155,7 @@ module.exports = React.createClass({
             className: classes
         }, 
           React.createElement("div", {className: 'e-picker-header-day-text'}, 
-            self.state.dayName
+            self.props.date.dayName
           ), 
           React.createElement("div", {className: 'e-picker-header-big-show'}, 
             self.renderDateMonth(), 
@@ -25071,210 +25167,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/DateFormat":223,"react/addons":3}],183:[function(require,module,exports){
-'use strict';
-
-var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
-
-module.exports = React.createClass({
-    displayName: 'DatePickerHeaderDate',
-
-    mixins: [PubSub, ClassNames],
-
-    getInitialState: function() {
-      return {
-        classes: {
-          'e-picker-header-big-show': true
-        },
-        month: null,
-        day: null,
-        year: null,
-      };
-    },
-
-    componentDidMount: function () {
-      var self = this,
-          classes = self.state.classes;
-
-      classes = ClassNames(classes, self.props.classes);
-
-      self.setState({
-        classes: classSet(classes),
-        month: self.state.month || self.props.month,
-        day: self.state.day || self.props.day,
-        year: self.state.year || self.props.year,
-      });
-
-      /*self.subscribe('actions:datepicker', function (data) {
-        if (data.action === "change") {
-          self.setState({
-            month: data.newDate.month,
-            day: data.newDate.day,
-            year: data.newDate.year,
-          });
-        }
-      });*/
-    },
-
-    updateDate: function (newDate) {
-      var self = this;
-
-      self.setState({
-        month: newDate.month,
-        day: newDate.day,
-        year: newDate.year,
-      });
-    },
-
-    renderDateMonth: function () {
-      var self = this;
-
-      if (self.state.month) {
-        return (
-          React.createElement("div", {className: "e-picker-header-month"}, 
-            self.state.month
-          )
-        );
-      }
-
-      return null;
-    },
-
-    renderDateDay: function () {
-      var self = this;
-      if (self.state.day) {
-        return (
-          React.createElement("div", {className: "e-picker-header-day"}, 
-            self.state.day
-          )
-        );
-      }
-
-      return null;
-    },
-
-    renderDateYear: function () {
-      var self = this;
-      if (self.state.year) {
-        return (
-          React.createElement("div", {className: "e-picker-header-year"}, 
-            self.state.year
-          )
-        );
-      }
-
-      return null;
-    },
-
-
-    render: function () {
-      var self = this;
-      return (
-        React.createElement("div", {
-          ref: "DatePickerHeaderDate", 
-          className: self.state.classes
-        }, 
-          self.renderDateMonth(), 
-          self.renderDateDay(), 
-          self.renderDateYear()
-        )
-      );
-    }
-});
-
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],184:[function(require,module,exports){
-'use strict';
-
-var React = require('react/addons'),
-    ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
-
-module.exports = React.createClass({
-    displayName: 'DatePickerHeaderDay',
-
-    mixins: [ClassNames],
-
-    getInitialState: function() {
-      return {
-        classes: {
-          'e-picker-header-day-text': true
-        },
-        day: null
-      };
-    },
-
-    componentDidMount: function () {
-      var classes = this.state.classes;
-
-      classes = ClassNames(classes, this.props.classes);
-
-      this.setState({
-        classes: classSet(classes),
-        day: this.props.day
-      });
-    },
-
-    render: function () {
-      var self = this;
-      return (
-        React.createElement("div", {className: self.state.classes}, 
-          self.state.day
-        )
-      );
-    }
-});
-
-},{"../utils/ClassNames":220,"react/addons":3}],185:[function(require,module,exports){
-'use strict';
-
-var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
-
-module.exports = React.createClass({
-    displayName: 'DatePickerItem',
-
-    mixins: [PubSub, ClassNames],
-
-    getInitialState: function() {
-      return {
-        style: {},
-        classes: {
-          'e-picker-container': true
-        }
-      };
-    },
-
-    componentDidMount: function () {
-      var classes = this.state.classes || [];
-
-      this.setState({
-        classes: classes
-      });
-    },
-
-    renderDatePicker: function () {
-      var self = this,
-          classes = classSet( ClassNames(self.state.classes, self.props.classes) );
-
-      return (
-        React.createElement("div", {className: classes}, 
-          self.props.children
-        )
-      );
-    },
-
-    render: function () {
-      var self = this;
-      return self.renderDatePicker();
-    }
-});
-
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],186:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/DateFormat":220,"../utils/PubSub":224,"react/addons":3}],183:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -25315,7 +25208,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],187:[function(require,module,exports){
+},{"react/addons":3}],184:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25437,7 +25330,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],188:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"../utils/PubSub":224,"react/addons":3}],185:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25480,7 +25373,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"react/addons":3}],189:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"react/addons":3}],186:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25523,7 +25416,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"react/addons":3}],190:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"react/addons":3}],187:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25566,7 +25459,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"react/addons":3}],191:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"react/addons":3}],188:[function(require,module,exports){
 'use strict';
 
 var React = require('react'),
@@ -25622,7 +25515,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":227,"react":164}],192:[function(require,module,exports){
+},{"../utils/PubSub":224,"react":164}],189:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25663,7 +25556,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],193:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],190:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25712,7 +25605,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],194:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],191:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -25754,7 +25647,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],195:[function(require,module,exports){
+},{"react/addons":3}],192:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -25775,7 +25668,10 @@ module.exports = React.createClass({
           current: 0,
           maximum: 50
         },
-        inputClasses: [],
+        inputClasses: {
+          'e-input': true,
+          'empty': true
+        },
         inputValue: ''
       };
     },
@@ -25783,18 +25679,48 @@ module.exports = React.createClass({
     componentDidMount: function () {
       var self = this,
           parentClass = self.props.classes || [],
-          inputClass = self.props.inputClasses || [],
+          inputClasses = ClassNames(self.state.inputClasses, self.props.inputClasses),
+          inputValue = self.props.inputValue || self.state.inputValue || '',
           counter = self.state.counter;
 
       if ( parseInt(self.props.counter) > 0 ) {
         counter.maximum = parseInt(self.props.counter);
       }
 
+      self.subscribe('actions:input', function (data) {
+        if (data.action === "setValue") {
+          if (self.props.name === data.id) {
+            inputValue = data.value;
+            inputClasses['empty'] = false;
+
+            self.setState({
+              inputValue: inputValue,
+              inputClasses: inputClasses
+            });
+          }
+        }
+      });
+
       self.setState({
         classes: parentClass,
-        inputClasses: inputClass,
+        inputClasses: inputClasses,
+        inputValue: inputValue,
         counter: counter
       });
+    },
+
+    handleClick: function (event) {
+      var self = this,
+          actionClick = self.props.actionClick || false,
+          actionType = self.props.actionType || false;
+
+      if (actionClick && actionType) {
+        self.publish('actions:'+actionClick, actionType);
+      }
+
+      if (self.props.onClick) {
+        return self.props.onClick;
+      }
     },
 
     handleChange: function (eventChange) {
@@ -25809,16 +25735,14 @@ module.exports = React.createClass({
 
       counter.current = inputValue.length;
 
-      (self.props.inputClasses.split(" ")).map(function (s) {
-        inputClasses[s] = (
-          (s === "empty" && inputValue.length > 0) ? false : true
-        );
-      });
+      if (inputValue.length > 0) {
+        inputClasses['empty'] = false;
+      }
 
       self.setState({
         counter: counter,
         inputValue: inputValue,
-        inputClasses: classSet(inputClasses)
+        inputClasses: ClassNames(inputClasses, self.props.inputClasses)
       });
     },
 
@@ -25867,14 +25791,12 @@ module.exports = React.createClass({
 
     renderInput: function () {
       var self = this,
-          placeholder = (self.props.placeholder ? self.props.placeholder : ''),
+          placeholder = self.props.placeholder || '',
           isRequired = (self.props.required ? true : false),
           isDisabled = (self.props.disabled ? true : false),
-          type = (self.props.type ? self.props.type : 'text'),
-          value = (self.props.value ? self.props.value :
-            (self.state.inputValue ? self.state.inputValue : '')
-          ),
-          name = (self.props.name ? self.props.name : ''),
+          type = self.props.type || 'text',
+          value = self.props.value || self.state.inputValue || '',
+          name = self.props.name || '',
           inputClasses = classSet(self.state.inputClasses);
 
       if (type === 'textarea') {
@@ -25884,10 +25806,13 @@ module.exports = React.createClass({
             type: type, 
             name: name, 
             defaultValue: value, 
+            value: value, 
             required: isRequired, 
             disabled: isDisabled, 
             placeholder: placeholder, 
-            onChange: self.handleChange}
+            onChange: self.handleChange, 
+            onClick: self.handleClick, 
+            onTouch: self.handleClick}
           )
         );
       }
@@ -25898,10 +25823,13 @@ module.exports = React.createClass({
           type: type, 
           name: name, 
           defaultValue: value, 
+          value: value, 
           required: isRequired, 
           disabled: isDisabled, 
           placeholder: placeholder, 
-          onChange: self.handleChange}
+          onChange: self.handleChange, 
+          onClick: self.handleClick, 
+          onTouch: self.handleClick}
         )
       );
     },
@@ -25922,7 +25850,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],196:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],193:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -26065,7 +25993,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],197:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"../utils/PubSub":224,"react/addons":3}],194:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -26645,7 +26573,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/BackgroundColor":219,"../utils/ClassNames":220,"../utils/ClickPosition":221,"../utils/Position":225,"../utils/PubSub":227,"./Icon":192,"./Image":193,"./ListItemElement":198,"./Text":214,"react/addons":3}],198:[function(require,module,exports){
+},{"../utils/BackgroundColor":216,"../utils/ClassNames":217,"../utils/ClickPosition":218,"../utils/Position":222,"../utils/PubSub":224,"./Icon":189,"./Image":190,"./ListItemElement":195,"./Text":211,"react/addons":3}],195:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -26708,13 +26636,14 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],199:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],196:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
     Text = require('./Text'),
     Icon = require('./Icon'),
+    BtnItem = require('./BtnItem'),
     MenuItem = require('./MenuItem'),
     PubSub = require('../utils/PubSub'),
     Mobile = require('../utils/Mobile'),
@@ -26732,8 +26661,9 @@ module.exports = React.createClass({
 
       return {
         children: [],
-        isHidden: true,
         placeholder: null,
+        isHidden: true,
+        isActive: false,
         isRightPosition: false,
         classes: {
           'mobile': this.isMobile(),
@@ -26799,7 +26729,7 @@ module.exports = React.createClass({
     renderMenu: function () {
       var self = this,
           classes = {
-            'e-nav-menu': true
+            'e-nav-menu': self.props.type === 'fab' ? false : true
           },
           options = self.props.items ? self.props.items[0] : false,
           extraClasses = (options.classes) ? options.classes.split(" ") : false,
@@ -26813,6 +26743,12 @@ module.exports = React.createClass({
 
       if (self.props.classes) {
         classes = ClassNames(classes, self.props.classes);
+      }
+
+      if (self.props.type === 'fab') {
+        classes['e-fab-menu'] = true;
+        classes['fixed'] = true;
+        classes['active'] = self.state.isActive;
       }
 
       classes = classSet(classes);
@@ -26838,6 +26774,7 @@ module.exports = React.createClass({
       self.setState({
         isRightPosition: elemPosition.position === 'right' ? true : false,
         isHidden: self.state.isHidden ? false : true,
+        isActive: self.state.isActive ? false : true,
         placeholder: targetText
       });
     },
@@ -26892,6 +26829,12 @@ module.exports = React.createClass({
       placeholder = (self.state.placeholder) ? self.state.placeholder :
             self.props.placeholder ? self.props.placeholder : null;
 
+      if (self.props.type === 'fab') {
+        ulClasses = {
+          'fab-list': true
+        };
+      }
+
       ulClasses = classSet(ulClasses);
 
       if (self.props.placeholder) {
@@ -26911,6 +26854,18 @@ module.exports = React.createClass({
           React.createElement(Icon, {
             name: self.props.icon, 
             onClick: self.showMenu}
+          )
+        );
+      }
+
+      if (self.props.type === 'fab') {
+        childPlaceholder = (
+          React.createElement(Text, {
+            onClick: self.showMenu, 
+            id: "fab-for-" + self.props.id, 
+            classes: "e-btn-fab lines-button"
+          }, 
+            React.createElement(Text, {classes: "lines"})
           )
         );
       }
@@ -26942,7 +26897,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PositionHorizontal":226,"../utils/PubSub":227,"./Icon":192,"./MenuItem":200,"./Text":214,"react/addons":3}],200:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"../utils/PositionHorizontal":223,"../utils/PubSub":224,"./BtnItem":170,"./Icon":189,"./MenuItem":197,"./Text":211,"react/addons":3}],197:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27141,7 +27096,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],201:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/Mobile":221,"../utils/PubSub":224,"react/addons":3}],198:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27366,7 +27321,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ComponentHTML":222,"../utils/Mobile":224,"../utils/PubSub":227,"./Icon":192,"react/addons":3}],202:[function(require,module,exports){
+},{"../utils/ComponentHTML":219,"../utils/Mobile":221,"../utils/PubSub":224,"./Icon":189,"react/addons":3}],199:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27437,7 +27392,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],203:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],200:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27486,7 +27441,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"react/addons":3}],204:[function(require,module,exports){
+},{"../utils/ClassNames":217,"react/addons":3}],201:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27598,7 +27553,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":224,"../utils/PubSub":227,"react/addons":3}],205:[function(require,module,exports){
+},{"../utils/Mobile":221,"../utils/PubSub":224,"react/addons":3}],202:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27637,7 +27592,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],206:[function(require,module,exports){
+},{"react/addons":3}],203:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -27658,7 +27613,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],207:[function(require,module,exports){
+},{"react/addons":3}],204:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -27887,7 +27842,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/Mobile":224,"../utils/PositionHorizontal":226,"../utils/PubSub":227,"react/addons":3}],208:[function(require,module,exports){
+},{"../utils/Mobile":221,"../utils/PositionHorizontal":223,"../utils/PubSub":224,"react/addons":3}],205:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -27919,7 +27874,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],209:[function(require,module,exports){
+},{"react/addons":3}],206:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28021,7 +27976,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"./BtnItem":170,"react/addons":3}],210:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"./BtnItem":170,"react/addons":3}],207:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -28066,7 +28021,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],211:[function(require,module,exports){
+},{"react/addons":3}],208:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28211,7 +28166,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],212:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],209:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28341,7 +28296,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],213:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],210:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28519,7 +28474,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"./Highlighter":191,"./Icon":192,"react/addons":3}],214:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"./Highlighter":188,"./Icon":189,"react/addons":3}],211:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28794,7 +28749,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"react/addons":3}],215:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"react/addons":3}],212:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons');
@@ -28834,7 +28789,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react/addons":3}],216:[function(require,module,exports){
+},{"react/addons":3}],213:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28921,7 +28876,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/ClassNames":220,"../utils/PubSub":227,"./BtnItem":170,"react/addons":3}],217:[function(require,module,exports){
+},{"../utils/ClassNames":217,"../utils/PubSub":224,"./BtnItem":170,"react/addons":3}],214:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -28998,7 +28953,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"../utils/PubSub":227,"./Text":214,"react/addons":3}],218:[function(require,module,exports){
+},{"../utils/PubSub":224,"./Text":211,"react/addons":3}],215:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -31732,7 +31687,7 @@ if (tabs_desktop) {
   );
 }
 
-},{"./components/AppBar":165,"./components/Btn":169,"./components/BtnItem":170,"./components/Card":171,"./components/CardItem":172,"./components/Chip":176,"./components/ChipItem":177,"./components/Dialog":186,"./components/DialogItem":187,"./components/Icon":192,"./components/Input":194,"./components/InputItem":195,"./components/List":196,"./components/ListItem":197,"./components/Menu":199,"./components/Navigation":201,"./components/Paper":202,"./components/PaperItem":203,"./components/Progress":204,"./components/Slider":206,"./components/SliderItem":207,"./components/Snackbar":208,"./components/SnackbarItem":209,"./components/Switch":210,"./components/SwitchItem":211,"./components/TabItem":212,"./components/TabMenu":213,"./components/Toast":215,"./components/ToastItem":216,"./components/ToolBar":217,"react/addons":3}],219:[function(require,module,exports){
+},{"./components/AppBar":165,"./components/Btn":169,"./components/BtnItem":170,"./components/Card":171,"./components/CardItem":172,"./components/Chip":176,"./components/ChipItem":177,"./components/Dialog":183,"./components/DialogItem":184,"./components/Icon":189,"./components/Input":191,"./components/InputItem":192,"./components/List":193,"./components/ListItem":194,"./components/Menu":196,"./components/Navigation":198,"./components/Paper":199,"./components/PaperItem":200,"./components/Progress":201,"./components/Slider":203,"./components/SliderItem":204,"./components/Snackbar":205,"./components/SnackbarItem":206,"./components/Switch":207,"./components/SwitchItem":208,"./components/TabItem":209,"./components/TabMenu":210,"./components/Toast":212,"./components/ToastItem":213,"./components/ToolBar":214,"react/addons":3}],216:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element) {
@@ -31746,7 +31701,7 @@ module.exports = function (element) {
   return color;
 };
 
-},{}],220:[function(require,module,exports){
+},{}],217:[function(require,module,exports){
 'use strict';
 
 module.exports = function (initClass, ExtraClass) {
@@ -31768,7 +31723,7 @@ module.exports = function (initClass, ExtraClass) {
   return classes;
 };
 
-},{}],221:[function(require,module,exports){
+},{}],218:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element, parentElement) {
@@ -31782,7 +31737,7 @@ module.exports = function (element, parentElement) {
   return { x: xPosition, y: yPosition };
 };
 
-},{}],222:[function(require,module,exports){
+},{}],219:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -31836,11 +31791,11 @@ module.exports = {
   }
 };
 
-},{"../components/ComponentsList":178,"react/addons":3}],223:[function(require,module,exports){
+},{"../components/ComponentsList":178,"react/addons":3}],220:[function(require,module,exports){
 'use strict';
 
 module.exports = function (type, value) {
-  var ret = null, month = [], daysOfWeek = [];
+  var ret = null, month = [], monthName = [], daysOfWeek = [];
 
     month[0] = "January";
     month[1] = "February";
@@ -31854,6 +31809,19 @@ module.exports = function (type, value) {
     month[9] = "October";
     month[10] = "November";
     month[11] = "December";
+
+    monthName["January"] = 1;
+    monthName["February"] = 2;
+    monthName["March"] = 3;
+    monthName["April"] = 4;
+    monthName["May"] = 5;
+    monthName["June"] = 6;
+    monthName["July"] = 7;
+    monthName["August"] = 8;
+    monthName["September"] = 9;
+    monthName["October"] = 10;
+    monthName["November"] = 11;
+    monthName["December"] = 12;
 
     daysOfWeek[0] = "Sunday";
     daysOfWeek[1] = "Monday";
@@ -31871,10 +31839,18 @@ module.exports = function (type, value) {
     ret = month[value];
   }
 
+  if (type === 'date') {
+    var month = monthName[value.month],
+        day = value.day,
+        year = value.year;
+
+    ret = month + "/" + day + "/" + year;
+  }
+
   return ret;
 };
 
-},{}],224:[function(require,module,exports){
+},{}],221:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -31894,7 +31870,7 @@ module.exports = {
   }
 };
 
-},{}],225:[function(require,module,exports){
+},{}],222:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element) {
@@ -31916,7 +31892,7 @@ module.exports = function (element) {
   return { x: xPosition, y: yPosition };
 };
 
-},{}],226:[function(require,module,exports){
+},{}],223:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element) {
@@ -31932,7 +31908,7 @@ module.exports = function (element) {
   return elementCords;
 };
 
-},{}],227:[function(require,module,exports){
+},{}],224:[function(require,module,exports){
 'use strict';
 
 var EventEmitter = require('events').EventEmitter,
@@ -31954,4 +31930,4 @@ module.exports = {
   }
 };
 
-},{"events":1}]},{},[218]);
+},{"events":1}]},{},[215]);

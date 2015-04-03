@@ -2080,7 +2080,8 @@ th {
 .raised,
 .e-btn-fab-mini {
   display: inline-block;
-  height: 36px;
+  min-height: 36px;
+  line-height: 36px;
   padding: 0 24px;
   border: 0;
   margin: 6px 4px;
@@ -3388,6 +3389,106 @@ select.e-input.focus {
   text-align: right;
   opacity: 0.5;
 }
+.e-fab-menu {
+  position: relative;
+  display: table;
+}
+.e-fab-menu.fixed {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+.e-fab-menu .fab-list {
+  bottom: 100%;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.e-fab-menu .fab-list li {
+  display: block;
+  margin: 1rem 0;
+}
+.e-fab-menu .fab-list li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+}
+.lines-button {
+  display: inline-block;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+}
+.lines-button:hover {
+  opacity: 1;
+}
+.lines-button:active {
+  transition: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+.line {
+  display: inline-block;
+  width: 3.5rem;
+  height: 0.5rem;
+  background: white;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+}
+.lines {
+  display: inline-block;
+  width: 3.5rem;
+  height: 0.5rem;
+  background: white;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+  position: relative;
+  /*create the upper and lower lines as pseudo-elements of the middle line*/
+}
+.lines:before,
+.lines:after {
+  display: inline-block;
+  width: 3.5rem;
+  height: 0.5rem;
+  background: white;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+  position: absolute;
+  left: 0;
+  content: '';
+  transform-origin: 0.25rem center;
+}
+.lines:before {
+  top: 0.875rem;
+}
+.lines:after {
+  top: -0.875rem;
+}
+.e-fab-menu.active .fab-list {
+  max-height: 1000px;
+}
+.e-fab-menu.active .lines-button .lines {
+  /*hide the middle line*/
+  background: transparent;
+  /*overlay the lines by setting both their top values to 0*/
+}
+.e-fab-menu.active .lines-button .lines:before,
+.e-fab-menu.active .lines-button .lines:after {
+  transform-origin: 50% 50%;
+  top: 0;
+  width: 3.5rem;
+}
+.e-fab-menu.active .lines-button .lines:before {
+  transform: rotate3d(0, 0, 1, 45deg);
+}
+.e-fab-menu.active .lines-button .lines:after {
+  transform: rotate3d(0, 0, 1, -45deg);
+}
 .snackbar,
 .snackbar-multiline {
   position: fixed;
@@ -4545,6 +4646,11 @@ code {
   border: 1px solid #e1e1e8;
   border-radius: 4px;
 }
+pre code {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+}
 .container {
   display: flex;
   width: auto;
@@ -5139,6 +5245,15 @@ ul.chips li {
   max-width: 80%;
   margin: 0 auto;
   background-color: #ffffff;
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Safari & Chrome*/
+  -moz-transition: all 0.2s ease-in-out;
+  /* Mozilla */
+  -ms-transition: all 0.2s ease-in-out;
+  /* IE */
+  -o-transition: all 0.2s ease-in-out;
+  /* Opera */
+  transition: all 0.2s ease-in-out;
   border: 0 none;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -5174,6 +5289,15 @@ ul.chips li {
   top: 20%;
   z-index: 5;
   width: 100%;
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Safari & Chrome*/
+  -moz-transition: all 0.2s ease-in-out;
+  /* Mozilla */
+  -ms-transition: all 0.2s ease-in-out;
+  /* IE */
+  -o-transition: all 0.2s ease-in-out;
+  /* Opera */
+  transition: all 0.2s ease-in-out;
 }
 .e-dialog-full .e-dialogs-header {
   background: #37474f;
@@ -5697,16 +5821,20 @@ ul.chips li {
 .e-img-rsp {
   max-width: 100% !important;
 }
-code {
-  background-color: #e8f5e9;
-  border: 1px solid #e1e1e8;
-  border-radius: 4px;
-}
 .show {
   display: block !important;
 }
 .hide {
   display: none !important;
+}
+.transparent {
+  opacity: 0 !important;
+  z-index: -1;
+}
+.no-min-size {
+  min-height: 0 !important;
+  min-width: 0 !important;
+  padding: 0 !important;
 }
 .e-nav.e-text-black ul:nth(2) {
   display: block !important;
@@ -6009,7 +6137,9 @@ li {
   top: 0;
   display: none;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
+  animation-duration: 0.2s;
+  animation-name: e-modal-anim;
 }
 @media all and (max-width: 1400px) {
   .e-modal-open {
@@ -6129,6 +6259,14 @@ li {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+}
+@keyframes e-modal-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .e-progress-slider {
   width: 100%;
@@ -7030,6 +7168,15 @@ li {
   padding: 0;
   width: 100%;
   z-index: 99999;
+  -webkit-transition: all 0.2s ease-in-out;
+  /* Safari & Chrome*/
+  -moz-transition: all 0.2s ease-in-out;
+  /* Mozilla */
+  -ms-transition: all 0.2s ease-in-out;
+  /* IE */
+  -o-transition: all 0.2s ease-in-out;
+  /* Opera */
+  transition: all 0.2s ease-in-out;
 }
 .e-bottom-sheet .brick-4 {
   width: 32.33333333%;
@@ -7038,15 +7185,6 @@ li {
 }
 .e-bottom-sheet.animate {
   bottom: 0px;
-  -webkit-transition: all 1s ease-in-out;
-  /* Safari & Chrome*/
-  -moz-transition: all 1s ease-in-out;
-  /* Mozilla */
-  -ms-transition: all 1s ease-in-out;
-  /* IE */
-  -o-transition: all 1s ease-in-out;
-  /* Opera */
-  transition: all 1s ease-in-out;
 }
 .e-bottom-sheet .e-list {
   padding: 0;
@@ -7104,16 +7242,19 @@ li {
   border: 1px solid #121212;
 }
 .e-picker-container {
-  width: 300px;
   margin: 0 auto;
+  position: fixed;
+  left: auto;
+  top: 20%;
+  z-index: 5;
+  width: 300px;
   text-align: center;
-  z-index: 100;
   box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.22);
-  background: #43a047;
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  background: #ffffff;
 }
 .e-picker-container header {
-  color: #fff;
+  color: #ffffff;
 }
 .e-picker-container header .e-picker-header-day-text {
   background: #2e7d32;
@@ -7138,7 +7279,7 @@ li {
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 }
 .e-picker-container .e-picker-calendar-container {
-  background: #fff;
+  background: #ffffff;
 }
 .e-picker-container .e-picker-calendar-slider {
   position: relative;
@@ -7215,14 +7356,14 @@ li {
 }
 .e-picker-container .e-picker-calendar-container-padding .e-picker-calendar-week-dates .e-picker-calendar-week-date button:active {
   background: #2e7d32;
-  color: #fff;
+  color: #ffffff;
 }
 .e-picker-container .e-picker-calendar-container-padding .e-picker-calendar-week-dates .e-picker-calendar-week-date button:focus {
   outline: none;
 }
 .e-picker-container .e-picker-calendar-container-padding .e-picker-calendar-week-dates .e-picker-calendar-week-date.active button {
   background: #2e7d32;
-  color: #fff;
+  color: #ffffff;
 }
 .e-picker-container .e-picker-calendar-container-padding .e-picker-main-actions {
   *zoom: 1;
@@ -7406,6 +7547,7 @@ div[id^="components-"] .e-paper-container .e-paper {
 #navigationMenu {
   margin-top: -64px;
   position: absolute;
+  z-index: 4;
 }
 #navigationMenu .e-nav-drawer nav .e-navigation-wrapper,
 #navigationMenu .e-nav-drawer-mobile nav .e-navigation-wrapper {
