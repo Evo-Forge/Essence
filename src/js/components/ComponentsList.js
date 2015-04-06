@@ -675,7 +675,6 @@ Component.contact = (
   <Input>
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
       type='text'
       name='message'
       label='Subject'
@@ -683,7 +682,6 @@ Component.contact = (
     </InputItem>
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
       type='email'
       name='email'
       label='Email address'
@@ -691,7 +689,6 @@ Component.contact = (
     </InputItem>
     <InputItem
       classes={'e-input-group'}
-      inputClasses={'e-input empty'}
       type='textarea'
       name='message'
       label='Message'
@@ -1447,7 +1444,7 @@ Component.menus.push({
 Component.menus.push({
   'fab': (
     <Menu
-      id='menu-cover'
+      id='menu-fab'
       type='fab'
     >
       <MenuItem>

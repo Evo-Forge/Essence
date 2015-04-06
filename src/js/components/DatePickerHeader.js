@@ -50,10 +50,6 @@ module.exports = React.createClass({
       });
 
       self.subscribe('actions:datepicker', function (data) {
-        console.log("DatePickerHeader");
-        console.log(data);
-        console.log(self.props.date);
-
         if (data.action === "setValue" && self.props.parentId === data.id) {
           self.publish('actions:input', {
             action: 'setValue',

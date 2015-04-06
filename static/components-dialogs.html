@@ -34,6 +34,15 @@
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
           <pre class="e-paper e-shadow-2">
             <code class="language-markup">
+&lt;button class=&quot;raised e-btn-primary e-ripple&quot;&gt;
+    &lt;div class=&quot;e-ripple-container&quot;&gt;
+      &lt;span&gt;
+        &lt;div class=&quot;e-ripple-effect&quot; style=&quot;left:164.953125px; top:26px; background-color:rgba(255, 255, 255, 0.5);&quot;&gt;&lt;/div&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span&gt;Show Simple Dialog&lt;/span&gt;
+&lt;/button&gt;
+
 &lt;div id=&quot;dialog-simple&quot; class=&quot;e-dialog&quot;&gt;
   &lt;div class=&quot;e-dialogs-header&quot;&gt;
     &lt;h2&gt;Dialog title&lt;/h2&gt;
@@ -56,6 +65,20 @@
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type='primary'
+    classes={'raised'}
+    label='Show Simple Dialog'
+    rippleEffect={true}
+    actionClick='dialog'
+    actionType={{
+      'action': 'show',
+      'id': 'dialog-simple'
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
 &lt;Dialog&gt;
   &lt;DialogItem id='dialog-simple'&gt;
     &lt;DialogItemHeader&gt;
@@ -132,6 +155,15 @@
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
+&lt;button class=&quot;raised e-btn-warning e-ripple&quot;&gt;
+    &lt;div class=&quot;e-ripple-container&quot;&gt;
+      &lt;span&gt;
+        &lt;div class=&quot;e-ripple-effect&quot; style=&quot;left:0px; top:0px; &quot;&gt;&lt;/div&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span&gt;Show Full Dialog&lt;/span&gt;
+&lt;/button&gt;
+
 &lt;div id=&quot;dialog-full&quot; class=&quot;e-dialog-full&quot;&gt;
   &lt;div class=&quot;e-dialogs-header clearfix&quot;&gt;
     &lt;a class=&quot;e-dialog-header-action e-left&quot; href=&quot;#&quot;&gt;
@@ -157,6 +189,20 @@
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type='warning'
+    classes={'raised'}
+    label='Show Full Dialog'
+    rippleEffect={true}
+    actionClick='dialog'
+    actionType={{
+      'action': 'show',
+      'id': 'dialog-full'
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
 &lt;Dialog&gt;
   &lt;DialogItem id='dialog-full' full={true}&gt;
     &lt;DialogItemHeader classes={'clearfix'}&gt;

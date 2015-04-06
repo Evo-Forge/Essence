@@ -13,7 +13,6 @@ module.exports = function (grunt) {
     paths: pkg.paths,
     config: { src: pkg.paths.tasks },
     browserify: {
-      //'static/assets/js/demo.js': ['src/js/demo.js'],
       'static/assets/js/essence.js': ['src/js/essence.js'],
       'static/assets/js/application.js': ['src/js/application.js'],
       'options': {
@@ -25,7 +24,7 @@ module.exports = function (grunt) {
   }));
 
   grunt.registerTask('default', ['watch']);
-  // grunt.registerTask('browserify', ['browserify']);
+  grunt.registerTask('example', ['browserify:example', 'less:example', 'uglify']);
 
   loadTasks(grunt);
 };

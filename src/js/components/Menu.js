@@ -43,6 +43,19 @@ module.exports = React.createClass({
       self.subscribe('toggleMenu_for_' + menuID, function(data) {
         self.showMenu(data);
       });
+
+      document.addEventListener("click", function(event){
+        if (!self.getDOMNode().contains(event.target)){
+          self.hideMenu();
+        }
+      });
+
+      document.addEventListener("touchend", function(event){
+        if (!self.getDOMNode().contains(event.target)){
+          self.hideMenu();
+        }
+      });
+
     },
 
     componentDidUnmount: function () {
@@ -51,7 +64,8 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
       this.unsubscribe('toggleMenu_for_' + menuID, null);
 
-      // document.removeEventListener("click");
+      document.removeEventListener("click");
+      document.removeEventListener("touchend");
     },
 
     renderMenuTitle: function () {
@@ -124,6 +138,15 @@ module.exports = React.createClass({
           {self.renderChildren()}
         </nav>
       );
+    },
+
+    hideMenu: function () {
+      var self = this;
+
+      self.setState({
+        isHidden: true,
+        isActive: false,
+      });
     },
 
     showMenu: function (ev) {
