@@ -22147,7 +22147,6 @@ Component.contact = (
   React.createElement(Input, null, 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
       type: "text", 
       name: "message", 
       label: "Subject"
@@ -22155,7 +22154,6 @@ Component.contact = (
     ), 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
       type: "email", 
       name: "email", 
       label: "Email address"
@@ -22163,7 +22161,6 @@ Component.contact = (
     ), 
     React.createElement(InputItem, {
       classes: 'e-input-group', 
-      inputClasses: 'e-input empty', 
       type: "textarea", 
       name: "message", 
       label: "Message"
@@ -22919,7 +22916,7 @@ Component.menus.push({
 Component.menus.push({
   'fab': (
     React.createElement(Menu, {
-      id: "menu-cover", 
+      id: "menu-fab", 
       type: "fab"
     }, 
       React.createElement(MenuItem, null, 
@@ -25091,10 +25088,6 @@ module.exports = React.createClass({
       });
 
       self.subscribe('actions:datepicker', function (data) {
-        console.log("DatePickerHeader");
-        console.log(data);
-        console.log(self.props.date);
-
         if (data.action === "setValue" && self.props.parentId === data.id) {
           self.publish('actions:input', {
             action: 'setValue',
@@ -25679,7 +25672,7 @@ module.exports = React.createClass({
     componentDidMount: function () {
       var self = this,
           parentClass = self.props.classes || [],
-          inputClasses = ClassNames(self.state.inputClasses, self.props.inputClasses),
+          inputClasses = self.state.inputClasses,
           inputValue = self.props.inputValue || self.state.inputValue || '',
           counter = self.state.counter;
 
@@ -25692,10 +25685,9 @@ module.exports = React.createClass({
           if (self.props.name === data.id) {
             inputValue = data.value;
             inputClasses['empty'] = false;
-
             self.setState({
-              inputValue: inputValue,
-              inputClasses: inputClasses
+              inputClasses: inputClasses,
+              inputValue: inputValue
             });
           }
         }
@@ -25726,7 +25718,7 @@ module.exports = React.createClass({
     handleChange: function (eventChange) {
       var self = this,
           counter = self.state.counter,
-          inputClasses = {},
+          inputClasses = self.state.inputClasses || [],
           inputValue = eventChange.target.value;
 
       if (inputValue.length >= counter.maximum) {
@@ -25742,7 +25734,7 @@ module.exports = React.createClass({
       self.setState({
         counter: counter,
         inputValue: inputValue,
-        inputClasses: ClassNames(inputClasses, self.props.inputClasses)
+        inputClasses: inputClasses
       });
     },
 
@@ -25797,7 +25789,7 @@ module.exports = React.createClass({
           type = self.props.type || 'text',
           value = self.props.value || self.state.inputValue || '',
           name = self.props.name || '',
-          inputClasses = classSet(self.state.inputClasses);
+          inputClasses = classSet(ClassNames(self.state.inputClasses, self.props.inputClasses));
 
       if (type === 'textarea') {
         return (
@@ -26682,6 +26674,19 @@ module.exports = React.createClass({
       self.subscribe('toggleMenu_for_' + menuID, function(data) {
         self.showMenu(data);
       });
+
+      document.addEventListener("click", function(event){
+        if (!self.getDOMNode().contains(event.target)){
+          self.hideMenu();
+        }
+      });
+
+      document.addEventListener("touchend", function(event){
+        if (!self.getDOMNode().contains(event.target)){
+          self.hideMenu();
+        }
+      });
+
     },
 
     componentDidUnmount: function () {
@@ -26690,7 +26695,8 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
       this.unsubscribe('toggleMenu_for_' + menuID, null);
 
-      // document.removeEventListener("click");
+      document.removeEventListener("click");
+      document.removeEventListener("touchend");
     },
 
     renderMenuTitle: function () {
@@ -26763,6 +26769,15 @@ module.exports = React.createClass({
           self.renderChildren()
         )
       );
+    },
+
+    hideMenu: function () {
+      var self = this;
+
+      self.setState({
+        isHidden: true,
+        isActive: false,
+      });
     },
 
     showMenu: function (ev) {
