@@ -33,7 +33,7 @@ module.exports = React.createClass({
           inputValue = self.props.inputValue || self.state.inputValue || '',
           counter = self.state.counter;
 
-      if ( parseInt(self.props.counter) > 0 ) {
+      if (self.props.counter && parseInt(self.props.counter) > 0 ) {
         counter.maximum = parseInt(self.props.counter);
       }
 
@@ -78,7 +78,7 @@ module.exports = React.createClass({
           inputClasses = self.state.inputClasses || [],
           inputValue = eventChange.target.value;
 
-      if (inputValue.length >= counter.maximum) {
+      if (inputValue.length >= counter.maximum && self.props.counter) {
         inputValue = inputValue.substr(0, counter.maximum);
       }
 

@@ -113,8 +113,7 @@ module.exports = React.createClass({
         return (
           <RippleInk
             bgColor={this.state.bgColor}
-            clickPosition={this.state.clickPosition}
-          />
+            clickPosition={this.state.clickPosition}/>
         );
       }
 
@@ -171,12 +170,16 @@ module.exports = React.createClass({
     render: function () {
       var self = this,
           classes = classSet(self.renderClass()),
+          btnType = (self.props.submit ? 'submit' : 'button'),
           isDisabled = (self.props.disabled ? 'disabled' : false);
 
       return (
         <button
+          type={btnType}
           ref="buttonRippleInk"
           className={classes}
+          name={self.props.name}
+          action={self.props.action}
           disabled={isDisabled}
           onClick={self.handleClick}
           onTouch={self.handleClick}
