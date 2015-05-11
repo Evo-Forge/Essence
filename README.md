@@ -8,7 +8,7 @@ See [here](http://essence.pearlhq.com/) what you can build with Essence and how 
 ## About Us
 We are a team of front end developers with extensive experience in building highly desirable products for both large companies and startups alike here at [Pearl HQ](http://www.pearlhq.com/).
 
-We're very fond of our UI/UX craft and we've constantly creating tools that allow us to work smarter and faster. Essence is one of those tools and we're happy to release it as open-source.
+We're very fond of our UI/UX craft and we're constantly creating tools that allow us to work smarter and faster. Essence is one of those tools and we're happy to release it as open-source.
 
 ### License
 Essence is [MIT licensed](./LICENSE).
