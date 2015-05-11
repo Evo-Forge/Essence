@@ -18,7 +18,6 @@ module.exports = React.createClass({
     },
 
     setActive: function (data) {
-      console.log(data);
       this.setState({
         isOpen: data.isOpen
       });
@@ -72,7 +71,7 @@ module.exports = React.createClass({
             })
           );
 
-          children.push(<li>{item}</li>);
+          children.push(<li key={key}>{item}</li>);
         });
       }
 

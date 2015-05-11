@@ -31,7 +31,11 @@ module.exports = React.createClass({
 
       return (
         <div className={"e-chip-image e-left"}>
-          <img src={imageSrc} alt={imageAlt} />
+          <img 
+            src={imageSrc} 
+            alt={imageAlt}
+            onClick={self.setClick}
+            onTouch={self.setClick}  />
         </div>
       );
 
@@ -44,8 +48,18 @@ module.exports = React.createClass({
       if (self.props.name) {
         return (
           <div className={"e-chip-text e-left"}>
-            <span className={"e-chip-name"}>{self.props.name}</span>
-            <span className={"e-chip-adress"}>{email}</span>
+            <span 
+              onClick={self.setClick}
+              onTouch={self.setClick} 
+              className={"e-chip-name"}>
+              {self.props.name}
+            </span>
+            <span 
+              onClick={self.setClick}
+              onTouch={self.setClick}
+              className={"e-chip-adress"}>
+              {email}
+            </span>
           </div>
         );
       }
@@ -68,9 +82,10 @@ module.exports = React.createClass({
 
     setClick: function (ev) {
       var self = this,
+          targetID = ev.target.id || self.props.id,
           classes = self.state.classes;
 
-      self.publish('chip:ActiveItem', {id: ev.target.id});
+      self.publish('chip:ActiveItem', {id: targetID});
 
       classes['press'] = (ev.type === 'mousedown') ? true : false;
 
