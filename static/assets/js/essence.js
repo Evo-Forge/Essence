@@ -772,7 +772,6 @@ module.exports = CSSCore;
  */
 var isUnitlessNumber = {
   columnCount: true,
-  fillOpacity: true,
   flex: true,
   flexGrow: true,
   flexShrink: true,
@@ -784,7 +783,11 @@ var isUnitlessNumber = {
   orphans: true,
   widows: true,
   zIndex: true,
-  zoom: true
+  zoom: true,
+
+  // SVG-related properties
+  fillOpacity: true,
+  strokeOpacity: true
 };
 
 /**
@@ -4024,7 +4027,11 @@ var HTMLDOMPropertyConfig = {
     draggable: null,
     encType: null,
     form: MUST_USE_ATTRIBUTE,
+    formAction: MUST_USE_ATTRIBUTE,
+    formEncType: MUST_USE_ATTRIBUTE,
+    formMethod: MUST_USE_ATTRIBUTE,
     formNoValidate: HAS_BOOLEAN_VALUE,
+    formTarget: MUST_USE_ATTRIBUTE,
     frameBorder: MUST_USE_ATTRIBUTE,
     height: MUST_USE_ATTRIBUTE,
     hidden: MUST_USE_ATTRIBUTE | HAS_BOOLEAN_VALUE,
@@ -4039,6 +4046,8 @@ var HTMLDOMPropertyConfig = {
     list: MUST_USE_ATTRIBUTE,
     loop: MUST_USE_PROPERTY | HAS_BOOLEAN_VALUE,
     manifest: MUST_USE_ATTRIBUTE,
+    marginHeight: null,
+    marginWidth: null,
     max: null,
     maxLength: MUST_USE_ATTRIBUTE,
     media: MUST_USE_ATTRIBUTE,
@@ -4770,7 +4779,7 @@ if ("production" !== process.env.NODE_ENV) {
 
 // Version exists only in the open-source version of React, not in Facebook's
 // internal version.
-React.version = '0.12.1';
+React.version = '0.12.2';
 
 module.exports = React;
 
@@ -10305,7 +10314,7 @@ ReactElement.createElement = function(type, config, children) {
   }
 
   // Resolve default props
-  if (type.defaultProps) {
+  if (type && type.defaultProps) {
     var defaultProps = type.defaultProps;
     for (propName in defaultProps) {
       if (typeof props[propName] === 'undefined') {
@@ -10374,6 +10383,7 @@ module.exports = ReactElement;
 
 }).call(this,require('_process'))
 },{"./ReactContext":43,"./ReactCurrentOwner":44,"./warning":163,"_process":2}],61:[function(require,module,exports){
+(function (process){
 /**
  * Copyright 2014, Facebook, Inc.
  * All rights reserved.
@@ -10399,6 +10409,7 @@ var ReactPropTypeLocations = require("./ReactPropTypeLocations");
 var ReactCurrentOwner = require("./ReactCurrentOwner");
 
 var monitorCodeUse = require("./monitorCodeUse");
+var warning = require("./warning");
 
 /**
  * Warn if there's no key explicitly set on dynamic arrays of children or
@@ -10596,6 +10607,15 @@ function checkPropTypes(componentName, propTypes, props, location) {
 var ReactElementValidator = {
 
   createElement: function(type, props, children) {
+    // We warn in this case but don't throw. We expect the element creation to
+    // succeed and there will likely be errors in render.
+    ("production" !== process.env.NODE_ENV ? warning(
+      type != null,
+      'React.createElement: type should not be null or undefined. It should ' +
+        'be a string (for DOM elements) or a ReactClass (for composite ' +
+        'components).'
+    ) : null);
+
     var element = ReactElement.createElement.apply(this, arguments);
 
     // The result can be nullish if a mock or a custom function is used.
@@ -10608,22 +10628,24 @@ var ReactElementValidator = {
       validateChildKeys(arguments[i], type);
     }
 
-    var name = type.displayName;
-    if (type.propTypes) {
-      checkPropTypes(
-        name,
-        type.propTypes,
-        element.props,
-        ReactPropTypeLocations.prop
-      );
-    }
-    if (type.contextTypes) {
-      checkPropTypes(
-        name,
-        type.contextTypes,
-        element._context,
-        ReactPropTypeLocations.context
-      );
+    if (type) {
+      var name = type.displayName;
+      if (type.propTypes) {
+        checkPropTypes(
+          name,
+          type.propTypes,
+          element.props,
+          ReactPropTypeLocations.prop
+        );
+      }
+      if (type.contextTypes) {
+        checkPropTypes(
+          name,
+          type.contextTypes,
+          element._context,
+          ReactPropTypeLocations.context
+        );
+      }
     }
     return element;
   },
@@ -10641,7 +10663,8 @@ var ReactElementValidator = {
 
 module.exports = ReactElementValidator;
 
-},{"./ReactCurrentOwner":44,"./ReactElement":60,"./ReactPropTypeLocations":80,"./monitorCodeUse":153}],62:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./ReactCurrentOwner":44,"./ReactElement":60,"./ReactPropTypeLocations":80,"./monitorCodeUse":153,"./warning":163,"_process":2}],62:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014, Facebook, Inc.
@@ -13089,7 +13112,7 @@ function createInstanceForTag(tag, props, parentType) {
 
 var ReactNativeComponent = {
   createInstanceForTag: createInstanceForTag,
-  injection: ReactNativeComponentInjection,
+  injection: ReactNativeComponentInjection
 };
 
 module.exports = ReactNativeComponent;
@@ -14704,7 +14727,7 @@ var ReactTestUtils = {
   mockComponent: function(module, mockTagName) {
     mockTagName = mockTagName || module.mockTagName || "div";
 
-    var ConvenienceConstructor = React.createClass({displayName: 'ConvenienceConstructor',
+    var ConvenienceConstructor = React.createClass({displayName: "ConvenienceConstructor",
       render: function() {
         return React.createElement(
           mockTagName,
@@ -20792,8 +20815,7 @@ module.exports = React.createClass({
         return (
           React.createElement(RippleInk, {
             bgColor: this.state.bgColor, 
-            clickPosition: this.state.clickPosition}
-          )
+            clickPosition: this.state.clickPosition})
         );
       }
 
@@ -20850,17 +20872,21 @@ module.exports = React.createClass({
     render: function () {
       var self = this,
           classes = classSet(self.renderClass()),
+          btnType = (self.props.submit ? 'submit' : 'button'),
           isDisabled = (self.props.disabled ? 'disabled' : false);
 
       return (
         React.createElement("button", {
+          type: btnType, 
           ref: "buttonRippleInk", 
           className: classes, 
+          name: self.props.name, 
+          action: self.props.action, 
           disabled: isDisabled, 
-          onClick: self.handleClick, 
-          onTouch: self.handleClick, 
-          'data-tooltip': self.renderTooltipText(), 
-          'data-position': self.renderTooltipPosition()
+          onClick: this.props.onClick || self.handleClick, 
+          onTouch: this.props.onClick || self.handleClick, 
+          "data-tooltip": self.renderTooltipText(), 
+          "data-position": self.renderTooltipPosition()
           }, 
           self.rippleInk(), 
           self.renderIcon()
@@ -21212,7 +21238,6 @@ module.exports = React.createClass({
     },
 
     setActive: function (data) {
-      console.log(data);
       this.setState({
         isOpen: data.isOpen
       });
@@ -21266,7 +21291,7 @@ module.exports = React.createClass({
             })
           );
 
-          children.push(React.createElement("li", null, item));
+          children.push(React.createElement("li", {key: key}, item));
         });
       }
 
@@ -21325,7 +21350,11 @@ module.exports = React.createClass({
 
       return (
         React.createElement("div", {className: "e-chip-image e-left"}, 
-          React.createElement("img", {src: imageSrc, alt: imageAlt})
+          React.createElement("img", {
+            src: imageSrc, 
+            alt: imageAlt, 
+            onClick: self.setClick, 
+            onTouch: self.setClick})
         )
       );
 
@@ -21338,8 +21367,18 @@ module.exports = React.createClass({
       if (self.props.name) {
         return (
           React.createElement("div", {className: "e-chip-text e-left"}, 
-            React.createElement("span", {className: "e-chip-name"}, self.props.name), 
-            React.createElement("span", {className: "e-chip-adress"}, email)
+            React.createElement("span", {
+              onClick: self.setClick, 
+              onTouch: self.setClick, 
+              className: "e-chip-name"}, 
+              self.props.name
+            ), 
+            React.createElement("span", {
+              onClick: self.setClick, 
+              onTouch: self.setClick, 
+              className: "e-chip-adress"}, 
+              email
+            )
           )
         );
       }
@@ -21362,9 +21401,10 @@ module.exports = React.createClass({
 
     setClick: function (ev) {
       var self = this,
+          targetID = ev.target.id || self.props.id,
           classes = self.state.classes;
 
-      self.publish('chip:ActiveItem', {id: ev.target.id});
+      self.publish('chip:ActiveItem', {id: targetID});
 
       classes['press'] = (ev.type === 'mousedown') ? true : false;
 
@@ -25676,7 +25716,7 @@ module.exports = React.createClass({
           inputValue = self.props.inputValue || self.state.inputValue || '',
           counter = self.state.counter;
 
-      if ( parseInt(self.props.counter) > 0 ) {
+      if (self.props.counter && parseInt(self.props.counter) > 0 ) {
         counter.maximum = parseInt(self.props.counter);
       }
 
@@ -25721,7 +25761,7 @@ module.exports = React.createClass({
           inputClasses = self.state.inputClasses || [],
           inputValue = eventChange.target.value;
 
-      if (inputValue.length >= counter.maximum) {
+      if (inputValue.length >= counter.maximum && self.props.counter) {
         inputValue = inputValue.substr(0, counter.maximum);
       }
 
@@ -28285,7 +28325,7 @@ module.exports = React.createClass({
         return (
           React.createElement("li", {
             className: classes, 
-            'data-disabled': self.props.disabled
+            "data-disabled": self.props.disabled
           }, 
             React.createElement("a", {
               href: "#", 

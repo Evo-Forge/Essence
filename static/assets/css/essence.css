@@ -3392,6 +3392,7 @@ select.e-input.focus {
 .e-fab-menu {
   position: relative;
   display: table;
+  z-index: 1;
 }
 .e-fab-menu.fixed {
   position: fixed;
@@ -3424,6 +3425,7 @@ select.e-input.focus {
   cursor: pointer;
   user-select: none;
   margin: 0;
+  line-height: 48px;
 }
 .lines-button:hover {
   opacity: 1;
