@@ -181,8 +181,8 @@ module.exports = React.createClass({
           name={self.props.name}
           action={self.props.action}
           disabled={isDisabled}
-          onClick={self.handleClick}
-          onTouch={self.handleClick}
+          onClick={this.props.onClick || self.handleClick}
+          onTouch={this.props.onClick || self.handleClick}
           data-tooltip={self.renderTooltipText()}
           data-position={self.renderTooltipPosition()}
           >
