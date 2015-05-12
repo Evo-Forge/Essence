@@ -20784,10 +20784,6 @@ module.exports = React.createClass({
         }
       }
 
-      if (self.props.onClick) {
-        return self.props.onClick;
-      }
-
       if (snackbar) {
         self.publish('snackbar:'+snackbar, true);
       }
@@ -20884,7 +20880,7 @@ module.exports = React.createClass({
           action: self.props.action, 
           disabled: isDisabled, 
           onClick: this.props.onClick || self.handleClick, 
-          onTouch: this.props.onClick || self.handleClick, 
+          onTouch: this.props.onTouch || self.handleClick, 
           "data-tooltip": self.renderTooltipText(), 
           "data-position": self.renderTooltipPosition()
           }, 
@@ -31939,9 +31935,7 @@ module.exports = function (element) {
     yPosition += (
       (element.offsetTop - element.scrollTop) + element.clientTop)
     ;
-    //console.log("Element Position: " + element);
     element = element.offsetParent;
-    //console.log("Element offsetParent Position: " + element);
   }
 
   return { x: xPosition, y: yPosition };

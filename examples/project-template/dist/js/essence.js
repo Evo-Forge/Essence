@@ -20343,6 +20343,7 @@ module.exports = require('./lib/React');
 module.exports = {
   // React framework
   React: require('react/addons'),
+
   // Essence components
   AppBar: require('./components/AppBar'),
   BottomSheets: require('./components/BottomSheets'),
@@ -20394,9 +20395,18 @@ module.exports = {
   Toast: require('./components/Toast'),
   ToastItem: require('./components/ToastItem'),
   ToolBar:  require('./components/ToolBar'),
-};
 
-},{"./components/AppBar":166,"./components/Block":167,"./components/BottomSheets":168,"./components/BottomSheetsItem":169,"./components/Btn":170,"./components/BtnItem":171,"./components/Card":172,"./components/CardItem":173,"./components/CardItemContent":174,"./components/CardItemFooter":175,"./components/CardItemHeader":176,"./components/Chip":177,"./components/ChipItem":178,"./components/DatePicker":180,"./components/DatePickerContent":181,"./components/DatePickerFooter":182,"./components/DatePickerHeader":183,"./components/DatePickerHeaderDate":184,"./components/DatePickerHeaderDay":185,"./components/DatePickerItem":186,"./components/Dialog":187,"./components/DialogItem":188,"./components/DialogItemContent":189,"./components/DialogItemFooter":190,"./components/DialogItemHeader":191,"./components/Divider":192,"./components/Icon":194,"./components/Image":195,"./components/Input":196,"./components/InputItem":197,"./components/List":198,"./components/ListItem":199,"./components/Menu":201,"./components/MenuItem":202,"./components/Navigation":203,"./components/Paper":204,"./components/PaperItem":205,"./components/Progress":206,"./components/Slider":208,"./components/SliderItem":209,"./components/Snackbar":210,"./components/SnackbarItem":211,"./components/Switch":212,"./components/SwitchItem":213,"./components/TabItem":214,"./components/TabMenu":215,"./components/Text":216,"./components/Toast":217,"./components/ToastItem":218,"./components/ToolBar":219,"react/addons":3}],166:[function(require,module,exports){
+  // Essence utils
+  BackgroundColor:  require('./utils/BackgroundColor'),
+  ClassNames:  require('./utils/ClassNames'),
+  ClickPosition:  require('./utils/ClickPosition'),
+  DateFormat:  require('./utils/DateFormat'),
+  Mobile:  require('./utils/Mobile'),
+  Position:  require('./utils/Position'),
+  PositionHorizontal:  require('./utils/PositionHorizontal'),
+  PubSub:  require('./utils/PubSub'),
+};
+},{"./components/AppBar":166,"./components/Block":167,"./components/BottomSheets":168,"./components/BottomSheetsItem":169,"./components/Btn":170,"./components/BtnItem":171,"./components/Card":172,"./components/CardItem":173,"./components/CardItemContent":174,"./components/CardItemFooter":175,"./components/CardItemHeader":176,"./components/Chip":177,"./components/ChipItem":178,"./components/DatePicker":180,"./components/DatePickerContent":181,"./components/DatePickerFooter":182,"./components/DatePickerHeader":183,"./components/DatePickerHeaderDate":184,"./components/DatePickerHeaderDay":185,"./components/DatePickerItem":186,"./components/Dialog":187,"./components/DialogItem":188,"./components/DialogItemContent":189,"./components/DialogItemFooter":190,"./components/DialogItemHeader":191,"./components/Divider":192,"./components/Icon":194,"./components/Image":195,"./components/Input":196,"./components/InputItem":197,"./components/List":198,"./components/ListItem":199,"./components/Menu":201,"./components/MenuItem":202,"./components/Navigation":203,"./components/Paper":204,"./components/PaperItem":205,"./components/Progress":206,"./components/Slider":208,"./components/SliderItem":209,"./components/Snackbar":210,"./components/SnackbarItem":211,"./components/Switch":212,"./components/SwitchItem":213,"./components/TabItem":214,"./components/TabMenu":215,"./components/Text":216,"./components/Toast":217,"./components/ToastItem":218,"./components/ToolBar":219,"./utils/BackgroundColor":221,"./utils/ClassNames":222,"./utils/ClickPosition":223,"./utils/DateFormat":225,"./utils/Mobile":226,"./utils/Position":227,"./utils/PositionHorizontal":228,"./utils/PubSub":229,"react/addons":3}],166:[function(require,module,exports){
 'use strict';
 
 var React = require('react/addons'),
@@ -29510,9 +29520,7 @@ module.exports = function (element) {
     yPosition += (
       (element.offsetTop - element.scrollTop) + element.clientTop)
     ;
-    //console.log("Element Position: " + element);
     element = element.offsetParent;
-    //console.log("Element offsetParent Position: " + element);
   }
 
   return { x: xPosition, y: yPosition };

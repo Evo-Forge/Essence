@@ -55,7 +55,15 @@ var body = document.body, // default React render path is html body
     Text = Essence.Text,
     Toast = Essence.Toast,
     ToastItem = Essence.ToastItem,
-    ToolBar = Essence.ToolBar;
+    ToolBar = Essence.ToolBar,
+    BackgroundColor = Essence.BackgroundColor,
+    ClassNames = Essence.ClassNames,
+    ClickPosition = Essence.ClickPosition,
+    DateFormat = Essence.DateFormat,
+    Mobile = Essence.Mobile,
+    Position = Essence.Position,
+    PositionHorizontal = Essence.PositionHorizontal,
+    PubSub = Essence.PubSub;
 
 React.render(
     <Block type='div' classes='e-background-grey-500 e-text-center'>

@@ -11,9 +11,7 @@ module.exports = function (element) {
     yPosition += (
       (element.offsetTop - element.scrollTop) + element.clientTop)
     ;
-    //console.log("Element Position: " + element);
     element = element.offsetParent;
-    //console.log("Element offsetParent Position: " + element);
   }
 
   return { x: xPosition, y: yPosition };

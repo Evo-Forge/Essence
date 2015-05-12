@@ -4,6 +4,7 @@
 module.exports = {
   // React framework
   React: require('react/addons'),
+
   // Essence components
   AppBar: require('./components/AppBar'),
   BottomSheets: require('./components/BottomSheets'),
@@ -55,4 +56,14 @@ module.exports = {
   Toast: require('./components/Toast'),
   ToastItem: require('./components/ToastItem'),
   ToolBar:  require('./components/ToolBar'),
+
+  // Essence utils
+  BackgroundColor:  require('./utils/BackgroundColor'),
+  ClassNames:  require('./utils/ClassNames'),
+  ClickPosition:  require('./utils/ClickPosition'),
+  DateFormat:  require('./utils/DateFormat'),
+  Mobile:  require('./utils/Mobile'),
+  Position:  require('./utils/Position'),
+  PositionHorizontal:  require('./utils/PositionHorizontal'),
+  PubSub:  require('./utils/PubSub'),
 };
