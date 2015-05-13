@@ -5111,6 +5111,7 @@ hr.light {
   border-radius: 16px;
   display: table;
   padding-right: 12px;
+  cursor: pointer;
 }
 .e-chip .e-chip-image {
   width: 32px;
