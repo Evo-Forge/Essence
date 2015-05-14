@@ -49,6 +49,15 @@ var React = require('react/addons'),
     ToastItem = require('./ToastItem'),
     ToolBar =  require('./ToolBar');
 
+// Google Analytics func
+function contestEvents() {
+  ga("send","event", "Contest", "New click", {
+    "hitCallback": function() {
+      document.location.href = './contest';
+    }
+  });
+}
+
 var Component = {};
 
 // Essence - Components
@@ -56,23 +65,37 @@ Component.home = [];
 Component.home.push({
   'download': (
     <Block type='div'>
-      <Text
-        type='a'
-        eventAction='showNavigationComponent'
-        classes='e-btn raised e-background-indigo-800'
-        href='#getting-started'
-        id='components-getting-started'
-      >
-         Get Started with Essence
-      </Text>
-      <Text
-        type='a'
-        classes='e-btn raised e-background-white e-text-indigo-800'
-        target='_blank'
-        href='https://github.com/PearlVentures/Essence'
-      >
-        Download from GitHub
-      </Text>
+      <Block type='div'>
+        <Text
+          type='a'
+          eventAction='showNavigationComponent'
+          classes='e-btn raised e-background-indigo-800'
+          href='#getting-started-web'
+          id='components-getting-started-web'
+        >
+           Get Started with Essence
+        </Text>
+        <Text
+          type='a'
+          classes='e-btn raised e-background-white e-text-indigo-800'
+          target='_blank'
+          href='https://github.com/PearlVentures/Essence'
+        >
+          Download from GitHub
+        </Text>
+      </Block>
+      <Block type='hr' />
+      <Block type='div'>
+
+        <Text
+          type='a'
+          classes='e-btn raised e-background-amber-500'
+          href='javascript:;'
+          onClick={contestEvents}
+        >
+          enter the essence contest
+        </Text>
+      </Block>
     </Block>
   )
 });
@@ -118,9 +141,18 @@ Component.navigation_menu = (
           <Text
             type='a'
             href='#'
-            id='components-getting-started'
+            id='components-getting-started-web'
           >
-            Getting Started
+            Getting Started Web
+          </Text>
+        </Block>
+        <Block type='li'>
+          <Text
+            type='a'
+            href='#'
+            id='components-getting-started-native'
+          >
+            Getting Started Native
           </Text>
         </Block>
         <Block type='li'>

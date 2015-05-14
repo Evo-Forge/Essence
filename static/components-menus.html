@@ -70,7 +70,8 @@
     </div>
 
     <div class="e-row">
-      <div class="brick brick-6">
+
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -116,7 +117,7 @@
 
   &lt;MenuItem&gt;
     &lt;Icon name='notification-tap-and-play' /&gt;
-    &lt;Text&gt;Tap & Pay&lt;/Text&gt;
+    &lt;Text&gt;Tap &amp; Pay&lt;/Text&gt;
   &lt;/MenuItem&gt;
 
   &lt;Block type='li' classes={'divider'} /&gt;
@@ -135,6 +136,27 @@
           </code>
         </pre>
       </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Menu 
+  placeholder='Select option'
+  textStyle={Colors['e-text-indigo-800']}
+&gt;
+  {[
+      'Menu options 1',
+      'Menu options 2',
+      'Menu options 3',
+      'Menu options 4',
+  ]}
+&lt;/Menu&gt;
+
+          </code>
+        </pre>
+      </div>
+      
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
@@ -177,7 +199,8 @@
     </div>
 
     <div class="e-row">
-      <div class="brick brick-6">
+
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -207,6 +230,7 @@
           </code>
         </pre>
       </div>
+
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
@@ -243,12 +267,23 @@
           </code>
         </pre>
       </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+You can find all the options for menus below, 
+in the "How to use" section.
+          </code>
+        </pre>
+      </div>
+      
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
     </div>
 <!--
-    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+    <div class="e-row e-margin-bottom-15 e-padding-top-50 hide">
       <div class="brick brick-12">
         <h3>Cascading Menu</h3>
         <div id="components-menus-cascade">
@@ -638,8 +673,8 @@ var menus_cascade = [
       </h3>
       <div class="e-divider thick short e-background-indigo-400"></div>
       <p class="e-body5 e-padding-top-15">
-        Use the "Menu" tag to render a group of "MenuItem" components. The "Menu" React tag will return a nav container with class name "e-nav-menu". Inside the Menu component you can include only the <strong>MenuItem</strong> component. <br />
-        A "MenuItem" React component will render any component or html code.<br />
+        Use the "Menu" tag to render a group of "MenuItem" components. The "Menu" Essence component will return a nav container with class name "e-nav-menu". Inside the Menu component you can include only the <strong>MenuItem</strong> component. <br />
+        A "MenuItem" Essence component will render any component or html code.<br />
         <br />
         &bull; Structure <br />
         <pre class="small">
@@ -663,6 +698,43 @@ var menus_cascade = [
         - use the examples from above to structure your own Menu
       </p>
     </div>
+    
+    <div class="brick brick-12">
+      <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+        How to use - Essence Native
+      </h3>
+      <div class="e-divider thick short e-background-indigo-400"></div>
+      <p class="e-body5 e-padding-top-15">
+        Use the "Menu" Essence component to render a group of "MenuItem" components. The "Menu" Essence component will return a nav container with class name "e-nav-menu". Inside the Menu component you can include only the <strong>MenuItem</strong> component. <br />
+        A "MenuItem" Essence component will render any component or html code.<br />
+        <br />
+        &bull; Structure <br />
+        <pre class="small">
+<span class="e-text-indigo-500">&lt;Menu
+  placeholder='Select option'
+  textStyle={<span class="e-text-blue-500">__ColorsStyles__</span>}
+&gt;</span>
+  {[<span class="e-text-grey-400">
+    'Menu option 1',
+    'Menu option 2',
+    'Menu option 3',
+    'Menu option 4',</span>
+  ]}
+<span class="e-text-indigo-500">&lt;/Menu&gt;</span>
+        </pre>
+
+        &bull; Styling <br />
+        - <u>textStyle</u>: add styling class names to text Menu children from Styles > Colors menu<br />
+        <br />
+        <br />
+        &bull; Options<br />
+        - <u>placeholder</u>: is the text to be shown at the render starting point, on Menu option selection will be replaced with the option value or text<br />
+        <br />
+        &bull; Content<br />
+        - array format: children type as text string
+      </p>
+    </div>
+    
   </div>
 
   </div>

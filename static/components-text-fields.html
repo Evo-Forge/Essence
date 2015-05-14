@@ -34,7 +34,7 @@
     </div>
 
     <div class="e-row">
-      <div class="brick brick-6">
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -129,6 +129,25 @@
           </code>
         </pre>
       </div>
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;InputItem
+  style={[Colors['e-text-white-500']]}
+  placeholder='Did you know a bear has 42 teeth'
+  placeholderTextColor='green'
+/&gt;
+
+&lt;InputItem
+  style={[Colors['e-text-grey-500']]}
+  placeholder='Did you know the Hawaiian alphabet has 12 letters'
+  placeholderTextColor='red'
+  editable={false}
+/&gt;
+          </code>
+        </pre>
+      </div>
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
@@ -151,7 +170,7 @@
     </div>
 
     <div class="e-row">
-      <div class="brick brick-6">
+<!--       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -166,7 +185,7 @@
 &lt;/div&gt;
           </code>
         </pre>
-      </div>
+      </div> -->
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
@@ -194,6 +213,28 @@
           </code>
         </pre>
       </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;InputItem
+  style={[Colors['e-text-white-500']]}
+  placeholder='Did you know Topolino is the name for Mickey Mouse Italy'
+  placeholderTextColor='green'
+  multiline={true}
+/&gt;
+
+&lt;InputItem
+  style={[Colors['e-text-green-500']]}
+  placeholder='Did you know there is no sound in space'
+  placeholderTextColor='blue'
+  multiline={true}
+/&gt;
+          </code>
+        </pre>
+      </div>
+
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
@@ -216,7 +257,7 @@
     </div>
 
     <div class="e-row">
-      <div class="brick brick-6">
+<!--       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -232,7 +273,7 @@
 &lt;/div&gt;
           </code>
         </pre>
-      </div>
+      </div> -->
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
@@ -261,6 +302,32 @@
           </code>
         </pre>
       </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;InputItem
+  style={[Colors['e-text-orange-600']]}
+  placeholder='Did you know melophobia is the fear of music'
+  keyboardType='email-address'
+/&gt;
+
+&lt;InputItem
+  style={[Colors['e-text-orange-600']]}
+  placeholder='Did you know womens hearts beat faster than mens'
+  keyboardType='numeric'
+/&gt;
+
+&lt;InputItem
+  style={[Colors['e-text-orange-600']]}
+  placeholder='What is the URL address of Google?'
+  keyboardType='url'
+/&gt;
+          </code>
+        </pre>
+      </div>
+
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
@@ -425,7 +492,7 @@
         </h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
         <p class="e-body5 e-padding-top-15">
-          Use the "Input" tag to render a "InputItem" component. The "Input" React tag will return a div container with class name "snackbar". Inside the Input component you can include only the <strong>InputItem</strong> component. <br />
+          Use the "Input" Essence component to render a "InputItem" component. The "Input" Essence component will return a div container with class name "snackbar". Inside the Input component you can include only the <strong>InputItem</strong> component. <br />
           <br />
 
           &bull; Structure <br />
@@ -452,6 +519,7 @@
           - <u>type</u>: default is text, other type: textarea, email, search, number<br />
           - <u>name</u>: required to set the Input name attribute<br />
           - <u>label</u>: optional to set the Input placeholder attribute<br />
+          - <u>placeholder</u>: optional to set the Input placeholder attribute<br />
           - <u>disabled</u>: if set to <strong>true</strong> it uses the "disabled" input attribute<br />
           - <u>counter</u>: if set to an integer value will set the maximum limit of characters<br />
           - <u>hint</u>: a text explaining what this input is about<br />
@@ -460,6 +528,44 @@
           - &nbsp;&nbsp;action: '<strong>setValue</strong>' to set the value from a remote component<br />
           - &nbsp;&nbsp;id: any string that represent the '<strong>id</strong>' option for a component<br />
           - use the examples from above to structure your own Text field
+        </p>
+      </div>
+
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "InputItem" Essence component to render iOS React Native TextInput component.<br />
+          <br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-600">&lt;InputItem
+  <span class="e-text-indigo-600">style={<span class="e-text-green-500">__ColorsStyles__</span>}</span>
+  <span class="e-text-indigo-600">value='<span class="e-text-blue-500">text input value</span>'</span>
+  <span class="e-text-indigo-600">editable={<span class="e-text-red-500">false</span>}</span>
+  <span class="e-text-indigo-600">placeholder='<span class="e-text-blue-500">placeholder text input</span>'</span>
+  <span class="e-text-indigo-600">multiline={<span class="e-text-orange-500">true</span>}</span>
+  <span class="e-text-indigo-600">password={<span class="e-text-orange-500">true</span>}</span>
+/&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to InputItem component from Styles > Colors menu - will style the text input<br />
+          - <u>placeholderTextColor</u>: add styling class names the placeholder string from Styles > Colors menu<br />
+          <br />
+          <br />
+          &bull; Options<br />
+          - <u>value</u>: default value for the text input<br />
+          - <u>editable</u>: if set to <strong>false</strong> text is not editable<br />
+          - <u>placeholder</u>: string that will be rendered before text input has been entered<br />
+          - <u>multiline</u>: if set to <strong>true</strong> text input will render multiple lines as a textarea html<br />
+          - <u>clearButtonMode</u>: when the clear button should appear on the right side of the text view using one value from the list: 'never', 'while-editing', 'unless-editing', 'always'<br />
+          - <u>password</u>: if set to <strong>true</strong> text input obscures the text entered so that sensitive text like passwords stay secure<br />
+          - <u>keyboardType</u>: determines which keyboard to open from the list: 'default', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'phone-pad', 'name-phone-pad', 'email-address', 'decimal-pad', 'twitter', 'web-search', 'numeric'<br />
+          - for other options please see the TextInput React Native component
         </p>
       </div>
     </div>

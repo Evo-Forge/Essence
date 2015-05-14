@@ -39,8 +39,12 @@
         <pre class="e-paper e-shadow-2">
         <code class="language-markup">
 &lt;div class="card" &gt;
-  &lt;div class="card-main-image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Card Image" &gt;
-    &lt;h2 class="e-headline"&gt;Going to Ibiza&lt;/h2&gt;&lt;span&gt;&lt;/span&gt;
+  &lt;div class="card-main-image"&gt;
+    &lt;img src="assets/img/card-img.jpg" alt="Card Image" &gt;
+    &lt;h1 class="e-headline"&gt;
+      &lt;span>Going to Ibiza&lt;/span&gt;
+      &lt;span class="blur-effect" style="background-image:url(assets/img/card-img.jpg);"&gt;&lt;/span&gt;
+    &lt;/h1&gt;
   &lt;/div&gt;
   &lt;div class="card-supporting-text"&gt;
     &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
@@ -62,12 +66,15 @@
         <code class="language-jsx">
 &lt;Card&gt;
   &lt;CardItem&gt;
-    &lt;Block type=&quot;div&quot; classes={&quot;card-main-image&quot;}&gt;
-      &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
-      &lt;Text type=&quot;h1&quot; classes={&quot;e-headline&quot;}&gt;
-        Going to Ibiza
-      &lt;/Text&gt;
-    &lt;/Block&gt;
+    &lt;CardItemHeader blur={true}&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-main-image&quot;}&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+        &lt;Text type=&quot;h1&quot; classes={&quot;e-headline&quot;}&gt;
+          Going to Ibiza
+          &lt;Block classes={&quot;blur-effect&quot;} image=&quot;assets/img/card-img.jpg&quot; /&gt;
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemHeader&gt;
 
     &lt;CardItemContent classes={&quot;card-supporting-text e-text-blue-grey-400&quot;}&gt;
       &lt;Text type=&quot;h4&quot;&gt;
@@ -603,7 +610,7 @@
         </h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
         <p class="e-body5 e-padding-top-15">
-          Use the "Card" tag to render a group or single "CardItem" components. The "Card" React tag will return a div container with a group or single &lt;div&gt; html tag with the class name "e-card". Inside the CardItem component you can include any component.<br />
+          Use the "Card" Essence component to render a group or single "CardItem" components. The "Card" Essence component tag will return a div container with a group or single &lt;div&gt; html tag with the class name "e-card". Inside the CardItem component you can include any component.<br />
 
           <br />
           &bull; Structure <br />
@@ -628,6 +635,9 @@
 
           <br />
           &bull; Options<br />
+          - blur: if set to <strong>true</strong> it will render CardItemHeader without class name "card-header"<br />
+          - the blur effect must be structured like the first example using a Block component with image option set to image path, e.g.: <br />
+          <strong>&lt;Block classes={"blur-effect"} image="assets/img/card-img.jpg" /&gt;</strong><br />
           - use the examples from above to structure your own Card
         </p>
       </div>

@@ -547,10 +547,15 @@
           </li>
         </ul>
       </div>
+      <div class="brick">
+      </div>
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/list-controls.png" alt="List Controls Essence Native component" width="500">
+      </div>
     </div>
 
     <div class="e-row">
-      <div class="brick brick-6">
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -640,6 +645,34 @@
       &lt;/Text&gt;
     &lt;/Block&gt;
   &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+            <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List style={Helpers['e-shadow-2']}&gt;
+  &lt;View style={Helpers['e-list-item']}&gt;
+    &lt;View style={Helpers['e-list-content']}&gt;
+      &lt;Text style={[Helpers['e-list-text'], Typography['strong']]}&gt;Wi-Fi Network&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;SwitchItem containerStyle={Helpers['e-right']} /&gt;
+  &lt;/View&gt;
+
+  &lt;View style={Helpers['e-list-item']}&gt;
+    &lt;View style={Helpers['e-list-content']}&gt;
+      &lt;Text style={[Helpers['e-list-text'], Typography['strong']]}&gt;Bluetooth settings&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;SwitchItem checked={true} containerStyle={Helpers['e-right']} /&gt;
+  &lt;/View&gt;
+
+  &lt;View style={Helpers['e-list-item']}&gt;
+    &lt;View style={Helpers['e-list-content']}&gt;
+      &lt;Text style={[Helpers['e-list-text'], Typography['strong']]}&gt;Data usage&lt;/Text&gt;
+    &lt;/View&gt;
+  &lt;/View&gt;
 &lt;/List&gt;
           </code>
         </pre>
@@ -898,7 +931,7 @@
         </h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
         <p class="e-body5 e-padding-top-15">
-          Use the "List" tag to render a group or single "ListItem" component. The "List" React tag will return a div container with a single or multiple &lt;ListItem&gt; React tags with the class name "e-list".<br />
+          Use the "List" tag to render a group or single "ListItem" component. The "List" Essence component will return a div container with a single or multiple &lt;ListItem&gt; Essence components with the class name "e-list".<br />
 
           <br />
           &bull; Structure <br />
@@ -921,6 +954,36 @@
            2. <strong>switch</strong>: append "has-switches" to class names list with the use of SwitchItem component with type = switch<br />
           - <u>position</u>: together with type: checkbox will position the checkbox on right side of the ListItem
           - use the examples from above to structure your own List
+        </p>
+      </div>
+
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "List" Essence component to render a View component with custom content including "TouchableHighlight", "View" or "Text" native iOS components.<br />
+          Each child from inside of List component will be rendered as a View native component.
+          <br />
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-500">&lt;List style={[<span class="e-text-green-500">__HelpersStyles__</span>]}&gt;</span>
+  <span class="e-text-blue-500">&lt;View /&gt;</span>,
+  <span class="e-text-blue-500">&lt;Text /&gt;</span> and
+  <span class="e-text-blue-500">&lt;SwitchItem /&gt;</span>
+<span class="e-text-indigo-500">&lt;/List&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to List, View or SwitchItem component from Styles > Colors menu<br />
+          <br />
+          &bull; Options<br />
+          - <u>no options</u><br />
+          <br />
+          &bull; Content<br />
+          - can be use together with "View", "Text" native iOS components and "SwitchItem" Essence Native component
         </p>
       </div>
     </div>

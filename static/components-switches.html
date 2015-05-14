@@ -6,8 +6,9 @@
       <div class="brick brick-12">
         <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Switches</h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
-
-        <div id="components-switches-reactjs" class="e-padding-top-25">
+      </div>
+      <div class="brick brick-6 e-padding-top-25 e-text-center">
+        <div id="components-switches-reactjs">
           <div class="e-switch">
             <div class="e-radio e-radio-success">
               <label>
@@ -37,15 +38,15 @@
             </div>
           </div>
         </div>
-
+        <p class="e-body1 e-text-blue-grey-400 e-text-left e-padding-top-50">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor. </p>
       </div>
-      <div class="brick brick-12">
-        <p class="e-body1 e-text-blue-grey-400">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor. </p>
+      <div class="brick brick-6 e-text-center">
+        <img src="assets/img/components/switch.png" alt="Switch Essence Native component" width="360">
       </div>
     </div>
 
     <div class="e-row e-padding-bottom-75">
-      <div class="brick brick-6">
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -80,6 +81,7 @@
           </code>
         </pre>
       </div>
+
 
       <div class="brick brick-6">
         <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
@@ -121,6 +123,21 @@
           </code>
         </pre>
       </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;SwitchItem
+   textStyle={Colors['e-text-white']}
+   containerStyle={Colors['e-background-indigo-300']}
+   beforeText='Switches before'
+   afterText='Switches after'
+/&gt;
+          </code>
+        </pre>
+      </div>
+      
     </div>
 
     <div class="e-row e-margin-bottom-15">
@@ -130,7 +147,7 @@
         </h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
         <p class="e-body5 e-padding-top-15">
-          Use the "Switch" tag to render a group of "SwitchItem" components. Inside the Switch component you can include only the <strong class="e-text-red">SwitchItem</strong> component. <br />
+          Use the "Switch" Essence component to render a group of "SwitchItem" components. Inside the Switch Essence component you can include only the <strong class="e-text-red">SwitchItem</strong> component. <br />
 
           &bull; Structure <br />
           <pre class="small">
@@ -165,6 +182,40 @@
           <br />
         </p>
       </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "SwitchItem" Essence component to render iOS native SwitchIOS component. SwitchIOS component does not render "radio" or "checkbox" types, it will render only "switch" type.<br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-600">&lt;SwitchItem
+   textStyle={<span class="e-text-green-500">__ColorsStyles__</span>}
+   containerStyle={<span class="e-text-blue-500">__ColorsStyles__</span>}
+   beforeText=<span class="e-text-orange-500">'Switches before'</span>
+   afterText=<span class="e-text-orange-500">'Switches after'</span>
+/&gt;
+</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>containerStyle</u>: add styling class names to View component from Styles > Colors menu<br />
+          - <u>textStyle</u>: add styling class names to Text component from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> with type: <strong>circle</strong> will render a small circle visualization<br />
+          - <u>checked</u> - <strong>true</strong> or <strong>false</strong> set the checked attribute value<br />
+          - <u>beforeText</u> - if set to any text string will render a Text component before SwitchIOS component<br />
+          - <u>afterText</u> - if set to any text string will render a Text component after SwitchIOS component<br />
+          <br />
+        </p>
+      </div>
+      
     </div>
 
   </div>

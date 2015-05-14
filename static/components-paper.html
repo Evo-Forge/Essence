@@ -7,7 +7,7 @@
         <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Paper</h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
       </div>
-      <div id="components-paper-reactjs" class="e-paper-container brick brick-12 e-padding-top-25 e-margin-bottom-25 clearfix">
+      <div id="components-paper-reactjs" class="e-paper-container brick brick-6 e-text-center e-padding-top-25 e-margin-bottom-25 clearfix">
         <div class="e-paper-components">
           <div class="e-paper e-shadow-1">
             <span>
@@ -43,6 +43,11 @@
           </div>
         </div>
       </div>
+
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/paper.png" alt="Paper Essence Native component" width="500">
+      </div>
+
       <div class="brick brick-12">
         <p class="e-body1 e-text-blue-grey-400">
           In material design, every pixel drawn by an application resides on a sheet of paper. Paper has a flat background color and can be sized to serve a variety of purposes. A typical layout is composed of multiple sheets of paper. Here you have some examples in the most common shapes and states.
@@ -51,7 +56,8 @@
     </div>
 
     <div class="e-row e-padding-bottom-75">
-      <div class="brick brick-6">
+
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
           <code class="language-markup">
@@ -127,6 +133,27 @@
           </code>
         </pre>
       </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;PaperItem&gt;
+  <span class="e-text-grey-500">Your text</span>
+&lt;/PaperItem&gt;
+
+&lt;PaperItem type={'<span class="e-text-green-500">sharp</span>'}&gt;
+  <span class="e-text-grey-500">Your text</span>
+&lt;/PaperItem&gt;
+
+&lt;PaperItem type={'<span class="e-text-green-500">circle</span>'}&gt;
+  <span class="e-text-grey-500">Your text</span>
+&lt;/PaperItem&gt;
+
+          </code>
+        </pre>
+      </div>
+      
     </div>
 
     <div class="e-row e-margin-bottom-15">
@@ -166,6 +193,46 @@
           - use the examples from above to structure your own List
         </p>
       </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "PaperItem" Essence component to render a View iOS component as container with Text iOS component as a child<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-500">&lt;PaperItem&gt;</span>
+  <span class="e-text-blue-500">text or string</span>
+<span class="e-text-indigo-500">&lt;/PaperItem&gt;</span>
+
+<span class="e-text-indigo-500">&lt;PaperItem type={'circle'}&gt;</span>
+  <span class="e-text-blue-500">text or string</span>
+<span class="e-text-indigo-500">&lt;/PaperItem&gt;</span>
+
+<span class="e-text-indigo-500">&lt;PaperItem type={'sharp'}&gt;</span>
+  <span class="e-text-blue-500">text or string</span>
+<span class="e-text-indigo-500">&lt;/PaperItem&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>containerStyle</u>: add styling class names to View component from Styles > Colors menu<br />
+          - <u>textStyle</u>: add styling class names to Text component from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>onPress</u> callback function is called on press<br />
+          - <u>type</u>:
+          <br />
+          &nbsp;&nbsp;1. <strong>circle</strong>: used to style the container of View component<br />
+          &nbsp;&nbsp;2. <strong>sharp</strong>: used to style the container of View component<br />
+          - use the examples from above to structure your own List
+        </p>
+      </div>
+      
     </div>
 
   </div>

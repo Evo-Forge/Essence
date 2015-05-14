@@ -169,10 +169,79 @@
           </div>
         </div>
       </div>
-
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/datepicker.png" alt="DatePicker Essence Native component" width="360">
+      </div>
     </div>
     <div class="e-row">
       <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+            <code class="language-jsx">
+&lt;InputItem
+  classes={'e-input-group e-text-green-600'}
+  type='text'
+  name='datepicker-simple'
+  label='Select Date'
+  actionClick='datepicker'
+  actionType={{
+    'action': 'show',
+    'id': 'datepicker-simple'
+  }}
+/&gt;
+
+&lt;DatePicker id='datepicker-simple'&gt;
+  &lt;DatePickerHeader classes='e-background-green-600' /&gt;
+  &lt;DatePickerContent /&gt;
+  &lt;DatePickerFooter&gt;
+    &lt;Btn&gt;
+      &lt;BtnItem
+        type='succes'
+        classes={'flat e-right e-text-green-600'}
+        label='OK'
+        actionClick='datepicker'
+        actionType={{
+          'action': 'setValue',
+          'id': 'datepicker-simple'
+        }}
+      /&gt;
+      &lt;BtnItem
+        type='danger'
+        classes={'flat e-right e-text-green-600'}
+        label='CANCEL'
+        actionClick='datepicker'
+        actionType={{
+          'action': 'hide',
+          'id': 'datepicker-simple'
+        }}
+      /&gt;
+    &lt;/Btn&gt;
+  &lt;/DatePickerFooter&gt;
+&lt;/DatePicker&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+          <pre class="e-paper e-shadow-2">
+            <code class="language-jsx">
+&lt;BtnItem 
+    onPress={Utils.navigateMenu.bind(this, 
+        &quot;Date Picker&quot;, DatePicker)}
+&gt;
+     Please select your Date
+&lt;/BtnItem&gt;
+
+&lt;DatePicker 
+    style={[Colors['e-background-grey']]} 
+/&gt;
+            </code>
+        </pre>
+      </div>
+      
+ 
+     <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
           <pre class="e-paper e-shadow-2">
             <code class="language-markup">
@@ -335,54 +404,8 @@
 </code>
         </pre>
       </div>
-
-      <div class="brick brick-6">
-        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
-        <pre class="e-paper e-shadow-2">
-            <code class="language-jsx">
-&lt;InputItem
-  classes={'e-input-group e-text-green-600'}
-  type='text'
-  name='datepicker-simple'
-  label='Select Date'
-  actionClick='datepicker'
-  actionType={{
-    'action': 'show',
-    'id': 'datepicker-simple'
-  }}
-/&gt;
-
-&lt;DatePicker id='datepicker-simple'&gt;
-  &lt;DatePickerHeader classes='e-background-green-600' /&gt;
-  &lt;DatePickerContent /&gt;
-  &lt;DatePickerFooter&gt;
-    &lt;Btn&gt;
-      &lt;BtnItem
-        type='succes'
-        classes={'flat e-right e-text-green-600'}
-        label='OK'
-        actionClick='datepicker'
-        actionType={{
-          'action': 'setValue',
-          'id': 'datepicker-simple'
-        }}
-      /&gt;
-      &lt;BtnItem
-        type='danger'
-        classes={'flat e-right e-text-green-600'}
-        label='CANCEL'
-        actionClick='datepicker'
-        actionType={{
-          'action': 'hide',
-          'id': 'datepicker-simple'
-        }}
-      /&gt;
-    &lt;/Btn&gt;
-  &lt;/DatePickerFooter&gt;
-&lt;/DatePicker&gt;
-          </code>
-        </pre>
-      </div>
+    
+      
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
@@ -551,7 +574,66 @@
     </div>
 
     <div class="e-row e-padding-bottom-75">
+      
       <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+            <code class="language-jsx">
+&lt;InputItem
+  classes={'e-input-group e-text-green-600'}
+  type='text'
+  name='datepicker-horizontal'
+  label='Select Date'
+  actionClick='datepicker'
+  actionType={{
+    'action': 'show',
+    'id': 'datepicker-horizontal'
+  }}
+/&gt;
+
+&lt;DatePicker id='datepicker-horizontal' classes={'horizontal'}&gt;
+  &lt;DatePickerHeader classes='e-background-green-600' /&gt;
+  &lt;DatePickerContent /&gt;
+  &lt;DatePickerFooter&gt;
+    &lt;Btn&gt;
+      &lt;BtnItem
+        type='succes'
+        classes={'flat e-right e-text-green-600'}
+        label='OK'
+        actionClick='datepicker'
+        actionType={{
+          'action': 'setValue',
+          'id': 'datepicker-horizontal'
+        }}
+      /&gt;
+      &lt;BtnItem
+        type='danger'
+        classes={'flat e-right e-text-green-600'}
+        label='CANCEL'
+        actionClick='datepicker'
+        actionType={{
+          'action': 'hide',
+          'id': 'datepicker-horizontal'
+        }}
+      /&gt;
+    &lt;/Btn&gt;
+  &lt;/DatePickerFooter&gt;
+&lt;/DatePicker&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+            <code class="language-jsx">
+Being a iOS native component, the Date Picker 
+will behave normally on landscape mode.
+          </code>
+        </pre>
+      </div>
+ 
+     <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
             <code class="language-markup">
@@ -714,54 +796,8 @@
 </code>
         </pre>
       </div>
-
-      <div class="brick brick-6">
-        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
-        <pre class="e-paper e-shadow-2">
-            <code class="language-jsx">
-&lt;InputItem
-  classes={'e-input-group e-text-green-600'}
-  type='text'
-  name='datepicker-horizontal'
-  label='Select Date'
-  actionClick='datepicker'
-  actionType={{
-    'action': 'show',
-    'id': 'datepicker-horizontal'
-  }}
-/&gt;
-
-&lt;DatePicker id='datepicker-horizontal' classes={'horizontal'}&gt;
-  &lt;DatePickerHeader classes='e-background-green-600' /&gt;
-  &lt;DatePickerContent /&gt;
-  &lt;DatePickerFooter&gt;
-    &lt;Btn&gt;
-      &lt;BtnItem
-        type='succes'
-        classes={'flat e-right e-text-green-600'}
-        label='OK'
-        actionClick='datepicker'
-        actionType={{
-          'action': 'setValue',
-          'id': 'datepicker-horizontal'
-        }}
-      /&gt;
-      &lt;BtnItem
-        type='danger'
-        classes={'flat e-right e-text-green-600'}
-        label='CANCEL'
-        actionClick='datepicker'
-        actionType={{
-          'action': 'hide',
-          'id': 'datepicker-horizontal'
-        }}
-      /&gt;
-    &lt;/Btn&gt;
-  &lt;/DatePickerFooter&gt;
-&lt;/DatePicker&gt;
-          </code>
-        </pre>
-      </div>
+            
+      
     </div>
 
     <div class="e-row e-margin-bottom-15">
@@ -771,7 +807,7 @@
         </h3>
         <div class="e-divider thick short e-background-indigo-400"></div>
         <p class="e-body5 e-padding-top-15">
-          Use the "DatePicker" tag to render the structure composed from DatePickerHeader, DatePickerContent and DatePickerFooter components. The "DatePicker" React tag will return a div container with a single &lt;div&gt; html tag with the class name "e-picker-container".<br /><br />
+          Use the "DatePicker" Essence component to render the structure composed from DatePickerHeader, DatePickerContent and DatePickerFooter components. The "DatePicker" Essence component will return a div container with a single &lt;div&gt; html tag with the class name "e-picker-container".<br /><br />
           We recomend to use a InputItem component with an <strong>actionClick='datepicker'</strong> and <u>actionType.action</u>: 'show' and <u>actionType.id</u>: '__datepicker-id__'
   }}
 
@@ -795,6 +831,24 @@
           &bull; Options<br />
           - id: required for unique DatePicker
           - use the examples from above to structure your own DatePicker
+        </p>
+      </div>
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "DatePicker" component to render the native iOS DatePicker.
+          <br />
+          <br />
+          &bull; Structure <br />
+           <pre class="small">
+<span class="e-text-blue-500">&lt;DatePicker style={[<span class="e-text-green-500">__ColorsStyles__</span>]} /&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to any DatePicker component from Styles > Colors menu<br />
         </p>
       </div>
     </div>

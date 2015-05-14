@@ -305,69 +305,72 @@ function isUndefined(arg) {
 // shim for using process in browser
 
 var process = module.exports = {};
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
 
-process.nextTick = (function () {
-    var canSetImmediate = typeof window !== 'undefined'
-    && window.setImmediate;
-    var canMutationObserver = typeof window !== 'undefined'
-    && window.MutationObserver;
-    var canPost = typeof window !== 'undefined'
-    && window.postMessage && window.addEventListener
-    ;
-
-    if (canSetImmediate) {
-        return function (f) { return window.setImmediate(f) };
+function cleanUpNextTick() {
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
     }
-
-    var queue = [];
-
-    if (canMutationObserver) {
-        var hiddenDiv = document.createElement("div");
-        var observer = new MutationObserver(function () {
-            var queueList = queue.slice();
-            queue.length = 0;
-            queueList.forEach(function (fn) {
-                fn();
-            });
-        });
-
-        observer.observe(hiddenDiv, { attributes: true });
-
-        return function nextTick(fn) {
-            if (!queue.length) {
-                hiddenDiv.setAttribute('yes', 'no');
-            }
-            queue.push(fn);
-        };
+    if (queue.length) {
+        drainQueue();
     }
+}
 
-    if (canPost) {
-        window.addEventListener('message', function (ev) {
-            var source = ev.source;
-            if ((source === window || source === null) && ev.data === 'process-tick') {
-                ev.stopPropagation();
-                if (queue.length > 0) {
-                    var fn = queue.shift();
-                    fn();
-                }
-            }
-        }, true);
-
-        return function nextTick(fn) {
-            queue.push(fn);
-            window.postMessage('process-tick', '*');
-        };
+function drainQueue() {
+    if (draining) {
+        return;
     }
+    var timeout = setTimeout(cleanUpNextTick);
+    draining = true;
 
-    return function nextTick(fn) {
-        setTimeout(fn, 0);
-    };
-})();
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            currentQueue[queueIndex].run();
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    clearTimeout(timeout);
+}
 
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (!draining) {
+        setTimeout(drainQueue, 0);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
 process.title = 'browser';
 process.browser = true;
 process.env = {};
 process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
 
 function noop() {}
 
@@ -388,6 +391,7 @@ process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
+process.umask = function() { return 0; };
 
 },{}],"/Users/iohanhetmann/www/evozon/PearlVentures_Essence/node_modules/react/addons.js":[function(require,module,exports){
 module.exports = require('./lib/ReactWithAddons');
@@ -21579,6 +21583,15 @@ var React = require('react/addons'),
     ToastItem = require('./ToastItem'),
     ToolBar =  require('./ToolBar');
 
+// Google Analytics func
+function contestEvents() {
+  ga("send","event", "Contest", "New click", {
+    "hitCallback": function() {
+      document.location.href = './contest';
+    }
+  });
+}
+
 var Component = {};
 
 // Essence - Components
@@ -21586,22 +21599,36 @@ Component.home = [];
 Component.home.push({
   'download': (
     React.createElement(Block, {type: "div"}, 
-      React.createElement(Text, {
-        type: "a", 
-        eventAction: "showNavigationComponent", 
-        classes: "e-btn raised e-background-indigo-800", 
-        href: "#getting-started", 
-        id: "components-getting-started"
-      }, 
-         "Get Started with Essence"
+      React.createElement(Block, {type: "div"}, 
+        React.createElement(Text, {
+          type: "a", 
+          eventAction: "showNavigationComponent", 
+          classes: "e-btn raised e-background-indigo-800", 
+          href: "#getting-started-web", 
+          id: "components-getting-started-web"
+        }, 
+           "Get Started with Essence"
+        ), 
+        React.createElement(Text, {
+          type: "a", 
+          classes: "e-btn raised e-background-white e-text-indigo-800", 
+          target: "_blank", 
+          href: "https://github.com/PearlVentures/Essence"
+        }, 
+          "Download from GitHub"
+        )
       ), 
-      React.createElement(Text, {
-        type: "a", 
-        classes: "e-btn raised e-background-white e-text-indigo-800", 
-        target: "_blank", 
-        href: "https://github.com/PearlVentures/Essence"
-      }, 
-        "Download from GitHub"
+      React.createElement(Block, {type: "hr"}), 
+      React.createElement(Block, {type: "div"}, 
+
+        React.createElement(Text, {
+          type: "a", 
+          classes: "e-btn raised e-background-amber-500", 
+          href: "javascript:;", 
+          onClick: contestEvents
+        }, 
+          "enter the essence contest"
+        )
       )
     )
   )
@@ -21648,9 +21675,18 @@ Component.navigation_menu = (
           React.createElement(Text, {
             type: "a", 
             href: "#", 
-            id: "components-getting-started"
+            id: "components-getting-started-web"
           }, 
-            "Getting Started"
+            "Getting Started Web"
+          )
+        ), 
+        React.createElement(Block, {type: "li"}, 
+          React.createElement(Text, {
+            type: "a", 
+            href: "#", 
+            id: "components-getting-started-native"
+          }, 
+            "Getting Started Native"
           )
         ), 
         React.createElement(Block, {type: "li"}, 

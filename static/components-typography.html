@@ -29,23 +29,69 @@
       </div>
 
       <div class="brick brick-12 e-shadow-1">
-        <p class="e-text-justify e-text-blue-grey-400">Justify Text = Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt estLorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt estLorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt estLorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt estLorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt est</p>
+        <p class="e-text-justify e-text-blue-grey-400">Justify Text = Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt estLorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt estLorem ipsum dolor sit amet, consectetur adipisicing elit. Rem inventore voluptatum alias ex dolorem rerum nesciunt voluptates facere eius sint laudantium temporibus aliquid doloremque quos voluptatem, ab, aperiam sunt est</p>
       </div>
 
     </div>
 
     <div class="e-row">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
-        <pre class="e-paper small e-shadow-2">
-        <code class="language-markup">
-&lt;p class="e-text-left"&gt;Text on the left&lt;/p&gt;
-&lt;p class="e-text-right"&gt;Text on the right&lt;/p&gt;
-&lt;p class="e-text-center"&gt;Text on center&lt;/p&gt;
-&lt;p class="e-text-justify"&gt;Justify Text&lt;/p&gt;
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper  e-shadow-2">
+        <code class="language-jsx">
+&lt;Text type='p' 
+  classes={"e-text-left"}
+  &gt;
+  Text on the left
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-text-right"}
+  &gt;
+  Text on the right
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-text-center"}
+  &gt;
+  Text centered
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-text-justify"}
+  &gt;
+  Text justified
+&lt;/Text&gt;
         </code>
         </pre>
       </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Text style={[
+  Typography['e-text-left'], 
+]}&gt;
+  Text on the left 
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-text-right'], 
+]}&gt;
+  Text on the right      
+&lt;/Text&gt;
+       
+&lt;Text style={[
+  Typography['e-text-center'], 
+]}&gt;
+  Centered text
+&lt;/Text&gt;
+       
+        </code>
+        </pre>
+      </div>
+      
       <div class="brick brick-12">
         <div class="e-divider thinnest e-background-grey-300"></div>
       </div>
@@ -73,56 +119,51 @@
 
     <div class="e-row">
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
         <pre class="e-paper small e-shadow-2">
-        <code class="language-markup">
-&lt;p class="e-text-uppercase"&gt;Uppercase Text&lt;/p&gt;
-&lt;p class="e-text-capitalize"&gt;capitalize text&lt;/p&gt;
-&lt;p class="e-text-lowercase"&gt;lowercase text&lt;/p&gt;
+        <code class="language-jsx">
+&lt;Text type='p' 
+  classes={"e-text-uppercase"}
+  &gt;
+  UPPERCASE TEXT
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-text-capitalize"}
+  &gt;
+  Capitalize Text
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-text-lowercase"}
+  &gt;
+  lowercase text
+&lt;/Text&gt;
         </code>
         </pre>
       </div>
-      <div class="brick brick-12">
-        <div class="e-divider thinnest e-background-grey-300"></div>
-      </div>
-    </div>
-
-    <div class="e-row">
-      <div class="brick brick-12">
-        <h3 class="e-padding-top-50">Font style elements</h3>
-        <p class="e-subhead e-text-blue-grey-400">You’re familiar with HTML and CSS. Good, then you already know how to manipulate font style elements in Essence.</p>
-      </div>
-
-      <div class="brick brick-12">
-        <p class="e-text-blue-grey-400"><em> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</em>
-        </p>
-      </div>
-
-      <div class="brick brick-12">
-        <p class="e-text-blue-grey-400"><strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</strong>
-        </p>
-      </div>
-
-      <div class="brick brick-12">
-        <p class="e-text-blue-grey-400"><small> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</small>
-        </p>
-      </div>
-      <div class="brick brick-12"></div>
-    </div>
-
-    <div class="e-row">
+      
       <div class="brick brick-6">
-        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
-        <pre class="e-paper e-shadow-2">
-        <code class="language-markup">
-&lt;p&gt;&lt;em&gt; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.&lt;/em&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.&lt;/strong&gt;
-&lt;/p&gt;
-
-&lt;p&gt;&lt;small&gt; Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.&lt;/small&gt;
-&lt;/p&gt;
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper small e-shadow-2">
+        <code class="language-jsx">
+&lt;Text style={[
+  Typography['e-text-uppercase'], 
+]}&gt;
+  UPPERCASE TEXT
+&lt;/Text&gt;
+&lt;Text style={[
+  Typography['e-text-capitalize'], 
+]}&gt;
+  Capitalize Text
+&lt;/Text&gt;
+       
+&lt;Text style={[
+  Typography['e-text-lowercase'], 
+]}&gt;
+  lowercase text
+&lt;/Text&gt;
+       
         </code>
         </pre>
       </div>
@@ -186,7 +227,8 @@
     </div>
 
     <div class="e-row e-padding-bottom-75">
-      <div class="brick brick-6">
+
+      <div class="brick brick-6 hide">
         <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
         <pre class="e-paper e-shadow-2">
         <code class="language-markup">
@@ -214,6 +256,167 @@
         </code>
         </pre>
       </div>
+
+   
+     <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Text type='h1'
+  classes={"e-display-4"}
+  &gt;
+  Light 112 px
+&lt;/Text&gt;
+
+&lt;Text type='h2'
+  classes={"e-display-3"}
+  &gt;
+  Regular 56 px
+&lt;/Text&gt;
+
+&lt;Text type='h3' 
+  classes={"e-display-2"}
+  &gt;
+  Regular 45 px
+&lt;/Text&gt;
+
+&lt;Text type='h4' 
+  classes={"e-display-1"}
+  &gt;
+  Regular 34 px
+&lt;/Text&gt;
+
+&lt;Text type='h5' 
+  classes={"e-headline"}
+  &gt;
+  Regular 24 px
+&lt;/Text&gt;
+
+&lt;Text type='h6' 
+  classes={"e-title"}
+  &gt;
+  Medium 20 px
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-subhead"}
+  &gt;
+  Regular 16 px
+&lt;/Text&gt;
+
+&lt;Text type='p 
+  classes={"e-body2"}
+  &gt;
+  Medium 14 px
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-body1"}
+  &gt;
+  Regular 14 px
+&lt;/Text&gt;
+
+&lt;Text type='p' 
+  classes={"e-caption"}
+  &gt;
+  Regular 12 px caption
+&lt;/Text&gt;
+
+&lt;Text type='a' 
+   href="#" 
+   classes={"e-button"}
+   &gt;
+   Medium (all caps) 14 px
+&lt;/Text&gt;
+        </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Text style={[
+  Typography['e-display-4'],
+]}
+  &gt;
+  Light 112 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-displa-3'],
+]}
+  &gt;
+  Regular 56 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-display-2'],
+]}
+  &gt;
+  Regular 45 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-display-1'],
+]}
+  &gt;
+  Regular 34 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-headline'],
+]}
+  &gt;
+  Regular 24 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-title'],
+]}
+  &gt;
+  Medium 20 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-subhead'],
+]}
+  &gt;
+  Regular 16 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-body2'],
+]}
+  &gt;
+  Medium 14 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-body1'],
+]}
+  &gt;
+  Regular 14 px
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-caption'],
+]}
+  &gt;
+  Regular 12 px caption
+&lt;/Text&gt;
+
+&lt;Text style={[
+  Typography['e-button'],
+]}
+   
+   &gt;
+   Medium (all caps) 14 px
+&lt;/Text&gt;
+        </code>
+        </pre>
+      </div>
+     
     </div>
   </div>
   <!--  END Component - TYPOGRAPGY       -->
