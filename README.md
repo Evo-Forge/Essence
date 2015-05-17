@@ -14,3 +14,10 @@ We're very fond of our UI/UX craft and we're constantly creating tools that allo
 Essence is [MIT licensed](./LICENSE).
 
 Essence documentation is [Creative Commons licensed](./LICENSE-docs).
+
+### TO DO - Tasks
+- [x] Essence Native NPM Package
+- [ ] Essence NPM Package
+- [ ] Essence Bower Package
+- [ ] Essence Native Bower Package
+- [ ] style inline option for Essence components
