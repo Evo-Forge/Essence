@@ -20,4 +20,5 @@ Essence documentation is [Creative Commons licensed](./LICENSE-docs).
 - [ ] Essence NPM Package
 - [ ] Essence Bower Package
 - [ ] Essence Native Bower Package
+- [ ] Essence test suite
 - [ ] style inline option for Essence components
