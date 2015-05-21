@@ -3,7 +3,7 @@
 module.exports = {
   scripts: {
     src:    './src/js/**/*.js',
-    dist:   './dist/**/*.js',
+    dist:   './dist/js/**/*.js',
     dest:   './dist/js',
     clean:  './dist/js/*.js'
   },
