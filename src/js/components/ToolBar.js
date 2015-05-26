@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons'),
-    Text = require('./Text'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
@@ -13,14 +12,6 @@ module.exports = React.createClass({
       return {
         children: []
       };
-    },
-
-    componentDidMount: function () {
-      // Empty
-    },
-
-    componentDidUnmount: function () {
-      // Empty
     },
 
     renderChildren: function () {
@@ -55,7 +46,7 @@ module.exports = React.createClass({
     renderTitle: function () {
       if (this.props.title) {
         return (
-          <Text text={this.props.title} />
+          <span>{this.props.title}</span>
         );
       }
 

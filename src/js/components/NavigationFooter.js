@@ -1,8 +1,6 @@
 'use strict';
 
 var React = require('react/addons'),
-    Icon = require('./Icon'),
-    Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;

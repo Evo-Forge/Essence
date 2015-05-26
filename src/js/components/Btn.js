@@ -34,7 +34,7 @@ module.exports = React.createClass({
 
     componentWillReceiveProps: function () {
       var self = this;
-      //self.renderChildren();
+      self.renderChildren();
     },
 
     render: function () {

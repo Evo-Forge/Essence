@@ -20,10 +20,6 @@ module.exports = React.createClass({
       self.renderChildren();
     },
 
-    componentDidMount: function () {
-      var self = this;
-    },
-
     renderChildren: function () {
       var self = this,
           classes = classSet(ClassNames(self.state.classes, self.props.classes));
@@ -36,8 +32,7 @@ module.exports = React.createClass({
           src={self.props.src}
           alt={self.props.alt}
           width={self.props.width}
-          height={self.props.height}
-        />
+          height={self.props.height}/>
       );
     },
 

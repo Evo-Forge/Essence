@@ -2,8 +2,6 @@
 
 var React = require('react/addons'),
     Icon = require('./Icon'),
-    Image = require('./Image'),
-    Text = require('./Text'),
     ListItemElement = require('./ListItemElement'),
     PubSub = require('../utils/PubSub'),
     Position = require('../utils/Position'),
@@ -42,9 +40,9 @@ module.exports = React.createClass({
       });
     },
 
-    dragStart: function(ev) {
+    dragStart: function(event) {
       var self = this,
-          element = ev.currentTarget;
+          element = event.currentTarget;
 
       self.setState({
         dragCSS: {
@@ -54,19 +52,13 @@ module.exports = React.createClass({
         fromElement: Number(element.id),
       });
 
-      ev.dataTransfer.effectAllowed = 'move';
-      ev.dataTransfer.setData("text/html", element);
+      event.dataTransfer.effectAllowed = 'move';
+      event.dataTransfer.setData("text/html", element);
     },
 
     dragEnd: function(ev) {
-      var self = this,
-          element = ev.target;
-      /*
-      console.log({
-        "fromElement" : self.state.fromElement,
-        "toElement" : self.state.toElement
-      });
-      */
+      var element = ev.target;
+      console.log([element, ev]);
     },
 
     dragOver: function(ev) {
@@ -79,8 +71,6 @@ module.exports = React.createClass({
         },
         toElement: Number(elementId.id),
       });
-
-      // console.log("toElement:" + Number(elementId.id));
     },
 
     hideNavigation: function (data) {
@@ -127,7 +117,11 @@ module.exports = React.createClass({
           avatarImg = (self.props.avatarImg) ? self.props.avatarImg : '',
           avatarAlt = (self.props.avatarAlt) ? self.props.avatarAlt : '',
           primaryListImage = false,
-          position = (self.props.position) ? self.props.position : false;
+          position = (self.props.position) ? self.props.position : false,
+          hasMore = null,
+          hasMenu = null,
+          submenuItems = [],
+          navigationItems = [];
 
       if (self.props.listType === 'checkbox') {
         if (position === 'right') {
@@ -138,8 +132,7 @@ module.exports = React.createClass({
                     <img
                       className={"e-list-icon"}
                       src={avatarImg}
-                      alt={avatarAlt}
-                    />
+                      alt={avatarAlt}/>
                     <span>{contentText}</span>
                   </span>
               </a>
@@ -149,8 +142,7 @@ module.exports = React.createClass({
                     type="checkbox"
                     name={inputName}
                     className={"toggle"}
-                    defaultChecked={self.props.isChecked}
-                  />
+                    defaultChecked={self.props.isChecked}/>
                   <span className={"e-wave"}></span>
                   <span className={"e-check-valid"}></span>
                 </label>
@@ -167,8 +159,7 @@ module.exports = React.createClass({
                   type="checkbox"
                   name={inputName}
                   className={"toggle"}
-                  defaultChecked={self.props.isChecked}
-                />
+                  defaultChecked={self.props.isChecked}/>
                 <span className={"e-wave"} />
                 <span className={"e-check-valid"} />
                 <span>{contentText}</span>
@@ -191,8 +182,7 @@ module.exports = React.createClass({
                 <input
                   type="checkbox"
                   defaultChecked={self.props.isChecked}
-                  name={inputName}
-                />
+                  name={inputName}/>
                 <span className={"e-switches-toggle"} />
               </label>
             </div>
@@ -227,8 +217,7 @@ module.exports = React.createClass({
                   <img
                       className={"e-list-avatar"}
                       src={avatarImg}
-                      alt={avatarAlt}
-                  />
+                      alt={avatarAlt}/>
                   <span>{contentText}</span>
                 </span>
             </a>
@@ -240,9 +229,7 @@ module.exports = React.createClass({
       }
 
       if (self.props.listType === 'navigation') {
-        var hasMore = null,
-            hasMenu = null,
-            activeClass = (self.props.isActive) ? 'active' : null;
+        var activeClass = (self.props.isActive) ? 'active' : null;
 
         if (self.props.more) {
           hasMore = (
@@ -255,14 +242,11 @@ module.exports = React.createClass({
             <img
               className={'primaryListImage'}
               src={self.props.primaryListImage}
-              alt={contentText}
-            />
+              alt={contentText}/>
           );
         }
 
         if (self.props.hasSubmenu) {
-          var navigationItems = [];
-
           self.props.children.map(function (i, k) {
             var item = i;
 
@@ -295,7 +279,6 @@ module.exports = React.createClass({
         }
 
         if (self.props.submenu) {
-          var submenuItems = [];
 
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
@@ -333,9 +316,6 @@ module.exports = React.createClass({
       }
 
       if (self.props.listType === 'expand') {
-        var hasMore = null,
-            hasMenu = null;
-
         if (self.props.more) {
           hasMore = (
             <Icon classes={"e-right"} name='hardware-keyboard-arrow-down' />
@@ -343,8 +323,6 @@ module.exports = React.createClass({
         }
 
         if (self.props.submenu) {
-          var submenuItems = [];
-
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
               <li

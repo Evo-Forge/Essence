@@ -58,7 +58,7 @@ module.exports = React.createClass({
       });
     },
 
-    handleClick: function (event) {
+    handleClick: function () {
       var self = this,
           actionClick = self.props.actionClick || false,
           actionType = self.props.actionType || false;

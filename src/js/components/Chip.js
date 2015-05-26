@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons'),
-    classSet = React.addons.classSet,
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
@@ -84,7 +83,6 @@ module.exports = React.createClass({
 
     render: function () {
       var self = this,
-          childrens = React.Children.count(self.props.children),
           isOpen = self.state.isOpen,
           classes = (isOpen) ? "chips" : "";
 

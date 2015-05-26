@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons'),
-    BtnItem = require('./BtnItem'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;

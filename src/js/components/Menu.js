@@ -2,9 +2,7 @@
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
-    Text = require('./Text'),
     Icon = require('./Icon'),
-    BtnItem = require('./BtnItem'),
     MenuItem = require('./MenuItem'),
     PubSub = require('../utils/PubSub'),
     Mobile = require('../utils/Mobile'),
@@ -17,9 +15,6 @@ module.exports = React.createClass({
     mixins: [PubSub, Mobile, PositionH, ClassNames],
 
     getInitialState: function() {
-      var self = this,
-          options = self.props.items ? self.props.items[0] : false;
-
       return {
         children: [],
         placeholder: null,
@@ -71,7 +66,6 @@ module.exports = React.createClass({
     renderMenuTitle: function () {
       var self = this,
           options = self.props.items ? self.props.items[0] : false,
-          link = options.link || "#",
           text = options.text || false,
           menuID = self.props.id || options.id || "menu-0";
 
@@ -88,13 +82,14 @@ module.exports = React.createClass({
 
       if (text) {
         return (
-          <Text
+          <span
             onClick={self.showMenu}
-            text={text}
+            key={"text-for-" + menuID}
             id={"text-for-" + menuID}
           >
+            {text}
             <Icon name={'navigation-arrow-drop-down'} />
-          </Text>
+          </span>
         );
       }
 
@@ -108,8 +103,6 @@ module.exports = React.createClass({
           },
           options = self.props.items ? self.props.items[0] : false,
           extraClasses = (options.classes) ? options.classes.split(" ") : false,
-          link = options.link || "#",
-          text = options.text || false,
           menuID = self.props.id || options.id || "menu-0";
 
       if (extraClasses) {
@@ -183,8 +176,7 @@ module.exports = React.createClass({
           eventAction={'changeText toggleMenu'}
           right={self.state.isRightPosition}
           key={index}
-          id={itemID}
-        />
+          id={itemID}/>
       );
     },
 
@@ -223,13 +215,14 @@ module.exports = React.createClass({
 
       if (self.props.placeholder) {
         childPlaceholder = (
-          <Text
+          <span
             onClick={self.showMenu}
+            key={"text-for-" + self.props.id}
             id={"text-for-" + self.props.id}
           >
             {placeholder}
             <Icon name={'navigation-arrow-drop-down'} />
-          </Text>
+          </span>
         );
       }
 
@@ -237,20 +230,20 @@ module.exports = React.createClass({
         childIcon = (
           <Icon
             name={self.props.icon}
-            onClick={self.showMenu}
-          />
+            onClick={self.showMenu}/>
         );
       }
 
       if (self.props.type === 'fab') {
         childPlaceholder = (
-          <Text
+          <span
+            className={'e-btn-fab lines-button'}
             onClick={self.showMenu}
+            key={"fab-for-" + self.props.id}
             id={"fab-for-" + self.props.id}
-            classes='e-btn-fab lines-button'
           >
-            <Text classes='lines' />
-          </Text>
+            <span className={'lines'} />
+          </span>
         );
       }
 

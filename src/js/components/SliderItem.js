@@ -69,8 +69,6 @@ module.exports = React.createClass({
           discreteStyles = self.state.discreteStyles,
           clientX = (self.state.isMobile) ?
               event.changedTouches[0].clientX : event.clientX,
-          element = this.refs.sliderHandle.getDOMNode(),
-          //elementBounding = element.getBoundingClientRect(),
           sliderParent = this.refs.sliderParent.getDOMNode(),
           offset = clientX - sliderParent.offsetParent.offsetLeft,
           horizontal = ((offset / sliderParent.offsetWidth ) * 100).toFixed(0),

@@ -56,8 +56,7 @@ module.exports = React.createClass({
             id={'e-modal-bg-' + self.props.id}
             style={{display: 'block'}}
             onClick={self.hideDialog}
-            className={"e-modal-bg"}
-          />
+            className={"e-modal-bg"}/>
         );
       }
 
@@ -65,8 +64,7 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      var self = this,
-          classes = self.state.classes;
+      var self = this;
 
       self.subscribe('actions:bottomsheets', function (data) {
         if (data.action === 'show' && data.targetID === self.props.id) {

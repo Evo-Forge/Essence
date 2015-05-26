@@ -60,7 +60,7 @@ module.exports = React.createClass({
 
     handleClick: function (event) {
       var self = this,
-          parentPosition = Position (this.refs.buttonRippleInk.getDOMNode()),
+          // parentPosition = Position (this.refs.buttonRippleInk.getDOMNode()),
           elementBounding = this.refs.buttonRippleInk.getDOMNode().getBoundingClientRect(),
           clickPosition = ClickPosition (event, elementBounding),
           bgColor = BackgroundColor(event),

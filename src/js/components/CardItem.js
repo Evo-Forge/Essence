@@ -19,10 +19,6 @@ module.exports = React.createClass({
       };
     },
 
-    componentDidMount: function () {
-      var classes = this.state.classes || [];
-    },
-
     renderHeader: function () {
       if (this.props.header) {
         var self = this,

@@ -46,9 +46,10 @@ module.exports = function (type, value) {
   }
 
   if (type === 'date') {
-    var month = monthName[value.month],
-        day = value.day,
+    var day = value.day,
         year = value.year;
+        
+    month = monthName[value.month];
 
     ret = month + "/" + day + "/" + year;
   }
