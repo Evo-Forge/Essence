@@ -1,8 +1,9 @@
 {
   "name": "essence",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "description": "essence - basic material design UI framework",
   "private": true,
+  "main": "./dist/js/essence.js",
   "keywords": [
     "essence",
     "react",
