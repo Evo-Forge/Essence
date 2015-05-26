@@ -2,7 +2,7 @@
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../mixins/PubSub');
 
 module.exports = React.createClass({
     displayName: 'ChipItem',

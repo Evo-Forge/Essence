@@ -2,18 +2,17 @@
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
-    PositionHorizontal = require('../utils/PositionHorizontal'),
-    Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub');
+    Utils = require('../utils'),
+    PubSub = require('../mixins/PubSub');
 
 module.exports = React.createClass({
     displayName: 'SliderItem',
 
-    mixins: [PubSub, Mobile, PositionHorizontal],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
-        isMobile: this.isMobile(),
+        isMobile: Utils.mobile.isMobile(),
         isMoving: false,
         isHidden: '',
         classes: {

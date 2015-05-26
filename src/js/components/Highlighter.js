@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'),
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../mixins/PubSub');
 
 module.exports = React.createClass({
     displayName: 'Highlighter',

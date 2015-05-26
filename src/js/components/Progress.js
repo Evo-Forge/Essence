@@ -1,18 +1,18 @@
 'use strict';
 
 var React = require('react/addons'),
-    Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub');
+    Utils = require('../utils'),
+    PubSub = require('../mixins/PubSub');
 
 module.exports = React.createClass({
     displayName: 'Progress',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
         classes: [],
-        isMobile: this.isMobile()
+        isMobile: Utils.mobile.isMobile()
       };
     },
 

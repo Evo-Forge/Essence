@@ -1,7 +1,6 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+var React = require('react/addons');
 
 module.exports = React.createClass({
     displayName: 'ToolBar',
