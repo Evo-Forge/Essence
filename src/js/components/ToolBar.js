@@ -5,8 +5,6 @@ var React = require('react/addons');
 module.exports = React.createClass({
     displayName: 'ToolBar',
 
-    mixins: [PubSub],
-
     getInitialState: function() {
       return {
         children: []

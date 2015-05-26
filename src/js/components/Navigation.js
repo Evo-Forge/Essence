@@ -2,19 +2,19 @@
 
 var React = require('react/addons'),
     Icon = require('./Icon'),
-    Mobile = require('../utils/Mobile'),
+    Utils = require('../utils'),
     PubSub = require('../mixins/PubSub'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Navigation',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
         children: [],
-        isMobile: this.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
+        isMobile: Utils.mobile.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
         classes: {
           'e-main': false,
           'e-navigation-open': false,

@@ -16,14 +16,6 @@ module.exports = React.createClass({
       };
     },
 
-    componentDidMount: function () {
-      // Empty
-    },
-
-    componentDidUnmount: function () {
-      // Empty
-    },
-
     renderChildren: function () {
       var self = this,
           progressType = self.props.type ? self.props.type : false,
