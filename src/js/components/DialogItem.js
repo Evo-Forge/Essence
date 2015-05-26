@@ -1,19 +1,18 @@
 'use strict';
 
 var React = require('react/addons'),
-    Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DialogItem',
 
-    mixins: [PubSub, Mobile, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
-        isMobile: this.isMobile(),
+        isMobile: Utils.mobile.isMobile(),
         classes: {
           'e-dialog': (this.props.full) ? false : true,
           'e-dialog-full': (this.props.full) ? true : false,
@@ -29,7 +28,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes = ClassNames(classes, self.props.classes);
+      classes = Utils.classNames(classes, self.props.classes);
 
       self.setState({
         classes: classes
@@ -90,8 +89,7 @@ module.exports = React.createClass({
             id={'e-modal-bg-' + self.props.id}
             style={{display: 'block'}}
             onClick={this.hideDialog.bind(this, self.props.id)}
-            className={"e-modal-bg"}
-          />
+            className={"e-modal-bg"} />
         );
       }
 

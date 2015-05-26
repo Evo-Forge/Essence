@@ -1,13 +1,12 @@
+
 'use strict';
 
 var React = require('react/addons'),
-    ClassNames = require('../utils/ClassNames'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Divider',
-
-    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -25,7 +24,7 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
-          classes = classSet(ClassNames(self.state.classes, self.props.classes));
+          classes = classSet(Utils.classNames(self.state.classes, self.props.classes));
 
       return (<div className={classes} />);
     },

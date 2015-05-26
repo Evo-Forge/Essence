@@ -1,13 +1,11 @@
 'use strict';
 
 var React = require('react/addons'),
-    ClassNames = require('../utils/ClassNames'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Paper',
-
-    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -22,7 +20,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (self.props.classes) {
-        classes = ClassNames(classes, self.props.classes);
+        classes = Utils.classNames(classes, self.props.classes);
       }
 
       self.setState({

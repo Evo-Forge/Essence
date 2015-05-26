@@ -2,9 +2,9 @@
 
 var React = require('react/addons'),
     Icon = require('./Icon'),
-    PubSub = require('../utils/PubSub'),
+    PubSub = require('../mixins/PubSub'),
     Highlighter = require('./Highlighter'),
-    ClassNames = require('../utils/ClassNames'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 var classSet = React.addons.classSet;
@@ -12,7 +12,7 @@ var classSet = React.addons.classSet;
 module.exports = React.createClass({
     displayName: 'TabMenu',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function () {
       return {
@@ -150,7 +150,7 @@ module.exports = React.createClass({
             'e-text-grey-50': true
           },
 
-          classList = classSet(ClassNames(classes, self.props.classes));
+          classList = classSet(Utils.classNames(classes, self.props.classes));
 
       return (
         <div>
@@ -160,8 +160,8 @@ module.exports = React.createClass({
             <Highlighter
               id={self.props.id}
               css={highlighterCSS}
-              nextCSS={nextCSS}
-            />
+              nextCSS={nextCSS}/>
+            
             <ul className={"e-tabs-list e-row"}>
               {items.list}
             </ul>

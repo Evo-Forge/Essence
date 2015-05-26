@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react/addons'),
-    classSet = React.addons.classSet,
-    PubSub = require('../utils/PubSub');
+    PubSub = require('../mixins/PubSub'),
+    classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'BottomSheetsItem',

@@ -1,13 +1,11 @@
 'use strict';
 
 var React = require('react/addons'),
-    ClassNames = require('../utils/ClassNames'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'Icon',
-
-    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -17,7 +15,7 @@ module.exports = React.createClass({
 
     renderChildren() {
       var self = this,
-          classes = ClassNames([], self.props.classes);
+          classes = Utils.classNames([], self.props.classes);
 
       if (self.props.name) {
         classes["e-icon-"+self.props.name] = true;

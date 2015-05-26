@@ -4,15 +4,13 @@ var React = require('react/addons'),
     classSet = React.addons.classSet,
     Icon = require('./Icon'),
     MenuItem = require('./MenuItem'),
-    PubSub = require('../utils/PubSub'),
-    Mobile = require('../utils/Mobile'),
-    ClassNames = require('../utils/ClassNames'),
-    PositionH = require('../utils/PositionHorizontal');
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils');
 
 module.exports = React.createClass({
     displayName: 'Menu',
 
-    mixins: [PubSub, Mobile, PositionH, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -22,7 +20,7 @@ module.exports = React.createClass({
         isActive: false,
         isRightPosition: false,
         classes: {
-          'mobile': this.isMobile(),
+          'mobile': Utils.mobile.isMobile(),
           'e-paper': true,
           'e-shadow-1': true,
           'e-nav-menu': false,
@@ -106,11 +104,11 @@ module.exports = React.createClass({
           menuID = self.props.id || options.id || "menu-0";
 
       if (extraClasses) {
-        classes = ClassNames(classes, extraClasses);
+        classes = Utils.classNames(classes, extraClasses);
       }
 
       if (self.props.classes) {
-        classes = ClassNames(classes, self.props.classes);
+        classes = Utils.classNames(classes, self.props.classes);
       }
 
       if (self.props.type === 'fab') {
@@ -146,7 +144,7 @@ module.exports = React.createClass({
       var self = this,
           target = ev.currentTarget,
           targetText = target.textContent,
-          elemPosition = PositionH(ev.target);
+          elemPosition = Utils.position.horizontal(ev.target);
 
       self.setState({
         isRightPosition: elemPosition.position === 'right' ? true : false,

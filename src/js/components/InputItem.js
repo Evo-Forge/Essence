@@ -1,14 +1,14 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'InputItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -146,7 +146,7 @@ module.exports = React.createClass({
           type = self.props.type || 'text',
           value = self.props.value || self.state.inputValue || '',
           name = self.props.name || '',
-          inputClasses = classSet(ClassNames(self.state.inputClasses, self.props.inputClasses));
+          inputClasses = classSet(Utils.classNames(self.state.inputClasses, self.props.inputClasses));
 
       if (type === 'textarea') {
         return (

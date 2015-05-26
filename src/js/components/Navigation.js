@@ -3,7 +3,7 @@
 var React = require('react/addons'),
     Icon = require('./Icon'),
     Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub'),
+    PubSub = require('../mixins/PubSub'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({

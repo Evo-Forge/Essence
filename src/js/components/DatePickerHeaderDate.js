@@ -1,14 +1,14 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePickerHeaderDate',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState() {
       return {
@@ -25,7 +25,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes = ClassNames(classes, self.props.classes);
+      classes = Utils.classNames(classes, self.props.classes);
 
       self.setState({
         classes: classSet(classes),

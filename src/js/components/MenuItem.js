@@ -2,19 +2,18 @@
 
 var React = require('react/addons'),
     classSet = React.addons.classSet,
-    Mobile = require('../utils/Mobile'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'MenuItem',
 
-    mixins: [PubSub, Mobile, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
-        isMobile: this.isMobile(),
+        isMobile: Utils.mobile.isMobile(),
         activeItems: [],
         classes: {
           'divider': (this.props.options && this.props.options.type === "divider"),
@@ -169,7 +168,7 @@ module.exports = React.createClass({
         var liClasses = {};
 
         if (self.props.classes) {
-          liClasses = ClassNames(liClasses, self.props.classes);
+          liClasses = Utils.classNames(liClasses, self.props.classes);
         }
 
         liClasses = classSet(liClasses);

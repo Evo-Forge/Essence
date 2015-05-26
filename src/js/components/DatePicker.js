@@ -1,15 +1,14 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
-    DateFormat = require('../utils/DateFormat'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePicker',
 
-    mixins: [PubSub, ClassNames, DateFormat],
+    mixins: [PubSub],
 
     getInitialState() {
       return {
@@ -34,7 +33,7 @@ module.exports = React.createClass({
         }
       });
 
-      classes = ClassNames(classes, self.props.classes);
+      classes = Utils.classNames(classes, self.props.classes);
 
       self.setState({
         classes: classes
@@ -116,8 +115,7 @@ module.exports = React.createClass({
             id={'e-modal-bg-' + self.props.id}
             style={{display: 'block'}}
             onClick={this.hideDatePicker.bind(this, self.props.id)}
-            className={"e-modal-bg"}
-          />
+            className={"e-modal-bg"}/>
         );
       }
 

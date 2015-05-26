@@ -1,14 +1,14 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ToastItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -21,7 +21,7 @@ module.exports = React.createClass({
 
     componentDidMount: function () {
       var self = this,
-          classes = ClassNames(self.state.classes, self.props.classes),
+          classes = Utils.classNames(self.state.classes, self.props.classes),
           height = parseInt(
             window.getComputedStyle (self.getDOMNode())
             .getPropertyValue('height').replace("px", "")

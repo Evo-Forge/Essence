@@ -59,4 +59,8 @@ module.exports = {
 
   // Essence utils
   Utils:  require('./utils'),
+
+  // Essence utils
+  Mixins:  require('./mixins'),
+
 };

@@ -1,14 +1,10 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
-    displayName: 'Text',
-
-    mixins: [PubSub, ClassNames],
+    displayName: 'Block',
 
     getInitialState: function() {
       return {
@@ -93,8 +89,8 @@ module.exports = React.createClass({
           return (<hr
             className={classes}
             key={self.props.id}
-            id={self.props.id}
-          />);
+            id={self.props.id}/>
+          );
         }
 
         // type: br => html br tag
@@ -102,8 +98,8 @@ module.exports = React.createClass({
           return (<br
             className={classes}
             key={self.props.id}
-            id={self.props.id}
-          />);
+            id={self.props.id}/>
+          );
         }
       }
 

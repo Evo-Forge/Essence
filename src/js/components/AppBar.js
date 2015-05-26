@@ -1,25 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../utils/PubSub');
+var React = require('react/addons');
 
 module.exports = React.createClass({
     displayName: 'AppBar',
-
-    mixins: [PubSub],
 
     getInitialState: function() {
       return {
         children: []
       };
-    },
-
-    componentDidMount: function () {
-      // Empty
-    },
-
-    componentDidUnmount: function () {
-      // Empty
     },
 
     renderChildren: function () {

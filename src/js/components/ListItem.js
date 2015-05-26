@@ -3,17 +3,14 @@
 var React = require('react/addons'),
     Icon = require('./Icon'),
     ListItemElement = require('./ListItemElement'),
-    PubSub = require('../utils/PubSub'),
-    Position = require('../utils/Position'),
-    ClickPosition = require('../utils/ClickPosition'),
-    BackgroundColor = require('../utils/BackgroundColor'),
-    ClassNames = require('../utils/ClassNames'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'ListItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -75,9 +72,9 @@ module.exports = React.createClass({
 
     hideNavigation: function (data) {
       var self = this,
-          parentPosition = Position (data.currentTarget),
-          clickPosition = ClickPosition (data, parentPosition),
-          bgColor = BackgroundColor(data),
+          parentPosition = Utils.position.get(data.currentTarget),
+          clickPosition = Utils.position.clicked(data, parentPosition),
+          bgColor = Utils.backgroundColor(data),
           target = data.currentTarget,
           targetText = target.textContent;
 
@@ -106,7 +103,7 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
-          classes = classSet( ClassNames(self.state.classes, self.props.classes) ),
+          classes = classSet( Utils.classNames(self.state.classes, self.props.classes) ),
           childrens = React.Children.count(self.props.children),
           inputName = (self.props.inputName) ? self.props.inputName : '',
           contentLink = (self.props.contentLink) ? self.props.contentLink : '',

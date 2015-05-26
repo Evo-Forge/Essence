@@ -1,23 +1,22 @@
 'use strict';
 
 var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
-    DateFormat = require('../utils/DateFormat'),
+    PubSub = require('../mixins/PubSub'),
+    Utils = require('../utils'),
     classSet = React.addons.classSet;
 
 module.exports = React.createClass({
     displayName: 'DatePickerHeader',
 
-    mixins: [PubSub, ClassNames, DateFormat],
+    mixins: [PubSub],
 
     getDefaultProps() {
       var newDate = new Date(),
           currentDate = {
             day: newDate.getDate(),
             year: newDate.getFullYear(),
-            month: DateFormat('month', newDate.getMonth()),
-            dayName: DateFormat('day', newDate.getDay())
+            month: Utils.dateFormat('month', newDate.getMonth()),
+            dayName: Utils.dateFormat('day', newDate.getDay())
           };
 
       return {
@@ -43,7 +42,7 @@ module.exports = React.createClass({
       var self = this,
           classes = this.state.classes;
 
-      classes = ClassNames(classes, this.props.classes);
+      classes = Utils.classNames(classes, this.props.classes);
 
       self.setState({
         classes: classes
@@ -53,7 +52,7 @@ module.exports = React.createClass({
         if (data.action === "setValue" && self.props.parentId === data.id) {
           self.publish('actions:input', {
             action: 'setValue',
-            value: DateFormat('date', self.props.date),
+            value: Utils.dateFormat('date', self.props.date),
             id: data.id
           });
         }
