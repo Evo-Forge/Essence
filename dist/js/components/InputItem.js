@@ -151,6 +151,7 @@ module.exports = React.createClass({
     if (type === 'textarea') {
       return React.createElement('textarea', {
         className: inputClasses,
+        ref: this.props.ref,
         type: type,
         name: name,
         defaultValue: value,
@@ -160,12 +161,12 @@ module.exports = React.createClass({
         placeholder: placeholder,
         onChange: self.handleChange,
         onClick: self.handleClick,
-        onTouch: self.handleClick
-      });
+        onTouch: self.handleClick });
     }
 
     return React.createElement('input', {
       className: inputClasses,
+      ref: this.props.ref,
       type: type,
       name: name,
       defaultValue: value,
@@ -175,8 +176,7 @@ module.exports = React.createClass({
       placeholder: placeholder,
       onChange: self.handleChange,
       onClick: self.handleClick,
-      onTouch: self.handleClick
-    });
+      onTouch: self.handleClick });
   },
 
   render: function render() {

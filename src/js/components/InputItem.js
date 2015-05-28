@@ -152,6 +152,7 @@ module.exports = React.createClass({
         return (
           <textarea
             className={inputClasses}
+            ref={this.props.ref}
             type={type}
             name={name}
             defaultValue={value}
@@ -161,14 +162,14 @@ module.exports = React.createClass({
             placeholder={placeholder}
             onChange={self.handleChange}
             onClick={self.handleClick}
-            onTouch={self.handleClick}
-          />
+            onTouch={self.handleClick}/>
         );
       }
 
       return (
         <input
           className={inputClasses}
+          ref={this.props.ref}
           type={type}
           name={name}
           defaultValue={value}
@@ -178,8 +179,7 @@ module.exports = React.createClass({
           placeholder={placeholder}
           onChange={self.handleChange}
           onClick={self.handleClick}
-          onTouch={self.handleClick}
-        />
+          onTouch={self.handleClick}/>
       );
     },
 
