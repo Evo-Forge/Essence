@@ -16,7 +16,7 @@ module.exports = React.createClass({
       classes: {
         'e-dialog': this.props.full ? false : true,
         'e-dialog-full': this.props.full ? true : false,
-        'transparent': true },
+        'transparent': this.props.show ? false : true },
       modalStyle: {
         display: 'none'
       }

@@ -14,9 +14,9 @@ module.exports = React.createClass({
       return {
         isMobile: Utils.mobile.isMobile(),
         classes: {
-          'e-dialog': (this.props.full) ? false : true,
-          'e-dialog-full': (this.props.full) ? true : false,
-          'transparent': true,
+          'e-dialog': this.props.full ? false : true,
+          'e-dialog-full': this.props.full ? true : false,
+          'transparent': this.props.show ? false : true,
         },
         modalStyle: {
           display: 'none'
