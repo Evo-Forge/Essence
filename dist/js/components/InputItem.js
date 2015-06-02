@@ -30,7 +30,7 @@ module.exports = React.createClass({
     var self = this,
         parentClass = self.props.classes || [],
         inputClasses = self.state.inputClasses,
-        inputValue = self.props.inputValue || self.state.inputValue || '',
+        inputValue = self.props.value || self.props.inputValue || self.state.inputValue || '',
         counter = self.state.counter;
 
     if (self.props.counter && parseInt(self.props.counter) > 0) {
@@ -49,6 +49,10 @@ module.exports = React.createClass({
         }
       }
     });
+
+    if (inputValue.length > 1) {
+      inputClasses['empty'] = false;
+    }
 
     self.setState({
       classes: parentClass,
