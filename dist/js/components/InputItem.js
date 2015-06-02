@@ -90,7 +90,9 @@ module.exports = React.createClass({
 
     if (inputValue.length > 0) {
       inputClasses['empty'] = false;
-    } else {
+    }
+
+    if (inputValue.length === 0) {
       inputClasses['empty'] = true;
     }
 
