@@ -148,8 +148,8 @@ module.exports = React.createClass({
           },
           classes = {
             'e-tabs': true,
-            'e-background-cyan-500': true,
-            'e-text-grey-50': true
+            'e-background-cyan-500': self.props.classes ? false : true,
+            'e-text-grey-50': self.props.classes ? false : true
           },
 
           classList = classSet(Utils.classNames(classes, self.props.classes));
