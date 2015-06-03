@@ -67,24 +67,24 @@ module.exports = React.createClass({
         children = {
       'list': [],
       'content': []
-    };
+    },
+        item_active = false;
 
     self.props.children.map(function (item, index) {
       var itemID = self.props.id + '-' + item.props.id;
 
+      if (!self.state.activeItem && (index === 0 && item.props.type === 'list' || index === 1 && item.props.type === 'content')) {
+        item_active = true;
+      } else if (itemID === self.state.activeItem) {
+        item_active = true;
+      }
+
       item = React.addons.cloneWithProps(item, {
+        active: item_active,
         parentId: self.props.id,
         parentType: self.props.type,
         key: item.props.type + '-' + itemID
       });
-
-      if (!self.state.activeItem && (index === 0 && item.props.type === 'list' || index === 1 && item.props.type === 'content')) {
-        item.props.active = true;
-      } else if (itemID === self.state.activeItem) {
-        item.props.active = true;
-      } else {
-        item.props.active = false;
-      }
 
       if (item.props.type === 'list') {
         children.list.push(item);
