@@ -83,6 +83,8 @@ module.exports = React.createClass({
           item_active = true;
         } else if (itemID === self.state.activeItem) {
           item_active = true;
+        } else {
+          item_active = false;
         }
 
         item = (
