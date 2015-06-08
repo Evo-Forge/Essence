@@ -166,10 +166,12 @@ module.exports = React.createClass({
     componentWillReceiveProps: function () {
       var self = this,
           options = self.props.items ? self.props.items[0] : false;
-
-      self.setState({
-        isHidden: options.hide
-      });
+      
+      if (options.hide !== undefined){
+        self.setState({
+          isHidden: options.hide
+        });
+      }
     },
 
     renderItem: function (item, index) {
