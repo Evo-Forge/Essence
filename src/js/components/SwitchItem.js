@@ -52,6 +52,7 @@ module.exports = React.createClass({
               type="checkbox"
               name={self.props.name}
               onChange={self.props.onChange}
+              onClick={self.props.onClick}
               defaultChecked={self.props.checked}
               className={"toggle"}/>
 
@@ -78,6 +79,7 @@ module.exports = React.createClass({
               type="radio"
               name={self.props.name}
               onChange={self.props.onChange}
+              onClick={self.props.onClick}
               defaultChecked={self.props.checked}
               defaultValue={self.props.defaultValue}/>
 
@@ -103,6 +105,7 @@ module.exports = React.createClass({
             <input
               type="checkbox"
               onChange={self.props.onChange}
+              onClick={self.props.onClick}
               defaultChecked={self.props.checked}
               disabled={self.props.disable}/>
               

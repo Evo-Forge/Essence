@@ -54,6 +54,7 @@ module.exports = React.createClass({
           type: 'checkbox',
           name: self.props.name,
           onChange: self.props.onChange,
+          onClick: self.props.onClick,
           defaultChecked: self.props.checked,
           className: 'toggle' }),
         React.createElement('span', { className: 'absolute e-wave' }),
@@ -81,6 +82,7 @@ module.exports = React.createClass({
           type: 'radio',
           name: self.props.name,
           onChange: self.props.onChange,
+          onClick: self.props.onClick,
           defaultChecked: self.props.checked,
           defaultValue: self.props.defaultValue }),
         React.createElement('span', { className: 'absolute circle' }),
@@ -107,6 +109,7 @@ module.exports = React.createClass({
         React.createElement('input', {
           type: 'checkbox',
           onChange: self.props.onChange,
+          onClick: self.props.onClick,
           defaultChecked: self.props.checked,
           disabled: self.props.disable }),
         React.createElement('span', { className: 'e-switches-toggle' }),
