@@ -1,9 +1,9 @@
 {
-  "name": "essence",
-  "version": "0.2.1",
-  "description": "essence - basic material design UI framework",
-  "private": true,
+  "name": "react-essence",
+  "version": "0.0.12",
+  "description": "React Essence Components - basic Material Design UI framework",
   "main": "./dist/js/essence.js",
+  "license": "MIT",
   "keywords": [
     "essence",
     "react",
