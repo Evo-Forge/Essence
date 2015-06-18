@@ -33,8 +33,10 @@ module.exports = React.createClass({
     }
   },
 
-  componentDidUnmount: function componentDidUnmount() {
-    this.unsubscribe('changeText_' + this.props.id, null);
+  componentWillUnmount: function componentWillUnmount() {
+    this.unsubscribe('changeText_' + this.props.id, function () {
+      return false;
+    });
   },
 
   changeText: function changeText(newText) {

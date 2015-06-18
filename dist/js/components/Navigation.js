@@ -24,7 +24,7 @@ module.exports = React.createClass({
 
   componentDidMount: function componentDidMount() {},
 
-  componentDidUnmount: function componentDidUnmount() {
+  componentWillUnmount: function componentWillUnmount() {
     this.unsubscribe('showNavigation', this.hideNavigation);
   },
 

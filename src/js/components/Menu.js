@@ -55,7 +55,7 @@ module.exports = React.createClass({
       var self = this,
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
-      this.unsubscribe('toggleMenu_for_' + menuID, function(data) { return false; } );
+      this.unsubscribe('toggleMenu_for_' + menuID, function() { return false; } );
 
       document.removeEventListener("click");
       document.removeEventListener("touchend");

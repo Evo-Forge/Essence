@@ -68,7 +68,7 @@ module.exports = React.createClass({
 
     componentWillUnmount: function () {
       var self = this;
-      this.unsubscribe('snackbar:'+self.props.id, function(data) { return false; });
+      this.unsubscribe('snackbar:'+self.props.id, function() { return false; });
     },
 
     actionBtn: function () {

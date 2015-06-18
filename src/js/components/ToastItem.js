@@ -68,7 +68,7 @@ module.exports = React.createClass({
 
     componentWillUnmount: function () {
       var self = this;
-      this.unsubscribe('toast:'+self.props.id, function(data) {return false;} );
+      this.unsubscribe('toast:'+self.props.id, function() {return false;} );
     },
 
     render: function () {

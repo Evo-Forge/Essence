@@ -58,7 +58,7 @@ module.exports = React.createClass({
     this.subscribe('menu:activeItem', this.setActiveItem);
   },
 
-  componentDidUnmount: function componentDidUnmount() {
+  componentWillUnmount: function componentWillUnmount() {
     this.unsubscribe('menu:activeItem', this.setActiveItem);
   },
 
