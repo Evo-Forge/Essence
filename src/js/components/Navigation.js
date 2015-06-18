@@ -39,7 +39,7 @@ module.exports = React.createClass({
       */
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       this.unsubscribe('showNavigation', this.hideNavigation);
     },
 

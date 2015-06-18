@@ -66,9 +66,9 @@ module.exports = React.createClass({
       });
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       var self = this;
-      this.unsubscribe('toast:'+self.props.id, null);
+      this.unsubscribe('toast:'+self.props.id, function(data) {return false;} );
     },
 
     render: function () {

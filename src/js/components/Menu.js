@@ -51,11 +51,11 @@ module.exports = React.createClass({
 
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       var self = this,
           options = self.props.items ? self.props.items[0] : false,
           menuID = self.props.id || options.id || "menu-0";
-      this.unsubscribe('toggleMenu_for_' + menuID, null);
+      this.unsubscribe('toggleMenu_for_' + menuID, function(data) { return false; } );
 
       document.removeEventListener("click");
       document.removeEventListener("touchend");
