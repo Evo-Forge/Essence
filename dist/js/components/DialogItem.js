@@ -23,6 +23,15 @@ module.exports = React.createClass({
     };
   },
 
+  _toggleAction: function _toggleAction(data) {
+    var self = this;
+    if (data.action === 'hide') {
+      self.hideDialog(data.id);
+    } else if (data.action === 'show') {
+      self.showDialog(data.id);
+    }
+  },
+
   componentDidMount: function componentDidMount() {
     var self = this,
         classes = self.state.classes;
@@ -34,11 +43,14 @@ module.exports = React.createClass({
     });
 
     self.subscribe('actions:dialog', function (data) {
-      if (data.action === 'hide') {
-        self.hideDialog(data.id);
-      } else if (data.action === 'show') {
-        self.showDialog(data.id);
-      }
+      return self._toggleAction(data);
+    });
+  },
+
+  componentWillUnmount: function componentWillUnmount() {
+    var self = this;
+    self.unsubscribe('actions:dialog', function (data) {
+      return self._toggleAction(data);
     });
   },
 

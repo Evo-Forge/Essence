@@ -20,12 +20,10 @@ module.exports = React.createClass({
       };
     },
 
-    componentDidMount: function () {
-      var self = this;
-
-      self.subscribe('highlighterCSS:'+self.props.id, function (target) {
-        var targetLeft = target.element.parentNode.offsetLeft,
-            stateLeft = self.state.styles.left;
+    _toggleAction: function(target) {
+      var self = this,
+          targetLeft = target.element.parentNode.offsetLeft,
+          stateLeft = self.state.styles.left;
 
         self.setState({
           direction: targetLeft <= stateLeft  ? 'to-left' : 'to-right',
@@ -36,7 +34,18 @@ module.exports = React.createClass({
           },
           highlighter: self
         });
-      });
+    },
+
+    componentDidMount: function () {
+      var self = this;
+
+      self.subscribe('highlighterCSS:'+self.props.id, function(target) { self._toggleAction(target) });
+    },
+
+    componentWillUnmount: function () {
+      var self = this;
+
+      self.subscribe('highlighterCSS:'+self.props.id, function(target) { self._toggleAction(target) });
     },
 
     render: function () {

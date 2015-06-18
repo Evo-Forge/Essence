@@ -19,25 +19,34 @@ module.exports = React.createClass({
       };
     },
 
+    _toggleAction: function(data) {
+      var self = this;
+
+      if (data.action === "hide") {
+        self.hideDatePicker(data.id);
+      } else if (data.action === "show") {
+        self.showDatePicker(data.id);
+      } else if (data.action === "setValue") {
+        self.hideDatePicker(data.id);
+      }
+    },
+
     componentDidMount() {
       var self = this,
           classes = this.state.classes || [];
 
-      self.subscribe('actions:datepicker', function (data) {
-        if (data.action === "hide") {
-          self.hideDatePicker(data.id);
-        } else if (data.action === "show") {
-          self.showDatePicker(data.id);
-        } else if (data.action === "setValue") {
-          self.hideDatePicker(data.id);
-        }
-      });
+      self.subscribe('actions:datepicker', function(data) { return self._toggleAction(data) });
 
       classes = Utils.classNames(classes, self.props.classes);
 
       self.setState({
         classes: classes
       });
+    },
+
+    componentWillUnmount: function () {
+      var self = this;
+      self.subscribe('actions:datepicker', function(data) { return self._toggleAction(data) });
     },
 
     showDatePicker(componentID) {

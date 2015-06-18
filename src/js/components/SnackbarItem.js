@@ -66,6 +66,11 @@ module.exports = React.createClass({
       });
     },
 
+    componentWillUnmount: function () {
+      var self = this;
+      this.unsubscribe('snackbar:'+self.props.id, null);
+    },
+
     actionBtn: function () {
       if (!this.props.action) {
         return null;

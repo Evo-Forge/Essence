@@ -33,6 +33,16 @@ module.exports = React.createClass({
       };
     },
 
+    _toggleAction: function(data) {
+      var self = this;
+
+      if (data.action === 'active') {
+        self.setState({
+          activeItem: data.id
+        });
+      }
+    },
+
     componentDidMount: function () {
       var self = this,
           classes = self.state.classes || [];
@@ -73,17 +83,16 @@ module.exports = React.createClass({
         classes['e-list-navigation'] = true;
       }
 
-      self.subscribe('actions:list', function (data) {
-        if (data.action === 'active') {
-          self.setState({
-            activeItem: data.id
-          });
-        }
-      });
+      self.subscribe('actions:list', function(data) { return self._toggleAction(data) });
 
       self.setState({
         classes: classes
       });
+    },
+    
+    componentWillUnmount: function () {
+      var self = this;
+      self.subscribe('actions:input', function(data) { return self._toggleAction(data) });
     },
 
     renderChildren: function () {

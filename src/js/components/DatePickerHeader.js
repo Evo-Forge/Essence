@@ -38,6 +38,19 @@ module.exports = React.createClass({
       };
     },
 
+    _toggleAction: function(data) {
+      var self = this;
+
+      if (data.action === "setValue" && self.props.parentId === data.id) {
+        self.publish('actions:input', {
+          action: 'setValue',
+          value: Utils.dateFormat('date', self.props.date),
+          id: data.id
+        });
+      }
+    
+    },
+
     componentDidMount() {
       var self = this,
           classes = this.state.classes;
@@ -48,15 +61,12 @@ module.exports = React.createClass({
         classes: classes
       });
 
-      self.subscribe('actions:datepicker', function (data) {
-        if (data.action === "setValue" && self.props.parentId === data.id) {
-          self.publish('actions:input', {
-            action: 'setValue',
-            value: Utils.dateFormat('date', self.props.date),
-            id: data.id
-          });
-        }
-      });
+      self.subscribe('actions:datepicker', function(data) { return self._toggleAction(data) });
+    },
+    
+    componentWillUnmount: function () {
+      var self = this;
+      self.subscribe('actions:datepicker', function(data) { return self._toggleAction(data) });
     },
 
     renderDateMonth() {

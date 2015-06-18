@@ -32,6 +32,16 @@ module.exports = React.createClass({
     };
   },
 
+  _toggleAction: function _toggleAction(data) {
+    var self = this;
+
+    if (data.action === 'active') {
+      self.setState({
+        activeItem: data.id
+      });
+    }
+  },
+
   componentDidMount: function componentDidMount() {
     var self = this,
         classes = self.state.classes || [];
@@ -71,15 +81,18 @@ module.exports = React.createClass({
     }
 
     self.subscribe('actions:list', function (data) {
-      if (data.action === 'active') {
-        self.setState({
-          activeItem: data.id
-        });
-      }
+      return self._toggleAction(data);
     });
 
     self.setState({
       classes: classes
+    });
+  },
+
+  componentWillUnmount: function componentWillUnmount() {
+    var self = this;
+    self.subscribe('actions:input', function (data) {
+      return self._toggleAction(data);
     });
   },
 

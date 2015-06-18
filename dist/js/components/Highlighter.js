@@ -20,22 +20,35 @@ module.exports = React.createClass({
     };
   },
 
+  _toggleAction: function _toggleAction(target) {
+    var self = this,
+        targetLeft = target.element.parentNode.offsetLeft,
+        stateLeft = self.state.styles.left;
+
+    self.setState({
+      direction: targetLeft <= stateLeft ? 'to-left' : 'to-right',
+      styles: {
+        display: target.display,
+        left: target.left,
+        right: target.right
+      },
+      highlighter: self
+    });
+  },
+
   componentDidMount: function componentDidMount() {
     var self = this;
 
     self.subscribe('highlighterCSS:' + self.props.id, function (target) {
-      var targetLeft = target.element.parentNode.offsetLeft,
-          stateLeft = self.state.styles.left;
+      self._toggleAction(target);
+    });
+  },
 
-      self.setState({
-        direction: targetLeft <= stateLeft ? 'to-left' : 'to-right',
-        styles: {
-          display: target.display,
-          left: target.left,
-          right: target.right
-        },
-        highlighter: self
-      });
+  componentWillUnmount: function componentWillUnmount() {
+    var self = this;
+
+    self.subscribe('highlighterCSS:' + self.props.id, function (target) {
+      self._toggleAction(target);
     });
   },
 

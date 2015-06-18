@@ -112,14 +112,22 @@ module.exports = React.createClass({
       return false;
     },
 
-    componentDidMount: function () {
+    _toggleAction: function(data) {
       var self = this;
 
-      self.subscribe('showNavigationButton', function(data) {
-        self.setState({
-          showNavigation: data
-        });
+      self.setState({
+        showNavigation: data
       });
+    },
+
+    componentDidMount: function () {
+      var self = this;
+      self.subscribe('showNavigationButton', function(data) { return self._toggleAction(data) });
+    },
+
+    componentWillUnmount: function () {
+      var self = this;
+      self.unsubscribe('showNavigationButton', function(data) { return self._toggleAction(data) });
     },
 
     componentWillReceiveProps: function () {

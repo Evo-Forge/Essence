@@ -34,7 +34,7 @@ module.exports = React.createClass({
     this.subscribe('chip:ActiveItem', this.setActiveItem);
   },
 
-  componentDidUnmount: function componentDidUnmount() {
+  componentWillUnmount: function componentWillUnmount() {
     this.unsubscribe('chip:Open', this.setActive);
     this.unsubscribe('chip:Active', this.setActive);
     this.unsubscribe('chip:ActiveItem', this.setActiveItem);

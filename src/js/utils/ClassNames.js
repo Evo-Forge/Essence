@@ -1,7 +1,8 @@
 'use strict';
 
 module.exports = function (initClass, ExtraClass) {
-  var typeInitClass = typeof initClass,
+  var classes = {},
+      typeInitClass = typeof initClass,
       typeExtraClass = typeof ExtraClass;
 
   /**

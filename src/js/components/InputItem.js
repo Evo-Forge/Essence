@@ -26,6 +26,23 @@ module.exports = React.createClass({
       };
     },
 
+    _toggleAction: function(data) {
+      var self = this,
+          inputClasses = self.state.inputClasses,
+          inputValue = self.props.value || self.props.inputValue || self.state.inputValue || '';
+
+      if (data.action === "setValue") {
+        if (self.props.name === data.id) {
+          inputValue = data.value;
+          inputClasses['empty'] = false;
+          self.setState({
+            inputClasses: inputClasses,
+            inputValue: inputValue
+          });
+        }
+      }
+    },
+
     componentDidMount: function () {
       var self = this,
           parentClass = self.props.classes || [],
@@ -37,18 +54,7 @@ module.exports = React.createClass({
         counter.maximum = parseInt(self.props.counter);
       }
 
-      self.subscribe('actions:input', function (data) {
-        if (data.action === "setValue") {
-          if (self.props.name === data.id) {
-            inputValue = data.value;
-            inputClasses['empty'] = false;
-            self.setState({
-              inputClasses: inputClasses,
-              inputValue: inputValue
-            });
-          }
-        }
-      });
+      self.subscribe('actions:input', function(data) { return self._toggleAction(data) });
 
       if (inputValue.length > 1) {
         inputClasses['empty'] = false;
@@ -60,6 +66,11 @@ module.exports = React.createClass({
         inputValue: inputValue,
         counter: counter
       });
+    },
+
+    componentWillUnmount: function () {
+      var self = this;
+      self.subscribe('actions:input', function(data) { return self._toggleAction(data) });
     },
 
     handleClick: function () {

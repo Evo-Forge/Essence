@@ -33,16 +33,6 @@ module.exports = React.createClass({
         day: self.state.day || self.props.day,
         year: self.state.year || self.props.year,
       });
-
-      /*self.subscribe('actions:datepicker', function (data) {
-        if (data.action === "change") {
-          self.setState({
-            month: data.newDate.month,
-            day: data.newDate.day,
-            year: data.newDate.year,
-          });
-        }
-      });*/
     },
 
     updateDate(newDate) {

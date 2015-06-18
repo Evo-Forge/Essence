@@ -61,17 +61,28 @@ module.exports = React.createClass({
     return null;
   },
 
+  _toggleAction: function _toggleAction(data) {
+    var self = this;
+    if (data.action === 'show' && data.targetID === self.props.id) {
+      self.showDialog();
+    }
+
+    if (data.action === 'hide' && data.targetID === self.props.id) {
+      self.hideDialog();
+    }
+  },
+
   componentDidMount: function componentDidMount() {
     var self = this;
-
     self.subscribe('actions:bottomsheets', function (data) {
-      if (data.action === 'show' && data.targetID === self.props.id) {
-        self.showDialog();
-      }
+      return self._toggleAction(data);
+    });
+  },
 
-      if (data.action === 'hide' && data.targetID === self.props.id) {
-        self.hideDialog();
-      }
+  componentWillUnmount: function componentWillUnmount() {
+    var self = this;
+    self.unsubscribe('actions:bottomsheets', function (data) {
+      return self._toggleAction(data);
     });
   },
 
