@@ -85,6 +85,10 @@ module.exports = React.createClass({
 
         document.querySelector('body').className = '';
       }
+      
+      if (this.props.onClosing) {
+        return self.props.onClosing();
+      }
     },
 
     renderModalBackground: function () {
