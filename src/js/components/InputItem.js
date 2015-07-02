@@ -112,6 +112,11 @@ module.exports = React.createClass({
         inputValue: inputValue,
         inputClasses: inputClasses
       });
+      
+      //return change to parent via callback
+      if (this.props.handleChange) {
+        this.props.handleChange(inputValue);
+      }
     },
 
     renderLabel: function () {
