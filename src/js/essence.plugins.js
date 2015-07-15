@@ -33,7 +33,8 @@
 			var bgColor = $(element).css("color").replace("rgb", "rgba").replace(")", ", 0.5)"),
 				distance = Math.max($(element).outerWidth(), $(element).outerHeight()),
 				positionX = e.clientX - $(element).offset().left - distance/2 + $(window).scrollLeft(),
-				positionY = e.clientY - $(element).offset().top - distance/2 + $(window).scrollTop();
+				positionY = e.clientY - $(element).offset().top - distance/2 + $(window).scrollTop(),
+				setRipple = null;
 			
 			$(element).append('<div class="e-ripple-wrapper isActive"></div>');
 			setRipple = $(element).find('.isActive');
@@ -61,7 +62,7 @@
 		$.extend(defaults, options);
 
 		if (!defaults.action) {
-			$(document).delegate('[data-action]', 'click touch', function (event) {
+			$(document).delegate('[data-action]', 'click touch', function () {
 				var action = $(this).attr('data-action'),
 					target = $(this).attr('data-target');
 
@@ -123,7 +124,7 @@
 		$.extend(defaults, options);
 
 		if (!defaults.action) {
-			$(document).delegate('[data-action]', 'click touch', function (event) {
+			$(document).delegate('[data-action]', 'click touch', function () {
 				var action = $(this).attr('data-action'),
 					target = $(this).attr('data-target');
 
@@ -239,13 +240,12 @@
 		var defaults = {
 	 			id: this.attr("id"),
 	 			action: null
-			},
-			self = $(this);
+			};
 
 		$.extend(defaults, options);
 
 		if (!defaults.action) {
-			$(document).delegate('[data-action]', 'click touch', function (event) {
+			$(document).delegate('[data-action]', 'click touch', function () {
 				var action = $(this).attr('data-action'),
 					target = $(this).attr('data-target');
 
@@ -293,13 +293,12 @@
 		var defaults = {
 	 			id: this.attr("id"),
 	 			action: null
-			},
-			self = $(this);
+			};
 
 		$.extend(defaults, options);
 
 		if (!defaults.action) {
-			$(document).delegate('[data-action]', 'click touch', function (event) {
+			$(document).delegate('[data-action]', 'click touch', function () {
 				var action = $(this).attr('data-action'),
 					target = $(this).attr('data-target');
 
@@ -369,8 +368,8 @@
 		};
 
 		if (defaults.fill) {
-			if (!defaults.disabled) defaults.fill.css({width: getHorizontal() + "%"});
-			if (defaults.hasDiscrete) defaults.discrete.css({marginLeft: getHorizontal() + "%"}).html(getHorizontal());
+			if (!defaults.disabled) { defaults.fill.css({width: getHorizontal() + "%"}); }
+			if (defaults.hasDiscrete) { defaults.discrete.css({marginLeft: getHorizontal() + "%"}).html(getHorizontal()); }
 			defaults.cursor.css({left: getHorizontal() + "%"});
 		}
 
@@ -387,7 +386,7 @@
         $(this).on('mouseup touchend', function() {
         	defaults.startDrag = false;
 			self.css({cursor: 'default'});
-			if (defaults.hasDiscrete) defaults.discrete.css({transform: 'scale(0)'});
+			if (defaults.hasDiscrete) { defaults.discrete.css({transform: 'scale(0)'}); }
         });
 
         $(this).on('mousemove touchmove click', function(event) {
@@ -399,7 +398,7 @@
 
 	        	defaults.cursor.css({left: progressValue + "%"});
 	        	if (defaults.fill && !defaults.disabled) { defaults.fill.css({width: progressValue + "%"}); }
-				if (defaults.hasDiscrete) defaults.discrete.css({marginLeft: progressValue + "%", transform: 'scale(1)'}).html(progressValue);
+				if (defaults.hasDiscrete) { defaults.discrete.css({marginLeft: progressValue + "%", transform: 'scale(1)'}).html(progressValue); }
 				defaults.progress.val(progressValue);
         	}
         });
@@ -411,8 +410,7 @@
 	$.fn.navigation = function(options) {
 		var defaults = {
 				isMobile: $(document).isMobile()
-			},
-			self = $(this);
+			};
 
 		$.extend(defaults, options);
 
@@ -431,8 +429,7 @@
 	$.fn.menu = function(options) {
 		var defaults = {
 				isMobile: $(document).isMobile()
-			},
-			self = $(this);
+			};
 
 		$.extend(defaults, options);
 
@@ -448,9 +445,7 @@
 			
 			if (!hasLink.length) {
 				event.preventDefault();
-			} else {
 			}
-
 		});
 
         return this;
@@ -467,7 +462,7 @@
 		$.extend(defaults, options);
 
 		if (!defaults.action) {
-			$(document).delegate('[data-action]', 'click touch', function (event) {
+			$(document).delegate('[data-action]', 'click touch', function () {
 				var action = $(this).attr('data-action'),
 					target = $(this).attr('data-target');
 
@@ -549,7 +544,6 @@
 		}
 
 		var highlighter = function() {
-			// var tabLink = document.querySelector("[data-target='"+defaults.id+"']");
 			var tabLink = self.find("[data-target='"+defaults.id+"']"),
 				tabsContainer = self.find('.e-tabs-list'),
 				tabLinkLeft = parseInt( tabLink.offsetParent().position().left ),
@@ -577,7 +571,7 @@
 		openTab = function () {
 			var tabLinks = self.find("[data-target]").parent(),
 				tabLink = self.find("[data-target='"+defaults.id+"']"),
-				tabContents = self.find(".e-tabs-container .e-tab-content");
+				tabContents = self.find(".e-tabs-container .e-tab-content"),
 				tabContent = self.find(defaults.id);
 
 			tabLinks.removeClass("active");
