@@ -29,15 +29,18 @@ module.exports = React.createClass({
     _toggleAction: function(data) {
       var self = this,
           inputClasses = self.state.inputClasses,
-          inputValue = self.props.value || self.props.inputValue || self.state.inputValue || '';
+          inputValue = self.props.value || self.props.inputValue || self.state.inputValue || '',
+          counter = self.state.counter;
 
       if (data.action === "setValue") {
         if (self.props.name === data.id) {
           inputValue = data.value;
           inputClasses['empty'] = false;
+          counter.current = inputValue.length;
           self.setState({
             inputClasses: inputClasses,
-            inputValue: inputValue
+            inputValue: inputValue,
+            counter: counter
           });
         }
       }
