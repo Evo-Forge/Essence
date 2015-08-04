@@ -1,0 +1,282 @@
+
+//search bar
+
+.container-1{
+  width: 300px;
+  vertical-align: middle;
+  white-space: nowrap;
+  position: relative;
+  .box-shadow(~'25px 44px 24px 20px @box-shadow-color');
+}
+.e-search{
+  max-width: 300px;
+  height: 50px;
+  background:@search-backround-color;
+  border: none;
+  font-size: 16pt;
+  float: left;
+  color: white;
+  text-indent: 30px;
+  .transition(~'all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms');
+}
+
+//character counter
+
+.e-count {
+  position: absolute;
+  bottom: -27px;
+  right: 0px;
+  display: inline-block;
+  opacity: 0;
+}
+
+
+
+
+fieldset[disabled] .e-input, .e-input-group .e-input, .e-input  {
+  &, &:focus, &.focus {
+    &:not(textarea):not(select) {
+      height: 28px;
+
+    }
+    padding: 0;
+    float: none;
+    border: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: 1px solid #757575;
+    width: 100%;
+    display: block;
+    &:disabled {
+      border-style: dotted;
+    }
+  }
+}
+select.e-input {
+  height: 28px;
+}
+select[multiple].e-input {
+  &, &:focus, &.focus {
+    height: 85px;
+  }
+}
+
+.e-input-group {
+  margin: 30px 0;
+  position: relative;
+  .clearfix();
+
+  .e-input:focus, .e-input.focus, {
+    outline: none;
+  }
+
+  .floating-label {
+    color: #7E7E7E;
+    font-size: 14px;
+    position: absolute;
+    pointer-events: none;
+    left: 0px;
+    top: 5px;
+    transition: 0.2s ease all;
+    opacity: 0;
+  }
+  .e-input:not(.empty) ~ .floating-label {
+    top: -10px;
+    font-size: 10px;
+    opacity: 1;
+  }
+  .e-input:focus:invalid ~ .floating-label, .e-input.focus:invalid ~ .floating-label {
+    color: @input-danger;
+  }
+  .e-input:focus:invalid ~ .e-count, .e-input.focus:invalid ~ .e-count{
+    color: @input-danger;
+    opacity: 1;
+  }
+  .e-input:focus ~ .e-input-efects:after, .e-input.focus ~ .e-input-efects:after {
+    background-color: @input-default;
+  }
+   .e-input:focus ~ .e-count, .e-input.focus ~ .e-count{
+    color: @input-default;
+    opacity: 1;
+  }
+  .e-input:focus:invalid ~ .e-input-efects, .e-input.focus:invalid ~ .e-input-efects {
+    &:before, &:after  {
+      background-color: @input-danger;
+    }
+  }
+  .e-input.empty ~ .floating-label {
+    opacity: 1;
+  }
+  .e-input-efects:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    height: 2px;
+    background-color: @input-default;
+    bottom: -1px;
+    transform: scaleX(0);
+    transition: transform 0s;
+  }
+  .e-input:focus  ~ .e-input-efects:before, .e-input.focus  ~ .e-input-efects:before {
+    transform: scaleX(1);
+    transition: transform 0.2s ease-out;
+  }
+  .e-input-efects:after {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 100px;
+    margin-top: -1px;
+    top: 7px;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.9;
+    transform-origin: left;
+  }
+  .input-lg ~ .e-input-efects:after {
+    height: 26px;
+  }
+  textarea { resize: none; }
+  textarea ~ .input-highlight {
+    margin-top: 0px;
+  }
+
+  // active state
+  .e-input:focus ~ .e-input-efects:after, .e-input.focus ~ .e-input-efects:after {
+    .e-animation-wave(input-highlight 0.3s ease);
+    .e-animation-fill-mode(forwards);
+    opacity: 0;
+  }
+
+  // Hints
+  .e-hint {
+    position: absolute;
+    font-size: 80%;
+    display: none;
+  }
+  .e-input:focus ~ .e-hint, .e-input.focus ~ .e-hint {
+    display: block;
+  }
+
+  select ~ .e-input-efects:after {
+    display: none;
+  }
+
+}
+
+.e-input-group {
+  &.has-warning {
+    .e-input-efects:before, input.e-input:focus ~ .e-input-efects:after, input.e-input.focus ~ .e-input-efects:after {
+      background: @input-warning;
+    }
+    .control-label, input.e-input:not(.empty) ~ .floating-label, .e-count {
+      color: @input-warning;
+    }
+  }
+  &.has-error {
+    .e-input-efects:before, input.e-input:focus ~ .e-input-efects:after, input.e-input.focus ~ .e-input-efects:after {
+      background: @input-danger;
+    }
+    .control-label, input.e-input:not(.empty) ~ .floating-label, .e-count {
+      color: @input-danger !important;
+    }
+  }
+  &.has-success {
+    .e-input-efects:before, input.e-input:focus ~ .e-input-efects:after, input.e-input.focus ~ .e-input-efects:after {
+      background: @input-success;
+    }
+    .control-label, input.e-input:not(.empty) ~ .floating-label , .e-count {
+      color: @input-success ;
+    }
+  }
+  &.has-info {
+    .e-input-efects:before, input.e-input:focus ~ .e-input-efects:after, input.e-input.focus ~ .e-input-efects:after {
+      background: @input-info;
+    }
+    .control-label, input.e-input:not(.empty) ~ .floating-label , .e-count {
+      color: @input-info;
+    }
+  }
+  .variations(~" .e-input-efects:before", background-color, @input-default);
+  .variations(~" input.e-input:focus ~ .e-input-efects:after", background-color, @input-default);
+  .variations(~" input.e-input.focus ~ .e-input-efects:after", background-color, @input-default);
+  .variations(~" .control-label", color, @e-lightbg-text);
+  .variations(~" .e-count", color, @e-lightbg-text);
+  .variations(~" input.e-input:not(.empty) ~ .floating-label", color, @input-default);
+  .variations(~" input.e-input:not(.empty) ~ .e-count", color, @input-default);
+
+}
+
+.e-input-group {
+  .e-input-group {
+    .e-input {
+      float: none;
+    }
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .input-group-addon {
+    border: 0;
+    background: transparent;
+  }
+  .input-group-btn .btn {
+    border-radius: 4px;
+    margin: 0;
+  }
+}
+
+select.e-input {
+  border: 0;
+  box-shadow: none;
+  border-bottom: 1px solid #757575;
+  border-radius: 0;
+  &:focus, &.focus {
+    box-shadow: none;
+    border-color: #757575
+  }
+}
+
+@-webkit-keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes input-highlight {
+  0% {
+    left: 20%;
+    transform: scaleX(20%);
+  }
+  99% {
+    transform: scaleX(0);
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// Input files
+.e-input-group input[type=file] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}

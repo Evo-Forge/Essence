@@ -1,0 +1,122 @@
+.e-tabs {
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  .e-tabs-highlighter {
+    position: absolute;
+    left: 1px;
+    bottom: 0;
+    height: 2px;
+
+    &.to-left {
+      .transition(~"left .1s ease-in-out .2s, right .4s ease-in-out .3s");
+    }
+
+    &.to-right {
+      .transition(~"left .4s ease-in-out .3s, right .2s ease-in-out .2s");
+    }
+
+    //.transition(all 0.33s ease-out);
+    background-color: @e-color-amber-200;
+  }
+
+  .e-tabs-list {
+    overflow: hidden;
+    white-space: nowrap;
+    
+    li.brick {
+      padding: 0 !important;
+      margin-bottom: 0 !important;
+    }
+    li.brick-1            { .column(12); }
+    li.brick-2            { .column(6); }
+    li.brick-3            { .column(4); }
+    li.brick-4            { .column(3); }
+    li.brick-5            { .column(2.4); }
+    li.brick-6            { .column(2); }
+    li.brick-7            { .column(1.7142857142); }
+    li.brick-8            { .column(1.5); } 
+    li.brick-9            { .column(1.3333333333); }
+    li.brick-10           { .column(1.2); }
+    li.brick-11           { .column(1.0909); }
+    li.brick-12           { .column(1); }
+
+    > li {
+      display: inline-block;
+      text-align: center;
+
+      > a {
+        display: block;
+        line-height: @e-unit * 6;
+        text-transform: uppercase;
+        color: #fff;
+        opacity: 0.8;
+        
+      }
+
+      &.active {
+        color: #fff;
+        > a {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &.scrollable, &.simple {
+//    padding: 0 @e-unit * 10; 
+
+    .e-tabs-list {
+      box-sizing: border-box;
+      > li {
+        display: inline-block;
+        
+
+        &:first-child {
+          padding-left: 0;
+        }
+
+        &:last-child {
+          padding-right: 0;
+        }
+        a {
+          padding: 0 @e-unit * 3;
+        }
+      }
+    }
+
+    .e-tabs-scroller {
+      position: absolute;
+      top: 0;
+      display: inline-block;
+      width: @e-unit * 10;
+      padding: 0;
+      margin: 0;
+
+      color: inherit;
+      font-weight: 700;
+      line-height: 48px;
+      text-align: center;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+
+    }
+  }
+}
+.e-tab-content {
+  overflow: hidden;
+  display: none;
+  transition: all 0.4s ease;
+  padding: @e-unit;
+  .clearfix();
+  &.active {
+    display: block;
+  }
+}

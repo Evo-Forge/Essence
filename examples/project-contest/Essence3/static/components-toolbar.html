@@ -1,0 +1,190 @@
+<div class="e-container">
+  <!--   Component - Toolbar       -->
+
+  <div class="toolbar e-padding-top-50" id="components-toolbar">
+
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-green-500">Toolbar</h3>
+
+        <div id="components-toolbar-reactjs">
+          <div class="e-toolbar clearfix">
+            <span>
+              <span>
+                Toolbar
+              </span>
+            </span>
+            <nav class="e-nav-menu e-text-color-blue-500 e-right" id="menu-toolbar-right">
+              <button class="simple-button e-nav-toggle">
+                <i class="e-icon-navigation-more-vert">
+                </i>
+              </button>
+              <ul class="e-nav right e-paper e-shadow-1 hide" id="menu-toolbar-right">
+                <li>
+                  <a href="#profile">
+                    Profile
+                  </a>
+                </li>
+                <li>
+                  <a href="#settings">
+                    Settings
+                  </a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#support">
+                    Support
+                  </a>
+                </li>
+                <li>
+                  <a href="#logout">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div>
+              <button class="simple-button e-right">
+                <i class="e-icon-action-favorite">
+                </i>
+              </button>
+              <button class="simple-button e-right">
+                <i class="e-icon-action-search">
+                </i>
+              </button>
+              <button class="raised e-right e-btn-primary">
+                <span>
+                  Create Action
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <p class="e-subhead">Toolbars are versatile and can be used in many different ways, with various actions &amp; icons. Hers an example:</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;div class=&quot;e-toolbar clearfix&quot;&gt;
+  &lt;span&gt;
+    &lt;span&gt;
+      Toolbar
+    &lt;/span&gt;
+  &lt;/span&gt;
+  &lt;nav class=&quot;e-nav-menu e-text-color-blue-500 e-right&quot; id=&quot;menu-toolbar-right&quot;&gt;
+    &lt;button class=&quot;simple-button e-nav-toggle&quot;&gt;
+      &lt;i class=&quot;e-icon-navigation-more-vert&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;e-nav right e-paper e-shadow-1 hide&quot; id=&quot;menu-toolbar-right&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#profile&quot;&gt;
+          Profile
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#settings&quot;&gt;
+          Settings
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class=&quot;divider&quot;&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#support&quot;&gt;
+          Support
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#logout&quot;&gt;
+          Logout
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+  &lt;div&gt;
+    &lt;button class=&quot;simple-button e-right&quot;&gt;
+      &lt;i class=&quot;e-icon-action-favorite&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;simple-button e-right&quot;&gt;
+      &lt;i class=&quot;e-icon-action-search&quot;&gt;
+      &lt;/i&gt;
+    &lt;/button&gt;
+    &lt;button class=&quot;raised e-right e-btn-primary&quot;&gt;
+      &lt;span&gt;
+        Create Action
+      &lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+&lt;ToolBar title='Toolbar'&gt;
+  &lt;Menu items={toolbar_menu_right} /&gt;
+  &lt;Btn&gt;
+    &lt;BtnItem
+      icon='action-favorite'
+      classes={'simple-button e-right'}
+    /&gt;
+    &lt;BtnItem
+      icon='action-search'
+      classes={'simple-button e-right'}
+    /&gt;
+    &lt;BtnItem
+      type={'primary'}
+      label='Create Action'
+      classes={'raised e-right'}
+    /&gt;
+  &lt;/Btn&gt;
+&lt;/ToolBar&gt;
+
+var toolbar_menu_right = [
+  {
+    id: 'menu-toolbar-right',
+    type: 'menu',
+    hide: true,
+    icon: 'navigation-more-vert',
+    classes: 'e-text-color-blue-500 e-right',
+    items: [
+      {
+        type: 'menu',
+        text: 'Profile',
+        link: '#profile'
+      },
+      {
+        type: 'menu',
+        text: 'Settings',
+        link: '#settings'
+      },
+      {
+        type: 'divider'
+      },
+      {
+        type: 'menu',
+        text: 'Support',
+        link: '#support'
+      },
+      {
+        type: 'menu',
+        text: 'Logout',
+        link: '#logout'
+      },
+    ]
+  }
+];
+        </pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- END - Component - Toolbar       -->
+</div>

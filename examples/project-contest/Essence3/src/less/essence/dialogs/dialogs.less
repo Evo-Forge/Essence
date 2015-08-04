@@ -1,0 +1,97 @@
+// width
+ @e-dialogs-width:80%;
+ @e-dialogs-color: @e-color-blue-grey-800;
+
+// Dialogs component
+.e-dialog-container {
+  position: relative;
+}
+.e-dialog{
+  position: fixed;
+  left: auto;
+  top: 20%;
+  z-index: 5;
+  padding: 24px 24px 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+
+  // Display
+  max-width: @e-dialogs-width;
+  margin: 0 auto;
+
+  // Other
+  background-color: @e-color-white;
+  .transition(all 0.2s ease-in-out);
+
+
+        .e-dialogs-header{
+          padding-bottom: 24px;
+
+          h2{
+            color:@e-color-blue-grey-800;
+            line-height: 1;
+          }
+        }
+
+        .e-dialogs-content{
+          padding-bottom: 24px;
+
+          p{
+            color:@e-color-blue-grey-600;
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+
+        .e-dialogs-actions{
+          text-align: right;
+          width: auto;
+          min-height: 48px;
+          padding-bottom: 8px;
+        }
+    .e-border-style
+}
+.e-dialog-full {
+  background-color: @e-color-white;
+  position: absolute;
+  top: 20%;
+  z-index: 5;
+  width: 100%;
+  .transition(all 0.2s ease-in-out);
+
+  .e-dialogs-header {
+    background: @e-color-blue-grey-800;
+    color: @e-color-white;
+    padding: (@e-unit * 1.5) (@e-unit * 2);
+    box-shadow: 0 2px 5px -2px #000;
+    .e-dialog-header-action {
+      color: @e-color-white;
+      line-height: (@e-unit * 3);
+      span {
+        font-size: (@e-unit * 1.8);
+      }
+    }
+    .e-dialog-header-text {
+      display: block;
+      float: left;
+      text-indent: (@e-unit * 2);
+      font-weight: 400;
+    }
+  }
+  .e-dialog-second-title {
+    display: block;
+    padding: (@e-unit * 2) ;
+  }
+  .e-list {
+    padding: 0;
+  }
+}
+//show overlay when dialog is opened
+.e-main {
+  &.dialog-visible {
+    .e-modal-bg {
+      display: block;
+    }
+  }
+}

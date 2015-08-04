@@ -1,0 +1,306 @@
+<div class="e-container">
+  <!--   Component - Navigation Drawer       -->
+
+  <div class="paper e-padding-top-50" id="components-navigation">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Navigation Drawer</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+      </div>
+      <div id="components-navigation-reactjs" class="e-paper-container brick brick-12 e-padding-top-25" style="position: relative !important;">
+        Navigation Drawer HTML Code
+      </div>
+      <div class="brick brick-12">
+        <p class="e-body1 e-text-blue-grey-400">
+          Navigation Drawers help your users browse the site. Here's an example similar to the one we use. Add it to your aplication and customize the menus.
+        </p>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div&gt;
+  &lt;aside class=&quot;e-nav-drawer e-shadow-1&quot;&gt;
+    &lt;nav&gt;
+      &lt;div class=&quot;e-navigation-wrapper&quot;&gt;
+        &lt;header class=&quot;e-nav-header&quot;&gt;
+          &lt;img class=&quot;nav-logo&quot; alt=&quot;Navigation&quot; src=&quot;assets/img/essence_icon.png&quot;&gt;
+          &lt;span class=&quot;example-logo&quot;&gt;
+            Navigation
+          &lt;/span&gt;
+        &lt;/header&gt;
+        &lt;ul class=&quot;e-list-navigation&quot;&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;&quot;&gt;
+              &lt;span&gt;
+                Navigation Drawer
+              &lt;/span&gt;
+              &lt;i class=&quot;e-right e-icon-hardware-keyboard-arrow-down&quot;&gt;
+              &lt;/i&gt;
+            &lt;/a&gt;
+            &lt;ul class=&quot;e-sublist-navigation&quot;&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  Home
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  About
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  Getting Started
+                &lt;/a&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;a&gt;
+                  Contact
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;footer class=&quot;e-nav-footer&quot;&gt;
+        Footer text
+      &lt;/footer&gt;
+    &lt;/nav&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Navigation
+  live={false}
+  header='Navigation'
+  logo='assets/img/essence_icon.png'
+&gt;
+  &lt;List
+    classes='e-list-navigation'
+    id='NavigationDrawer'
+  &gt;
+    &lt;ListItem
+      listType='navigation'
+      contentText='Material Design'
+      contentLink='#'
+      hasSubmenu={true}
+    &gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Home
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          About
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Getting Started
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Contact
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/ListItem&gt;
+
+    &lt;ListItem
+      listType='navigation'
+      contentText='Styles'
+      contentLink='#styles'
+      hasSubmenu={true}
+    &gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Colors
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Icons
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Typography
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Useful classes
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/ListItem&gt;
+
+    &lt;ListItem
+      listType='navigation'
+      contentText='Components'
+      contentLink='#components'
+      hasSubmenu={true}
+    &gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Appbar
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Bottom Sheets
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Buttons
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Cards
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Chips
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Dialogs
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Dividers
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Grids
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Lists
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          List Controls
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Menus
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Navigation Drawer
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Paper
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Progress
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Slider
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Snackbars and Toast
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Switches
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Tabs
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Text fields
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+      &lt;Block type='li'&gt;
+        &lt;Text&gt;
+          Tooltips
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/ListItem&gt;
+  &lt;/List&gt;
+&lt;/Navigation&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Navigation" Essence component to render a "List" component. The "Navigation" Essence component will return a aside container with class name "e-nav-drawer". Inside the Navigation component you can include only the <strong>List</strong> component. <br />
+          A "List" Essence component will render any List subcomponent or html code.<br />
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+  <span class="e-text-blue-500">&lt;Navigation&gt;</span>
+    <span class="e-text-blue-500">&lt;List classes='e-list-navigation' id='NavigationDrawer'&gt;</span>
+      <span class="e-text-indigo-600">&lt;ListItem listType='navigation' contentText='navigation 1' contentLink='#navigation1' hasSubmenu={true} &gt;</span>
+      <span class="e-text-indigo-600">  &lt;Block type='li'&gt;</span>
+      <span class="e-text-indigo-600">    &lt;Text&gt; List 1 &lt;/Text&gt;</span>
+      <span class="e-text-indigo-600">  &lt;/Block&gt;</span>
+      <span class="e-text-indigo-600">  &lt;Block type='li'&gt;</span>
+      <span class="e-text-indigo-600">    &lt;Text&gt; List 2 &lt;/Text&gt;</span>
+      <span class="e-text-indigo-600">  &lt;/Block&gt;</span>
+      <span class="e-text-indigo-600">&lt;/ListItem&gt;</span>
+      <span class="e-text-indigo-600">can be used to include any component or html code</span>
+    <span class="e-text-blue-500">&lt;/List&gt;</span>
+  <span class="e-text-blue-500">&lt;/Navigation&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any Navigation component or subcomponent from Styles > Colors menu<br />
+          <br />
+          <br />
+          &bull; Options<br />
+          - live: default <strong>true</strong> and if set to <strong>false</strong> will generate a inline style css with position: relative as in example above<br />
+          - header: text for Navigation header<br />
+          - footer: text for Navigation footer<br />
+          - logo: is the image logo included in the Navigation header<br />
+          - use the examples from above to structure your own Navigation
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END Component - Navigation Drawer       -->
+</div>

@@ -1,0 +1,147 @@
+
+.e-picker-container {
+  // Display
+  margin: 0 auto;
+  position: fixed;
+  left: auto;
+  top: 20%;
+  z-index: 5;
+
+  width: 300px;
+  text-align: center;
+  box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.22);
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  background: @e-color-white;
+  header {
+    color: @e-color-white;
+    .e-picker-header-day-text {
+      background: @e-color-green-800;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      font-size: (@e-unit * 2);
+      line-height: (@e-unit * 3);
+    }
+    .e-picker-header-big-show {
+      text-transform: uppercase;
+      .e-picker-header-month {
+        font-size: (@e-unit * 3);
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      }
+      .e-picker-header-day {
+        font-size: (@e-unit * 7);
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      }
+      .e-picker-header-year {
+        font-size: (@e-unit * 3);
+        color: @e-color-green-100;
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      }
+    }
+
+  }
+  .e-picker-calendar-container {
+    background: @e-color-white;
+  }
+  .e-picker-calendar-slider {
+    position: relative;
+    span {
+      font-size: @font-size-base;
+      line-height: (@e-unit * 3.5);
+      font-weight: 500;
+      transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    }
+    .e-picker-control {
+      font-size: (@e-unit * 3.5);
+      line-height: (@e-unit * 3.5);
+      position: absolute;
+      top: 0;
+      &.left {
+        left: 0;
+      }
+      &.right {
+        right: 0;
+      }
+    }
+
+  }
+  .e-picker-calendar-container-padding {
+    padding: @e-unit;
+    .e-picker-calendar-week-days {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      margin: 0 auto;
+      .clearfix();
+      li {
+        display: block;
+        float: left;
+        width: 14.28%;
+        color: @e-color-grey-600;
+      }
+    }
+    .e-picker-calendar-week-dates {
+      .clearfix();
+      .e-picker-calendar-week-date {
+        display: block;
+        padding: 3px 0;
+        float: left;
+        width: 14.28%;
+        button {
+          width: 32px;
+          height: 32px;
+          border-radius: 16px;
+          transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+          &:hover {
+            background: @e-color-green-100;
+          }
+          &:active {
+            background: @e-color-green-800;
+            color: @e-color-white;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+        &.active {
+          button {
+            background: @e-color-green-800;
+            color: @e-color-white;
+          }
+        }
+      }
+    }
+    .e-picker-main-actions {
+      .clearfix();
+    }
+  }
+//  here starts the styling for the horizontal picker
+  &.horizontal {
+    .clearfix();
+    width: 500px;
+    header {
+      width: 50%;
+      float: left;
+      .e-picker-header-day-text {
+        font-size: (@e-unit * 2.5);
+        line-height: (@e-unit * 5);
+      }
+      .e-picker-header-big-show {
+        .e-picker-header-month {
+          font-size: (@e-unit * 3);
+          line-height: (@e-unit * 7);
+        }
+        .e-picker-header-day {
+          font-size: (@e-unit * 7);
+          line-height: (@e-unit * 15);
+        }
+        .e-picker-header-year {
+          font-size: (@e-unit * 3);
+          line-height: (@e-unit * 5);
+        }
+      }
+    }
+    .e-picker-calendar-container {
+      float: left;
+      width: 50%;
+    }
+  }
+}

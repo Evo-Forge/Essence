@@ -1,0 +1,457 @@
+.column( @numPerRow, @margin : @gutter ) {
+  @halfMargin   : ( @margin / 2 );
+  @newWidth     : ( (100% - ( @numPerRow * @margin ) ) / @numPerRow );
+  width         : ( @newWidth / 100% ) * 100%;
+  margin        : 0 @halfMargin;
+  margin-bottom : @halfMargin;
+}
+
+.box-shadow(@box-shadow) {
+  -webkit-box-shadow: @box-shadow;  /* Safari & Chrome*/
+  -moz-box-shadow:    @box-shadow;  /* Mozilla */
+  -ms-box-shadow:     @box-shadow;  /* IE */
+  -o-box-shadow:      @box-shadow;  /* Opera */
+  box-shadow:         @box-shadow;
+}
+
+.transform(@transform) {
+  -webkit-transform: @transform;    /* Safari & Chrome*/
+  -moz-transform:    @transform;    /* Mozilla */
+  -ms-transform:     @transform;    /* IE */
+  -o-transform:      @transform;    /* Opera */
+  transform:         @transform;
+}
+.transition(@transition) {
+  -webkit-transition: @transition;  /* Safari & Chrome*/
+  -moz-transition:    @transition;  /* Mozilla */
+  -ms-transition:     @transition;  /* IE */
+  -o-transition:      @transition;  /* Opera */
+  transition:         @transition;
+}
+
+.border-radius(@radius) {
+  -webkit-border-radius:  @radius;  /* Safari & Chrome*/
+  -moz-border-radius:     @radius;  /* Mozilla */
+  border-radius:          @radius;
+}
+
+
+.forEach (@array) when (default()) {
+  .for-impl_(length(@array));
+}
+
+.for-impl_ (@i) when (@i > 1) {
+  .for-impl_((@i - 1));
+}
+
+.for-impl_ (@i) when (@i > 0) {
+  .as(extract(@array, @i));
+}
+
+.e-shadow-1 {
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.14),0 3px 3px rgba(0,0,0,0.28);
+  -moz-box-shadow: 0 0 4px rgba(0,0,0,0.14),0 3px 3px rgba(0,0,0,0.28);
+  box-shadow: 0 0 4px rgba(0,0,0,0.14),0 3px 3px rgba(0,0,0,0.28);
+
+  -webkit-transition: box-shadow 0.2s ease;  /* Safari & Chrome*/
+  -moz-transition: box-shadow 0.2s ease;     /* Mozilla */
+  -ms-transition: box-shadow 0.2s ease;      /* IE */
+  -o-transition: box-shadow 0.2s ease;       /* Opera */
+  transition: box-shadow 0.2s ease;
+}
+.e-shadow-2 {
+  -webkit-box-shadow: 0 1px 9px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow: 0 1px 9px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.32);
+  box-shadow: 0 1px 9px rgba(0, 0, 0, 0.16), 0 6px 10px rgba(0, 0, 0, 0.32);
+
+  -webkit-transition: box-shadow 0.2s ease;  /* Safari & Chrome*/
+  -moz-transition: box-shadow 0.2s ease;     /* Mozilla */
+  -ms-transition: box-shadow 0.2s ease;      /* IE */
+  -o-transition: box-shadow 0.2s ease;       /* Opera */
+  transition: box-shadow 0.2s ease;
+}
+.e-shadow-3 {
+  -webkit-box-shadow:  0 2px 14px rgba(0, 0, 0, 0.16), 0 10px 13px rgba(0, 0, 0, 0.32);
+  -moz-box-shadow:  0 2px 14px rgba(0, 0, 0, 0.16), 0 10px 13px rgba(0, 0, 0, 0.32);
+  box-shadow:  0 2px 14px rgba(0, 0, 0, 0.16), 0 10px 13px rgba(0, 0, 0, 0.32);
+
+  -webkit-transition: box-shadow 0.2s ease;  /* Safari & Chrome*/
+  -moz-transition: box-shadow 0.2s ease;     /* Mozilla */
+  -ms-transition: box-shadow 0.2s ease;      /* IE */
+  -o-transition: box-shadow 0.2s ease;       /* Opera */
+  transition: box-shadow 0.2s ease;
+
+}
+
+.e-shadow-4 {
+  -webkit-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 12px 20px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow:0 10px 30px rgba(0, 0, 0, 0.25), 0 12px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 12px 20px rgba(0, 0, 0, 0.5);
+
+  -webkit-transition: box-shadow 0.2s ease;  /* Safari & Chrome*/
+  -moz-transition: box-shadow 0.2s ease;     /* Mozilla */
+  -ms-transition: box-shadow 0.2s ease;      /* IE */
+  -o-transition: box-shadow 0.2s ease;       /* Opera */
+  transition: box-shadow 0.2s ease;
+
+}
+
+.e-shadow-5 {
+  -webkit-box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25), 0 19px 20px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25), 0 19px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.25), 0 19px 20px rgba(0, 0, 0, 0.5);
+
+  -webkit-transition: box-shadow 0.2s ease;  /* Safari & Chrome*/
+  -moz-transition: box-shadow 0.2s ease;     /* Mozilla */
+  -ms-transition: box-shadow 0.2s ease;      /* IE */
+  -o-transition: box-shadow 0.2s ease;       /* Opera */
+  transition: box-shadow 0.2s ease;
+
+}
+
+.e-btn-default {
+  background-color:@e-color-grey-500;
+  color:#000 !important;
+  &:hover , &:focus {
+    background-color:@e-color-grey-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-grey-700;
+
+  }
+}
+
+.e-btn-primary {
+  background-color:@e-color-blue-500;
+  color:@e-color-blue-500;
+  &:hover , &:focus {
+    background-color:@e-color-blue-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-blue-700;
+
+  }
+}
+
+.e-btn-succes {
+  background-color: @e-color-green-500;
+  color: @e-color-green-500;
+  &:hover , &:focus {
+    background-color:@e-color-green-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-green-700;
+  }
+}
+
+.e-btn-info {
+  background-color: @e-color-light-blue-500;
+  color: @e-color-light-blue-500;
+  &:hover , &:focus {
+    background-color:@e-color-light-blue-600;
+  }
+
+  &:active {
+    background-color:@e-color-light-blue-700;
+  }
+}
+
+.e-btn-warning {
+  background-color: @e-color-orange-500;
+  color: @e-color-orange-500;
+
+  &:hover , &:focus {
+    background-color:@e-color-orange-600;
+  }
+
+  &:active {
+    background-color:@e-color-orange-700;
+  }
+}
+
+.e-btn-danger {
+  background-color: @e-color-red-500;
+  color: @e-color-red-500;
+
+  &:hover , &:focus {
+    background-color:@e-color-red-600;
+  }
+
+  &:active {
+    background-color:@e-color-red-700;
+  }
+}
+
+
+//generate colors
+.generate-colors(@property) {
+ @colors: 'amber',
+          'blue',
+          'cyan',
+          'deep-orange',
+          'deep-purple',
+          'green',
+          'indigo',
+          'light-blue',
+          'light-green',
+          'lime',
+          'orange',
+          'pink',
+          'purple',
+          'red',
+          'teal',
+          'yellow';
+ @values: '50', '100', '200', '300', '400', '500', '600', '700', '800', '900', 'A100', 'A200', 'A400', 'A700';
+
+  .forEach(@colors); .as(@color) {
+    @color-name: e(@color);
+
+    .forEach(@values); .as(@value) {
+      @color-value: e(@value);
+      @v: ~'e-color-@{color-name}-@{value}';
+
+      &-@{color-name}-@{color-value} {
+        @{property}: @@v !important;
+      }
+    }
+  }
+};
+
+.e-text {
+ .generate-colors(color);
+}
+
+.e-background {
+ .generate-colors(background-color);
+}
+
+//generate colors without A-name
+.generate-few-colors(@property) {
+ @few-colors: 'brown',
+              'grey',
+              'blue-grey';
+ @few-values: '50', '100', '200', '300', '400', '500', '600', '700', '800', '900';
+
+  .forEach(@few-colors); .as(@few-color) {
+    @few-color-name: e(@few-color);
+
+    .forEach(@few-values); .as(@few-value) {
+      @few-color-value: e(@few-value);
+      @v: ~'e-color-@{few-color-name}-@{few-value}';
+
+      &-@{few-color-name}-@{few-color-value} {
+        @{property}: @@v !important;
+      }
+    }
+  }
+};
+
+.e-text {
+ .generate-few-colors(color);
+}
+
+.e-background {
+ .generate-few-colors(background-color);
+}
+
+//Mixin for position-tooltip
+.positiontooltip-up{
+  bottom: 140%;
+  left: 0%;
+}
+
+.positiontooltip-right{
+  bottom: 20%;
+  left: 120%;
+}
+.positiontooltip-down{
+  bottom: -100%;
+  left: 0%;
+}
+.positiontooltip-left{
+  bottom: 10%;
+  left: -120%;
+}
+
+// Mixin for dialogs for box shadow
+
+.e-border-style{
+  border: 0 none;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+}
+
+//Ripple effect animation
+@keyframes ripple-animation {
+    from {
+      transform: scale(0);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+@-webkit-keyframes ripple-animation {
+    from {
+      transform: scale(0);
+      -webkit-transform: scale(0);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      -webkit-transform: scale(100);
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+@-moz-keyframes ripple-animation {
+    from {
+      transform: scale(0);
+      -moz-transform: scale(0);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      -moz-transform: scale(100);
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+@-ms-keyframes ripple-animation {
+    from {
+      transform: scale(0);
+      -ms-transform: scale(0);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      -ms-transform: scale(100);
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+// Put this in the :before or :after of the parent element to make vertical-align work
+// for its direct children (when display table is not an option)
+.e-vertical-alignment-enabler {
+  display: inline-block;
+  height: 100%;
+  width: 1px;
+  margin-left: -1px;
+  visibility: hidden;
+  vertical-align: middle;
+  content:"";
+}
+// Mixin for chip regarding border and box shadow
+.e-border-for-closed-chip{
+  -webkit-border-bottom: 1px solid @e-color-grey-400;
+  -moz-border-bottom: 1px solid @e-color-grey-400;
+  border-bottom: 1px solid @e-color-grey-400;
+
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 6px rgba(0, 0, 0, 0.12);
+}
+// Typography mixin for rem size and px fallback
+// use ex: class { .fontsize(50)} css output class {font-size: 50px; font-size: 0.5rem}
+.font-size(@font-size: 16){
+    @rem: (@font-size / 10);
+    font-size: @font-size * 1px;
+    font-size: ~"@{rem}rem";
+}
+
+//switches
+
+.variations(@extra, @property, @default) {
+  // shades
+  &@{extra}, &-default@{extra} {
+    @{property}: @default;
+  }
+  &-primary@{extra} {
+    @{property}: @e-primary;
+  }
+  &-success@{extra} {
+    @{property}: @e-success;
+  }
+  &-info@{extra} {
+    @{property}: @e-info;
+  }
+  &-warning@{extra} {
+    @{property}: @e-warning;
+  }
+  &-danger@{extra} {
+    @{property}: @e-danger;
+  }
+  // Material shades
+  &-material-red@{extra} {
+    @{property}: @e-red;
+  }
+  &-material-lightblue@{extra} {
+    @{property}: @e-lightblue;
+  }
+  &-material-cyan@{extra} {
+    @{property}: @e-cyan;
+  }
+  &-material-lightgreen@{extra} {
+    @{property}: @e-lightgreen;
+  }
+  &-material-orange@{extra} {
+    @{property}: @e-orange;
+  }
+  &-material-deeporange@{extra} {
+    @{property}: @e-deeporange;
+  }
+}
+
+@all-variations: ~"-default, -primary, -info, -success, -warning, -danger";
+
+//mixins for animations
+
+.e-animation-wave(@animation){
+  -webkit-animation: @animation;
+  -moz-animation: @animation;
+  -o-animation: @animation;
+  animation: @animation;
+}
+
+.e-animation-fill-mode(@animation){
+  -webkit-animation-fill-mode: @animation;
+  -moz-animation-fill-mode: @animation;
+  -o-animation-fill-mode: @animation;
+  animation-fill-mode: @animation;
+}
+
+//mixins for transformation
+.e-transform(@transform){
+  -webkit-transform: @transform; /* Safari */
+  -moz-transform:@transform;     /* Mozilla */
+  -ms-transform:@transform;      /* IE */
+  -o-transform: @transform;      /* Opera */
+  transform:@transform;
+
+}
+
+//end of switches
+

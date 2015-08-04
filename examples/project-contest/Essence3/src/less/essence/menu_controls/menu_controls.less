@@ -1,0 +1,53 @@
+
+//checked style
+.e-nav.e-text-black ul:nth(2){display: block !important;}
+
+.e-nav-menu .has-checked {
+  .e-checkbox {
+    display: table-cell;
+    width: @e-unit * 2.5;
+     label{
+        padding: 0;
+        .e-check-valid{
+          background-color: grey;
+          color: white;
+          border:0;
+          left: @e-unit * .25;
+          top: @e-unit * .625;
+            &:before{
+              background-color: white;
+              color: white;
+            }
+            &:after{
+              opacity: 0;
+            }
+          }
+        }
+      }
+    a{
+      padding-left: @e-unit * 3.75;
+      }
+    }
+.has-checked .e-checkbox input[type=checkbox]:checked ~ .e-check-valid:before, .e-checkbox-default input[type=checkbox]:checked ~ .e-check-valid:before {
+color:  white;
+}
+.has-checked .e-checkbox input[type=checkbox]:checked ~ .e-check-valid:after, .e-checkbox-default input[type=checkbox]:checked ~ .e-check-valid:after {
+background-color:  white;
+}
+
+
+//nested menu indicator
+  .e-nav-menu > ul .e-nav li.has-indicator.more:before{
+    border-left-color: @e-color-grey-600;
+  }
+
+
+//inline information
+
+.has-information {
+  padding-right: @e-unit * 3.75;
+  opacity: 0.5;
+  width: @e-unit * 1.5;
+}
+
+

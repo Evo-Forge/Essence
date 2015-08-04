@@ -1,0 +1,108 @@
+@font: 'Roboto', sans-serif;
+
+@containerWidth: 1200px;
+@gutter: 1%;
+
+.clearfix{
+  *zoom : 1;
+  &:before,
+  &:after{ content : " ";
+           display : table;
+           line-height : 0; }
+  &:after{ clear : both; }
+}
+
+.brick{
+	min-height    : 50px;
+	margin-bottom : 10px;
+    float         : left;
+    box-sizing: border-box;
+    padding: @e-unit;
+    @media all and (min-width: 769px) and (max-width: 1400px) {
+    	padding: @e-unit * 3;
+    }
+    @media all and (min-width: 320px) and (max-width: 768px) {
+    	padding: @e-unit * 2;
+    }
+}
+
+.e-row {
+  @halfMargin   : ( @gutter / 2 );
+  margin        : 0 -@halfMargin;
+  .clearfix();
+}
+
+.e-container{
+	margin-left  : auto;
+	margin-right : auto;
+	max-width        : @containerWidth;
+	position     : relative;
+	//text-align   : center;
+    display      : block;
+  .clearfix();
+}
+
+.alpha{ margin-left  : 0 !important; }
+.omega{ margin-right : 0 !important; }
+
+.brick-1            { .column(12); }
+.brick-2            { .column(6); }
+.brick-3            { .column(4); }
+.brick-4            { .column(3); }
+.brick-5            { .column(2.4); }
+.brick-6            { .column(2); }
+.brick-7            { .column(1.7142857142); }
+.brick-8            { .column(1.5); }
+.brick-9            { .column(1.3333333333); }
+.brick-10           { .column(1.2); }
+.brick-11           { .column(1.0909); }
+.brick-12           { .column(1); }
+.full               { width : 100%;}
+
+
+@media only screen and (max-width : 1400px){
+	@containerWidth : 98%;
+	@gutter: 2%;
+	.e-container{ width : @containerWidth; }
+}
+
+@media only screen and (max-width : 1024px){
+	@containerWidth : 98%;
+	@gutter: 2%;
+	.e-container{ width : @containerWidth; }
+    .e-row {margin: 0;}
+}
+
+@media only screen and (max-width : 980px){
+	@containerWidth : 98%;
+	@gutter: 2%;
+	.e-container{ width : @containerWidth; }
+    .e-row {margin: 0;}
+}
+
+@media only screen and (max-width : 760px){
+	@containerWidth : 98%;
+	@gutter: 2%;
+	.e-container{ width : @containerWidth; }
+    .e-row {margin: 0;}
+
+	.brick-1,
+	.brick-2,
+	.brick-3,
+	.brick-4,
+	.brick-5,
+	.brick-6,
+	.brick-7,
+	.brick-8,
+	.brick-9,
+	.brick-10,
+    .brick-11,
+    .brick-12,
+	.full{ .column(1); }
+}
+
+@media only screen and (max-width : 480px){
+	@containerWidth : 98%;
+    @gutter: 2%;
+	.e-container{ width : @containerWidth; }
+}

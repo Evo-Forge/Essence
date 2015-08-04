@@ -1,0 +1,114 @@
+// General buttons properties
+.e-btn {
+  display: inline-block;
+  min-height: @btn-unit*4.5;
+  line-height: @btn-unit*4.5;
+  padding: 0 @btn-unit*3;
+  border: 0;
+  margin:@btn-unit*0.75 @btn-unit*0.5;
+  cursor: pointer;
+  -webkit-border-radius: @btn-unit*0.25;
+  -moz-border-radius: @btn-unit*0.25;
+  border-radius: @btn-unit*0.25;
+  background-clip: padding-box;
+  text-transform: uppercase;
+  font-size: @btn-unit*1.75;
+
+  &:hover:not(.flat) {
+    .e-shadow-2();
+  }
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+
+  &:disabled {
+  pointer-events: none;
+  box-shadow: none ;
+  opacity: 0.5;
+  }
+}
+
+.e-dialog .e-btn {
+  padding: 0 @btn-unit;
+}
+// special functions colors : default, primary, succes, info, warning, danger
+.e-btn-default {
+  background-color:@e-color-grey-500;
+  color:#000 !important;
+  &:hover , &:focus {
+    background-color:@e-color-grey-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-grey-700;
+
+  }
+}
+
+.e-btn-primary {
+  background-color:@e-color-blue-500;
+  color:@e-color-blue-500;
+  &:hover , &:focus {
+    background-color:@e-color-blue-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-blue-700;
+
+  }
+}
+
+.e-btn-succes {
+  background-color: @e-color-green-500;
+  color: @e-color-green-500;
+  &:hover , &:focus {
+    background-color:@e-color-green-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-green-700;
+  }
+}
+
+.e-btn-info {
+  background-color: @e-color-light-blue-500;
+  color: @e-color-light-blue-500;
+  &:hover , &:focus {
+    background-color:@e-color-light-blue-600;
+  }
+
+  &:active {
+    background-color:@e-color-light-blue-700;
+  }
+}
+
+.e-btn-warning {
+  background-color: @e-color-orange-500;
+  color: @e-color-orange-500;
+
+  &:hover , &:focus {
+    background-color:@e-color-orange-600;
+  }
+
+  &:active {
+    background-color:@e-color-orange-700;
+  }
+}
+
+.e-btn-danger {
+  background-color: @e-color-red-500;
+  color: @e-color-red-500;
+
+  &:hover , &:focus {
+    background-color:@e-color-red-600;
+  }
+
+  &:active {
+    background-color:@e-color-red-700;
+  }
+}

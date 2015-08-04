@@ -1,0 +1,73 @@
+<!--   Getting Started Page       -->
+
+<div id="components-getting-started">
+  <div class="bg-banner home-header">
+    <div class="clearfix e-padding-bottom-50 e-padding-top-50">
+
+      <div class="brick brick-12 e-text-center">
+        <h3 class="e-display-3 e-text-white">Get Started with Essence Native</h3>
+        <h3 class="e-display-2 e-text-white">Learn how to create your iOS app</h3>
+      </div>
+    </div>
+  </div>
+  <div class="e-container">
+    <div class="e-row e-margin-bottom-100">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Essence and React Native</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          Essence Native is built on top of <a href="https://facebook.github.io/react-native/" target="_blank" >React Native</a>. That means you can create your mobile application writing javascript, but using native device functions. At the moment, React Native is only available for iOS apps, but soon will be working on Android devices too. 
+        </h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          To start using Essence Native you must meet some minimum requirements: 
+          <ul>
+            <li>OS X and Xcode, as for the moment it only runs on Mac.</li>
+            <li><a href="http://brew.sh/" target="_blank">Homebrew</a> is the recommended way to install node, watchman, and flow.</li>
+            <li>Next, run this in the terminal: <code>brew install node</code></li>
+            <li><code>brew install watchman</code> - so you won't hit a node file watching bug</li>
+          </ul>
+        </h3>
+        
+        <h3 class="e-headline e-text-blue-grey-400">
+          When you have met these requirements, you can start developing your iOS application. 
+          <ul>
+            <li><code>npm install -g react-native-cli</code> will install react native globally on your system. </li>
+            <li>Then initialize the app using whatever name you want for your application: <code>react-native init MyApplication</code>.</li>
+          </ul>
+        </h3>
+        
+        <h3 class="e-headline e-text-blue-grey-400">
+          Right now you are ready to install Essence, to use all the predefined and pre-styled components for your product. 
+          <ul>
+            <li><code>npm install react-native-essence --save</code> </li>
+          </ul>
+        </h3>
+        
+        
+        <h3 class="e-headline e-text-blue-grey-400">
+          Now open your <code>index.ios.js</code> file and require Essence. Right after the line that requires <code>'react-native'</code> paste the following code line: <code>var Essence = require('react-native-essence');</code>.
+        </h3>
+        
+        <h3 class="e-headline e-text-blue-grey-400">
+          To use the components you need from Essence, you must create a variable that extends the components from Essence. The following code contains all the components, but you can remove the ones you don't need. 
+          
+          <pre style="font-size: 12px;line-height: 1.5;min-height: 0;">
+var {
+      Utils, Colors, Helpers, Typography, 
+      Buttons, GetStarted, BtnItem, Divider, Progress, PaperItem, Card, SwitchItem, SliderItem, DialogItem, DatePicker, Menu, List,
+} = Essence;
+          </pre>
+          
+        </h3>
+        
+        <h3 class="e-headline e-text-blue-grey-400">
+          That's it! The documentation and examples for each component and style helper can be found in their own presentation pages. Use the left menu to navigate through them. 
+        </h3>
+
+        
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- End Getting Started Page -->

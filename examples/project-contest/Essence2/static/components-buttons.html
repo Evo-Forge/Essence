@@ -1,0 +1,525 @@
+<div class="e-container">
+  <!--   Component - BUTTONS       -->
+  <div class="buttons e-padding-top-50" id="components-buttons">
+
+    <!--   Component - BUTTONS  - FAB     -->
+    <div class="e-row e-display-2">
+      <div class="brick brick-12 icon-container">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Buttons</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">There are 3 types of material buttons: FAB (floating action button), Raised and Flat.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-7">
+        <h3>FAB Button</h3>
+        <p class="e-body1 e-text-blue-grey-400">We believe FAB stands for fabulous. Here’s a fabulous class for it: <code>.e-btn-fab</code>.<br> The small one has the "<code>-mini</code>" addition to the class.</p>
+      </div>
+      <div class="brick brick-5 e-text-center">
+        <div id="components-buttons-fab" class="e-background-grey-200">
+          <button class="e-btn-fab">
+            <i class="e-icon-action-favorite"></i>
+          </button>
+          <button class="e-btn-fab-mini">
+            <i class="e-icon-action-favorite"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="e-row">
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    icon='action-favorite'
+    type='fab'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    icon='action-favorite'
+    type='fab'
+    rippleEffect={true}
+    mini={true}
+  /&gt;
+&lt;/Btn&gt;
+        </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;BtnItem
+  containerStyle={[
+    Colors['e-background-pink-500'], 
+    Buttons['e-btn-fab]
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Fab
+/&gt;
+       
+&lt;BtnItem
+  containerStyle={[
+    Colors['e-background-pink-500'], 
+    Buttons['e-btn-fab-mini]
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Fab
+/&gt;
+        </code>
+        </pre>
+      </div>
+      
+<!--
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;button class="e-btn-fab"&gt;
+  &lt;i class="e-icon-action-favorite"&gt;&lt;/i&gt;
+&lt;/button&gt;
+&lt;button class="e-btn-fab-mini"&gt;
+  &lt;i class="e-icon-action-favorite"&gt;&lt;/i&gt;
+&lt;/button&gt;
+        </code>
+        </pre>
+      </div>
+-->
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+    <!--   END Component - BUTTONS  - FAB     -->
+
+    <!--   Component - BUTTONS  - RAISED     -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-7">
+        <h3>Button Raised</h3>
+        <p class="e-body1 e-text-blue-grey-400">The main colors of buttons <code>.default .primary .succes .info .warning .danger</code> can be used for all buttons. Buttons are also fabulous, whether they’re raised or flat. We’ve created several button types, which can be used by adding a button class  - <code>.raised</code> or <code>.flat</code>.</p>
+      </div>
+      <div class="brick brick-5">
+        <div id="components-buttons-raised-1" class="e-padding-bottom-15 e-padding-top-25 e-text-center  e-background-grey-200">
+          <button class="e-btn-default raised">
+            default
+          </button>
+          <button class="e-btn-primary raised">
+            primary
+          </button>
+          <button class="e-btn-succes raised">
+            succes
+          </button>
+        </div>
+        <div id="components-buttons-raised-2" class="e-padding-bottom-25 e-text-center  e-background-grey-200">
+          <button class="e-btn-info raised">
+            info
+          </button>
+          <button class="e-btn-warning raised">
+            warning
+          </button>
+          <button class="e-btn-danger raised">
+            danger
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Default'
+    tooltip='Tooltip Default'
+    type='default'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Primary'
+    tooltip='Tooltip Primary'
+    type='primary'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Succes'
+    tooltip='Tooltip Succes'
+    type='succes'
+    rippleEffect={true}
+    disabled={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Info'
+    tooltip='Tooltip Info'
+    type='info'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Warning'
+    tooltip='Tooltip Warning'
+    type='warning'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Label Danger'
+    tooltip='Tooltip Danger'
+    type='danger'
+    rippleEffect={true}
+  /&gt;
+&lt;/Btn&gt;
+        </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-default'], 
+    Buttons['raised']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Default
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-primary'], 
+    Buttons['raised']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Primary
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-succes'], 
+    Buttons['raised']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Succes
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-default'], 
+    Buttons['raised']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Info
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-primary'], 
+    Buttons['raised']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Warning
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-succes'], 
+    Buttons['raised']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Danger
+&lt;/BtnItem&gt;
+        
+        </code>
+        </pre>
+      </div>
+      
+ 
+     <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;button class="e-btn-default raised"&gt;
+  default
+&lt;/button&gt;
+&lt;button class="e-btn-primary raised"&gt;
+  primary
+&lt;/button&gt;
+&lt;button class="e-btn-succes raised"&gt;
+  succes
+&lt;/button&gt;
+&lt;button class="e-btn-info raised"&gt;
+  info
+&lt;/button&gt;
+&lt;button class="e-btn-warning raised"&gt;
+  warning
+&lt;/button&gt;
+&lt;button class="e-btn-danger raised"&gt;
+  danger
+&lt;/button&gt;
+        </code>
+        </pre>
+      </div>
+    
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+
+    </div>
+    <!--   END Component - BUTTONS  - RAISED     -->
+
+    <!--   Component - BUTTONS  - FLAT     -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-7">
+        <h3>Button Flat</h3>
+        <p class="e-body1 e-text-blue-grey-400">If you want flat buttons, just add the <code>.flat</code> class to your button.</p>
+      </div>
+      <div class="brick brick-5">
+        <div id="components-buttons-flat-1"  class="e-padding-bottom-15 e-padding-top-25 e-text-center  e-background-grey-200">
+          <button class="e-btn-default flat">
+            default
+          </button>
+          <button class="e-btn-primary flat">
+            primary
+          </button>
+          <button class="e-btn-succes flat">
+            succes
+          </button>
+        </div>
+        <div id="components-buttons-flat-2" class="e-padding-bottom-25 e-text-center  e-background-grey-200">
+          <button class="e-btn-default flat">
+            default
+          </button>
+          <button class="e-btn-primary flat">
+            primary
+          </button>
+          <button class="e-btn-succes flat">
+            succes
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Default'
+    type='default'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Primary'
+    type='primary'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Succes'
+    type='succes'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Info'
+    type='info'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Warning'
+    type='warning'
+    rippleEffect={true}
+  /&gt;
+  &lt;BtnItem
+    classes={'flat'}
+    label='Label Danger'
+    type='danger'
+    rippleEffect={true}
+  /&gt;
+&lt;/Btn&gt;
+        </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-default'], 
+    Buttons['flat']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Default
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-primary'], 
+    Buttons['flat']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Primary
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-succes'], 
+    Buttons['flat']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Succes
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-default'], 
+    Buttons['flat']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Info
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-primary'], 
+    Buttons['flat']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Warning
+&lt;/BtnItem&gt;
+&lt;BtnItem
+  containerStyle={[
+    Buttons['e-btn-succes'], 
+    Buttons['flat']
+  ]} 
+  textStyle={Colors['e-text-white']}&gt;
+  Label Danger
+&lt;/BtnItem&gt;
+        </code>
+        </pre>
+      </div>
+      
+     <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;button class="e-btn-default flat"&gt;
+  default
+&lt;/button&gt;
+&lt;button class="e-btn-primary flat"&gt;
+  primary
+&lt;/button&gt;
+&lt;button class="e-btn-succes flat"&gt;
+  succes
+&lt;/button&gt;
+&lt;button class="e-btn-info flat"&gt;
+  info
+&lt;/button&gt;
+&lt;button class="e-btn-warning flat"&gt;
+  warning
+&lt;/button&gt;
+&lt;button class="e-btn-danger flat"&gt;
+  danger
+&lt;/button&gt;
+        </code>
+        </pre>
+      </div> 
+      
+    </div>
+    <!--   END Component - BUTTONS  - FLAT     -->
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Btn" Essence component to render a group of "BtnItem" components. The "Btn" Essence component tag will return a div container with a group of &lt;button&gt; html tags. Inside the Btn component you can include only the <strong class="e-text-red">BtnItem</strong> component. <br />
+          A "BtnItem" Essence component will render one &lt; button &gt; html tag. <br />
+          <br />
+        &bull; Structure <br />
+        <pre class="small">
+<span class="e-text-blue-500">&lt;Btn&gt;</span>
+  <span class="e-text-indigo-600">&lt;BtnItem</span>
+  <span class="e-text-indigo-600">  classes={'flat'}</span>
+  <span class="e-text-indigo-600">  label='Label Default'</span>
+  <span class="e-text-indigo-600">  type='default'</span>
+  <span class="e-text-indigo-600">  rippleEffect={true}</span>
+  <span class="e-text-indigo-600">/&gt;</span>
+<span class="e-text-blue-500">&lt;/Btn&gt;</span>
+        </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to BtnItem components from Styles > Colors menu<br />
+          - <u>icon</u>: the name of icon from Styles > Icons (generate a <strong>i</strong> html tag with the class name "e-icon-" + icon)<br />
+          - <u>type</u>: appends a string (available: default, fab, primary, succes, info, warning, danger) to the class name <strong>"e-btn-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>rippleEffect</u>: <strong>true</strong> or <strong>false</strong> (generate a ripple Effect)<br />
+          - <u>mini</u>: appends the <strong>e-btn-mini</strong> to the class names <br />
+          - <u>name</u>: name of the button<br />
+          - <u>submit</u>: if set to <strong>true</strong> it changes the type button attribute from <strong>button</strong> to <strong>submit</strong>, the default type is <strong>button</strong><br />
+          - <u>label</u>: generates the element button text<br />
+          - <u>tooltipText</u>: generates a tooltip message a the bottom of the element<br />
+          - <u>tooltipPosition</u>: position the tooltip message - top / bottom / right / left<br />
+          - <u>disabled</u>: if set to <strong>true</strong> it uses the "disabled" button attribute<br />
+          - <u>actionClick</u>: any value from the following list: navigation, bottomsheets, datepicker or dialog<br />
+          - <u>actionType</u>: has the following options: <br />
+          - &nbsp;&nbsp;action: '<strong>show</strong>' to display a component or '<strong>hide</strong>' to hide a component<br />
+          - &nbsp;&nbsp;id: any string that represent the '<strong>id</strong>' option for a component<br />
+        </p>
+      </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "BtnItem" component to render a View iOS native container with a Text iOS native component inside.<br />
+          A "BtnItem" Essence component will render native iOS View and Text components. <br />
+          <br />
+        &bull; Structure <br />
+        <pre class="small">
+  <span class="e-text-indigo-400">&lt;BtnItem</span>
+  <span class="e-text-indigo-600">  containerStyle={[<span class="e-text-green-500">__ButtonStyles__</span>]}</span>
+  <span class="e-text-indigo-600">  textStyle={[<span class="e-text-blue-500">__ColorsStyles__</span>]}&gt;</span>
+  <span class="e-text-indigo-800">    <span class="e-text-orange-500">Button Label</span></span>
+  <span class="e-text-indigo-400">&lt;/BtnItem&gt;</span>
+        </pre>
+
+
+          &bull; Styling <br />
+          - <u>containerStyle</u>: add styling class names to View component from Styles > Colors menu<br />
+          - <u>textStyle</u>: add styling class names to Text component from Styles > Colors menu<br />
+          
+          <br />
+          &bull; Options<br />
+          - <u>onPress</u>: callback function is called on press<br />
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!--  END Component - BUTTONS       -->
+</div>
