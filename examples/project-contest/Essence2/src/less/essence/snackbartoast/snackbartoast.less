@@ -1,0 +1,114 @@
+// General properties for snackbar
+.snackbar {
+  position: fixed;
+  bottom: 0px;
+  display: block;
+  align-items: center;
+  min-height: @e-unit*2.5;
+  line-height: @e-unit*2.5;
+  padding: @e-unit*2 @e-unit*3 @e-unit*1.5 @e-unit*3;
+  background-color: @bg-snackbar;
+  color: #fff;
+  opacity: 0;
+  transition-property: opacity, bottom, left, right, width, margin, border-radius;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+}
+
+.snackbar-multiline {
+  &:extend(.snackbar);
+  line-height: @e-unit*2.75;
+  padding: @e-unit*2.25 @e-unit*3;
+
+}
+
+@media (min-width: 320px) {
+  .snackbar , .snackbar-multiline {
+    /*
+    Desktop:
+      Single-line snackbar height: 48 dp tall
+      Minimum width: 288 dp
+      Maximum width: 568 dp
+      2 dp rounded corner
+      Text: Roboto Regular 14 sp
+      Action button: Roboto Medium 14 sp, all-caps text
+      Default background fill: #323232 100%
+    */
+
+    min-width: @e-unit*36;
+    max-width: @e-unit*71;
+    border-radius: @e-unit*0.25;
+    margin: @e-unit*3 0;
+    bottom: -100px;
+
+  }
+}
+
+@media (max-width: 320px) {
+  .snackbar, .snackbar-multiline {
+  /*
+  Mobile:
+    Single-line snackbar height: 48 dp
+    Multi-line snackbar height: 80 dp
+    Text: Roboto Regular 14 sp
+    Action button: Roboto Medium 14 sp, all-caps text
+    Default background fill: #323232 100%
+  */
+    left: 0px;
+    right: 0px;
+  }
+}
+
+.snackbar-message {
+  float: left;
+  max-width: 85%;
+  line-height: @e-unit*2;
+}
+
+
+.snackbar .action , .snackbar-multiline .action  {
+  float:right;
+  background: inherit;
+  display: inline-block;
+  border: none;
+  font-size: inherit;
+  text-transform: uppercase;
+  color: #ffeb3b;
+  margin-top:0;
+  margin-right:0;
+  margin-bottom:0;
+  margin-left: @e-unit*3;
+  padding: 0;
+  height: @e-unit*2.5;
+  min-width: -webkit-min-content;
+  min-width: -moz-min-content;
+  min-width: min-content;
+  max-width: 15%;
+}
+
+.snackbar-multiline .action {
+  height: @e-unit*5.5;
+}
+
+
+// General properties for toast
+.toast {
+  position: fixed;
+  min-width:  @e-unit*36;
+  max-width:  @e-unit*71;
+  min-height: @e-unit*2.5;
+  line-height:  @e-unit*2.5;
+  padding:  @e-unit*2 @e-unit*3 @e-unit*1.5 @e-unit*3;
+  opacity: 0;
+  margin:  @e-unit*3 0;
+  bottom: -100px;
+  border-radius:  @e-unit*25;
+  font-size: @e-unit*1.75;
+  background-color: @bg-snackbar;
+  align-items: center;
+  color: #fff;
+  transition-property: opacity, bottom, left, right, width, margin, border-radius;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+
+}

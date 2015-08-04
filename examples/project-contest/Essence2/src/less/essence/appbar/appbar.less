@@ -1,0 +1,77 @@
+.e-appbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
+  line-height: 20px;
+  background: #FAFAFA;
+  color: #000;
+  font-size: 25px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  .e-shadow-1();
+  .clearfix();
+
+}
+
+.e-appbar i {
+  padding: 0 12px;
+}
+
+
+@media (min-width: 769px) {
+
+//  Tablet/Desktop
+//  height:64dp;
+//  padding left&right : 24dp;
+//  padding up&down : 20dp;
+
+  .e-appbar{
+    height: 64px;
+    padding: 20px 12px;
+  }
+}
+
+@media (min-width: 480px) and (max-width:768px) {
+
+//  Mobile Portrait
+//  height:56dp;
+//  padding left&right : 16dp;
+//  padding up&down : 16dp;
+
+  .e-appbar{
+    height: 56px;
+    padding: 16px 4px;
+  }
+}
+
+@media (max-width: 479px) {
+
+//  Mobile Landscape
+//  height:48dp;
+//  padding left&right : 16dp;
+//  padding up&down : 12dp;
+
+  .e-appbar{
+     height: 48px;
+     padding: 12px 4px;
+  }
+}
+
+.e-appbar > span {
+
+  .e-title();
+
+  padding-left: 12px;
+  color: inherit;
+  line-height: 24px;
+  text-transform: uppercase;
+  @media all and (max-width: 640px) {
+    .e-subhead();
+    color: inherit;
+    line-height: 24px;
+  }
+}
+

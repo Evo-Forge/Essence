@@ -1,0 +1,289 @@
+.e-nav-drawer {
+   position: fixed;
+   z-index:10000;
+   height: 100%;
+   width: @e-unit * 30;
+   background-color: #fff;
+   transition: all 0.3s ease-in-out;
+
+  nav {
+    position: relative;
+    box-sizing: border-box;
+    height: 100%;
+    .e-navigation-wrapper {
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+
+  .e-nav-header {
+    padding: 0 (@e-unit * 2);
+    border-bottom: 1px solid #E0E0E0;
+    span.example-logo {
+      line-height: 64px;
+      font-size: @e-unit * 3.5;
+    }
+  }
+
+  .active .primaryListImage {
+    opacity: 1;
+  }
+
+  .primaryListImage {
+    width: 24px;
+    height: 24px;
+    float: left;
+    padding-top: 12px;
+    padding-right: 14px;
+    opacity: 0.6;
+  }
+
+  ul {
+    padding: 0 (@e-unit * 2);
+    margin: 0;
+    list-style: none;
+  }
+
+  .e-primary-menu {
+    & > li > a {
+      display: block;
+      color: lighten(@e-text-color, 13%);
+      font-family: 'Roboto Medium';
+      font-size: @e-unit * 1.75;
+      line-height: @e-unit * 6;
+
+      i {
+        display: block;
+        float: left;
+        width: @e-unit * 3;
+        margin-right: @e-unit * 4;
+        line-height: inherit;
+        color: lighten(@e-text-color, 39%);
+        font-size: @e-unit * 3;
+      }
+    }
+
+    .e-secondary-menu {
+      padding: 0 (@e-unit * 2.5);
+
+      li a {
+        display: block;
+        line-height: @e-unit * 4.5;
+        color: #333;
+        font-family: 'Roboto Regular';
+        font-size: @e-unit * 1.75;
+        font-weight: 400;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  hr {
+    margin: (@e-unit) 0;
+  }
+
+  .e-nav-footer {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: (@e-unit * 2);
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+
+    p {
+      color: #212121;
+      font-size: @e-unit * 1.625;
+      line-height: @e-unit * 3;
+
+      a {
+        color: #0277bb;
+      }
+    }
+  }
+}
+.e-main-content {
+  padding-left: (@e-unit * 30);
+  transition: all 0.3s ease-in-out;
+}
+.e-modal-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  position: fixed;
+  top: 0;
+  display: none;
+  width: 100%;
+  z-index: 4;
+  animation-duration: 0.2s;
+  animation-name: e-modal-anim;
+}
+
+@media all and (max-width: 1400px){
+  .e-modal-open {
+    overflow-y: hidden;
+    .e-main-content {
+
+    }
+  }
+
+  .e-navigation-open {
+    overflow-y: hidden;
+
+    .e-modal-bg {
+      display: block !important;
+    }
+
+    #navigationMenu .e-nav-drawer {
+      margin-left: 0;
+    }
+    .e-main-content {
+
+    }
+  }
+
+  #navigationMenu .e-nav-drawer{
+    margin-left: -240px;
+  }
+  .e-main-content {
+    padding: 0;
+  }
+  .topmenu .e-appbar {
+    padding-left: 0 !important;
+  }
+  .e-footer {
+    padding-left: 0 !important;
+  }
+}
+
+
+// Mobile Version
+
+//Name: Roboto Medium, 14sp, #FFFFFF
+//E-mail: Roboto Regular, 14sp, #FFFFFF
+//List item: Roboto Medium, 14sp, 87% #000000
+//Subheader: Roboto Medium, 14sp, 54% #000000. Aligns to the 16dp keyline.
+//Vertical keylines for icons are at 16dp from the left and right edges of the side nav and are 54% #000000.
+//Content associated with an icon or avatar aligns 72dp from the left edge of the side nav.
+//
+//The width of the side nav is equal to the width of the screen minus the height of the action bar, or in this case 56dp from the right edge of the screen. The maximum width of the nav drawer is 5 times the standard increment (56dp on mobile and 64dp on tablet).
+
+
+
+
+
+.e-nav-drawer-mobile {
+  &:extend(.e-nav-drawer all);
+  overflow: hidden;
+
+ @media (max-width: 479px){
+   // mobile 56dp from the right edge of the screen
+    width: calc(~'100% - 56px');
+    transform: translateX(calc(~'-100% - 56px'));
+    transition: transform 0.2s !important;
+
+    &.open { // add or remove open class from JS
+      transform: translateX(0);
+    }
+ }
+
+  @media (min-width: 480px) and (max-width:768px){
+    // tablet 64dp from the right edge of the screen
+    width: calc(~'100% - 64px');
+    transform: translateX(calc(~'-100% - 64px'));
+    transition: transform 0.2s !important;
+
+    &.open { // add or remove open class from JS
+      transform: translateX(0);
+    }
+  }
+
+  @media (min-width: 769px) {
+    width: @e-unit * 30;
+  }
+
+
+
+  .e-shadow-1 () ;
+
+  .e-navigation-wrapper{
+
+    .e-nav-header{
+      padding: (@e-unit * 3) 0 (@e-unit) 0;
+      border-bottom: none;
+      margin-bottom: @e-unit;
+      background: url(../img/ice-cream2.JPG) no-repeat center center;
+      background-size: cover;
+
+      .e-drawer-primary-img {
+        display: block;
+        width: @e-unit * 7;
+        height: @e-unit * 7;
+        padding: 0 (@e-unit * 2) (@e-unit);
+        margin-top: @e-unit;
+
+        img {
+          width: @e-unit * 7;
+          height: @e-unit * 7;
+        }
+      }
+
+      .e-drawer-secondary-img {
+
+        li {
+          display: inline-block;
+          width: @e-unit * 3;
+          height: @e-unit * 3;
+          margin-top: @e-unit;
+
+          img {
+            width: @e-unit * 3;
+            height: @e-unit * 3;
+          }
+        }
+      }
+
+      .e-nav-drawer-contact{
+        height: @e-unit * 7;
+
+        .e-nav-drawer-name{
+          font-family: 'Roboto Medium';
+          font-size:@e-unit * 1.75;
+        }
+
+        .e-nav-drawer-mail {
+          font-family: 'Roboto Regular';
+          font-size:@e-unit * 1.75;
+        }
+
+        & > li > a  {
+          display: block;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  nav {
+    overflow-y: hidden;
+  }
+
+  img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+  }
+}
+
+@keyframes e-modal-anim {
+  from {
+    opacity: 0; 
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+

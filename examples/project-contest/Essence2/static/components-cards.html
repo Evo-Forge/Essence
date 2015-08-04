@@ -1,0 +1,648 @@
+<div class="e-container">
+  <!--   Component - CARDS       -->
+  <div class="cards e-padding-top-50" id="components-cards">
+
+    <div class="e-row e-display-2">
+      <div class="brick brick-12 icon-container">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Cards</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">There are several types of cards which can be used in different situations. These range from informational panels to prompts and single choice ones. Take a look at the examples to see how you can use them.</p>
+      </div>
+    </div>
+
+    <!-- CARD one -->
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-title">Image card with description and links</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-default">
+        <div class="card">
+          <div class="card-main-image"><img src="assets/img/card-img.jpg" alt="Card Image">
+            <h2 class="e-headline">Going to Ibiza</h2><span></span>
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+          <div>
+            <button class="flat e-btn-default"><span>No</span>
+            </button>
+            <button class="flat e-btn-danger"><span>Yes</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;div class="card" &gt;
+  &lt;div class="card-main-image"&gt;
+    &lt;img src="assets/img/card-img.jpg" alt="Card Image" &gt;
+    &lt;h1 class="e-headline"&gt;
+      &lt;span>Going to Ibiza&lt;/span&gt;
+      &lt;span class="blur-effect" style="background-image:url(assets/img/card-img.jpg);"&gt;&lt;/span&gt;
+    &lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text"&gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div &gt;
+    &lt;button class="flat e-btn-default" &gt;&lt;span &gt;No&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="flat e-btn-danger" &gt;&lt;span &gt;Yes&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Card&gt;
+  &lt;CardItem&gt;
+    &lt;CardItemHeader blur={true}&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-main-image&quot;}&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+        &lt;Text type=&quot;h1&quot; classes={&quot;e-headline&quot;}&gt;
+          Going to Ibiza
+          &lt;Block classes={&quot;blur-effect&quot;} image=&quot;assets/img/card-img.jpg&quot; /&gt;
+        &lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemHeader&gt;
+
+    &lt;CardItemContent classes={&quot;card-supporting-text e-text-blue-grey-400&quot;}&gt;
+      &lt;Text type=&quot;h4&quot;&gt;
+        Limit supplemental actions to two actions, in addition to an overflow menu.
+      &lt;/Text&gt;
+    &lt;/CardItemContent&gt;
+
+    &lt;CardItemFooter&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-left&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat e-text-indigo-400'}
+          label='Yes'
+          type='danger'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-left&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat'}
+          label='No'
+          type='default'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemFooter&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+        </code>
+        </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+    <!--END CARD one -->
+
+    <!-- CARD two -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-title">Image card with avatar, title and subtitle</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-header">
+        <div class="card">
+          <div class="card-header clearfix">
+            <div class="card-header-image"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+            </div>
+            <div class="card-header-text">
+              <h2 class="e-title">Title</h2>
+              <h3 class="e-subhead">Subhead</h3>
+            </div>
+          </div>
+          <div class="card-main-image"><img src="assets/img/card-img.jpg" alt="Card Image">
+            <h2 class="e-headline">Going to Ibiza</h2><span></span>
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;div class="card" &gt;
+  &lt;div class="card-header clearfix" &gt;
+    &lt;div class="card-header-image" &gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image" &gt;
+    &lt;/div&gt;
+    &lt;div class="card-header-text" &gt;
+      &lt;h2 class="e-title" &gt;Title&lt;/h2&gt;
+      &lt;h3 class="e-subhead" &gt;Subhead&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-main-image" &gt;&lt;img src="assets/img/card-img.jpg" alt="Card Image" &gt;
+    &lt;h2 class="e-headline" &gt;Going to Ibiza&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text" &gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+        </code>
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Card&gt;
+  &lt;CardItem&gt;
+    &lt;CardItemHeader&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-header-image&quot;}&gt;
+        &lt;Image src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+      &lt;/Block&gt;
+
+      &lt;Block type=&quot;div&quot; classes={&quot;card-header-text&quot;}&gt;
+        &lt;Text type=&quot;h2&quot; classes={&quot;e-title&quot;}&gt;Card Title&lt;/Text&gt;
+        &lt;Text type=&quot;h3&quot; classes={&quot;e-subhead e-text-blue-grey-400&quot;}&gt;Card Subhead&lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemHeader&gt;
+
+    &lt;Block type=&quot;div&quot; classes={&quot;card-main-image&quot;}&gt;
+      &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+      &lt;Text type=&quot;a&quot; href=&quot;#carja&quot; classes={&quot;e-headline e-text-indigo-400&quot;}&gt;
+        Going to Ibiza
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+
+    &lt;CardItemContent classes={&quot;card-supporting-text e-text-blue-grey-400&quot;}&gt;
+      &lt;Text type=&quot;h4&quot;&gt;
+        Limit supplemental actions to two actions, in addition to an overflow menu.
+      &lt;/Text&gt;
+    &lt;/CardItemContent&gt;
+
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+        </code>
+              </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+    <!-- END CARD two -->
+
+    <!-- CARD three -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-title">Gallery card with avatar, title and links</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-gallery">
+        <div class="card">
+          <div class="card-header clearfix">
+            <div class="card-header-image"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+            </div>
+            <div class="card-header-text">
+              <h2 class="e-title">Title 1</h2>
+              <h3 class="e-subhead">Subhead 1</h3>
+            </div>
+          </div>
+          <div class="card-main-image"><img src="" alt="">
+            <div class="card-gallery"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image"><img src="assets/img/card-img.jpg" alt="Car image">
+            </div>
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+          <div class="card-suplimentary-actions clearfix">
+            <div class="e-left">
+              <button class="flat e-btn-default"><span>No</span>
+              </button>
+            </div>
+            <div class="e-right">
+              <button class="flat e-btn-danger"><span>Yes</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;div class="card" &gt;
+  &lt;div class="card-header clearfix" &gt;
+    &lt;div class="card-header-image" &gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image" &gt;
+    &lt;/div&gt;
+    &lt;div class="card-header-text" &gt;
+      &lt;h2 class="e-title"&gt;Title 1&lt;/h2&gt;
+      &lt;h3 class="e-subhead" &gt;Subhead 1&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="" alt="" &gt;
+    &lt;div class="card-gallery"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image" &gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;&lt;img src="assets/img/card-img.jpg" alt="Car image"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text"&gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class="card-suplimentary-actions clearfix"&gt;
+    &lt;div class="e-left"&gt;
+      &lt;button class="flat e-btn-default"&gt;&lt;span&gt;No&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="e-right"&gt;
+      &lt;button class="flat e-btn-danger"&gt;&lt;span&gt;Yes&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Card&gt;
+  &lt;CardItem&gt;
+    &lt;CardItemHeader&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-header-image&quot;}&gt;
+        &lt;Image src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+      &lt;/Block&gt;
+
+      &lt;Block type=&quot;div&quot; classes={&quot;card-header-text&quot;}&gt;
+        &lt;Text type=&quot;a&quot; href=&quot;#card-gallery&quot; classes={&quot;e-title&quot;}&gt;Card Gallery&lt;/Text&gt;
+        &lt;Text type=&quot;h3&quot; classes={&quot;e-subhead e-text-blue-grey-400&quot;}&gt;Multiple images&lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemHeader&gt;
+
+    &lt;Block type=&quot;div&quot; classes={&quot;card-main-image&quot;}&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-gallery&quot;}&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 1&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 2&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 3&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 4&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 5&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 6&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 7&quot; /&gt;
+        &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Image 8&quot; /&gt;
+      &lt;/Block&gt;
+    &lt;/Block&gt;
+
+    &lt;CardItemContent classes={&quot;card-supporting-text e-text-blue-grey-400&quot;}&gt;
+      &lt;Text type=&quot;h4&quot;&gt;
+        Limit supplemental actions to two actions, in addition to an overflow menu.
+      &lt;/Text&gt;
+    &lt;/CardItemContent&gt;
+
+    &lt;CardItemFooter&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-left&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat e-left e-text-indigo-400'}
+          label='Yes'
+          type='danger'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-right&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat e-left'}
+          label='No'
+          type='default'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemFooter&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+</code>
+              </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+    <!-- END CARD three -->
+
+    <!-- CARD four -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-title">Image card with choices</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-divider">
+        <div class="card"><span></span>
+          <div class="card-main-image"><img src="assets/img/card-img.jpg" alt="">
+          </div>
+          <div class="card-supporting-text">
+            <h4>Limit supplemental actions to two actions, in addition to an overflow menu.</h4>
+          </div>
+          <div class="card-suplimentary-actions clearfix">
+            <div class="e-left">
+              <button class="flat e-btn-succes"><span>A</span>
+              </button>
+            </div>
+            <div class="e-right">
+              <button class="flat e-btn-warning"><span>B</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;div class="card" &gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="assets/img/card-img.jpg" alt=""&gt;
+  &lt;/div&gt;
+  &lt;div class="card-supporting-text" &gt;
+    &lt;h4 &gt;Limit supplemental actions to two actions, in addition to an overflow menu.&lt;/h4&gt;
+  &lt;/div&gt;
+  &lt;div class="card-suplimentary-actions clearfix" &gt;
+    &lt;div class="e-left" &gt;
+      &lt;button class="flat e-btn-succes" &gt;&lt;span &gt;A&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="e-right"&gt;
+      &lt;button class="flat e-btn-warning"&gt;&lt;span&gt;B&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Card&gt;
+  &lt;CardItem&gt;
+    &lt;Block type=&quot;div&quot; classes={&quot;card-main-image&quot;}&gt;
+      &lt;Image src=&quot;assets/img/card-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+      &lt;Text type=&quot;h1&quot; classes={&quot;e-headline&quot;}&gt;
+        Going to Ibiza
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+
+    &lt;CardItemContent classes={&quot;card-supporting-text e-text-blue-grey-400&quot;}&gt;
+      &lt;Text type=&quot;h4&quot;&gt;
+        Limit supplemental actions to two actions, in addition to an overflow menu.
+      &lt;/Text&gt;
+    &lt;/CardItemContent&gt;
+
+    &lt;CardItemFooter&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-left&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat e-text-indigo-400'}
+          label='A'
+          type='danger'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-right&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat'}
+          label='B'
+          type='default'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemFooter&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+</code>
+              </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+    <!-- END CARD four -->
+
+    <!-- CARD five -->
+    <div class="e-row e-padding-top-50">
+      <div class="brick brick-12">
+        <h3 class="e-title">Avatar cards with choices</h3>
+      </div>
+      <div class="brick brick-4" id="components-cards-simple">
+        <div class="card">
+          <div class="card-header clearfix">
+            <div class="card-header-image"><img src="assets/img/car.jpg" alt="">
+            </div>
+            <div class="card-header-text">
+              <h2 class="e-title">Car photography</h2>
+              <h3 class="e-subhead">By John Doe</h3>
+            </div>
+          </div>
+          <div class="card-main-image"><img src="" alt="">
+          </div><span></span>
+          <div class="card-suplimentary-actions clearfix">
+            <div class="e-left">
+              <button class="flat e-btn-succes"><span>A</span>
+              </button>
+            </div>
+            <div class="e-right">
+              <button class="flat e-btn-warning"><span>B</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="brick brick-2"></div>
+
+      <div class="brick brick-5" id="components-cards-left-image">
+        <div class="card">
+          <div class="left-image">
+            <img src="assets/img/car.jpg" alt="Left card image" class="">
+          </div>
+          <div class="content-after-image">
+            <div class="card-supporting-text">
+              <h1 class="e-title">Car photography</h1>
+              <p class="e-subhead">by John Doe</p>
+            </div>
+            <br>
+            <div class="card-suplimentary-actions">
+              <div class="e-left">
+                <button class="e-btn-succes flat e-text-indigo-400">a</button>
+              </div>
+              <div class="e-right">
+                <button class="e-btn-warning flat e-text-black">b</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;div class="card"&gt;
+  &lt;div class="card-header clearfix"&gt;
+    &lt;div class="card-header-image"&gt;&lt;img src="assets/img/car.jpg" alt=""&gt;
+    &lt;/div&gt;
+    &lt;div class="card-header-text"&gt;
+      &lt;h2 class="e-title"&gt;Car photography&lt;/h2&gt;
+      &lt;h3 class="e-subhead"&gt;By John Doe&lt;/h3&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="card-main-image"&gt;&lt;img src="" alt=""&gt;
+  &lt;/div&gt;
+  &lt;div class="card-suplimentary-actions clearfix"&gt;
+    &lt;div class="e-left"&gt;
+      &lt;button class="flat e-btn-succes"&gt;&lt;span&gt;A&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="e-right"&gt;
+      &lt;button class="flat e-btn-warning"&gt;&lt;span &gt;B&lt;/span&gt;
+      &lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code>
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Card&gt;
+  &lt;CardItem&gt;
+    &lt;CardItemHeader&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-header-image&quot;}&gt;
+        &lt;Image src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+      &lt;/Block&gt;
+
+      &lt;Block type=&quot;div&quot; classes={&quot;card-header-text&quot;}&gt;
+        &lt;Text type=&quot;a&quot; href=&quot;#card-gallery&quot; classes={&quot;e-title&quot;}&gt;Car photography&lt;/Text&gt;
+        &lt;Text type=&quot;h3&quot; classes={&quot;e-subhead e-text-blue-grey-400&quot;}&gt;By John Doe&lt;/Text&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemHeader&gt;
+
+    &lt;CardItemFooter&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-left&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat e-left e-text-indigo-400'}
+          label='A'
+          type='danger'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;e-right&quot;}&gt;
+        &lt;BtnItem
+          classes={'flat e-left'}
+          label='B'
+          type='default'
+          rippleEffect={true}
+        /&gt;
+      &lt;/Block&gt;
+    &lt;/CardItemFooter&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+
+&lt;Card&gt;
+  &lt;CardItem&gt;
+    &lt;Block type=&quot;div&quot; classes={&quot;left-image&quot;}&gt;
+      &lt;Image src=&quot;assets/img/car.jpg&quot; alt=&quot;Card Header Image&quot; /&gt;
+    &lt;/Block&gt;
+
+    &lt;Block type=&quot;div&quot; classes={&quot;content-after-image&quot;}&gt;
+      &lt;Block type=&quot;div&quot; classes={&quot;card-supporting-text&quot;}&gt;
+        &lt;Text type=&quot;h1&quot; classes={&quot;e-title&quot;}&gt;Car photography&lt;/Text&gt;
+        &lt;Text type=&quot;p&quot; classes={&quot;e-subhead&quot;}&gt;By John Doe&lt;/Text&gt;
+      &lt;/Block&gt;
+
+      &lt;CardItemFooter&gt;
+        &lt;Block type=&quot;div&quot; classes={&quot;e-left&quot;}&gt;
+          &lt;BtnItem
+            classes={'flat e-left e-text-indigo-400'}
+            label='A'
+            type='danger'
+            rippleEffect={true}
+          /&gt;
+        &lt;/Block&gt;
+        &lt;Block type=&quot;div&quot; classes={&quot;e-right&quot;}&gt;
+          &lt;BtnItem
+            classes={'flat e-left'}
+            label='B'
+            type='default'
+            rippleEffect={true}
+          /&gt;
+        &lt;/Block&gt;
+      &lt;/CardItemFooter&gt;
+    &lt;/Block&gt;
+  &lt;/CardItem&gt;
+&lt;/Card&gt;
+</code>
+              </pre>
+      </div>
+    </div>
+    <!-- END CARD five -->
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Card" Essence component to render a group or single "CardItem" components. The "Card" Essence component tag will return a div container with a group or single &lt;div&gt; html tag with the class name "e-card". Inside the CardItem component you can include any component.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Card&gt;</span>
+  <span class="e-text-blue-500">&lt;CardItem&gt;</span>
+    <span class="e-text-indigo-400">&lt;CardItemHeader&gt;</span>
+      <span class="e-text-indigo-400">Header: can be used to include Image and/or Text</span>
+    <span class="e-text-indigo-400">&lt;/CardItemHeader&gt;</span>
+    <span class="e-text-indigo-600">&lt;CardItemContent&gt;</span>
+      <span class="e-text-indigo-600">Content: can be used to include any component</span>
+    <span class="e-text-indigo-600">&lt;/CardItemContent&gt;</span>
+    <span class="e-text-indigo-800">&lt;CardItemFooter&gt;</span>
+      <span class="e-text-indigo-800">Footer: used for actions from single or multiple BtnItem items</span>
+    <span class="e-text-indigo-800">&lt;/CardItemFooter&gt;</span>
+  <span class="e-text-blue-500">&lt;/CardItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Card&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any Card subcomponent from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - blur: if set to <strong>true</strong> it will render CardItemHeader without class name "card-header"<br />
+          - the blur effect must be structured like the first example using a Block component with image option set to image path, e.g.: <br />
+          <strong>&lt;Block classes={"blur-effect"} image="assets/img/card-img.jpg" /&gt;</strong><br />
+          - use the examples from above to structure your own Card
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!--  END Component - CARDS       -->
+</div>

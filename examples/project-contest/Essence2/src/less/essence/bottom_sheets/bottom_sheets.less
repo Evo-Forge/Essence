@@ -1,0 +1,87 @@
+//Font and color:
+//Text: Roboto Regular 16sp,  #000 87%
+//Title (optional): Roboto Regular 16sp, #000 54%
+//Default bottom sheet background fill: #FFF
+//Overlay shield fill: #000 20%
+
+.e-bottom-sheet {
+  position: fixed;
+  left: 0;
+  bottom: -500px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  z-index: 99999;
+  .transition(all 0.2s ease-in-out);
+
+  .brick-4 { .column(3); }
+
+  &.animate {
+    bottom: 0px;
+  }
+
+  .e-list {
+    padding: 0;
+    margin: 0;
+  }
+
+  .e-list-content {
+    padding-left: 16px;
+    i {
+      display: block;
+      font-size: @e-unit * 3;
+      line-height: @e-unit * 3;
+      color: lighten(@e-text-color, 46%);
+    }
+  }
+
+  .e-list > li a .e-list-avatar {
+    height: @e-unit * 4;
+    width: @e-unit * 4;
+  }
+
+  .e-list-big-icon {
+    padding: 0 (@e-unit * 3) (@e-unit * 3);
+    list-style: none;
+    text-align: center;
+    background-color: white;
+    margin: 0;
+
+    li {
+      margin: 0;
+      padding: (@e-unit * 2) 0px;
+      float: left;
+      width: 33%;
+      a {
+        display: block;
+      }
+    }
+
+    li:nth-child(3n + 1) a {
+      text-align: left;
+    }
+
+    li:nth-child(3n) a {
+      text-align: right;
+    }
+
+    i {
+      display: block;
+      font-size: @e-unit * 6;
+      line-height: @e-unit * 6;
+      color: lighten(@e-text-color, 46%);
+    }
+
+    .e-bs-title {
+      box-sizing: border-box;
+      font-family: 'Roboto Regular';
+      line-height: @e-unit * 2;
+      color: lighten(@e-text-color, 46%);
+    }
+  }
+
+  hr {
+    border: none;
+    border: 1px solid #121212;
+  }
+}

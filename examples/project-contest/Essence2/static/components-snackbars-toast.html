@@ -1,0 +1,235 @@
+<div class="e-container">
+  <!--   Component - Snackbars and Toasts       -->
+
+  <div class="snackbars-toast e-padding-top-50" id="components-snackbars-toast">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Snackbars &amp; toasts</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+
+        <div id="components-snackbars-toast-buttons" class="e-padding-top-25">
+        </div>
+
+        <div id="components-snackbars-toast-list">
+        </div>
+
+        <div id="components-snackbars-toast-toasts">
+        </div>
+
+      </div>
+      <div class="brick brick-12">
+        <p class="e-body1 e-text-blue-grey-400">Remember those confirmation messages from long time ago? They’re now called snackbars and toasts and they come with rules. Head onto Google to check out how to use them. Then check out the below examples hot to integrate them from Essence. </p>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div id="snackbar-btn"&gt;
+  &lt;div&gt;
+    &lt;button class="raised e-btn-primary e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Show me Snackbar 1&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-primary e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Show me Snackbar 2&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-primary e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Show me Snackbar 3&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-succes e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Toast 1 chicken&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-succes e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Toast 2 chicken&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;button class="raised e-btn-succes e-ripple"&gt;
+      &lt;div class="e-ripple-container"&gt;&lt;span&gt;&lt;div class="e-ripple-effect"&gt;&lt;/div&gt;&lt;/span&gt;
+      &lt;/div&gt;&lt;span&gt;Toast 3 chicken&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="snackbars"&gt;
+  &lt;div&gt;
+    &lt;div id="snackbar1" class="snackbar"&gt;
+      &lt;div class="snackbar-message"&gt;Hello to you&lt;/div&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="snackbar2" class="snackbar"&gt;
+      &lt;div class="snackbar-message"&gt;Hello to me&lt;/div&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="snackbar3" class="snackbar"&gt;
+      &lt;div class="snackbar-message"&gt;Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.&lt;/div&gt;&lt;span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="toasts"&gt;
+  &lt;div&gt;
+    &lt;div id="toast1" class="toast"&gt;&lt;span&gt;Hello to you&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="toast2" class="toast"&gt;&lt;span&gt;Hello to me&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div id="toast3" class="toast"&gt;&lt;span&gt;Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Show me Snackbar 1'
+    type='primary'
+    disabled={false}
+    rippleEffect={true}
+    snackbar='snackbar1'
+  &gt;
+  &lt;/BtnItem&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Show me Snackbar 2'
+    type='primary'
+    disabled={false}
+    rippleEffect={true}
+    snackbar='snackbar2'
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Show me Snackbar 3'
+    type='primary'
+    disabled={false}
+    snackbar='snackbar3'
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Toast 1 chicken'
+    type='succes'
+    disabled={false}
+    rippleEffect={true}
+    toast='toast1'
+  &gt;
+  &lt;/BtnItem&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Toast 2 chicken'
+    type='succes'
+    disabled={false}
+    rippleEffect={true}
+    toast='toast2'
+  /&gt;
+  &lt;BtnItem
+    classes={'raised'}
+    label='Toast 3 chicken'
+    type='succes'
+    disabled={false}
+    toast='toast3'
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;Snackbar&gt;
+  &lt;SnackbarItem
+    id={'snackbar1'}
+    classes={'snackbar-item'}
+  &gt;
+    Hello to you
+  &lt;/SnackbarItem&gt;
+  &lt;SnackbarItem
+    id={'snackbar2'}
+    classes={'snackbar-item'}
+  &gt;
+    Hello to me
+  &lt;/SnackbarItem&gt;
+  &lt;SnackbarItem
+    id={'snackbar3'}
+    classes={'snackbar-item'}
+  &gt;
+    Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.
+  &lt;/SnackbarItem&gt;
+&lt;/Snackbar&gt;
+
+&lt;Toast&gt;
+  &lt;ToastItem
+    id={'toast1'}
+    classes={'toasts'}
+  &gt;
+    Hello to you
+  &lt;/ToastItem&gt;
+  &lt;ToastItem
+    id={'toast2'}
+    classes={'toasts'}
+  &gt;
+    Hello to me
+  &lt;/ToastItem&gt;
+  &lt;ToastItem
+    id={'toast3'}
+    classes={'toasts'}
+  &gt;
+    Hello to all of you. Lorem ipsum dolor sit amet, consectetur adipiscing
+    elit. Donec eget augue viverra, eleifend elit in, sagittis tellus.
+  &lt;/ToastItem&gt;
+&lt;/Toast&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "SnackBar" Essence component to render a "SnackBarItem" component. The "SnackBar" Essence component will return a div container with class name "snackbar". Inside the SnackBar component you can include only the <strong>SnackBarItem</strong> component. <br />
+          <br />
+          Use the "Toast" Essence component to render a "ToastItem" component. The "Toast" Essence component tag will return a div container with class name "toast". Inside the Toast component you can include only the <strong>ToastItem</strong> component. <br />
+          <br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;SnackBar&gt;</span>
+  <span class="e-text-blue-500">&lt;SnackbarItem id={'snackbar_id'}&gt;</span>
+    <span class="e-text-indigo-600">can be used to include any component or html code</span>
+  <span class="e-text-blue-500">&lt;/SnackbarItem&gt;</span>
+<span class="e-text-blue-500">&lt;/SnackBar&gt;</span>
+
+
+<span class="e-text-blue-500">&lt;Toast&gt;</span>
+  <span class="e-text-blue-500">&lt;ToastItem id={'toast_id'}&gt;</span>
+    <span class="e-text-indigo-600">can be used to include any component or html code</span>
+  <span class="e-text-blue-500">&lt;/ToastItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Toast&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any Snackbar or Toast component or subcomponent from Styles > Colors menu<br />
+          <br />
+          <br />
+          &bull; Options<br />
+          - id: required for unique Snackbar or Toast to be shown on click<br />
+          - in order to recreate the examples above please use a BtnItem component with the options: <br />
+          &bull; <strong>snackbar='snackbar_id'</strong> where <u>snackbar_id</u> is the SnackBar id option <br />
+          &bull; <strong>toast='toast_id'</strong> where <u>toast_id</u> is the Toast id option<br />
+          - use the examples from above to structure your own SnackBar or Toast
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END Component - Snackbars and Toasts       -->
+</div>

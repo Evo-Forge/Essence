@@ -1,0 +1,159 @@
+.e-chip {
+  background-color: #E0E0E0;
+  border-radius: (@e-unit * 2);
+  display: table;
+  padding-right: 12px;
+  cursor: pointer;
+
+  .e-chip-image {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    img {
+      width: 32px;
+      border-radius: 50%;
+    }
+  }
+  .e-chip-text {
+    font-size: 14px;
+    line-height: 32px;
+    span {
+      display: block;
+      color: #949494;
+    }
+    span.e-chip-adress {
+      display: none;
+    }
+  }
+  .e-close-btn {
+    display: none;
+    border: none;
+    background: none;
+    &:after {
+      content: "\00d7";
+      display: inline-block;
+
+    }
+  }
+//  closed and focus chip
+  &.focus {
+    background-color: #EBEBEB;
+    box-shadow:  0 2px 5px -3px #000;
+    .e-chip-text {
+      span {
+        color: #727272;
+      }
+    }
+  }
+//  closed and press chip
+  &.press {
+    background-color: #D6D6D6;
+    box-shadow:  0 2px 5px -3px #000;
+
+    .e-chip-text {
+      span {
+        color: #747474;
+      }
+    }
+  }
+//  starting open chip -- just add open class
+  &.open {
+    background-color: #fff;
+    box-shadow: none;
+    border-radius: 0;
+    display: block;
+    padding: 8px;
+    .e-chip-image {
+      width: 40px;
+      height: 40px;
+      img {
+        width: 40px;
+      }
+    }
+    .e-chip-text {
+      font-size: 16px;
+      line-height: 40px;
+      span {
+        display: block;
+        color: #949494;
+      }
+      span.e-chip-name {
+        font-size: 16px;
+        display: none;
+      }
+      span.e-chip-adress {
+        display: block;
+        font-size: 14px;
+      }
+    }
+    .e-close-btn {
+
+      &:after {
+        line-height: 20px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: #fff;
+        background: gray;
+      }
+    }
+//    open and active - always the first li in the list. the active class only changes colors and background, only the ".first" class shows the close button and the name
+    &.first {
+      padding: 16px 8px;
+      .e-chip-text {
+
+        span {
+//          color: #fff;
+        }
+        span.e-chip-name {
+          line-height: 22px;
+          display: block;
+          color: #333;
+        }
+        span.e-chip-adress {
+          display: block;
+          line-height: 14px;
+        }
+
+      }
+      .e-close-btn {
+        display: block;
+        line-height: 40px;
+
+      }
+    }
+//    open and focus
+    &.focus {
+      background-color: #EBEBEB;
+    }
+    &.active {
+      background-color: #00B8D4;
+
+      .e-chip-text {
+
+        span {
+          color: #fff !important;
+        }
+
+      }
+      .e-close-btn {
+        &:after {
+          color: #00B8D4;
+          background-color: #fff;
+          }
+      }
+
+    }
+  }
+
+}
+ul.chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 2px;
+  box-shadow: 0px 3px 5px -3px #000;
+  li {
+    cursor: pointer;
+  }
+}

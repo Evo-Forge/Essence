@@ -1,0 +1,26 @@
+.e-paper-container {
+  display: table;
+
+  .e-paper-components{
+    display: inline-block; 
+  }
+}
+
+.e-paper {
+  min-width: 100px;
+  min-height: 100px;
+  padding: @e-unit;
+
+  .border-radius(2px);
+
+  &.sharp{
+    .border-radius(0px);
+  }
+
+  &.circle {
+    .border-radius(50%);
+  }
+
+}
+
+

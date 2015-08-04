@@ -1,0 +1,203 @@
+<div class="e-container">
+  <!--   Component - Progress       -->
+
+  <div class="progress e-padding-top-50" id="components-progress">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Progress and activity</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        
+        <div id="components-progress-reactjs" style="position: relative;"  class="brick brick-6 e-padding-top-50 e-text-center"></div>
+
+        <div class="brick brick-6 e-text-center">
+            <img src="assets/img/components/progress.jpg" alt="Progress Essence Native component" width="360">
+        </div>
+      </div>
+      <div class="brick brick-12">
+        <p class="e-body1 e-text-blue-grey-400">Make loading content in your app as delightful and painless as possible by minimizing the amount of visual change a user sees before they can view and interact with content. Each operation should only be represented by one activity indicator—for example, one refresh operation should not display both a refresh bar and an activity circle. Below you’ll find six variations of activity indicators. Use them wisely. </p>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div class="e-progress-slider"&gt;
+  &lt;div class="e-progress-slider-line"&gt;&lt;/div&gt;
+  &lt;div class="break dot1"&gt;&lt;/div&gt;
+  &lt;div class="break dot2"&gt;&lt;/div&gt;
+  &lt;div class="break dot3"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="e-progress-circle  e-margin-bottom-50 e-margin-top-50"&gt;
+  &lt;div class="ball-frame ball-frame-1"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-2"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-3"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-4"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-5"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="e-progress-circle small  e-margin-bottom-15"&gt;
+  &lt;div class="ball-frame ball-frame-1"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-2"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-3"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-4"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ball-frame ball-frame-5"&gt;
+    &lt;div class="round-ball"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="e-progress-dots e-margin-bottom-15"&gt;
+  &lt;div class="e-progress-dot e-progress-dot-1"&gt;
+  &lt;/div&gt;
+  &lt;div class="e-progress-dot e-progress-dot-2"&gt;
+  &lt;/div&gt;
+  &lt;div class="e-progress-dot e-progress-dot-3"&gt;
+  &lt;/div&gt;
+  &lt;div class="e-progress-dot e-progress-dot-4"&gt;
+  &lt;/div&gt;
+  &lt;div class="e-progress-dot e-progress-dot-5"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="e-progress-fix  e-margin-bottom-15"&gt;
+  &lt;div class="e-progress-fix-slider"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="e-progress-dynamic  e-margin-bottom-15"&gt;
+  &lt;div class="e-progress-dynamic-slider"&gt;&lt;/div&gt;
+  &lt;div class="e-progress-dynamic-slider second-slider"&gt;&lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Progress type='slider' /&gt;
+&lt;Progress type='circle' /&gt;
+&lt;Progress type='circle' small={true} /&gt;
+&lt;Progress type='dots' /&gt;
+&lt;Progress type='fix' /&gt;
+&lt;Progress type='dynamic' /&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Progress 
+   small={true} 
+   color='red' 
+   style={Helpers['e-padding-top-50']}/&gt;
+          </code>
+        </pre>
+      </div>
+      
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          The "Progress" React tag will return a div container with the class name "e-progress-" + type option.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Progress type='slider'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='circle'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='circle' small={true}&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='dots'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='fix'&gt;</span>
+<span class="e-text-blue-500">&lt;Progress type='dynamic'&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - no styling required<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> with type: <strong>circle</strong> will render a small circle visualization
+          - <u>type</u>
+          <br />
+           1. <strong>slider</strong>: appends "slider" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           2. <strong>circle</strong>: appends "circle" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           3. <strong>dots</strong>: appends "dots" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           4. <strong>fix</strong>: appends "fix" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           5. <strong>dynamic</strong>: appends "dynamic" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+        </p>
+      </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          The "Progress" Essence component will render a iOS native ActivityIndicatorIOS component.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-500">&lt;Progress 
+  small=<span class="e-text-blue-500">{true}</span>
+  color=<span class="e-text-red-500">'red'</span>
+  style={[<span class="e-text-green-500">__HelpersStyles__</span>]} /&gt;
+</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to View component from Styles > Colors or Useful classes menu<br />
+          - <u>color</u>: change the foreground color of the spinner with any string respresenting a text or hex color<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> will render a small spinner
+        </p>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <!-- END Component - Progress       -->
+</div>

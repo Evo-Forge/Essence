@@ -1,0 +1,114 @@
+<div class="e-container">
+  <!--   Component - Dividers       -->
+
+  <div class="dividers e-padding-top-50" id="components-dividers">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Dividers</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+      </div>
+
+      <div class="brick brick-6">
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">According to our needs we created some dividers and stored them in a .less file called, you've guest it, dividers.</p>
+        <p class="e-body1 e-text-blue-grey-400">We've created three values for width and five values for height. You can combine them as you please.</p>
+        <p class="e-body1 e-text-blue-grey-400">For example, to get a thin, long divider you add the classes <code>.e-divider .thin .long</code> to an empty &lt;div&gt; and set it's background color.</p>
+        <div class="e-divider thin long e-background-indigo-700"></div>
+        
+        <p class="e-body1 e-text-blue-grey-400">To get a divider to strech the full width of its parent container, simply leave out the width value as in the following example: <code>.e-divider .thick</code></p>
+        <div class="e-divider thick e-background-indigo-700"></div>
+      
+        <p class="e-body1 e-text-blue-grey-400">The available values for height are: thinnest, thin, regular, thick, thickest. For width we have: short, medium, long.</p>
+      </div>
+      <div class="brick brick-6 e-dialog-container e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/divider.jpg" alt="Divider Native Essence component" width="360">
+      </div>
+    </div>
+
+    <div class="e-row">
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2 small">
+          <code class="language-jsx">
+&lt;Divider classes={'thin long e-background-indigo-700'} /&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2 small">
+          <code class="language-jsx">
+ &lt;Divider style={[
+   Helpers['thinnest'],
+   Helpers['medium'],
+   Helpers['e-margin-top-50'],
+   Helpers['e-margin-bottom-50'],
+   Colors['e-background-grey-400'],
+   ]} /&gt;
+          </code>
+        </pre>
+      </div>
+      
+ 
+     <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2 small">
+          <code class="language-markup">
+&lt;div class="e-divider thin long e-background-indigo-700"&gt;&lt;div&gt;
+          </code>
+        </pre>
+      </div>
+         
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          The "Divider" Essence component will return a div container with the class name "e-divider" to separate content.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Divider classes={'__css-classes__'} /&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: <strong>thick</strong> - for minimum height of 5px or <strong>thin</strong> for minimum height of 1px
+          <br />
+        </p>
+      </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          The "Divider" Essence component will return a View component with styling from style array.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-500">&lt;Divider 
+  style={[<span class="e-text-green-500">__HelpersStyles__</span>, <span class="e-text-blue-500">__ColorsStyles__</span>]} 
+/&gt;</span>
+          </pre>
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to View component from Styles > Colors menu<br />
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END Component - Divider       -->
+</div>

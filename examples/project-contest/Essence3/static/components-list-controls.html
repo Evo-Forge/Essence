@@ -1,0 +1,994 @@
+<div class="e-container">
+  <!--   Component - List Controls       -->
+
+  <div class="lists-controls e-padding-top-50" id="components-list-controls">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">List Controls</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">These indicate the state of a list item, information about a list item, or serve as an action related to the list item. </p>
+        <h3>Primary action checkbox</h3>
+        <p class="e-body1 e-text-blue-grey-400">The checkbox is the primary action and the state indicator for the list item.</p>
+      </div>
+      <div class="brick brick-5 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-list-controls-checkbox">
+        <ul class="e-list has-checkbox">
+          <li>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox1" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                  <span>First List Checkbox</span>
+                </label>
+              </div>
+            </div>
+            <a class="brick-1" href="#list">
+              <i class="e-icon-action-view-list"></i>
+            </a>
+          </li>
+          <li>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox2" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                  <span>Second List Checkbox</span>
+                </label>
+              </div>
+            </div>
+            <a class="brick-1" href="#week">
+              <i class="e-icon-action-view-week"></i>
+            </a>
+          </li>
+          <li>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox3" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                  <span>Third List Checkbox</span>
+                </label>
+              </div>
+            </div>
+            <a class="brick-1" href="#unlock">
+              <i class="e-icon-action-face-unlock"></i>
+            </a>
+          </li>
+          <li>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox4" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                  <span>Fourth List Checkbox</span>
+                </label>
+              </div>
+            </div>
+            <a class="brick-1" href="#settings">
+              <i class="e-icon-action-settings-input-component"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list has-checkbox&quot;&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox1&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+          &lt;span&gt;First List Checkbox&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#list&quot;&gt;
+      &lt;i class=&quot;e-icon-action-view-list&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox2&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+          &lt;span&gt;Second List Checkbox&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#week&quot;&gt;
+      &lt;i class=&quot;e-icon-action-view-week&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox3&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+          &lt;span&gt;Third List Checkbox&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#unlock&quot;&gt;
+      &lt;i class=&quot;e-icon-action-face-unlock&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox4&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+          &lt;span&gt;Fourth List Checkbox&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#settings&quot;&gt;
+      &lt;i class=&quot;e-icon-action-settings-input-component&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List type='checkbox'&gt;
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        text='First List Checkbox'
+        name='checkbox1'
+      /&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#list'&gt;
+        &lt;Icon name='action-view-list' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        text='Second List Checkbox'
+        name='checkbox2'
+      /&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#week'&gt;
+        &lt;Icon name='action-view-week' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        text='Third List Checkbox'
+        name='checkbox3'
+      /&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#unlock'&gt;
+        &lt;Icon name='action-face-unlock' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        text='Fourth List Checkbox'
+        name='checkbox4'
+      /&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#settings'&gt;
+        &lt;Icon name='action-settings-input-component' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3>Secondary action checkbox</h3>
+        <p class="e-body1 e-text-blue-grey-400">The checkbox is the secondary action for the list item.</p>
+      </div>
+      <div class="brick brick-5 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-list-controls-checkbox-avatar">
+        <ul class="e-list has-right-checkbox">
+          <li>
+            <a class="brick-11" href="#attractions">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="1st List checkbox">
+                <span>
+                  <strong>
+                    <span>1st List checkbox</span>
+                  </strong>
+                </span>
+              </span>
+            </a>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox1" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="brick-11" href="#attractions">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="2nd List checkbox">
+                <span>
+                  <strong>
+                    <span>2nd List checkbox</span>
+                  </strong>
+                </span>
+              </span>
+            </a>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox2" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="brick-11" href="#attractions">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="3rd List checkbox">
+                <span>
+                  <strong>
+                    <span>3rd List checkbox</span>
+                  </strong>
+                </span>
+              </span>
+            </a>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox3" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="brick-11" href="#attractions">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="4th List checkbox">
+                <span>
+                  <strong>
+                    <span>4th List checkbox</span>
+                  </strong>
+                </span>
+              </span>
+            </a>
+            <div class="e-switch">
+              <div class="e-checkbox">
+                <label>
+                  <input type="checkbox" name="checkbox4" class="toggle">
+                  <span class="absolute e-wave"></span>
+                  <span class="absolute e-check-valid"></span>
+                </label>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list has-right-checkbox&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;1st List checkbox&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            &lt;span&gt;1st List checkbox&lt;/span&gt;
+          &lt;/strong&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox1&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;2nd List checkbox&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            &lt;span&gt;2nd List checkbox&lt;/span&gt;
+          &lt;/strong&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox2&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;3rd List checkbox&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            &lt;span&gt;3rd List checkbox&lt;/span&gt;
+          &lt;/strong&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox3&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;4th List checkbox&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            &lt;span&gt;4th List checkbox&lt;/span&gt;
+          &lt;/strong&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-checkbox&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot; name=&quot;checkbox4&quot; class=&quot;toggle&quot;&gt;
+          &lt;span class=&quot;absolute e-wave&quot;&gt;&lt;/span&gt;
+          &lt;span class=&quot;absolute e-check-valid&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List type='checkbox' position='right'&gt;
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='1st List checkbox'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;1st List checkbox&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        name='checkbox1'
+      /&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='2nd List checkbox'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;2nd List checkbox&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        name='checkbox2'
+      /&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='3rd List checkbox'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;3rd List checkbox&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        name='checkbox3'
+      /&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='4th List checkbox'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;4th List checkbox&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;SwitchItem
+        type='checkbox'
+        name='checkbox4'
+      /&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3>Switch list</h3>
+        <p class="e-body1 e-text-blue-grey-400">This one toggles the on/off state for a list item.</p>
+      </div>
+      <div class="brick brick-5 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-list-controls-switches">
+        <ul class="e-list has-switches">
+          <li>
+            <a class="brick-11" href="#wifi">
+              <i class="e-text-amber-900 e-icon-device-network-wifi"></i>
+              <strong>
+                <span>Wi-Fi Network</span>
+              </strong>
+            </a>
+            <div class="e-switch">
+              <div class="e-switches">
+                <label>
+                  <input type="checkbox">
+                  <span class="e-switches-toggle"></span>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="brick-11" href="#bluetooth">
+              <i class="e-text-indigo-400 e-icon-action-settings-bluetooth"></i>
+              <strong>
+                <span>Bluetooth settings</span>
+              </strong>
+            </a>
+            <div class="e-switch">
+              <div class="e-switches">
+                <label>
+                  <input type="checkbox">
+                  <span class="e-switches-toggle"></span>
+                </label>
+              </div>
+            </div>
+          </li>
+          <li>
+            <a class="brick-11" href="#data-usage"><i class="e-text-red-800 e-icon-device-data-usage"></i>
+              <strong>
+                <span>Data usage</span>
+              </strong>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="brick">
+      </div>
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/list-controls.jpg" alt="List Controls Essence Native component" width="360">
+      </div>
+    </div>
+
+    <div class="e-row">
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list has-switches&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#wifi&quot;&gt;
+      &lt;i class=&quot;e-text-amber-900 e-icon-device-network-wifi&quot;&gt;&lt;/i&gt;
+      &lt;strong&gt;
+        &lt;span&gt;Wi-Fi Network&lt;/span&gt;
+      &lt;/strong&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-switches&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot;&gt;
+          &lt;span class=&quot;e-switches-toggle&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#bluetooth&quot;&gt;
+      &lt;i class=&quot;e-text-indigo-400 e-icon-action-settings-bluetooth&quot;&gt;&lt;/i&gt;
+      &lt;strong&gt;
+        &lt;span&gt;Bluetooth settings&lt;/span&gt;
+      &lt;/strong&gt;
+    &lt;/a&gt;
+    &lt;div class=&quot;e-switch&quot;&gt;
+      &lt;div class=&quot;e-switches&quot;&gt;
+        &lt;label&gt;
+          &lt;input type=&quot;checkbox&quot;&gt;
+          &lt;span class=&quot;e-switches-toggle&quot;&gt;&lt;/span&gt;
+        &lt;/label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#data-usage&quot;&gt;&lt;i class=&quot;e-text-red-800 e-icon-device-data-usage&quot;&gt;&lt;/i&gt;
+      &lt;strong&gt;
+        &lt;span&gt;Data usage&lt;/span&gt;
+      &lt;/strong&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List type='switch'&gt;
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#wifi'&gt;
+        &lt;Icon name='device-network-wifi' classes={'e-text-amber-900'} /&gt;
+        &lt;Text type='strong'&gt;Wi-Fi Network&lt;/Text&gt;
+      &lt;/Text&gt;
+      &lt;SwitchItem
+        type='switches'
+        name='input-network-wifi'
+        checked={true}
+      /&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#bluetooth'&gt;
+        &lt;Icon name='action-settings-bluetooth' classes={'e-text-indigo-400'} /&gt;
+        &lt;Text type='strong'&gt;Bluetooth settings&lt;/Text&gt;
+      &lt;/Text&gt;
+      &lt;SwitchItem
+        type='switches'
+        name='input-settings-bluetooth'
+        checked={false}
+      /&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#data-usage'&gt;
+        &lt;Icon name='device-data-usage' classes={'e-text-red-800'} /&gt;
+        &lt;Text type='strong'&gt;Data usage&lt;/Text&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+            <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List style={Helpers['e-shadow-2']}&gt;
+  &lt;View style={Helpers['e-list-item']}&gt;
+    &lt;View style={Helpers['e-list-content']}&gt;
+      &lt;Text style={[Helpers['e-list-text'], Typography['strong']]}&gt;Wi-Fi Network&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;SwitchItem containerStyle={Helpers['e-right']} /&gt;
+  &lt;/View&gt;
+
+  &lt;View style={Helpers['e-list-item']}&gt;
+    &lt;View style={Helpers['e-list-content']}&gt;
+      &lt;Text style={[Helpers['e-list-text'], Typography['strong']]}&gt;Bluetooth settings&lt;/Text&gt;
+    &lt;/View&gt;
+    &lt;SwitchItem checked={true} containerStyle={Helpers['e-right']} /&gt;
+  &lt;/View&gt;
+
+  &lt;View style={Helpers['e-list-item']}&gt;
+    &lt;View style={Helpers['e-list-content']}&gt;
+      &lt;Text style={[Helpers['e-list-text'], Typography['strong']]}&gt;Data usage&lt;/Text&gt;
+    &lt;/View&gt;
+  &lt;/View&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50 hide">
+      <div class="brick brick-12">
+        <h3>Expand/Collapse list</h3>
+        <p class="e-body1 e-text-blue-grey-400">Expands and collapses a list view vertically to show and hide details of existing list items.</p>
+      </div>
+      <div class="brick brick-5 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-list-controls-expand">
+        <ul class="e-list-navigation has-avatar has-icon has-dropdown">
+          <li class="active">
+            <a href="#user-image">
+              <span>Attractions</span>
+              <i class="e-right e-icon-hardware-keyboard-arrow-down"></i>
+            </a>
+            <ul class="e-sublist-navigation">
+              <li>
+                <a href="#">Movie</a>
+              </li>
+              <li>
+                <a href="#">Park</a>
+              </li>
+              <li>
+                <a href="#">Playground</a>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#user-image">
+              <span>Dining</span>
+              <i class="e-right e-icon-hardware-keyboard-arrow-down"></i>
+            </a>
+            <ul class="e-sublist-navigation">
+              <li>
+                <a href="#">Breakfast &amp; brunch</a>
+              </li>
+              <li>
+                <a href="#">New American</a>
+              </li>
+              <li>
+                <a href="#">Sushi bars</a>
+              </li>
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#user-image">
+              <span>Education</span>
+              <i class="e-right e-icon-hardware-keyboard-arrow-down"></i>
+            </a>
+            <ul class="e-sublist-navigation">
+              <li>
+                <a href="#Highschool">Highschool</a>
+              </li>
+              <li>
+                <a href="#College">College</a>
+              </li>
+              <li>
+                <a href="#Library">Library</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#user-image">
+              <span>Family</span>
+              <i class="e-right e-icon-hardware-keyboard-arrow-down"></i>
+            </a>
+            <ul class="e-sublist-navigation">
+              <li>
+                <a href="#Kids">Kids</a>
+              </li>
+              <li>
+                <a href="#Friends">Friends</a>
+              </li>
+              <li>
+                <a href="#Relatives">Relatives</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75 hide">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list-navigation has-avatar has-icon has-dropdown&quot;&gt;
+  &lt;li class=&quot;active&quot;&gt;
+    &lt;a href=&quot;#user-image&quot;&gt;
+      &lt;span&gt;Attractions&lt;/span&gt;
+      &lt;i class=&quot;e-right e-icon-hardware-keyboard-arrow-down&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;e-sublist-navigation&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          Movie
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          Park
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          Playground
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;active&quot;&gt;
+    &lt;a href=&quot;#user-image&quot;&gt;
+      &lt;span&gt;Dining&lt;/span&gt;
+      &lt;i class=&quot;e-right e-icon-hardware-keyboard-arrow-down&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;e-sublist-navigation&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          Breakfast &amp; brunch
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          New American
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          Sushi bars
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;active&quot;&gt;
+    &lt;a href=&quot;#user-image&quot;&gt;
+      &lt;span&gt;Education&lt;/span&gt;
+      &lt;i class=&quot;e-right e-icon-hardware-keyboard-arrow-down&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;e-sublist-navigation&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#Highschool&quot;&gt;
+          Highschool
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#College&quot;&gt;
+          College
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#Library&quot;&gt;
+          Library
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a href=&quot;#user-image&quot;&gt;
+      &lt;span&gt;Family&lt;/span&gt;
+      &lt;i class=&quot;e-right e-icon-hardware-keyboard-arrow-down&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;e-sublist-navigation&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#Kids&quot;&gt;
+          Kids
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#Friends&quot;&gt;
+          Friends
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#Relatives&quot;&gt;
+          Relatives
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List
+  type='expand'
+  avatar={true}
+  icon={true}
+&gt;
+  &lt;ListItem
+    inputName='input-1'
+    icon='maps-local-attraction'
+    contentLink='#'
+    contentText='Attractions'
+    more={true}
+    avatarLink='#user-image'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='User avatar image'
+    submenu={menuAttractions}
+  /&gt;
+  &lt;ListItem
+    inputName='input-2'
+    icon='maps-local-restaurant'
+    contentLink='#'
+    contentText='Dining'
+    more={true}
+    avatarLink='#user-image'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='User avatar image'
+    submenu={menuDining}
+  /&gt;
+  &lt;ListItem
+    inputName='input-3'
+    icon='social-school'
+    contentLink='#'
+    contentText='Education'
+    more={true}
+    avatarLink='#user-image'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='User avatar image'
+    submenu={menuEducation}
+  /&gt;
+  &lt;ListItem
+    inputName='input-3'
+    icon='social-group'
+    contentLink='#'
+    contentText='Family'
+    more={true}
+    avatarLink='#user-image'
+    avatarImg='assets/img/card-user-img.jpg'
+    avatarAlt='User avatar image'
+    submenu={menuFamily}
+  /&gt;
+
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "List" tag to render a group or single "ListItem" component. The "List" Essence component will return a div container with a single or multiple &lt;ListItem&gt; Essence components with the class name "e-list".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;List type='checkbox_or_switch' position='right'&gt;</span>
+  <span class="e-text-blue-500">&lt;ListItem&gt;</span>
+    __li-style-block-or-react-components__
+  <span class="e-text-blue-500">&lt;/ListItem&gt;</span>
+<span class="e-text-blue-500">&lt;/List&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to List or ListItem component from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>type</u>
+          <br />
+           1. <strong>checkbox</strong>: append "has-checkbox" to class names list with the use of SwitchItem component with type = checkbox<br />
+           2. <strong>switch</strong>: append "has-switches" to class names list with the use of SwitchItem component with type = switch<br />
+          - <u>position</u>: together with type: checkbox will position the checkbox on right side of the ListItem
+          - use the examples from above to structure your own List
+        </p>
+      </div>
+
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "List" Essence component to render a View component with custom content including "TouchableHighlight", "View" or "Text" native iOS components.<br />
+          Each child from inside of List component will be rendered as a View native component.
+          <br />
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-500">&lt;List style={[<span class="e-text-green-500">__HelpersStyles__</span>]}&gt;</span>
+  <span class="e-text-blue-500">&lt;View /&gt;</span>,
+  <span class="e-text-blue-500">&lt;Text /&gt;</span> and
+  <span class="e-text-blue-500">&lt;SwitchItem /&gt;</span>
+<span class="e-text-indigo-500">&lt;/List&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to List, View or SwitchItem component from Styles > Colors menu<br />
+          <br />
+          &bull; Options<br />
+          - <u>no options</u><br />
+          <br />
+          &bull; Content<br />
+          - can be use together with "View", "Text" native iOS components and "SwitchItem" Essence Native component
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END Component - List Controls       -->
+</div>

@@ -1,0 +1,52 @@
+//Floating action button =FAB : with e-btn inherited
+.e-btn-fab {
+    &:extend(.e-btn all);
+    z-index: 1;
+    display: inline-block;
+    width: @btn-unit*7;
+    height: @btn-unit*7;
+    padding: 0;
+    margin: @btn-unit*2;
+    background-color: @fab-color;
+    text-align: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: border-box;
+
+    .e-shadow-1();
+
+    i {
+        padding: @btn-unit*2;
+        display: inline-block;
+        width: @btn-unit*3;
+        height: @btn-unit*3;
+        line-height: @btn-unit*3;
+        font-size: @btn-unit*3;
+        text-align: center;
+        color: #fff;
+        font-size: @btn-unit*3;
+    }
+
+
+    &:hover {
+        .e-shadow-3();
+    }
+
+    &:active {
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+//Floating action button mini : with e-btn-fab inherited
+.e-btn-fab-mini {
+    &:extend(.e-btn-fab all);
+    height: @btn-unit*5;
+    width: @btn-unit*5;
+    i {
+        padding: @btn-unit;
+    }
+}
