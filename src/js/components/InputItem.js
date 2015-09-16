@@ -145,6 +145,7 @@ module.exports = React.createClass({
 
     renderInput: function () {
       var self = this,
+          id = self.props.id || '',
           placeholder = self.props.placeholder || '',
           isRequired = (self.props.required ? true : false),
           isDisabled = (self.props.disabled ? true : false),
@@ -173,6 +174,7 @@ module.exports = React.createClass({
 
       return (
         <input
+          id={id}
           className={inputClasses}
           type={type}
           name={name}
