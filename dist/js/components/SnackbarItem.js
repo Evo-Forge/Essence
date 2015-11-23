@@ -1,9 +1,10 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    ReactDOM = require('react-dom'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'SnackbarItem',
@@ -21,9 +22,9 @@ module.exports = React.createClass({
 
   componentDidMount: function componentDidMount() {
     var self = this,
-        classes = Utils.classNames(self.state.classes, self.props.classes),
-        height = parseInt(window.getComputedStyle(self.getDOMNode()).getPropertyValue('height').replace('px', '')),
-        lineHeight = parseInt(window.getComputedStyle(self.getDOMNode()).getPropertyValue('line-height').replace('px', ''));
+        classes = ClassNames(self.state.classes, self.props.classes),
+        height = parseInt(window.getComputedStyle(ReactDOM.findDOMNode(self)).getPropertyValue('height').replace('px', '')),
+        lineHeight = parseInt(window.getComputedStyle(ReactDOM.findDOMNode(self)).getPropertyValue('line-height').replace('px', ''));
 
     self.setState({
       classes: classes
@@ -55,13 +56,6 @@ module.exports = React.createClass({
           style: {}
         });
       }, 2000);
-    });
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    var self = this;
-    this.unsubscribe('snackbar:' + self.props.id, function () {
-      return false;
     });
   },
 

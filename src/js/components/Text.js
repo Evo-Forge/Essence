@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Text',
@@ -35,7 +35,7 @@ module.exports = React.createClass({
     },
 
     componentWillUnmount: function () {
-      this.unsubscribe('changeText_' + this.props.id, function() {return false;} );
+      this.unsubscribe('changeText_' + this.props.id, null);
     },
 
     changeText: function (newText) {

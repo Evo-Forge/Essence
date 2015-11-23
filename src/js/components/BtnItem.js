@@ -1,11 +1,12 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     RippleInk = require('./RippleInk'),
     Icon = require('./Icon'),
-    Utils = require('../utils'),
-    PubSub = require('../mixins/PubSub'),
-    classSet = React.addons.classSet;
+    PubSub = require('../utils/PubSub'),
+    ClickPosition = require('../utils/ClickPosition'),
+    BackgroundColor = require('../utils/BackgroundColor'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'BtnItem',
@@ -57,9 +58,9 @@ module.exports = React.createClass({
 
     handleClick: function (event) {
       var self = this,
-          elementBounding = this.refs.buttonRippleInk.getDOMNode().getBoundingClientRect(),
-          clickPosition = Utils.position.get(event, elementBounding),
-          bgColor = Utils.backgroundColor(event),
+          elementBounding = this.refs.buttonRippleInk.getBoundingClientRect(),
+          clickPosition = ClickPosition (event, elementBounding),
+          bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
           actionType = self.props.actionType || false,
           actionChildren = self.renderChildren(),
@@ -112,22 +113,14 @@ module.exports = React.createClass({
       return false;
     },
 
-    _toggleAction: function(data) {
-      var self = this;
-
-      self.setState({
-        showNavigation: data
-      });
-    },
-
     componentDidMount: function () {
       var self = this;
-      self.subscribe('showNavigationButton', function(data) { return self._toggleAction(data) });
-    },
 
-    componentWillUnmount: function () {
-      var self = this;
-      self.unsubscribe('showNavigationButton', function(data) { return self._toggleAction(data) });
+      self.subscribe('showNavigationButton', function(data) {
+        self.setState({
+          showNavigation: data
+        });
+      });
     },
 
     componentWillReceiveProps: function () {
@@ -162,7 +155,7 @@ module.exports = React.createClass({
 
     renderTooltipPosition: function () {
       var self = this,
-          position = (self.props.tooltipPosition || null );
+          position = ( self.props.tooltipPosition || 'top' );
 
       return position;
     },

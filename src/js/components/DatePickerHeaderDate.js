@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DatePickerHeaderDate',
@@ -25,7 +25,7 @@ module.exports = React.createClass({
       var self = this,
           classes = self.state.classes;
 
-      classes = Utils.classNames(classes, self.props.classes);
+      classes = ClassNames(classes, self.props.classes);
 
       self.setState({
         classes: classSet(classes),
@@ -33,6 +33,16 @@ module.exports = React.createClass({
         day: self.state.day || self.props.day,
         year: self.state.year || self.props.year,
       });
+
+      /*self.subscribe('actions:datepicker', function (data) {
+        if (data.action === "change") {
+          self.setState({
+            month: data.newDate.month,
+            day: data.newDate.day,
+            year: data.newDate.year,
+          });
+        }
+      });*/
     },
 
     updateDate(newDate) {

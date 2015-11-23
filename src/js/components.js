@@ -3,7 +3,8 @@
 
 module.exports = {
   // React framework
-  React: require('react/addons'),
+  React: require('react'),
+  ReactDOM: require('react-dom'),
 
   // Essence components
   AppBar: require('./components/AppBar'),

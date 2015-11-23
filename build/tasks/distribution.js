@@ -6,5 +6,5 @@ var gulp = require('gulp'),
 gulp.task('distribution', ['clean'], function (callback) {
   callback = callback || function () {};
 
-  runSequence(['jsx-to-js', 'styles'], 'jshint', callback);
+  runSequence(['jsx-to-js', 'styles'], 'jshint', 'example', callback);
 });

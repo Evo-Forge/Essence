@@ -1,10 +1,11 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
-    Utils = require('../utils'),
-    PubSub = require('../mixins/PubSub'),
-    classSet = React.addons.classSet;
+    Mobile = require('../utils/Mobile'),
+    PubSub = require('../utils/PubSub'),
+    ComponentHTML = require('../utils/ComponentHTML'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Navigation',
@@ -14,7 +15,7 @@ module.exports = React.createClass({
     getInitialState: function() {
       return {
         children: [],
-        isMobile: Utils.mobile.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
+        isMobile: Mobile.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
         classes: {
           'e-main': false,
           'e-navigation-open': false,
@@ -24,7 +25,6 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      /*
       var self = this;
 
       if (self.props.live) {
@@ -36,7 +36,6 @@ module.exports = React.createClass({
         self.subscribe('showNavigationComponent', this.showNavigationComponent);
         self.subscribe('hideNavigation', this.hideNavigation);
       }
-      */
     },
 
     componentWillUnmount: function () {
@@ -55,7 +54,7 @@ module.exports = React.createClass({
       // Multiple items
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: key,
               key: key
             })
@@ -107,7 +106,8 @@ module.exports = React.createClass({
           <img
             className="nav-logo"
             alt={logoAlt}
-            src={self.props.logo}/>
+            src={self.props.logo}
+          />
         );
       }
 
@@ -127,12 +127,12 @@ module.exports = React.createClass({
       document.querySelector('body').className = 'e-navigation-open';
     },
 
-    /*showNavigationComponent: function (data) {
+    showNavigationComponent: function (data) {
       var self = this;
       if (self.props.live && data.target.id) {
         ComponentHTML.set(data.target.id);
       }
-    },*/
+    },
 
     hideNavigation: function () {
       var self = this,

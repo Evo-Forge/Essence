@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'InputItem',
@@ -26,31 +26,11 @@ module.exports = React.createClass({
     };
   },
 
-  _toggleAction: function _toggleAction(data) {
-    var self = this,
-        inputClasses = self.state.inputClasses,
-        inputValue = self.props.value || self.props.inputValue || self.state.inputValue || '',
-        counter = self.state.counter;
-
-    if (data.action === 'setValue') {
-      if (self.props.name === data.id) {
-        inputValue = data.value;
-        inputClasses['empty'] = false;
-        counter.current = inputValue.length;
-        self.setState({
-          inputClasses: inputClasses,
-          inputValue: inputValue,
-          counter: counter
-        });
-      }
-    }
-  },
-
   componentDidMount: function componentDidMount() {
     var self = this,
         parentClass = self.props.classes || [],
         inputClasses = self.state.inputClasses,
-        inputValue = self.props.value || self.props.inputValue || self.state.inputValue || '',
+        inputValue = self.props.inputValue || self.state.inputValue || '',
         counter = self.state.counter;
 
     if (self.props.counter && parseInt(self.props.counter) > 0) {
@@ -58,25 +38,23 @@ module.exports = React.createClass({
     }
 
     self.subscribe('actions:input', function (data) {
-      return self._toggleAction(data);
+      if (data.action === 'setValue') {
+        if (self.props.name === data.id) {
+          inputValue = data.value;
+          inputClasses['empty'] = false;
+          self.setState({
+            inputClasses: inputClasses,
+            inputValue: inputValue
+          });
+        }
+      }
     });
-
-    if (inputValue.length > 1) {
-      inputClasses['empty'] = false;
-    }
 
     self.setState({
       classes: parentClass,
       inputClasses: inputClasses,
       inputValue: inputValue,
       counter: counter
-    });
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    var self = this;
-    self.subscribe('actions:input', function (data) {
-      return self._toggleAction(data);
     });
   },
 
@@ -108,9 +86,7 @@ module.exports = React.createClass({
 
     if (inputValue.length > 0) {
       inputClasses['empty'] = false;
-    }
-
-    if (inputValue.length === 0) {
+    } else {
       inputClasses['empty'] = true;
     }
 
@@ -171,18 +147,18 @@ module.exports = React.createClass({
 
   renderInput: function renderInput() {
     var self = this,
+        id = self.props.id || '',
         placeholder = self.props.placeholder || '',
         isRequired = self.props.required ? true : false,
         isDisabled = self.props.disabled ? true : false,
         type = self.props.type || 'text',
         value = self.props.value || self.state.inputValue || '',
         name = self.props.name || '',
-        inputClasses = classSet(Utils.classNames(self.state.inputClasses, self.props.inputClasses));
+        inputClasses = classSet(ClassNames(self.state.inputClasses, self.props.inputClasses));
 
     if (type === 'textarea') {
       return React.createElement('textarea', {
         className: inputClasses,
-        ref: this.props.ref,
         type: type,
         name: name,
         defaultValue: value,
@@ -192,12 +168,13 @@ module.exports = React.createClass({
         placeholder: placeholder,
         onChange: self.handleChange,
         onClick: self.handleClick,
-        onTouch: self.handleClick });
+        onTouch: self.handleClick
+      });
     }
 
     return React.createElement('input', {
+      id: id,
       className: inputClasses,
-      ref: this.props.ref,
       type: type,
       name: name,
       defaultValue: value,
@@ -207,7 +184,8 @@ module.exports = React.createClass({
       placeholder: placeholder,
       onChange: self.handleChange,
       onClick: self.handleClick,
-      onTouch: self.handleClick });
+      onTouch: self.handleClick
+    });
   },
 
   render: function render() {

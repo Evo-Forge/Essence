@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'DatePicker',
@@ -18,37 +18,24 @@ module.exports = React.createClass({
     };
   },
 
-  _toggleAction: function _toggleAction(data) {
-    var self = this;
-
-    if (data.action === 'hide') {
-      self.hideDatePicker(data.id);
-    } else if (data.action === 'show') {
-      self.showDatePicker(data.id);
-    } else if (data.action === 'setValue') {
-      self.hideDatePicker(data.id);
-    }
-  },
-
   componentDidMount: function componentDidMount() {
     var self = this,
         classes = this.state.classes || [];
 
     self.subscribe('actions:datepicker', function (data) {
-      return self._toggleAction(data);
+      if (data.action === 'hide') {
+        self.hideDatePicker(data.id);
+      } else if (data.action === 'show') {
+        self.showDatePicker(data.id);
+      } else if (data.action === 'setValue') {
+        self.hideDatePicker(data.id);
+      }
     });
 
-    classes = Utils.classNames(classes, self.props.classes);
+    classes = ClassNames(classes, self.props.classes);
 
     self.setState({
       classes: classes
-    });
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    var self = this;
-    self.subscribe('actions:datepicker', function (data) {
-      return self._toggleAction(data);
     });
   },
 
@@ -83,7 +70,7 @@ module.exports = React.createClass({
   },
 
   handleClick: function handleClick(ev, newDate) {
-    this.setProps({
+    this.setState({
       date: newDate
     });
   },
@@ -94,17 +81,17 @@ module.exports = React.createClass({
         children = [];
 
     if (childrens === 1) {
-      React.addons.cloneWithProps(self.props.children, {
+      React.cloneElement(self.props.children, {
         onClick: self.handleClick,
-        date: self.props.date,
+        date: self.state.date,
         parentId: self.props.id,
         key: 0
       });
     } else if (childrens > 1) {
       self.props.children.map(function (item, key) {
-        item = React.addons.cloneWithProps(item, {
+        item = React.cloneElement(item, {
           onClick: self.handleClick,
-          date: self.props.date,
+          date: self.state.date,
           parentId: self.props.id,
           key: key
         });
@@ -124,7 +111,8 @@ module.exports = React.createClass({
         id: 'e-modal-bg-' + self.props.id,
         style: { display: 'block' },
         onClick: this.hideDatePicker.bind(this, self.props.id),
-        className: 'e-modal-bg' });
+        className: 'e-modal-bg'
+      });
     }
 
     return null;

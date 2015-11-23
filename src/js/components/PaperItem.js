@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'PaperItem',
@@ -25,7 +25,7 @@ module.exports = React.createClass({
       classes['circle'] = (self.props.type === 'circle') ? true : false;
 
       if (self.props.classes) {
-        classes = Utils.classNames(classes, self.props.classes);
+        classes = ClassNames(classes, self.props.classes);
       }
 
       self.setState({

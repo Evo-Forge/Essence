@@ -1,5 +1,5 @@
 'use strict';
 
-'use stric';
-
 module.exports = require('./components.js');
+
+global.Essence = global.Essence || require('./components.js');

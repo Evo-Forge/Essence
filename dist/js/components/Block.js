@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'Block',
@@ -99,7 +99,8 @@ module.exports = React.createClass({
         return React.createElement('hr', {
           className: classes,
           key: self.props.id,
-          id: self.props.id });
+          id: self.props.id
+        });
       }
 
       // type: br => html br tag
@@ -107,7 +108,8 @@ module.exports = React.createClass({
         return React.createElement('br', {
           className: classes,
           key: self.props.id,
-          id: self.props.id });
+          id: self.props.id
+        });
       }
     }
 

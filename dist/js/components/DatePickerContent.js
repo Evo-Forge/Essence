@@ -1,9 +1,11 @@
 'use strict';
 
-var React = require('react/addons'),
-    Utils = require('../utils'),
+var React = require('react'),
+    ClassNames = require('../utils/ClassNames'),
+    DateFormat = require('../utils/DateFormat'),
+    ReactText = require('./Text'),
     Icon = require('./Icon'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'DatePickerContent',
@@ -24,7 +26,7 @@ module.exports = React.createClass({
   componentDidMount: function componentDidMount() {
     var classes = this.state.classes || [];
 
-    classes = Utils.classNames(classes, this.props.classes);
+    classes = ClassNames(classes, this.props.classes);
 
     this.setState({
       classes: classes
@@ -109,38 +111,38 @@ module.exports = React.createClass({
 
   renderNavigation: function renderNavigation() {
     var self = this,
-        month = Utils.dateFormat('month', self.state.currentDate.getMonth()),
+        month = DateFormat('month', self.state.currentDate.getMonth()),
         year = self.state.currentDate.getFullYear();
     return React.createElement(
       'div',
       { className: 'e-picker-calendar-slider' },
       React.createElement(
-        'span',
-        { className: 'e-picker-selected-month' },
+        ReactText,
+        { classes: 'e-picker-selected-month' },
         month
       ),
       React.createElement(
-        'span',
+        ReactText,
         null,
         ' '
       ),
       React.createElement(
-        'span',
-        { className: 'e-picker-selected-year' },
+        ReactText,
+        { classes: 'e-picker-selected-year' },
         year
       ),
       React.createElement(
-        'span',
+        ReactText,
         {
-          className: 'simple-button e-picker-control left',
+          classes: 'simple-button e-picker-control left',
           onClick: self._prevMonth
         },
         React.createElement(Icon, { name: 'navigation-chevron-left' })
       ),
       React.createElement(
-        'span',
+        ReactText,
         {
-          className: 'simple-button e-picker-control right',
+          classes: 'simple-button e-picker-control right',
           onClick: self._nextMonth
         },
         React.createElement(Icon, { name: 'navigation-chevron-right' })
@@ -157,8 +159,8 @@ module.exports = React.createClass({
             isActive = currentDay.getDate() === self.state.dateSelected ? ' active' : '',
             newDate = {
           day: currentDay.getDate(),
-          dayName: Utils.dateFormat('day', currentDay.getDay()),
-          month: Utils.dateFormat('month', currentDay.getMonth()),
+          dayName: DateFormat('day', currentDay.getDay()),
+          month: DateFormat('month', currentDay.getMonth()),
           year: currentDay.getFullYear()
         };
 
@@ -171,14 +173,17 @@ module.exports = React.createClass({
           },
           React.createElement(
             'button',
-            { className: 'simple-button' },
+            {
+              className: 'simple-button'
+            },
             currentDay ? currentDay.getDate() : currentDay
           )
         );
       } else {
         return React.createElement('div', {
           key: index,
-          className: 'e-picker-calendar-week-date' });
+          className: 'e-picker-calendar-week-date'
+        });
       }
     }, this);
   },

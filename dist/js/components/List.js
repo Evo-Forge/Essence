@@ -1,9 +1,10 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    Mobile = require('../utils/Mobile'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'List',
@@ -28,18 +29,8 @@ module.exports = React.createClass({
         'multi-line': false,
         'single-line': false },
       activeItem: null,
-      isMobile: Utils.mobile.isMobile()
+      isMobile: Mobile.isMobile()
     };
-  },
-
-  _toggleAction: function _toggleAction(data) {
-    var self = this;
-
-    if (data.action === 'active') {
-      self.setState({
-        activeItem: data.id
-      });
-    }
   },
 
   componentDidMount: function componentDidMount() {
@@ -51,7 +42,7 @@ module.exports = React.createClass({
     }
 
     if (self.props.classes) {
-      classes = Utils.classNames(classes, self.props.classes);
+      classes = ClassNames(classes, self.props.classes);
     }
 
     classes['has-icon'] = self.props.icon ? true : false;
@@ -81,18 +72,15 @@ module.exports = React.createClass({
     }
 
     self.subscribe('actions:list', function (data) {
-      return self._toggleAction(data);
+      if (data.action === 'active') {
+        self.setState({
+          activeItem: data.id
+        });
+      }
     });
 
     self.setState({
       classes: classes
-    });
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    var self = this;
-    self.subscribe('actions:input', function (data) {
-      return self._toggleAction(data);
     });
   },
 
@@ -103,7 +91,7 @@ module.exports = React.createClass({
 
     if (childrens === 1) {
       var item = self.props.children;
-      item = React.addons.cloneWithProps(item, {
+      item = React.cloneElement(item, {
         id: self.props.id + 0,
         key: 0,
         dataId: 0,
@@ -113,7 +101,7 @@ module.exports = React.createClass({
       children.push(item);
     } else if (childrens > 1) {
       self.props.children.map(function (item, key) {
-        item = React.addons.cloneWithProps(item, {
+        item = React.cloneElement(item, {
           id: self.props.id + key,
           key: key,
           dataId: key,

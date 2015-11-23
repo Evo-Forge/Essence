@@ -1,9 +1,10 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    Mobile = require('../utils/Mobile'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'DialogItem',
@@ -12,45 +13,33 @@ module.exports = React.createClass({
 
   getInitialState: function getInitialState() {
     return {
-      isMobile: Utils.mobile.isMobile(),
+      isMobile: Mobile.isMobile(),
       classes: {
         'e-dialog': this.props.full ? false : true,
         'e-dialog-full': this.props.full ? true : false,
-        'transparent': this.props.show ? false : true },
+        'transparent': true },
       modalStyle: {
         display: 'none'
       }
     };
   },
 
-  _toggleAction: function _toggleAction(data) {
-    var self = this;
-    if (data.action === 'hide') {
-      self.hideDialog(data.id);
-    } else if (data.action === 'show') {
-      self.showDialog(data.id);
-    }
-  },
-
   componentDidMount: function componentDidMount() {
     var self = this,
         classes = self.state.classes;
 
-    classes = Utils.classNames(classes, self.props.classes);
+    classes = ClassNames(classes, self.props.classes);
 
     self.setState({
       classes: classes
     });
 
     self.subscribe('actions:dialog', function (data) {
-      return self._toggleAction(data);
-    });
-  },
-
-  componentWillUnmount: function componentWillUnmount() {
-    var self = this;
-    self.unsubscribe('actions:dialog', function (data) {
-      return self._toggleAction(data);
+      if (data.action === 'hide') {
+        self.hideDialog(data.id);
+      } else if (data.action === 'show') {
+        self.showDialog(data.id);
+      }
     });
   },
 
@@ -88,10 +77,6 @@ module.exports = React.createClass({
 
       document.querySelector('body').className = '';
     }
-
-    if (this.props.onClosing) {
-      return self.props.onClosing();
-    }
   },
 
   renderModalBackground: function renderModalBackground() {
@@ -102,7 +87,8 @@ module.exports = React.createClass({
         id: 'e-modal-bg-' + self.props.id,
         style: { display: 'block' },
         onClick: this.hideDialog.bind(this, self.props.id),
-        className: 'e-modal-bg' });
+        className: 'e-modal-bg'
+      });
     }
 
     return null;

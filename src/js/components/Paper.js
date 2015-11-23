@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Paper',
@@ -20,7 +20,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (self.props.classes) {
-        classes = Utils.classNames(classes, self.props.classes);
+        classes = ClassNames(classes, self.props.classes);
       }
 
       self.setState({
@@ -38,7 +38,7 @@ module.exports = React.createClass({
       } else {
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: key,
               key: key
             })

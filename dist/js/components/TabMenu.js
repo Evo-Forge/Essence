@@ -1,13 +1,11 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
-    PubSub = require('../mixins/PubSub'),
+    PubSub = require('../utils/PubSub'),
     Highlighter = require('./Highlighter'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
-
-var classSet = React.addons.classSet;
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'TabMenu',
@@ -67,26 +65,24 @@ module.exports = React.createClass({
         children = {
       'list': [],
       'content': []
-    },
-        item_active = false;
+    };
 
     self.props.children.map(function (item, index) {
       var itemID = self.props.id + '-' + item.props.id;
 
-      if (!self.state.activeItem && (index === 0 && item.props.type === 'list' || index === 1 && item.props.type === 'content')) {
-        item_active = true;
-      } else if (itemID === self.state.activeItem) {
-        item_active = true;
-      } else {
-        item_active = false;
-      }
-
-      item = React.addons.cloneWithProps(item, {
-        active: item_active,
+      item = React.cloneElement(item, {
         parentId: self.props.id,
         parentType: self.props.type,
         key: item.props.type + '-' + itemID
       });
+
+      if (!self.state.activeItem && (index === 0 && item.props.type === 'list' || index === 1 && item.props.type === 'content')) {
+        item.props.active = true;
+      } else if (itemID === self.state.activeItem) {
+        item.props.active = true;
+      } else {
+        item.props.active = false;
+      }
 
       if (item.props.type === 'list') {
         children.list.push(item);
@@ -138,10 +134,10 @@ module.exports = React.createClass({
     },
         classes = {
       'e-tabs': true,
-      'e-background-cyan-500': self.props.classes ? false : true,
-      'e-text-grey-50': self.props.classes ? false : true
+      'e-background-cyan-500': true,
+      'e-text-grey-50': true
     },
-        classList = classSet(Utils.classNames(classes, self.props.classes));
+        classList = classSet(ClassNames(classes, self.props.classes));
 
     return React.createElement(
       'div',
@@ -154,7 +150,8 @@ module.exports = React.createClass({
         React.createElement(Highlighter, {
           id: self.props.id,
           css: highlighterCSS,
-          nextCSS: nextCSS }),
+          nextCSS: nextCSS
+        }),
         React.createElement(
           'ul',
           { className: 'e-tabs-list e-row' },

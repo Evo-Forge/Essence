@@ -1,11 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
     ListItemElement = require('./ListItemElement'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+    PubSub = require('../utils/PubSub'),
+    Position = require('../utils/Position'),
+    ClickPosition = require('../utils/ClickPosition'),
+    BackgroundColor = require('../utils/BackgroundColor'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'ListItem',
@@ -37,22 +40,27 @@ module.exports = React.createClass({
     });
   },
 
-  dragStart: function dragStart(event) {
+  dragStart: function dragStart(ev) {
     var self = this,
-        element = event.currentTarget;
+        element = ev.currentTarget;
 
     self.setState({
       dragCSS: {},
       fromElement: Number(element.id) });
 
-    event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData('text/html', element);
+    ev.dataTransfer.effectAllowed = 'move';
+    ev.dataTransfer.setData('text/html', element);
   },
 
-  dragEnd: function dragEnd(ev) {
+  /*
+  dragEnd: function(ev) {
     var element = ev.target;
-    console.log([element, ev]);
+    console.log({
+      "fromElement" : this.state.fromElement,
+      "toElement" : this.state.toElement
+    });
   },
+  */
 
   dragOver: function dragOver(ev) {
     var self = this,
@@ -61,13 +69,15 @@ module.exports = React.createClass({
     self.setState({
       dragCSS: {},
       toElement: Number(elementId.id) });
+
+    // console.log("toElement:" + Number(elementId.id));
   },
 
   hideNavigation: function hideNavigation(data) {
     var self = this,
-        parentPosition = Utils.position.get(data.currentTarget),
-        clickPosition = Utils.position.clicked(data, parentPosition),
-        bgColor = Utils.backgroundColor(data),
+        parentPosition = Position(data.currentTarget),
+        clickPosition = ClickPosition(data, parentPosition),
+        bgColor = BackgroundColor(data),
         target = data.currentTarget,
         targetText = target.textContent;
 
@@ -92,7 +102,7 @@ module.exports = React.createClass({
 
   renderChildren: function renderChildren() {
     var self = this,
-        classes = classSet(Utils.classNames(self.state.classes, self.props.classes)),
+        classes = classSet(ClassNames(self.state.classes, self.props.classes)),
         childrens = React.Children.count(self.props.children),
         inputName = self.props.inputName ? self.props.inputName : '',
         contentLink = self.props.contentLink ? self.props.contentLink : '',
@@ -103,11 +113,11 @@ module.exports = React.createClass({
         avatarImg = self.props.avatarImg ? self.props.avatarImg : '',
         avatarAlt = self.props.avatarAlt ? self.props.avatarAlt : '',
         primaryListImage = false,
-        position = self.props.position ? self.props.position : false,
+        position = self.props.position ? self.props.position : false;
+
+    var submenuItems = [],
         hasMore = null,
-        hasMenu = null,
-        submenuItems = [],
-        navigationItems = [];
+        hasMenu = null;
 
     if (self.props.listType === 'checkbox') {
       if (position === 'right') {
@@ -123,7 +133,8 @@ module.exports = React.createClass({
               React.createElement('img', {
                 className: 'e-list-icon',
                 src: avatarImg,
-                alt: avatarAlt }),
+                alt: avatarAlt
+              }),
               React.createElement(
                 'span',
                 null,
@@ -141,7 +152,8 @@ module.exports = React.createClass({
                 type: 'checkbox',
                 name: inputName,
                 className: 'toggle',
-                defaultChecked: self.props.isChecked }),
+                defaultChecked: self.props.isChecked
+              }),
               React.createElement('span', { className: 'e-wave' }),
               React.createElement('span', { className: 'e-check-valid' })
             )
@@ -162,7 +174,8 @@ module.exports = React.createClass({
               type: 'checkbox',
               name: inputName,
               className: 'toggle',
-              defaultChecked: self.props.isChecked }),
+              defaultChecked: self.props.isChecked
+            }),
             React.createElement('span', { className: 'e-wave' }),
             React.createElement('span', { className: 'e-check-valid' }),
             React.createElement(
@@ -193,7 +206,8 @@ module.exports = React.createClass({
             React.createElement('input', {
               type: 'checkbox',
               defaultChecked: self.props.isChecked,
-              name: inputName }),
+              name: inputName
+            }),
             React.createElement('span', { className: 'e-switches-toggle' })
           )
         );
@@ -240,7 +254,8 @@ module.exports = React.createClass({
             React.createElement('img', {
               className: 'e-list-avatar',
               src: avatarImg,
-              alt: avatarAlt }),
+              alt: avatarAlt
+            }),
             React.createElement(
               'span',
               null,
@@ -267,14 +282,17 @@ module.exports = React.createClass({
         primaryListImage = React.createElement('img', {
           className: 'primaryListImage',
           src: self.props.primaryListImage,
-          alt: contentText });
+          alt: contentText
+        });
       }
 
       if (self.props.hasSubmenu) {
+        var navigationItems = [];
+
         self.props.children.map(function (i, k) {
           var item = i;
 
-          item = React.addons.cloneWithProps(i, {
+          item = React.cloneElement(i, {
             id: k,
             key: k,
             onClick: self.hideNavigation

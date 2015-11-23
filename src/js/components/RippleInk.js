@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
-    ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+var React = require('react'),
+    ReactCSSTransitionGroup = require('react-addons-transition-group');
 
 module.exports = React.createClass({
     displayName: 'RippleInk',

@@ -1,9 +1,13 @@
 'use strict';
 
-var React = require('react/addons');
+var React = require('react'),
+    ReactText = require('./Text'),
+    PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
   displayName: 'ToolBar',
+
+  mixins: [PubSub],
 
   getInitialState: function getInitialState() {
     return {
@@ -22,7 +26,7 @@ module.exports = React.createClass({
     } else if (childrens > 1) {
       // Multiple items
       self.props.children.map(function (item, key) {
-        item = React.addons.cloneWithProps(item, {
+        item = React.cloneElement(item, {
           id: key,
           key: key
         });
@@ -40,11 +44,7 @@ module.exports = React.createClass({
 
   renderTitle: function renderTitle() {
     if (this.props.title) {
-      return React.createElement(
-        'span',
-        null,
-        this.props.title
-      );
+      return React.createElement(ReactText, { text: this.props.title });
     }
 
     return null;

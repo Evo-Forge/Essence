@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub');
+var React = require('react'),
+    PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
   displayName: 'Chip',
@@ -47,7 +47,7 @@ module.exports = React.createClass({
 
     // One item
     if (childrens === 1) {
-      React.addons.cloneWithProps(self.props.children, {
+      React.cloneElement(self.props.children, {
         first: true,
         open: self.state.isOpen ? true : false,
         activeId: 0,
@@ -60,7 +60,7 @@ module.exports = React.createClass({
         var activeId = parseInt(self.state.activeId),
             isActive = activeId === key ? true : false;
 
-        item = React.addons.cloneWithProps(item, {
+        item = React.cloneElement(item, {
           first: key === 0 ? true : false,
           open: self.state.isOpen ? true : false,
           active: isActive,

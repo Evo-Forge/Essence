@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils');
+var React = require('react'),
+    classSet = require('classnames'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames');
 
 module.exports = React.createClass({
     displayName: 'SwitchItem',
@@ -30,7 +30,7 @@ module.exports = React.createClass({
           classes = self.state.classes;
 
       if (self.props.classes) {
-        classes = Utils.classNames(classes, self.props.classes);
+        classes = ClassNames(classes, self.props.classes);
       }
 
       self.setState({
@@ -51,11 +51,9 @@ module.exports = React.createClass({
             <input
               type="checkbox"
               name={self.props.name}
-              onChange={self.props.onChange}
-              onClick={self.props.onClick}
               defaultChecked={self.props.checked}
-              className={"toggle"}/>
-
+              className={"toggle"}
+            />
             <span className={"absolute e-wave"}></span>
             <span className={"absolute e-check-valid"}></span>
             {self.props.text}
@@ -78,11 +76,9 @@ module.exports = React.createClass({
             <input
               type="radio"
               name={self.props.name}
-              onChange={self.props.onChange}
-              onClick={self.props.onClick}
               defaultChecked={self.props.checked}
-              defaultValue={self.props.defaultValue}/>
-
+              defaultValue={self.props.defaultValue}
+            />
             <span className={"absolute circle"}></span>
             <span className={"absolute e-check"}></span>
             {self.props.text}
@@ -104,11 +100,9 @@ module.exports = React.createClass({
             {self.props.beforeText}
             <input
               type="checkbox"
-              onChange={self.props.onChange}
-              onClick={self.props.onClick}
               defaultChecked={self.props.checked}
-              disabled={self.props.disable}/>
-              
+              disabled={self.props.disable}
+            />
             <span className={"e-switches-toggle"}></span>
             {self.props.afterText}
           </label>

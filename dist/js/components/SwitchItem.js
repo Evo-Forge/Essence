@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils');
+var React = require('react'),
+    classSet = require('classnames'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames');
 
 module.exports = React.createClass({
   displayName: 'SwitchItem',
@@ -29,7 +29,7 @@ module.exports = React.createClass({
         classes = self.state.classes;
 
     if (self.props.classes) {
-      classes = Utils.classNames(classes, self.props.classes);
+      classes = ClassNames(classes, self.props.classes);
     }
 
     self.setState({
@@ -53,10 +53,9 @@ module.exports = React.createClass({
         React.createElement('input', {
           type: 'checkbox',
           name: self.props.name,
-          onChange: self.props.onChange,
-          onClick: self.props.onClick,
           defaultChecked: self.props.checked,
-          className: 'toggle' }),
+          className: 'toggle'
+        }),
         React.createElement('span', { className: 'absolute e-wave' }),
         React.createElement('span', { className: 'absolute e-check-valid' }),
         self.props.text
@@ -81,10 +80,9 @@ module.exports = React.createClass({
         React.createElement('input', {
           type: 'radio',
           name: self.props.name,
-          onChange: self.props.onChange,
-          onClick: self.props.onClick,
           defaultChecked: self.props.checked,
-          defaultValue: self.props.defaultValue }),
+          defaultValue: self.props.defaultValue
+        }),
         React.createElement('span', { className: 'absolute circle' }),
         React.createElement('span', { className: 'absolute e-check' }),
         self.props.text
@@ -108,10 +106,9 @@ module.exports = React.createClass({
         self.props.beforeText,
         React.createElement('input', {
           type: 'checkbox',
-          onChange: self.props.onChange,
-          onClick: self.props.onClick,
           defaultChecked: self.props.checked,
-          disabled: self.props.disable }),
+          disabled: self.props.disable
+        }),
         React.createElement('span', { className: 'e-switches-toggle' }),
         self.props.afterText
       )

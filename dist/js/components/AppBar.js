@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react/addons');
+var React = require('react');
 
 module.exports = React.createClass({
   displayName: 'AppBar',
@@ -22,7 +22,7 @@ module.exports = React.createClass({
     } else if (childrens > 1) {
       // Multiple items
       self.props.children.map(function (item, key) {
-        item = React.addons.cloneWithProps(item, {
+        item = React.cloneElement(item, {
           id: key,
           key: key
         });

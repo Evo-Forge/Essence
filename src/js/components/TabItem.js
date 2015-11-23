@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'TabItem',
@@ -77,7 +77,7 @@ module.exports = React.createClass({
         classes['e-tab-content'] = true;
         classes['active'] = isActive;
 
-        classes = classSet(Utils.classNames(classes, self.props.classes));
+        classes = classSet(ClassNames(classes, self.props.classes));
 
         return (
           <div
@@ -96,7 +96,7 @@ module.exports = React.createClass({
         classes['brick'] = (parentType === "fixed") ? true : false;
         classes['brick-2'] = (parentType === "fixed") ? true : false;
         classes['active'] = isActive;
-        classes = classSet(Utils.classNames(classes, self.props.classes));
+        classes = classSet(ClassNames(classes, self.props.classes));
 
         return (
           <li

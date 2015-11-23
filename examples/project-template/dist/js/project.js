@@ -6,6 +6,7 @@ var body = document.body, // default React render path is html body
     content = document.querySelector(".content"),
     footer = document.querySelector(".footer"),
     React = Essence.React,
+    ReactDOM = Essence.ReactDOM,
     AppBar = Essence.AppBar,
     BottomSheets = Essence.BottomSheets,
     BottomSheetsItem = Essence.BottomSheetsItem,
@@ -65,28 +66,123 @@ var body = document.body, // default React render path is html body
     PositionHorizontal = Essence.PositionHorizontal,
     PubSub = Essence.PubSub;
 
-React.render(
-    <Block type='div' classes='e-background-grey-500 e-text-center'>
-      your content by ID # here
+ReactDOM.render(
+    <Block type='div'>
+<Btn>
+      <BtnItem
+        type='primary'
+        classes={'raised'}
+        label='Show Simple Dialog'
+        rippleEffect={true}
+        actionClick='dialog'
+        actionType={{
+          'action': 'show',
+          'id': 'dialog-simple'
+        }}
+      />
+    </Btn>
+<Divider classes={'thin e-background-indigo-700'} />
+ <Btn>
+    <BtnItem
+      classes={'raised'}
+      label='Label Default'
+      tooltipText='Tooltip Default'
+      type='default'
+      disabled={false}
+      rippleEffect={true}
+    />
+    <BtnItem
+      classes={'raised'}
+      label='Label Primary'
+      tooltipText='Tooltip Primary'
+      type='primary'
+      disabled={false}
+      rippleEffect={true}
+    />
+    <BtnItem
+      classes={'raised'}
+      label='Label Succes'
+      tooltipText='Tooltip Succes'
+      type='succes'
+      disabled={true}
+      rippleEffect={true}
+    />
+    <BtnItem
+      classes={'raised'}
+      label='Label Info'
+      tooltipText='Tooltip Info'
+      type='info'
+      disabled={false}
+      rippleEffect={true}
+    />
+    <BtnItem
+      classes={'raised'}
+      label='Label Warning'
+      tooltipText='Tooltip Warning'
+      type='warning'
+      disabled={false}
+      rippleEffect={true}
+    />
+    <BtnItem
+      classes={'raised'}
+      label='Label Danger'
+      tooltipText='Tooltip Danger'
+      type='danger'
+      disabled={false}
+      rippleEffect={true}
+    />
+  </Btn>
+<Divider classes={'thin e-background-indigo-700'} />
+
+<Input>
+  <InputItem
+    classes={'e-input-group has-warning'}
+    inputClasses={'e-input e-input-success'}
+    type='text'
+    name='label'
+    label='Did you know each time you see a full moon you always see the same side'
+  >
+  </InputItem>
+
+  <InputItem
+    classes={'e-input-group has-info'}
+    inputClasses={'e-input e-input-success'}
+    type='email'
+    name='label'
+    label='Floating label'
+  >
+  </InputItem>
+
+  <InputItem
+    classes={'e-input-group'}
+    inputClasses={'e-search'}
+    type='search'
+    name='search'
+    label='Search...'
+  >
+  </InputItem>
+</Input>
+
+
     </Block>
     ,byID
 );
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-red-500 e-text-center'>
       your content by class .header here
     </Block>
     ,header
 );
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-yellow-500 e-text-center'>
       your content by class .content here
     </Block>
     ,content
 );
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-blue-500 e-text-center'>
       your content by class .footer here
     </Block>

@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    classSet = require('classnames'),
+    PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
     displayName: 'BottomSheetsItem',
@@ -56,32 +56,26 @@ module.exports = React.createClass({
             id={'e-modal-bg-' + self.props.id}
             style={{display: 'block'}}
             onClick={self.hideDialog}
-            className={"e-modal-bg"}/>
+            className={"e-modal-bg"}
+          />
         );
       }
 
       return null;
     },
 
-    _toggleAction: function(data) {
-      var self = this;
-      if (data.action === 'show' && data.targetID === self.props.id) {
-        self.showDialog();
-      }
-
-      if (data.action === 'hide' && data.targetID === self.props.id) {
-        self.hideDialog();
-      }
-    },
-
     componentDidMount: function () {
       var self = this;
-      self.subscribe('actions:bottomsheets', function(data) { return self._toggleAction(data) });
-    },
 
-    componentWillUnmount: function () {
-      var self = this;
-      self.unsubscribe('actions:bottomsheets', function(data) { return self._toggleAction(data) });
+      self.subscribe('actions:bottomsheets', function (data) {
+        if (data.action === 'show' && data.targetID === self.props.id) {
+          self.showDialog();
+        }
+
+        if (data.action === 'hide' && data.targetID === self.props.id) {
+          self.hideDialog();
+        }
+      });
     },
 
     render: function () {

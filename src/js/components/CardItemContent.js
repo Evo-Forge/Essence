@@ -1,12 +1,12 @@
 'use strict';
 
-var React = require('react/addons'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'CardItemContent',
-    
+
     getInitialState: function() {
       return {
         classes: {
@@ -18,7 +18,7 @@ module.exports = React.createClass({
     componentDidMount: function () {
       var classes = this.state.classes || [];
 
-      classes = Utils.classNames(classes, this.props.classes);
+      classes = ClassNames(classes, this.props.classes);
 
       this.setState({
         classes: classes

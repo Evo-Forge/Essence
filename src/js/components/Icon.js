@@ -1,27 +1,30 @@
 'use strict';
 
-var React = require('react/addons'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Icon',
 
     getInitialState: function() {
       return {
-        classes: []
+        classes: {}
       };
     },
 
     renderChildren() {
       var self = this,
-          classes = Utils.classNames([], self.props.classes);
+          classes = [ClassNames(self.state.classes, self.props.classes)];
 
       if (self.props.name) {
-        classes["e-icon-"+self.props.name] = true;
-      }
+        
+        classes.forEach(function(element){
+          classes.push(element);
+        });
 
-      if (self.props.name) {
+        classes.push('e-icon-'+self.props.name);
+
         return (
             <i className={classSet(classes)} onClick={self.props.onClick} />
         );
@@ -31,7 +34,6 @@ module.exports = React.createClass({
     },
 
     render: function () {
-      var self = this;
-      return self.renderChildren();
+      return this.renderChildren();
     }
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react'),
-    PubSub = require('../mixins/PubSub');
+    PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
   displayName: 'Highlighter',
@@ -20,35 +20,22 @@ module.exports = React.createClass({
     };
   },
 
-  _toggleAction: function _toggleAction(target) {
-    var self = this,
-        targetLeft = target.element.parentNode.offsetLeft,
-        stateLeft = self.state.styles.left;
-
-    self.setState({
-      direction: targetLeft <= stateLeft ? 'to-left' : 'to-right',
-      styles: {
-        display: target.display,
-        left: target.left,
-        right: target.right
-      },
-      highlighter: self
-    });
-  },
-
   componentDidMount: function componentDidMount() {
     var self = this;
 
     self.subscribe('highlighterCSS:' + self.props.id, function (target) {
-      self._toggleAction(target);
-    });
-  },
+      var targetLeft = target.element.parentNode.offsetLeft,
+          stateLeft = self.state.styles.left;
 
-  componentWillUnmount: function componentWillUnmount() {
-    var self = this;
-
-    self.subscribe('highlighterCSS:' + self.props.id, function (target) {
-      self._toggleAction(target);
+      self.setState({
+        direction: targetLeft <= stateLeft ? 'to-left' : 'to-right',
+        styles: {
+          display: target.display,
+          left: target.left,
+          right: target.right
+        },
+        highlighter: self
+      });
     });
   },
 

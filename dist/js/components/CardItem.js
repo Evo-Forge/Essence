@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'CardItem',
@@ -159,7 +159,7 @@ module.exports = React.createClass({
 
   renderCard: function renderCard() {
     var self = this,
-        classes = classSet(Utils.classNames(self.state.classes, self.props.classes));
+        classes = classSet(ClassNames(self.state.classes, self.props.classes));
 
     if (!self.props.text && !self.props.header) {
       return React.createElement(

@@ -1,9 +1,9 @@
 'use strict';
 
 module.exports = function (initClass, ExtraClass) {
-  var classes = {},
-      typeInitClass = typeof initClass,
-      typeExtraClass = typeof ExtraClass;
+  var typeInitClass = typeof initClass,
+      typeExtraClass = typeof ExtraClass,
+      classes = {};
 
   /**
    * Instead of assigning the reference of `initClass` to `classes` this for loop copies all the

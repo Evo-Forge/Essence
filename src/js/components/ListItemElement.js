@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../mixins/PubSub'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    PubSub = require('../utils/PubSub'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'ListItemElement',
@@ -31,7 +31,7 @@ module.exports = React.createClass({
 
     renderChildren: function () {
       var self = this,
-          classes = classSet( Utils.classNames(self.state.classes, this.props.classes) );
+          classes = classSet( ClassNames(self.state.classes, this.props.classes) );
 
       if (self.props.element) {
         return (

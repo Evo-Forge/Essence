@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react/addons'),
-    Utils = require('../utils'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    ClassNames = require('../utils/ClassNames'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'Image',
@@ -20,7 +20,7 @@ module.exports = React.createClass({
 
   renderChildren: function renderChildren() {
     var self = this,
-        classes = classSet(Utils.classNames(self.state.classes, self.props.classes));
+        classes = classSet(ClassNames(self.state.classes, self.props.classes));
 
     return React.createElement('img', {
       className: classes,
@@ -29,7 +29,8 @@ module.exports = React.createClass({
       src: self.props.src,
       alt: self.props.alt,
       width: self.props.width,
-      height: self.props.height });
+      height: self.props.height
+    });
   },
 
   render: function render() {
