@@ -18,6 +18,7 @@ static/assets/js/*.js
 
 bower*
 .DS_Store
+.DS_Store?
 examples/project-contest/*
 examples/Essence Contest.rar
 static/_backup/*
