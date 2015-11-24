@@ -1,0 +1,6 @@
+build/
+examples/
+static/
+tasks/
+Gruntfile.js
+gulpfile.js
