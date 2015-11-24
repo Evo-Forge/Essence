@@ -1,6 +1,8 @@
+bower_components/
 build/
 examples/
 static/
 tasks/
+bower.js
 Gruntfile.js
 gulpfile.js
