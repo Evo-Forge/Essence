@@ -1,19 +1,18 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
-    PositionHorizontal = require('../utils/PositionHorizontal'),
+var React = require('react'),
+    classSet = require('classnames'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
     displayName: 'SliderItem',
 
-    mixins: [PubSub, Mobile, PositionHorizontal],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
-        isMobile: this.isMobile(),
+        isMobile: Mobile.isMobile(),
         isMoving: false,
         isHidden: '',
         classes: {
@@ -69,9 +68,9 @@ module.exports = React.createClass({
           discreteStyles = self.state.discreteStyles,
           clientX = (self.state.isMobile) ?
               event.changedTouches[0].clientX : event.clientX,
-          element = this.refs.sliderHandle.getDOMNode(),
+          // element = this.refs.sliderHandle,
           //elementBounding = element.getBoundingClientRect(),
-          sliderParent = this.refs.sliderParent.getDOMNode(),
+          sliderParent = this.refs.sliderParent,
           offset = clientX - sliderParent.offsetParent.offsetLeft,
           horizontal = ((offset / sliderParent.offsetWidth ) * 100).toFixed(0),
           horizontalFill = horizontal;

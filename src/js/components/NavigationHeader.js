@@ -1,16 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
-    Icon = require('./Icon'),
-    Mobile = require('../utils/Mobile'),
+var React = require('react'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'NavigationHeader',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {

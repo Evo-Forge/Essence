@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
+var React = require('react'),
+    classSet = require('classnames'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames');
 
 module.exports = React.createClass({
     displayName: 'SwitchItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {

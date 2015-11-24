@@ -1,19 +1,17 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     RippleInk = require('./RippleInk'),
     Icon = require('./Icon'),
     PubSub = require('../utils/PubSub'),
-    Position = require('../utils/Position'),
-    ClassNames = require('../utils/ClassNames'),
     ClickPosition = require('../utils/ClickPosition'),
     BackgroundColor = require('../utils/BackgroundColor'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'BtnItem',
 
-    mixins: [PubSub, Position, ClickPosition, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -60,8 +58,7 @@ module.exports = React.createClass({
 
     handleClick: function (event) {
       var self = this,
-          parentPosition = Position (this.refs.buttonRippleInk.getDOMNode()),
-          elementBounding = this.refs.buttonRippleInk.getDOMNode().getBoundingClientRect(),
+          elementBounding = this.refs.buttonRippleInk.getBoundingClientRect(),
           clickPosition = ClickPosition (event, elementBounding),
           bgColor = BackgroundColor(event),
           actionClick = self.props.actionClick || false,
@@ -158,7 +155,7 @@ module.exports = React.createClass({
 
     renderTooltipPosition: function () {
       var self = this,
-          position = (self.props.tooltipPosition || null );
+          position = ( self.props.tooltipPosition || 'top' );
 
       return position;
     },

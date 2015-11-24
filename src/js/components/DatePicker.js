@@ -1,15 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    DateFormat = require('../utils/DateFormat'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DatePicker',
 
-    mixins: [PubSub, ClassNames, DateFormat],
+    mixins: [PubSub],
 
     getInitialState() {
       return {
@@ -72,7 +71,7 @@ module.exports = React.createClass({
     },
 
     handleClick(ev, newDate) {
-      this.setProps({
+      this.setState({
         date: newDate
       });
     },
@@ -83,18 +82,18 @@ module.exports = React.createClass({
           children = [];
 
       if (childrens === 1) {
-        React.addons.cloneWithProps(self.props.children, {
+        React.cloneElement(self.props.children, {
           onClick: self.handleClick,
-          date: self.props.date,
+          date: self.state.date,
           parentId: self.props.id,
           key: 0
         });
       } else if (childrens > 1) {
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               onClick: self.handleClick,
-              date: self.props.date,
+              date: self.state.date,
               parentId: self.props.id,
               key: key
             })

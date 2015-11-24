@@ -1,18 +1,16 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
     PubSub = require('../utils/PubSub'),
     Highlighter = require('./Highlighter'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
-
-var classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'TabMenu',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function () {
       return {
@@ -58,7 +56,7 @@ module.exports = React.createClass({
       this.subscribe('menu:activeItem', this.setActiveItem);
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       this.unsubscribe('menu:activeItem', this.setActiveItem);
     },
 
@@ -73,7 +71,7 @@ module.exports = React.createClass({
         var itemID = self.props.id + '-' + item.props.id;
 
         item = (
-          React.addons.cloneWithProps(item, {
+          React.cloneElement(item, {
             parentId: self.props.id,
             parentType: self.props.type,
             key: item.props.type +"-"+ itemID

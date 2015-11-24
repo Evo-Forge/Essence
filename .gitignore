@@ -15,3 +15,12 @@
 node_modules
 static/assets/css/*.css
 static/assets/js/*.js
+
+bower*
+.DS_Store
+.DS_Store?
+examples/project-contest/*
+examples/Essence Contest.rar
+static/_backup/*
+*essence.plugins*
+src/website/

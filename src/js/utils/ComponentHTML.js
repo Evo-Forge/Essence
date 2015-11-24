@@ -3,7 +3,7 @@
 module.exports = {
   set: function (id) {
       var html = '',
-          React = require('react/addons'),
+          ReactDOM = require('react-dom'),
           ComponentsList = require('../components/ComponentsList'),
           Components = ComponentsList(),
           ComponentsID = "home",
@@ -25,7 +25,7 @@ module.exports = {
 
       if (Components[ComponentsID] && typeof Components[ComponentsID] === 'object') {
         if (Object.prototype.toString.call((Components[ComponentsID])) === '[object Object]') {
-          React.render(
+          ReactDOM.render(
             Components[ComponentsID],
             document.querySelector("#" + ComponentsDocumentID)
           );
@@ -35,7 +35,7 @@ module.exports = {
                 reactComponentID = (id +"-"+ reactComponentKey).replace("_", "-");
 
             if (document.querySelector("#" + reactComponentID)) {
-              React.render(
+              ReactDOM.render(
                 reactComponents[reactComponentKey],
                 document.querySelector("#" + reactComponentID)
               );

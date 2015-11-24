@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Position = require('../utils/Position'),
     ClickPosition = require('../utils/ClickPosition'),
     BackgroundColor = require('../utils/BackgroundColor'),
-    ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+    ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 module.exports = React.createClass({
     displayName: 'RippleInk',

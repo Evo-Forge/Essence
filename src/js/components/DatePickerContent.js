@@ -1,16 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     ClassNames = require('../utils/ClassNames'),
     DateFormat = require('../utils/DateFormat'),
-    Text = require('./Text'),
+    ReactText = require('./Text'),
     Icon = require('./Icon'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DatePickerContent',
-
-    mixins: [ClassNames, DateFormat],
 
     getInitialState: function() {
       var d = new Date();
@@ -117,21 +115,21 @@ module.exports = React.createClass({
           year = self.state.currentDate.getFullYear();
       return (
         <div className={'e-picker-calendar-slider'}>
-          <Text classes={'e-picker-selected-month'}>{month}</Text>
-          <Text> </Text>
-          <Text classes={'e-picker-selected-year'}>{year}</Text>
-          <Text
+          <ReactText classes={'e-picker-selected-month'}>{month}</ReactText>
+          <ReactText> </ReactText>
+          <ReactText classes={'e-picker-selected-year'}>{year}</ReactText>
+          <ReactText
             classes={'simple-button e-picker-control left'}
             onClick={self._prevMonth}
           >
             <Icon name='navigation-chevron-left' />
-          </Text>
-          <Text
+          </ReactText>
+          <ReactText
             classes={'simple-button e-picker-control right'}
             onClick={self._nextMonth}
           >
             <Icon name='navigation-chevron-right' />
-          </Text>
+          </ReactText>
         </div>
       );
     },

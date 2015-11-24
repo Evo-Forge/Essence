@@ -1,15 +1,15 @@
 'use strict';
 
-var React = require('react/addons'),
-    BtnItem = require('./BtnItem'),
+var React = require('react'),
+    ReactDOM = require('react-dom'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'SnackbarItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -24,11 +24,11 @@ module.exports = React.createClass({
       var self = this,
           classes = ClassNames(self.state.classes, self.props.classes),
           height = parseInt(
-            window.getComputedStyle (self.getDOMNode())
+            window.getComputedStyle (ReactDOM.findDOMNode(self))
             .getPropertyValue('height').replace("px", "")
           ),
           lineHeight = parseInt(
-              window.getComputedStyle (self.getDOMNode())
+              window.getComputedStyle (ReactDOM.findDOMNode(self))
             .getPropertyValue('line-height').replace("px", "")
           );
 

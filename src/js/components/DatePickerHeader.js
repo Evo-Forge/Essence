@@ -1,17 +1,17 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
     DateFormat = require('../utils/DateFormat'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DatePickerHeader',
 
-    mixins: [PubSub, ClassNames, DateFormat],
+    mixins: [PubSub],
 
-    getDefaultProps() {
+    getInitialState() {
       var newDate = new Date(),
           currentDate = {
             day: newDate.getDate(),
@@ -21,20 +21,14 @@ module.exports = React.createClass({
           };
 
       return {
-        name: 'DatePickerHeader',
+        classes: {
+          'e-picker-header': true
+        },
         date: {
           day: currentDate.day,
           year: currentDate.year,
           month: currentDate.month,
           dayName: currentDate.dayName,
-        }
-      };
-    },
-
-    getInitialState() {
-      return {
-        classes: {
-          'e-picker-header': true
         }
       };
     },
@@ -53,7 +47,7 @@ module.exports = React.createClass({
         if (data.action === "setValue" && self.props.parentId === data.id) {
           self.publish('actions:input', {
             action: 'setValue',
-            value: DateFormat('date', self.props.date),
+            value: DateFormat('date', self.state.date),
             id: data.id
           });
         }
@@ -63,10 +57,10 @@ module.exports = React.createClass({
     renderDateMonth() {
       var self = this;
 
-      if (self.props.date.month) {
+      if (self.state.date.month) {
         return (
           <div className={"e-picker-header-month"}>
-            {self.props.date.month}
+            {self.state.date.month}
           </div>
         );
       }
@@ -76,10 +70,10 @@ module.exports = React.createClass({
 
     renderDateDay() {
       var self = this;
-      if (self.props.date.day) {
+      if (self.state.date.day) {
         return (
           <div className={"e-picker-header-day"}>
-            {self.props.date.day}
+            {self.state.date.day}
           </div>
         );
       }
@@ -89,10 +83,10 @@ module.exports = React.createClass({
 
     renderDateYear() {
       var self = this;
-      if (self.props.date.year) {
+      if (self.state.date.year) {
         return (
           <div className={"e-picker-header-year"}>
-            {self.props.date.year}
+            {self.state.date.year}
           </div>
         );
       }
@@ -101,8 +95,11 @@ module.exports = React.createClass({
     },
 
     render() {
+      console.log("DatePickerHeader render self.state.date", this.props);
       var self = this,
+          dayName = self.state.date ? self.state.date.dayName : "",
           classes = classSet(self.state.classes);
+
 
       return (
         <header
@@ -110,7 +107,7 @@ module.exports = React.createClass({
             className={classes}
         >
           <div className={'e-picker-header-day-text'}>
-            {self.props.date.dayName}
+            {dayName}
           </div>
           <div className={'e-picker-header-big-show'}>
             {self.renderDateMonth()}

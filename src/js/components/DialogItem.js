@@ -1,19 +1,19 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DialogItem',
 
-    mixins: [PubSub, Mobile, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
-        isMobile: this.isMobile(),
+        isMobile: Mobile.isMobile(),
         classes: {
           'e-dialog': (this.props.full) ? false : true,
           'e-dialog-full': (this.props.full) ? true : false,

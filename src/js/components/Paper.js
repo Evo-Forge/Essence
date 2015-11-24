@@ -1,13 +1,11 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Paper',
-
-    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -40,7 +38,7 @@ module.exports = React.createClass({
       } else {
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: key,
               key: key
             })

@@ -1,13 +1,11 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Image',
-
-    mixins: [ClassNames],
 
     getInitialState: function() {
       return {
@@ -18,10 +16,6 @@ module.exports = React.createClass({
     componentWillReceiveProps: function () {
       var self = this;
       self.renderChildren();
-    },
-
-    componentDidMount: function () {
-      var self = this;
     },
 
     renderChildren: function () {

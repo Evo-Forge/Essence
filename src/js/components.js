@@ -3,7 +3,8 @@
 
 module.exports = {
   // React framework
-  React: require('react/addons'),
+  React: require('react'),
+  ReactDOM: require('react-dom'),
 
   // Essence components
   AppBar: require('./components/AppBar'),
@@ -58,12 +59,9 @@ module.exports = {
   ToolBar:  require('./components/ToolBar'),
 
   // Essence utils
-  BackgroundColor:  require('./utils/BackgroundColor'),
-  ClassNames:  require('./utils/ClassNames'),
-  ClickPosition:  require('./utils/ClickPosition'),
-  DateFormat:  require('./utils/DateFormat'),
-  Mobile:  require('./utils/Mobile'),
-  Position:  require('./utils/Position'),
-  PositionHorizontal:  require('./utils/PositionHorizontal'),
-  PubSub:  require('./utils/PubSub'),
+  Utils:  require('./utils'),
+
+  // Essence utils
+  Mixins:  require('./mixins'),
+
 };

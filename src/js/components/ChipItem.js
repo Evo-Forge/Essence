@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
+var React = require('react'),
+    classSet = require('classnames'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({

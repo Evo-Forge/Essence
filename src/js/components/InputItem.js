@@ -1,14 +1,14 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'InputItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -58,7 +58,7 @@ module.exports = React.createClass({
       });
     },
 
-    handleClick: function (event) {
+    handleClick: function() {
       var self = this,
           actionClick = self.props.actionClick || false,
           actionType = self.props.actionType || false;
@@ -86,6 +86,8 @@ module.exports = React.createClass({
 
       if (inputValue.length > 0) {
         inputClasses['empty'] = false;
+      } else {
+        inputClasses['empty'] = true;
       }
 
       self.setState({

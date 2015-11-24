@@ -1,20 +1,19 @@
 'use strict';
 
-var React = require('react/addons'),
-    classSet = React.addons.classSet,
+var React = require('react'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'MenuItem',
 
-    mixins: [PubSub, Mobile, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
-        isMobile: this.isMobile(),
+        isMobile: Mobile.isMobile(),
         activeItems: [],
         classes: {
           'divider': (this.props.options && this.props.options.type === "divider"),

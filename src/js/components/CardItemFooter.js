@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'CardItemFooter',
 
-    mixins: [ClassNames],
+    
 
     getInitialState: function() {
       return {

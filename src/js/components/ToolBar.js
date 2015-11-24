@@ -1,7 +1,7 @@
 'use strict';
 
-var React = require('react/addons'),
-    Text = require('./Text'),
+var React = require('react'),
+    ReactText = require('./Text'),
     PubSub = require('../utils/PubSub');
 
 module.exports = React.createClass({
@@ -13,14 +13,6 @@ module.exports = React.createClass({
       return {
         children: []
       };
-    },
-
-    componentDidMount: function () {
-      // Empty
-    },
-
-    componentDidUnmount: function () {
-      // Empty
     },
 
     renderChildren: function () {
@@ -35,7 +27,7 @@ module.exports = React.createClass({
       // Multiple items
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: key,
               key: key
             })
@@ -55,7 +47,7 @@ module.exports = React.createClass({
     renderTitle: function () {
       if (this.props.title) {
         return (
-          <Text text={this.props.title} />
+          <ReactText text={this.props.title} />
         );
       }
 

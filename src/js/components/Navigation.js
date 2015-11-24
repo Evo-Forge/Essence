@@ -1,21 +1,21 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
     Mobile = require('../utils/Mobile'),
     PubSub = require('../utils/PubSub'),
     ComponentHTML = require('../utils/ComponentHTML'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'Navigation',
 
-    mixins: [PubSub, Mobile],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
         children: [],
-        isMobile: this.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
+        isMobile: Mobile.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
         classes: {
           'e-main': false,
           'e-navigation-open': false,
@@ -25,8 +25,7 @@ module.exports = React.createClass({
     },
 
     componentDidMount: function () {
-      var self = this,
-          currentWidth = window.outerWidth;
+      var self = this;
 
       if (self.props.live) {
         // Load HomePage
@@ -39,7 +38,7 @@ module.exports = React.createClass({
       }
     },
 
-    componentDidUnmount: function () {
+    componentWillUnmount: function () {
       this.unsubscribe('showNavigation', this.hideNavigation);
     },
 
@@ -55,7 +54,7 @@ module.exports = React.createClass({
       // Multiple items
         self.props.children.map(function (item, key) {
           item = (
-            React.addons.cloneWithProps(item, {
+            React.cloneElement(item, {
               id: key,
               key: key
             })

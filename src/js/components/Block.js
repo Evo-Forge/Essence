@@ -1,14 +1,10 @@
 'use strict';
 
-var React = require('react/addons'),
-    PubSub = require('../utils/PubSub'),
-    ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+var React = require('react'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
-    displayName: 'Text',
-
-    mixins: [PubSub, ClassNames],
+    displayName: 'Block',
 
     getInitialState: function() {
       return {

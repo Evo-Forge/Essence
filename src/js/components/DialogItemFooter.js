@@ -1,14 +1,11 @@
 'use strict';
 
-var React = require('react/addons'),
-    Mobile = require('../utils/Mobile'),
+var React = require('react'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'DialogItemFooter',
-
-    mixins: [Mobile, ClassNames],
 
     getInitialState: function() {
       return {

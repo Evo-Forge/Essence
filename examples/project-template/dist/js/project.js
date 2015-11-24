@@ -6,6 +6,7 @@ var body = document.body, // default React render path is html body
     content = document.querySelector(".content"),
     footer = document.querySelector(".footer"),
     React = Essence.React,
+    ReactDOM = Essence.ReactDOM,
     AppBar = Essence.AppBar,
     BottomSheets = Essence.BottomSheets,
     BottomSheetsItem = Essence.BottomSheetsItem,
@@ -65,28 +66,28 @@ var body = document.body, // default React render path is html body
     PositionHorizontal = Essence.PositionHorizontal,
     PubSub = Essence.PubSub;
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-grey-500 e-text-center'>
       your content by ID # here
     </Block>
     ,byID
 );
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-red-500 e-text-center'>
       your content by class .header here
     </Block>
     ,header
 );
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-yellow-500 e-text-center'>
       your content by class .content here
     </Block>
     ,content
 );
 
-React.render(
+ReactDOM.render(
     <Block type='div' classes='e-background-blue-500 e-text-center'>
       your content by class .footer here
     </Block>

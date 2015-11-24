@@ -2,7 +2,8 @@
 
 module.exports = function (initClass, ExtraClass) {
   var typeInitClass = typeof initClass,
-      typeExtraClass = typeof ExtraClass;
+      typeExtraClass = typeof ExtraClass,
+      classes = {};
 
   /**
    * Instead of assigning the reference of `initClass` to `classes` this for loop copies all the

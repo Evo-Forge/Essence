@@ -1,21 +1,19 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     Icon = require('./Icon'),
-    Image = require('./Image'),
-    Text = require('./Text'),
     ListItemElement = require('./ListItemElement'),
     PubSub = require('../utils/PubSub'),
     Position = require('../utils/Position'),
     ClickPosition = require('../utils/ClickPosition'),
     BackgroundColor = require('../utils/BackgroundColor'),
     ClassNames = require('../utils/ClassNames'),
-    classSet = React.addons.classSet;
+    classSet = require('classnames');
 
 module.exports = React.createClass({
     displayName: 'ListItem',
 
-    mixins: [PubSub, ClassNames],
+    mixins: [PubSub],
 
     getInitialState: function() {
       return {
@@ -58,16 +56,15 @@ module.exports = React.createClass({
       ev.dataTransfer.setData("text/html", element);
     },
 
+    /*
     dragEnd: function(ev) {
-      var self = this,
-          element = ev.target;
-      /*
+      var element = ev.target;
       console.log({
-        "fromElement" : self.state.fromElement,
-        "toElement" : self.state.toElement
+        "fromElement" : this.state.fromElement,
+        "toElement" : this.state.toElement
       });
-      */
     },
+    */
 
     dragOver: function(ev) {
       var self = this,
@@ -128,6 +125,10 @@ module.exports = React.createClass({
           avatarAlt = (self.props.avatarAlt) ? self.props.avatarAlt : '',
           primaryListImage = false,
           position = (self.props.position) ? self.props.position : false;
+
+    var submenuItems = [],
+        hasMore = null,
+        hasMenu = null;
 
       if (self.props.listType === 'checkbox') {
         if (position === 'right') {
@@ -240,9 +241,7 @@ module.exports = React.createClass({
       }
 
       if (self.props.listType === 'navigation') {
-        var hasMore = null,
-            hasMenu = null,
-            activeClass = (self.props.isActive) ? 'active' : null;
+        var activeClass = (self.props.isActive) ? 'active' : null;
 
         if (self.props.more) {
           hasMore = (
@@ -267,7 +266,7 @@ module.exports = React.createClass({
             var item = i;
 
             item = (
-              React.addons.cloneWithProps(i, {
+              React.cloneElement(i, {
                 id: k,
                 key: k,
                 onClick: self.hideNavigation
@@ -295,7 +294,6 @@ module.exports = React.createClass({
         }
 
         if (self.props.submenu) {
-          var submenuItems = [];
 
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
@@ -333,9 +331,6 @@ module.exports = React.createClass({
       }
 
       if (self.props.listType === 'expand') {
-        var hasMore = null,
-            hasMenu = null;
-
         if (self.props.more) {
           hasMore = (
             <Icon classes={"e-right"} name='hardware-keyboard-arrow-down' />
@@ -343,8 +338,6 @@ module.exports = React.createClass({
         }
 
         if (self.props.submenu) {
-          var submenuItems = [];
-
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
               <li

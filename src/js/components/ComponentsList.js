@@ -1,6 +1,6 @@
 'use strict';
 
-var React = require('react/addons'),
+var React = require('react'),
     AppBar =  require('./AppBar'),
     BottomSheets = require('./BottomSheets'),
     BottomSheetsItem = require('./BottomSheetsItem'),
