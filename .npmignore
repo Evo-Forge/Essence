@@ -1,8 +1,9 @@
 bower_components/
 build/
 examples/
+examples/project-template/Essence Contest.rar
 static/
 tasks/
-bower.js
+bower.json
 Gruntfile.js
 gulpfile.js
