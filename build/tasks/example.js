@@ -17,6 +17,10 @@ gulp.task('example', function () {
     transform: [reactify]
   });
 
+  // copy LESS > CSS essence.css to example dist folder
+  gulp.src(config.styles.dest + '/essence.css').pipe(gulp.dest('./examples/project-template/dist/css/'));
+
+  // copy ReactJS > JS essence.js to example dist folder
   return b.bundle()
     .pipe(source(config.scripts.dest + '/essence.min.js'))
     .pipe(buffer())

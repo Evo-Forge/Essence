@@ -7146,7 +7146,6 @@ li {
   padding-left: 12px;
   color: inherit;
   line-height: 24px;
-  text-transform: uppercase;
 }
 @media all and (max-width: 640px) {
   .e-appbar > span {

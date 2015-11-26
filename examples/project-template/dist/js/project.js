@@ -68,7 +68,9 @@ var body = document.body, // default React render path is html body
 
 ReactDOM.render(
     <Block type='div' classes='e-background-grey-500 e-text-center'>
-      your content by ID # here
+      <AppBar>
+        <Text classes={'e-text-red-500'}>your content by ID # here</Text>
+      </AppBar>
     </Block>
     ,byID
 );
