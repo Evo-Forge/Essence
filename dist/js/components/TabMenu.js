@@ -15,9 +15,9 @@ module.exports = React.createClass({
   getInitialState: function getInitialState() {
     return {
       highlighterCSS: {
-        left: 0,
+        left: '1px',
         width: 'auto',
-        Highlighter: false
+        highlighter: false
       }
     };
   },
@@ -68,21 +68,23 @@ module.exports = React.createClass({
     };
 
     self.props.children.map(function (item, index) {
-      var itemID = self.props.id + '-' + item.props.id;
+      var itemID = self.props.id + '-' + item.props.id,
+          itemActive = false;
+
+      if (!self.state.activeItem && (index === 0 && item.props.type === 'list' || index === 1 && item.props.type === 'content')) {
+        itemActive = true;
+      } else if (itemID === self.state.activeItem) {
+        itemActive = true;
+      } else {
+        itemActive = false;
+      }
 
       item = React.cloneElement(item, {
         parentId: self.props.id,
         parentType: self.props.type,
-        key: item.props.type + '-' + itemID
+        key: item.props.type + '-' + itemID,
+        active: itemActive
       });
-
-      if (!self.state.activeItem && (index === 0 && item.props.type === 'list' || index === 1 && item.props.type === 'content')) {
-        item.props.active = true;
-      } else if (itemID === self.state.activeItem) {
-        item.props.active = true;
-      } else {
-        item.props.active = false;
-      }
 
       if (item.props.type === 'list') {
         children.list.push(item);
@@ -160,7 +162,7 @@ module.exports = React.createClass({
       ),
       React.createElement(
         'div',
-        { className: 'e-tabs-container' },
+        { className: 'e-tabs-container e-background-white' },
         items.content
       )
     );

@@ -15,8 +15,8 @@ module.exports = React.createClass({
         currentID: (this.props.active ? this.props.id : -1),
         parentID: (this.props.parentId ? this.props.parentId : ''),
         highlighterCSS: {
-          left: 0,
-          right: 0,
+          left: '1px',
+          right: '1px',
           direction: 'to-right'
         },
         classes: {}
@@ -84,9 +84,9 @@ module.exports = React.createClass({
             id={self.state.parentID + "-" + self.props.id}
             className={classes}
           >
-            <p className={"e-subhead"}>
+            <div className={"e-subhead"}>
               {self.props.children}
-            </p>
+            </div>
           </div>
         );
       }

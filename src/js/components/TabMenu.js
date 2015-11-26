@@ -15,9 +15,9 @@ module.exports = React.createClass({
     getInitialState: function () {
       return {
         highlighterCSS: {
-          left: 0,
+          left: '1px',
           width: 'auto',
-          Highlighter: false
+          highlighter: false
         }
       };
     },
@@ -68,15 +68,8 @@ module.exports = React.createClass({
           };
 
       self.props.children.map(function (item, index) {
-        var itemID = self.props.id + '-' + item.props.id;
-
-        item = (
-          React.cloneElement(item, {
-            parentId: self.props.id,
-            parentType: self.props.type,
-            key: item.props.type +"-"+ itemID
-          })
-        );
+        var itemID = self.props.id + '-' + item.props.id,
+            itemActive = false;
 
         if (
           !self.state.activeItem &&
@@ -85,12 +78,22 @@ module.exports = React.createClass({
             (index === 1 && item.props.type === "content")
           )
         ) {
-          item.props.active = true;
+          itemActive = true;
         } else if (itemID === self.state.activeItem) {
-          item.props.active = true;
+          itemActive = true;
         } else {
-          item.props.active = false;
+          itemActive = false;
         }
+
+        item = (
+          React.cloneElement(item, {
+            parentId: self.props.id,
+            parentType: self.props.type,
+            key: item.props.type +"-"+ itemID,
+            active: itemActive
+          })
+        );
+
 
         if (item.props.type === "list") {
           children.list.push(item);
@@ -165,7 +168,7 @@ module.exports = React.createClass({
             </ul>
           </nav>
 
-          <div className="e-tabs-container">
+          <div className="e-tabs-container e-background-white">
             {items.content}
           </div>
         </div>
