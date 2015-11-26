@@ -1,6 +1,7 @@
 'use strict';
 
-var React = require('react');
+var React = require('react'),
+    classSet = require('classnames');
 
 module.exports = React.createClass({
   displayName: 'AppBar',
@@ -39,11 +40,12 @@ module.exports = React.createClass({
   },
 
   render: function render() {
-    var self = this;
+    var self = this,
+        classes = classSet(self.props.classes, 'e-appbar clearfix');
 
     return React.createElement(
       'div',
-      { className: 'e-appbar clearfix' },
+      { className: classes },
       self.renderChildren()
     );
   }
