@@ -7,6 +7,7 @@ module.exports = {
 	dateFormat: require('./utils/DateFormat'),
 	mobile: require('./utils/Mobile'),
 	position: require('./utils/Position'),
+	randomString: require('./utils/RandomString')
 };
 
 // How to use
@@ -17,3 +18,4 @@ module.exports = {
 // return true|false if client browser is mobile: Utils.mobile.isMobile();
 // return x:y coordinates of an element: Utils.position.get(currentElement);
 // return x:y coordinates of an horizontal element: Utils.position.horizontal(currentElement);
+// return 10 char length random string: Utils.randomString();

@@ -1,4 +1,5 @@
 'use strict';
+var ga = ga !== undefined ? ga : {};
 
 var React = require('react'),
     AppBar = require('./AppBar'),
@@ -24,7 +25,7 @@ var React = require('react'),
     DialogItemContent = require('./DialogItemContent'),
     DialogItemFooter = require('./DialogItemFooter'),
     Icon = require('./Icon'),
-    Image = require('./Image'),
+    ReactImage = require('./Image'),
     Input = require('./Input'),
     InputItem = require('./InputItem'),
     InputItem = require('./InputItem'),
@@ -44,7 +45,7 @@ var React = require('react'),
     SwitchItem = require('./SwitchItem'),
     TabItem = require('./TabItem'),
     TabMenu = require('./TabMenu'),
-    Text = require('./Text'),
+    ReactText = require('./Text'),
     Toast = require('./Toast'),
     ToastItem = require('./ToastItem'),
     ToolBar = require('./ToolBar');
@@ -70,7 +71,7 @@ Component.home.push({
       Block,
       { type: 'div' },
       React.createElement(
-        Text,
+        ReactText,
         {
           type: 'a',
           eventAction: 'showNavigationComponent',
@@ -81,7 +82,7 @@ Component.home.push({
         'Get Started with Essence'
       ),
       React.createElement(
-        Text,
+        ReactText,
         {
           type: 'a',
           classes: 'e-btn raised e-background-white e-text-indigo-800',
@@ -96,7 +97,7 @@ Component.home.push({
       Block,
       { type: 'div' },
       React.createElement(
-        Text,
+        ReactText,
         {
           type: 'a',
           classes: 'e-btn raised e-background-amber-500',
@@ -137,7 +138,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -150,7 +151,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -163,7 +164,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -176,7 +177,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -189,7 +190,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -214,7 +215,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -227,7 +228,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -240,7 +241,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -253,7 +254,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             href: '#',
@@ -278,7 +279,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-appbar',
@@ -291,7 +292,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-bottom-sheets',
@@ -304,7 +305,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-buttons',
@@ -317,7 +318,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-cards',
@@ -330,7 +331,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-chips',
@@ -343,7 +344,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-datepicker',
@@ -356,7 +357,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-dialogs',
@@ -369,7 +370,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-dividers',
@@ -382,7 +383,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-grids',
@@ -395,7 +396,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-lists',
@@ -408,7 +409,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-list-controls',
@@ -421,7 +422,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-menus',
@@ -434,7 +435,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-navigation',
@@ -447,7 +448,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-paper',
@@ -460,7 +461,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-progress',
@@ -473,7 +474,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-slider',
@@ -486,7 +487,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-snackbars-toast',
@@ -499,7 +500,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-switches',
@@ -512,7 +513,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-tabs',
@@ -525,7 +526,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-text-fields',
@@ -538,7 +539,7 @@ Component.navigation_menu = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           {
             type: 'a',
             id: 'components-tooltips',
@@ -563,7 +564,7 @@ Component.navigation_buttons = React.createElement(
 );
 
 Component.navigation_title = React.createElement(
-  Text,
+  ReactText,
   { id: 'navigationTitle' },
   'Essence - Material Design'
 );
@@ -624,7 +625,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Home'
         )
@@ -633,7 +634,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'About'
         )
@@ -642,7 +643,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Getting Started'
         )
@@ -651,7 +652,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Contact'
         )
@@ -669,7 +670,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Colors'
         )
@@ -678,7 +679,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Icons'
         )
@@ -687,7 +688,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Typography'
         )
@@ -696,7 +697,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Useful classes'
         )
@@ -714,7 +715,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Appbar'
         )
@@ -723,7 +724,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Bottom Sheets'
         )
@@ -732,7 +733,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Buttons'
         )
@@ -741,7 +742,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Cards'
         )
@@ -750,7 +751,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Chips'
         )
@@ -759,7 +760,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Dialogs'
         )
@@ -768,7 +769,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Dividers'
         )
@@ -777,7 +778,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Grids'
         )
@@ -786,7 +787,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Lists'
         )
@@ -795,7 +796,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'List Controls'
         )
@@ -804,7 +805,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Menus'
         )
@@ -813,7 +814,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Navigation Drawer'
         )
@@ -822,7 +823,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Paper'
         )
@@ -831,7 +832,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Progress'
         )
@@ -840,7 +841,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Slider'
         )
@@ -849,7 +850,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Snackbars and Toast'
         )
@@ -858,7 +859,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Switches'
         )
@@ -867,7 +868,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Tabs'
         )
@@ -876,7 +877,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Text fields'
         )
@@ -885,7 +886,7 @@ Component.navigation = React.createElement(
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           null,
           'Tooltips'
         )
@@ -941,7 +942,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'New project'
       )
@@ -950,7 +951,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'New user'
       )
@@ -959,7 +960,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'More tools'
       )
@@ -968,7 +969,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Exit'
       )
@@ -986,7 +987,7 @@ Component.appbar = React.createElement(
       null,
       React.createElement(Icon, { name: 'notification-sms' }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Notifications'
       )
@@ -996,7 +997,7 @@ Component.appbar = React.createElement(
       null,
       React.createElement(Icon, { name: 'notification-tap-and-play' }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Tap & Pay'
       )
@@ -1006,7 +1007,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: 'http://www.pearlhq.com' },
         'Pearl'
       )
@@ -1015,7 +1016,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: 'http://www.google.com' },
         'Google'
       )
@@ -1033,7 +1034,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Profile'
       )
@@ -1042,7 +1043,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Settings'
       )
@@ -1052,7 +1053,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Support'
       )
@@ -1061,7 +1062,7 @@ Component.appbar = React.createElement(
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Logout'
       )
@@ -1156,11 +1157,11 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', href: '#phone' },
               React.createElement(Icon, { name: 'maps-local-phone', classes: 'e-list-icon' }),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Mobile'
               )
@@ -1174,11 +1175,11 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', href: '#share' },
               React.createElement(Icon, { name: 'social-share', classes: 'e-list-icon' }),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Share'
               )
@@ -1192,11 +1193,11 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', href: '#upload' },
               React.createElement(Icon, { name: 'file-cloud-upload', classes: 'e-list-icon' }),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Upload'
               )
@@ -1210,11 +1211,11 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', href: '#copy' },
               React.createElement(Icon, { name: 'content-content-copy', classes: 'e-list-icon' }),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Copy'
               )
@@ -1228,11 +1229,11 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', href: '#print' },
               React.createElement(Icon, { name: 'action-print', classes: 'e-list-icon' }),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Print'
               )
@@ -1263,12 +1264,12 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', href: '#attractions' },
               React.createElement(
                 Block,
                 { type: 'span', classes: 'e-list-content' },
-                React.createElement(Image, {
+                React.createElement(ReactImage, {
                   src: 'assets/img/card-user-img.jpg',
                   alt: 'Attractions',
                   classes: 'e-list-avatar'
@@ -1277,7 +1278,7 @@ Component.bottom_sheets.push({
                   Block,
                   { type: 'span' },
                   React.createElement(
-                    Text,
+                    ReactText,
                     { type: 'strong' },
                     'Alice'
                   )
@@ -1293,7 +1294,7 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', classes: 'brick-12', href: '#fun' },
               React.createElement(
                 Block,
@@ -1303,13 +1304,13 @@ Component.bottom_sheets.push({
                   Block,
                   { type: 'span' },
                   React.createElement(
-                    Text,
+                    ReactText,
                     { type: 'strong' },
                     '(555) 085-0001'
                   ),
                   React.createElement('br', null),
                   React.createElement(
-                    Text,
+                    ReactText,
                     null,
                     'Mobile'
                   )
@@ -1325,7 +1326,7 @@ Component.bottom_sheets.push({
             Block,
             { type: 'li' },
             React.createElement(
-              Text,
+              ReactText,
               { type: 'a', classes: 'brick-12', href: '#fun' },
               React.createElement(
                 Block,
@@ -1335,13 +1336,13 @@ Component.bottom_sheets.push({
                   Block,
                   { type: 'span' },
                   React.createElement(
-                    Text,
+                    ReactText,
                     { type: 'strong' },
                     '(564) 123-4567'
                   ),
                   React.createElement('br', null),
                   React.createElement(
-                    Text,
+                    ReactText,
                     null,
                     'Home'
                   )
@@ -1778,7 +1779,7 @@ Component.menus.push({
       null,
       React.createElement(Icon, { name: 'notification-sms' }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         'SMS Notifications'
       )
@@ -1788,7 +1789,7 @@ Component.menus.push({
       null,
       React.createElement(Icon, { name: 'notification-tap-and-play' }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Tap & Pay'
       )
@@ -1798,7 +1799,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: 'http://www.pearlhq.com' },
         'Pearl'
       )
@@ -1807,7 +1808,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: 'http://www.google.com' },
         'Google'
       )
@@ -1828,7 +1829,7 @@ Component.menus.push({
       null,
       React.createElement(Icon, { name: 'notification-sms' }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         'SMS Notifications'
       )
@@ -1838,7 +1839,7 @@ Component.menus.push({
       null,
       React.createElement(Icon, { name: 'notification-tap-and-play' }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         'Tap & Pay'
       )
@@ -1848,7 +1849,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: 'http://www.pearlhq.com' },
         'Pearl'
       )
@@ -1857,7 +1858,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: 'http://www.google.com' },
         'Google'
       )
@@ -1876,7 +1877,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: '#', classes: 'e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900' },
         React.createElement(Icon, { name: 'action-assessment' })
       )
@@ -1885,7 +1886,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: '#', classes: 'e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900' },
         React.createElement(Icon, { name: 'action-assignment-ind' })
       )
@@ -1894,7 +1895,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: '#', classes: 'e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900' },
         React.createElement(Icon, { name: 'action-loyalty' })
       )
@@ -1903,7 +1904,7 @@ Component.menus.push({
       MenuItem,
       null,
       React.createElement(
-        Text,
+        ReactText,
         { type: 'a', href: '#', classes: 'e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900' },
         React.createElement(Icon, { name: 'action-print' })
       )
@@ -1932,7 +1933,7 @@ Component.menus.push({
         classes: 'e-left'
       }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         ' Receive SMS Notifications'
       ),
@@ -1950,7 +1951,7 @@ Component.menus.push({
         classes: 'e-left'
       }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         ' Receive Alerts Notifications'
       ),
@@ -1968,7 +1969,7 @@ Component.menus.push({
         classes: 'e-left'
       }),
       React.createElement(
-        Text,
+        ReactText,
         null,
         ' Receive Email Notifications'
       ),
@@ -2144,9 +2145,9 @@ Component.cards.push({
       React.createElement(
         Block,
         { type: 'div', classes: 'card-main-image' },
-        React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Header Image' }),
+        React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Header Image' }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h1', classes: 'e-headline' },
           'Going to Ibiza'
         )
@@ -2155,7 +2156,7 @@ Component.cards.push({
         CardItemContent,
         { classes: 'card-supporting-text e-text-blue-grey-400' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h4' },
           'Limit supplemental actions to two actions, in addition to an overflow menu.'
         )
@@ -2201,18 +2202,18 @@ Component.cards.push({
         React.createElement(
           Block,
           { type: 'div', classes: 'card-header-image' },
-          React.createElement(Image, { src: 'assets/img/card-user-img.jpg', alt: 'Card Header Image' })
+          React.createElement(ReactImage, { src: 'assets/img/card-user-img.jpg', alt: 'Card Header Image' })
         ),
         React.createElement(
           Block,
           { type: 'div', classes: 'card-header-text' },
           React.createElement(
-            Text,
+            ReactText,
             { type: 'h2', classes: 'e-title' },
             'Card Title'
           ),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'h3', classes: 'e-subhead e-text-blue-grey-400' },
             'Card Subhead'
           )
@@ -2221,9 +2222,9 @@ Component.cards.push({
       React.createElement(
         Block,
         { type: 'div', classes: 'card-main-image' },
-        React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Header Image' }),
+        React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Header Image' }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', href: '#carja', classes: 'e-headline' },
           'Going to Ibiza'
         )
@@ -2232,7 +2233,7 @@ Component.cards.push({
         CardItemContent,
         { classes: 'card-supporting-text e-text-blue-grey-400' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h4' },
           'Limit supplemental actions to two actions, in addition to an overflow menu.'
         )
@@ -2254,18 +2255,18 @@ Component.cards.push({
         React.createElement(
           Block,
           { type: 'div', classes: 'card-header-image' },
-          React.createElement(Image, { src: 'assets/img/card-user-img.jpg', alt: 'Card Header Image' })
+          React.createElement(ReactImage, { src: 'assets/img/card-user-img.jpg', alt: 'Card Header Image' })
         ),
         React.createElement(
           Block,
           { type: 'div', classes: 'card-header-text' },
           React.createElement(
-            Text,
+            ReactText,
             { type: 'a', href: '#card-gallery', classes: 'e-title' },
             'Card Gallery'
           ),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'h3', classes: 'e-subhead e-text-blue-grey-400' },
             'Multiple images'
           )
@@ -2277,21 +2278,21 @@ Component.cards.push({
         React.createElement(
           Block,
           { type: 'div', classes: 'card-gallery' },
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 1' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 2' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 3' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 4' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 5' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 6' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 7' }),
-          React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Image 8' })
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 1' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 2' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 3' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 4' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 5' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 6' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 7' }),
+          React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Image 8' })
         )
       ),
       React.createElement(
         CardItemContent,
         { classes: 'card-supporting-text e-text-blue-grey-400' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h4' },
           'Limit supplemental actions to two actions, in addition to an overflow menu.'
         )
@@ -2334,9 +2335,9 @@ Component.cards.push({
       React.createElement(
         Block,
         { type: 'div', classes: 'card-main-image' },
-        React.createElement(Image, { src: 'assets/img/card-img.jpg', alt: 'Card Header Image' }),
+        React.createElement(ReactImage, { src: 'assets/img/card-img.jpg', alt: 'Card Header Image' }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h1', classes: 'e-headline' },
           'Going to Ibiza'
         )
@@ -2345,7 +2346,7 @@ Component.cards.push({
         CardItemContent,
         { classes: 'card-supporting-text e-text-blue-grey-400' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h4' },
           'Limit supplemental actions to two actions, in addition to an overflow menu.'
         )
@@ -2391,18 +2392,18 @@ Component.cards.push({
         React.createElement(
           Block,
           { type: 'div', classes: 'card-header-image' },
-          React.createElement(Image, { src: 'assets/img/card-user-img.jpg', alt: 'Card Header Image' })
+          React.createElement(ReactImage, { src: 'assets/img/card-user-img.jpg', alt: 'Card Header Image' })
         ),
         React.createElement(
           Block,
           { type: 'div', classes: 'card-header-text' },
           React.createElement(
-            Text,
+            ReactText,
             { type: 'a', href: '#card-gallery', classes: 'e-title' },
             'Car photography'
           ),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'h3', classes: 'e-subhead e-text-blue-grey-400' },
             'By John Doe'
           )
@@ -2446,7 +2447,7 @@ Component.cards.push({
       React.createElement(
         Block,
         { type: 'div', classes: 'left-image' },
-        React.createElement(Image, { src: 'assets/img/car.jpg', alt: 'Card Header Image' })
+        React.createElement(ReactImage, { src: 'assets/img/car.jpg', alt: 'Card Header Image' })
       ),
       React.createElement(
         Block,
@@ -2455,12 +2456,12 @@ Component.cards.push({
           Block,
           { type: 'div', classes: 'card-supporting-text' },
           React.createElement(
-            Text,
+            ReactText,
             { type: 'h1', classes: 'e-title' },
             'Car photography'
           ),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'p', classes: 'e-subhead' },
             'By John Doe'
           )
@@ -2670,7 +2671,7 @@ Component.dialogs.push({
         DialogItemHeader,
         null,
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h2' },
           'Dialog title'
         )
@@ -2679,7 +2680,7 @@ Component.dialogs.push({
         DialogItemContent,
         null,
         React.createElement(
-          Text,
+          ReactText,
           { type: 'p' },
           'When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.'
         )
@@ -2727,17 +2728,17 @@ Component.dialogs.push({
         DialogItemHeader,
         { classes: 'clearfix' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', href: '#', classes: 'e-dialog-header-action e-left' },
           React.createElement(Icon, { name: 'action-settings-bluetooth' })
         ),
         React.createElement(
-          Text,
+          ReactText,
           { classes: 'e-dialog-header-text' },
           'New event'
         ),
         React.createElement(
-          Text,
+          ReactText,
           { classes: 'e-dialog-header-action e-right' },
           React.createElement(
             Btn,
@@ -2758,12 +2759,12 @@ Component.dialogs.push({
         DialogItemContent,
         null,
         React.createElement(
-          Text,
+          ReactText,
           { type: 'h2', classes: 'e-dialog-second-title' },
           'Event'
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'p' },
           'When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.'
         )
@@ -2838,25 +2839,25 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { type: 'div', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Attractions',
               classes: 'e-list-avatar'
             }),
             React.createElement(
-              Text,
+              ReactText,
               null,
               'Attractions'
             )
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#attractions' },
           React.createElement(Icon, { name: 'communication-contacts' })
         )
@@ -2869,25 +2870,25 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#fun' },
           React.createElement(
             Block,
             { type: 'div', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Fun',
               classes: 'e-list-avatar'
             }),
             React.createElement(
-              Text,
+              ReactText,
               null,
               'Fun'
             )
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#fun' },
           React.createElement(Icon, { name: 'communication-vpn-key' })
         )
@@ -2900,25 +2901,25 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#food' },
           React.createElement(
             Block,
             { type: 'div', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Food',
               classes: 'e-list-avatar'
             }),
             React.createElement(
-              Text,
+              ReactText,
               null,
               'Food'
             )
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#food' },
           React.createElement(Icon, { name: 'editor-insert-emoticon' })
         )
@@ -2931,25 +2932,25 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#kids' },
           React.createElement(
             Block,
             { type: 'div', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Kids',
               classes: 'e-list-avatar'
             }),
             React.createElement(
-              Text,
+              ReactText,
               null,
               'Kids'
             )
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#kids' },
           React.createElement(Icon, { name: 'hardware-security' })
         )
@@ -2969,12 +2970,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Attractions',
               classes: 'e-list-avatar'
@@ -2983,13 +2984,13 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Attractions'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Attractions'
               )
@@ -2997,7 +2998,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#attractions' },
           React.createElement(Icon, { name: 'communication-contacts' })
         )
@@ -3010,12 +3011,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#fun' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Fun',
               classes: 'e-list-avatar'
@@ -3024,13 +3025,13 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Fun'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Fun'
               )
@@ -3038,7 +3039,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#fun' },
           React.createElement(Icon, { name: 'communication-vpn-key' })
         )
@@ -3051,12 +3052,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#food' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Food',
               classes: 'e-list-avatar'
@@ -3065,13 +3066,13 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Food'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Food'
               )
@@ -3079,7 +3080,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#food' },
           React.createElement(Icon, { name: 'editor-insert-emoticon' })
         )
@@ -3092,12 +3093,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#kids' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Kids',
               classes: 'e-list-avatar'
@@ -3106,13 +3107,13 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Kids'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Kids'
               )
@@ -3120,7 +3121,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#kids' },
           React.createElement(Icon, { name: 'hardware-security' })
         )
@@ -3140,12 +3141,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { type: 'div', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Attractions',
               classes: 'e-list-avatar'
@@ -3154,19 +3155,19 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Attractions'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'em' },
                 'Attractions subtitle'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Attractions'
               )
@@ -3174,7 +3175,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#attractions' },
           React.createElement(Icon, { name: 'communication-contacts' })
         )
@@ -3187,12 +3188,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#fun' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Fun',
               classes: 'e-list-avatar'
@@ -3201,19 +3202,19 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Fun'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'em' },
                 'Fun subtitle'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Fun'
               )
@@ -3221,7 +3222,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#fun' },
           React.createElement(Icon, { name: 'communication-vpn-key' })
         )
@@ -3234,12 +3235,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#food' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Food',
               classes: 'e-list-avatar'
@@ -3248,19 +3249,19 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Food'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'em' },
                 'Food subtitle'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Food'
               )
@@ -3268,7 +3269,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#food' },
           React.createElement(Icon, { name: 'editor-insert-emoticon' })
         )
@@ -3281,12 +3282,12 @@ Component.lists.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#kids' },
           React.createElement(
             Block,
             { type: 'span', classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: 'Kids',
               classes: 'e-list-avatar'
@@ -3295,19 +3296,19 @@ Component.lists.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 'Kids'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'em' },
                 'Kids subtitle'
               ),
               React.createElement('br', null),
               React.createElement(
-                Text,
+                ReactText,
                 null,
                 'Here are more information about Kids'
               )
@@ -3315,7 +3316,7 @@ Component.lists.push({
           )
         ),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#kids' },
           React.createElement(Icon, { name: 'hardware-security' })
         )
@@ -3342,7 +3343,7 @@ Component.list_controls.push({
           name: 'checkbox1'
         }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#list' },
           React.createElement(Icon, { name: 'action-view-list' })
         )
@@ -3361,7 +3362,7 @@ Component.list_controls.push({
           checked: true
         }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#week' },
           React.createElement(Icon, { name: 'action-view-week' })
         )
@@ -3379,7 +3380,7 @@ Component.list_controls.push({
           name: 'checkbox3'
         }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#unlock' },
           React.createElement(Icon, { name: 'action-face-unlock' })
         )
@@ -3397,7 +3398,7 @@ Component.list_controls.push({
           name: 'checkbox4'
         }),
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-1', href: '#settings' },
           React.createElement(Icon, { name: 'action-settings-input-component' })
         )
@@ -3417,12 +3418,12 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: '1st List checkbox',
               classes: 'e-list-avatar'
@@ -3431,7 +3432,7 @@ Component.list_controls.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 '1st List checkbox'
               )
@@ -3451,12 +3452,12 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: '2nd List checkbox',
               classes: 'e-list-avatar'
@@ -3465,7 +3466,7 @@ Component.list_controls.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 '2nd List checkbox'
               )
@@ -3485,12 +3486,12 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: '3rd List checkbox',
               classes: 'e-list-avatar'
@@ -3499,7 +3500,7 @@ Component.list_controls.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 '3rd List checkbox'
               )
@@ -3519,12 +3520,12 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#attractions' },
           React.createElement(
             Block,
             { classes: 'e-list-content' },
-            React.createElement(Image, {
+            React.createElement(ReactImage, {
               src: 'assets/img/card-user-img.jpg',
               alt: '4th List checkbox',
               classes: 'e-list-avatar'
@@ -3533,7 +3534,7 @@ Component.list_controls.push({
               Block,
               { type: 'span' },
               React.createElement(
-                Text,
+                ReactText,
                 { type: 'strong' },
                 '4th List checkbox'
               )
@@ -3560,11 +3561,11 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#wifi' },
           React.createElement(Icon, { name: 'device-network-wifi', classes: 'e-text-amber-900' }),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'strong' },
             'Wi-Fi Network'
           )
@@ -3583,11 +3584,11 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#bluetooth' },
           React.createElement(Icon, { name: 'action-settings-bluetooth', classes: 'e-text-indigo-400' }),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'strong' },
             'Bluetooth settings'
           )
@@ -3605,11 +3606,11 @@ Component.list_controls.push({
         Block,
         { type: 'li' },
         React.createElement(
-          Text,
+          ReactText,
           { type: 'a', classes: 'brick-11', href: '#data-usage' },
           React.createElement(Icon, { name: 'device-data-usage', classes: 'e-text-red-800' }),
           React.createElement(
-            Text,
+            ReactText,
             { type: 'strong' },
             'Data usage'
           )
@@ -4024,6 +4025,7 @@ Component.progress = React.createElement(
   React.createElement(Progress, { type: 'dynamic' })
 );
 
+/* exported NavigationHome, NavigationStyles, NavigationComponents, menus_simple, menus_cover, imageGallery */
 module.exports = function () {
   return Component;
 };

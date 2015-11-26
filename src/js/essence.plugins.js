@@ -1,3 +1,6 @@
+'use strict';
+var jQuery = jQuery !== undefined ? jQuery : {};
+
 (function( $ ) {
  	// Detect if mobile browser
  	$.fn.isMobile = function() {
@@ -233,14 +236,14 @@
 		});
 		
         return this;
-	}
+	};
 
 	// SnackBar
 	$.fn.snackbar = function(options) {
 		var defaults = {
-	 			id: this.attr("id"),
-	 			action: null
-			};
+ 			id: this.attr("id"),
+ 			action: null
+		};
 
 		$.extend(defaults, options);
 
@@ -286,7 +289,7 @@
 		});
 
         return this;
-	}
+	};
 
 	// Toasts
 	$.fn.toast = function(options) {
@@ -339,7 +342,7 @@
 		});
 
         return this;
-	}
+	};
 
 	// Slider
 	$.fn.slider = function(options) {
@@ -404,7 +407,7 @@
         });
 
         return this;
-	}
+	};
 
 	// Navigation
 	$.fn.navigation = function(options) {
@@ -423,7 +426,7 @@
 			}
 		});
         return this;
-	}
+	};
 
 	// Menu
 	$.fn.menu = function(options) {
@@ -449,7 +452,7 @@
 		});
 
         return this;
-	}
+	};
 
 	// Chips
 	$.fn.chips = function(options) {
@@ -508,7 +511,7 @@
 		}
 
         return this;
-	}
+	};
 
 	// Tabs
 	$.fn.tabs = function(options) {
@@ -588,6 +591,6 @@
 		}
 
         return this;
-	}
+	};
 
 }( jQuery ));

@@ -1,4 +1,5 @@
 'use strict';
+var ga = ga !== undefined ? ga : {};
 
 var React = require('react'),
     AppBar =  require('./AppBar'),
@@ -24,7 +25,7 @@ var React = require('react'),
     DialogItemContent = require('./DialogItemContent'),
     DialogItemFooter = require('./DialogItemFooter'),
     Icon = require('./Icon'),
-    Image = require('./Image'),
+    ReactImage = require('./Image'),
     Input = require('./Input'),
     InputItem = require('./InputItem'),
     InputItem = require('./InputItem'),
@@ -44,7 +45,7 @@ var React = require('react'),
     SwitchItem = require('./SwitchItem'),
     TabItem = require('./TabItem'),
     TabMenu = require('./TabMenu'),
-    Text = require('./Text'),
+    ReactText = require('./Text'),
     Toast = require('./Toast'),
     ToastItem = require('./ToastItem'),
     ToolBar =  require('./ToolBar');
@@ -66,7 +67,7 @@ Component.home.push({
   'download': (
     <Block type='div'>
       <Block type='div'>
-        <Text
+        <ReactText
           type='a'
           eventAction='showNavigationComponent'
           classes='e-btn raised e-background-indigo-800'
@@ -74,27 +75,27 @@ Component.home.push({
           id='components-getting-started-web'
         >
            Get Started with Essence
-        </Text>
-        <Text
+        </ReactText>
+        <ReactText
           type='a'
           classes='e-btn raised e-background-white e-text-indigo-800'
           target='_blank'
           href='https://github.com/PearlVentures/Essence'
         >
           Download from GitHub
-        </Text>
+        </ReactText>
       </Block>
       <Block type='hr' />
       <Block type='div'>
 
-        <Text
+        <ReactText
           type='a'
           classes='e-btn raised e-background-amber-500'
           href='javascript:;'
           onClick={contestEvents}
         >
           enter the essence contest
-        </Text>
+        </ReactText>
       </Block>
     </Block>
   )
@@ -120,49 +121,49 @@ Component.navigation_menu = (
         hasSubmenu={true}
       >
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-home'
           >
             Home
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-material-design'
           >
             About
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-getting-started-web'
           >
             Getting Started Web
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-getting-started-native'
           >
             Getting Started Native
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-contact'
           >
             Contact
-          </Text>
+          </ReactText>
         </Block>
       </ListItem>
 
@@ -176,40 +177,40 @@ Component.navigation_menu = (
         hasSubmenu={true}
       >
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-colors'
           >
             Colors
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-icons'
           >
             Icons
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-typography'
           >
             Typography
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             href='#'
             id='components-classes'
           >
             Useful classes
-          </Text>
+          </ReactText>
         </Block>
       </ListItem>
 
@@ -223,193 +224,193 @@ Component.navigation_menu = (
         hasSubmenu={true}
       >
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-appbar'
             href='#'
           >
             Appbar
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-bottom-sheets'
             href='#'
           >
             Bottom Sheets
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-buttons'
             href='#'
           >
             Buttons
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-cards'
             href='#'
           >
             Cards
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-chips'
             href='#'
           >
             Chips
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-datepicker'
             href='#'
           >
             Date Picker
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-dialogs'
             href='#'
           >
             Dialogs
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-dividers'
             href='#'
           >
             Dividers
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-grids'
             href='#'
           >
             Grids
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-lists'
             href='#'
           >
             Lists
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-list-controls'
             href='#'
           >
             List Controls
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-menus'
             href='#'
           >
             Menus
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-navigation'
             href='#'
           >
             Navigation Drawer
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-paper'
             href='#'
           >
             Paper
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-progress'
             href='#'
           >
             Progress
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-slider'
             href='#'
           >
             Sliders
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-snackbars-toast'
             href='#'
           >
             Snackbars and Toast
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-switches'
             href='#'
           >
             Switches
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-tabs'
             href='#'
           >
             Tabs
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-text-fields'
             href='#'
           >
             Text fields
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text
+          <ReactText
             type='a'
             id='components-tooltips'
             href='#'
           >
             Tooltips
-          </Text>
+          </ReactText>
         </Block>
       </ListItem>
     </List>
@@ -428,9 +429,9 @@ Component.navigation_buttons = (
 );
 
 Component.navigation_title = (
-  <Text id='navigationTitle'>
+  <ReactText id='navigationTitle'>
     Essence - Material Design
-  </Text>
+  </ReactText>
 );
 
 var NavigationHome =
@@ -543,24 +544,24 @@ Component.navigation = (
         hasSubmenu={true}
       >
         <Block type='li'>
-          <Text>
+          <ReactText>
             Home
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             About
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Getting Started
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Contact
-          </Text>
+          </ReactText>
         </Block>
       </ListItem>
 
@@ -571,24 +572,24 @@ Component.navigation = (
         hasSubmenu={true}
       >
         <Block type='li'>
-          <Text>
+          <ReactText>
             Colors
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Icons
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Typography
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Useful classes
-          </Text>
+          </ReactText>
         </Block>
       </ListItem>
 
@@ -599,104 +600,104 @@ Component.navigation = (
         hasSubmenu={true}
       >
         <Block type='li'>
-          <Text>
+          <ReactText>
             Appbar
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Bottom Sheets
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Buttons
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Cards
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Chips
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Dialogs
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Dividers
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Grids
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Lists
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             List Controls
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Menus
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Navigation Drawer
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Paper
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Progress
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Slider
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Snackbars and Toast
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Switches
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Tabs
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Text fields
-          </Text>
+          </ReactText>
         </Block>
         <Block type='li'>
-          <Text>
+          <ReactText>
             Tooltips
-          </Text>
+          </ReactText>
         </Block>
       </ListItem>
     </List>
@@ -749,19 +750,19 @@ Component.appbar = (
       icon='navigation-menu'
     >
       <MenuItem>
-        <Text>New project</Text>
+        <ReactText>New project</ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text>New user</Text>
+        <ReactText>New user</ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text>More tools</Text>
+        <ReactText>More tools</ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text>Exit</Text>
+        <ReactText>Exit</ReactText>
       </MenuItem>
     </Menu>
 
@@ -772,25 +773,25 @@ Component.appbar = (
     >
       <MenuItem>
         <Icon name='notification-sms' />
-        <Text>Notifications</Text>
+        <ReactText>Notifications</ReactText>
       </MenuItem>
 
       <MenuItem>
         <Icon name='notification-tap-and-play' />
-        <Text>Tap & Pay</Text>
+        <ReactText>Tap & Pay</ReactText>
       </MenuItem>
 
       <Block type='li' classes={'divider'} />
 
       <MenuItem>
-        <Text type='a' href='http://www.pearlhq.com'>
+        <ReactText type='a' href='http://www.pearlhq.com'>
           Pearl
-        </Text>
+        </ReactText>
       </MenuItem>
       <MenuItem>
-        <Text type='a' href='http://www.google.com'>
+        <ReactText type='a' href='http://www.google.com'>
           Google
-        </Text>
+        </ReactText>
       </MenuItem>
     </Menu>
 
@@ -801,21 +802,21 @@ Component.appbar = (
       right={true}
     >
       <MenuItem>
-        <Text>Profile</Text>
+        <ReactText>Profile</ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text>Settings</Text>
+        <ReactText>Settings</ReactText>
       </MenuItem>
 
       <Block type='li' classes={'divider'} />
 
       <MenuItem>
-        <Text>Support</Text>
+        <ReactText>Support</ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text>Logout</Text>
+        <ReactText>Logout</ReactText>
       </MenuItem>
     </Menu>
 
@@ -897,46 +898,46 @@ Component.bottom_sheets.push({
         <List type='single-line'>
           <ListItem>
             <Block type='li'>
-              <Text type='a' href='#phone'>
+              <ReactText type='a' href='#phone'>
                 <Icon name='maps-local-phone' classes={'e-list-icon'} />
-                <Text>Mobile</Text>
-              </Text>
+                <ReactText>Mobile</ReactText>
+              </ReactText>
             </Block>
           </ListItem>
 
           <ListItem>
             <Block type='li'>
-              <Text type='a' href='#share'>
+              <ReactText type='a' href='#share'>
                 <Icon name='social-share' classes={'e-list-icon'} />
-                <Text>Share</Text>
-              </Text>
+                <ReactText>Share</ReactText>
+              </ReactText>
             </Block>
           </ListItem>
 
           <ListItem>
             <Block type='li'>
-              <Text type='a' href='#upload'>
+              <ReactText type='a' href='#upload'>
                 <Icon name='file-cloud-upload' classes={'e-list-icon'} />
-                <Text>Upload</Text>
-              </Text>
+                <ReactText>Upload</ReactText>
+              </ReactText>
             </Block>
           </ListItem>
 
           <ListItem>
             <Block type='li'>
-              <Text type='a' href='#copy'>
+              <ReactText type='a' href='#copy'>
                 <Icon name='content-content-copy' classes={'e-list-icon'} />
-                <Text>Copy</Text>
-              </Text>
+                <ReactText>Copy</ReactText>
+              </ReactText>
             </Block>
           </ListItem>
 
           <ListItem>
             <Block type='li'>
-              <Text type='a' href='#print'>
+              <ReactText type='a' href='#print'>
                 <Icon name='action-print' classes={'e-list-icon'} />
-                <Text>Print</Text>
-              </Text>
+                <ReactText>Print</ReactText>
+              </ReactText>
             </Block>
           </ListItem>
         </List>
@@ -954,48 +955,48 @@ Component.bottom_sheets.push({
         <List type='two-line'>
           <ListItem>
             <Block type='li'>
-              <Text type='a' href='#attractions'>
+              <ReactText type='a' href='#attractions'>
                 <Block type='span' classes={'e-list-content'}>
-                  <Image
+                  <ReactImage
                     src='assets/img/card-user-img.jpg'
                     alt='Attractions'
                     classes={'e-list-avatar'}
                   />
                   <Block type='span'>
-                    <Text type='strong'>Alice</Text>
+                    <ReactText type='strong'>Alice</ReactText>
                   </Block>
                 </Block>
-              </Text>
+              </ReactText>
             </Block>
           </ListItem>
 
           <ListItem>
             <Block type='li'>
-              <Text type='a' classes={'brick-12'} href='#fun'>
+              <ReactText type='a' classes={'brick-12'} href='#fun'>
                 <Block type='span' classes={'e-list-content'}>
                   <Icon name='maps-local-phone' classes={'e-list-icon'} />
                   <Block type='span'>
-                    <Text type='strong'>(555) 085-0001</Text>
+                    <ReactText type='strong'>(555) 085-0001</ReactText>
                     <br />
-                    <Text>Mobile</Text>
+                    <ReactText>Mobile</ReactText>
                   </Block>
                 </Block>
-              </Text>
+              </ReactText>
             </Block>
           </ListItem>
 
           <ListItem>
             <Block type='li'>
-              <Text type='a' classes={'brick-12'} href='#fun'>
+              <ReactText type='a' classes={'brick-12'} href='#fun'>
                 <Block type='span' classes={'e-list-content'}>
                   <Icon name='maps-local-phone' classes={'e-list-icon'} />
                   <Block type='span'>
-                    <Text type='strong'>(564) 123-4567</Text>
+                    <ReactText type='strong'>(564) 123-4567</ReactText>
                     <br />
-                    <Text>Home</Text>
+                    <ReactText>Home</ReactText>
                   </Block>
                 </Block>
-              </Text>
+              </ReactText>
             </Block>
           </ListItem>
         </List>
@@ -1416,25 +1417,25 @@ Component.menus.push({
     >
       <MenuItem>
         <Icon name='notification-sms' />
-        <Text>SMS Notifications</Text>
+        <ReactText>SMS Notifications</ReactText>
       </MenuItem>
 
       <MenuItem>
         <Icon name='notification-tap-and-play' />
-        <Text>Tap & Pay</Text>
+        <ReactText>Tap & Pay</ReactText>
       </MenuItem>
 
       <MenuItem classes={'divider'} />
 
       <MenuItem>
-        <Text type='a' href='http://www.pearlhq.com'>
+        <ReactText type='a' href='http://www.pearlhq.com'>
           Pearl
-        </Text>
+        </ReactText>
       </MenuItem>
       <MenuItem>
-        <Text type='a' href='http://www.google.com'>
+        <ReactText type='a' href='http://www.google.com'>
           Google
-        </Text>
+        </ReactText>
       </MenuItem>
     </Menu>
   )
@@ -1449,25 +1450,25 @@ Component.menus.push({
     >
       <MenuItem>
         <Icon name='notification-sms' />
-        <Text>SMS Notifications</Text>
+        <ReactText>SMS Notifications</ReactText>
       </MenuItem>
 
       <MenuItem>
         <Icon name='notification-tap-and-play' />
-        <Text>Tap & Pay</Text>
+        <ReactText>Tap & Pay</ReactText>
       </MenuItem>
 
       <MenuItem classes={'divider'} />
 
       <MenuItem>
-        <Text type='a' href='http://www.pearlhq.com'>
+        <ReactText type='a' href='http://www.pearlhq.com'>
           Pearl
-        </Text>
+        </ReactText>
       </MenuItem>
       <MenuItem>
-        <Text type='a' href='http://www.google.com'>
+        <ReactText type='a' href='http://www.google.com'>
           Google
-        </Text>
+        </ReactText>
       </MenuItem>
     </Menu>
   )
@@ -1480,27 +1481,27 @@ Component.menus.push({
       type='fab'
     >
       <MenuItem>
-        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+        <ReactText type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
           <Icon name='action-assessment' />
-        </Text>
+        </ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+        <ReactText type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
           <Icon name='action-assignment-ind' />
-        </Text>
+        </ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+        <ReactText type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
           <Icon name='action-loyalty' />
-        </Text>
+        </ReactText>
       </MenuItem>
 
       <MenuItem>
-        <Text type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
+        <ReactText type='a' href='#' classes='e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900'>
           <Icon name='action-print' />
-        </Text>
+        </ReactText>
       </MenuItem>
     </Menu>
   )
@@ -1526,7 +1527,7 @@ Component.menus.push({
           name='notification-sms'
           classes={'e-left'}
         />
-        <Text> Receive SMS Notifications</Text>
+        <ReactText> Receive SMS Notifications</ReactText>
         <Icon
           name='notification-sms'
           classes={'e-right e-text-green-400'}
@@ -1539,7 +1540,7 @@ Component.menus.push({
           name='notification-sms'
           classes={'e-left'}
         />
-        <Text> Receive Alerts Notifications</Text>
+        <ReactText> Receive Alerts Notifications</ReactText>
         <Icon
           name='alert-warning'
           classes={'e-right e-text-green-400'}
@@ -1552,7 +1553,7 @@ Component.menus.push({
           name='notification-sms'
           classes={'e-left'}
         />
-        <Text> Receive Email Notifications</Text>
+        <ReactText> Receive Email Notifications</ReactText>
         <Icon
           name='communication-email'
           classes={'e-right e-text-green-400'}
@@ -1725,16 +1726,16 @@ Component.cards.push({
   <Card>
     <CardItem>
       <Block type="div" classes={"card-main-image"}>
-        <Image src="assets/img/card-img.jpg" alt="Card Header Image" />
-        <Text type="h1" classes={"e-headline"}>
+        <ReactImage src="assets/img/card-img.jpg" alt="Card Header Image" />
+        <ReactText type="h1" classes={"e-headline"}>
           Going to Ibiza
-        </Text>
+        </ReactText>
       </Block>
 
       <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
-        <Text type="h4">
+        <ReactText type="h4">
           Limit supplemental actions to two actions, in addition to an overflow menu.
-        </Text>
+        </ReactText>
       </CardItemContent>
 
       <CardItemFooter>
@@ -1765,26 +1766,26 @@ Component.cards.push({
     <CardItem>
       <CardItemHeader>
         <Block type="div" classes={"card-header-image"}>
-          <Image src="assets/img/card-user-img.jpg" alt="Card Header Image" />
+          <ReactImage src="assets/img/card-user-img.jpg" alt="Card Header Image" />
         </Block>
 
         <Block type="div" classes={"card-header-text"}>
-          <Text type="h2" classes={"e-title"}>Card Title</Text>
-          <Text type="h3" classes={"e-subhead e-text-blue-grey-400"}>Card Subhead</Text>
+          <ReactText type="h2" classes={"e-title"}>Card Title</ReactText>
+          <ReactText type="h3" classes={"e-subhead e-text-blue-grey-400"}>Card Subhead</ReactText>
         </Block>
       </CardItemHeader>
 
       <Block type="div" classes={"card-main-image"}>
-        <Image src="assets/img/card-img.jpg" alt="Card Header Image" />
-        <Text type="a" href="#carja" classes={"e-headline"}>
+        <ReactImage src="assets/img/card-img.jpg" alt="Card Header Image" />
+        <ReactText type="a" href="#carja" classes={"e-headline"}>
           Going to Ibiza
-        </Text>
+        </ReactText>
       </Block>
 
       <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
-        <Text type="h4">
+        <ReactText type="h4">
           Limit supplemental actions to two actions, in addition to an overflow menu.
-        </Text>
+        </ReactText>
       </CardItemContent>
 
     </CardItem>
@@ -1797,32 +1798,32 @@ Component.cards.push({
     <CardItem>
       <CardItemHeader>
         <Block type="div" classes={"card-header-image"}>
-          <Image src="assets/img/card-user-img.jpg" alt="Card Header Image" />
+          <ReactImage src="assets/img/card-user-img.jpg" alt="Card Header Image" />
         </Block>
 
         <Block type="div" classes={"card-header-text"}>
-          <Text type="a" href="#card-gallery" classes={"e-title"}>Card Gallery</Text>
-          <Text type="h3" classes={"e-subhead e-text-blue-grey-400"}>Multiple images</Text>
+          <ReactText type="a" href="#card-gallery" classes={"e-title"}>Card Gallery</ReactText>
+          <ReactText type="h3" classes={"e-subhead e-text-blue-grey-400"}>Multiple images</ReactText>
         </Block>
       </CardItemHeader>
 
       <Block type="div" classes={"card-main-image"}>
         <Block type="div" classes={"card-gallery"}>
-          <Image src="assets/img/card-img.jpg" alt="Card Image 1" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 2" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 3" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 4" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 5" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 6" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 7" />
-          <Image src="assets/img/card-img.jpg" alt="Card Image 8" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 1" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 2" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 3" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 4" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 5" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 6" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 7" />
+          <ReactImage src="assets/img/card-img.jpg" alt="Card Image 8" />
         </Block>
       </Block>
 
       <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
-        <Text type="h4">
+        <ReactText type="h4">
           Limit supplemental actions to two actions, in addition to an overflow menu.
-        </Text>
+        </ReactText>
       </CardItemContent>
 
       <CardItemFooter>
@@ -1852,16 +1853,16 @@ Component.cards.push({
   <Card>
     <CardItem>
       <Block type="div" classes={"card-main-image"}>
-        <Image src="assets/img/card-img.jpg" alt="Card Header Image" />
-        <Text type="h1" classes={"e-headline"}>
+        <ReactImage src="assets/img/card-img.jpg" alt="Card Header Image" />
+        <ReactText type="h1" classes={"e-headline"}>
           Going to Ibiza
-        </Text>
+        </ReactText>
       </Block>
 
       <CardItemContent classes={"card-supporting-text e-text-blue-grey-400"}>
-        <Text type="h4">
+        <ReactText type="h4">
           Limit supplemental actions to two actions, in addition to an overflow menu.
-        </Text>
+        </ReactText>
       </CardItemContent>
 
       <CardItemFooter>
@@ -1892,12 +1893,12 @@ Component.cards.push({
     <CardItem>
       <CardItemHeader>
         <Block type="div" classes={"card-header-image"}>
-          <Image src="assets/img/card-user-img.jpg" alt="Card Header Image" />
+          <ReactImage src="assets/img/card-user-img.jpg" alt="Card Header Image" />
         </Block>
 
         <Block type="div" classes={"card-header-text"}>
-          <Text type="a" href="#card-gallery" classes={"e-title"}>Car photography</Text>
-          <Text type="h3" classes={"e-subhead e-text-blue-grey-400"}>By John Doe</Text>
+          <ReactText type="a" href="#card-gallery" classes={"e-title"}>Car photography</ReactText>
+          <ReactText type="h3" classes={"e-subhead e-text-blue-grey-400"}>By John Doe</ReactText>
         </Block>
       </CardItemHeader>
 
@@ -1928,13 +1929,13 @@ Component.cards.push({
   <Card>
     <CardItem>
       <Block type="div" classes={"left-image"}>
-        <Image src="assets/img/car.jpg" alt="Card Header Image" />
+        <ReactImage src="assets/img/car.jpg" alt="Card Header Image" />
       </Block>
 
       <Block type="div" classes={"content-after-image"}>
         <Block type="div" classes={"card-supporting-text"}>
-          <Text type="h1" classes={"e-title"}>Car photography</Text>
-          <Text type="p" classes={"e-subhead"}>By John Doe</Text>
+          <ReactText type="h1" classes={"e-title"}>Car photography</ReactText>
+          <ReactText type="p" classes={"e-subhead"}>By John Doe</ReactText>
         </Block>
 
         <CardItemFooter>
@@ -2129,15 +2130,15 @@ Component.dialogs.push({
     <Dialog>
       <DialogItem id='dialog-simple'>
         <DialogItemHeader>
-          <Text type='h2'>Dialog title</Text>
+          <ReactText type='h2'>Dialog title</ReactText>
         </DialogItemHeader>
 
         <DialogItemContent>
-          <Text type='p'>
+          <ReactText type='p'>
             When text labels exceed the maximum button width,
             use stacked buttons to accommodate the text.
             Affirmative actions are stacked above dismissive actions.
-          </Text>
+          </ReactText>
         </DialogItemContent>
 
         <DialogItemFooter>
@@ -2174,11 +2175,11 @@ Component.dialogs.push({
     <Dialog>
       <DialogItem id='dialog-full' full={true}>
         <DialogItemHeader classes={'clearfix'}>
-          <Text type='a' href='#' classes={'e-dialog-header-action e-left'}>
+          <ReactText type='a' href='#' classes={'e-dialog-header-action e-left'}>
             <Icon name={'action-settings-bluetooth'} />
-          </Text>
-          <Text classes={'e-dialog-header-text'}>New event</Text>
-          <Text classes={'e-dialog-header-action e-right'}>
+          </ReactText>
+          <ReactText classes={'e-dialog-header-text'}>New event</ReactText>
+          <ReactText classes={'e-dialog-header-action e-right'}>
             <Btn>
               <BtnItem
                 classes={'e-button'}
@@ -2190,18 +2191,18 @@ Component.dialogs.push({
                 }}
               />
             </Btn>
-          </Text>
+          </ReactText>
         </DialogItemHeader>
 
         <DialogItemContent>
-          <Text type='h2' classes={'e-dialog-second-title'}>
+          <ReactText type='h2' classes={'e-dialog-second-title'}>
             Event
-          </Text>
-          <Text type='p'>
+          </ReactText>
+          <ReactText type='p'>
             When text labels exceed the maximum button width,
             use stacked buttons to accommodate the text.
             Affirmative actions are stacked above dismissive actions.
-          </Text>
+          </ReactText>
         </DialogItemContent>
       </DialogItem>
     </Dialog>
@@ -2270,73 +2271,73 @@ Component.lists.push({
   <List type={'single-line'}>
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#attractions'>
+        <ReactText type='a' classes={'brick-11'} href='#attractions'>
           <Block type='div' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Attractions'
               classes={'e-list-avatar'}
             />
-            <Text>Attractions</Text>
+            <ReactText>Attractions</ReactText>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#attractions'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#attractions'>
           <Icon name='communication-contacts' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#fun'>
+        <ReactText type='a' classes={'brick-11'} href='#fun'>
           <Block type='div' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Fun'
               classes={'e-list-avatar'}
             />
-            <Text>Fun</Text>
+            <ReactText>Fun</ReactText>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#fun'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#fun'>
           <Icon name='communication-vpn-key' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#food'>
+        <ReactText type='a' classes={'brick-11'} href='#food'>
           <Block type='div' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Food'
               classes={'e-list-avatar'}
             />
-            <Text>Food</Text>
+            <ReactText>Food</ReactText>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#food'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#food'>
           <Icon name='editor-insert-emoticon' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#kids'>
+        <ReactText type='a' classes={'brick-11'} href='#kids'>
           <Block type='div' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Kids'
               classes={'e-list-avatar'}
             />
-            <Text>Kids</Text>
+            <ReactText>Kids</ReactText>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#kids'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#kids'>
           <Icon name='hardware-security' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
   </List>)
@@ -2347,89 +2348,89 @@ Component.lists.push({
   <List type='two-line'>
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#attractions'>
+        <ReactText type='a' classes={'brick-11'} href='#attractions'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Attractions'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Attractions</Text>
+              <ReactText type='strong'>Attractions</ReactText>
               <br />
-              <Text>Here are more information about Attractions</Text>
+              <ReactText>Here are more information about Attractions</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#attractions'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#attractions'>
           <Icon name='communication-contacts' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#fun'>
+        <ReactText type='a' classes={'brick-11'} href='#fun'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Fun'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Fun</Text>
+              <ReactText type='strong'>Fun</ReactText>
               <br />
-              <Text>Here are more information about Fun</Text>
+              <ReactText>Here are more information about Fun</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#fun'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#fun'>
           <Icon name='communication-vpn-key' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#food'>
+        <ReactText type='a' classes={'brick-11'} href='#food'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Food'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Food</Text>
+              <ReactText type='strong'>Food</ReactText>
               <br />
-              <Text>Here are more information about Food</Text>
+              <ReactText>Here are more information about Food</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#food'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#food'>
           <Icon name='editor-insert-emoticon' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#kids'>
+        <ReactText type='a' classes={'brick-11'} href='#kids'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Kids'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Kids</Text>
+              <ReactText type='strong'>Kids</ReactText>
               <br />
-              <Text>Here are more information about Kids</Text>
+              <ReactText>Here are more information about Kids</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#kids'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#kids'>
           <Icon name='hardware-security' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
   </List>)
@@ -2440,97 +2441,97 @@ Component.lists.push({
   <List type='multi-line'>
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#attractions'>
+        <ReactText type='a' classes={'brick-11'} href='#attractions'>
           <Block type='div' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Attractions'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Attractions</Text>
+              <ReactText type='strong'>Attractions</ReactText>
               <br />
-              <Text type='em'>Attractions subtitle</Text>
+              <ReactText type='em'>Attractions subtitle</ReactText>
               <br />
-              <Text>Here are more information about Attractions</Text>
+              <ReactText>Here are more information about Attractions</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#attractions'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#attractions'>
           <Icon name='communication-contacts' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#fun'>
+        <ReactText type='a' classes={'brick-11'} href='#fun'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Fun'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Fun</Text>
+              <ReactText type='strong'>Fun</ReactText>
               <br />
-              <Text type='em'>Fun subtitle</Text>
+              <ReactText type='em'>Fun subtitle</ReactText>
               <br />
-              <Text>Here are more information about Fun</Text>
+              <ReactText>Here are more information about Fun</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#fun'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#fun'>
           <Icon name='communication-vpn-key' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#food'>
+        <ReactText type='a' classes={'brick-11'} href='#food'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Food'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Food</Text>
+              <ReactText type='strong'>Food</ReactText>
               <br />
-              <Text type='em'>Food subtitle</Text>
+              <ReactText type='em'>Food subtitle</ReactText>
               <br />
-              <Text>Here are more information about Food</Text>
+              <ReactText>Here are more information about Food</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#food'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#food'>
           <Icon name='editor-insert-emoticon' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#kids'>
+        <ReactText type='a' classes={'brick-11'} href='#kids'>
           <Block type='span' classes={'e-list-content'}>
-            <Image
+            <ReactImage
               src='assets/img/card-user-img.jpg'
               alt='Kids'
               classes={'e-list-avatar'}
             />
             <Block type='span'>
-              <Text type='strong'>Kids</Text>
+              <ReactText type='strong'>Kids</ReactText>
               <br />
-              <Text type='em'>Kids subtitle</Text>
+              <ReactText type='em'>Kids subtitle</ReactText>
               <br />
-              <Text>Here are more information about Kids</Text>
+              <ReactText>Here are more information about Kids</ReactText>
             </Block>
           </Block>
-        </Text>
-        <Text type='a' classes={'brick-1'} href='#kids'>
+        </ReactText>
+        <ReactText type='a' classes={'brick-1'} href='#kids'>
           <Icon name='hardware-security' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
   </List>)
@@ -2548,9 +2549,9 @@ Component.list_controls.push({
           text='First List Checkbox'
           name='checkbox1'
         />
-        <Text type='a' classes={'brick-1'} href='#list'>
+        <ReactText type='a' classes={'brick-1'} href='#list'>
           <Icon name='action-view-list' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
@@ -2562,9 +2563,9 @@ Component.list_controls.push({
           name='checkbox2'
           checked={true}
         />
-        <Text type='a' classes={'brick-1'} href='#week'>
+        <ReactText type='a' classes={'brick-1'} href='#week'>
           <Icon name='action-view-week' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
@@ -2575,9 +2576,9 @@ Component.list_controls.push({
           text='Third List Checkbox'
           name='checkbox3'
         />
-        <Text type='a' classes={'brick-1'} href='#unlock'>
+        <ReactText type='a' classes={'brick-1'} href='#unlock'>
           <Icon name='action-face-unlock' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
 
@@ -2588,9 +2589,9 @@ Component.list_controls.push({
           text='Fourth List Checkbox'
           name='checkbox4'
         />
-        <Text type='a' classes={'brick-1'} href='#settings'>
+        <ReactText type='a' classes={'brick-1'} href='#settings'>
           <Icon name='action-settings-input-component' />
-        </Text>
+        </ReactText>
       </Block>
     </ListItem>
   </List>)
@@ -2601,18 +2602,18 @@ Component.list_controls.push({
   <List type='checkbox' position='right'>
       <ListItem>
         <Block type='li'>
-          <Text type='a' classes={'brick-11'} href='#attractions'>
+          <ReactText type='a' classes={'brick-11'} href='#attractions'>
             <Block classes={'e-list-content'}>
-              <Image
+              <ReactImage
                 src='assets/img/card-user-img.jpg'
                 alt='1st List checkbox'
                 classes={'e-list-avatar'}
               />
               <Block type='span'>
-                <Text type='strong'>1st List checkbox</Text>
+                <ReactText type='strong'>1st List checkbox</ReactText>
               </Block>
             </Block>
-          </Text>
+          </ReactText>
           <SwitchItem
             type='checkbox'
             name='checkbox1'
@@ -2622,18 +2623,18 @@ Component.list_controls.push({
 
       <ListItem>
         <Block type='li'>
-          <Text type='a' classes={'brick-11'} href='#attractions'>
+          <ReactText type='a' classes={'brick-11'} href='#attractions'>
             <Block classes={'e-list-content'}>
-              <Image
+              <ReactImage
                 src='assets/img/card-user-img.jpg'
                 alt='2nd List checkbox'
                 classes={'e-list-avatar'}
               />
               <Block type='span'>
-                <Text type='strong'>2nd List checkbox</Text>
+                <ReactText type='strong'>2nd List checkbox</ReactText>
               </Block>
             </Block>
-          </Text>
+          </ReactText>
           <SwitchItem
             type='checkbox'
             name='checkbox2'
@@ -2643,18 +2644,18 @@ Component.list_controls.push({
 
       <ListItem>
         <Block type='li'>
-          <Text type='a' classes={'brick-11'} href='#attractions'>
+          <ReactText type='a' classes={'brick-11'} href='#attractions'>
             <Block classes={'e-list-content'}>
-              <Image
+              <ReactImage
                 src='assets/img/card-user-img.jpg'
                 alt='3rd List checkbox'
                 classes={'e-list-avatar'}
               />
               <Block type='span'>
-                <Text type='strong'>3rd List checkbox</Text>
+                <ReactText type='strong'>3rd List checkbox</ReactText>
               </Block>
             </Block>
-          </Text>
+          </ReactText>
           <SwitchItem
             type='checkbox'
             name='checkbox3'
@@ -2664,18 +2665,18 @@ Component.list_controls.push({
 
       <ListItem>
         <Block type='li'>
-          <Text type='a' classes={'brick-11'} href='#attractions'>
+          <ReactText type='a' classes={'brick-11'} href='#attractions'>
             <Block classes={'e-list-content'}>
-              <Image
+              <ReactImage
                 src='assets/img/card-user-img.jpg'
                 alt='4th List checkbox'
                 classes={'e-list-avatar'}
               />
               <Block type='span'>
-                <Text type='strong'>4th List checkbox</Text>
+                <ReactText type='strong'>4th List checkbox</ReactText>
               </Block>
             </Block>
-          </Text>
+          </ReactText>
           <SwitchItem
             type='checkbox'
             name='checkbox4'
@@ -2690,10 +2691,10 @@ Component.list_controls.push({
   <List type='switch'>
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#wifi'>
+        <ReactText type='a' classes={'brick-11'} href='#wifi'>
           <Icon name='device-network-wifi' classes={'e-text-amber-900'} />
-          <Text type='strong'>Wi-Fi Network</Text>
-        </Text>
+          <ReactText type='strong'>Wi-Fi Network</ReactText>
+        </ReactText>
         <SwitchItem
           type='switches'
           name='input-network-wifi'
@@ -2704,10 +2705,10 @@ Component.list_controls.push({
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#bluetooth'>
+        <ReactText type='a' classes={'brick-11'} href='#bluetooth'>
           <Icon name='action-settings-bluetooth' classes={'e-text-indigo-400'} />
-          <Text type='strong'>Bluetooth settings</Text>
-        </Text>
+          <ReactText type='strong'>Bluetooth settings</ReactText>
+        </ReactText>
         <SwitchItem
           type='switches'
           name='input-settings-bluetooth'
@@ -2717,10 +2718,10 @@ Component.list_controls.push({
 
     <ListItem>
       <Block type='li'>
-        <Text type='a' classes={'brick-11'} href='#data-usage'>
+        <ReactText type='a' classes={'brick-11'} href='#data-usage'>
           <Icon name='device-data-usage' classes={'e-text-red-800'} />
-          <Text type='strong'>Data usage</Text>
-        </Text>
+          <ReactText type='strong'>Data usage</ReactText>
+        </ReactText>
       </Block>
     </ListItem>
   </List>)
@@ -3171,6 +3172,7 @@ Component.progress = (
   </div>
 );
 
+/* exported NavigationHome, NavigationStyles, NavigationComponents, menus_simple, menus_cover, imageGallery */
 module.exports = function () {
   return Component;
 };
