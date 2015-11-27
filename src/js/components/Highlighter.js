@@ -12,7 +12,7 @@ module.exports = React.createClass({
       return {
         direction: 'to-right',
         styles: {
-          display: 'block',
+          display: 'none',
           left: '0px',
           right: '0px'
         },
@@ -26,7 +26,7 @@ module.exports = React.createClass({
       self.subscribe('highlighterCSS:'+self.props.id, function (target) {
         var targetLeft = target.element.parentNode.offsetLeft,
             stateLeft = self.state.styles.left;
-
+            
         self.setState({
           direction: targetLeft <= stateLeft  ? 'to-left' : 'to-right',
           styles: {

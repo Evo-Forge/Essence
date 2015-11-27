@@ -102,13 +102,15 @@ module.exports = React.createClass({
         'li',
         {
           className: classes,
-          'data-disabled': self.props.disabled
+          'data-disabled': self.props.disabled,
+          ref: '__' + self.state.parentID + '-' + self.props.id
         },
         React.createElement(
           'a',
           {
             href: '#',
             id: self.state.parentID + '-' + self.props.id,
+            ref: self.state.parentID + '-' + self.props.id,
             parentId: self.state.parentID,
             onClick: self.handleMenuItemClick,
             onKeyUp: self.handleMenuItemKey

@@ -16,8 +16,8 @@ module.exports = React.createClass({
     return {
       highlighterCSS: {
         left: '1px',
-        width: 'auto',
-        highlighter: false
+        right: '1px',
+        direction: 'to-right'
       }
     };
   },
@@ -53,11 +53,39 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function componentDidMount() {
+    this.renderFirstItem();
     this.subscribe('menu:activeItem', this.setActiveItem);
   },
 
   componentWillUnmount: function componentWillUnmount() {
     this.unsubscribe('menu:activeItem', this.setActiveItem);
+  },
+
+  renderFirstItem: function renderFirstItem() {
+    var items = React.Children.toArray(this.props.children),
+        firstId = items[0] !== undefined ? items[0].props.id : false,
+        parentId = this.props.id,
+        elem = document.getElementById(parentId + '-' + firstId);
+
+    if (!firstId) {
+      return;
+    }
+
+    var initPosition = {
+      element: elem,
+      left: elem.parentNode.offsetLeft,
+      right: elem.parentNode.offsetParent.offsetWidth - (elem.parentNode.offsetLeft + elem.offsetWidth),
+      width: elem.offsetWidth,
+      direction: 'to-right',
+      display: 'block'
+    };
+
+    this.publish('highlighterCSS:' + parentId, initPosition);
+
+    this.setActiveItem({
+      activeItem: parentId + '-' + firstId,
+      highlighterCSS: initPosition
+    });
   },
 
   renderItems: function renderItems() {

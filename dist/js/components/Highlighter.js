@@ -12,7 +12,7 @@ module.exports = React.createClass({
     return {
       direction: 'to-right',
       styles: {
-        display: 'block',
+        display: 'none',
         left: '0px',
         right: '0px'
       },
