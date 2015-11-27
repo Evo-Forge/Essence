@@ -5213,13 +5213,16 @@ hr.light {
 .e-chip.open.focus {
   background-color: #EBEBEB;
 }
-.e-chip.open.active {
-  background-color: #00B8D4;
+.e-chip.open.active,
+.e-chip.open.active:hover {
+  background-color: #00B8D4 !important;
 }
-.e-chip.open.active .e-chip-text span {
+.e-chip.open.active .e-chip-text span,
+.e-chip.open.active:hover .e-chip-text span {
   color: #fff !important;
 }
-.e-chip.open.active .e-close-btn:after {
+.e-chip.open.active .e-close-btn:after,
+.e-chip.open.active:hover .e-close-btn:after {
   color: #00B8D4;
   background-color: #fff;
 }
@@ -5232,6 +5235,13 @@ ul.chips {
 }
 ul.chips li {
   cursor: pointer;
+}
+ul.chips li:hover .e-chip.open {
+  background-color: #EBEBEB;
+  box-shadow: 0 2px 5px -3px #000000;
+}
+ul.chips li:hover .e-chip.open .e-chip-text span {
+  color: #727272;
 }
 .e-dialog-container {
   position: relative;

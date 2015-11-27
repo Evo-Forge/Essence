@@ -38,6 +38,7 @@
 //  closed and focus chip
   &.focus {
     background-color: #EBEBEB;
+
     box-shadow:  0 2px 5px -3px #000;
     .e-chip-text {
       span {
@@ -126,11 +127,10 @@
     &.focus {
       background-color: #EBEBEB;
     }
-    &.active {
-      background-color: #00B8D4;
+    &.active, &.active:hover {
+      background-color: #00B8D4 !important;
 
       .e-chip-text {
-
         span {
           color: #fff !important;
         }
@@ -142,7 +142,6 @@
           background-color: #fff;
           }
       }
-
     }
   }
 
@@ -155,5 +154,14 @@ ul.chips {
   box-shadow: 0px 3px 5px -3px #000;
   li {
     cursor: pointer;
+    &:hover .e-chip.open {
+      background-color: #EBEBEB;
+      box-shadow:  0 2px 5px -3px #000;
+      .e-chip-text {
+        span {
+          color: #727272;
+        }
+      }
+    }
   }
 }

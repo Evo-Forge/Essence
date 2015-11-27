@@ -68,7 +68,29 @@ var body = document.body, // default React render path is html body
 
 ReactDOM.render(
     <Block type='div' classes='e-background-grey-500 e-text-center'>
-      your content by ID # here
+      <Chip>
+  <ChipItem
+    image='assets/img/card-user-img.jpg'
+    imageAlt='Card Image'
+    name='Gonzales'
+    email='gon@zal.es'
+  >
+  </ChipItem>
+  <ChipItem
+    image='assets/img/card-user-img.jpg'
+    imageAlt='Card Image'
+    name='Iolanda Curtiz'
+    email='io@lan.da'
+  >
+  </ChipItem>
+  <ChipItem
+    image='assets/img/card-user-img.jpg'
+    imageAlt='Card Image'
+    name='Gizela Timliv'
+    email='gizela@timl.iv'
+  >
+  </ChipItem>
+</Chip>
     </Block>
     ,byID
 );
