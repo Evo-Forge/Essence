@@ -2586,7 +2586,7 @@ blockquote cite:before {
   transition: left .4s ease-in-out .3s, right .2s ease-in-out .2s;
 }
 .e-tabs .e-tabs-list {
-  overflow: hidden;
+  overflow-y: auto;
   white-space: nowrap;
 }
 .e-tabs .e-tabs-list li.brick {

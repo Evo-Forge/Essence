@@ -7,5 +7,17 @@ module.exports = {
     } else {
       return false;
     }
+  },
+
+  screenSize: function screenSize() {
+    var screenWidth = screen.width;
+
+    if (screenWidth <= 360) {
+      return 1; // "small";
+    } else if (screenWidth > 360 && screenWidth <= 800) {
+      return 2; // "medium";
+    } else {
+      return 3; // "large";
+    }
   }
 };

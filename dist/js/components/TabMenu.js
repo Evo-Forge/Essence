@@ -3,6 +3,7 @@
 var React = require('react'),
     Icon = require('./Icon'),
     PubSub = require('../utils/PubSub'),
+    Mobile = require('../utils/Mobile'),
     Highlighter = require('./Highlighter'),
     ClassNames = require('../utils/ClassNames'),
     classSet = require('classnames');
@@ -31,9 +32,18 @@ module.exports = React.createClass({
   },
 
   setActiveItem: function setActiveItem(data) {
+    var tabList = document.querySelector('.e-tabs-list'),
+        tabMenuItem = document.querySelector('#' + data.activeItem) || {};
+
+    tabList.scrollLeft = tabMenuItem.getBoundingClientRect().left;
+
+    var elem = document.querySelector('#' + data.activeItem);
+
+    // set highlighter CSS styles + publish event to Highlighter component
+    this.setHighlighterCSS(elem);
+
     this.setState({
       activeItem: data.activeItem,
-      highlighterCSS: data.highlighterCSS,
       highlighterId: this.props.type + '-' + this.props.id,
       highlighter: data.highlighter
     });
@@ -53,16 +63,49 @@ module.exports = React.createClass({
   },
 
   componentDidMount: function componentDidMount() {
+    // render first item + set highlighter css values
     this.renderFirstItem();
+
+    // subscribe for event
     this.subscribe('menu:activeItem', this.setActiveItem);
   },
 
   componentWillUnmount: function componentWillUnmount() {
+    // render highlighter css values on resize
+    window.removeEventListener('resize', this.renderActiveItem);
     this.unsubscribe('menu:activeItem', this.setActiveItem);
   },
 
+  setHighlighterCSS: function setHighlighterCSS(element) {
+    var highlighterCSS = this.state.highlighterCSS,
+        parentId = this.props.id;
+
+    if (element) {
+      highlighterCSS = {
+        element: element,
+        left: element.parentNode.getBoundingClientRect().left,
+        right: element.parentNode.offsetParent.getBoundingClientRect().width - (element.parentNode.getBoundingClientRect().left + element.getBoundingClientRect().width),
+        width: element.getBoundingClientRect().width,
+        direction: 'to-right',
+        display: 'block'
+      };
+    }
+
+    if (highlighterCSS.right < 0) {
+      highlighterCSS.right = 0;
+    }
+
+    this.publish('highlighterCSS:' + parentId, highlighterCSS);
+    this.setState({
+      highlighterCSS: highlighterCSS
+    });
+
+    return highlighterCSS;
+  },
+
   renderFirstItem: function renderFirstItem() {
-    var items = React.Children.toArray(this.props.children),
+    var tabContainer = document.querySelector('.e-tabs-list'),
+        items = React.Children.toArray(this.props.children),
         firstId = items[0] !== undefined ? items[0].props.id : false,
         parentId = this.props.id,
         elem = document.getElementById(parentId + '-' + firstId);
@@ -71,20 +114,40 @@ module.exports = React.createClass({
       return;
     }
 
-    var initPosition = {
-      element: elem,
-      left: elem.parentNode.offsetLeft,
-      right: elem.parentNode.offsetParent.offsetWidth - (elem.parentNode.offsetLeft + elem.offsetWidth),
-      width: elem.offsetWidth,
-      direction: 'to-right',
-      display: 'block'
-    };
-
-    this.publish('highlighterCSS:' + parentId, initPosition);
+    // set highlighter CSS styles + publish event to Highlighter component
+    this.setHighlighterCSS(elem);
 
     this.setActiveItem({
-      activeItem: parentId + '-' + firstId,
-      highlighterCSS: initPosition
+      activeItem: parentId + '-' + firstId
+    });
+
+    // render highlighter css values on resize
+    window.addEventListener('resize', this.renderActiveItem);
+    tabContainer.addEventListener('scroll', this.renderScrollItem);
+    tabContainer.addEventListener('touchMove', this.renderScrollItem);
+  },
+
+  renderScrollItem: function renderScrollItem() {
+    var activeElement = document.querySelector('.e-tabs-list li.active a');
+    if (!activeElement.getAttribute('id')) {
+      return;
+    }
+
+    this.setHighlighterCSS(activeElement);
+  },
+
+  renderActiveItem: function renderActiveItem() {
+    var activeElement = document.querySelector('.e-tabs-list li.active a');
+
+    if (!activeElement.getAttribute('id')) {
+      return;
+    }
+
+    // set highlighter CSS styles + publish event to Highlighter component
+    this.setHighlighterCSS(activeElement);
+
+    this.setActiveItem({
+      activeItem: activeElement.getAttribute('id')
     });
   },
 
@@ -131,9 +194,7 @@ module.exports = React.createClass({
   },
 
   renderScrollable: function renderScrollable(position) {
-    var self = this;
-
-    if (self.props.type === 'scrollable' && position) {
+    if (Mobile.screenSize() <= 2 && position) {
       if (position === 'left') {
         return React.createElement(
           'a',
