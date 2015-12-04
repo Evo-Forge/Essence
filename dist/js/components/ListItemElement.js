@@ -36,7 +36,10 @@ module.exports = React.createClass({
     if (self.props.element) {
       return React.createElement(
         'li',
-        { className: classes },
+        {
+          id: '__ListItemElement_' + self.props.element.id,
+          className: classes
+        },
         React.createElement(
           'a',
           {

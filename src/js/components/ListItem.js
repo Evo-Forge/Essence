@@ -47,21 +47,21 @@ module.exports = React.createClass({
       self.setState({
         dragCSS: {
           // position: 'absolute',
-          // top: element.offsetLeft + "px"
+          // top: element.offsetLeft + 'px'
         },
         fromElement: Number(element.id),
       });
 
       ev.dataTransfer.effectAllowed = 'move';
-      ev.dataTransfer.setData("text/html", element);
+      ev.dataTransfer.setData('text/html', element);
     },
 
     /*
     dragEnd: function(ev) {
       var element = ev.target;
       console.log({
-        "fromElement" : this.state.fromElement,
-        "toElement" : this.state.toElement
+        'fromElement' : this.state.fromElement,
+        'toElement' : this.state.toElement
       });
     },
     */
@@ -77,7 +77,7 @@ module.exports = React.createClass({
         toElement: Number(elementId.id),
       });
 
-      // console.log("toElement:" + Number(elementId.id));
+      // console.log('toElement:' + Number(elementId.id));
     },
 
     hideNavigation: function (data) {
@@ -90,7 +90,7 @@ module.exports = React.createClass({
 
       if (self.props.eventAction) {
         (self.props.eventAction.split(" ")).map(function(ev) {
-          if (ev === "changeText") {
+          if (ev === 'changeText') {
             self.publish(
               ev + '_' + self.props.changeTextId, targetText
             );
@@ -135,25 +135,25 @@ module.exports = React.createClass({
           return (
             <li className={classes}>
               <a href={avatarLink}>
-                  <span className={"e-list-content"}>
+                  <span className={'e-list-content'}>
                     <img
-                      className={"e-list-icon"}
+                      className={'e-list-icon'}
                       src={avatarImg}
                       alt={avatarAlt}
                     />
                     <span>{contentText}</span>
                   </span>
               </a>
-              <div className={"e-checkbox"}>
+              <div className={'e-checkbox'}>
                 <label>
                   <input
-                    type="checkbox"
+                    type='checkbox'
                     name={inputName}
-                    className={"toggle"}
+                    className={'toggle'}
                     defaultChecked={self.props.isChecked}
                   />
-                  <span className={"e-wave"}></span>
-                  <span className={"e-check-valid"}></span>
+                  <span className={'e-wave'}></span>
+                  <span className={'e-check-valid'}></span>
                 </label>
               </div>
             </li>
@@ -162,21 +162,21 @@ module.exports = React.createClass({
 
         return (
           <li className={classes}>
-            <div className={"e-checkbox"}>
-              <label className={"e-list-content"}>
+            <div className={'e-checkbox'}>
+              <label className={'e-list-content'}>
                 <input
-                  type="checkbox"
+                  type='checkbox'
                   name={inputName}
-                  className={"toggle"}
+                  className={'toggle'}
                   defaultChecked={self.props.isChecked}
                 />
-                <span className={"e-wave"} />
-                <span className={"e-check-valid"} />
+                <span className={'e-wave'} />
+                <span className={'e-check-valid'} />
                 <span>{contentText}</span>
               </label>
             </div>
             <a href={avatarLink}>
-              <Icon classes={"e-list-icon"} name={self.props.icon} />
+              <Icon classes={'e-list-icon'} name={self.props.icon} />
             </a>
           </li>
         );
@@ -187,14 +187,14 @@ module.exports = React.createClass({
 
         if (!self.props.isHidden) {
           showSwitchBox = (
-            <div className="e-switches">
+            <div className='e-switches'>
               <label>
                 <input
-                  type="checkbox"
+                  type='checkbox'
                   defaultChecked={self.props.isChecked}
                   name={inputName}
                 />
-                <span className={"e-switches-toggle"} />
+                <span className={'e-switches-toggle'} />
               </label>
             </div>
           );
@@ -202,8 +202,8 @@ module.exports = React.createClass({
         return (
           <li className={classes}>
             <a href={avatarLink}>
-              <span className={"e-list-content-fake"}>
-                <Icon classes={"e-list-icon"} name={self.props.icon} />
+              <span className={'e-list-content-fake'}>
+                <Icon classes={'e-list-icon'} name={self.props.icon} />
                 <span>{contentText}</span>
               </span>
             </a>
@@ -224,9 +224,9 @@ module.exports = React.createClass({
             className={classes}
           >
             <a href={avatarLink}>
-                <span className={"e-list-content"}>
+                <span className={'e-list-content'}>
                   <img
-                      className={"e-list-avatar"}
+                      className={'e-list-avatar'}
                       src={avatarImg}
                       alt={avatarAlt}
                   />
@@ -234,7 +234,7 @@ module.exports = React.createClass({
                 </span>
             </a>
             <a href={avatarLink}>
-              <Icon classes={"e-list-icon"} name={self.props.icon} />
+              <Icon classes={'e-list-icon'} name={self.props.icon} />
             </a>
           </li>
         );
@@ -245,7 +245,7 @@ module.exports = React.createClass({
 
         if (self.props.more) {
           hasMore = (
-            <Icon classes={"e-right"} name='hardware-keyboard-arrow-down' />
+            <Icon classes={'e-right'} name='hardware-keyboard-arrow-down' />
           );
         }
 
@@ -267,7 +267,7 @@ module.exports = React.createClass({
 
             item = (
               React.cloneElement(i, {
-                id: k,
+                id: '__navigation_item_submenu_id_' + k,
                 key: k,
                 onClick: self.hideNavigation
               })
@@ -277,7 +277,9 @@ module.exports = React.createClass({
           });
 
           return (
-            <li className={activeClass}>
+            <li 
+            id={'e-sublist-navigation-list_' + self.props.id}
+            className={activeClass}>
               <a
                 href={contentLink}
                 onClick={self.showSubmenu}
@@ -286,7 +288,7 @@ module.exports = React.createClass({
                   {primaryListImage}
                   {contentText}
               </a>
-              <ul className={"e-sublist-navigation"}>
+              <ul className={'e-sublist-navigation'}>
                 {navigationItems}
               </ul>
             </li>
@@ -294,7 +296,6 @@ module.exports = React.createClass({
         }
 
         if (self.props.submenu) {
-
           self.props.submenu.map(function (v, k) {
             submenuItems.push(
               <ListItemElement
@@ -308,7 +309,7 @@ module.exports = React.createClass({
           });
 
           hasMenu = (
-            <ul className={"e-sublist-navigation"}>
+            <ul className={'e-sublist-navigation'}>
               {submenuItems}
             </ul>
           );
@@ -333,7 +334,7 @@ module.exports = React.createClass({
       if (self.props.listType === 'expand') {
         if (self.props.more) {
           hasMore = (
-            <Icon classes={"e-right"} name='hardware-keyboard-arrow-down' />
+            <Icon classes={'e-right'} name='hardware-keyboard-arrow-down' />
           );
         }
 
@@ -352,7 +353,7 @@ module.exports = React.createClass({
           });
 
           hasMenu = (
-            <ul className={"e-sublist-navigation"}>
+            <ul className={'e-sublist-navigation'}>
               {submenuItems}
             </ul>
           );
@@ -363,7 +364,7 @@ module.exports = React.createClass({
           return (
             <li className={self.state.isActive}>
               <a href={avatarLink} onClick={self.showSubmenu}>
-                <span className="e-list-content">
+                <span className='e-list-content'>
                   {self.hasAvatar()}
                   {contentText}
                 </span>
@@ -391,7 +392,7 @@ module.exports = React.createClass({
           return (
             <li className={classes}>
               <a href={avatarLink}>
-                <span className="e-list-content">
+                <span className='e-list-content'>
                   {self.hasAvatar()}
                   <span>{contentText}</span>
                 </span>
@@ -406,7 +407,7 @@ module.exports = React.createClass({
         return (
           <li className={classes}>
             <a href={contentLink}>
-              <span className="e-list-content">
+              <span className='e-list-content'>
                 {self.hasIcon()}
                 {self.hasAvatar()}
                 <span>{contentText}</span>
@@ -421,7 +422,7 @@ module.exports = React.createClass({
           return (
             <li className={classes}>
               <a href={avatarLink}>
-                <span className="e-list-content">
+                <span className='e-list-content'>
                   {self.hasAvatar()}
                   <span>
                     <strong>{contentTitle}</strong>
@@ -440,7 +441,7 @@ module.exports = React.createClass({
         return (
           <li className={classes}>
             <a href={contentLink}>
-              <span className="e-list-content">
+              <span className='e-list-content'>
                 {self.hasIcon()}
                 {self.hasAvatar()}
                 <span>
@@ -459,7 +460,7 @@ module.exports = React.createClass({
           return (
             <li className={classes}>
               <a href={avatarLink}>
-                <span className="e-list-content">
+                <span className='e-list-content'>
                   {self.hasAvatar()}
                   <span>
                     <strong>{contentTitle}</strong>
@@ -480,7 +481,7 @@ module.exports = React.createClass({
         return (
           <li className={classes}>
             <a href={contentLink}>
-              <span className="e-list-content">
+              <span className='e-list-content'>
                 {self.hasIcon()}
                 {self.hasAvatar()}
                 <span>
@@ -498,10 +499,10 @@ module.exports = React.createClass({
 
       if (self.props.listType === 'big-icon') {
         return (
-          <li className="brick brick-4">
+          <li className='brick brick-4'>
             <a href={contentLink}>
               {self.hasIcon()}
-              <span className={"e-bs-title"}>{contentTitle}</span>
+              <span className={'e-bs-title'}>{contentTitle}</span>
             </a>
           </li>
         );
@@ -528,7 +529,7 @@ module.exports = React.createClass({
 
       if (icon) {
         return (
-          <Icon classes={"e-list-icon"} name={self.props.icon} />
+          <Icon classes={'e-list-icon'} name={self.props.icon} />
         );
       }
 

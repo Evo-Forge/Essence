@@ -15,7 +15,7 @@ module.exports = React.createClass({
     getInitialState: function() {
       return {
         children: [],
-        isMobile: Mobile.isMobile() ? "e-nav-drawer" : "e-nav-drawer",
+        isMobile: Mobile.isMobile() ? 'e-nav-drawer' : 'e-nav-drawer',
         classes: {
           'e-main': false,
           'e-navigation-open': false,
@@ -29,7 +29,7 @@ module.exports = React.createClass({
 
       if (self.props.live) {
         // Load HomePage
-        var init_component = "components-home";
+        var init_component = 'components-home';
         ComponentHTML.set(init_component);
 
         self.subscribe('showNavigation', this.showNavigation);
@@ -55,8 +55,8 @@ module.exports = React.createClass({
         self.props.children.map(function (item, key) {
           item = (
             React.cloneElement(item, {
-              id: key,
-              key: key
+              id: '__navigation_item_id_' + key,
+              key: '__navigation_item_key_' + key
             })
           );
 
@@ -72,9 +72,9 @@ module.exports = React.createClass({
 
       if (self.props.header) {
         return (
-          <header className={"e-nav-header"}>
+          <header className={'e-nav-header'}>
             {self.renderLogo()}
-            <span className={"example-logo"}>
+            <span className={'example-logo'}>
               {self.props.header}
             </span>
           </header>
@@ -88,7 +88,7 @@ module.exports = React.createClass({
       var self = this;
       if (self.props.footer) {
         return (
-          <footer className="e-nav-footer">
+          <footer className='e-nav-footer'>
             {self.props.footer}
           </footer>
         );
@@ -104,7 +104,7 @@ module.exports = React.createClass({
       if (self.props.logo) {
         return (
           <img
-            className="nav-logo"
+            className='nav-logo'
             alt={logoAlt}
             src={self.props.logo}
           />
@@ -151,9 +151,9 @@ module.exports = React.createClass({
       var self = this;
 
       return (
-        <div className={"e-main-content"}>
+        <div className={'e-main-content'}>
           <button
-            className={"simple-button e-nav-toggle"}
+            className={'simple-button e-nav-toggle'}
             onClick={self.showNavigation}
           >
             <Icon name='navigation-menu' />
@@ -176,11 +176,11 @@ module.exports = React.createClass({
 
       return (
         <aside
-          className={self.state.isMobile + " e-shadow-1"}
+          className={self.state.isMobile + ' e-shadow-1'}
           style={liveStyle}
         >
           <nav>
-            <div className={"e-navigation-wrapper"}>
+            <div className={'e-navigation-wrapper'}>
               {self.renderHeader()}
               {self.renderChildren()}
             </div>
@@ -197,7 +197,7 @@ module.exports = React.createClass({
         return (
           <div
             id='e-modal-bg-navigation'
-            className={"e-modal-bg"}
+            className={'e-modal-bg'}
             onClick={self.hideNavigation}
           />
         );

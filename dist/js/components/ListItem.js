@@ -56,8 +56,8 @@ module.exports = React.createClass({
   dragEnd: function(ev) {
     var element = ev.target;
     console.log({
-      "fromElement" : this.state.fromElement,
-      "toElement" : this.state.toElement
+      'fromElement' : this.state.fromElement,
+      'toElement' : this.state.toElement
     });
   },
   */
@@ -70,7 +70,7 @@ module.exports = React.createClass({
       dragCSS: {},
       toElement: Number(elementId.id) });
 
-    // console.log("toElement:" + Number(elementId.id));
+    // console.log('toElement:' + Number(elementId.id));
   },
 
   hideNavigation: function hideNavigation(data) {
@@ -293,7 +293,7 @@ module.exports = React.createClass({
           var item = i;
 
           item = React.cloneElement(i, {
-            id: k,
+            id: '__navigation_item_submenu_id_' + k,
             key: k,
             onClick: self.hideNavigation
           });
@@ -303,7 +303,9 @@ module.exports = React.createClass({
 
         return React.createElement(
           'li',
-          { className: activeClass },
+          {
+            id: 'e-sublist-navigation-list_' + self.props.id,
+            className: activeClass },
           React.createElement(
             'a',
             {
@@ -323,7 +325,6 @@ module.exports = React.createClass({
       }
 
       if (self.props.submenu) {
-
         self.props.submenu.map(function (v, k) {
           submenuItems.push(React.createElement(ListItemElement, {
             element: v,
@@ -391,7 +392,7 @@ module.exports = React.createClass({
         return (
           <li className={self.state.isActive}>
             <a href={avatarLink} onClick={self.showSubmenu}>
-              <span className="e-list-content">
+              <span className='e-list-content'>
                 {self.hasAvatar()}
                 {contentText}
               </span>
@@ -679,6 +680,6 @@ module.exports = React.createClass({
 });
 
 // position: 'absolute',
-// top: element.offsetLeft + "px"
+// top: element.offsetLeft + 'px'
 
 // position: false

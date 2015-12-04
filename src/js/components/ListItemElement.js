@@ -35,7 +35,10 @@ module.exports = React.createClass({
 
       if (self.props.element) {
         return (
-          <li className={classes}>
+          <li 
+            id={'__ListItemElement_' + self.props.element.id}
+            className={classes}
+            >
             <a
               id={self.props.element.id}
               href={self.props.element.link}

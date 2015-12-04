@@ -53,8 +53,8 @@ module.exports = React.createClass({
       // Multiple items
       self.props.children.map(function (item, key) {
         item = React.cloneElement(item, {
-          id: key,
-          key: key
+          id: '__navigation_item_id_' + key,
+          key: '__navigation_item_key_' + key
         });
 
         children.push(item);
