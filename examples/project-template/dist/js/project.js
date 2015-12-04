@@ -68,17 +68,7 @@ var body = document.body, // default React render path is html body
 
 ReactDOM.render(
     <Block type='div' classes='e-background-grey-500 e-text-center'>
-        <TabMenu type='scrollable' id={'tab_menu_simple'}>
-            <TabItem type='list' id='tab-1' label='Tab 1 - Checking Mobile or Small width' />
-            <TabItem type='content' id='tab-1'>
-                can be used to include any component or html code
-            </TabItem>
-
-            <TabItem type='list' id='tab-2' label='Tab 2 - Checking Mobile or Small width' />
-            <TabItem type='content' id='tab-2'>
-                can be used to include any component or html code
-            </TabItem>
-        </TabMenu>
+        your content by ID # here
     </Block>
     ,byID
 );
