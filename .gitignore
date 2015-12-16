@@ -1,0 +1,17 @@
+#
+.project
+*.log
+*.sublime-project
+*.sublime-workspace
+*.orig
+.idea/
+*.dmp
+*.7z
+*.map
+.tags
+.tags_sorted_by_file
+
+*.module-cache*
+node_modules/
+.DS_Store
+.DS_Store?
