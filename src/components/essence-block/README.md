@@ -1,0 +1,1 @@
+# Essence Block - Block component.

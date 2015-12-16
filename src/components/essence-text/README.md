@@ -1,0 +1,1 @@
+# Essence Text - Text component.

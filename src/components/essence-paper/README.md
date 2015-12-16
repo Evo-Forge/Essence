@@ -1,0 +1,1 @@
+# Essence Paper - Paper component.

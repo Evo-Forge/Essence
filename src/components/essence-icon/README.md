@@ -1,0 +1,1 @@
+# Essence Icon - Icon component.

@@ -1,0 +1,1 @@
+# Essence AppBar - AppBar component.

@@ -1,0 +1,23 @@
+@import '../../less/mixins.less';
+
+// General properties for toast
+.toast {
+  position: fixed;
+  min-width:  @e-unit*36;
+  max-width:  @e-unit*71;
+  min-height: @e-unit*2.5;
+  line-height:  @e-unit*2.5;
+  padding:  @e-unit*2 @e-unit*3 @e-unit*1.5 @e-unit*3;
+  opacity: 0;
+  margin:  @e-unit*3 0;
+  bottom: -100px;
+  border-radius:  @e-unit*25;
+  font-size: @e-unit*1.75;
+  background-color: @bg-snackbar;
+  align-items: center;
+  color: #fff;
+  transition-property: opacity, bottom, left, right, width, margin, border-radius;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+
+}

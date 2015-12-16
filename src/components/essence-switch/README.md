@@ -1,0 +1,1 @@
+# Essence Switch - Switch component.

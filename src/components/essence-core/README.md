@@ -1,0 +1,1 @@
+# Essence Core - core lib for Essence components.

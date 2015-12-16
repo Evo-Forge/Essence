@@ -1,0 +1,1 @@
+# Essence Divider - Divider component.

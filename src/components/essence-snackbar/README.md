@@ -1,0 +1,1 @@
+# Essence SnackBar - SnackBar component.

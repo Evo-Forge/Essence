@@ -1,0 +1,1 @@
+# Essence Dialog - Dialog component.

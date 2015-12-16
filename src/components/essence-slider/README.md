@@ -1,0 +1,1 @@
+# Essence Slider - Slider component.
