@@ -23,7 +23,7 @@ import {
 	BottomSheets,
 	SnackBar,
 	Toast
-} from './src/essence.js';
+} from '../src/essence.js';
 
 ReactDOM.render(
 	<Block>
@@ -434,9 +434,6 @@ ReactDOM.render(
 				</Toast>
 			</Block>
 		  </Block>
-
-
-
 		</Block>
 	</Block>
 	,
