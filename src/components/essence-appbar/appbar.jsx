@@ -7,7 +7,11 @@ class AppBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            classes: ClassNames('e-appbar clearfix', this.props.className, this.props.classes)
+            classes: ClassNames(
+                'e-appbar clearfix',
+                this.props.className,
+                this.props.classes
+            )
         };
     }
 

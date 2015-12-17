@@ -9,7 +9,7 @@ class Btn extends React.Component {
         super(props);
         this.state = {
         	classes: ClassNames(
-                {'e-ripple': this.props.ripple ? true : false },
+                {'e-ripple': this.props.ripple === false ? false : true },
                 this.props.className,
                 this.props.classes
             ),
@@ -22,15 +22,15 @@ class Btn extends React.Component {
     }
 
     renderRipple() {
-      if (this.props.ripple) {
-        return (
-          <RippleInk
-            color={this.state.color}
-            position={this.state.position}/>
-        );
-      }
+        if (this.props.ripple === false) {
+            return;
+        }
 
-      return;
+        return (
+            <RippleInk
+                color={this.state.color}
+                position={this.state.position}/>
+        );
     }
 
     renderContent() {

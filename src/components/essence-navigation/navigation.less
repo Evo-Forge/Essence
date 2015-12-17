@@ -2,7 +2,7 @@
 
 .e-nav-drawer {
    position: fixed;
-   z-index:10000;
+   z-index: 10000;
    height: 100%;
    width: @e-unit * 30;
    background-color: #fff;
@@ -15,6 +15,9 @@
     .e-navigation-wrapper {
       height: 100%;
       overflow-y: auto;
+      .e-list-navigation {
+        padding: 0;
+      }
     }
   }
 
@@ -132,6 +135,10 @@
 
   .e-navigation-open {
     overflow-y: hidden;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
 
     .e-modal-bg {
       display: block !important;

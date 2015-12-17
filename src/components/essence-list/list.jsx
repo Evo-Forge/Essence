@@ -10,7 +10,7 @@ class List extends React.Component {
                 this.props.classes,
                 this.props.className,
                 {
-                    'e-list': (this.props.type !== 'big-icon' || this.props.type !== 'navigation' || this.props.type !== 'expand') ? true : false,
+                    'e-list': (this.props.type === 'big-icon' || this.props.type === 'navigation' || this.props.type === 'expand') ? false : true,
                     'e-list-big-icon': this.props.type === 'big-icon' ? true : false,
                     'e-list-navigation': this.props.type === 'navigation' ? true : false,
                     'e-sublist-navigation': this.props.type === 'sublist' ? true : false,

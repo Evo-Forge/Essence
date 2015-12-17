@@ -34,8 +34,8 @@ ReactDOM.render(
 	<Block>
 		<Block className={'e-text-black'}>
 
-		<Block classes={"e-row"}>
-		  <Block classes={"brick brick-12"}>
+		<Block classes={'e-row'}>
+		  <Block classes={'brick brick-12'}>
 			  <Block type='header' className={'e-background-green-100'}>
 			    <Text>
 			    	<Icon name='alert-warning' classes={'e-text-blue-100'} />
@@ -57,34 +57,34 @@ ReactDOM.render(
 		  </Block>
 	  	</Block>
 
-		  <Block classes={"e-row"}>
-			  <Block classes={"brick brick-12"}>
-				  <AppBar>
-				  	... AppBar ...
-				  </AppBar>
+		  <Block classes={'e-row'}>
+			  <Block classes={'brick brick-12'}>
+				<AppBar classes={'e-background-yellow-100 e-text-blue-400'}>
+					<Text>AppBar text</Text>
+				</AppBar>
 			  </Block>
 		  </Block>
 
 		  <Divider classes={'e-background-red-100 thinnest full'} />
 		  
-		  <Block classes={"e-row"}>
-			  <Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			  <Block classes={'brick brick-12'}>
 				  <Paper>
 				  	<Image src='http://i.imgur.com/04zn19m.png' />
 				  </Paper>
 			  </Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			  <Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			  <Block classes={'brick brick-12'}>
 			  	<Progress type='dynamic' />
 			  </Block>
 		  </Block>
 
 		  <Divider classes={'e-background-black thinnest full'} />
 
-		  <Block classes={"e-row"}>
-			  <Block classes={"brick brick-4"}>
+		  <Block classes={'e-row'}>
+			  <Block classes={'brick brick-4'}>
 				  <Switch
 				    type='radio'
 				    text='Radio Button 1'
@@ -119,8 +119,8 @@ ReactDOM.render(
 			  </Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-		  	<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+		  	<Block classes={'brick brick-12'}>
 			  	<Dialog>
 			  		<DialogHeader>
 			  			Dialog header
@@ -135,9 +135,9 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
-				<Block classes={"e-input-group"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
+				<Block classes={'e-input-group'}>
 					<div>
 						<Input
 							name='input'
@@ -164,8 +164,8 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<Btn
 					classes={'raised'}
 					label='Ripple White'
@@ -175,14 +175,14 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<Slider discrete={true} step={10} />
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<Text type='h3'>Single line</Text>
 				<List type={'single-line'}>
 					<ListItem>
@@ -247,7 +247,7 @@ ReactDOM.render(
 					</ListItem>
 				</List>
 			</Block>
-			<Block classes={"brick brick-12"}>
+			<Block classes={'brick brick-12'}>
 				<Text type='h3'>Two lines</Text>
 				<List type={'two-line'}>
 					<ListItem>
@@ -328,7 +328,7 @@ ReactDOM.render(
 					</ListItem>
 				</List>
 			</Block>
-			<Block classes={"brick brick-12"}>
+			<Block classes={'brick brick-12'}>
 				<Text type='h3'>Multi lines</Text>
 				<List type={'multi-line'}>
 					<ListItem>
@@ -419,8 +419,8 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<BottomSheets visible={false}>
 					<Block className={'e-background-white'}>
 						Bottom Sheets
@@ -429,8 +429,8 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<SnackBar classes={'e-text-green-500'} visible={true} delay={2000} action={true}>
 					<Block>
 						SnackBar
@@ -439,8 +439,8 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<Toast classes={'e-text-green-500'} visible={false} delay={5000}>
 					<Block>
 						Toast
@@ -449,40 +449,39 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 		  
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<Card>
 					<CardHeader>
-						<Block type="div" classes={"card-main-image"}>
-							<Image src="http://essence.pearlhq.com/assets/img/card-img.jpg" alt="Card Header Image" />
-							<Text type="h1" classes={"e-headline"}>
+						<Block type='div' classes={'card-main-image'}>
+							<Image src='http://essence.pearlhq.com/assets/img/card-img.jpg' alt='Card Header Image' />
+							<Text type='h1' classes={'e-headline'}>
 								Going to Ibiza
-								<Block classes={"blur-effect"} image="assets/img/card-img.jpg" />
+								<Block classes={'blur-effect'} image='assets/img/card-img.jpg' />
 							</Text>
 						</Block>
 					</CardHeader>
 
-					<CardContent classes={"card-supporting-text e-text-blue-grey-400"}>
-						<Text type="h4">
+					<CardContent classes={'card-supporting-text e-text-blue-grey-400'}>
+						<Text type='h4'>
 							Limit supplemental actions to two actions, in addition to an overflow menu.
 						</Text>
 					</CardContent>
 
 					<CardFooter>
-						<Block type="div" classes={"e-left"}>
+						<Block type='div' classes={'e-left'}>
 							<Btn
 								classes={'flat e-text-indigo-400'}
 								label='Yes'
 								type='danger'
-								ripple={true}
+								ripple={false}
 							/>
 						</Block>
-						<Block type="div" classes={"e-left"}>
+						<Block type='div' classes={'e-left'}>
 							<Btn
 								classes={'flat'}
 								label='No'
 								type='default'
-								rippleEffect={true}
 							/>
 						</Block>
 					</CardFooter>
@@ -490,10 +489,34 @@ ReactDOM.render(
 			</Block>
 		  </Block>
 
-		  <Block classes={"e-row"}>
-			<Block classes={"brick brick-12"}>
+		  <Block classes={'e-row'}>
+			<Block classes={'brick brick-12'}>
 				<Navigation visible={true}>
-					Navigation
+					<Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>
+						<Block type={'header'} classes={'e-nav-header'}>
+							<Text style={{color: '#5c6bc0', lineHeight: '64px'}}>Navigation header</Text>
+						</Block>
+						<List type={'navigation'}>
+							<ListItem>
+								<Text type={'a'} href={'#item 1'}>
+									List item 1
+								</Text>
+							</ListItem>
+							<ListItem>
+								<Text type={'a'} href={'#item 2'}>
+									List item 2
+								</Text>
+							</ListItem>
+							<ListItem>
+								<Text type={'a'} href={'#item 3'}>
+									List item 3
+								</Text>
+							</ListItem>
+						</List>
+						<Block type={'footer'} classes={'e-nav-footer'}>
+							Navigation footer
+						</Block>
+					</Block>
 				</Navigation>
 			</Block>
 		  </Block>

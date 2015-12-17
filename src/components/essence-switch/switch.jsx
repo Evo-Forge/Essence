@@ -27,11 +27,11 @@ class Switch extends React.Component {
                         <label>
                             {this.props.beforeText}
                             <input
-                                type="checkbox"
+                                type='checkbox'
                                 defaultChecked={this.props.checked}
                                 disabled={this.props.disable}
                             />
-                            <span className={"e-switches-toggle"} />
+                            <span className={'e-switches-toggle'} />
                             {this.props.afterText}
                         </label>
                     </div>
@@ -47,13 +47,13 @@ class Switch extends React.Component {
                     <div className={radioClasses}>
                         <label>
                             <input
-                                type="radio"
+                                type={'radio'}
                                 name={this.props.name}
                                 defaultChecked={this.props.checked}
                                 defaultValue={this.props.defaultValue}
                             />
-                            <span className={"absolute circle"} />
-                            <span className={"absolute e-check"} />
+                            <span className={'absolute circle'} />
+                            <span className={'absolute e-check'} />
                             {this.props.text}
                         </label>
                     </div>
@@ -70,13 +70,13 @@ class Switch extends React.Component {
                     <div className={checkboxClasses}>
                         <label>
                             <input
-                                type="checkbox"
+                                type={'checkbox'}
                                 name={this.props.name}
                                 defaultChecked={this.props.checked}
-                                className={"toggle"}
+                                className={'toggle'}
                             />
-                            <span className={"absolute e-wave"} />
-                            <span className={"absolute e-check-valid"} />
+                            <span className={'absolute e-wave'} />
+                            <span className={'absolute e-check-valid'} />
                             {this.props.text}
                         </label>
                     </div>
