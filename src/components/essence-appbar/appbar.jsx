@@ -1,5 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
+import Client from '../essence-core/utils/Client';
 import './appbar.less';
  
 class AppBar extends React.Component {
@@ -13,6 +14,24 @@ class AppBar extends React.Component {
                 this.props.classes
             )
         };
+    }
+
+    componentDidMount() {
+        let body = document.querySelector('body');
+        let documentSize = Client.documentSize();
+
+        switch(documentSize){
+            case 1:
+                body.style.marginTop = '48px';
+                break;
+            case 2:
+                body.style.marginTop = '56px';
+                break;
+            case 3:
+            default:
+                body.style.marginTop = '64px';
+                break;
+        }
     }
 
 	render() {
