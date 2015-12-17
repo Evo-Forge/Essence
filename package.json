@@ -4,8 +4,8 @@
   "description": "Essence Material Design ReactJS",
   "main": "lib/essence.min.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --hot --progress --colors",
-    "production": "NODE_ENV=production webpack -p --config webpack.production.config.js"
+    "dev": "webpack-dev-server --devtool eval --hot --progress --colors --config test/webpack.config.js",
+    "production": "NODE_ENV=production webpack -p --config test/webpack.production.config.js"
   },
   "keywords": [
     "react",

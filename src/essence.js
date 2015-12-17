@@ -21,6 +21,13 @@ import BottomSheets from './components/essence-bottomsheet/bottomsheet.jsx';
 import SnackBar from './components/essence-snackbar/snackbar.jsx';
 import Toast from './components/essence-toast/toast.jsx';
 
+import Card from './components/essence-card/card.jsx';
+import CardHeader from './components/essence-card/header.jsx';
+import CardContent from './components/essence-card/content.jsx';
+import CardFooter from './components/essence-card/footer.jsx';
+
+import Navigation from './components/essence-navigation/navigation.jsx';
+
 export { 
 	AppBar,
 	Block,
@@ -42,5 +49,10 @@ export {
 	ListItem,
 	BottomSheets,
 	SnackBar,
-	Toast
+	Toast,
+	Card,
+	CardHeader,
+	CardContent,
+	CardFooter,
+	Navigation
 };

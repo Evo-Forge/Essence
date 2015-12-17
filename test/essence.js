@@ -22,35 +22,49 @@ import {
 	ListItem,
 	BottomSheets,
 	SnackBar,
-	Toast
+	Toast,
+	Card,
+	CardHeader,
+	CardContent,
+	CardFooter,
+	Navigation
 } from '../src/essence.js';
 
 ReactDOM.render(
 	<Block>
 		<Block className={'e-text-black'}>
-			<Block classes={"e-row"}>
-			  <Block classes={"brick brick-12"}>
-				  <Block type='header' className={'e-background-green-100'}>
-				    <Text>
-				    	<Icon name='alert-warning' classes={'e-text-blue-100'} />
-				    	Header
-				    </Text>
-				  </Block>
-				  <Block type='section' className={'e-background-blue-100'}>
-				    <Text type='h3'>
-				    	<Icon name='av-album' classes={'e-text-yellow-100'} />
-				    	Section
-				    </Text>
-				  </Block>
-				  <Block type='footer' className={'e-background-yellow-100'}>
-				    <Text type='h3'>
-				    	<Icon name='content-create' classes={'e-text-green-100'} />
-				    	Footer
-				    </Text>
-				  </Block>
+
+		<Block classes={"e-row"}>
+		  <Block classes={"brick brick-12"}>
+			  <Block type='header' className={'e-background-green-100'}>
+			    <Text>
+			    	<Icon name='alert-warning' classes={'e-text-blue-100'} />
+			    	Header
+			    </Text>
 			  </Block>
-		  	</Block>
-		  
+			  <Block type='section' className={'e-background-blue-100'}>
+			    <Text type='h3'>
+			    	<Icon name='av-album' classes={'e-text-yellow-100'} />
+			    	Section
+			    </Text>
+			  </Block>
+			  <Block type='footer' className={'e-background-yellow-100'}>
+			    <Text type='h3'>
+			    	<Icon name='content-create' classes={'e-text-green-100'} />
+			    	Footer
+			    </Text>
+			  </Block>
+		  </Block>
+	  	</Block>
+
+		  <Block classes={"e-row"}>
+			  <Block classes={"brick brick-12"}>
+				  <AppBar>
+				  	... AppBar ...
+				  </AppBar>
+			  </Block>
+		  </Block>
+
 		  <Divider classes={'e-background-red-100 thinnest full'} />
 		  
 		  <Block classes={"e-row"}>
@@ -434,6 +448,56 @@ ReactDOM.render(
 				</Toast>
 			</Block>
 		  </Block>
+		  
+		  <Block classes={"e-row"}>
+			<Block classes={"brick brick-12"}>
+				<Card>
+					<CardHeader>
+						<Block type="div" classes={"card-main-image"}>
+							<Image src="http://essence.pearlhq.com/assets/img/card-img.jpg" alt="Card Header Image" />
+							<Text type="h1" classes={"e-headline"}>
+								Going to Ibiza
+								<Block classes={"blur-effect"} image="assets/img/card-img.jpg" />
+							</Text>
+						</Block>
+					</CardHeader>
+
+					<CardContent classes={"card-supporting-text e-text-blue-grey-400"}>
+						<Text type="h4">
+							Limit supplemental actions to two actions, in addition to an overflow menu.
+						</Text>
+					</CardContent>
+
+					<CardFooter>
+						<Block type="div" classes={"e-left"}>
+							<Btn
+								classes={'flat e-text-indigo-400'}
+								label='Yes'
+								type='danger'
+								ripple={true}
+							/>
+						</Block>
+						<Block type="div" classes={"e-left"}>
+							<Btn
+								classes={'flat'}
+								label='No'
+								type='default'
+								rippleEffect={true}
+							/>
+						</Block>
+					</CardFooter>
+				</Card>
+			</Block>
+		  </Block>
+
+		  <Block classes={"e-row"}>
+			<Block classes={"brick brick-12"}>
+				<Navigation visible={true}>
+					Navigation
+				</Navigation>
+			</Block>
+		  </Block>
+
 		</Block>
 	</Block>
 	,
