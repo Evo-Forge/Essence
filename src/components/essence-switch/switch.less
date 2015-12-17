@@ -1,9 +1,6 @@
 @import '../../less/mixins.less';
 
 /* switch */
-.e-switch {
-  margin: 8px 0px;
-}
 
 /* checkbox */
 .e-checkbox {
@@ -14,14 +11,8 @@
     padding-left: 45px;
     cursor: pointer;
 
-    span.absolute {
-      display: block;
-      position: absolute;
-      -webkit-transition-duration: 0.2s;  /* Safari & Chrome*/
-      -moz-transition-duration: 0.2s;     /* Mozilla */
-      -ms-transition-duration: 0.2s;      /* IE */
-      -o-transition-duration: 0.2s;       /* Opera */
-      transition-duration: 0.2s;
+    span.absolute {      
+      position: absolute;      
     }
 
 
@@ -30,8 +21,8 @@
       position: absolute;
       content: "";
       background-color: rgba(0,0,0,.84);
-      top: -13px;
-      left: -6px;
+      top: -15px;
+      left: -8px;
       height: 50px;
       width: 50px;
       border-radius: 100%;
@@ -49,21 +40,20 @@
 
     .e-check-valid {
       display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 2px solid;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(0, 0, 0, .54);
       border-radius: 2px;
       overflow: hidden;
       position: relative;
-      left: 7px;
-      margin-right: 11px;
+      left: 7px;      
     }
     .e-check-valid:after {
       display: block;
       position: absolute;
       content: "";
-      left: -5px;
-      top: -15px;
+      left: -16px;
+      top: -16px;
       height: 50px;
       width: 50px;
       border-radius: 100%;
@@ -76,8 +66,8 @@
       content: "";
       .e-transform(rotate(45deg));
       display: block;
-      margin-top: -2px;
-      margin-left: 8px;
+      margin-top: -4px;
+      margin-left: 6px;
       width: 0;
       height: 0;
       .box-shadow(0 0 0 0,
@@ -143,9 +133,10 @@
     .e-transform(rotate(-45deg));
   }
 
-  .variations(~" input[type=checkbox]:checked ~ .e-check-valid:after", background-color, @e-success);
-  .variations(~" input[type=checkbox]:checked ~ .e-check-valid:before", color, #4caf50);
-  .variations(~" input[type=checkbox]:checked ~ .e-check-valid", color, #4caf50);
+  .variations(~" input[type=checkbox]:checked ~ .e-check-valid:after", background-color, @e-switch);
+  .variations(~" input[type=checkbox]:checked ~ .e-check-valid:before", color, @e-switch);
+  .variations(~" input[type=checkbox]:checked ~ .e-check-valid", color, @e-switch);
+  .variations(~" input[type=checkbox]:checked ~ .e-check-valid", border-color, @e-switch);
 }
 .withripple {
   position: relative;
@@ -455,7 +446,7 @@
       transition-duration: 0.2s;
     }
     .circle {
-      border: 2px solid @e-lightbg-text;
+      border: 2px solid rgba(0, 0, 0, .54);
       height: 15px;
       width: 15px;
       border-radius: 100%;
@@ -466,7 +457,7 @@
       height: 15px;
       width: 15px;
       border-radius: 100%;
-      background-color: @radio-default;
+      background-color: @e-switch;
       -ms-transform: scale(0); /* IE 9 */
       -webkit-transform: scale(0); /* Chrome, Safari, Opera */
       transform: scale(0);
@@ -499,8 +490,6 @@
     }
 
   }
-  .variations(~" input[type=radio]:checked ~ .e-check", background-color, #ffffff);
-  .variations(~" input[type=radio]:checked ~ .circle", border-color, @radio-default);
 
   input[type=radio][disabled] ~ .e-check,
   input[type=radio][disabled] ~ .circle {
@@ -508,18 +497,20 @@
   }
 
   input[type=radio] { display: none; }
-  input[type=radio]:checked ~ .e-check {
-    -ms-transform: scale(0.68); /* IE 9 */
-    -webkit-transform: scale(0.68); /* Chrome, Safari, Opera */
-    transform: scale(0.68);
-  }
-  input[type=radio][disabled] ~ .e-check {
-    border-color: @e-lightbg-text;
-  }
-  input[type=radio][disabled] ~ .e-check {
-    background-color: @e-lightbg-text;
+
+
+  input[type=radio]:checked ~ .circle {
+    border-color: @e-switch;
   }
 
+  input[type=radio]:checked ~ .e-check {    
+    .e-transform(scale(0.68));
+  }
+
+  input[type=radio][disabled] ~ .e-check {
+    border-color: @e-lightbg-text;
+    background-color: @e-lightbg-text;
+  }  
 }
 
 /* switch */
@@ -547,7 +538,7 @@
       background-color: rgba(0, 149, 135, 0.5);
       // Handle on
       &:after {
-        background-color: #009587;
+        background-color: @e-switch;
       }
     }
     // Switch bg off and disabled
@@ -559,8 +550,8 @@
       height: 15px;
       background-color: rgba(80, 80, 80, 0.7);
       border-radius: 15px;
-      margin-right: 14px;
-      margin-left: 14px;
+      margin-right: 20px;
+      margin-left: 20px;
       .transition( background 0.3s ease);
       vertical-align: middle;
     }
@@ -570,12 +561,12 @@
       display: inline-block;
       width: 20px;
       height: 20px;
-      background-color: #F1F1F1;
+      background-color: #FAFAFA;
       border-radius: 10px;
       position: relative;
       .box-shadow( 0 1px 3px 1px rgba(0,0,0,0.4));
       left: -5px;
-      top: -2px;
+      top: -2.5px;
       .transition(~'left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease');
     }
     // Handle disabled
