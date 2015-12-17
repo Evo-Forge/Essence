@@ -12,8 +12,8 @@ class Navigation extends React.Component {
                 'e-nav-drawer',
                 this.props.classes,
                 this.props.className,
-                {'e-navigation-open': !navigationVisible}
-            ),
+                {'e-navigation-open': navigationVisible}
+            )
         };
     }
 
@@ -50,12 +50,12 @@ class Navigation extends React.Component {
 	render() {
 		return (
             <div>
-                <div 
+                <aside
                     {...this.props}
                     className={this.state.classes}
                 >
-                    {this.props.children}
-                </div>
+                    <nav>{this.props.children}</nav>
+                </aside>
                 {this.overlay()}
             </div>
         );

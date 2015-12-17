@@ -35,7 +35,6 @@ class Slider extends React.Component {
     }
 
     handleMoveEnd() {
-
         this.setState({
             isHidden: '',
             isMoving: false,

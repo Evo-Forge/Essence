@@ -1,11 +1,11 @@
 {
-    "name": "essence-dialog",
+    "name": "essence-navigation",
     "version": "0.0.1",
-    "description": "Essence Dialog - Dialog component.",
+    "description": "Essence Navigation - Navigation component.",
     "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
     "homepage": "http://essence.pearlhq.com/",
     "license": "MIT",
-    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/src/js/components/essence-dialog",
+    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/src/js/components/essence-navigation",
     "main": "lib/index.js",
     "dependencies": {
         "classnames": "^2.2.1",
