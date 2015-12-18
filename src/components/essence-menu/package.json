@@ -1,11 +1,11 @@
 {
-    "name": "essence-list",
+    "name": "essence-menu",
     "version": "0.0.1",
-    "description": "Essence List - List & ListItem components.",
+    "description": "Essence Menu - Menu component.",
     "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
     "homepage": "http://essence.pearlhq.com/",
     "license": "MIT",
-    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/src/js/components/essence-list",
+    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/src/js/components/essence-menu",
     "main": "lib/index.js",
     "dependencies": {
         "classnames": "^2.2.1",

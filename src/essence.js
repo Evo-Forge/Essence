@@ -27,6 +27,7 @@ import CardContent from './components/essence-card/content.jsx';
 import CardFooter from './components/essence-card/footer.jsx';
 
 import Navigation from './components/essence-navigation/navigation.jsx';
+import Menu from './components/essence-menu/menu.jsx';
 
 export { 
 	AppBar,
@@ -54,5 +55,6 @@ export {
 	CardHeader,
 	CardContent,
 	CardFooter,
-	Navigation
+	Navigation,
+	Menu
 };
