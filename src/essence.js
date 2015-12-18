@@ -29,6 +29,9 @@ import CardFooter from './components/essence-card/footer.jsx';
 import Navigation from './components/essence-navigation/navigation.jsx';
 import Menu from './components/essence-menu/menu.jsx';
 
+import Chip from './components/essence-chip/chip.jsx';
+import ChipItem from './components/essence-chip/item.jsx';
+
 export { 
 	AppBar,
 	Block,
@@ -56,5 +59,7 @@ export {
 	CardContent,
 	CardFooter,
 	Navigation,
-	Menu
+	Menu,
+	Chip,
+	ChipItem
 };
