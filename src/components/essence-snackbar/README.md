@@ -7,7 +7,7 @@ Options:
 
 ### How to use
 ```
-<SnackBar classes={'e-text-green-500'} visible={true} delay={2000}>
+<SnackBar classes={'e-text-green-500'} visible={true} delay={2000} action={'undo'}>
 	<Block>SnackBar</Block>
 </SnackBar>
 ```
