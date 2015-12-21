@@ -1,6 +1,13 @@
 # Essence Divider - Divider component.
 
 ### How to use
+
 ```
-<Divider classes={'e-background-red-100 thinnest full'} />
+<Divider />
+```
+
+or if you want to change background color:
+
+```
+<Divider classes={'e-background-red-100'} />
 ```
