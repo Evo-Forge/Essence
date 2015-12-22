@@ -17,11 +17,6 @@ class SnackBar extends React.Component {
                 this.props.classes,
                 this.props.className
             ),
-            style: {
-                bottom: this.props.visible ? '0' : 'initial',
-                opacity: this.props.visible ? 1 : 0,
-                zIndex: this.props.visible ? 1 : 0
-            },
             delay: parseInt(this.props.delay) > 0 ? parseInt(this.props.delay) : 2000
         };
 
@@ -39,14 +34,24 @@ class SnackBar extends React.Component {
     componentDidMount() {
         let style       = window.getComputedStyle ? getComputedStyle(this.snackBar, null) : this.snackBar.currentStyle;
         let height      = parseInt( style['height']);
+        let width       = parseInt( style['width']);
         let lineHeight  = parseInt( style['line-height']);
         let isMultiLine = Math.floor(height / lineHeight) > 1 ? true : false;
+        
+        let containerStyle = window.getComputedStyle ? getComputedStyle(this.snackBarContainer, null) : this.snackBarContainer.currentStyle;
+        let snackbarStyle = {
+            bottom: this.props.visible ? '0' : 'initial',
+            opacity: this.props.visible ? 1 : 0,
+            zIndex: this.props.visible ? 1 : 0,
+            marginRight: '-' + (parseInt( containerStyle['width'] ) / 2) + 'px'
+        };
 
         this.setState({
             classes: ClassNames(
                 this.state.classes,
                 { 'snackbar-multiline' : isMultiLine }
-            )
+            ),
+            style: snackbarStyle
         });
         
         return;
@@ -54,9 +59,11 @@ class SnackBar extends React.Component {
 
     actionBtn() {
         if (this.props.action) {
-            <button className={'e-btn-flat action'}>
-                {this.props.action}
-            </button>
+            return (
+                <button className={'e-btn-flat action'}>
+                    {this.props.action}
+                </button>
+            );
         }
         return;
     }
@@ -78,6 +85,7 @@ class SnackBar extends React.Component {
             <div
                 style={this.state.style}
                 className={this.state.classes}
+                ref={(ref) => this.snackBarContainer = ref}
                 onMouseOver={this.pauseTimer.bind(this)}
                 onMouseOut={this.resumeTimer.bind(this)}
             >

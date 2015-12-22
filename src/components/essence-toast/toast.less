@@ -3,14 +3,14 @@
 // General properties for toast
 .toast {
   position: fixed;
+  bottom: 100px;
+  right: 50%;
   min-width:  @e-unit*36;
   max-width:  @e-unit*71;
   min-height: @e-unit*2.5;
-  line-height:  @e-unit*2.5;
-  padding:  @e-unit*2 @e-unit*3 @e-unit*1.5 @e-unit*3;
+  line-height:  @e-unit*2.5;  
+  padding: @e-unit*1.75 @e-unit*3;
   opacity: 0;
-  margin:  @e-unit*3 0;
-  bottom: -100px;
   border-radius:  @e-unit*25;
   font-size: @e-unit*1.75;
   background-color: @bg-snackbar;
@@ -20,4 +20,15 @@
   transition-duration: 0.5s;
   transition-timing-function: ease;
 
+}
+
+.toast-multiline {
+  &:extend(.toast);  
+  padding: @e-unit*3;
+}
+
+@media (min-width: 320px) {
+  .toast {     
+    bottom: -2000px;
+  }
 }
