@@ -12,7 +12,7 @@ Options:
 - use the examples from above to structure your own Text field
 
 ### How to use
-```
+```jsx
 <Input
     name='input'
     disabled={true}

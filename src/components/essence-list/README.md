@@ -1,7 +1,7 @@
 # Essence List - List & ListItem components.
 
 ### How to use
-```
+```jsx
 <List type={'navigation'}>
 	<ListItem>
 		<Text type={'a'} href={'#item 1'}>

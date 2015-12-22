@@ -5,7 +5,7 @@ Options:
 - visible: `false` (**default**) - hide the bottom sheet
 
 ### How to use
-```
+```jsx
 <BottomSheets visible={true}>
 	<Block className={'e-background-white'}>
 		Bottom Sheets

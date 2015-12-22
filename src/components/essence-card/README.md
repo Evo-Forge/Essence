@@ -1,7 +1,7 @@
 # Essence Card - Card component.
 
 ### How to use
-```
+```jsx
 <Card>
 	<CardHeader>
 		Card header

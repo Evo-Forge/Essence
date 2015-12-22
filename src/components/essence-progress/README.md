@@ -9,6 +9,6 @@ Options
 5. `dynamic`: appends "dynamic" to the class name "e-progress-" in the following format "e-btn-" + type
 
 ### How to use
-```
+```jsx
 <Progress type='dynamic' />
 ```

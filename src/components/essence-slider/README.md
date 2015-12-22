@@ -7,6 +7,6 @@ Options
 - `disabled`: **true** it uses the "disabled" class name to render a non-editable component
 
 ### How to use
-```
+```jsx
 <Slider discrete={true} step={10} />
 ```

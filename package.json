@@ -4,8 +4,15 @@
   "description": "Essence Material Design ReactJS",
   "main": "lib/essence.min.js",
   "scripts": {
+    "build": "babel src --out-dir lib",
     "dev": "webpack-dev-server --devtool eval --hot --progress --colors --config test/webpack.config.js",
     "production": "NODE_ENV=production webpack -p --config test/webpack.production.config.js"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "keywords": [
     "react",
@@ -24,6 +31,9 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "css-loader": "^0.23.0",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "gulp-less": "^3.0.5",
+    "gulp-minify-css": "^1.2.2",
     "less": "^2.5.3",
     "less-loader": "^2.2.2",
     "react-addons-css-transition-group": "^0.14.3",

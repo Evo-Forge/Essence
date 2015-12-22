@@ -12,7 +12,7 @@ Ripple effect:
 - ripple: `false` - disable ripple effect
 
 ### How to use
-```
+```jsx
 <Btn
 	classes={'flat e-text-indigo-400'}
 	label='Indigo button'
