@@ -1,7 +1,7 @@
 # Essence Chip - Chip & ChipItem components.
 
 ### How to use
-```
+```jsx
 <Chip>
   <ChipItem
     image='assets/img/card-user-img.jpg'

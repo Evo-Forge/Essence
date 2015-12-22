@@ -5,8 +5,8 @@
     "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
     "homepage": "http://essence.pearlhq.com/",
     "license": "MIT",
-    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/src/js/components/essence-icon",
-    "main": "lib/index.js",
+    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/src/components/essence-icon",
+    "main": "icon.js",
     "dependencies": {
         "classnames": "^2.2.1",
         "react": "^0.14.3",

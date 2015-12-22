@@ -5,7 +5,7 @@ Options:
 - visible: `false` (**default**) - hide the bottom sheet
 
 ### How to use
-```
+```jsx
 <Navigation visible={true}>
 	<Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>
 		<Block type={'header'} classes={'e-nav-header'}>

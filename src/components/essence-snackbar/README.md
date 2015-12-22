@@ -6,8 +6,8 @@ Options:
 - delay: `2000` (**default**) - miliseconds delay to hide
 
 ### How to use
-```
-<SnackBar classes={'e-text-green-500'} visible={true} delay={2000} action={'undo'}>
+```jsx
+<SnackBar classes={'e-text-green-500'} visible={true} delay={2000}>
 	<Block>SnackBar</Block>
 </SnackBar>
 ```

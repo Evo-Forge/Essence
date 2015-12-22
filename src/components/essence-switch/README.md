@@ -7,7 +7,7 @@ Options:
 - afterText: string for switches position on right side
 
 ### How to use
-```
+```jsx
 <Switch
     type='radio'
     text='Radio Button'

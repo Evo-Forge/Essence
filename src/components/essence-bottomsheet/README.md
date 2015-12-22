@@ -8,7 +8,7 @@ Options:
 
 #Bottom sheets simple
 
-```
+```jsx
 <BottomSheets classes={'e-background-white'} visible={true}>
 		<Block >
 			<List type={'navigation'}>
@@ -45,7 +45,7 @@ Options:
 
 #Bottom sheets big icons
 
-```
+```jsx
 	<BottomSheets classes={'e-background-white big-icons'} visible={true}>
 		<Block >
 			<List type={'navigation'}>
