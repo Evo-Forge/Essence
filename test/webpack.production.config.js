@@ -1,6 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var extractCSS = require('extract-text-webpack-plugin');
  
 module.exports = {
   entry: {
@@ -39,17 +39,21 @@ module.exports = {
         test: /\.jsx?$/, 
         loader: 'babel-loader',
         exclude: /node_modules/,
-        include: [
-          path.resolve(__dirname, "./"),
-        ],
         query: {
           presets: ['es2015', 'react']
         }
       },
       {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!less-loader')
-        // loader: 'style-loader!css-loader!less-loader'
+        loader: extractCSS.extract('style-loader', 'css-loader!less-loader')
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.md$/,
+        loader: 'file?name=../lib/essence-[name]/[name].[ext]'
       }
     ]
   },
@@ -59,6 +63,6 @@ module.exports = {
             warnings: false
         },
     }),
-    new ExtractTextPlugin('essence-[name]/[name].css')
+    new extractCSS('essence-[name]/[name].css')
   ]
 };
