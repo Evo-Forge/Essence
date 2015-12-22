@@ -10,80 +10,78 @@
   position: fixed;
   left: 0;
   bottom: -500px;
+  box-sizing: border-box;
   margin: 0;
-  padding: 0;
+  padding:  @e-unit (@e-unit*2);
   width: 100%;
   z-index: 99999;
   .transition(all 0.2s ease-in-out);
 
-  // .brick-4 { .column(3); }
+    & ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      & a {
+        height: @e-unit*6;
+        padding: 0;
+
+        & i {
+          float: left;
+          line-height: @e-unit*6;
+          color: inherit;
+        } 
+
+        & span {
+          display: inline-block;
+          font-size: 16px;          
+          color: rgba(0 ,0 ,0 , 0.87);
+        } 
+      }
+    }
 
   &.animate {
     bottom: 0px;
   }
 
-  .e-list {
-    padding: 0;
-    margin: 0;
-  }
-
-  .e-list-content {
-    padding-left: 16px;
-    i {
-      display: block;
-      font-size: @e-unit * 3;
-      line-height: @e-unit * 3;
-      color: lighten(@e-text-color, 46%);
-    }
-  }
-
-  .e-list > li a .e-list-avatar {
-    height: @e-unit * 4;
-    width: @e-unit * 4;
-  }
-
-  .e-list-big-icon {
-    padding: 0 (@e-unit * 3) (@e-unit * 3);
-    list-style: none;
-    text-align: center;
-    background-color: white;
-    margin: 0;
-
-    li {
-      margin: 0;
-      padding: (@e-unit * 2) 0px;
+  &.big-icons {
+    padding: 0 @e-unit*3 @e-unit*3 @e-unit*3;
+    & li {
       float: left;
       width: 33%;
-      a {
-        display: block;
+      padding-top: @e-unit*2;
+
+      & a {
+        display:table;
+        height: inherit;
+        text-align: center;
+
+        & i {      
+          dispaly: table-header-group;
+          width: 100%;
+          margin: @e-unit 0;
+          font-size: @e-unit*6;
+        }
+
+        & span {
+          display: table-footer-group;
+          width: 100%;
+          line-height: @e-unit*2;
+          font-size: @e-unit*1.75;
+        }
       }
     }
 
-    li:nth-child(3n + 1) a {
-      text-align: left;
+    & li:nth-child(3n+1) a {
+      float: left;
     }
 
-    li:nth-child(3n) a {
-      text-align: right;
+    & li:nth-child(3n+2) a {
+      margin:0 auto;
     }
 
-    i {
-      display: block;
-      font-size: @e-unit * 6;
-      line-height: @e-unit * 6;
-      color: lighten(@e-text-color, 46%);
+    & li:nth-child(3n+3) a {
+      float: right;
     }
-
-    .e-bs-title {
-      box-sizing: border-box;
-      font-family: 'Roboto Regular';
-      line-height: @e-unit * 2;
-      color: lighten(@e-text-color, 46%);
-    }
-  }
-
-  hr {
-    border: none;
-    border: 1px solid #121212;
   }
 }
