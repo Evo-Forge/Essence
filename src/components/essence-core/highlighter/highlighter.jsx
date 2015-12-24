@@ -1,4 +1,5 @@
 import React from 'react';
+import ClassNames from 'classnames';
 import TransitionGroup from 'react-addons-css-transition-group';
 import './highlighter.less';
 
@@ -35,7 +36,7 @@ class Highlighter extends React.Component {
   renderHighlighter() {
     return (
       <div
-        className={'e-tabs-highlighter ' + this.state.direction}
+        className={ClassNames('e-tabs-highlighter', this.state.direction)}
         style={this.state.highlighterStyle}>
       </div>
     );
