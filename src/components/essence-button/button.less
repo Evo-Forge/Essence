@@ -7,11 +7,9 @@
   line-height: @btn-unit*4.5;
   padding: 0 @btn-unit*3;
   border: 0;
-  margin:@btn-unit*0.75 @btn-unit*0.5;
+  margin:@btn-unit;
   cursor: pointer;
-  -webkit-border-radius: @btn-unit*0.25;
-  -moz-border-radius: @btn-unit*0.25;
-  border-radius: @btn-unit*0.25;
+  .border-radius(@btn-unit*0.25);  
   background-clip: padding-box;
   text-transform: uppercase;
   font-size: @btn-unit*1.75;
@@ -35,93 +33,14 @@
 .e-dialog .e-btn {
   padding: 0 @btn-unit;
 }
-// special functions colors : default, primary, succes, info, warning, danger
-.e-btn-default {
-  background-color:@e-color-grey-500;
-  color:#000 !important;
-  &:hover , &:focus {
-    background-color:@e-color-grey-600;
-
-  }
-
-  &:active {
-    background-color:@e-color-grey-700;
-
-  }
-}
-
-.e-btn-primary {
-  background-color:@e-color-blue-500;
-  color:@e-color-blue-500;
-  &:hover , &:focus {
-    background-color:@e-color-blue-600;
-
-  }
-
-  &:active {
-    background-color:@e-color-blue-700;
-
-  }
-}
-
-.e-btn-succes {
-  background-color: @e-color-green-500;
-  color: @e-color-green-500;
-  &:hover , &:focus {
-    background-color:@e-color-green-600;
-
-  }
-
-  &:active {
-    background-color:@e-color-green-700;
-  }
-}
-
-.e-btn-info {
-  background-color: @e-color-light-blue-500;
-  color: @e-color-light-blue-500;
-  &:hover , &:focus {
-    background-color:@e-color-light-blue-600;
-  }
-
-  &:active {
-    background-color:@e-color-light-blue-700;
-  }
-}
-
-.e-btn-warning {
-  background-color: @e-color-orange-500;
-  color: @e-color-orange-500;
-
-  &:hover , &:focus {
-    background-color:@e-color-orange-600;
-  }
-
-  &:active {
-    background-color:@e-color-orange-700;
-  }
-}
-
-.e-btn-danger {
-  background-color: @e-color-red-500;
-  color: @e-color-red-500;
-
-  &:hover , &:focus {
-    background-color:@e-color-red-600;
-  }
-
-  &:active {
-    background-color:@e-color-red-700;
-  }
-}
 
 .flat {
     &:extend(.e-btn all);
     background-color: transparent ;
     border: none ;
-    min-width: @btn-unit*9;
+    min-width: @btn-unit*11;
     font-weight: 500;
-    padding: 0 @btn-unit;
+    padding: 0 @btn-unit;    
 
     &:hover , &:focus {
       background-color:darken(hsl(0,0%,100%), 10%) ;
@@ -135,19 +54,17 @@
 }
 
 //Floating action button =FAB : with e-btn inherited
-.e-btn-fab {
+.fab {
     &:extend(.e-btn all);
     z-index: 1;
     display: inline-block;
     width: @btn-unit*7;
     height: @btn-unit*7;
     padding: 0;
-    margin: @btn-unit*2;
+    margin: @btn-unit*2;    
     background-color: @fab-color;
     text-align: center;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    border-radius: 50%;
+    .border-radius(50%); 
     background-clip: border-box;
 
     .e-shadow-1();
@@ -160,7 +77,6 @@
         line-height: @btn-unit*3;
         font-size: @btn-unit*3;
         text-align: center;
-        color: #fff;
         font-size: @btn-unit*3;
     }
 
@@ -178,8 +94,8 @@
 }
 
 //Floating action button mini : with e-btn-fab inherited
-.e-btn-fab-mini {
-    &:extend(.e-btn-fab all);
+.fab-mini {
+    &:extend(.fab all);
     height: @btn-unit*5;
     width: @btn-unit*5;
     i {
@@ -194,7 +110,8 @@
 
     .e-shadow-1();
 
-    min-width: @btn-unit*9;
+    min-width: @btn-unit*8;
+    padding: 0 @btn-unit*2;    
     color:#fff;
 
     &:hover , &:focus {
@@ -204,5 +121,84 @@
     &:active {
       color: #fff;
     }
+}
 
+// special functions colors : default, primary, succes, info, warning, danger
+.e-btn-default {
+  background-color:@e-color-grey-500;
+  color:#000 !important;
+  &:hover , &:focus {
+    background-color:@e-color-grey-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-grey-700;
+
+  }
+}
+
+.e-btn-primary {
+  background-color:@e-color-blue-500;
+  color:#fff;
+  &:hover , &:focus {
+    background-color:@e-color-blue-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-blue-700;
+
+  }
+}
+
+.e-btn-succes {
+  background-color: @e-color-green-500;
+  color:#fff;
+  &:hover , &:focus {
+    background-color:@e-color-green-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-green-700;
+  }
+}
+
+.e-btn-info {
+  background-color: @e-color-light-blue-500;
+  color:#fff;
+  &:hover , &:focus {
+    background-color:@e-color-light-blue-600;
+  }
+
+  &:active {
+    background-color:@e-color-light-blue-700;
+  }
+}
+
+.e-btn-warning {
+  background-color: @e-color-orange-500;
+  color:#fff;
+
+  &:hover , &:focus {
+    background-color:@e-color-orange-600;
+  }
+
+  &:active {
+    background-color:@e-color-orange-700;
+  }
+}
+
+.e-btn-danger {
+  background-color: @e-color-red-500;
+  color:#fff;
+
+  &:hover , &:focus {
+    background-color:@e-color-red-600;
+  }
+
+  &:active {
+    background-color:@e-color-red-700;
+  }
 }

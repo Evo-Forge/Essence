@@ -5,6 +5,12 @@
   &:extend(.clearfix all);
   margin-bottom: 30px;
   overflow: hidden;
+
+  .border-radius(2px);  
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+
   .card-header{
     padding: (@e-unit * 2);
 
@@ -14,11 +20,7 @@
       border-radius: 50%;
       overflow: hidden;
       height: 60px;
-      width: 60px;
-
-      img{
-        max-width: 100%;
-      }
+      width: 60px;      
     }
 
     .card-header-text {
@@ -36,6 +38,7 @@
 
   .card-main-image{
     position: relative;
+    padding: 0;
     .e-headline {
       color: #fff;
       position: absolute;
@@ -49,16 +52,7 @@
       height: auto;
       }
     }
-  
-  .card-gallery {
-    &:extend(.clearfix all);
-    img {
-      display: block;
-      width: 20%;
-      float: left;
-      margin: 2%;
-    }
-  }
+
   .card-supporting-text{
     padding: (@e-unit * 2);
     p {
@@ -71,8 +65,12 @@
   }
   .card-suplimentary-actions {
     &:extend(.clearfix all);
-    padding: 0 (@e-unit * 2);
+    padding: @e-unit;
     border-top: 1px solid #ccc;
+
+    & button {
+      margin: 0;
+    }
   }
   .left-image {
     float: left;
