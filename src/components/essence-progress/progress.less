@@ -1,18 +1,21 @@
+@import '../../less/mixins.less';
+
 //three dots slider bar
 .e-progress-slider {
+  position: relative;
   width:100%;
-  height:2px;
+  height:@e-unit*0.25;
   .e-progress-slider-line{
     position:absolute;
     background: #139FC2;
     width:100%;
-    height:2px;
+    height:@e-unit*0.25;
   }
   .break{
     position:absolute;
     background:#fff;
-    width:6px;
-    height:2px;  
+    width:@e-unit*0.75;
+    height:@e-unit*0.25;  
   }
     .dot1{
     -webkit-animation: loading 2s infinite;
@@ -65,24 +68,24 @@ to { left: 100%; }
 .e-progress-circle {
   position: relative;
   margin: 0 auto;
-  width: 90px;
-  height:90px;
+  width: @e-unit*11.25;
+  height:@e-unit*11.25;
   &.small {
-    width: 30px;
-    height:30px;
+    width: @e-unit*3.75;
+    height:@e-unit*3.75;
     .ball-frame {
-      width: 25px;
-      height: 25px;
+      width: @e-unit*3.125;
+      height: @e-unit*3.125;
       .round-ball {
-        width: 5px;
-        height: 5px;
+        width: @e-unit*0.625;
+        height: @e-unit*0.625;
       }
     }
   }
   .ball-frame {
     position: absolute;
-    width: 86px;
-    height: 86px;
+    width: @e-unit*10.75;
+    height: @e-unit*10.75;
     opacity: 0;
     -moz-transform: rotate(225deg);
     -moz-animation: orbit 3.8499999999999996s infinite;
@@ -96,16 +99,16 @@ to { left: 100%; }
     animation: orbit 3.8499999999999996s infinite;
     .round-ball{
       position: absolute;
-      width: 10px;
-      height: 10px;
+      width: @e-unit*1.25;
+      height: @e-unit*1.25;
       background: #139FC2;
       left:0px;
       top:0px;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-      -ms-border-radius: 5px;
-      -o-border-radius: 5px;
-      border-radius: 5px;
+      -moz-border-radius: @e-unit*0.625;
+      -webkit-border-radius: @e-unit*0.625;
+      -ms-border-radius: @e-unit*0.625;
+      -o-border-radius: @e-unit*0.625;
+      border-radius: @e-unit*0.625;
     }
     
 
@@ -431,7 +434,7 @@ to { left: 100%; }
 .e-progress-dots {
   position:relative;
   width:100%;
-  height:20px;
+  height:@e-unit*2.5;
   overflow: hidden;
   .e-progress-dot {
     opacity: 0.2;
@@ -439,29 +442,29 @@ to { left: 100%; }
     position:absolute;
     top:0;
     left:0;
-    width:10px;
-    height:10px;
-    -moz-border-radius:5px;
+    width:@e-unit*1.25;
+    height:@e-unit*1.25;
+    -moz-border-radius:@e-unit*0.625;
     -moz-animation-name:bounce_following-balls;
     -moz-animation-duration:1.5s;
     -moz-animation-iteration-count:infinite;
     -moz-transition-timing-function: ease-in-out;
-    -webkit-border-radius:5px;
+    -webkit-border-radius:@e-unit*0.625;
     -webkit-animation-name:bounce_following-balls;
     -webkit-animation-duration:1.5s;
     -webkit-animation-iteration-count:infinite;
     -webkit-transition-timing-function: ease-in-out;
-    -ms-border-radius:5px;
+    -ms-border-radius:@e-unit*0.625;
     -ms-animation-name:bounce_following-balls;
     -ms-animation-duration:1.5s;
     -ms-animation-iteration-count:infinite;
     -ms-transition-timing-function: ease-in-out;
-    -o-border-radius:5px;
+    -o-border-radius:@e-unit*0.625;
     -o-animation-name:bounce_following-balls;
     -o-animation-duration:1.5s;
     -o-animation-iteration-count:infinite;
     -o-transition-timing-function: ease-in-out;
-    border-radius:5px;
+    border-radius:@e-unit*0.625;
     animation-name:bounce_following-balls;
     animation-duration:1.5s;
     animation-iteration-count:infinite;
@@ -534,7 +537,7 @@ to { left: 100%; }
     }
 
     100%{
-      margin-right: -10px;
+      margin-right: -@e-unit*1.25;
       left: 100%;
       opacity: 0;
     }
@@ -552,7 +555,7 @@ to { left: 100%; }
     }
 
     100%{
-      margin-right: -10px;
+      margin-right: -@e-unit*1.25;
       left: 100%;
       opacity: 0;
     }
@@ -570,7 +573,7 @@ to { left: 100%; }
     }
 
     100%{
-      margin-right: -10px;
+      margin-right: -@e-unit*1.25;
       left: 100%;
       opacity: 0;
     }
@@ -588,7 +591,7 @@ to { left: 100%; }
     }
 
     100%{
-      margin-right: -10px;
+      margin-right: -@e-unit*1.25;
       left: 100%;
       opacity: 0;
     }
@@ -606,7 +609,7 @@ to { left: 100%; }
     }
 
     100%{
-      margin-right: -10px;
+      margin-right: -@e-unit*1.25;
       left: 100%;
       opacity: 0;
   }
@@ -618,11 +621,11 @@ to { left: 100%; }
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 2px;
+  height: @e-unit*0.25;
   .e-progress-fix-slider {
     background: #139FC2;
     width: 0;
-    height: 2px;
+    height: @e-unit*0.25;
     position: absolute;
     top: 0;
     left: 0;
@@ -709,11 +712,11 @@ to { left: 100%; }
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 2px;
+  height: @e-unit*0.25;
   .e-progress-dynamic-slider {
     background: #139FC2;
     width: 0;
-    height: 2px;
+    height: @e-unit*0.25;
     position: absolute;
     top: 0;
     left: 0;
