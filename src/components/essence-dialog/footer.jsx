@@ -7,7 +7,7 @@ class DialogFooter extends React.Component {
         super(props);
         this.state = {
         	classes: ClassNames(
-                'e-dialog-actions',
+                'e-dialogs-actions',
                 this.props.classes,
                 this.props.className
             )
