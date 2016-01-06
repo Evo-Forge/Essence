@@ -1,0 +1,48 @@
+import React from 'react';
+import ClassNames from 'classnames';
+import Client from '../../essence-core/src/utils/Client';
+import './appbar.less'; //require('!css!less!./appbar.less');
+ 
+class AppBar extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                'e-appbar clearfix',
+                this.props.className,
+                this.props.classes
+            )
+        };
+    }
+
+    componentDidMount() {
+        let body = document.querySelector('body');
+        let documentSize = Client.documentSize();
+
+        switch(documentSize){
+            case 1:
+                body.style.marginTop = '48px';
+                break;
+            case 2:
+                body.style.marginTop = '56px';
+                break;
+            case 3:
+            default:
+                body.style.marginTop = '64px';
+                break;
+        }
+    }
+
+	render() {
+		return (
+            <div 
+                {...this.props} 
+                className={this.state.classes}>
+                {this.props.children}
+            </div>
+        );
+	}
+}
+
+export default AppBar;
