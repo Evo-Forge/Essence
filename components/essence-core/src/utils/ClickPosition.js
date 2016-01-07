@@ -1,5 +1,5 @@
 
-export default function (element, parentElement) {
+export function ClickPosition(element, parentElement) {
   let xPosition = 0;
   let yPosition = 0;
 
@@ -8,4 +8,4 @@ export default function (element, parentElement) {
     yPosition = (element.clientY - parentElement.top);
   }
   return { x: xPosition, y: yPosition };
-};
+}

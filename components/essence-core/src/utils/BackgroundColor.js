@@ -1,5 +1,5 @@
 
-export default function (element) {
+export function BackgroundColor(element) {
   let color = null;
 
   if (element) {
@@ -8,4 +8,4 @@ export default function (element) {
   }
 
   return color;
-};
+}

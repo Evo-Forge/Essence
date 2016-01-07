@@ -1,8 +1,8 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import RippleInk from '../../essence-core/src/rippleink/rippleink.jsx';
-import BackgroundColor from '../../essence-core/src/utils/BackgroundColor';
-import ClickPosition from '../../essence-core/src/utils/ClickPosition';
+import RippleInk from 'essence-core/src/rippleink/rippleink.jsx';
+import BackgroundColor from 'essence-core/src/utils/BackgroundColor';
+import ClickPosition from 'essence-core/src/utils/ClickPosition';
 import './button.less'; //require('!css!less!./button.less');
 
 class Btn extends React.Component {

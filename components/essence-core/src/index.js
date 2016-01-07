@@ -1,16 +1,20 @@
 
-var Block = require('../lib/block');
-var Divider = require('../lib/divider');
-var Text = require('../lib/text');
-var Highlighter = require('../lib/highlighter');
-var Rippleink = require('../lib/rippleink');
-var Utils = require('../lib/utils');
+import * as Block from '../lib/block';
+import * as Divider from '../lib/divider';
+import * as Text from '../lib/text';
+import * as Highlighter from '../lib/highlighter';
+import * as Rippleink from '../lib/rippleink';
+import * as Utils from '../lib/utils';
+// var Styles = require('../lib/less/css');
 
-export {
+var components = {
 	Block,
 	Divider,
 	Text,
 	Highlighter, 
 	Rippleink, 
-	Utils 
+	Utils,
+	// Styles
 };
+
+export default components;

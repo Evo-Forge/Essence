@@ -10,6 +10,7 @@ module.exports = {
     'highlighter': path.resolve(__dirname, './src/highlighter/highlighter.jsx'),
     'rippleink': path.resolve(__dirname, './src/rippleink/rippleink.jsx'),
     'utils': path.resolve(__dirname, './src/utils/utils'),
+    // 'css': path.resolve(__dirname, './src/less/css'),
     'index': path.resolve(__dirname, './src/index'),
   },
   output: { 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import * as Utils from '../../essence-core/src/utils/utils';
-import Highlighter from '../../essence-core/src/highlighter/highlighter.jsx';
+import * as Utils from 'essence-core/src/utils/utils';
+import Highlighter from 'essence-core/src/highlighter/highlighter.jsx';
  
 class TabItem extends React.Component {
 	constructor(props) {

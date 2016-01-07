@@ -1,5 +1,5 @@
 
-export default {
+module.exports = {
     isMobile: function() {
         if (navigator.userAgent.match(/Android/i) ||
             navigator.userAgent.match(/webOS/i) ||

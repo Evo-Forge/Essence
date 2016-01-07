@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import Timer from '../../essence-core/src/utils/Timer';
+import Timer from 'essence-core/src/utils/Timer';
 import './toast.less'; // require('!css!less!./toast.less');
  
 class ToastBar extends React.Component {

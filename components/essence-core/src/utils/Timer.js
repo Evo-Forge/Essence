@@ -1,5 +1,5 @@
 
-export default function (callback, delay) {
+export function Timer(callback, delay) {
     let timerInit, start, remaining = delay;
 
     this.start = start;
