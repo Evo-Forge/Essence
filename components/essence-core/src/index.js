@@ -6,11 +6,11 @@ var Highlighter = require('../lib/highlighter');
 var Rippleink = require('../lib/rippleink');
 var Utils = require('../lib/utils');
 
-module.exports = {
-	Block: Block,
-	Divider: Divider,
-	Text: Text,
-	Highlighter: Highlighter, 
-	Rippleink: Rippleink, 
-	Utils: Utils 
+export {
+	Block,
+	Divider,
+	Text,
+	Highlighter, 
+	Rippleink, 
+	Utils 
 };

@@ -3,12 +3,11 @@ var react = require('react');
 var webpack = require('webpack');
  
 module.exports = {
-  entry: {
-    'appbar': path.resolve(__dirname, './src/appbar.jsx')
-  },
+  entry: path.resolve(__dirname, 'test.js'),
   output: { 
-    path: path.resolve(__dirname, './lib'),
-    filename: '[name].js'
+    path: path.resolve(__dirname, 'lib'), 
+    publicPath: '/lib',
+    filename: 'essence.min.js'
   },
   module: {
     loaders: [
@@ -21,20 +20,12 @@ module.exports = {
         }
       },
       {
-        test: /\.js?$/, 
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015']
-        }
-      },
-      {
         test: /\.less$/,
-        loader: 'style-loader!css-loader!less-loader'
+        loader: "style-loader!css-loader!less-loader"
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: "style-loader!css-loader"
       }
     ]
   },
