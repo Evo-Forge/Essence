@@ -17,5 +17,6 @@ Options:
     name='input'
     disabled={true}
     placeholder='Disabled input'
+    classes={'has-success'}
 />
 ```

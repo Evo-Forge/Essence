@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import Timer from 'essence-core/src/utils/Timer';
+import Timer from 'essence-core/src/utils/Timer.js';
 import './snackbar.less'; // require('!css!less!./snackbar.less');
  
 class SnackBar extends React.Component {

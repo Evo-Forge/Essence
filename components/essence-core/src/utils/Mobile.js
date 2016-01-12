@@ -1,6 +1,5 @@
 
-module.exports = {
-    isMobile: function() {
+    export isMobile() {
         if (navigator.userAgent.match(/Android/i) ||
             navigator.userAgent.match(/webOS/i) ||
             navigator.userAgent.match(/iPhone/i) ||
@@ -13,9 +12,9 @@ module.exports = {
         } else {
             return false;
         }
-    },
+    };
 
-    screenSize: function() {
+    export screenSize() {
         var screenWidth = screen.width;
 
         if (screenWidth <= 360) {
@@ -25,9 +24,9 @@ module.exports = {
         } else {
             return 3; // "large";
         }
-    },
+    };
 
-    documentSize: function() {
+    export documentSize() {
         var documentSize = document.querySelector("body").offsetWidth;
 
         if (documentSize <= 360) {
@@ -37,5 +36,4 @@ module.exports = {
         } else {
             return 3; // "large";
         }
-    }
-};
+    };

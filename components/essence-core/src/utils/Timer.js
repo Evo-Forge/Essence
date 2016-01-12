@@ -1,6 +1,6 @@
 
-export function Timer(callback, delay) {
-    let timerInit, start, remaining = delay;
+function Timer(callback, delay) {
+    var timerInit, start, remaining = delay;
 
     this.start = start;
     this.delay = delay;
@@ -22,5 +22,5 @@ export function Timer(callback, delay) {
 
     return this;
 }
-// timer.pause();
-// timer.resume();
+
+module.exports = Timer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import Client from 'essence-core/src/utils/Client';
+import * as Client from 'essence-core/src/utils/Client.js';
 import './appbar.less'; // require('!css!less!./appbar.less');
  
 class AppBar extends React.Component {

@@ -1,7 +1,7 @@
 
-export function ClickPosition(element, parentElement) {
-  let xPosition = 0;
-  let yPosition = 0;
+function ClickPosition(element, parentElement) {
+  var xPosition = 0;
+  var yPosition = 0;
 
   if (element && parentElement) {
     xPosition = (element.clientX - parentElement.left);
@@ -9,3 +9,5 @@ export function ClickPosition(element, parentElement) {
   }
   return { x: xPosition, y: yPosition };
 }
+
+module.exports = ClickPosition;

@@ -1,6 +1,6 @@
 
-export function BackgroundColor(element) {
-  let color = null;
+function BackgroundColor(element) {
+  var color = null;
 
   if (element) {
     color = window.getComputedStyle (element.currentTarget).getPropertyValue('color').
@@ -9,3 +9,5 @@ export function BackgroundColor(element) {
 
   return color;
 }
+
+module.exports = BackgroundColor;

@@ -53,8 +53,14 @@ class Menu extends React.Component {
         document.removeEventListener("touchend");
     }
 
-    toggleMenu() {
+    toggleMenu(child) {
         let menuItemText = this.menuItem;
+
+        if (child.props !== undefined && child.props.placeholder) {
+            this.setState({
+                placeholder: child.props.placeholder
+            });
+        }
 
         this.setState({
             isHidden: !this.state.isHidden,
