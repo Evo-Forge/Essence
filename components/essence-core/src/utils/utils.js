@@ -1,7 +1,7 @@
-var ClickPosition = require('./ClickPosition');
-var BackgroundColor = require('./BackgroundColor');
-var Timer = require('./Timer');
-var Client = require('./Client');
+var ClickPosition = require('./ClickPosition.js');
+var BackgroundColor = require('./BackgroundColor.js');
+var Timer = require('./Timer.js');
+var Client = require('./Client.js');
 
 module.exports = { 
 	ClickPosition: ClickPosition,
