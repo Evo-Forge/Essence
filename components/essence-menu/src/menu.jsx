@@ -16,9 +16,7 @@ class Menu extends React.Component {
                     'e-shadow-1': true,
                     'right': this.props.right,
                     'fab-list': this.props.type === 'fab'
-                },
-                this.props.classes,
-                this.props.className
+                }
             ),
             menuClasses: ClassNames(
                 {
@@ -27,7 +25,9 @@ class Menu extends React.Component {
                     'cover': this.props.type === 'cover',
                     'fixed': this.props.type === 'fab',
                     'active': false
-                }
+                },
+                this.props.classes,
+                this.props.className
             ),
             placeholder: this.props.placeholder || 'Menu'
         };
@@ -56,7 +56,7 @@ class Menu extends React.Component {
     toggleMenu(child) {
         let menuItemText = this.menuItem;
 
-        if (child.props !== undefined && child.props.placeholder) {
+        if ( child && child.hasOwnProperty('props') && child.props.placeholder) {
             this.setState({
                 placeholder: child.props.placeholder
             });
@@ -73,9 +73,7 @@ class Menu extends React.Component {
                     'right': this.props.right,
                     'hide': !this.state.isHidden,
                     'fab-list': this.props.type === 'fab'
-                },
-                this.props.classes,
-                this.props.className
+                }
             ),
             menuClasses: ClassNames(
                 {
@@ -84,7 +82,9 @@ class Menu extends React.Component {
                     'cover': this.props.type === 'cover',
                     'fixed': this.props.type === 'fab',
                     'active': !this.state.isActive
-                }
+                },
+                this.props.classes,
+                this.props.className
             )
         });
     }
