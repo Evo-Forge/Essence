@@ -1,0 +1,204 @@
+@import '../../essence-core/src/less/mixins.less';
+
+// General buttons properties
+.e-btn {
+  display: inline-block;
+  min-height: @btn-unit*4.5;
+  line-height: @btn-unit*4.5;
+  padding: 0 @btn-unit*3;
+  border: 0;
+  margin:@btn-unit;
+  cursor: pointer;
+  .border-radius(@btn-unit*0.25);  
+  background-clip: padding-box;
+  text-transform: uppercase;
+  font-size: @btn-unit*1.75;
+
+  &:hover:not(.flat) {
+    .e-shadow-2();
+  }
+
+  &:focus {
+    border: 0;
+    outline: none;
+  }
+
+  &:disabled {
+  pointer-events: none;
+  box-shadow: none ;
+  opacity: 0.5;
+  }
+}
+
+.e-dialog .e-btn {
+  padding: 0 @btn-unit;
+}
+
+.flat {
+    &:extend(.e-btn all);
+    background-color: transparent ;
+    border: none ;
+    min-width: @btn-unit*11;
+    font-weight: 500;
+    padding: 0 @btn-unit;    
+
+    &:hover , &:focus {
+      background-color:darken(hsl(0,0%,100%), 10%) ;
+
+    }
+
+    &:active {
+      background-color:darken(hsl(0,0%,100%), 20%) ;
+    }
+
+}
+
+//Floating action button =FAB : with e-btn inherited
+.fab {
+    &:extend(.e-btn all);
+    z-index: 1;
+    display: inline-block;
+    width: @btn-unit*7;
+    height: @btn-unit*7;
+    padding: 0;
+    margin: @btn-unit*2;    
+    background-color: @fab-color;
+    text-align: center;
+    .border-radius(50%); 
+    background-clip: border-box;
+
+    .e-shadow-1();
+
+    i {
+        padding: @btn-unit*2;
+        display: inline-block;
+        width: @btn-unit*3;
+        height: @btn-unit*3;
+        line-height: @btn-unit*3;
+        font-size: @btn-unit*3;
+        text-align: center;
+        font-size: @btn-unit*3;
+    }
+
+
+    &:hover {
+        .e-shadow-3();
+    }
+
+    &:active {
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+//Floating action button mini : with e-btn-fab inherited
+.fab-mini {
+    &:extend(.fab all);
+    height: @btn-unit*5;
+    width: @btn-unit*5;
+    i {
+        padding: @btn-unit;
+    }
+}
+
+//Raised button : with e-btn inherited
+.raised {
+
+    &:extend(.e-btn all);
+
+    .e-shadow-1();
+
+    min-width: @btn-unit*8;
+    padding: 0 @btn-unit*2;    
+    color:#fff;
+
+    &:hover , &:focus {
+      color: #fff;
+    }
+
+    &:active {
+      color: #fff;
+    }
+}
+
+// special functions colors : default, primary, succes, info, warning, danger
+.e-btn-default {
+  background-color:@e-color-grey-500;
+  color:#000 !important;
+  &:hover , &:focus {
+    background-color:@e-color-grey-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-grey-700;
+
+  }
+}
+
+.e-btn-primary {
+  background-color:@e-color-blue-500;
+  color:#fff;
+  &:hover , &:focus {
+    background-color:@e-color-blue-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-blue-700;
+
+  }
+}
+
+.e-btn-succes {
+  background-color: @e-color-green-500;
+  color:#fff;
+  &:hover , &:focus {
+    background-color:@e-color-green-600;
+
+  }
+
+  &:active {
+    background-color:@e-color-green-700;
+  }
+}
+
+.e-btn-info {
+  background-color: @e-color-light-blue-500;
+  color:#fff;
+  &:hover , &:focus {
+    background-color:@e-color-light-blue-600;
+  }
+
+  &:active {
+    background-color:@e-color-light-blue-700;
+  }
+}
+
+.e-btn-warning {
+  background-color: @e-color-orange-500;
+  color:#fff;
+
+  &:hover , &:focus {
+    background-color:@e-color-orange-600;
+  }
+
+  &:active {
+    background-color:@e-color-orange-700;
+  }
+}
+
+.e-btn-danger {
+  background-color: @e-color-red-500;
+  color:#fff;
+
+  &:hover , &:focus {
+    background-color:@e-color-red-600;
+  }
+
+  &:active {
+    background-color:@e-color-red-700;
+  }
+}

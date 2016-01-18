@@ -8,7 +8,7 @@
   "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-core",
   "main": "lib/index.js",
   "scripts": {
-    "babel": "babel --presets es2015 src --out-dir lib",
+    "babel": "babel --presets react,es2015 src --out-dir lib",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "peerDependencies": {
