@@ -1,0 +1,108 @@
+@import '../../essence-core/src/less/mixins.less';
+
+.e-nav-drawer {
+  position: fixed;
+  z-index: 6;
+  height: 100%;
+  width: @e-unit * 30;
+  background-color: #eee;
+  transition: all 0.3s ease-in-out;
+
+  .e-shadow-1 () ;
+
+  nav {
+    position: relative;
+    height: 100%;
+    box-sizing: border-box;    
+
+    .e-navigation-wrapper {
+      height: 100%;
+      overflow-y: auto;
+
+      .e-nav-header {
+        padding: (@e-unit * 2);
+      }
+      .e-list-navigation {
+        padding: @e-unit 0;
+        margin: 0;
+        list-style: none;
+
+        & > li {
+
+          &:hover {
+            background: #E8E8E8;
+          }
+
+          & > a > i {
+            float: left;
+            margin: 0;
+            margin-right: @e-unit*4;
+            line-height: @e-unit*6;          
+          }          
+        }
+      }
+      .e-nav-footer {
+        position: absolute;
+        bottom: 0;
+        box-sizing: border-box;
+        width: 100%;
+        padding: (@e-unit * 2);    
+      }
+    }
+  }
+}
+
+.e-modal-bg {    
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;  
+  display: block; 
+  height: 100%;  
+  width: 100%;
+  opacity: 1;  
+  background-color: rgba(0, 0, 0, 0.5);
+  animation-duration: 0.2s;
+  animation-name: e-modal-anim;
+}
+
+// Mobile & Tablet Version
+
+
+.e-nav-drawer {
+  &:extend(.e-nav-drawer all);
+  overflow: hidden; 
+
+ @media (max-width: 479px){
+   // mobile 56dp from the right edge of the screen
+    width: calc(~'100% - 56px');
+    transform: translateX(calc(~'-100% - 56px'));
+    transition: transform 0.2s !important;
+
+    &.e-navigation-open { // add or remove open class from JS
+      transform: translateX(0);
+    }
+ }
+
+  @media (min-width: 480px) and (max-width:768px){
+    // tablet 64dp from the right edge of the screen
+    width: calc(~'100% - 64px');
+    transform: translateX(calc(~'-100% - 64px'));
+    transition: transform 0.2s !important;
+
+    &.e-navigation-open { // add or remove open class from JS
+      transform: translateX(0);
+    }
+  }
+} 
+
+@keyframes e-modal-anim {
+  from {
+    opacity: 0; 
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+

@@ -1,21 +1,21 @@
 {
-    "name": "essence-menu",
-    "version": "0.0.1",
-    "description": "Essence Menu - Menu component.",
-    "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
-    "homepage": "http://essence.pearlhq.com/",
-    "license": "MIT",
-    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-menu",
-    "main": "lib/menu.js",
-    "scripts": {
-      "babel": "babel --presets es2015 src --out-dir lib",
-      "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
-    },
-    "peerDependencies": {
-        "react": "^0.14.3",
-        "react-dom": "^0.14.3"
-    },
-    "dependencies": {
-        "classnames": "^2.2.1"
-    }
+  "name": "essence-menu",
+  "version": "0.0.5",
+  "description": "Essence Menu - Menu component.",
+  "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
+  "homepage": "http://essence.pearlhq.com/",
+  "license": "MIT",
+  "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-menu",
+  "main": "lib/menu.js",
+  "scripts": {
+    "babel": "babel --presets react,es2015 src --out-dir lib && cp src/menu.less lib/menu.less",
+    "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
+  },
+  "peerDependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "dependencies": {
+    "classnames": "^2.2.1"
+  }
 }
