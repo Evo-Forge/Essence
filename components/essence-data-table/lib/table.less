@@ -1,13 +1,47 @@
+@import '../../essence-core/src/less/mixins.less';
 
 .datatable {
 	width: 100%;
-	thead tr { 
-		line-height: 64px;
+
+	> thead {
+
+		> tr { 
+			line-height: @e-unit*8;
+			border-bottom: @e-unit*0.125 solid @e-color-grey-200; 		
+		}
 	}
-	tfoot tr { line-height: 56px; }
-	tbody tr { line-height: 48px; }
-	tr { 
-		border-bottom: 1px solid #EEE; 
-		.e-switch { text-align: center; }
+
+	> tbody {
+		tr { 
+			line-height: @e-unit*6; 
+			border-bottom: @e-unit*0.125 solid #EEE; 					
+		}
+
+		tr:hover {
+			background: @e-color-grey-200;
+		}	
+
+		> .selected {
+			background: @e-color-grey-100;
+		}
+	}
+
+	> tfoot {
+
+		tr { 
+			line-height: @e-unit*7;
+		}
+	}
+
+	.e-switch { 
+		text-align: center; 
+
+		.e-wave {
+			top: @e-unit * (-3.75);
+		}
+
+		.e-check-valid {
+			top: @e-unit * (-1.875);
+		}
 	}
 }
