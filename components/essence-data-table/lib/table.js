@@ -14,6 +14,26 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _switch = require('../../essence-switch/src/switch.jsx');
+
+var _switch2 = _interopRequireDefault(_switch);
+
+var _row = require('./row.jsx');
+
+var _row2 = _interopRequireDefault(_row);
+
+var _body = require('./body.jsx');
+
+var _body2 = _interopRequireDefault(_body);
+
+var _header = require('./header.jsx');
+
+var _header2 = _interopRequireDefault(_header);
+
+var _column = require('./column.jsx');
+
+var _column2 = _interopRequireDefault(_column);
+
 require('./table.less');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -34,12 +54,145 @@ var DataTable = (function (_React$Component) {
 
         var self = _this;
         _this.state = {
-            classes: (0, _classnames2.default)('datatable', _this.props.classes, _this.props.className)
+            classes: (0, _classnames2.default)('datatable', _this.props.classes, _this.props.className),
+            selectedRows: {},
+            selectedAllRows: false
         };
         return _this;
     }
 
     _createClass(DataTable, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var self = this,
+                selected = {},
+                dataObj = this.props.data;
+
+            if (dataObj.rows) {
+                dataObj.rows.map(function (row, rowIndex) {
+                    selected['row-' + rowIndex] = false;
+                });
+            }
+
+            this.setState({
+                selectedRows: selected
+            });
+        }
+    }, {
+        key: 'checkRows',
+        value: function checkRows() {
+            var selectedRows = this.state.selectedRows,
+                selectedAllRows = this.state.selectedAllRows;
+
+            for (var rowIndex in selectedRows) {
+                selectedRows[rowIndex] = !selectedAllRows;
+            };
+
+            this.setState({
+                selectedRows: selectedRows,
+                selectedAllRows: !selectedAllRows
+            });
+
+            return this;
+        }
+    }, {
+        key: 'checkRow',
+        value: function checkRow(rowIndex, row) {
+            var selectedRows = this.state.selectedRows;
+
+            selectedRows['row-' + rowIndex] = !selectedRows['row-' + rowIndex];
+
+            this.setState({
+                selectedRows: selectedRows
+            });
+
+            return this;
+        }
+    }, {
+        key: 'renderHeader',
+        value: function renderHeader() {
+            var self = this,
+                dataObj = this.props.data;
+
+            if (dataObj.header) {
+                var rows = dataObj.header.map(function (arr, index) {
+                    return _react2.default.createElement(
+                        _column2.default,
+                        { key: index },
+                        arr.name
+                    );
+                });
+
+                return _react2.default.createElement(
+                    _header2.default,
+                    { classes: 'e-text-grey-400', key: 'header' },
+                    _react2.default.createElement(
+                        _row2.default,
+                        null,
+                        [_react2.default.createElement(
+                            _column2.default,
+                            { key: 'checkall' },
+                            _react2.default.createElement(_switch2.default, {
+                                type: 'checkbox',
+                                name: 'checkall',
+                                onClick: this.checkRows.bind(self) })
+                        ), rows]
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'renderRows',
+        value: function renderRows() {
+            var self = this,
+                selectedRows = this.state.selectedRows,
+                dataObj = this.props.data;
+
+            if (dataObj.rows) {
+                return _react2.default.createElement(
+                    _body2.default,
+                    { classes: 'e-text-grey-700', key: 'body' },
+                    dataObj.rows.map(function (row, rowIndex) {
+                        return _react2.default.createElement(
+                            _row2.default,
+                            {
+                                key: 'row-' + rowIndex,
+                                ref: 'row-' + rowIndex,
+                                selected: selectedRows['row-' + rowIndex]
+                            },
+                            [_react2.default.createElement(
+                                _column2.default,
+                                { key: 'check-' + rowIndex },
+                                _react2.default.createElement(_switch2.default, {
+                                    type: 'checkbox',
+                                    name: 'check-' + rowIndex,
+                                    checked: selectedRows['row-' + rowIndex],
+                                    onClick: this.checkRow.bind(this, rowIndex) })
+                            ), row.map(function (arr, arrIndex) {
+                                return _react2.default.createElement(
+                                    _column2.default,
+                                    { key: rowIndex + arrIndex },
+                                    arr
+                                );
+                            }, this)]
+                        );
+                    }, this)
+                );
+            }
+            return '';
+        }
+    }, {
+        key: 'renderChildren',
+        value: function renderChildren() {
+            var data = this.props.data;
+
+            if (data) {
+                return [this.renderHeader(), this.renderRows()];
+            }
+
+            return this.props.children;
+        }
+    }, {
         key: 'render',
         value: function render() {
             var _this2 = this;
@@ -49,7 +202,7 @@ var DataTable = (function (_React$Component) {
                 { className: this.state.classes, ref: function ref(_ref) {
                         return _this2.dataTable = _ref;
                     } },
-                this.props.children
+                this.renderChildren()
             );
         }
     }]);

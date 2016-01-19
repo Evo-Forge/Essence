@@ -1,6 +1,6 @@
 {
   "name": "essence-data-table",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Essence Data Table - Data Table component.",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
@@ -16,6 +16,7 @@
     "react-dom": "^0.14.3"
   },
   "dependencies": {
-    "classnames": "^2.2.1"
+    "classnames": "^2.2.1",
+    "essence-switch": "^0.0.2"
   }
 }

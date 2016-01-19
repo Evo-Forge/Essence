@@ -27,6 +27,7 @@ class Switch extends React.Component {
                         <label>
                             {this.props.beforeText}
                             <input
+                                {...this.props}
                                 type='checkbox'
                                 defaultChecked={this.props.checked}
                                 disabled={this.props.disable}
@@ -47,6 +48,7 @@ class Switch extends React.Component {
                     <div className={radioClasses}>
                         <label>
                             <input
+                                {...this.props}
                                 type={'radio'}
                                 name={this.props.name}
                                 defaultChecked={this.props.checked}
@@ -70,6 +72,7 @@ class Switch extends React.Component {
                     <div className={checkboxClasses}>
                         <label>
                             <input
+                                {...this.props}
                                 type={'checkbox'}
                                 name={this.props.name}
                                 defaultChecked={this.props.checked}
