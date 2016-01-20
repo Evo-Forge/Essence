@@ -16,6 +16,7 @@ class DataTable extends React.Component {
         super(props);
         let self = this;
         this.state = {
+            sortIcon: {},
             classes: ClassNames(
                 'datatable',
                 this.props.classes,
@@ -70,6 +71,38 @@ class DataTable extends React.Component {
         return this;
     }
 
+    handleSort(callback, columnIndex) {
+        if (callback && columnIndex) {
+            switch (this.state.sortIcon[columnIndex]) {
+                case 'hardware-keyboard-arrow-down':
+                    this.setState({
+                        sortIcon: {[columnIndex]: 'hardware-keyboard-arrow-up'}
+                    });
+                    break;
+                case 'hardware-keyboard-arrow-up':
+                    this.setState({
+                        sortIcon: {[columnIndex]: 'hardware-keyboard-arrow-down'}
+                    });
+                    break;
+                default:
+                    this.setState({
+                        sortIcon: {[columnIndex]: 'hardware-keyboard-arrow-up'}
+                    });
+                    break;
+            }
+
+            return callback();
+        }
+        return;
+    }
+
+    renderSortIcon(index) {
+        if (this.state.sortIcon[index]) {
+            return (<span key={'sort-icon-' + index} className={'e-icon-' + this.state.sortIcon[index] || ''} />);
+        }
+        return;
+    }
+
     renderHeader() {
         let self = this,
             dataObj = this.props.data;
@@ -77,12 +110,13 @@ class DataTable extends React.Component {
         if (dataObj.header) {
             var rows = (dataObj.header).map(function(arr, index){ 
                 return (
-                    <DataTableColumn 
-                        key={index} 
-                        onClick={arr.onSorting}
-                        onTouch={arr.onSorting}
+                    <DataTableColumn
+                        key={index}
+                        className={{'e-text-left': (index === 0 ? true : false)}}
+                        onClick={self.handleSort.bind(self, arr.onSorting, index)}
+                        onTouch={self.handleSort.bind(self, arr.onSorting, index)}
                     >
-                        {arr.name}
+                        {[self.renderSortIcon(index), arr.name]}
                     </DataTableColumn>
                 );
             });
@@ -195,7 +229,10 @@ class DataTable extends React.Component {
                                 </DataTableColumn>,
                                 row.map(function(arr, arrIndex){
                                     return (
-                                        <DataTableColumn key={rowIndex + arrIndex}>
+                                        <DataTableColumn
+                                            className={{'e-text-left': (arrIndex === 0 ? true : false)}}
+                                            key={rowIndex + arrIndex}
+                                        >
                                             {arr}
                                         </DataTableColumn>
                                     )
