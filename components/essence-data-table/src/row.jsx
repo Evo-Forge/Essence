@@ -16,9 +16,9 @@ class DataTableRow extends React.Component {
     render() {
         return (
             <tr 
+                {...this.props}
                 className={this.state.classes + (this.props.selected ? ' selected' : '')} 
                 ref={(ref) => this.dataTableRow = ref}
-                {...this.props}
             >
                 {this.props.children}
             </tr>

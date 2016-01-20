@@ -29,10 +29,41 @@
 	}
 
 	> tfoot {
+		position: relative;
 
-		tr { 
+		> tr { 
+			position: absolute;
+			right: @e-unit*3;
 			line-height: @e-unit*7;
+
+			td {
+				display: -webkit-box;
+
+				> .e-nav-menu { 
+					margin: 0 @e-unit*4 0 @e-unit*5;
+
+					> .e-paper {
+						min-width: 50px;
+						text-align: center;
+					}
+				}
+
+				> i {
+					text-align: center;
+				}
+
+				> .prev {
+					margin: 0 @e-unit*3 0 @e-unit*4;
+					cursor: pointer;
+				}
+
+				> .next {
+					margin-right:@e-unit*1.75;
+					cursor: pointer;
+				}
+			}
 		}
+
 	}
 
 	.e-switch { 

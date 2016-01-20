@@ -1,10 +1,12 @@
 import React from 'react';
 import ClassNames from 'classnames';
 import Switch from '../../essence-switch/src/switch.jsx';
+import Menu from '../../essence-menu/src/menu.jsx';
 
 import DataTableRow from './row.jsx';
 import DataTableBody from './body.jsx';
 import DataTableHeader from './header.jsx';
+import DataTableFooter from './footer.jsx';
 import DataTableColumn from './column.jsx';
 
 import './table.less';
@@ -74,7 +76,15 @@ class DataTable extends React.Component {
 
         if (dataObj.header) {
             var rows = (dataObj.header).map(function(arr, index){ 
-                return (<DataTableColumn key={index}>{arr.name}</DataTableColumn>);
+                return (
+                    <DataTableColumn 
+                        key={index} 
+                        onClick={arr.onSorting}
+                        onTouch={arr.onSorting}
+                    >
+                        {arr.name}
+                    </DataTableColumn>
+                );
             });
 
             return (
@@ -85,12 +95,76 @@ class DataTable extends React.Component {
                             <Switch 
                                 type='checkbox' 
                                 name='checkall'
-                                onClick={this.checkRows.bind(self)} />
+                                onClick={this.checkRows.bind(self)} 
+                                onTouch={this.checkRows.bind(self)} 
+                            />
                         </DataTableColumn>,
                         rows
                     ]}
                     </DataTableRow>
                 </DataTableHeader>
+            );
+        }
+    }
+
+    renderFooter() {
+        let self = this,
+            dataObj = this.props.data,
+            totalColumns = Object.keys(dataObj.header).length + 1; // total colSpan
+
+        if (dataObj.footer) {
+            return (
+                <DataTableFooter classes={'e-text-grey-600'} key={'footer'}>
+                    <DataTableRow>
+                        <DataTableColumn colSpan={totalColumns}>
+                            Rows per page:
+
+                            <Menu type={'cover'} placeholder={dataObj.footer.limit}>
+                                <span 
+                                    onClick={dataObj.footer.pagination.callback} 
+                                    onTouch={dataObj.footer.pagination.callback} 
+                                    placeholder={dataObj.footer.limit}>
+                                    {dataObj.footer.limit}
+                                </span>
+                                <span 
+                                    onClick={dataObj.footer.pagination.callback} 
+                                    onTouch={dataObj.footer.pagination.callback} 
+                                    placeholder={(dataObj.footer.limit * 2)}>
+                                    {dataObj.footer.limit * 2}
+                                </span>
+                                <span 
+                                    onClick={dataObj.footer.pagination.callback} 
+                                    onTouch={dataObj.footer.pagination.callback} 
+                                    placeholder={(dataObj.footer.limit * 5)}>
+                                    {dataObj.footer.limit * 5}
+                                </span>
+                                <span 
+                                    onClick={dataObj.footer.pagination.callback} 
+                                    onTouch={dataObj.footer.pagination.callback} 
+                                    placeholder={(dataObj.footer.limit * 10)}>
+                                    {dataObj.footer.limit * 10}
+                                </span>
+                            </Menu>
+
+                            <span>{dataObj.footer.pagination.start}</span>
+                            -
+                            <span>{dataObj.footer.pagination.end} of </span>
+                            <span>{dataObj.footer.total}</span>
+                            <span 
+                                className={'prev'} 
+                                onClick={dataObj.footer.prev.callback} 
+                                onTouch={dataObj.footer.prev.callback}>
+                                {dataObj.footer.prev.context}
+                            </span>
+                            <span 
+                                className={'next'} 
+                                onClick={dataObj.footer.next.callback} 
+                                onTouch={dataObj.footer.next.callback}>
+                                {dataObj.footer.next.context}
+                            </span>
+                        </DataTableColumn>
+                    </DataTableRow>
+                </DataTableFooter>
             );
         }
     }
@@ -133,14 +207,12 @@ class DataTable extends React.Component {
                 }
                 </DataTableBody>);
         }
-        return '';
+        return;
     }
 
     renderChildren() {
-        let data = this.props.data;
-
-        if (data) {
-            return [this.renderHeader(), this.renderRows()];
+        if (this.props.data) {
+            return [this.renderHeader(), this.renderRows(), this.renderFooter()];
         }
 
         return this.props.children;

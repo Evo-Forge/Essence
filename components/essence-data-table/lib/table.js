@@ -18,6 +18,10 @@ var _switch = require('../../essence-switch/src/switch.jsx');
 
 var _switch2 = _interopRequireDefault(_switch);
 
+var _menu = require('../../essence-menu/src/menu.jsx');
+
+var _menu2 = _interopRequireDefault(_menu);
+
 var _row = require('./row.jsx');
 
 var _row2 = _interopRequireDefault(_row);
@@ -29,6 +33,10 @@ var _body2 = _interopRequireDefault(_body);
 var _header = require('./header.jsx');
 
 var _header2 = _interopRequireDefault(_header);
+
+var _footer = require('./footer.jsx');
+
+var _footer2 = _interopRequireDefault(_footer);
 
 var _column = require('./column.jsx');
 
@@ -118,7 +126,11 @@ var DataTable = (function (_React$Component) {
                 var rows = dataObj.header.map(function (arr, index) {
                     return _react2.default.createElement(
                         _column2.default,
-                        { key: index },
+                        {
+                            key: index,
+                            onClick: arr.onSorting,
+                            onTouch: arr.onSorting
+                        },
                         arr.name
                     );
                 });
@@ -135,8 +147,102 @@ var DataTable = (function (_React$Component) {
                             _react2.default.createElement(_switch2.default, {
                                 type: 'checkbox',
                                 name: 'checkall',
-                                onClick: this.checkRows.bind(self) })
+                                onClick: this.checkRows.bind(self),
+                                onTouch: this.checkRows.bind(self)
+                            })
                         ), rows]
+                    )
+                );
+            }
+        }
+    }, {
+        key: 'renderFooter',
+        value: function renderFooter() {
+            var self = this,
+                dataObj = this.props.data,
+                totalColumns = Object.keys(dataObj.header).length + 1; // total colSpan
+
+            if (dataObj.footer) {
+                return _react2.default.createElement(
+                    _footer2.default,
+                    { classes: 'e-text-grey-600 e-text-right', key: 'footer' },
+                    _react2.default.createElement(
+                        _row2.default,
+                        null,
+                        _react2.default.createElement(
+                            _column2.default,
+                            { colSpan: totalColumns },
+                            'Rows per page:',
+                            _react2.default.createElement(
+                                _menu2.default,
+                                { type: 'cover', placeholder: dataObj.footer.limit },
+                                _react2.default.createElement(
+                                    'span',
+                                    {
+                                        onClick: dataObj.footer.pagination.callback,
+                                        onTouch: dataObj.footer.pagination.callback,
+                                        placeholder: dataObj.footer.limit },
+                                    dataObj.footer.limit
+                                ),
+                                _react2.default.createElement(
+                                    'span',
+                                    {
+                                        onClick: dataObj.footer.pagination.callback,
+                                        onTouch: dataObj.footer.pagination.callback,
+                                        placeholder: dataObj.footer.limit * 2 },
+                                    dataObj.footer.limit * 2
+                                ),
+                                _react2.default.createElement(
+                                    'span',
+                                    {
+                                        onClick: dataObj.footer.pagination.callback,
+                                        onTouch: dataObj.footer.pagination.callback,
+                                        placeholder: dataObj.footer.limit * 5 },
+                                    dataObj.footer.limit * 5
+                                ),
+                                _react2.default.createElement(
+                                    'span',
+                                    {
+                                        onClick: dataObj.footer.pagination.callback,
+                                        onTouch: dataObj.footer.pagination.callback,
+                                        placeholder: dataObj.footer.limit * 10 },
+                                    dataObj.footer.limit * 10
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                dataObj.footer.pagination.start
+                            ),
+                            '-',
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                dataObj.footer.pagination.end,
+                                ' of '
+                            ),
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                dataObj.footer.total
+                            ),
+                            _react2.default.createElement(
+                                'span',
+                                {
+                                    className: 'prev',
+                                    onClick: dataObj.footer.prev.callback,
+                                    onTouch: dataObj.footer.prev.callback },
+                                dataObj.footer.prev.context
+                            ),
+                            _react2.default.createElement(
+                                'span',
+                                {
+                                    className: 'next',
+                                    onClick: dataObj.footer.next.callback,
+                                    onTouch: dataObj.footer.next.callback },
+                                dataObj.footer.next.context
+                            )
+                        )
                     )
                 );
             }
@@ -179,15 +285,13 @@ var DataTable = (function (_React$Component) {
                     }, this)
                 );
             }
-            return '';
+            return;
         }
     }, {
         key: 'renderChildren',
         value: function renderChildren() {
-            var data = this.props.data;
-
-            if (data) {
-                return [this.renderHeader(), this.renderRows()];
+            if (this.props.data) {
+                return [this.renderHeader(), this.renderRows(), this.renderFooter()];
             }
 
             return this.props.children;
