@@ -111,6 +111,10 @@ var Menu = (function (_React$Component) {
                     'active': !this.state.isActive
                 }, this.props.classes, this.props.className)
             });
+
+            if (child && child.hasOwnProperty('props') && child.props.callback) {
+                return child.props.callback;
+            }
         }
     }, {
         key: 'renderPlaceHolder',
@@ -148,17 +152,18 @@ var Menu = (function (_React$Component) {
             return _react2.default.Children.map(self.props.children, function (child, key) {
                 var menuChild = _react2.default.cloneElement(child, {
                     onClick: self.toggleMenu.bind(self, child),
+                    onTouch: self.toggleMenu.bind(self, child),
                     ref: function ref(_ref2) {
                         return self.menuItemChild = _ref2;
                     }
                 });
                 return _react2.default.createElement(
                     'li',
-                    {
+                    _extends({}, self.props, {
                         onClick: self.toggleMenu.bind(self),
                         ref: function ref(_ref3) {
                             return self.menuItem = _ref3;
-                        } },
+                        } }),
                     menuChild
                 );
             });

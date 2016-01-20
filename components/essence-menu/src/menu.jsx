@@ -87,6 +87,10 @@ class Menu extends React.Component {
                 this.props.className
             )
         });
+
+        if ( child && child.hasOwnProperty('props') && child.props.callback) {
+            return (child.props.callback);
+        }
     }
 
     renderPlaceHolder() {
@@ -117,11 +121,13 @@ class Menu extends React.Component {
             var menuChild = (
                 React.cloneElement(child, {
                     onClick: self.toggleMenu.bind(self, child),
+                    onTouch: self.toggleMenu.bind(self, child),
                     ref: ((ref) => self.menuItemChild = ref)
                 })
             );
             return (
                 <li 
+                    {...self.props}
                     onClick={self.toggleMenu.bind(self)}
                     ref={(ref) => self.menuItem = ref}>
                     {menuChild}

@@ -15,7 +15,11 @@ class DataTableColumn extends React.Component {
 
     render() {
         return (
-            <td className={this.state.classes} ref={(ref) => this.dataTableColumn = ref}>
+            <td 
+                {...this.props}
+                className={this.state.classes}
+                ref={(ref) => this.dataTableColumn = ref}
+            >
                 {this.props.children}
             </td>
         );

@@ -46,12 +46,12 @@ var DataTableRow = (function (_React$Component) {
 
             return _react2.default.createElement(
                 'tr',
-                _extends({
+                _extends({}, this.props, {
                     className: this.state.classes + (this.props.selected ? ' selected' : ''),
                     ref: function ref(_ref) {
                         return _this2.dataTableRow = _ref;
                     }
-                }, this.props),
+                }),
                 this.props.children
             );
         }
