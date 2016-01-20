@@ -7,14 +7,16 @@
 
 		> tr { 
 			line-height: @e-unit*8;
-			border-bottom: @e-unit*0.125 solid @e-color-grey-200; 		
+			border-bottom: @e-unit*0.125 solid @e-color-grey-200;
+			box-sizing: border-box;
 		}
 	}
 
 	> tbody {
 		tr { 
 			line-height: @e-unit*6; 
-			border-bottom: @e-unit*0.125 solid #EEE; 					
+			border-bottom: @e-unit*0.125 solid #EEE; 		
+			box-sizing: border-box;
 		}
 
 		tr:hover {
@@ -43,5 +45,9 @@
 		.e-check-valid {
 			top: @e-unit * (-1.875);
 		}
+	}
+
+	.e-input-group {
+		margin:0;
 	}
 }
