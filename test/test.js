@@ -7,12 +7,18 @@ import Block from '../components/essence-core/src/block/block.jsx';
 import Icon from '../components/essence-icon/src/icon.jsx';
 import Switch from '../components/essence-switch/src/switch.jsx';
 import Input from '../components/essence-input/src/input.jsx';
+import Menu from '../components/essence-menu/src/menu.jsx';
 
 import DataTable from '../components/essence-data-table/src/table.jsx';
 import DataTableHeader from '../components/essence-data-table/src/header.jsx';
 import DataTableBody from '../components/essence-data-table/src/body.jsx';
 import DataTableRow from '../components/essence-data-table/src/row.jsx';
 import DataTableColumn from '../components/essence-data-table/src/column.jsx';
+
+import Dialog from '../components/essence-dialog/src/dialog.jsx';
+import DialogHeader from '../components/essence-dialog/src/header.jsx';
+import DialogContent from '../components/essence-dialog/src/content.jsx';
+import DialogFooter from '../components/essence-dialog/src/footer.jsx';
 
 var tableData = {
 	'header': [ 
@@ -65,9 +71,13 @@ var tableData = {
 		['Gingerbread', '356', '3.7', '67', '4.3', '413', '3%', '8%'],
 		['Jelly bean', '356', '16.0', '94', '4.3', '129', '8%', '16%'],
 		['Lollipop', '392', '0.2', '97', '0.0', '50', '0%', '2%'],
-		['Honeycomb', '408', '3.2', '87', '0.0', '129', '4%', '45%'],
-		['Donut', '452', '25.0', '51', '4.9', '326', '0%', '22%'],
-		['KitKat', '518', '26.0', '65', '7.0', '54', '8%', '6%'],
+		['Honeycomb', '408', '3.2', '87', '0.0', '129', '4%', (
+			<Menu type={'cover'}>
+				<Input name='input' placeholder='Carja input' counter={true} />
+			</Menu>
+		)],
+		['Donut', '452', '25.0', '51', '4.9', '326', '0%', ([<Text className={'e-left'} key={1}>Item</Text>, <Icon key={2} className={'e-right'} name='communication-contacts' />])],
+		['KitKat', '518', '26.0', '65', '7.0', '54', '8%', (<Menu type={'cover'}><Text type={'a'} href='http://www.google.com/' target={'_target'}>Google</Text><Text>Item</Text><Icon name='communication-contacts' /></Menu>)],
 		['Input', '518', '26.0', '65', '7.0', '54', '8%', (<Input name='input' placeholder='Carja input' classes={'has-success'} />)]
 	],
 	'footer': {
