@@ -212,9 +212,31 @@ class DataTableTest extends React.Component {
     }
 };
 
+class ButtonTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+        	<Btn
+				{...this.props}
+				label={this.props.label || 'Default button'}
+				type={this.props.type || 'default'}/>
+        );
+    }
+};
+
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
 		<TouchPadTest />
+		<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
 		<DataTableTest />
 	</Block>
 	,

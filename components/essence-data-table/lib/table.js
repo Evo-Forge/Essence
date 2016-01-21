@@ -148,10 +148,9 @@ var DataTable = (function (_React$Component) {
     }, {
         key: 'renderSortIcon',
         value: function renderSortIcon(index) {
-            if (this.state.sortIcon[index]) {
-                return _react2.default.createElement('span', { key: 'sort-icon-' + index, className: 'e-icon-' + this.state.sortIcon[index] || '' });
-            }
-            return;
+            var icon = this.state.sortIcon[index] || '';
+
+            return _react2.default.createElement('span', { key: 'sort-icon-' + (index || ''), className: 'e-icon-' + icon });
         }
     }, {
         key: 'renderHeader',
@@ -169,7 +168,7 @@ var DataTable = (function (_React$Component) {
                             onClick: self.handleSort.bind(self, arr.onSorting, index),
                             onTouch: self.handleSort.bind(self, arr.onSorting, index)
                         },
-                        [self.renderSortIcon(index), arr.name]
+                        [index === 0 ? null : self.renderSortIcon(index), arr.name]
                     );
                 });
 

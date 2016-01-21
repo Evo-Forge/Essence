@@ -2,7 +2,7 @@ import React from 'react';
 import ClassNames from 'classnames';
 import BackgroundColor from 'essence-core/src/utils/BackgroundColor.js';
 import ClickPosition from 'essence-core/src/utils/ClickPosition.js';
-// import RippleInk from 'essence-core/src/rippleink/rippleink.jsx'; // temp disabled 
+import RippleInk from '../../essence-core/src/rippleink/rippleink.jsx'; // temp disabled 
 import './button.less'; //require('!css!less!./button.less');
 
 class Btn extends React.Component {
@@ -27,14 +27,13 @@ class Btn extends React.Component {
             return;
         }
 
-        return;
-
+        // return;
         // term disabled
-        // return (
-        //     <RippleInk
-        //         color={this.state.color}
-        //         position={this.state.position}/>
-        // );
+        return (
+            <RippleInk
+                color={this.state.color}
+                position={this.state.position}/>
+        );
     }
 
     renderContent() {

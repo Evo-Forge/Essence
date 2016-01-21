@@ -97,10 +97,9 @@ class DataTable extends React.Component {
     }
 
     renderSortIcon(index) {
-        if (this.state.sortIcon[index]) {
-            return (<span key={'sort-icon-' + index} className={'e-icon-' + this.state.sortIcon[index] || ''} />);
-        }
-        return;
+        let icon = this.state.sortIcon[index] || '';
+
+        return (<span key={'sort-icon-' + (index || '')} className={'e-icon-' + icon} />);
     }
 
     renderHeader() {
@@ -116,7 +115,10 @@ class DataTable extends React.Component {
                         onClick={self.handleSort.bind(self, arr.onSorting, index)}
                         onTouch={self.handleSort.bind(self, arr.onSorting, index)}
                     >
-                        {[self.renderSortIcon(index), arr.name]}
+                        {[
+                            (index === 0 ? null : self.renderSortIcon(index)), 
+                            arr.name
+                        ]}
                     </DataTableColumn>
                 );
             });
