@@ -36,10 +36,14 @@ var TouchPad = (function (_React$Component) {
 
         _this.state = {
             visible: _this.props.visible,
+            close: false,
             style: {
-                display: 'none',
-                top: '200px',
-                left: '200px'
+                visibility: 'hidden',
+                opacity: '0',
+                width: '0',
+                height: '0',
+                top: '50%',
+                left: '50%'
             },
             classes: (0, _classnames2.default)('e-touchpad', _this.props.classes, _this.props.className)
         };
@@ -53,18 +57,28 @@ var TouchPad = (function (_React$Component) {
                 left = nextProps.position.left - 108;
             this.setState({
                 style: {
-                    display: nextProps.visible ? 'block' : 'none',
+                    visibility: nextProps.visible ? 'visible' : 'hidden',
+                    opacity: nextProps.visible ? '1' : '0',
                     top: (top < 0 ? 4 : top) + 'px',
                     left: (left < 0 ? 4 : left) + 'px'
-                }
+                },
+                close: nextProps.visible ? true : false
             });
         }
     }, {
         key: 'closeTouchPad',
         value: function closeTouchPad() {
+            var style = this.state.style;
+
+            style.visibility = 'hidden';
+            style.width = '0';
+            style.height = '0';
+            style.opacity = '0';
+
             this.setState({
                 visible: false,
-                style: { display: 'none' }
+                style: style,
+                close: false
             });
         }
     }, {
@@ -87,6 +101,7 @@ var TouchPad = (function (_React$Component) {
                     'button',
                     {
                         type: 'button',
+                        style: this.state.close ? { display: 'block' } : { display: 'none' },
                         className: 'e-ripple close e-btn-default flat',
                         onClick: this.closeTouchPad.bind(this)
                     },
