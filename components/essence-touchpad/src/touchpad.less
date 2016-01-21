@@ -15,13 +15,12 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #FFF;
-      // opacity: .959999;
-      filter: opacity(95%);
-      -o-filter: opacity(95%);
-      -ms-filter: opacity(95%);
-      -moz-filter: opacity(95%);
-      -webkit-filter: opacity(95%);
+      background: #FFF;            
+      -o-filter: opacity(90%);
+      -ms-filter: opacity(90%);
+      -moz-filter: opacity(90%);
+      -webkit-filter: opacity(90%);
+      filter: opacity(90%);
     }
     
     button {
@@ -44,13 +43,13 @@
   
       &:hover {
         background: @e-color-grey-300;
-        border: 1px solid @e-color-grey-400;
+        box-shadow:0 0 0 1px @e-color-grey-400;        
       }
       
       &:focus {
         // color: @e-color-white!important;
         background: @e-color-grey-400;
-        border: 1px solid @e-color-grey-400;
+        box-shadow:0 0 0 1px @e-color-grey-400;
       }
 
 
@@ -101,7 +100,7 @@
       &.close {
         top: 76px;
         left: 76px;
-        border: 1px solid @e-color-grey-300;
+        box-shadow:0 0 0 1px @e-color-grey-300;        
       }
     }
 }
