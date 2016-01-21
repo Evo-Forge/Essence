@@ -41,8 +41,9 @@ class Btn extends React.Component {
         if (this.props.type === 'touchpad') {
             return (
                 <div className={'container'}>
-                    <i key={'touchpad-icon'} className={'e-icon-' + this.props.icon}/>
-                    <span key={'touchpad-label'} className={'label'}>{this.props.label}</span>
+                    <i key={'touchpad-icon'} className={'e-icon-' + this.props.icon}>
+                        <span key={'touchpad-label'} className={'label'}>{this.props.label}</span>
+                    </i>
                 </div>
             );
         }
