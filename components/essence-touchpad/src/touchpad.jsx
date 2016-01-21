@@ -10,7 +10,11 @@ class TouchPad extends React.Component {
         
         this.state = {
             visible: this.props.visible,
-            style: { display: 'none' },
+            style: { 
+                display: 'none', 
+                top: '200px', 
+                left: '200px' 
+            },
             classes: ClassNames(
                 'e-touchpad',
                 this.props.classes,
@@ -20,8 +24,14 @@ class TouchPad extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        let top = (nextProps.position.top - 108),
+            left = (nextProps.position.left - 108);
         this.setState({
-            style: { display: (nextProps.visible ? 'block' : 'none') }
+            style: { 
+                display: (nextProps.visible ? 'block' : 'none'),
+                top: (top < 0 ? 4 : top) + 'px', 
+                left: (left < 0 ? 4 : left) + 'px'
+            }
         });
     }
 
