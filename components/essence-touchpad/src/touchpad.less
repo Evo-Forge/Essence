@@ -1,13 +1,11 @@
 @import '../../essence-core/src/less/mixins.less';
 
 .e-touchpad {
-    position: relative;
+    position: absolute;
     width: @e-unit*27;
     height: @e-unit*27;
     border-radius: 50%;
-    .e-shadow-1();
-    top: @e-unit*(-25);
-    left: @e-unit*25;
+    .e-shadow-1();    
     color: @e-color-grey-700!important;
 
     .blur {
@@ -16,17 +14,18 @@
       height: 100%;
       border-radius: 50%;
       background: #FFF;            
-      -o-filter: opacity(90%);
-      -ms-filter: opacity(90%);
-      -moz-filter: opacity(90%);
-      -webkit-filter: opacity(90%);
-      filter: opacity(90%);
+      -o-filter: opacity(97%);
+      -ms-filter: opacity(97%);
+      -moz-filter: opacity(97%);
+      -webkit-filter: opacity(97%);
+      filter: opacity(97%);
     }
     
     button {
       position: absolute;
       width: @btn-unit*6;
       height: @btn-unit*6;
+      padding-top: @e-unit*0.5;
       border-radius: 50%;
       background: transparent;
       color: inherit!important;
@@ -35,9 +34,19 @@
         position: relative;
 
         .label {
+
+          position: relative;
+          top: @e-unit*(-1);
           display: block;
           font-size: @e-unit*1.25;
           text-transform: uppercase;
+          font-weight: 700;
+        }
+
+        .e-icon-navigation-close {
+          span {
+            display: none;
+          }
         }
       }
   
