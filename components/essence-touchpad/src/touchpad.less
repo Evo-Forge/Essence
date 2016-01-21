@@ -2,12 +2,12 @@
 
 .e-touchpad {
     position: relative;
-    width: 216px;
-    height: 216px;
+    width: @e-unit*27;
+    height: @e-unit*27;
     border-radius: 50%;
     .e-shadow-1();
-    top: -200px;
-    left: 200px;
+    top: @e-unit*(-25);
+    left: @e-unit*25;
     color: @e-color-grey-700!important;
 
     .blur {
@@ -15,13 +15,12 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #FFF;
-      // opacity: .959999;
-      filter: opacity(95%);
-      -o-filter: opacity(95%);
-      -ms-filter: opacity(95%);
-      -moz-filter: opacity(95%);
-      -webkit-filter: opacity(95%);
+      background: #FFF;            
+      -o-filter: opacity(90%);
+      -ms-filter: opacity(90%);
+      -moz-filter: opacity(90%);
+      -webkit-filter: opacity(90%);
+      filter: opacity(90%);
     }
     
     button {
@@ -37,20 +36,20 @@
 
         .label {
           display: block;
-          font-size: 10px;
+          font-size: @e-unit*1.25;
           text-transform: uppercase;
         }
       }
   
       &:hover {
-        background: @e-color-grey-300;
-        border: 1px solid @e-color-grey-400;
+        background: @e-color-grey-300;        
+        .box-shadow(0 0 0 1px @e-color-grey-400);
       }
       
       &:focus {
         // color: @e-color-white!important;
         background: @e-color-grey-400;
-        border: 1px solid @e-color-grey-400;
+        .box-shadow(0 0 0 1px @e-color-grey-400);
       }
 
 
@@ -59,49 +58,49 @@
       }
 
       &.copy {
-        top: -1px;
-        left: 76px;
+        top: @e-unit*(-0.125);
+        left: @e-unit*9.5;
       }
 
       &.paste {
-        top: 22px;
-        right: 22px;
+        top: @e-unit*2.75;
+        right: @e-unit*2.75;
       }
 
       &.redo {
-        top: 76px;
-        right: -1px;
+        top: @e-unit*9.5;
+        right: @e-unit*(-0.125);
       }
 
       &.bold {
-        bottom: 22px;
-        right: 22px;
+        bottom: @e-unit*2.75;
+        right: @e-unit*2.75;
       }
 
       &.more {
-        bottom: -1px;
-        left: 76px;
+        bottom: @e-unit*(-0.125);
+        left: @e-unit*9.5;
       }
 
       &.italic {
-        bottom: 22px;
-        left: 22px;
+        bottom: @e-unit*2.75;
+        left: @e-unit*2.75;
       }
       
       &.undo {
-        top: 76px;
-        left: -1px;
+        top: @e-unit*9.5;
+        left: @e-unit*(-0.125);
       }
 
       &.cut {
-        top: 22px;
-        left: 22px;
+        top: @e-unit*2.75;
+        left: @e-unit*2.75;
       }
 
       &.close {
-        top: 76px;
-        left: 76px;
-        border: 1px solid @e-color-grey-300;
+        top: @e-unit*9.5;
+        left: @e-unit*9.5;
+        .box-shadow(0 0 0 1px @e-color-grey-300);
       }
     }
 }
