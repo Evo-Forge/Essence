@@ -38,11 +38,21 @@ class Btn extends React.Component {
     }
 
     renderContent() {
+        if (this.props.type === 'touchpad') {
+            return (
+                <div className={'container'}>
+                    <i key={'touchpad-icon'} className={'e-icon-' + this.props.icon}/>
+                    <span key={'touchpad-label'} className={'label'}>{this.props.label}</span>
+                </div>
+            );
+        }
+
         if (this.props.icon) {
             return (
                 <i className={'e-icon-' + this.props.icon}/>
             )
         }
+
         return (this.props.label || '');
     }
 
@@ -60,7 +70,7 @@ class Btn extends React.Component {
     }
 
     renderBtn() {
-        let buttonType = this.props.type || 'default flat';
+        let buttonType = this.props.type === 'touchpad' ? 'default flat' : this.props.type || 'default flat';
         let buttonClasses = ClassNames(this.state.classes, 'e-btn-' + buttonType);
         return (
             <button 

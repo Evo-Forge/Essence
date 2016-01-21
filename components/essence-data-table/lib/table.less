@@ -3,18 +3,24 @@
 .datatable {
 	width: 100%;
 
+	td {
+		text-align: right;
+	}
+	
 	> thead {
 
 		> tr { 
 			line-height: @e-unit*8;
-			border-bottom: @e-unit*0.125 solid @e-color-grey-200; 		
+			border-bottom: @e-unit*0.125 solid @e-color-grey-200;
+			box-sizing: border-box;
 		}
 	}
 
 	> tbody {
 		tr { 
 			line-height: @e-unit*6; 
-			border-bottom: @e-unit*0.125 solid #EEE; 					
+			border-bottom: @e-unit*0.125 solid #EEE; 		
+			box-sizing: border-box;
 		}
 
 		tr:hover {
@@ -27,10 +33,41 @@
 	}
 
 	> tfoot {
+		position: relative;
 
-		tr { 
+		> tr { 
+			position: absolute;
+			right: @e-unit*3;
 			line-height: @e-unit*7;
+
+			td {
+				display: -webkit-box;
+
+				> .e-nav-menu { 
+					margin: 0 @e-unit*4 0 @e-unit*5;
+
+					> .e-paper {
+						min-width: 50px;
+						text-align: center;
+					}
+				}
+
+				> i {
+					text-align: center;
+				}
+
+				> .prev {
+					margin: 0 @e-unit*3 0 @e-unit*4;
+					cursor: pointer;
+				}
+
+				> .next {
+					margin-right:@e-unit*1.75;
+					cursor: pointer;
+				}
+			}
 		}
+
 	}
 
 	.e-switch { 
@@ -43,5 +80,9 @@
 		.e-check-valid {
 			top: @e-unit * (-1.875);
 		}
+	}
+
+	.e-input-group {
+		margin:0;
 	}
 }

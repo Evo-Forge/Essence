@@ -46,6 +46,8 @@ require('./table.less');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -62,6 +64,7 @@ var DataTable = (function (_React$Component) {
 
         var self = _this;
         _this.state = {
+            sortIcon: {},
             classes: (0, _classnames2.default)('datatable', _this.props.classes, _this.props.className),
             selectedRows: {},
             selectedAllRows: false
@@ -117,6 +120,40 @@ var DataTable = (function (_React$Component) {
             return this;
         }
     }, {
+        key: 'handleSort',
+        value: function handleSort(callback, columnIndex) {
+            if (callback && columnIndex) {
+                switch (this.state.sortIcon[columnIndex]) {
+                    case 'hardware-keyboard-arrow-down':
+                        this.setState({
+                            sortIcon: _defineProperty({}, columnIndex, 'hardware-keyboard-arrow-up')
+                        });
+                        break;
+                    case 'hardware-keyboard-arrow-up':
+                        this.setState({
+                            sortIcon: _defineProperty({}, columnIndex, 'hardware-keyboard-arrow-down')
+                        });
+                        break;
+                    default:
+                        this.setState({
+                            sortIcon: _defineProperty({}, columnIndex, 'hardware-keyboard-arrow-up')
+                        });
+                        break;
+                }
+
+                return callback();
+            }
+            return;
+        }
+    }, {
+        key: 'renderSortIcon',
+        value: function renderSortIcon(index) {
+            if (this.state.sortIcon[index]) {
+                return _react2.default.createElement('span', { key: 'sort-icon-' + index, className: 'e-icon-' + this.state.sortIcon[index] || '' });
+            }
+            return;
+        }
+    }, {
         key: 'renderHeader',
         value: function renderHeader() {
             var self = this,
@@ -128,10 +165,11 @@ var DataTable = (function (_React$Component) {
                         _column2.default,
                         {
                             key: index,
-                            onClick: arr.onSorting,
-                            onTouch: arr.onSorting
+                            className: { 'e-text-left': index === 0 ? true : false },
+                            onClick: self.handleSort.bind(self, arr.onSorting, index),
+                            onTouch: self.handleSort.bind(self, arr.onSorting, index)
                         },
-                        arr.name
+                        [self.renderSortIcon(index), arr.name]
                     );
                 });
 
@@ -165,7 +203,7 @@ var DataTable = (function (_React$Component) {
             if (dataObj.footer) {
                 return _react2.default.createElement(
                     _footer2.default,
-                    { classes: 'e-text-grey-600 e-text-right', key: 'footer' },
+                    { classes: 'e-text-grey-600', key: 'footer' },
                     _react2.default.createElement(
                         _row2.default,
                         null,
@@ -277,7 +315,10 @@ var DataTable = (function (_React$Component) {
                             ), row.map(function (arr, arrIndex) {
                                 return _react2.default.createElement(
                                     _column2.default,
-                                    { key: rowIndex + arrIndex },
+                                    {
+                                        className: { 'e-text-left': arrIndex === 0 ? true : false },
+                                        key: rowIndex + arrIndex
+                                    },
                                     arr
                                 );
                             }, this)]
