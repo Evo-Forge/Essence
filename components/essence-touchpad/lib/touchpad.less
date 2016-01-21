@@ -1,0 +1,115 @@
+@import '../../essence-core/src/less/mixins.less';
+
+.e-touchpad {
+    position: absolute;
+    width: @e-unit*27;
+    height: @e-unit*27;
+    border-radius: 50%;
+    .e-shadow-1();    
+    color: @e-color-grey-700!important;
+
+    .blur {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: #FFF;            
+      -o-filter: opacity(97%);
+      -ms-filter: opacity(97%);
+      -moz-filter: opacity(97%);
+      -webkit-filter: opacity(97%);
+      filter: opacity(97%);
+    }
+    
+    button {
+      position: absolute;
+      width: @btn-unit*6;
+      height: @btn-unit*6;
+      padding-top: @e-unit*0.5;
+      border-radius: 50%;
+      background: transparent;
+      color: inherit!important;
+
+      .container {
+        position: relative;
+
+        .label {
+
+          position: relative;
+          top: @e-unit*(-1);
+          display: block;
+          font-size: @e-unit*1.25;
+          text-transform: uppercase;
+          font-weight: 700;
+        }
+
+        .e-icon-navigation-close {
+          span {
+            display: none;
+          }
+        }
+      }
+  
+      &:hover {
+        background: @e-color-grey-300;        
+        .box-shadow(0 0 0 1px @e-color-grey-400);
+      }
+      
+      &:focus {
+        // color: @e-color-white!important;
+        background: @e-color-grey-400;
+        .box-shadow(0 0 0 1px @e-color-grey-400);
+      }
+
+
+      &.flat {
+        min-width: inherit;
+      }
+
+      &.copy {
+        top: @e-unit*(-0.125);
+        left: @e-unit*9.5;
+      }
+
+      &.paste {
+        top: @e-unit*2.75;
+        right: @e-unit*2.75;
+      }
+
+      &.redo {
+        top: @e-unit*9.5;
+        right: @e-unit*(-0.125);
+      }
+
+      &.bold {
+        bottom: @e-unit*2.75;
+        right: @e-unit*2.75;
+      }
+
+      &.more {
+        bottom: @e-unit*(-0.125);
+        left: @e-unit*9.5;
+      }
+
+      &.italic {
+        bottom: @e-unit*2.75;
+        left: @e-unit*2.75;
+      }
+      
+      &.undo {
+        top: @e-unit*9.5;
+        left: @e-unit*(-0.125);
+      }
+
+      &.cut {
+        top: @e-unit*2.75;
+        left: @e-unit*2.75;
+      }
+
+      &.close {
+        top: @e-unit*9.5;
+        left: @e-unit*9.5;
+        .box-shadow(0 0 0 1px @e-color-grey-300);
+      }
+    }
+}

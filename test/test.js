@@ -24,7 +24,7 @@ import DialogFooter from '../components/essence-dialog/src/footer.jsx';
 
 import TouchPad from '../components/essence-touchpad/src/touchpad.jsx';
 
-class Test extends React.Component {
+class TouchPadTest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -193,73 +193,29 @@ var tableData = {
 	}
 };
 
+class DataTableTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+        	visible: false,
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+        	<DataTable data={tableData} />
+        );
+    }
+};
+
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
-		<Test />
-		{/*
-		<DataTable data={tableData} />
-		<DataTable>
-			<DataTableHeader classes={'e-text-grey-400'}>
-				<DataTableRow>
-					<DataTableColumn>
-						<Switch
-							type='checkbox'
-							name='column'
-							defaultValue='radio-value'
-						/>
-					</DataTableColumn>
-					<DataTableColumn>
-						Column 1
-					</DataTableColumn>
-					<DataTableColumn>
-						Column 2
-					</DataTableColumn>
-					<DataTableColumn>
-						Column 3
-					</DataTableColumn>
-				</DataTableRow>
-			</DataTableHeader>
-
-			<DataTableBody classes={'e-text-grey-700'}>
-				<DataTableRow>
-					<DataTableColumn>
-						<Switch
-							type='checkbox'
-							name='column'
-							defaultValue='radio-value'
-						/>
-					</DataTableColumn>
-					<DataTableColumn>Row 1 Column 1</DataTableColumn>
-					<DataTableColumn>Row 1 Column 2</DataTableColumn>
-					<DataTableColumn>Row 1 Column 3</DataTableColumn>
-				</DataTableRow>
-				<DataTableRow>
-					<DataTableColumn>
-						<Switch
-							type='checkbox'
-							name='column'
-							defaultValue='radio-value'
-						/>
-					</DataTableColumn>
-					<DataTableColumn>Row 2 Column 1</DataTableColumn>
-					<DataTableColumn>Row 2 Column 2</DataTableColumn>
-					<DataTableColumn>Row 2 Column 3</DataTableColumn>
-				</DataTableRow>
-				<DataTableRow>
-					<DataTableColumn>
-						<Switch
-							type='checkbox'
-							name='column'
-							defaultValue='radio-value'
-						/>
-					</DataTableColumn>
-					<DataTableColumn>Row 3 Column 1</DataTableColumn>
-					<DataTableColumn>Row 3 Column 2</DataTableColumn>
-					<DataTableColumn>Row 3 Column 3</DataTableColumn>
-				</DataTableRow>
-			</DataTableBody>
-		</DataTable>
-		*/}
+		<TouchPadTest />
+		<DataTableTest />
 	</Block>
 	,
 	document.querySelector('.app')

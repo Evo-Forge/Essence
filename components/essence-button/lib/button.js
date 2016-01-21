@@ -75,9 +75,26 @@ var Btn = (function (_React$Component) {
     }, {
         key: 'renderContent',
         value: function renderContent() {
+            if (this.props.type === 'touchpad') {
+                return _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(
+                        'i',
+                        { key: 'touchpad-icon', className: 'e-icon-' + this.props.icon },
+                        _react2.default.createElement(
+                            'span',
+                            { key: 'touchpad-label', className: 'label' },
+                            this.props.label
+                        )
+                    )
+                );
+            }
+
             if (this.props.icon) {
                 return _react2.default.createElement('i', { className: 'e-icon-' + this.props.icon });
             }
+
             return this.props.label || '';
         }
     }, {
@@ -97,7 +114,7 @@ var Btn = (function (_React$Component) {
         value: function renderBtn() {
             var _this2 = this;
 
-            var buttonType = this.props.type || 'default flat';
+            var buttonType = this.props.type === 'touchpad' ? 'default flat' : this.props.type || 'default flat';
             var buttonClasses = (0, _classnames2.default)(this.state.classes, 'e-btn-' + buttonType);
             return _react2.default.createElement(
                 'button',
