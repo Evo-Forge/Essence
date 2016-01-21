@@ -10,12 +10,26 @@ class TouchPad extends React.Component {
         
         this.state = {
             visible: this.props.visible,
+            style: { display: 'none' },
             classes: ClassNames(
                 'e-touchpad',
                 this.props.classes,
                 this.props.className
             )
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            style: { display: (nextProps.visible ? 'block' : 'none') }
+        });
+    }
+
+    closeTouchPad() {
+        this.setState({
+            visible: false,
+            style: { display: 'none' }
+        });
     }
 
     render() {
@@ -27,6 +41,18 @@ class TouchPad extends React.Component {
             >
                 <div className={'blur'} />
                 {this.props.children}
+
+                <button 
+                    type='button'
+                    className={'e-ripple close e-btn-default flat'}
+                    onClick={this.closeTouchPad.bind(this)}
+                >
+                    <div className={'container'}>
+                        <i className={'e-icon-navigation-close'}>
+                            <span className={'label'} />
+                        </i>
+                    </div>
+                </button>
             </div>
         );
     }
