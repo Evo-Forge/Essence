@@ -23,6 +23,7 @@ import DialogContent from '../components/essence-dialog/src/content.jsx';
 import DialogFooter from '../components/essence-dialog/src/footer.jsx';
 
 import TouchPad from '../components/essence-touchpad/src/touchpad.jsx';
+import Tooltip from '../components/essence-tooltip/src/tooltip.jsx';
 
 class TouchPadTest extends React.Component {
     constructor(props) {
@@ -237,6 +238,11 @@ ReactDOM.render(
 	<Block classes={'brick brick-12'}>
 		<TouchPadTest />
 		<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
+		<ButtonTest 
+			className={'raised e-text-red-500'} 
+			tooltip={'This is a default tooltip button'} 
+			label={['buton tooltip', <Tooltip key={'tooltip-1'} text={'Default tooltip'} visible={true} />]} 
+			type={'primary'} />
 		<DataTableTest />
 	</Block>
 	,

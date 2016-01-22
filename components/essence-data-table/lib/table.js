@@ -22,6 +22,10 @@ var _menu = require('../../essence-menu/src/menu.jsx');
 
 var _menu2 = _interopRequireDefault(_menu);
 
+var _tooltip = require('../../essence-tooltip/src/tooltip.jsx');
+
+var _tooltip2 = _interopRequireDefault(_tooltip);
+
 var _row = require('./row.jsx');
 
 var _row2 = _interopRequireDefault(_row);
@@ -66,6 +70,7 @@ var DataTable = (function (_React$Component) {
         _this.state = {
             sortIcon: {},
             classes: (0, _classnames2.default)('datatable', _this.props.classes, _this.props.className),
+            tooltips: {},
             selectedRows: {},
             selectedAllRows: false
         };
@@ -146,11 +151,47 @@ var DataTable = (function (_React$Component) {
             return;
         }
     }, {
+        key: 'renderTooltip',
+        value: function renderTooltip(text, index) {
+            return _react2.default.createElement(_tooltip2.default, {
+                text: text,
+                key: 'tooltip-' + index,
+                visible: this.state.tooltips[index] || false });
+        }
+    }, {
+        key: 'tooltipShow',
+        value: function tooltipShow(columnIndex) {
+            this.setState({
+                tooltips: _defineProperty({}, columnIndex, true)
+            });
+        }
+    }, {
+        key: 'tooltipHide',
+        value: function tooltipHide(columnIndex) {
+            this.setState({
+                tooltips: _defineProperty({}, columnIndex, false)
+            });
+        }
+    }, {
         key: 'renderSortIcon',
         value: function renderSortIcon(index) {
             var icon = this.state.sortIcon[index] || '';
 
             return _react2.default.createElement('span', { key: 'sort-icon-' + (index || ''), className: 'e-icon-' + icon });
+        }
+    }, {
+        key: 'renderHeaderContent',
+        value: function renderHeaderContent(context, index) {
+            return _react2.default.createElement(
+                'span',
+                {
+                    key: 'header-content-' + index,
+                    onMouseEnter: this.tooltipShow.bind(this, index),
+                    onMouseLeave: this.tooltipHide.bind(this, index)
+                },
+                context
+            );
+            return;
         }
     }, {
         key: 'renderHeader',
@@ -168,7 +209,7 @@ var DataTable = (function (_React$Component) {
                             onClick: self.handleSort.bind(self, arr.onSorting, index),
                             onTouch: self.handleSort.bind(self, arr.onSorting, index)
                         },
-                        [index === 0 ? null : self.renderSortIcon(index), arr.name]
+                        [index === 0 ? null : self.renderSortIcon(index), self.renderHeaderContent(arr.name, index), arr.tooltip ? self.renderTooltip(arr.tooltip, index) : null]
                     );
                 });
 

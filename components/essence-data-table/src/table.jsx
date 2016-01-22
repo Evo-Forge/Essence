@@ -2,6 +2,7 @@ import React from 'react';
 import ClassNames from 'classnames';
 import Switch from '../../essence-switch/src/switch.jsx';
 import Menu from '../../essence-menu/src/menu.jsx';
+import Tooltip from '../../essence-tooltip/src/tooltip.jsx';
 
 import DataTableRow from './row.jsx';
 import DataTableBody from './body.jsx';
@@ -22,6 +23,7 @@ class DataTable extends React.Component {
                 this.props.classes,
                 this.props.className
             ),
+            tooltips: {},
             selectedRows: {},
             selectedAllRows: false
         };
@@ -96,10 +98,44 @@ class DataTable extends React.Component {
         return;
     }
 
+    renderTooltip(text, index) {
+        return (
+            <Tooltip 
+                text={text} 
+                key={'tooltip-' + index} 
+                visible={this.state.tooltips[index] || false} />
+        );
+    }
+
+    tooltipShow(columnIndex) {
+        this.setState({
+            tooltips: {[columnIndex]: true }
+        });
+    }
+
+    tooltipHide(columnIndex) {
+        this.setState({
+            tooltips: {[columnIndex]: false }
+        });
+    }
+
     renderSortIcon(index) {
         let icon = this.state.sortIcon[index] || '';
 
         return (<span key={'sort-icon-' + (index || '')} className={'e-icon-' + icon} />);
+    }
+
+    renderHeaderContent(context, index) {
+        return (
+            <span 
+                key={'header-content-' + index} 
+                onMouseEnter={this.tooltipShow.bind(this, index)}
+                onMouseLeave={this.tooltipHide.bind(this, index)}
+            >
+                {context}
+            </span>
+        );
+        return;
     }
 
     renderHeader() {
@@ -117,7 +153,8 @@ class DataTable extends React.Component {
                     >
                         {[
                             (index === 0 ? null : self.renderSortIcon(index)), 
-                            arr.name
+                            (self.renderHeaderContent(arr.name, index)),
+                            (arr.tooltip ? self.renderTooltip(arr.tooltip, index) : null)
                         ]}
                     </DataTableColumn>
                 );
