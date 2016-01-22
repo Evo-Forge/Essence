@@ -35,16 +35,9 @@ var TouchPad = (function (_React$Component) {
         var self = _this;
 
         _this.state = {
-            visible: _this.props.visible,
+            visible: _this.props.visible || false,
             close: false,
-            style: {
-                visibility: 'hidden',
-                opacity: '0',
-                width: '0',
-                height: '0',
-                top: '50%',
-                left: '50%'
-            },
+            style: {},
             classes: (0, _classnames2.default)('e-touchpad', _this.props.classes, _this.props.className)
         };
         return _this;
@@ -55,29 +48,43 @@ var TouchPad = (function (_React$Component) {
         value: function componentWillReceiveProps(nextProps) {
             var top = nextProps.position.top - 108,
                 left = nextProps.position.left - 108;
+
             this.setState({
                 style: {
-                    visibility: nextProps.visible ? 'visible' : 'hidden',
-                    opacity: nextProps.visible ? '1' : '0',
                     top: (top < 0 ? 4 : top) + 'px',
                     left: (left < 0 ? 4 : left) + 'px'
                 },
+                visible: nextProps.visible ? true : false,
                 close: nextProps.visible ? true : false
             });
         }
     }, {
+        key: 'renderClose',
+        value: function renderClose() {
+            return _react2.default.createElement(
+                'button',
+                {
+                    type: 'button',
+                    style: { display: this.state.close ? 'block' : 'none' },
+                    className: 'e-btn-default flat close',
+                    onClick: this.closeTouchPad.bind(this)
+                },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(
+                        'i',
+                        { className: 'e-icon-navigation-close' },
+                        _react2.default.createElement('span', { className: 'label' })
+                    )
+                )
+            );
+        }
+    }, {
         key: 'closeTouchPad',
         value: function closeTouchPad() {
-            var style = this.state.style;
-
-            style.visibility = 'hidden';
-            style.width = '0';
-            style.height = '0';
-            style.opacity = '0';
-
             this.setState({
                 visible: false,
-                style: style,
                 close: false
             });
         }
@@ -90,31 +97,14 @@ var TouchPad = (function (_React$Component) {
                 'div',
                 {
                     style: this.state.style,
-                    className: this.state.classes,
+                    className: (0, _classnames2.default)(this.state.classes, { 'show': this.state.visible }),
                     ref: function ref(_ref) {
                         return _this2.TouchPadContainer = _ref;
                     }
                 },
                 _react2.default.createElement('div', { className: 'blur' }),
                 this.props.children,
-                _react2.default.createElement(
-                    'button',
-                    {
-                        type: 'button',
-                        style: this.state.close ? { display: 'block' } : { display: 'none' },
-                        className: 'e-ripple close e-btn-default flat',
-                        onClick: this.closeTouchPad.bind(this)
-                    },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'container' },
-                        _react2.default.createElement(
-                            'i',
-                            { className: 'e-icon-navigation-close' },
-                            _react2.default.createElement('span', { className: 'label' })
-                        )
-                    )
-                )
+                this.renderClose()
             );
         }
     }]);

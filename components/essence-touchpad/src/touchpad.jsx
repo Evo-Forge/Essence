@@ -9,16 +9,9 @@ class TouchPad extends React.Component {
         let self = this;
         
         this.state = {
-            visible: this.props.visible,
+            visible: this.props.visible || false,
             close: false,
-            style: { 
-                visibility: 'hidden',                 
-                opacity: '0',                 
-                width: '0',
-                height: '0',
-                top: '50%', 
-                left: '50%' 
-            },
+            style: {},
             classes: ClassNames(
                 'e-touchpad',
                 this.props.classes,
@@ -30,28 +23,37 @@ class TouchPad extends React.Component {
     componentWillReceiveProps(nextProps) {
         let top = (nextProps.position.top - 108),
             left = (nextProps.position.left - 108);
+
         this.setState({
-            style: { 
-                visibility: (nextProps.visible ? 'visible' : 'hidden'),
-                opacity: (nextProps.visible ? '1' : '0'),
+            style: {
                 top: (top < 0 ? 4 : top) + 'px', 
                 left: (left < 0 ? 4 : left) + 'px'
             },
+            visible: (nextProps.visible ? true : false),
             close: (nextProps.visible ? true : false),
         });
     }
 
+    renderClose() {
+        return (
+            <button 
+                type='button'
+                style={ {display: this.state.close ? 'block' : 'none'} }
+                className={'e-btn-default flat close'}
+                onClick={this.closeTouchPad.bind(this)}
+            >
+                <div className={'container'}>
+                    <i className={'e-icon-navigation-close'}>
+                        <span className={'label'} />
+                    </i>
+                </div>
+            </button>
+        );
+    }
+
     closeTouchPad() {
-        let style = this.state.style;
-
-        style.visibility = 'hidden';
-        style.width = '0';
-        style.height = '0';
-        style.opacity = '0';
-
         this.setState({
             visible: false,
-            style: style,
             close: false
         });
     }
@@ -60,24 +62,12 @@ class TouchPad extends React.Component {
         return (
             <div
                 style={this.state.style}
-                className={this.state.classes}
+                className={ ClassNames( this.state.classes, {'show' : this.state.visible} ) }
                 ref={(ref) => this.TouchPadContainer = ref}
             >
                 <div className={'blur'} />
                 {this.props.children}
-
-                <button 
-                    type='button'
-                    style={ this.state.close ? {display: 'block'} : {display: 'none'} }
-                    className={'e-ripple close e-btn-default flat'}
-                    onClick={this.closeTouchPad.bind(this)}
-                >
-                    <div className={'container'}>
-                        <i className={'e-icon-navigation-close'}>
-                            <span className={'label'} />
-                        </i>
-                    </div>
-                </button>
+                {this.renderClose()}
             </div>
         );
     }

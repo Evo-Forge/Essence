@@ -2,25 +2,67 @@
 
 .datatable {
 	width: 100%;
+	margin-top: @e-unit*3;
 
 	td {
 		text-align: right;
+		padding-left: @e-unit*4;		 
+	}
+
+	tr {
+		> td:first-child {
+			padding:  0 @e-unit*3;			
+		}
+
+		> td:nth-child(2) {
+			padding: 0;
+		}
+
+		> td:nth-child(3) {
+			padding: 0 ;
+		}
+
+		> td:last-child {
+			padding: 0 @e-unit*3 0 @e-unit*4;
+		}
 	}
 	
 	> thead {
 
-		> tr { 
-			line-height: @e-unit*8;
+		> tr { 			
+			line-height: @e-unit*7.875;
 			border-bottom: @e-unit*0.125 solid @e-color-grey-200;
-			box-sizing: border-box;
+			color: #8b8b8b;
+			font-size: 1.2rem;
+			font-weight: 600;
+
+			> td {
+
+				max-width: @e-unit*10; 
+			    overflow: hidden;
+			    text-overflow: ellipsis; 
+			    white-space: nowrap;
+
+				.e-icon-hardware-keyboard-arrow-up, .e-icon-hardware-keyboard-arrow-down {
+					text-align: center;
+				}
+
+				span:hover {
+					color: #3f3f3f;
+					cursor: default;
+				}
+			}		
 		}
+
+		
+
 	}
 
 	> tbody {
 		tr { 
-			line-height: @e-unit*6; 
+			line-height: @e-unit*5.875; 
 			border-bottom: @e-unit*0.125 solid #EEE; 		
-			box-sizing: border-box;
+			font-size: 1.3rem;
 		}
 
 		tr:hover {
@@ -30,6 +72,10 @@
 		> .selected {
 			background: @e-color-grey-100;
 		}
+
+		i {
+			line-height: @e-unit*6;
+		}
 	}
 
 	> tfoot {
@@ -38,7 +84,8 @@
 		> tr { 
 			position: absolute;
 			right: @e-unit*3;
-			line-height: @e-unit*7;
+			line-height: @e-unit*6.875;
+			font-size: 1.2rem;
 
 			td {
 				display: -webkit-box;
@@ -47,7 +94,7 @@
 					margin: 0 @e-unit*4 0 @e-unit*5;
 
 					> .e-paper {
-						min-width: 50px;
+						min-width: @e-unit*6.25;
 						text-align: center;
 					}
 				}
@@ -71,14 +118,35 @@
 	}
 
 	.e-switch { 
-		text-align: center; 
 
 		.e-wave {
 			top: @e-unit * (-3.75);
+			left: @e-unit * (-2);
 		}
 
 		.e-check-valid {
 			top: @e-unit * (-1.875);
+		}
+		
+		.e-checkbox {
+			width: @e-unit*2.25;
+
+			> label {
+				padding-left: @e-unit*3;
+
+				.e-check-valid {
+					left: 0;
+					width: @e-unit*1.75;
+					height: @e-unit*1.75;
+				}
+			}
+		}		
+	}
+
+	.e-nav-menu {
+		ul {
+			text-align: left;
+			right: 0;
 		}
 	}
 
