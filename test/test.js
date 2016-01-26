@@ -25,6 +25,8 @@ import DialogFooter from '../components/essence-dialog/src/footer.jsx';
 import TouchPad from '../components/essence-touchpad/src/touchpad.jsx';
 import Tooltip from '../components/essence-tooltip/src/tooltip.jsx';
 
+import Chip from '../components/essence-chip/src/chip.jsx';
+
 class TouchPadTest extends React.Component {
     constructor(props) {
         super(props);
@@ -234,6 +236,40 @@ class ButtonTest extends React.Component {
     }
 };
 
+var redbullChip = {
+  name: 'redbullChip',
+  text: [<strong>Redbull</strong>, <span> (interest)</span>],
+  icon: 'R',
+  deletable: true,
+  onClose: ( function () { console.log('redbullChip chip'); } )
+}
+
+var goproChip = {
+  name: 'goproChip',
+  text: [<strong>GoPRO</strong>, <span> (interest)</span>],
+  icon: 'G',
+  deletable: true,
+  onClose: ( function () { console.log('goproChip chip'); } )
+}
+
+class ChipTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+			<Chip {...this.props} />
+        );
+    }
+};
+
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
 		<TouchPadTest />
@@ -243,6 +279,10 @@ ReactDOM.render(
 			tooltip={'This is a default tooltip button'} 
 			label={['buton tooltip', <Tooltip key={'tooltip-1'} text={'Default tooltip'} visible={true} />]} 
 			type={'primary'} />
+		<Block>
+			<ChipTest data={redbullChip} className={'e-left'} />
+			<ChipTest data={goproChip} className={'e-left'} />
+		</Block>
 		<DataTableTest />
 	</Block>
 	,

@@ -1,28 +1,53 @@
 # Essence Chip - Chip & ChipItem components.
 
 ### How to use
-```jsx
-<Chip>
-  <ChipItem
-    image='assets/img/card-user-img.jpg'
-    imageAlt='Card Image'
-    name='Gonzales'
-    email='gon@zal.es'
-  >
-  </ChipItem>
-  <ChipItem
-    image='assets/img/card-user-img.jpg'
-    imageAlt='Card Image'
-    name='Iolanda Curtiz'
-    email='io@lan.da'
-  >
-  </ChipItem>
-  <ChipItem
-    image='assets/img/card-user-img.jpg'
-    imageAlt='Card Image'
-    name='Gizela Timliv'
-    email='gizela@timl.iv'
-  >
-  </ChipItem>
-</Chip>
+
+Options:
+  - **name**: string for input name, default: chip
+  - **text**: string or html or component
+  - **icon**: string or image url
+  - **deletable**: boolean ( **true** or **false** ) - default: **false**
+  - **onClose**: callback for on closing chip component
+
+```js
+import Chip from 'essence-chip/src/chip.jsx';
+
+var redbullChip = {
+  name: 'redbullChip',
+  text: [<strong>Redbull</strong>, <span> (interest)</span>],
+  icon: 'R',
+  deletable: true,
+  onClose: ( function () { console.log('redbullChip chip'); } )
+}
+
+var goproChip = {
+  name: 'goproChip',
+  text: [<strong>GoPRO</strong>, <span> (interest)</span>],
+  icon: 'G',
+  deletable: true,
+  onClose: ( function () { console.log('goproChip chip'); } )
+}
+
+class ChipTest extends React.Component {
+  constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return (
+          <Chip {...this.props} />
+        );
+    }
+};
+
+<Block>
+  <ChipTest data={redbullChip} className={'e-left'} />
+  <ChipTest data={goproChip} className={'e-left'} />
+</Block>
 ```

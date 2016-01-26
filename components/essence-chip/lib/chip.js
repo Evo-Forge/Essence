@@ -1,7 +1,5 @@
 'use strict';
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
@@ -37,70 +35,105 @@ var Chip = (function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Chip).call(this, props));
 
         _this.state = {
-            isOpen: false,
-            isActive: false,
-            classes: (0, _classnames2.default)({
-                'chips': false
-            }, _this.props.classes, _this.props.className)
+            selected: 0,
+            value: '',
+            classes: (0, _classnames2.default)('chips', _this.props.classes, _this.props.className)
         };
         return _this;
     }
 
     _createClass(Chip, [{
-        key: 'openChip',
-        value: function openChip(event, item) {
+        key: 'selectContact',
+        value: function selectContact(data) {
             this.setState({
-                isOpen: true,
-                classes: (0, _classnames2.default)({
-                    'chips': true
-                }, this.props.classes, this.props.className)
+                selected: data.index,
+                value: data.value
             });
-            return this;
         }
     }, {
-        key: 'closeChip',
-        value: function closeChip(event, item) {
-            this.setState({
-                isOpen: false,
-                isActive: false,
-                classes: (0, _classnames2.default)({
-                    'chips': false
-                }, this.props.classes, this.props.className)
-            });
-            return this;
+        key: 'renderContact',
+        value: function renderContact() {
+            var self = this;
+            var contacts = null;
+            var contact = this.props.data && this.props.data.contact ? this.props.data.contact : false;
+
+            if (contact) {
+                contacts = _react2.default.Children.map(contact, function (child, key) {
+                    var selectedClass = self.state.selected === key ? ' selected' : '';
+
+                    return _react2.default.createElement(
+                        'li',
+                        {
+                            onClick: self.selectContact.bind(self, { index: key, value: child }),
+                            onTouch: self.selectContact.bind(self, { index: key, value: child }),
+                            key: 'chip-contact-' + key,
+                            className: 'contact' + (key === 0 ? ' first' : '') + selectedClass },
+                        child,
+                        key === 0 ? _react2.default.createElement(
+                            'span',
+                            null,
+                            'x'
+                        ) : ''
+                    );
+                });
+            }
+
+            return contacts;
+        }
+    }, {
+        key: 'renderIcon',
+        value: function renderIcon() {
+            return this.props.data.icon ? _react2.default.createElement(
+                'span',
+                { className: 'icon' },
+                this.props.data.icon
+            ) : _react2.default.createElement('span', { className: 'empty' });
+        }
+    }, {
+        key: 'handleClose',
+        value: function handleClose() {
+            if (this.props.data && this.props.data.onClose) {
+                // +hide chip
+            }
+            return this.props.data && this.props.data.onClose ? this.props.data.onClose() : null;
+        }
+    }, {
+        key: 'renderClose',
+        value: function renderClose() {
+            return this.props.data.deletable ? _react2.default.createElement('a', { href: '#!', onClick: this.handleClose.bind(this), className: 'deletable' }) : null;
+        }
+    }, {
+        key: 'renderInput',
+        value: function renderInput() {
+            return _react2.default.createElement('input', { defaulValue: this.state.value, type: 'hidden', name: this.props.data && this.props.data.name ? this.props.data.name : 'chip' });
         }
     }, {
         key: 'renderChildren',
         value: function renderChildren() {
-            var self = this;
-            return _react2.default.Children.map(this.props.children, function (child, key) {
-                var chipItem = _react2.default.cloneElement(child, {
-                    ref: function ref(_ref) {
-                        return self.chipItemChild = _ref;
-                    },
-                    handleCloseChip: self.closeChip.bind(self),
-                    handleOpenChip: self.openChip.bind(self),
-                    first: key === 0 ? true : false,
-                    open: self.state.isOpen ? true : false,
-                    active: self.state.isActive ? true : false
-                });
+            var _this2 = this;
 
-                return _react2.default.createElement(
-                    'li',
-                    { key: key, ref: function ref(_ref2) {
-                            return self.chipItem = _ref2;
-                        } },
-                    chipItem
-                );
-            });
+            return _react2.default.createElement(
+                'li',
+                { key: 'chip-item', ref: function ref(_ref) {
+                        return _this2.chipItem = _ref;
+                    } },
+                this.renderIcon(),
+                this.props.data.text,
+                this.renderClose()
+            );
         }
     }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'ul',
-                _extends({}, this.props, { style: { listStyle: 'none' }, className: this.state.classes }),
-                this.renderChildren()
+                'span',
+                null,
+                this.renderInput(),
+                _react2.default.createElement(
+                    'ul',
+                    { key: 'chip-list', className: this.state.classes },
+                    this.renderChildren()
+                )
             );
         }
     }]);
