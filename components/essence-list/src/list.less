@@ -42,24 +42,24 @@
   }
 
   .e-switch {    
-    line-height: 18px;
+    line-height: @e-unit*2.25;
 
     .e-left {
-      margin-left: 11px;
+      margin-left: @e-unit*1.375;
     }
 
     .e-left.e-switches{
-      margin: 14px 0 0 0;
-      width: 56px;
+      margin: @e-unit*1.75 0 0 0;
+      width: @e-unit*7;
     }
 
     .e-right {
-      margin-right: 6px;
+      margin-right: @e-unit*0.75;
     }
 
     .e-right.e-switches{
-      margin: 14px 14px 0 0;
-      width: 56px;
+      margin: @e-unit*1.75 @e-unit*1.75 0 0;
+      width: @e-unit*7;
     }
   }
 }
@@ -68,7 +68,7 @@
    &:extend(.e-list-navigation all);
 
   > li {
-    height: 72px;
+    height: @e-unit*9;
 
     > a {
 
@@ -81,7 +81,7 @@
       }
 
       > .content {
-        line-height: 72px;        
+        line-height: @e-unit*9;        
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -90,8 +90,8 @@
         > .primary {
           float: left;
           width: 100%;
-          height: 36px;
-          line-height: 52px;
+          height: @e-unit*4.5;
+          line-height: @e-unit*6.5;
           font-size: 1.6rem;
           overflow: hidden;
           white-space: nowrap;
@@ -101,8 +101,8 @@
         > .secondary {
           float: left;
           width: 100%;
-          height: 36px;
-          line-height: 20px;
+          height: @e-unit*4.5;
+          line-height: @e-unit*2.5;
           font-size: 1.4rem;
           color: @e-color-grey-600;
           overflow: hidden;
@@ -118,7 +118,7 @@
   &:extend(.e-twolinelist all);
 
     > li {
-    height: 88px;
+    height: @e-unit*11;
 
     > a {
 
@@ -133,21 +133,21 @@
       > .content {
 
         > .primary {
-            height: 40px;
-            line-height: 52px;        
+            height: @e-unit*5;
+            line-height: @e-unit*6.5;        
         }
 
         > .secondary {
-            height: 24px;
-            line-height: 18px;        
+            height: @e-unit*3;
+            line-height: @e-unit*2.25;        
         }
 
         > .tertiary {
 
           float: left;
           width: 100%;
-          height: 24px;
-          line-height: 12px;
+          height: @e-unit*3;
+          line-height: @e-unit*1.5;
           font-size: 1.4rem;
           color: @e-color-grey-600;
           overflow: hidden;
