@@ -30,14 +30,130 @@
       }
 
       > i {
-        padding: 0 @e-unit*2;        
-        font-size: 2.4rem;
-        line-height: @e-unit*6;
+        padding: @e-unit*1.5 @e-unit*2;        
+        font-size: 2.4rem;        
       }
 
-      > span {
-        padding: 0 @e-unit*2;
-        line-height: @e-unit*6;
+      > .content {
+        padding: 0 @e-unit*2;   
+        line-height: @e-unit*6;     
+      }
+    }
+  }
+
+  .e-switch {    
+    line-height: @e-unit*2.25;
+
+    .e-left {
+      margin-left: @e-unit*1.375;
+    }
+
+    .e-left.e-switches{
+      margin: @e-unit*1.75 0 0 0;
+      width: @e-unit*7;
+    }
+
+    .e-right {
+      margin-right: @e-unit*0.75;
+    }
+
+    .e-right.e-switches{
+      margin: @e-unit*1.75 @e-unit*1.75 0 0;
+      width: @e-unit*7;
+    }
+  }
+}
+
+.e-twolinelist { 
+   &:extend(.e-list-navigation all);
+
+  > li {
+    height: @e-unit*9;
+
+    > a {
+
+      > .e-avatar {
+        margin: @e-unit*2 0;
+      }
+
+      > i {        
+        padding: @e-unit*3 @e-unit*2;
+      }
+
+      > .content {
+        line-height: @e-unit*9;        
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 50%;
+
+        > .primary {
+          float: left;
+          width: 100%;
+          height: @e-unit*4.5;
+          line-height: @e-unit*6.5;
+          font-size: 1.6rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;          
+        }
+
+        > .secondary {
+          float: left;
+          width: 100%;
+          height: @e-unit*4.5;
+          line-height: @e-unit*2.5;
+          font-size: 1.4rem;
+          color: @e-color-grey-600;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;          
+        }
+      }
+    }
+  }
+}
+
+.e-threelinelist {
+  &:extend(.e-twolinelist all);
+
+    > li {
+    height: @e-unit*11;
+
+    > a {
+
+      > .e-avatar {
+        margin: @e-unit*3 0;
+      }
+
+      > i {        
+       padding: @e-unit*4 @e-unit*2;
+      }
+
+      > .content {
+
+        > .primary {
+            height: @e-unit*5;
+            line-height: @e-unit*6.5;        
+        }
+
+        > .secondary {
+            height: @e-unit*3;
+            line-height: @e-unit*2.25;        
+        }
+
+        > .tertiary {
+
+          float: left;
+          width: 100%;
+          height: @e-unit*3;
+          line-height: @e-unit*1.5;
+          font-size: 1.4rem;
+          color: @e-color-grey-600;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;                   
+        }
       }
     }
   }
