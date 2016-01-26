@@ -258,21 +258,22 @@ class ListTest extends React.Component {
 					<Text type={'h2'} classes={'e-text-center'}>One line List</Text>
 					<List type={'navigation'} classes={"e-background-grey-300"}>
 						<ListItem>
-							<Text type={'a'} href={'#johnny'}>
-								<Icon name={'action-stars'} classes={'e-left e-text-pink-500'} />
+							<Text type={'a'} href={'#johnny'}>							
+
+								<Switch type='checkbox' classes = 'e-left' name='radioButton'/>
 								<Block classes={'content e-left'}>
-									Johnny Bravo
+									List Controls
 								</Block>	
-								<Image src='http://i.imgur.com/Ix585.jpg' alt={'Star Wars'} classes={'e-avatar e-right'}/>																
+								<Switch type='checkbox' classes = {'e-right'} name='radioButton'/>															
 							</Text>
 						</ListItem>
 						<ListItem>
 							<Text type={'a'} href={'#bear'}>
-								<Icon name={'action-stars'} classes={'e-left'} />
+								<Switch type='switches' classes = 'e-left' name='switch'/>
 								<Block classes={'content e-left'}>
-									Uncle Bear
+									List Controls
 								</Block>
-								<Image src='http://i.imgur.com/xrDnt12.png' alt={'Star Wars'} classes={'e-avatar e-right'}/>
+								<Switch type='switches' classes = 'e-right' name='switch'/>								
 							</Text>
 						</ListItem>
 						<ListItem>
