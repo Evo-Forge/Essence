@@ -30,14 +30,108 @@
       }
 
       > i {
-        padding: 0 @e-unit*2;        
-        font-size: 2.4rem;
-        line-height: @e-unit*6;
+        padding: @e-unit*1.5 @e-unit*2;        
+        font-size: 2.4rem;        
       }
 
-      > span {
-        padding: 0 @e-unit*2;
-        line-height: @e-unit*6;
+      > .content {
+        padding: 0 @e-unit*2;   
+        line-height: @e-unit*6;     
+      }
+    }
+  }
+}
+
+.e-twolinelist { 
+   &:extend(.e-list-navigation all);
+
+  > li {
+    height: 72px;
+
+    > a {
+
+      > .e-avatar {
+        margin: @e-unit*2 0;
+      }
+
+      > i {        
+        padding: @e-unit*3 @e-unit*2;
+      }
+
+      > .content {
+        line-height: 72px;        
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 50%;
+
+        > .primary {
+          float: left;
+          width: 100%;
+          height: 36px;
+          line-height: 52px;
+          font-size: 1.6rem;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;          
+        }
+
+        > .secondary {
+          float: left;
+          width: 100%;
+          height: 36px;
+          line-height: 20px;
+          font-size: 1.4rem;
+          color: @e-color-grey-600;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;          
+        }
+      }
+    }
+  }
+}
+
+.e-threelinelist {
+  &:extend(.e-twolinelist all);
+
+    > li {
+    height: 88px;
+
+    > a {
+
+      > .e-avatar {
+        margin: @e-unit*3 0;
+      }
+
+      > i {        
+       padding: @e-unit*4 @e-unit*2;
+      }
+
+      > .content {
+
+        > .primary {
+            height: 40px;
+            line-height: 52px;        
+        }
+
+        > .secondary {
+            height: 24px;
+            line-height: 18px;        
+        }
+
+        > .tertiary {
+
+          float: left;
+          width: 100%;
+          height: 24px;
+          line-height: 12px;
+          font-size: 1.4rem;
+          color: @e-color-grey-600;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;                   
+        }
       }
     }
   }

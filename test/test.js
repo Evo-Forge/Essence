@@ -25,6 +25,11 @@ import DialogFooter from '../components/essence-dialog/src/footer.jsx';
 import TouchPad from '../components/essence-touchpad/src/touchpad.jsx';
 import Tooltip from '../components/essence-tooltip/src/tooltip.jsx';
 
+import List from '../components/essence-list/src/list.jsx';
+import ListItem from '../components/essence-list/src/item.jsx';
+
+import Image from '../components/essence-image/src/image.jsx';
+
 class TouchPadTest extends React.Component {
     constructor(props) {
         super(props);
@@ -110,6 +115,7 @@ class TouchPadTest extends React.Component {
 					<Btn type={'touchpad'} label={'undo'} icon={'content-undo'} className={'undo'} />
 					<Btn type={'touchpad'} label={'cut'} icon={'content-content-cut'} className={'cut'} />
 				</TouchPad>
+
 			</Block>
         );
     }
@@ -234,16 +240,172 @@ class ButtonTest extends React.Component {
     }
 };
 
+class ListTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+			<Block classes={'e-row'}>
+				<Block classes={'brick brick-4'}>
+					<Text type={'h2'} classes={'e-text-center'}>One line List</Text>
+					<List type={'navigation'} classes={"e-background-grey-300"}>
+						<ListItem>
+							<Text type={'a'} href={'#johnny'}>
+								<Icon name={'action-stars'} classes={'e-left e-text-pink-500'} />
+								<Block classes={'content e-left'}>
+									Johnny Bravo
+								</Block>	
+								<Image src='http://i.imgur.com/Ix585.jpg' alt={'Star Wars'} classes={'e-avatar e-right'}/>																
+							</Text>
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#bear'}>
+								<Icon name={'action-stars'} classes={'e-left'} />
+								<Block classes={'content e-left'}>
+									Uncle Bear
+								</Block>
+								<Image src='http://i.imgur.com/xrDnt12.png' alt={'Star Wars'} classes={'e-avatar e-right'}/>
+							</Text>
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#ninja'}>
+								<Icon name={'action-stars'} classes={'e-left'} />
+								<Block classes={'content e-left'}>
+									Mutant Ninja	
+								</Block>								
+								<Image src='http://i.imgur.com/a7okZb.jpg' alt={'Star Wars'} classes={'e-avatar e-right'}/>
+							</Text>
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#pokemon'}>
+								<Icon name={'action-stars'} classes={'e-left'} />
+								<Block classes={'content e-left'}>
+									Pokemon	
+								</Block>								
+								<Image src='http://i.imgur.com/l0NKIJl.jpg' alt={'Star Wars'} classes={'e-avatar e-right'}/>
+							</Text>
+						</ListItem>
+					</List>
+				</Block>
+				<Block classes={'brick brick-4'}>
+					<Text type={'h2'} classes={'e-text-center'}>Two line List</Text>
+					<List type={'navigation'} classes={"e-background-grey-300 e-twolinelist"}>
+						<ListItem>
+							<Text type={'a'} href={'#johnny'}>
+								<Image src='http://i.imgur.com/Ix585.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Johnny Bravo</Text>
+									<Text classes={'secondary'}>Jan 9, 2016</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#bear'}>
+								<Image src='http://i.imgur.com/xrDnt12.png' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Uncle Bear</Text>
+									<Text classes={'secondary'}>Jan 10, 2016</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>							
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#ninja'}>
+								<Image src='http://i.imgur.com/a7okZb.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Mutant Ninja</Text>
+									<Text classes={'secondary'}>Jan 11, 2016</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>									
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#pokemon'}>
+								<Image src='http://i.imgur.com/l0NKIJl.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Pokemon</Text>
+									<Text classes={'secondary'}>Jan 11, 2016</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>	
+						</ListItem>
+					</List>
+				</Block>
+				<Block classes={'brick brick-4'}>
+					<Text type={'h2'} classes={'e-text-center'}>Three line List</Text>
+					<List type={'navigation'} classes={"e-background-grey-300 e-threelinelist"}>
+						<ListItem>
+							<Text type={'a'} href={'#johnny'}>
+								<Image src='http://i.imgur.com/Ix585.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Johnny Bravo</Text>
+									<Text classes={'secondary'}>Jan 9, 2016</Text>
+									<Text classes={'tertiary'}>21:44</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#bear'}>
+								<Image src='http://i.imgur.com/xrDnt12.png' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Uncle Bear</Text>
+									<Text classes={'secondary'}>Jan 10, 2016</Text>
+									<Text classes={'tertiary'}>08:21</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>							
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#ninja'}>
+								<Image src='http://i.imgur.com/a7okZb.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Mutant Ninja</Text>
+									<Text classes={'secondary'}>Jan 11, 2016</Text>
+									<Text classes={'tertiary'}>20:14</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>									
+						</ListItem>
+						<ListItem>
+							<Text type={'a'} href={'#pokemon'}>
+								<Image src='http://i.imgur.com/l0NKIJl.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
+								<Block classes={'content e-left'}>
+									<Text classes={'primary'}>Pokemon</Text>
+									<Text classes={'secondary'}>Jan 11, 2016</Text>
+									<Text classes={'tertiary'}>22:58</Text>
+								</Block>	
+								<Icon name={'action-info'} classes={'e-right e-text-grey-500'} />
+							</Text>	
+						</ListItem>
+					</List>
+					
+				</Block>
+			</Block>
+        );
+    }
+};
+
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
 		<TouchPadTest />
+		<ListTest />	
 		<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
 		<ButtonTest 
 			className={'raised e-text-red-500'} 
 			tooltip={'This is a default tooltip button'} 
 			label={['buton tooltip', <Tooltip key={'tooltip-1'} text={'Default tooltip'} visible={true} />]} 
 			type={'primary'} />
-		<DataTableTest />
+		<DataTableTest />		
 	</Block>
 	,
 	document.querySelector('.app')

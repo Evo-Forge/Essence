@@ -65,14 +65,15 @@
       }
   
       &:hover {
-        background: @e-color-grey-300;        
+        background: @e-color-grey-300;
         .box-shadow(0 0 0 1px @e-color-grey-400);
       }
       
-      &:focus {
-        // color: @e-color-white!important;
+      &:focus {       
+        z-index: 1; 
         background: @e-color-grey-400;
         .box-shadow(0 0 0 1px @e-color-grey-400);
+        outline: none;
       }
 
 
