@@ -511,11 +511,9 @@ class AppBarTest extends React.Component {
 				</Block>
 				
 				<Block className={'e-right search-block'}>
-					<Block type={'span'}>text de impins</Block>
 					{this.renderSearch()}
 					<ButtonTest onClick={this.toggleSearch.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
 				</Block>
-				
 			</AppBar>
         );
     }
