@@ -19,6 +19,12 @@ class Input extends React.Component {
         	classes: ClassNames('e-input-group', this.props.className, this.props.classes)
         };
     }
+    
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames('e-input-group', nextProps.className, nextProps.classes)
+        });
+    }
 
     handleChange() {
         let counter = this.state.counter;

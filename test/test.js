@@ -446,18 +446,23 @@ class AppBarTest extends React.Component {
         };
     }
 
-    renderSearch() {
-    	if (this.state.search) {
-    		return (
-    			<Input
-    				type={'search'}
-					name='search-input'
-					placeholder='Search...'
-					classes={'e-no-margin e-text-white e-left'}/>
-			);
-    	}
+    renderChips() {
+    	return ([
+    		<ChipTest key={'redbullChip'} data={redbullChip} classes={'e-left'} />
+    		,
+			<ChipTest key={'goproChip'} data={goproChip} classes={'e-left'} />
+    	]);
+    }
 
-    	return '';
+    renderSearch() {
+    	let classes =  ClassNames('e-no-margin e-text-white e-left', {'hide': this.state.search});
+    	return (
+			<Input
+				type={'search'}
+				name='search-input'
+				placeholder='Search...'
+				classes={classes}/>
+		);
     }
 
     renderToast() {
@@ -474,7 +479,6 @@ class AppBarTest extends React.Component {
 
     toggleSearch() {
     	var searchStatus = !this.state.search;
-
     	this.setState({
     		search: searchStatus
     	});
@@ -508,6 +512,7 @@ class AppBarTest extends React.Component {
 				</Block>
 				
 				<Block className={'e-right'}>
+					{this.renderChips()}
 					{this.renderSearch()}
 					<ButtonTest onClick={this.toggleSearch.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
 				</Block>
