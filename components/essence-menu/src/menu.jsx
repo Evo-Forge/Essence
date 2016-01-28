@@ -29,7 +29,7 @@ class Menu extends React.Component {
                 this.props.classes,
                 this.props.className
             ),
-            placeholder: this.props.placeholder || 'Menu'
+            placeholder: this.props.placeholder
         };
     }
 
@@ -105,14 +105,24 @@ class Menu extends React.Component {
             );
         }
 
-        return (
-            <span onClick={this.toggleMenu.bind(this)}>
-                <span ref={(ref) => this.selectedMenu = ref}>
-                    {this.state.placeholder}
+        // no icon or placeholder generate default menu
+        if (!this.props.icon && !this.props.placeholder) {
+            return (
+                <span onClick={this.toggleMenu.bind(this)}>
+                    <span ref={(ref) => this.selectedMenu = ref}>Menu</span>
+                    <i className={'e-icon-navigation-arrow-drop-down'} />
                 </span>
-                <i className={'e-icon-navigation-arrow-drop-down'} />
-            </span>
-        );
+            );
+        }
+
+        if (this.props.placeholder) {
+            return (
+                <span onClick={this.toggleMenu.bind(this)}>
+                    <span ref={(ref) => this.selectedMenu = ref}>{this.props.placeholder}</span>
+                    <i className={'e-icon-navigation-arrow-drop-down'} />
+                </span>
+            );
+        }
     }
 
     renderChildren() {
