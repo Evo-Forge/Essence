@@ -32,6 +32,7 @@ import ListItem from '../components/essence-list/src/item.jsx';
 import Image from '../components/essence-image/src/image.jsx';
 import Toast from '../components/essence-toast/src/toast.jsx';
 import SnackBar from '../components/essence-snackbar/src/snackbar.jsx';
+import Tab from '../components/essence-tab/src/tab.jsx';
 
 class TouchPadTest extends React.Component {
     constructor(props) {
@@ -535,8 +536,81 @@ class TextfieldTest extends React.Component {
 			<Input
 				name='input'
 				placeholder='Disabled input'
-				classes={'has-success'}
-			/>
+				classes={'has-success'}/>
+        );
+    }
+};
+
+var tabData = {
+	'header': [
+		{
+			'context': (<Text>TouchPad</Text>)
+		},
+		{
+			'context': (<Text>Text field</Text>)
+		},
+		{
+			'context': (<Text>Button</Text>)
+		},
+		{
+			'context': (<Text>Chips</Text>)
+		},
+		{
+			'context': (<Text>Data Table</Text>)
+		},
+		{
+			'context': (<Text>List</Text>)
+		},
+		{
+			'context': (<Text>Red text</Text>),
+			'callback': ( function() { alert('Hey you'); } )
+		},
+		{
+			'context': (<Text>Toast</Text>)
+		},
+		{
+			'context': (<Text>Google</Text>),
+			'callback': ( function() { window.open('http://www.google.com/', '_blank'); })
+		}
+	],
+	'rows': [ 
+		(<TouchPadTest />),
+		(<TextfieldTest />),
+		(<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />),
+		(
+		<Block>
+			<ChipTest data={redbullChip}/>
+			<ChipTest data={goproChip} />
+		</Block>
+		),
+		(<DataTableTest />),
+		(<ListTest />),
+		(<Text className={'e-text-red-300'}>Text with color red 300</Text>),
+		(
+		<Toast classes={'e-text-green-500'} visible={true} delay={5000}>
+			Tab Toast
+		</Toast>
+		)
+	]
+};
+
+class TabTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+        	<Tab 
+        		data={tabData}
+        		classes={'e-background-cyan-500 e-text-grey-50'} 
+        		indicator={'e-background-red-500'}/>
         );
     }
 };
@@ -563,6 +637,8 @@ ReactDOM.render(
 
 		<ListTest />	
 		<DataTableTest />
+
+		<TabTest />
 	</Block>
 	,
 	document.querySelector('.app')

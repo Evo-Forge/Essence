@@ -64,6 +64,15 @@
                     opacity: 1;
                 }
             }
+            .indicator {
+                height: 2px;
+                margin-top: -2px;
+                background-color: @e-color-amber-200;
+                -webkit-transition-property: left, top, background, -webkit-transform;
+                -webkit-transition-duration: 2s, 2s, 1s, 1s;
+                -webkit-transition-timing-function: ease-out, ease-in, linear, ease-in-out;
+                -webkit-transition-delay: 0, 0, 0, 1s;
+            }
         }
     }
     &.scrollable,

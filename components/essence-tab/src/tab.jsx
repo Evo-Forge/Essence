@@ -14,30 +14,46 @@ class Tab extends React.Component {
         };
     }
 
-    selectTab(index) {
+    selectTab(callback, index) {
         this.setState({
             selected: index
         });
+
+        if (callback) {
+            return callback();
+        }
+    }
+
+    renderIndicator() {
+        return (
+           <div className={ClassNames('indicator', this.props.indicator)} /> 
+        );
     }
 
     renderHeader() {
-        let self = this;
-        let headers = this.props.data.header;
-        let content = React.Children.map(headers, function (item, key) {
-            let active = self.state.selected === key ? (self.state.selected != key)'active' : '';
-            return (
-                <li 
-                    onClick={self.selectTab.bind(self, key)}
-                    onTouch={self.selectTab.bind(self, key)}
-                    key={'tab-'+key}
-                    className={active}>
-                    {item}
-                </li>
-            )
-        });
+        let self = this,
+            headers = this.props.data.header;
+
+        let content = headers.map(function (item, key) {
+                let active = self.state.selected === key ? 'active' : '',
+                    indicator = self.state.selected === key ? (self.renderIndicator()) : null;
+
+                return (
+                    <li 
+                        onClick={self.selectTab.bind(self, item.callback, key)}
+                        onTouch={self.selectTab.bind(self, item.callback, key)}
+                        key={'tab-'+key}
+                        className={active}>
+                        <a href={'#row-' + key}>
+                            {item.context}
+                        </a>
+                        {indicator}
+                    </li>
+                )
+            });
 
         return (
-            <nav className={'e-tabs e-background-cyan-500 e-text-grey-50'}>
+            <nav className={ClassNames('e-tabs scrollable', this.state.classes)}>
                 <ul className={'e-tabs-list e-row'}>
                     {content}
                 </ul>
@@ -68,7 +84,7 @@ class Tab extends React.Component {
 
 	render() {
 		return (
-            <div {...this.props} className={this.state.classes}>
+            <div>
                 {this.renderHeader()}
                 {this.renderRows()}
             </div>
