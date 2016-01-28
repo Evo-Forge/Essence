@@ -23,34 +23,87 @@
     margin: 0;
     border-radius: 50%;
     z-index: 1;
-    height: 40px;
-    width: 40px;
-    font-size: 24px;
+    height: @e-unit*5;
+    width: @e-unit*5;
+    font-size: @e-unit*3;
 
     i {
       padding: 0;
     }
   }
-  i {
-    font-size: 24px;
-    line-height: 40px;
-  }
-}
 
-.e-appbar > span {  
+  i {
+    font-size: @e-unit*3;
+    line-height: @e-unit*5;
+  }
+
+  > span {  
   padding-left: @e-unit*2.5;
   color: inherit;  
 }
 
-.e-appbar > nav {    
-  padding-left: @e-unit*2.5;
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+      color:  @e-color-white;
+  }
 
-  span {
+  :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:  @e-color-white;
+   opacity:  1;
+  }
+  ::-moz-placeholder { /* Mozilla Firefox 19+ */
+     color:  @e-color-white;
+     opacity:  1;
+  }
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+     color:  @e-color-white;
+  }
+
+
+  input.e-input {
+    border-bottom: 1px solid @e-color-white !important;
+  }
+
+  .e-input:focus ~ .e-input-efects:after, .e-input.focus ~ .e-input-efects:after {
+    background-color: @e-color-white !important;
+  }
+
+  fieldset[disabled] .e-input, .e-input-group .e-input, .e-input {
+    border-bottom: 1px solid @e-color-white !important;
+  }
+
+  .e-input-group .e-input-efects:before {
+    background-color: @e-color-white ;
+  }
+
+  > nav {    
+  padding: 0 @e-unit;
+
     span {
-      float: left;
+      span {
+        float: left;
+      }
     }
   }
+
+  .search-block .close {
+      width: 0;
+      .transition(all 0.2s);
+
+      input {
+        line-height: @e-unit*5;
+      }
+    }
+
+  .search-block .open {
+      width: @e-unit*15;
+      .transition(all 0.2s);
+
+      input {
+        line-height: @e-unit*5;
+      }
+  }
 }
+
 
 @media (min-width: 769px) {
 
