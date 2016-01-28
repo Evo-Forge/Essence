@@ -3,6 +3,13 @@
 .e-nav-menu {
   position: relative;
   cursor: pointer;
+  z-index: 3;
+
+  &.e-right {
+    ul {
+      right: 0;
+    }
+  }
 }
 
 .e-nav-menu .e-paper {
@@ -10,11 +17,11 @@
   min-width: 200px;
 }
 
-.e-nav-menu .e-nav {
-  position: absolute;
-  &.right {
-    right: 0;
-  }
+.e-nav-menu {
+
+  .e-nav {
+    position: absolute;
+  }  
 }
 
 .e-nav-menu ul {
