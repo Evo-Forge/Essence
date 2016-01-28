@@ -30,6 +30,8 @@ import List from '../components/essence-list/src/list.jsx';
 import ListItem from '../components/essence-list/src/item.jsx';
 
 import Image from '../components/essence-image/src/image.jsx';
+import Toast from '../components/essence-toast/src/toast.jsx';
+import SnackBar from '../components/essence-snackbar/src/snackbar.jsx';
 
 class TouchPadTest extends React.Component {
     constructor(props) {
@@ -435,11 +437,55 @@ class AppBarTest extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
+        	search: false,
+        	toast: false,
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
             )
         };
+    }
+
+    renderSearch() {
+    	if (this.state.search) {
+    		return (
+    			<Input
+    				type={'search'}
+					name='search-input'
+					placeholder='Search...'
+					classes={'e-no-margin e-text-white e-left'}/>
+			);
+    	}
+
+    	return '';
+    }
+
+    renderToast() {
+    	if (this.state.toast) {
+    		return (
+    			<Toast classes={'e-text-green-500'} visible={true} delay={5000}>
+					Adaugat la Favorite
+				</Toast>
+			);
+    	}
+
+    	return;
+    }
+
+    toggleSearch() {
+    	var searchStatus = !this.state.search;
+
+    	this.setState({
+    		search: searchStatus
+    	});
+    }
+
+    toggleToast() {
+    	var toastStatus = !this.state.toast;
+
+    	this.setState({
+    		toast: toastStatus
+    	});
     }
 
     render() {
@@ -454,13 +500,44 @@ class AppBarTest extends React.Component {
 					<Text classes={'e-text-black'}>Profile</Text>
 					<Text classes={'e-text-black'}>Settings</Text>
 					<Text classes={'e-text-black'}>Logout</Text>
-				</Menu>				
-				<ButtonTest className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
+				</Menu>
+				
+				<Block className={'e-right'}>
+					{this.renderToast()}
+					<ButtonTest onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
+				</Block>
+				
+				<Block className={'e-right'}>
+					{this.renderSearch()}
+					<ButtonTest onClick={this.toggleSearch.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
+				</Block>
+				
 			</AppBar>
         );
     }
 };
 
+class TextfieldTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+			<Input
+				name='input'
+				placeholder='Disabled input'
+				classes={'has-success'}
+			/>
+        );
+    }
+};
 
 
 ReactDOM.render(
@@ -468,6 +545,9 @@ ReactDOM.render(
 		<AppBarTest />
 
 		<TouchPadTest />
+
+		<TextfieldTest />
+
 		<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
 		<ButtonTest 
 			className={'raised e-text-red-500'} 

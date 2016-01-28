@@ -65,7 +65,7 @@ class Btn extends React.Component {
         });
 
         return (
-            this.props.onClick || true
+            this.props.onClick ? this.props.onClick.call() : true
         );
     }
 

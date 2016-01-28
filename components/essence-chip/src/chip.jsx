@@ -77,10 +77,13 @@ class Chip extends React.Component {
     }
 
     renderChildren() {
+        let childs = React.Children.map(this.props.data.text, function (child, key) {
+            return child;
+        });
         return (
             <li key={'chip-item'} ref={(ref) => this.chipItem = ref}>
                 {this.renderIcon()}
-                {this.props.data.text}
+                {childs}
                 {this.renderClose()}
             </li>
         )   
