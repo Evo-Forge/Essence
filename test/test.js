@@ -450,12 +450,11 @@ class AppBarTest extends React.Component {
 
 				<Text className={'e-text-white'}>Essence - test</Text>
 
-				<Menu type={'cover'} icon={'navigation-more-vert'} classes={'e-right e-text-white'}>
-					<Text>Profile</Text>
-					<Text>Settings</Text>
-					<Text>Logout</Text>
-				</Menu>
-
+				<Menu type={'cover'} icon={'navigation-more-vert'} classes={'e-right e-text-white e-background-cyan-400'}>
+					<Text classes={'e-text-black'}>Profile</Text>
+					<Text classes={'e-text-black'}>Settings</Text>
+					<Text classes={'e-text-black'}>Logout</Text>
+				</Menu>				
 				<ButtonTest className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
 			</AppBar>
         );
