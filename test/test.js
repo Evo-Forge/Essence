@@ -297,7 +297,7 @@ class ListTest extends React.Component {
 						<ListItem>
 							<Text type={'a'} href={'#johnny'}>							
 
-								<Switch type='checkbox' classes = 'e-left' name='radioButton'/>
+								<Switch type='checkbox' classes = {'e-left'} name='radioButton'/>
 								<Block classes={'content e-left'}>
 									List Controls
 								</Block>	
@@ -306,11 +306,11 @@ class ListTest extends React.Component {
 						</ListItem>
 						<ListItem>
 							<Text type={'a'} href={'#bear'}>
-								<Switch type='switches' classes = 'e-left' name='switch'/>
+								<Switch type='switches' classes = {'e-left'} name='switch'/>
 								<Block classes={'content e-left'}>
 									List Controls
 								</Block>
-								<Switch type='switches' classes = 'e-right' name='switch'/>								
+								<Switch type='switches' classes = {'e-right'} name='switch'/>								
 							</Text>
 						</ListItem>
 						<ListItem>
@@ -437,7 +437,7 @@ class AppBarTest extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-        	search: false,
+        	search: 'close',
         	toast: false,
             classes: ClassNames(
                 this.props.classes,
@@ -446,19 +446,17 @@ class AppBarTest extends React.Component {
         };
     }
 
-    renderSearch() {
-    	if (this.state.search) {
-    		return (
-    			<Input
-    				type={'search'}
-					name='search-input'
-					placeholder='Search...'
-					classes={'e-no-margin e-text-white e-left'}/>
-			);
-    	}
+	renderSearch() {
+		console.log("search", this.state.search);
 
-    	return '';
-    }
+		return (
+			<Input
+				type={'search'}
+				name='search-input'
+				placeholder='Search...'
+				classes={ClassNames('e-no-margin e-text-white e-left', this.state.search)}/>
+		);
+	}
 
     renderToast() {
     	if (this.state.toast) {
@@ -473,10 +471,8 @@ class AppBarTest extends React.Component {
     }
 
     toggleSearch() {
-    	var searchStatus = !this.state.search;
-
     	this.setState({
-    		search: searchStatus
+    		search: (this.state.search === 'close' ? 'open' : 'close')
     	});
     }
 
@@ -507,7 +503,7 @@ class AppBarTest extends React.Component {
 					<ButtonTest onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
 				</Block>
 				
-				<Block className={'e-right'}>
+				<Block className={'e-right search-block'}>
 					{this.renderSearch()}
 					<ButtonTest onClick={this.toggleSearch.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
 				</Block>
