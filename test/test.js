@@ -431,8 +431,43 @@ class ListTest extends React.Component {
     }
 };
 
+class AppBarTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+			<AppBar classes={'e-background-cyan-400'}>
+
+				<ButtonTest className={'flat e-background-cyan-400 e-text-white e-left'} type={'primary'} icon={'navigation-menu'}/>
+
+				<Text className={'e-text-white'}>Essence - test</Text>
+
+				<Menu type={'cover'} icon={'navigation-more-vert'} classes={'e-right e-text-white'}>
+					<Text>Profile</Text>
+					<Text>Settings</Text>
+					<Text>Logout</Text>
+				</Menu>
+
+				<ButtonTest className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
+			</AppBar>
+        );
+    }
+};
+
+
+
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
+		<AppBarTest />
+
 		<TouchPadTest />
 		<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
 		<ButtonTest 
