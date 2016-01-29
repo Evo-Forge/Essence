@@ -619,27 +619,30 @@ class TabTest extends React.Component {
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
 		<AppBarTest />
-
-		<TouchPadTest />
-
-		<TextfieldTest />
-
-		<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
-		<ButtonTest 
-			className={'raised e-text-red-500'} 
-			tooltip={'This is a default tooltip button'} 
-			label={['buton tooltip', <Tooltip key={'tooltip-1'} text={'Default tooltip'} visible={true} />]} 
-			type={'primary'} />
-		<Block>
-			<ChipTest data={redbullChip}/>
-			<ChipTest data={goproChip} />
-		</Block>
-
-		<ListTest />	
-		<DataTableTest />
-
 		<TabTest />
 	</Block>
 	,
 	document.querySelector('.app')
 );
+
+/*
+
+<TouchPadTest />
+<TextfieldTest />
+
+<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />
+<ButtonTest 
+	className={'raised e-text-red-500'} 
+	tooltip={'This is a default tooltip button'} 
+	label={['buton tooltip', <Tooltip key={'tooltip-1'} text={'Default tooltip'} visible={true} />]} 
+	type={'primary'} />
+
+<Block>
+	<ChipTest data={redbullChip}/>
+	<ChipTest data={goproChip} />
+</Block>
+
+<ListTest />	
+<DataTableTest />
+
+*/
