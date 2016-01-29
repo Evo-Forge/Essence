@@ -533,11 +533,32 @@ class TextfieldTest extends React.Component {
 
     render() {
         return(
-			<Input
-				name='input'
-				placeholder='Disabled input'
-				classes={'has-success'}/>
-        );
+        	<Block>
+				<Input
+					name='input'
+					placeholder='Standard input'
+					classes={'has-success'}/>
+		        
+		        <Input
+						name='input'
+						placeholder='Counter input'
+						classes={'has-error'}
+						counter={50}/>	
+
+				<Input
+						name='input'
+						label='This label will float'
+						classes={'has-success'}/>	
+
+				<Input
+				    name='input'
+				    disabled={true}
+				    placeholder='Disabled input'
+				    classes={'has-success'}
+				/>					
+		        
+			</Block>
+			);
     }
 };
 

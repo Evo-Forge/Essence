@@ -2,7 +2,7 @@
 
 .datatable {
 	width: 100%;
-	margin-top: @e-unit*3;
+	margin: @e-unit*3 0 @e-unit*7 0;
 
 	td {
 		text-align: right;
@@ -96,6 +96,13 @@
 					> .e-paper {
 						min-width: @e-unit*6.25;
 						text-align: center;
+					}
+
+					&.cover {
+						ul.e-nav {
+							top: initial;						
+							bottom: 0;
+						}
 					}
 				}
 
