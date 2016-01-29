@@ -15,6 +15,12 @@ class Tab extends React.Component {
     }
 
     selectTab(callback, index) {
+        let currentTab = this.refs['tab-' + index];
+        
+        if (currentTab) {
+            this.tabList.scrollLeft = currentTab.getBoundingClientRect().left;
+        }
+
         this.setState({
             selected: index
         });
@@ -26,7 +32,9 @@ class Tab extends React.Component {
 
     renderIndicator() {
         return (
-           <div className={ClassNames('indicator', this.props.indicator)} /> 
+            <div 
+                className={ClassNames('indicator', this.props.indicator)} 
+                ref={(ref) => this.tabIndicator = ref}/> 
         );
     }
 
@@ -43,6 +51,7 @@ class Tab extends React.Component {
                         onClick={self.selectTab.bind(self, item.callback, key)}
                         onTouch={self.selectTab.bind(self, item.callback, key)}
                         key={'tab-'+key}
+                        ref={'tab-'+key}
                         className={active}>
                         <a href={'#row-' + key}>
                             {item.context}
@@ -54,7 +63,9 @@ class Tab extends React.Component {
 
         return (
             <nav className={ClassNames('e-tabs scrollable', this.state.classes)}>
-                <ul className={'e-tabs-list e-row'}>
+                <ul 
+                    className={'e-tabs-list e-row'}
+                    ref={(ref) => this.tabList = ref}>
                     {content}
                 </ul>
             </nav>
