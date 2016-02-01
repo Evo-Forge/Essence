@@ -30,8 +30,8 @@
                 }
             }
             .indicator {
-                height: 2px;
-                margin-top: -2px;
+                height: @e-unit*0.25;
+                margin-top: @e-unit*(-0.25);
                 background-color: @e-color-amber-200;
                 -webkit-transition-property: left, top, background, -webkit-transform;
                 -webkit-transition-duration: 2s, 2s, 1s, 1s;
@@ -67,7 +67,7 @@
             margin: 0;
             color: inherit;
             font-weight: 700;
-            line-height: 48px;
+            line-height: @e-unit*6;
             text-align: center;
             &.left {
                 left: 0;
@@ -88,10 +88,11 @@
         width: 0;
         overflow: hidden;
         padding: 0;
+        box-sizing: border-box;
         
         > * {
             position: relative;
-            left: -1500px;
+            left: @e-unit*(-150);
         }
 
         &.active {
@@ -113,10 +114,11 @@
         .e-tab-content {
 
             > * {
-                left: 2500px;
+                left: @e-unit*(300);
             }
 
             &.active {
+
                 > * {
                     left: 0;
                 }
