@@ -6,6 +6,8 @@ class Tab extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
+            revert: false,
+            previous: 0,
             selected: 0,
         	classes: ClassNames(
                 this.props.classes,
@@ -22,6 +24,8 @@ class Tab extends React.Component {
         }
 
         this.setState({
+            revert: (this.state.previous > currentTab.getBoundingClientRect().left ? true : false),
+            previous: currentTab.getBoundingClientRect().left,
             selected: index
         });
 
@@ -86,18 +90,16 @@ class Tab extends React.Component {
             )
         });
 
-        return (
-            <div className={'e-tabs-container'}>
-                {content}
-            </div>
-        );
+        return content;
     }
 
 	render() {
 		return (
             <div>
                 {this.renderHeader()}
-                {this.renderRows()}
+                <div className={ClassNames('e-tabs-container', {'revert': this.state.revert})}>
+                    {this.renderRows()}
+                </div>
             </div>
         );
 	}
