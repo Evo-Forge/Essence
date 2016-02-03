@@ -5,6 +5,8 @@
   "main": "lib/essence.min.js",
   "scripts": {
     "build": "babel src --out-dir lib",
+    "essence:test": "webpack-dev-server --devtool eval --hot --progress --colors --config templates/essence/js/webpack.config.js  --content-base templates/essence/",
+    "essence:live": "NODE_ENV=production webpack -p --config templates/essence/js/webpack.config.js && http-server ./templates/essence/ -p 8080 -a 0.0.0.0 -o",
     "test": "webpack-dev-server --devtool eval --hot --progress --colors --config test/webpack.test.config.js",
     "dev": "webpack-dev-server --devtool eval --hot --progress --colors --config test/webpack.config.js",
     "production": "NODE_ENV=production webpack -p --config test/webpack.production.config.js"

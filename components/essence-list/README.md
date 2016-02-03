@@ -1,8 +1,7 @@
-# Essence List - List & ListItem components.
+# Essence List - List & ListItem components
 
 ### How to use
 ```js
-
 import List from 'essence-list/src/list.jsx';
 import ListItem from 'essence-list/src/item.jsx';
 
@@ -22,11 +21,11 @@ class ListTest extends React.Component {
 			<Block classes={'e-row'}>
 				<Block classes={'brick brick-4'}>
 					<Text type={'h2'} classes={'e-text-center'}>One line List</Text>
-					<List type={'navigation'} classes={'e-background-grey-300'}>
+					<List type={'navigation'} classes={"e-background-grey-300"}>
 						<ListItem>
 							<Text type={'a'} href={'#johnny'}>							
 
-								<Switch type='checkbox' classes = 'e-left' name='radioButton'/>
+								<Switch type='checkbox' classes = {'e-left'} name='radioButton'/>
 								<Block classes={'content e-left'}>
 									List Controls
 								</Block>	
@@ -35,11 +34,11 @@ class ListTest extends React.Component {
 						</ListItem>
 						<ListItem>
 							<Text type={'a'} href={'#bear'}>
-								<Switch type='switches' classes = 'e-left' name='switch'/>
+								<Switch type='switches' classes = {'e-left'} name='switch'/>
 								<Block classes={'content e-left'}>
 									List Controls
 								</Block>
-								<Switch type='switches' classes = 'e-right' name='switch'/>								
+								<Switch type='switches' classes = {'e-right'} name='switch'/>								
 							</Text>
 						</ListItem>
 						<ListItem>
@@ -64,7 +63,7 @@ class ListTest extends React.Component {
 				</Block>
 				<Block classes={'brick brick-4'}>
 					<Text type={'h2'} classes={'e-text-center'}>Two line List</Text>
-					<List type={'navigation'} classes={'e-background-grey-300 e-twolinelist'}>
+					<List type={'navigation'} classes={"e-background-grey-300 e-twolinelist"}>
 						<ListItem>
 							<Text type={'a'} href={'#johnny'}>
 								<Image src='http://i.imgur.com/Ix585.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
@@ -109,7 +108,7 @@ class ListTest extends React.Component {
 				</Block>
 				<Block classes={'brick brick-4'}>
 					<Text type={'h2'} classes={'e-text-center'}>Three line List</Text>
-					<List type={'navigation'} classes={'e-background-grey-300 e-threelinelist'}>
+					<List type={'navigation'} classes={"e-background-grey-300 e-threelinelist"}>
 						<ListItem>
 							<Text type={'a'} href={'#johnny'}>
 								<Image src='http://i.imgur.com/Ix585.jpg' alt={'Star Wars'} classes={'e-avatar e-left'}/>		
@@ -161,7 +160,4 @@ class ListTest extends React.Component {
         );
     }
 };
-
-<ListTest />
-
 ```

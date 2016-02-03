@@ -1,4 +1,4 @@
-# Essence Progress - Progress component.
+# Essence Progress - Progress component
 
 Options
 - **small** - `true` or `false` with type: circle will render a small circle visualization - type 
@@ -9,6 +9,8 @@ Options
 5. `dynamic`: appends "dynamic" to the class name "e-progress-" in the following format "e-btn-" + type
 
 ### How to use
-```jsx
+```js
+import Progress from 'essence-progress/src/progress.jsx';
+
 <Progress type='dynamic' />
 ```

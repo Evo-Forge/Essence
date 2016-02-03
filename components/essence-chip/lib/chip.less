@@ -14,6 +14,7 @@ ul.chips {
     
     &:hover {
         background: @e-color-grey-700;
+        border: (@e-unit * (0.125)) solid @e-color-grey-700;
         .transition(all 0.2s);
 
         li {
@@ -57,7 +58,7 @@ ul.chips {
         }
 
         .icon {
-            margin: (@e-unit * (-0.125)) (@e-unit) 0 (@e-unit * (-0.125));
+            margin: (@e-unit * (-0.125)) (@e-unit) 0 (@e-unit * (-0.25));
             .border-radius(50%);
             background-color: @e-color-teal-500;
             width: (@e-unit * 4.25);

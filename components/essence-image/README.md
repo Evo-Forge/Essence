@@ -1,6 +1,8 @@
-# Essence Image - Image component.
+# Essence Image - Image component
 
 ### How to use
-```jsx
+```js
+import Image from 'essence-image/src/image.jsx';
+
 <Image src='http://i.imgur.com/04zn19m.png' alt={'Star Wars'} />
 ```

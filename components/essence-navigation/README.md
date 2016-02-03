@@ -1,11 +1,13 @@
-# Essence Navigation - Navigation component.
+# Essence Navigation - Navigation component
 
 Options:
 - visible: `true` - show the bottom sheet
 - visible: `false` (**default**) - hide the bottom sheet
 
 ### How to use
-```jsx
+```js
+import Navigation from 'essence-navigation/src/navigation.jsx';
+
 <Navigation visible={true}>
 	<Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>
 		<Block type={'header'} classes={'e-nav-header'}>

@@ -112,13 +112,16 @@ var Chip = (function (_React$Component) {
         value: function renderChildren() {
             var _this2 = this;
 
+            var childs = _react2.default.Children.map(this.props.data.text, function (child, key) {
+                return child;
+            });
             return _react2.default.createElement(
                 'li',
                 { key: 'chip-item', ref: function ref(_ref) {
                         return _this2.chipItem = _ref;
                     } },
                 this.renderIcon(),
-                this.props.data.text,
+                childs,
                 this.renderClose()
             );
         }

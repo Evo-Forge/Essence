@@ -1,22 +1,45 @@
-# Essence Input - Input component.
-
-Options:
-- `id`: optional to set the id attribute for the Input tag
-- `type`: `text` (**default**), other type: `textarea`, `email`, `search`, `number`
-- `name`: required to set the Input name attribute
-- `label`: optional to set the Input placeholder attribute
-- `placeholder`: optional to set the Input placeholder attribute
-- `disabled`: if set to true it uses the "disabled" input attribute
-- `counter`: if set to an integer value will set the maximum limit of characters
-- `hint`: a text explaining what this input is about
-- use the examples from below to structure your own Text field
+# Essence Input - Input component
 
 ### How to use
-```jsx
-<Input
-    name='input'
-    disabled={true}
-    placeholder='Disabled input'
-    classes={'has-success'}
-/>
+```js
+import Input from 'essence-input/src/input.jsx';
+
+class TextfieldTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+        	<Block>
+				<Input
+					name='input'
+					placeholder='Standard input'
+					classes={'has-success'}/>
+		        <Input
+						name='input'
+						placeholder='Counter input'
+						classes={'has-error'}
+						counter={50}/>	
+				<Input
+						name='input'
+						label='This label will float'
+						classes={'has-success'}/>	
+				<Input
+				    name='input'
+				    disabled={true}
+				    placeholder='Disabled input'
+				    classes={'has-success'}
+				/>					
+		        
+			</Block>
+		);
+    }
+};
 ```

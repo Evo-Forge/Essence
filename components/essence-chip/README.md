@@ -1,13 +1,13 @@
-# Essence Chip - Chip & ChipItem components.
+# Essence Chip - Chip component
 
 ### How to use
 
 Options:
-  - **name**: string for input name, default: chip
-  - **text**: string or html or component
-  - **icon**: string or image url
-  - **deletable**: boolean ( **true** or **false** ) - default: **false**
-  - **onClose**: callback for on closing chip component
+- **name**: string for input name, default: chip
+- **text**: string or html or component
+- **icon**: string or image url
+- **deletable**: boolean ( **true** or **false** ) - default: **false**
+- **onClose**: callback for on closing chip component
 
 ```js
 import Chip from 'essence-chip/src/chip.jsx';

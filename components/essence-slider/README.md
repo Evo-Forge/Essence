@@ -1,4 +1,4 @@
-# Essence Slider - Slider component.
+# Essence Slider - Slider component
 
 Options
 - `start`: integer value to set the initial value - values: **0** to **100**
@@ -7,6 +7,8 @@ Options
 - `disabled`: **true** it uses the "disabled" class name to render a non-editable component
 
 ### How to use
-```jsx
+```js
+import Slider from 'essence-slider/src/slider.jsx';
+
 <Slider discrete={true} step={10} />
 ```

@@ -6,6 +6,8 @@ Options:
 
 ### How to use
 ```js
-import Tooltip from '../components/essence-tooltip/src/tooltip.jsx';
+import Tooltip from 'essence-tooltip/src/tooltip.jsx';
+
+<Tooltip key={'tooltip-key'} text={'Default tooltip'} visible={true} />
 
 ```
