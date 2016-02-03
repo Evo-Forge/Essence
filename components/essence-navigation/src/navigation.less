@@ -73,7 +73,11 @@
 
 .e-nav-drawer {
   &:extend(.e-nav-drawer all);
-  overflow: auto; 
+  overflow: auto;
+
+&::-webkit-scrollbar {
+    display: none;
+}
 
  @media (max-width: 479px){
    // mobile 56dp from the right edge of the screen
