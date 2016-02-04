@@ -1,14 +1,14 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import Switch from '../../essence-switch/src/switch.jsx';
-import Menu from '../../essence-menu/src/menu.jsx';
-import Tooltip from '../../essence-tooltip/src/tooltip.jsx';
+import Switch from 'essence-switch';
+import Menu from 'essence-menu';
+import Tooltip from 'essence-tooltip';
 
-import DataTableRow from './row.jsx';
-import DataTableBody from './body.jsx';
-import DataTableHeader from './header.jsx';
-import DataTableFooter from './footer.jsx';
-import DataTableColumn from './column.jsx';
+import DataTableRow from './row';
+import DataTableBody from './body';
+import DataTableHeader from './header';
+import DataTableFooter from './footer';
+import DataTableColumn from './column';
 
 import './table.less';
  

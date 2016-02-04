@@ -14,35 +14,35 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _switch = require('../../essence-switch/src/switch.jsx');
+var _essenceSwitch = require('essence-switch');
 
-var _switch2 = _interopRequireDefault(_switch);
+var _essenceSwitch2 = _interopRequireDefault(_essenceSwitch);
 
-var _menu = require('../../essence-menu/src/menu.jsx');
+var _essenceMenu = require('essence-menu');
 
-var _menu2 = _interopRequireDefault(_menu);
+var _essenceMenu2 = _interopRequireDefault(_essenceMenu);
 
-var _tooltip = require('../../essence-tooltip/src/tooltip.jsx');
+var _essenceTooltip = require('essence-tooltip');
 
-var _tooltip2 = _interopRequireDefault(_tooltip);
+var _essenceTooltip2 = _interopRequireDefault(_essenceTooltip);
 
-var _row = require('./row.jsx');
+var _row = require('./row');
 
 var _row2 = _interopRequireDefault(_row);
 
-var _body = require('./body.jsx');
+var _body = require('./body');
 
 var _body2 = _interopRequireDefault(_body);
 
-var _header = require('./header.jsx');
+var _header = require('./header');
 
 var _header2 = _interopRequireDefault(_header);
 
-var _footer = require('./footer.jsx');
+var _footer = require('./footer');
 
 var _footer2 = _interopRequireDefault(_footer);
 
-var _column = require('./column.jsx');
+var _column = require('./column');
 
 var _column2 = _interopRequireDefault(_column);
 
@@ -153,7 +153,7 @@ var DataTable = (function (_React$Component) {
     }, {
         key: 'renderTooltip',
         value: function renderTooltip(text, index) {
-            return _react2.default.createElement(_tooltip2.default, {
+            return _react2.default.createElement(_essenceTooltip2.default, {
                 text: text,
                 key: 'tooltip-' + index,
                 visible: this.state.tooltips[index] || false });
@@ -222,7 +222,7 @@ var DataTable = (function (_React$Component) {
                         [_react2.default.createElement(
                             _column2.default,
                             { key: 'checkall' },
-                            _react2.default.createElement(_switch2.default, {
+                            _react2.default.createElement(_essenceSwitch2.default, {
                                 type: 'checkbox',
                                 name: 'checkall',
                                 onClick: this.checkRows.bind(self),
@@ -252,7 +252,7 @@ var DataTable = (function (_React$Component) {
                             { colSpan: totalColumns },
                             'Rows per page:',
                             _react2.default.createElement(
-                                _menu2.default,
+                                _essenceMenu2.default,
                                 { type: 'cover', placeholder: dataObj.footer.limit },
                                 _react2.default.createElement(
                                     'span',
@@ -347,7 +347,7 @@ var DataTable = (function (_React$Component) {
                             [_react2.default.createElement(
                                 _column2.default,
                                 { key: 'check-' + rowIndex },
-                                _react2.default.createElement(_switch2.default, {
+                                _react2.default.createElement(_essenceSwitch2.default, {
                                     type: 'checkbox',
                                     name: 'check-' + rowIndex,
                                     checked: selectedRows['row-' + rowIndex],

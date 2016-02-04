@@ -1,5 +1,7 @@
 'use strict';
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 Object.defineProperty(exports, "__esModule", {
@@ -54,11 +56,11 @@ var Switch = (function (_React$Component) {
                             'label',
                             null,
                             this.props.beforeText,
-                            _react2.default.createElement('input', {
+                            _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'checkbox',
                                 defaultChecked: this.props.checked,
                                 disabled: this.props.disable
-                            }),
+                            })),
                             _react2.default.createElement('span', { className: 'e-switches-toggle' }),
                             this.props.afterText
                         )
@@ -72,12 +74,12 @@ var Switch = (function (_React$Component) {
                         _react2.default.createElement(
                             'label',
                             null,
-                            _react2.default.createElement('input', {
+                            _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'radio',
                                 name: this.props.name,
                                 defaultChecked: this.props.checked,
                                 defaultValue: this.props.defaultValue
-                            }),
+                            })),
                             _react2.default.createElement('span', { className: 'absolute circle' }),
                             _react2.default.createElement('span', { className: 'absolute e-check' }),
                             this.props.text
@@ -94,12 +96,12 @@ var Switch = (function (_React$Component) {
                         _react2.default.createElement(
                             'label',
                             null,
-                            _react2.default.createElement('input', {
+                            _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'checkbox',
                                 name: this.props.name,
                                 defaultChecked: this.props.checked,
                                 className: 'toggle'
-                            }),
+                            })),
                             _react2.default.createElement('span', { className: 'absolute e-wave' }),
                             _react2.default.createElement('span', { className: 'absolute e-check-valid' }),
                             this.props.text

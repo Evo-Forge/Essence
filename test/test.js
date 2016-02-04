@@ -2,37 +2,29 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
-import AppBar from '../components/essence-appbar/src/appbar.jsx';
-import Text from '../components/essence-core/src/text/text.jsx';
-import Block from '../components/essence-core/src/block/block.jsx';
-import Icon from '../components/essence-icon/src/icon.jsx';
-import Switch from '../components/essence-switch/src/switch.jsx';
-import Input from '../components/essence-input/src/input.jsx';
-import Menu from '../components/essence-menu/src/menu.jsx';
-import Btn from '../components/essence-button/src/button.jsx';
+import AppBar from 'essence-appbar';
+import {Block, Text} from 'essence-core';
 
-import DataTable from '../components/essence-data-table/src/table.jsx';
-import DataTableHeader from '../components/essence-data-table/src/header.jsx';
-import DataTableBody from '../components/essence-data-table/src/body.jsx';
-import DataTableRow from '../components/essence-data-table/src/row.jsx';
-import DataTableColumn from '../components/essence-data-table/src/column.jsx';
+import Icon from 'essence-icon';
+import Switch from 'essence-switch';
+import Input from 'essence-input';
+import Menu from 'essence-menu';
+import Btn from 'essence-button';
 
-import Dialog from '../components/essence-dialog/src/dialog.jsx';
-import DialogHeader from '../components/essence-dialog/src/header.jsx';
-import DialogContent from '../components/essence-dialog/src/content.jsx';
-import DialogFooter from '../components/essence-dialog/src/footer.jsx';
+import DataTable from 'essence-data-table';
 
-import TouchPad from '../components/essence-touchpad/src/touchpad.jsx';
-import Tooltip from '../components/essence-tooltip/src/tooltip.jsx';
+import {Dialog, DialogHeader, DialogContent, DialogFooter} from 'essence-dialog';
 
-import Chip from '../components/essence-chip/src/chip.jsx';
-import List from '../components/essence-list/src/list.jsx';
-import ListItem from '../components/essence-list/src/item.jsx';
+import TouchPad from 'essence-touchpad';
+import Tooltip from 'essence-tooltip';
 
-import Image from '../components/essence-image/src/image.jsx';
-import Toast from '../components/essence-toast/src/toast.jsx';
-import SnackBar from '../components/essence-snackbar/src/snackbar.jsx';
-import Tab from '../components/essence-tab/src/tab.jsx';
+import Chip from 'essence-chip';
+import { List, ListItem } from 'essence-list';
+
+import Image from 'essence-image';
+import Toast from 'essence-toast';
+import SnackBar from 'essence-snackbar';
+import Tab from 'essence-tab';
 
 class TouchPadTest extends React.Component {
     constructor(props) {

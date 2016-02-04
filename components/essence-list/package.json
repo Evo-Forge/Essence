@@ -1,6 +1,6 @@
 {
   "name": "essence-list",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Essence List - List & ListItem components.",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
@@ -13,10 +13,10 @@
   },
   "peerDependencies": {
     "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "essence-core": "^0.0.9"
+    "react-dom": "^0.14.3"
   },
   "dependencies": {
-    "classnames": "^2.2.1"
+    "classnames": "*",
+    "essence-core": "*"
   }
 }

@@ -23,4 +23,5 @@ class DialogFooter extends React.Component {
 	}
 }
 
-export default DialogFooter;
+module.exports = DialogFooter;
+// export default DialogFooter;

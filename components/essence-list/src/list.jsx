@@ -40,4 +40,5 @@ class List extends React.Component {
 	}
 }
 
-export default List;
+module.exports = List;
+// export default List;
