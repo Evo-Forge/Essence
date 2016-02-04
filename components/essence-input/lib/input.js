@@ -49,6 +49,13 @@ var Input = (function (_React$Component) {
     }
 
     _createClass(Input, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                classes: (0, _classnames2.default)('e-input-group', nextProps.className, nextProps.classes)
+            });
+        }
+    }, {
         key: 'handleChange',
         value: function handleChange() {
             var counter = this.state.counter;

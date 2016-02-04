@@ -1,6 +1,6 @@
 {
   "name": "essence-input",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Essence Input - Input component.",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
@@ -8,7 +8,7 @@
   "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-input",
   "main": "lib/input.js",
   "scripts": {
-    "babel": "babel --presets react,es2015 src --out-dir lib",
+    "babel": "babel --presets react,es2015 src --out-dir lib && cp src/input.less lib/input.less",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "peerDependencies": {

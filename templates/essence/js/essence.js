@@ -1,13 +1,95 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
-import Block from '../../../components/essence-core/src/block/block.jsx';
-import Text from '../../../components/essence-core/src/text/text.jsx';
-import List from '../../../components/essence-list/src/list.jsx';
-import ListItem from '../../../components/essence-list/src/item.jsx';
-import Navigation from '../../../components/essence-navigation/src/navigation.jsx';
-import Icon from '../../../components/essence-icon/src/icon.jsx';
-import Image from '../../../components/essence-image/src/image.jsx';
+
+import AppBar from 'essence-appbar';
+import Menu from 'essence-menu';
+import Input from 'essence-input';
+import Toast from 'essence-toast';
+import Button from 'essence-button';
+import {List, ListItem} from 'essence-list';
+import Icon from 'essence-icon';
+import Image from 'essence-image';
+
+import {Block, Text, Divider} from 'essence-core';
+import Navigation from 'essence-navigation';
+
+class AppHeader extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+        	search: 'close',
+        	toast: false,
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    renderSearch() {
+    	let classes = ClassNames('e-no-margin e-text-white e-left', this.state.search);
+    	return (
+			<Input
+				type={'search'}
+				name='search-input'
+				placeholder='Search...'
+				classes={classes}/>
+		);
+	}
+
+    renderToast() {
+    	if (this.state.toast) {
+    		return (
+    			<Toast classes={'e-text-green-500'} visible={true} delay={5000}>
+					Adaugat la Favorite
+				</Toast>
+			);
+    	}
+
+    	return;
+    }
+
+    toggleSearch() {
+    	this.setState({
+    		search: (this.state.search === 'close' ? 'open' : 'close')
+    	});
+    }
+
+    toggleToast() {
+    	var toastStatus = !this.state.toast;
+
+    	this.setState({
+    		toast: toastStatus
+    	});
+    }
+
+    render() {
+        return(
+			<AppBar classes={'e-background-cyan-400'}>
+				<Button className={'flat e-background-cyan-400 e-text-white e-left'} type={'primary'} icon={'navigation-menu'}/>
+
+				<Text className={'e-text-white'}>Essence - test</Text>
+
+				<Menu type={'cover'} icon={'navigation-more-vert'} classes={'e-right e-text-white e-background-cyan-400'}>
+					<Text classes={'e-text-black'}>Profile</Text>
+					<Text classes={'e-text-black'}>Settings</Text>
+					<Text classes={'e-text-black'}>Logout</Text>
+				</Menu>
+				
+				<Block className={'e-right'}>
+					{this.renderToast()}
+					<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
+				</Block>
+				
+				<Block className={'e-right search-block'}>
+					{this.renderSearch()}
+					<Button onClick={this.toggleSearch.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
+				</Block>
+			</AppBar>
+        );
+    }
+};
 
 class SideBar extends React.Component {
     constructor(props) {
@@ -21,6 +103,7 @@ class SideBar extends React.Component {
     }
 
     render() {
+    	return;
         return (
 			<Navigation>
 				<List type={'navigation'} classes={'e-background-white'}>
@@ -187,7 +270,7 @@ class SideBar extends React.Component {
 
 ReactDOM.render(
 	<Block classes={'brick brick-12'}>
-		<SideBar />
+		<AppHeader />
 	</Block>
 	,
 	document.querySelector('.app')

@@ -1,0 +1,15 @@
+@import '../less/mixins.less';
+
+.e-tabs-highlighter {
+  position: absolute;
+  left: 1px;
+  bottom: 0;
+  height: 2px;
+  &.to-left {
+      .transition(~"left .1s ease-in-out .2s, right .4s ease-in-out .3s");
+  }
+  &.to-right {
+      .transition(~"left .4s ease-in-out .3s, right .2s ease-in-out .2s");
+  }
+  background-color: @e-color-amber-200;
+}

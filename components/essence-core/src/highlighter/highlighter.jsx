@@ -47,4 +47,5 @@ class Highlighter extends React.Component {
 	}
 }
 
-export default Highlighter;
+module.exports = Highlighter;
+// export default Highlighter;

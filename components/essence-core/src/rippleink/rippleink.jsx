@@ -39,4 +39,5 @@ class RippleInk extends React.Component {
 	}
 }
 
-export default RippleInk;
+module.exports = RippleInk;
+// export default RippleInk;

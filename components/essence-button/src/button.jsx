@@ -1,8 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import BackgroundColor from 'essence-core/src/utils/BackgroundColor.js';
-import ClickPosition from 'essence-core/src/utils/ClickPosition.js';
-import RippleInk from '../../essence-core/src/rippleink/rippleink.jsx'; // temp disabled 
+import { Utils, RippleInk } from 'essence-core';
 import './button.less'; //require('!css!less!./button.less');
 
 class Btn extends React.Component {
@@ -27,8 +25,6 @@ class Btn extends React.Component {
             return;
         }
 
-        // return;
-        // term disabled
         return (
             <RippleInk
                 color={this.state.color}
@@ -60,8 +56,8 @@ class Btn extends React.Component {
         let boundingClient = this.currentButton.getBoundingClientRect();
         
         this.setState({
-            color: BackgroundColor(event),
-            position: ClickPosition(event, boundingClient)
+            color: Utils.BackgroundColor(event),
+            position: Utils.ClickPosition(event, boundingClient)
         });
 
         return (

@@ -16,13 +16,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _BackgroundColor = require('essence-core/src/utils/BackgroundColor.js');
-
-var _BackgroundColor2 = _interopRequireDefault(_BackgroundColor);
-
-var _ClickPosition = require('essence-core/src/utils/ClickPosition.js');
-
-var _ClickPosition2 = _interopRequireDefault(_ClickPosition);
+var _essenceCore = require('essence-core');
 
 require('./button.less');
 
@@ -33,7 +27,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import RippleInk from 'essence-core/src/rippleink/rippleink.jsx'; // temp disabled
 
 //require('!css!less!./button.less');
 
@@ -63,14 +56,9 @@ var Btn = (function (_React$Component) {
                 return;
             }
 
-            return;
-
-            // term disabled
-            // return (
-            //     <RippleInk
-            //         color={this.state.color}
-            //         position={this.state.position}/>
-            // );
+            return _react2.default.createElement(_essenceCore.RippleInk, {
+                color: this.state.color,
+                position: this.state.position });
         }
     }, {
         key: 'renderContent',
@@ -103,11 +91,11 @@ var Btn = (function (_React$Component) {
             var boundingClient = this.currentButton.getBoundingClientRect();
 
             this.setState({
-                color: (0, _BackgroundColor2.default)(event),
-                position: (0, _ClickPosition2.default)(event, boundingClient)
+                color: _essenceCore.Utils.BackgroundColor(event),
+                position: _essenceCore.Utils.ClickPosition(event, boundingClient)
             });
 
-            return this.props.onClick || true;
+            return this.props.onClick ? this.props.onClick(event) : true;
         }
     }, {
         key: 'renderBtn',

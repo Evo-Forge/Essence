@@ -54,7 +54,7 @@ var Menu = (function (_React$Component) {
                 'fixed': _this.props.type === 'fab',
                 'active': false
             }, _this.props.classes, _this.props.className),
-            placeholder: _this.props.placeholder || 'Menu'
+            placeholder: _this.props.placeholder
         };
         return _this;
     }
@@ -132,18 +132,36 @@ var Menu = (function (_React$Component) {
                 );
             }
 
-            return _react2.default.createElement(
-                'span',
-                { onClick: this.toggleMenu.bind(this) },
-                _react2.default.createElement(
+            // no icon or placeholder generate default menu
+            if (!this.props.icon && !this.props.placeholder) {
+                return _react2.default.createElement(
                     'span',
-                    { ref: function ref(_ref) {
-                            return _this2.selectedMenu = _ref;
-                        } },
-                    this.state.placeholder
-                ),
-                _react2.default.createElement('i', { className: 'e-icon-navigation-arrow-drop-down' })
-            );
+                    { onClick: this.toggleMenu.bind(this) },
+                    _react2.default.createElement(
+                        'span',
+                        { ref: function ref(_ref) {
+                                return _this2.selectedMenu = _ref;
+                            } },
+                        'Menu'
+                    ),
+                    _react2.default.createElement('i', { className: 'e-icon-navigation-arrow-drop-down' })
+                );
+            }
+
+            if (this.props.placeholder) {
+                return _react2.default.createElement(
+                    'span',
+                    { onClick: this.toggleMenu.bind(this) },
+                    _react2.default.createElement(
+                        'span',
+                        { ref: function ref(_ref2) {
+                                return _this2.selectedMenu = _ref2;
+                            } },
+                        this.props.placeholder
+                    ),
+                    _react2.default.createElement('i', { className: 'e-icon-navigation-arrow-drop-down' })
+                );
+            }
         }
     }, {
         key: 'renderChildren',
@@ -153,16 +171,16 @@ var Menu = (function (_React$Component) {
                 var menuChild = _react2.default.cloneElement(child, {
                     onClick: self.toggleMenu.bind(self, child),
                     onTouch: self.toggleMenu.bind(self, child),
-                    ref: function ref(_ref2) {
-                        return self.menuItemChild = _ref2;
+                    ref: function ref(_ref3) {
+                        return self.menuItemChild = _ref3;
                     }
                 });
                 return _react2.default.createElement(
                     'li',
                     _extends({}, self.props, {
                         onClick: self.toggleMenu.bind(self),
-                        ref: function ref(_ref3) {
-                            return self.menuItem = _ref3;
+                        ref: function ref(_ref4) {
+                            return self.menuItem = _ref4;
                         } }),
                     menuChild
                 );
@@ -188,8 +206,8 @@ var Menu = (function (_React$Component) {
                 'nav',
                 {
                     className: this.state.menuClasses,
-                    ref: function ref(_ref4) {
-                        return _this3.currentMenu = _ref4;
+                    ref: function ref(_ref5) {
+                        return _this3.currentMenu = _ref5;
                     }
                 },
                 this.renderPlaceHolder(),

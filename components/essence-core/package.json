@@ -1,14 +1,14 @@
 {
   "name": "essence-core",
-  "version": "0.0.9",
+  "version": "0.0.11",
   "description": "Essence Core - libs for Essence components.",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
   "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-core",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
-    "babel": "babel --presets react,es2015 src --out-dir lib",
+    "babel": "babel --presets react,es2015 src --out-dir lib; cd src; find . \\( -name '*.less' -o -name '*.eot' -o -name '*.svg' -o -name '*.ttf' -o -name '*.woff' \\)  -print0  | cpio -0pdmu ../lib; cd ../;",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "peerDependencies": {

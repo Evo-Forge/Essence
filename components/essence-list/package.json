@@ -1,19 +1,20 @@
 {
   "name": "essence-list",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Essence List - List & ListItem components.",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
   "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-list",
-  "main": "lib/list.js",
+  "main": "index.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/list.less lib/list.less",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "peerDependencies": {
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "essence-core": "^0.0.9"
   },
   "dependencies": {
     "classnames": "^2.2.1"

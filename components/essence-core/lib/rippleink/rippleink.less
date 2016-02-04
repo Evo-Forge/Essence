@@ -1,0 +1,36 @@
+@import '../less/mixins.less';
+
+.e-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.e-ripple-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.e-ripple-effect {
+  opacity: 0;
+  width: 6px;
+  height: 6px;
+  position: relative;
+  border-radius: 50%;
+  background-color:  #fff;
+  background-clip: border-box;
+  .transition(all 600ms ease);
+
+  &-enter {
+    opacity: 1;
+    .transform( scale(0) );
+
+    &-active {
+      opacity: 0;
+      .transform( scale(80) );
+    }
+  }
+}
