@@ -548,14 +548,21 @@ class TextfieldTest extends React.Component {
 				<Input
 						name='input'
 						label='This label will float'
-						classes={'has-success'}/>	
+						classes={'has-success has-label'}/>	
+
+				<Input
+					name='input'
+					type='textarea'
+					label='This label will float in textarea'
+					classes={'has-success has-label'}/>	
 
 				<Input
 				    name='input'
 				    disabled={true}
 				    placeholder='Disabled input'
 				    classes={'has-success'}
-				/>					
+				/>
+							
 		        
 			</Block>
 			);
