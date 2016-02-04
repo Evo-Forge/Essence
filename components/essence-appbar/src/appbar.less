@@ -88,10 +88,6 @@
   .search-block .close {
       width: 0;
       .transition(all 0.2s);
-
-      input {
-        line-height: @e-unit*5;
-      }
     }
 
   .search-block .open {
@@ -99,7 +95,11 @@
       .transition(all 0.2s);
 
       input {
-        line-height: @e-unit*5;
+        padding-bottom: 0;
+      
+        &:focus{
+          padding-bottom: 0;
+        }
       }
   }
 }
