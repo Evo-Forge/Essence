@@ -18,11 +18,7 @@ var _classnames2 = _interopRequireDefault(_classnames);
 
 var _essenceCore = require('essence-core');
 
-var Client = _interopRequireWildcard(_essenceCore);
-
 require('./appbar.less');
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52,7 +48,7 @@ var AppBar = (function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             var body = document.querySelector('body');
-            var documentSize = Client.documentSize();
+            var documentSize = _essenceCore.Utils.Client.documentSize();
 
             switch (documentSize) {
                 case 1:

@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import * as Client from 'essence-core';
+import {Utils} from 'essence-core';
 import './appbar.less'; // require('!css!less!./appbar.less');
  
 class AppBar extends React.Component {
@@ -18,7 +18,7 @@ class AppBar extends React.Component {
 
     componentDidMount() {
         let body = document.querySelector('body');
-        let documentSize = Client.documentSize();
+        let documentSize = Utils.Client.documentSize();
 
         switch(documentSize){
             case 1:

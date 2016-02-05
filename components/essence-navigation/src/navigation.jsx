@@ -17,6 +17,18 @@ class Navigation extends React.Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            visible: nextProps.visible,
+            classes: ClassNames(
+                'e-nav-drawer',
+                nextProps.classes,
+                nextProps.className,
+                {'e-navigation-open': nextProps.visible}
+            )
+        });
+    }
+
     toggle() {
         let newVisibleState = !this.state.visible;
 
@@ -38,7 +50,7 @@ class Navigation extends React.Component {
       if (this.state.visible) {
         return (
           <div
-            // style={{display: 'block'}}
+            style={{display: 'block'}}
             onClick={this.toggle.bind(this)}
             className={'e-modal-bg'}
           />

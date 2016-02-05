@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
-import AppBar from 'essence-appbar';
+import AppBar from '../../../components/essence-appbar/src/appbar.jsx';
 import Button from 'essence-button';
 import Icon from 'essence-icon';
 import Image from 'essence-image';
 import Input from 'essence-input';
 import Menu from 'essence-menu';
-import Navigation from 'essence-navigation';
-import Toast from '../../../components/essence-toast/src/toast.jsx';
+import Navigation from '../../../components/essence-navigation/src/navigation.jsx';
+import Toast from 'essence-toast';
 import Tab from 'essence-tab';
 import {Block, Text, Divider} from 'essence-core';
 import {List, ListItem} from 'essence-list';
@@ -19,6 +19,7 @@ import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 // Components list
 import Components from './components.js';
 import Colors from './colors.js';
+import Icons from './icons.js';
 
 class AppContent extends React.Component {
 	constructor(props) {
@@ -211,12 +212,66 @@ class AppColors extends React.Component {
     }
 }
 
+class AppNavigation extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    renderMenu() {
+		let self = this;
+		let renderComponents = [];
+
+		Object.keys(Components).forEach(function(key) { 
+			var component = Components[key];
+			renderComponents.push(
+				(
+					<ListItem key={'component-'+key}>
+						<Text type={'a'} href={'#component-'+key}>
+							<Block classes={'content e-left'}>
+								<Text type={'small'}>{component.title}</Text>
+							</Block>	
+						</Text>
+					</ListItem>
+				)
+			); 
+		});
+		
+		return renderComponents;
+    }
+
+    render() {
+        return (
+			<Navigation visible={this.props.visible}>
+				<Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>
+					<Block type={'header'} classes={'e-nav-header'}>
+						<Text 
+							type={'h2'} 
+							className={'e-text-indigo-400 e-text-center'}>
+							<Image className={'e-center'} width={'40px'} height={'40px'} src={'http://essence.pearlhq.com/assets/img/essence_icon.png'} />
+						</Text>
+					</Block>
+					<List type={'navigation'} classes={'e-background-white'}>
+						{this.renderMenu()}
+					</List>
+				</Block>
+			</Navigation>
+        );
+    }
+}
+
 class AppHeader extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
         	search: 'close',
         	toast: false,
+        	showSideBar: false,
         	appcontent: {},
             classes: ClassNames(
                 this.props.classes,
@@ -262,6 +317,13 @@ class AppHeader extends React.Component {
     	});
     }
 
+    toggleSideBar() {
+    	console.log('toggleSideBar', this.state.showSideBar);
+    	this.setState({
+    		showSideBar: !this.state.showSideBar
+    	});
+    }
+
     loadComponent(component) {
     	console.log('load this component', Components[component]);
     	let iframeLink = Components[component].url;
@@ -270,7 +332,7 @@ class AppHeader extends React.Component {
     		appcontent: Components[component]
     	});
 
-    	document.querySelector('.component iframe').src = iframeLink;
+    	// document.querySelector('.component iframe').src = iframeLink;
 
     	return component;
     }
@@ -297,6 +359,7 @@ class AppHeader extends React.Component {
     }
 
     render() {
+    	console.log('renderSideBar', this.state.showSideBar);
         return(
         	<div>
 				<AppBar classes={'e-background-cyan-400'}>
@@ -307,6 +370,7 @@ class AppHeader extends React.Component {
 						{this.renderMenu()}
 					</Menu>
 					*/}
+					<Button onClick={this.toggleSideBar.bind(this)} className={'flat e-background-cyan-400 e-text-white e-left'} type={'primary'} icon={'navigation-menu'}/>
 
 					<Block className={'e-right'}>
 						{this.renderToast()}
@@ -321,60 +385,8 @@ class AppHeader extends React.Component {
 					{this.props.children}
 				</AppBar>
 
+				<AppNavigation visible={this.state.showSideBar} />
         	</div>
-        );
-    }
-}
-
-class AppNavigation extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            classes: ClassNames(
-                this.props.classes,
-                this.props.className
-            )
-        };
-    }
-
-    renderMenu() {
-		let self = this;
-		let renderComponents = [];
-
-		Object.keys(Components).forEach(function(key) { 
-			var component = Components[key];
-			renderComponents.push(
-				(
-					<ListItem key={'component-'+key}>
-						<Text type={'a'} href={'#component-'+key}>
-							<Block classes={'content e-left'}>
-								<Text type={'small'}>{component.title}</Text>
-							</Block>	
-						</Text>
-					</ListItem>
-				)
-			); 
-		});
-		
-		return renderComponents;
-    }
-
-    render() {
-        return (
-			<Navigation visible={true}>
-				<Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>
-					<Block type={'header'} classes={'e-nav-header'}>
-						<Text 
-							type={'h2'} 
-							className={'e-text-indigo-400 e-text-center'}>
-							<Image className={'e-center'} width={'40px'} height={'40px'} src={'http://essence.pearlhq.com/assets/img/essence_icon.png'} />
-						</Text>
-					</Block>
-					<List type={'navigation'} classes={'e-background-white'}>
-						{this.renderMenu()}
-					</List>
-				</Block>
-			</Navigation>
         );
     }
 }
@@ -382,7 +394,6 @@ class AppNavigation extends React.Component {
 ReactDOM.render(
 	<Block>
 		<AppHeader />
-		<AppNavigation />
 		<AppColors />
 	</Block>
 	,
