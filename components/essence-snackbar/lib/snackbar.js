@@ -14,9 +14,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Timer = require('essence-core/src/utils/Timer.js');
-
-var _Timer2 = _interopRequireDefault(_Timer);
+var _essenceCore = require('essence-core');
 
 require('./snackbar.less');
 
@@ -47,7 +45,7 @@ var SnackBar = (function (_React$Component) {
         };
 
         if (_this.props.visible) {
-            _this.timeOut = new _Timer2.default(function () {
+            _this.timeOut = new _essenceCore.Utils.Timer(function () {
                 self.setState({
                     style: {}
                 });

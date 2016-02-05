@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import Timer from 'essence-core/src/utils/Timer';
+import {Utils} from 'essence-core';
 import './toast.less'; // require('!css!less!./toast.less');
  
 class ToastBar extends React.Component {
@@ -21,7 +21,7 @@ class ToastBar extends React.Component {
         };
 
         if (this.props.visible) {
-            this.timeOut = new Timer(function() {
+            this.timeOut = new Utils.Timer(function() {
                     self.setState({
                         style: {}
                     });

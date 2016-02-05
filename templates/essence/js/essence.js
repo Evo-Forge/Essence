@@ -9,7 +9,7 @@ import Image from 'essence-image';
 import Input from 'essence-input';
 import Menu from 'essence-menu';
 import Navigation from 'essence-navigation';
-import Toast from 'essence-toast';
+import Toast from '../../../components/essence-toast/src/toast.jsx';
 import Tab from 'essence-tab';
 import {Block, Text, Divider} from 'essence-core';
 import {List, ListItem} from 'essence-list';
