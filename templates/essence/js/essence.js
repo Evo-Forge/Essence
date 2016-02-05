@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
-import AppBar from '../../../components/essence-appbar/src/appbar.jsx';
+import AppBar from 'essence-appbar';
 import Button from 'essence-button';
 import Icon from 'essence-icon';
 import Image from 'essence-image';
 import Input from 'essence-input';
 import Menu from 'essence-menu';
-import Navigation from '../../../components/essence-navigation/src/navigation.jsx';
+import Navigation from 'essence-navigation';
 import Toast from 'essence-toast';
 import Tab from 'essence-tab';
 import {Block, Text, Divider, Utils} from 'essence-core';
