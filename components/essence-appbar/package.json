@@ -1,6 +1,6 @@
 {
   "name": "essence-appbar",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Essence AppBar - AppBar component.",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
@@ -16,6 +16,7 @@
     "react-dom": "^0.14.3"
   },
   "dependencies": {
-    "classnames": "^2.2.1"
+    "classnames": "*",
+    "essence-core": "*"
   }
 }

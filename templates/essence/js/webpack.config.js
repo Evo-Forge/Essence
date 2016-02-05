@@ -5,8 +5,8 @@ var webpack = require('webpack');
 module.exports = {
   entry: path.resolve(__dirname, 'essence.js'),
   output: { 
-    path: path.resolve(__dirname, '../build'), 
-    publicPath: '/build',
+    path: path.resolve(__dirname, '../build/'), 
+    publicPath: '/build/',
     filename: 'essence.min.js'
   },
   module: {

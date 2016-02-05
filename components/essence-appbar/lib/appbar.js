@@ -16,9 +16,9 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _Client = require('essence-core/src/utils/Client.js');
+var _essenceCore = require('essence-core');
 
-var Client = _interopRequireWildcard(_Client);
+var Client = _interopRequireWildcard(_essenceCore);
 
 require('./appbar.less');
 
