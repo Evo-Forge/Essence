@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
 import AppBar from 'essence-appbar';
+import Slider from '../components/essence-slider/src/slider.jsx';
 import {Block, Text} from 'essence-core';
 
 import Icon from 'essence-icon';
@@ -232,6 +233,40 @@ class ButtonTest extends React.Component {
 				{...this.props}
 				label={this.props.label || 'Default button'}
 				type={this.props.type || 'default'}/>
+        );
+    }
+};
+
+class SliderTest extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return(
+        	<Block classes={'e-row e-margin-top-25'}>
+	        	<Block classes={'brick brick-12'}>
+	        		<Slider step={1} fill={false} />
+        		</Block>
+        		<Block classes={'brick brick-12'}>
+	        		<Slider step={10} start={10}/>
+	        	</Block>
+	        	<Block classes={'brick brick-12'}>
+	        		<Slider discrete={true} step={1} start={20}/>
+        		</Block>
+        		<Block classes={'brick brick-12'}>
+	        		<Slider discrete={true} step={10} start={30}/>
+        		</Block>
+        		<Block classes={'brick brick-12'}>
+	        		<Slider discrete={true} step={10} start={40} disable={true}/>
+        		</Block>
+        	</Block>
         );
     }
 };
@@ -567,6 +602,9 @@ var tabData = {
 			'context': (<Text>TouchPad</Text>)
 		},
 		{
+			'context': (<Text>Slider</Text>)
+		},
+		{
 			'context': (<Text>Text field</Text>)
 		},
 		{
@@ -595,6 +633,7 @@ var tabData = {
 	],
 	'rows': [ 
 		(<TouchPadTest />),
+		(<SliderTest />),
 		(<TextfieldTest />),
 		(<ButtonTest className={'raised e-background-yellow-500 e-text-red-500'} label={'buton'} type={'primary'} />),
 		(
