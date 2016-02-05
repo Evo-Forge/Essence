@@ -24,4 +24,5 @@ class CardFooter extends React.Component {
 	}
 }
 
-export default CardFooter;
+module.exports = CardFooter;
+// export default CardFooter;

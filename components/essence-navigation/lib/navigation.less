@@ -2,6 +2,8 @@
 
 .e-nav-drawer {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 6;
   height: 100%;
   width: @e-unit * 30;
@@ -71,7 +73,11 @@
 
 .e-nav-drawer {
   &:extend(.e-nav-drawer all);
-  overflow: hidden; 
+  overflow: auto;
+
+&::-webkit-scrollbar {
+    display: none;
+}
 
  @media (max-width: 479px){
    // mobile 56dp from the right edge of the screen
@@ -95,6 +101,13 @@
     }
   }
 } 
+
+@media (min-width: 769px) {
+  
+  body, .e-appbar {
+    padding-left: 240px; 
+  }
+}
 
 @keyframes e-modal-anim {
   from {

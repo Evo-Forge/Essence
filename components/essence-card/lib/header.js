@@ -4,10 +4,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -56,4 +52,5 @@ var CardHeader = (function (_React$Component) {
   return CardHeader;
 })(_react2.default.Component);
 
-exports.default = CardHeader;
+module.exports = CardHeader;
+// export default CardHeader;

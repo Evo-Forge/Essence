@@ -113,7 +113,7 @@ var Menu = (function (_React$Component) {
             });
 
             if (child && child.hasOwnProperty('props') && child.props.callback) {
-                return child.props.callback;
+                return child.props.callback();
             }
         }
     }, {
