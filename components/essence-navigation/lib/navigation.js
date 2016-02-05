@@ -45,6 +45,14 @@ var Navigation = (function (_React$Component) {
     }
 
     _createClass(Navigation, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                visible: nextProps.visible,
+                classes: (0, _classnames2.default)('e-nav-drawer', nextProps.classes, nextProps.className, { 'e-navigation-open': nextProps.visible })
+            });
+        }
+    }, {
         key: 'toggle',
         value: function toggle() {
             var newVisibleState = !this.state.visible;
@@ -62,7 +70,7 @@ var Navigation = (function (_React$Component) {
         value: function overlay() {
             if (this.state.visible) {
                 return _react2.default.createElement('div', {
-                    // style={{display: 'block'}}
+                    style: { display: 'block' },
                     onClick: this.toggle.bind(this),
                     className: 'e-modal-bg'
                 });

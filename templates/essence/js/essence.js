@@ -11,7 +11,7 @@ import Menu from 'essence-menu';
 import Navigation from '../../../components/essence-navigation/src/navigation.jsx';
 import Toast from 'essence-toast';
 import Tab from 'essence-tab';
-import {Block, Text, Divider} from 'essence-core';
+import {Block, Text, Divider, Utils} from 'essence-core';
 import {List, ListItem} from 'essence-list';
 
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
@@ -318,14 +318,12 @@ class AppHeader extends React.Component {
     }
 
     toggleSideBar() {
-    	console.log('toggleSideBar', this.state.showSideBar);
     	this.setState({
     		showSideBar: !this.state.showSideBar
     	});
     }
 
     loadComponent(component) {
-    	console.log('load this component', Components[component]);
     	let iframeLink = Components[component].url;
     	
     	this.setState({
@@ -335,6 +333,20 @@ class AppHeader extends React.Component {
     	// document.querySelector('.component iframe').src = iframeLink;
 
     	return component;
+    }
+
+    renderSideBarButton() {
+    	if (Utils.Client.documentSize() > 2) {
+    		return;
+    	}
+
+    	return (
+    		<Button 
+    			onClick={this.toggleSideBar.bind(this)} 
+    			className={'flat e-background-cyan-400 e-text-white e-left'} 
+    			icon={'navigation-menu'}
+    			type={'primary'} />
+    	);
     }
 
     renderMenu() {
@@ -359,7 +371,6 @@ class AppHeader extends React.Component {
     }
 
     render() {
-    	console.log('renderSideBar', this.state.showSideBar);
         return(
         	<div>
 				<AppBar classes={'e-background-cyan-400'}>
@@ -370,8 +381,9 @@ class AppHeader extends React.Component {
 						{this.renderMenu()}
 					</Menu>
 					*/}
-					<Button onClick={this.toggleSideBar.bind(this)} className={'flat e-background-cyan-400 e-text-white e-left'} type={'primary'} icon={'navigation-menu'}/>
 
+					{this.renderSideBarButton()}
+					
 					<Block className={'e-right'}>
 						{this.renderToast()}
 						<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
