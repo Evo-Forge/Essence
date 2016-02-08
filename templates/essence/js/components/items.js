@@ -2,6 +2,18 @@
 // List of components
 
 module.exports = {
+	'icons': {
+		'title': 'Icons',
+		'description': 'The list of icons available from Material Design', 
+		'url': '/icons.html',
+		'icon': 'icons'
+	},
+	'colors': {
+		'title': 'Colors',
+		'description': 'The list of colors available from Material Design', 
+		'url': '/colors.html',
+		'icon': 'colors'
+	},
 	'appbar': {
 		'title': 'AppBar',
 		'description': 'It’s never been more fun to create an appbar with button and navigation and whatever. Start with the .e-appbar class then add buttons, menus and whatever you need.', 

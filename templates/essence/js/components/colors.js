@@ -1,6 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ClassNames from 'classnames';
 
-// List of colors
-module.exports = {
+import Tab from 'essence-tab';
+import Button from 'essence-button';
+import {Block, Text, Divider, Utils} from 'essence-core';
+import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
+
+var colorList = {
 	"e-background-red-100": {
 		"background": "e-background-red-100",
 		"text": "e-text-red-100",
@@ -1187,3 +1194,157 @@ module.exports = {
 		"title": "Color White"
 	}
 };
+
+class AppColors extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+        	textColor: 'e-text-black',
+        	backgroundColor: 'e-background-white',
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    changeBackgroundColor(key) {
+    	this.setState({
+    		backgroundColor: colorList[key].background
+    	});
+    }
+
+    changeTextColor(key) {
+    	this.setState({
+    		textColor: colorList[key].text
+    	});
+    }
+
+    renderBackgroundColors() {
+    	let self = this;
+		let colorsList = [];
+
+    	Object.keys(colorList).forEach(function(key) { 
+			var component = colorList[key];
+			colorsList.push(
+				(
+					<Button 
+						key={'color-'+key}
+						ripple={false}
+						onClick={self.changeBackgroundColor.bind(self, key)} 
+						className={ClassNames('flat', component.background)} 
+						type={'primary'} />
+				)
+			); 
+		});
+
+		return colorsList;
+    }
+
+    renderTextColors() {
+    	let self = this;
+		let colorsList = [];
+
+    	Object.keys(colorList).forEach(function(key) { 
+			var component = colorList[key];
+			colorsList.push(
+				(
+					<Button 
+						key={'color-'+key}
+						ripple={false}
+						onClick={self.changeTextColor.bind(self, key)} 
+						className={ClassNames('flat', component.background)} 
+						type={'primary'} />
+				)
+			); 
+		});
+
+		return colorsList;
+    }
+
+    renderColor() {
+    	return (
+    		<p className={ClassNames('e-padding-top-25 e-padding-bottom-25', this.state.backgroundColor)}>
+				<span className={ClassNames(this.state.textColor)}>
+					This is your text to test the colors for background & text.
+				</span>
+			</p>
+    	);
+    }
+
+    render() {
+        return (
+			<Block classes={'e-row'}>
+				<Block classes={'brick brick-6'}>
+		        	<Card>
+		        		<CardHeader> 
+		        			<Text type={'h3'} classes={'e-text-indigo-400'}>COLORS</Text>
+		        			<Divider classes={'thick short e-background-indigo-400'} />
+		        		</CardHeader>
+		        		<CardContent classes={'e-text-center'}>
+		        			{this.renderColor()}
+			        		<Divider />
+			        		<Block className={'e-padding-top-25 e-padding-bottom-25 e-text-left'}>
+			        			<Text type={'h4'}>
+			        				Text color: <strong>{this.state.textColor}</strong>
+			        			</Text>
+			        			<Text type={'h4'}>
+			        				Background color: <strong>{this.state.backgroundColor}</strong>
+			        			</Text>
+			        		</Block>
+		        			
+		        			<Divider />
+		        			
+		        			<Block className={'e-padding-top-25 e-text-left'}>
+		        				<Text type={'h4'}>HOW TO USE:</Text>
+		        				<pre className={'e-background-grey-100 e-text-teal-600'}>
+			        				<code>
+										import &#123;Block, Text&#125; from 'essence-core';
+										<br />
+										<br />
+										&lt;Block className=&#123;"{ClassNames(this.state.backgroundColor)}"&#125;&gt;
+										<br />
+										&nbsp;&nbsp;&lt;Text className=&#123;"{ClassNames(this.state.textColor)}"&#125;&gt;
+										<br />
+										&nbsp;&nbsp;&nbsp;&nbsp;This is your text to test the colors for background &amp; text.
+										<br />
+										&nbsp;&nbsp;&lt;/Text&gt;
+										<br />
+										&lt;/Block&gt;
+			        				</code>
+		        				</pre>
+		        			</Block>
+		        		</CardContent>
+					</Card>
+				</Block>
+				<Block classes={'brick brick-6'}>
+		        	<Tab data={{
+							'header': [{
+									'context': (<Text>Text Color</Text>)
+								},{
+									'context': (<Text>Background Color</Text>)
+								}
+							],
+							'rows': [ 
+								(
+									<Block classes={'colors'}>
+										{this.renderTextColors()}
+									</Block>
+								),
+								(
+									<Block classes={'colors'}>
+										{this.renderBackgroundColors()}
+									</Block>
+								)
+							]
+						}}
+						classes={'e-background-indigo-400 e-text-grey-50'} />
+				</Block>
+			</Block>
+		);
+    }
+}
+
+// List of colors
+exports.AppColors = AppColors;
+exports.colorList = colorList;

@@ -15,6 +15,16 @@ class Icon extends React.Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames(
+                'e-icon-' + nextProps.name,
+                nextProps.className,
+                nextProps.classes
+            )
+        });
+    }
+
 	render() {
 		return (
             <i {...this.props} className={this.state.classes}/>

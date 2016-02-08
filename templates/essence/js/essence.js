@@ -17,9 +17,9 @@ import {List, ListItem} from 'essence-list';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
 // Components list
-import Components from './components.js';
-import Colors from './colors.js';
-import Icons from './icons.js';
+import Components from './components/items.js';
+import {AppColors} from './components/colors.js';
+import {AppIcons} from './components/icons.js';
 
 class AppContent extends React.Component {
 	constructor(props) {
@@ -83,135 +83,6 @@ class AppContent extends React.Component {
     }
 }
 
-class AppColors extends React.Component {
-	constructor(props) {
-        super(props);
-        this.state = {
-        	backgroundColor: '',
-        	textColor: '',
-            classes: ClassNames(
-                this.props.classes,
-                this.props.className
-            )
-        };
-    }
-
-    changeBackgroundColor(key) {
-    	this.setState({
-    		backgroundColor: Colors[key].background
-    	});
-    }
-
-    changeTextColor(key) {
-    	this.setState({
-    		textColor: Colors[key].text
-    	});
-    }
-
-    renderBackgroundColors() {
-    	let self = this;
-		let colorsList = [];
-
-    	Object.keys(Colors).forEach(function(key) { 
-			var component = Colors[key];
-			colorsList.push(
-				(
-					<Button 
-						key={'color-'+key}
-						onClick={self.changeBackgroundColor.bind(self, key)} 
-						className={ClassNames('flat', component.background)} 
-						icon={'image-colorize'}
-						type={'primary'} />
-				)
-			); 
-		});
-
-		return colorsList;
-    }
-
-    renderTextColors() {
-    	let self = this;
-		let colorsList = [];
-
-    	Object.keys(Colors).forEach(function(key) { 
-			var component = Colors[key];
-			colorsList.push(
-				(
-					<Button 
-						key={'color-'+key}
-						onClick={self.changeTextColor.bind(self, key)} 
-						className={ClassNames('flat', component.background)} 
-						icon={'image-colorize'}
-						type={'primary'} />
-				)
-			); 
-		});
-
-		return colorsList;
-    }
-
-    renderColor() {
-    	return (
-    		<p className={ClassNames('e-padding-top-25 e-padding-bottom-25', this.state.backgroundColor)}>
-				<span className={ClassNames(this.state.textColor)}>
-					This is your text to test the colors for background & text.
-				</span>
-			</p>
-    	);
-    }
-
-    render() {
-        return (
-			<Block classes={'e-row'}>
-				<Block classes={'brick brick-6'}>
-		        	<Card>
-		        		<CardHeader> 
-		        			<Text type={'h3'}>Test the colors</Text>
-		        			<Divider />
-		        		</CardHeader>
-		        		<CardContent classes={'e-text-center'}>
-		        			{this.renderColor()}
-			        		<Divider />
-			        		<Block className={'e-padding-top-25 e-text-left'}>
-			        			<Text type={'h5'}>
-			        				Current Text color: <strong>{this.state.textColor || 'e-text-black'}</strong>
-			        			</Text>
-			        			<Text type={'h5'}>
-			        				Current Background color: <strong>{this.state.backgroundColor || 'e-background-white'}</strong>
-			        			</Text>
-			        		</Block>
-		        		</CardContent>
-					</Card>
-				</Block>
-				<Block classes={'brick brick-6'}>
-		        	<Card>
-		        		<CardHeader> 
-		        			<Text type={'h3'}>Choose color</Text>
-		        			<Divider />
-		        		</CardHeader>
-		        		<CardContent>
-		        			<Tab 
-								data={{
-									'header': [{
-											'context': (<Text>Text</Text>)
-										},{
-											'context': (<Text>Background</Text>)
-										}
-									],
-									'rows': [ 
-										(<Block classes={'colors'}>{this.renderTextColors()}</Block>),
-										(<Block classes={'colors'}>{this.renderBackgroundColors()}</Block>)
-									]
-								}}
-								classes={'e-background-cyan-500 e-text-grey-50'} />
-		        		</CardContent>
-					</Card>
-				</Block>
-			</Block>
-		);
-    }
-}
-
 class AppNavigation extends React.Component {
     constructor(props) {
         super(props);
@@ -223,6 +94,11 @@ class AppNavigation extends React.Component {
         };
     }
 
+    componentDidMount() {
+    	let componentHash = window.location.hash;
+    	window.onhashchange = this.props.callback.bind(this);
+    }
+
     renderMenu() {
 		let self = this;
 		let renderComponents = [];
@@ -232,7 +108,7 @@ class AppNavigation extends React.Component {
 			renderComponents.push(
 				(
 					<ListItem key={'component-'+key}>
-						<Text type={'a'} href={'#component-'+key}>
+						<Text type={'a'} href={'#'+key}>
 							<Block classes={'content e-left'}>
 								<Text type={'small'}>{component.title}</Text>
 							</Block>	
@@ -295,7 +171,7 @@ class AppHeader extends React.Component {
     	if (this.state.toast) {
     		return (
     			<Toast classes={'e-text-green-500'} visible={true} delay={5000}>
-					Adaugat la Favorite
+					Added to Favorite
 				</Toast>
 			);
     	}
@@ -323,18 +199,6 @@ class AppHeader extends React.Component {
     	});
     }
 
-    loadComponent(component) {
-    	let iframeLink = Components[component].url;
-    	
-    	this.setState({
-    		appcontent: Components[component]
-    	});
-
-    	// document.querySelector('.component iframe').src = iframeLink;
-
-    	return component;
-    }
-
     renderSideBarButton() {
     	if (Utils.Client.documentSize() > 2) {
     		return;
@@ -343,61 +207,43 @@ class AppHeader extends React.Component {
     	return (
     		<Button 
     			onClick={this.toggleSideBar.bind(this)} 
-    			className={'flat e-background-cyan-400 e-text-white e-left'} 
+    			className={'flat e-background-indigo-400 e-text-white e-left'} 
     			icon={'navigation-menu'}
     			type={'primary'} />
     	);
     }
 
-    renderMenu() {
-		let self = this;
-		let renderComponents = [];
-
-		Object.keys(Components).forEach(function(key) { 
-			var component = Components[key];
-			renderComponents.push(
-				(
-				<Text 
-					key={'component-'+key} 
-					classes={'e-text-black'} 
-					callback={self.loadComponent.bind(self, key)}>
-					{component.title}
-				</Text>
-				)
-			); 
-		});
-		
-		return renderComponents;
+    loadComponent() {
+    	let componentHash = window.location.hash;
+    	console.log('loadComponent', componentHash);
     }
 
     render() {
         return(
         	<div>
-				<AppBar classes={'e-background-cyan-400'}>
+				<AppBar classes={'e-background-indigo-400'}>
 					{/*
 					<Text className={'e-text-white'}>Essence - MD Framework</Text>
-
-					<Menu type={'cover'} icon={'navigation-menu'} classes={'e-left e-text-white e-background-cyan-400'}>
-						{this.renderMenu()}
-					</Menu>
 					*/}
 
 					{this.renderSideBarButton()}
 					
 					<Block className={'e-right'}>
 						{this.renderToast()}
-						<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
+						<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-indigo-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
 					</Block>
 					
+					{/*
 					<Block className={'e-right search-block'}>
 						{this.renderSearch()}
-						<Button onClick={this.toggleSearch.bind(this)} className={'flat e-background-cyan-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
+						<Button onClick={this.toggleSearch.bind(this)} className={'flat e-background-indigo-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
 					</Block>
+					*/}
 					
 					{this.props.children}
 				</AppBar>
 
-				<AppNavigation visible={this.state.showSideBar} />
+				<AppNavigation visible={this.state.showSideBar} callback={this.loadComponent} />
         	</div>
         );
     }
@@ -406,6 +252,7 @@ class AppHeader extends React.Component {
 ReactDOM.render(
 	<Block>
 		<AppHeader />
+		<AppIcons />
 		<AppColors />
 	</Block>
 	,
