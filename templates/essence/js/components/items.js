@@ -5,14 +5,12 @@ module.exports = {
 	'icons': {
 		'title': 'Icons',
 		'description': 'The list of icons available from Material Design', 
-		'url': '/icons.html',
-		'icon': 'icons'
+		'url': '/icons.html'
 	},
 	'colors': {
 		'title': 'Colors',
 		'description': 'The list of colors available from Material Design', 
-		'url': '/colors.html',
-		'icon': 'colors'
+		'url': '/colors.html'
 	},
 	'appbar': {
 		'title': 'AppBar',
@@ -60,12 +58,6 @@ module.exports = {
 		'title': 'Dialog',
 		'description': 'As you might expect, dialog boxes pop. And they have actions - set the dialog content and its actions with .e-dialogs-content and .e-dialogs-actions, as well as the button type & text. That’s it.', 
 		'url': '/dialog.html',
-		'icon': ''
-	},
-	'icon': {
-		'title': 'Icon',
-		'description': 'icon description', 
-		'url': '/icon.html',
 		'icon': ''
 	},
 	'image': {

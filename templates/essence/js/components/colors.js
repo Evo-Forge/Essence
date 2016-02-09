@@ -1274,7 +1274,7 @@ class AppColors extends React.Component {
 
     render() {
         return (
-			<Block classes={'e-row'}>
+			<Block classes={ClassNames('e-container e-padding-top-25', this.state.classes)}>
 				<Block classes={'brick brick-6'}>
 		        	<Card>
 		        		<CardHeader> 
@@ -1296,8 +1296,10 @@ class AppColors extends React.Component {
 		        			<Divider />
 		        			
 		        			<Block className={'e-padding-top-25 e-text-left'}>
-		        				<Text type={'h4'}>HOW TO USE:</Text>
-		        				<pre className={'e-background-grey-100 e-text-teal-600'}>
+		        				<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+		        				<Divider classes={'thick short e-background-indigo-400'} />
+
+		        				<pre className={'e-background-grey-100 e-text-black'}>
 			        				<code>
 										import &#123;Block, Text&#125; from 'essence-core';
 										<br />

@@ -40,6 +40,13 @@ var Btn = (function (_React$Component) {
 
         _this.state = {
             classes: (0, _classnames2.default)({ 'e-ripple': _this.props.ripple === false ? false : true }, _this.props.className, _this.props.classes),
+            ripple: _this.props.ripple,
+            type: _this.props.type,
+            label: _this.props.label,
+            isDisabled: _this.props.isDisabled,
+            icon: _this.props.icon,
+            tooltipText: _this.props.tooltipText,
+            tooltipPosition: _this.props.tooltipPosition,
             color: '',
             position: {
                 x: 0,
@@ -50,9 +57,23 @@ var Btn = (function (_React$Component) {
     }
 
     _createClass(Btn, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                classes: (0, _classnames2.default)({ 'e-ripple': nextProps.ripple === false ? false : true }, nextProps.className, nextProps.classes),
+                ripple: nextProps.ripple,
+                type: nextProps.type,
+                label: nextProps.label,
+                isDisabled: nextProps.isDisabled,
+                icon: nextProps.icon,
+                tooltipText: nextProps.tooltipText,
+                tooltipPosition: nextProps.tooltipPosition
+            });
+        }
+    }, {
         key: 'renderRipple',
         value: function renderRipple() {
-            if (this.props.ripple === false) {
+            if (this.state.ripple === false) {
                 return;
             }
 
@@ -63,27 +84,27 @@ var Btn = (function (_React$Component) {
     }, {
         key: 'renderContent',
         value: function renderContent() {
-            if (this.props.type === 'touchpad') {
+            if (this.state.type === 'touchpad') {
                 return _react2.default.createElement(
                     'div',
                     { className: 'container' },
                     _react2.default.createElement(
                         'i',
-                        { key: 'touchpad-icon', className: 'e-icon-' + this.props.icon },
+                        { key: 'touchpad-icon', className: 'e-icon-' + this.state.icon },
                         _react2.default.createElement(
                             'span',
                             { key: 'touchpad-label', className: 'label' },
-                            this.props.label
+                            this.state.label
                         )
                     )
                 );
             }
 
-            if (this.props.icon) {
-                return _react2.default.createElement('i', { className: 'e-icon-' + this.props.icon });
+            if (this.state.icon) {
+                return _react2.default.createElement('i', { className: 'e-icon-' + this.state.icon });
             }
 
-            return this.props.label || '';
+            return this.state.label || '';
         }
     }, {
         key: 'handleClick',
@@ -102,8 +123,14 @@ var Btn = (function (_React$Component) {
         value: function renderBtn() {
             var _this2 = this;
 
-            var buttonType = this.props.type === 'touchpad' ? 'default flat' : this.props.type || 'default flat';
+            var buttonType = this.state.type === 'touchpad' ? 'default flat' : this.state.type || 'default flat';
             var buttonClasses = (0, _classnames2.default)(this.state.classes, 'e-btn-' + buttonType);
+            var disableOption = {};
+            if (this.state.isDisabled) {
+                disableOption['disabled'] = 'disabled';
+            } else {
+                disableOption = {};
+            }
             return _react2.default.createElement(
                 'button',
                 _extends({}, this.props, {
@@ -113,8 +140,9 @@ var Btn = (function (_React$Component) {
                     ref: function ref(_ref) {
                         return _this2.currentButton = _ref;
                     },
-                    'data-tooltip': this.props.tooltipText,
-                    'data-position': this.props.tooltipPosition || 'top',
+                    'data-tooltip': this.state.tooltipText,
+                    'data-position': this.state.tooltipPosition || 'top'
+                }, disableOption, {
                     type: this.props.submit ? 'submit' : 'button'
                 }),
                 this.renderRipple(),

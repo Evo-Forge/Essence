@@ -3100,7 +3100,7 @@ class AppIcons extends React.Component {
     	let iconColor = this.state.color;
 
         return (
-			<Block classes={'e-row'}>
+			<Block classes={ClassNames('e-container e-padding-top-25', this.state.classes)}>
 				<Block classes={'brick brick-6'}>
 		        	<Card>
 		        		<CardHeader> 
@@ -3125,7 +3125,7 @@ class AppIcons extends React.Component {
 		        			
 		        			<Block className={'e-padding-top-25 e-text-left'}>
 		        				<Text type={'h4'}>HOW TO USE:</Text>
-		        				<pre className={'e-background-grey-100 e-text-teal-600'}>
+		        				<pre className={'e-background-grey-100 e-text-black'}>
 			        				<code>
 										import Icon from 'essence-icon';
 										<br />

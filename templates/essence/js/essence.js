@@ -17,11 +17,19 @@ import {List, ListItem} from 'essence-list';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
 // Components list
-import Components from './components/items.js';
-import {AppColors} from './components/colors.js';
-import {AppIcons} from './components/icons.js';
+import {
+	Components, 
+	AppColors, 
+	AppIcons,
+	AppBarComponent,
+	AppBottomSheet,
+	AppButton,
+	AppCard,
+	AppChip,
+	AppCore,
+} from './components/';
 
-class AppContent extends React.Component {
+class AppHome extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
@@ -32,53 +40,37 @@ class AppContent extends React.Component {
         };
     }
 
-    renderHeader() {
-    	if (this.props.data && this.props.data.title) {
-	    	return (
-	    		<CardHeader>
-			        <Text type={'h3'}>
-			        	{this.props.data.title}
-			        </Text>
-			    </CardHeader>
-	    	);
-    	}
-    	return;
-    }
-
-    renderContent() {
-    	if (this.props.data && this.props.data.description) {
-	    	return (
-	    		<CardContent classes={'e-background-light-blue-300 e-text-white'}>
-			        <Text type={'h5'}>
-			        	Description
-			        </Text>
-			        <Text type={'small'}>
-			        	{this.props.data.description}
-			        </Text>
-			    </CardContent>
-	    	);
-    	}
-    	return;
-    }
-
-    renderFooter() {
-    	if (this.props.data && this.props.data.footer) {
-	    	return (
-	    		<CardFooter>
-			        {this.props.data.footer}
-			    </CardFooter>
-	    	);
-    	}
-    	return;
-    }
-
     render() {
         return (
-        	<Card>
-			    {this.renderHeader()}
-			    {this.renderContent()}
-			    {this.renderFooter()}
-			</Card>
+        	<Block>
+				<Block classes={'e-padding-top-100 e-padding-bottom-100'}>
+					<Block classes={'clearfix e-margin-bottom-15'}>
+						<Block classes={'brick brick-12 e-text-center'}>
+							<Text type={'h5'} classes={'e-display-4 e-text-indigo-400'}>
+								essence
+							</Text>
+							<Text type={'h5'} classes={'e-headline e-text-indigo-400 e-text-uppercase'}>
+								The Essential Material Design Framework
+							</Text>
+						</Block>
+					</Block>
+				</Block>
+				<Block classes={'e-footer e-text-indigo-400 e-padding-top-50 e-padding-bottom-15'}>
+					<Text type={'p'} classes={'e-text-center e-title'}>
+						<Text>Join us on </Text>
+						<Text type={'a'} href={'https://twitter.com/Pearl_HQ'}>Twitter </Text> 
+						<Text type={'a'} href={'https://facebook.com/pearlhq'}>Facebook </Text> 
+						<Text type={'a'} href={'https://github.com/PearlVentures/Essence'}>GitHub </Text>
+					</Text>
+					<Text type={'p'} classes={'e-text-center'}>
+						<Text>Copyright 2016</Text>
+					</Text>
+					<Text type={'p'} classes={'e-text-center'}>
+						<Text type={'a'} href={'http://pearlhq.com'}>Pearl Ventures</Text><Text> - an Evozon Company</Text>
+					</Text>
+
+				</Block>
+			</Block>
 		);
     }
 }
@@ -141,19 +133,49 @@ class AppNavigation extends React.Component {
     }
 }
 
-class AppHeader extends React.Component {
+class App extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
         	search: 'close',
         	toast: false,
         	showSideBar: false,
-        	appcontent: {},
+        	content: <AppHome />,
+			components: [
+				'icons',
+				'colors',
+				'appbar',
+				'bottomsheet',
+				'button',
+				'card',
+				'chip',
+				'core',
+				'data-table',
+				'dialog',
+				'image',
+				'input',
+				'list',
+				'menu',
+				'navigation',
+				'paper',
+				'progress',
+				'slider',
+				'snackbar',
+				'switch',
+				'tab',
+				'toast',
+				'tooltip',
+				'touchpad',
+			],
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
             )
         };
+    }
+
+    componentDidMount() {
+    	return this.loadComponent();
     }
 
     renderSearch() {
@@ -214,17 +236,58 @@ class AppHeader extends React.Component {
     }
 
     loadComponent() {
-    	let componentHash = window.location.hash;
+    	let componentHash = window.location.hash.replace('#', '');
+    	let componentContent = '';
     	console.log('loadComponent', componentHash);
+
+    	switch (componentHash) {
+    		case 'icons':
+    			componentContent = <AppIcons classes={'e-padding-top-15'} />;
+    			break;
+    		case 'colors':
+    			componentContent = <AppColors classes={'e-padding-top-15'} />;
+    			break;
+    		case 'appbar':
+    			componentContent = <AppBarComponent />;
+    			break;
+    		case 'bottomsheet':
+    			componentContent = <AppBottomSheet />;
+    			break;
+    		case 'button':
+    			componentContent = <AppButton />;
+    			break;
+    		case 'card':
+    			componentContent = <AppCard />;
+    			break;
+    		case 'chip':
+    			componentContent = <AppChip />;
+    			break;
+    		case 'core':
+    			componentContent = <AppCore />;
+    			break;
+    		default:
+    			componentContent = <AppHome />;
+    			break;
+    	}
+
+    	if (this.state.components.indexOf(componentHash) > -1) {
+			this.setState({
+				content: componentContent
+			});
+    	}
+    }
+
+    renderContent() {
+    	return this.state.content;
     }
 
     render() {
         return(
         	<div>
 				<AppBar classes={'e-background-indigo-400'}>
-					{/*
+					
 					<Text className={'e-text-white'}>Essence - MD Framework</Text>
-					*/}
+					
 
 					{this.renderSideBarButton()}
 					
@@ -233,17 +296,19 @@ class AppHeader extends React.Component {
 						<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-indigo-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
 					</Block>
 					
-					{/*
+					
 					<Block className={'e-right search-block'}>
 						{this.renderSearch()}
 						<Button onClick={this.toggleSearch.bind(this)} className={'flat e-background-indigo-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
 					</Block>
-					*/}
+					
 					
 					{this.props.children}
 				</AppBar>
 
-				<AppNavigation visible={this.state.showSideBar} callback={this.loadComponent} />
+				<AppNavigation visible={this.state.showSideBar} callback={this.loadComponent.bind(this)} />
+
+				{this.renderContent()}
         	</div>
         );
     }
@@ -251,9 +316,7 @@ class AppHeader extends React.Component {
 
 ReactDOM.render(
 	<Block>
-		<AppHeader />
-		<AppIcons />
-		<AppColors />
+		<App />
 	</Block>
 	,
 	document.querySelector('.app')
