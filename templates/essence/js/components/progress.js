@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
-import Btn from 'essence-button';
+import Progress from 'essence-progress';
 import {Block, Text, Divider} from 'essence-core';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
-class AppCard extends React.Component {
+class AppProgress extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
@@ -23,32 +23,33 @@ class AppCard extends React.Component {
 				<Block classes={'brick brick-12'}>
 		        	<Card>
 		        		<CardHeader> 
-		        			<Text type={'h3'} classes={'e-text-indigo-400'}>CARDS</Text>
+		        			<Text type={'h3'} classes={'e-text-indigo-400'}>PROGRESS</Text>
 		        			<Divider classes={'thick short e-background-indigo-400'} />
 							<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-								There are several types of cards which can be used in different situations.
+								Make loading content in your app as delightful and painless as possible by minimizing the amount of visual change a user sees before they can view and interact with content. Each operation should only be represented by one activity indicator—for example, one refresh operation should not display both a refresh bar and an activity circle. Below you’ll find six variations of activity indicators. Use them wisely.
 							</Text>
 		        		</CardHeader>
 
 		        		<CardContent>
-		        			<Block>
+			        		<Block classes={'e-text-center'}>
 		        				<Block className={ClassNames('e-row e-padding-bottom-25')}>
-									<Block classes={'brick brick-3'} />
-									<Block classes={'brick brick-6'}>
-		        						<Card>
-											<CardHeader>
-												<Text type={'h4'}>Header</Text>
-											</CardHeader>
-											<CardContent>
-												<Text type={'p'}>
-													Card content, can be used with images
-												</Text>
-											</CardContent>
-											<CardFooter>
-												<Btn label={'OK'} type={'succes'} className={'flat e-left'} />
-												<Btn label={'SKIP'} type={'info'} className={'flat e-right'} />
-											</CardFooter>
-										</Card>
+									<Block classes={'brick brick-2'}>
+										<Progress type={'circle'} />
+									</Block>
+									<Block classes={'brick brick-2'}>
+										<Progress type={'circle'} small={true} />
+									</Block>
+									<Block classes={'brick brick-2'}>
+										<Progress type={'dots'} />
+									</Block>
+									<Block classes={'brick brick-2'}>
+										<Progress type={'slider'} />
+									</Block>
+									<Block classes={'brick brick-2'}>
+										<Progress type={'fix'} />
+									</Block>
+									<Block classes={'brick brick-2'}>
+										<Progress type={'dynamic'} />
 									</Block>
 								</Block>
 		        			</Block>
@@ -59,7 +60,7 @@ class AppCard extends React.Component {
 
 		        				<pre className={'e-background-grey-100 e-text-black'}>
 			        				<code>
-										npm install <strong>essence-card</strong>
+										npm install <strong>essence-progress</strong>
 			        				</code>
 		        				</pre>
 
@@ -69,30 +70,20 @@ class AppCard extends React.Component {
 
 		        				<pre className={'e-background-grey-100 e-text-black'}>
 			        				<code>
-										import &#123;Card, CardHeader, CardContent, CardFooter&#125; from 'essence-card';
+										import Progress from 'essence-progress';
 										<br />
 										<br />
-										&lt;Card&gt;
+										&lt;Progress type=&#123;'circle'&#125; />
 										<br />
-										&nbsp;&lt;CardHeader&gt;
+										&lt;Progress type=&#123;'circle'&#125; small=&#123;true&gt; />
 										<br />
-										&nbsp;&nbsp;&nbsp;Card header
+										&lt;Progress type=&#123;'dots'&#125; />
 										<br />
-										&nbsp;&lt;/CardHeader&gt;
+										&lt;Progress type=&#123;'slider'&#125; />
 										<br />
-										&nbsp;&lt;CardContent&gt;
+										&lt;Progress type=&#123;'fix'&#125; />
 										<br />
-										&nbsp;&nbsp;&nbsp;Card content
-										<br />
-										&nbsp;&lt;/CardContent&gt;
-										<br />
-										&nbsp;&lt;CardFooter&gt;
-										<br />
-										&nbsp;&nbsp;&nbsp;Card footer with action buttons
-										<br />
-										&nbsp;&lt;/CardFooter&gt;
-										<br />
-										&lt;/Card&gt;
+										&lt;Progress type=&#123;'dynamic'&#125; />
 			        				</code>
 		        				</pre>
 		        			</Block>
@@ -104,4 +95,4 @@ class AppCard extends React.Component {
     }
 }
 
-exports.AppCard = AppCard;
+exports.AppProgress = AppProgress;

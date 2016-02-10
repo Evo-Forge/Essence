@@ -3,18 +3,39 @@ import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
 import Btn from 'essence-button';
+import SnackBar from 'essence-snackbar';
 import {Block, Text, Divider} from 'essence-core';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
-class AppCard extends React.Component {
+class AppSnackBar extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
+        	snackbar: false,
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
             )
         };
+    }
+
+    renderSnackbar() {
+        if (this.state.snackbar) {
+            return (
+                <SnackBar classes={'e-text-blue-500'} visible={true} delay={5000}>
+                    You got a new message!
+                </SnackBar>
+            );
+        }
+        return;
+    }
+
+    toggleSnackBar() {
+        var snackbarStatus = !this.state.snackbar;
+
+        this.setState({
+            snackbar: snackbarStatus
+        });
     }
 
     render() {
@@ -23,33 +44,22 @@ class AppCard extends React.Component {
 				<Block classes={'brick brick-12'}>
 		        	<Card>
 		        		<CardHeader> 
-		        			<Text type={'h3'} classes={'e-text-indigo-400'}>CARDS</Text>
+		        			<Text type={'h3'} classes={'e-text-indigo-400'}>SNACKBARS</Text>
 		        			<Divider classes={'thick short e-background-indigo-400'} />
 							<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-								There are several types of cards which can be used in different situations.
+								Remember those confirmation messages from long time ago? They’re now called snackbars and toasts and they come with rules. Head onto Google to check out how to use them. Then check out the below examples hot to integrate them from Essence.
 							</Text>
 		        		</CardHeader>
 
 		        		<CardContent>
-		        			<Block>
+			        		<Block classes={'e-text-center'}>
 		        				<Block className={ClassNames('e-row e-padding-bottom-25')}>
-									<Block classes={'brick brick-3'} />
-									<Block classes={'brick brick-6'}>
-		        						<Card>
-											<CardHeader>
-												<Text type={'h4'}>Header</Text>
-											</CardHeader>
-											<CardContent>
-												<Text type={'p'}>
-													Card content, can be used with images
-												</Text>
-											</CardContent>
-											<CardFooter>
-												<Btn label={'OK'} type={'succes'} className={'flat e-left'} />
-												<Btn label={'SKIP'} type={'info'} className={'flat e-right'} />
-											</CardFooter>
-										</Card>
-									</Block>
+									{this.renderSnackbar()}
+                					<Btn 
+                						type={'primary'} 
+                						label={'Snow Snackbar'}
+                						onClick={this.toggleSnackBar.bind(this)} 
+                						className={'flat'} />
 								</Block>
 		        			</Block>
 
@@ -59,40 +69,25 @@ class AppCard extends React.Component {
 
 		        				<pre className={'e-background-grey-100 e-text-black'}>
 			        				<code>
-										npm install <strong>essence-card</strong>
+										npm install <strong>essence-snackbar</strong>
 			        				</code>
 		        				</pre>
 
 		        				<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-									Create a new ReactJS file with the code bellow.
+									To customise the hide function for SnackBar modify the number from option <strong>delay</strong> with a delay in miliseconds. 
 								</Text>
 
 		        				<pre className={'e-background-grey-100 e-text-black'}>
 			        				<code>
-										import &#123;Card, CardHeader, CardContent, CardFooter&#125; from 'essence-card';
+										import SnackBar from 'essence-snackbar';
 										<br />
 										<br />
-										&lt;Card&gt;
+										&lt;SnackBar classes=&#123;'e-text-green-500'&#125; visible=&#123;true&#125; delay=&#123;5000&#125;&gt;
 										<br />
-										&nbsp;&lt;CardHeader&gt;
+										&nbsp;You got a new message!
 										<br />
-										&nbsp;&nbsp;&nbsp;Card header
+										&lt;/SnackBar&gt;
 										<br />
-										&nbsp;&lt;/CardHeader&gt;
-										<br />
-										&nbsp;&lt;CardContent&gt;
-										<br />
-										&nbsp;&nbsp;&nbsp;Card content
-										<br />
-										&nbsp;&lt;/CardContent&gt;
-										<br />
-										&nbsp;&lt;CardFooter&gt;
-										<br />
-										&nbsp;&nbsp;&nbsp;Card footer with action buttons
-										<br />
-										&nbsp;&lt;/CardFooter&gt;
-										<br />
-										&lt;/Card&gt;
 			        				</code>
 		        				</pre>
 		        			</Block>
@@ -104,4 +99,4 @@ class AppCard extends React.Component {
     }
 }
 
-exports.AppCard = AppCard;
+exports.AppSnackBar = AppSnackBar;

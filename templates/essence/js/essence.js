@@ -27,6 +27,16 @@ import {
 	AppCard,
 	AppChip,
 	AppCore,
+	AppDataTable,
+	AppImage,
+	AppInput,
+	AppList,
+	AppMenu,
+	AppPaper,
+	AppProgress,
+	AppSlider,
+	AppSnackBar,
+	AppToast,
 } from './components/';
 
 class AppHome extends React.Component {
@@ -264,6 +274,36 @@ class App extends React.Component {
     			break;
     		case 'core':
     			componentContent = <AppCore />;
+    			break;
+    		case 'data-table':
+    			componentContent = <AppDataTable />;
+    			break;
+    		case 'image':
+    			componentContent = <AppImage />;
+    			break;
+    		case 'input':
+    			componentContent = <AppInput />;
+    			break;
+    		case 'list':
+    			componentContent = <AppList />;
+    			break;
+    		case 'menu':
+    			componentContent = <AppMenu />;
+    			break;
+    		case 'paper':
+    			componentContent = <AppPaper />;
+    			break;
+    		case 'progress':
+    			componentContent = <AppProgress />;
+    			break;
+    		case 'slider':
+    			componentContent = <AppSlider />;
+    			break;
+    		case 'snackbar':
+    			componentContent = <AppSnackBar />;
+    			break;
+    		case 'toast':
+    			componentContent = <AppToast />;
     			break;
     		default:
     			componentContent = <AppHome />;

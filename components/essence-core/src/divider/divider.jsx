@@ -11,6 +11,12 @@ class Divider extends React.Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames('e-divider', nextProps.className, nextProps.classes)
+        });
+    }
+
 	render() {
 		return (
             <div 

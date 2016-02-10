@@ -33,13 +33,19 @@ var Text = (function (_React$Component) {
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Text).call(this, props));
 
     _this.state = {
-      classes: (0, _classnames2.default)(_this.props.className, _this.props.classes),
-      text: false
+      classes: (0, _classnames2.default)(_this.props.className, _this.props.classes)
     };
     return _this;
   }
 
   _createClass(Text, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState({
+        classes: (0, _classnames2.default)(nextProps.className, nextProps.classes)
+      });
+    }
+  }, {
     key: 'renderText',
     value: function renderText() {
       var textType = this.props.type;

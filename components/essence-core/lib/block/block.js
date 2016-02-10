@@ -39,6 +39,13 @@ var Block = (function (_React$Component) {
   }
 
   _createClass(Block, [{
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState({
+        classes: (0, _classnames2.default)(nextProps.className, nextProps.classes)
+      });
+    }
+  }, {
     key: 'renderBlock',
     value: function renderBlock() {
       var blockType = this.props.type;

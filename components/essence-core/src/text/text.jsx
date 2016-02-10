@@ -7,9 +7,14 @@ class Text extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-        	classes: ClassNames(this.props.className, this.props.classes),
-        	text: false
+        	classes: ClassNames(this.props.className, this.props.classes)
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames(nextProps.className, nextProps.classes)
+        });
     }
 
     renderText() {

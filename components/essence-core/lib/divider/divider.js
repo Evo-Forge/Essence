@@ -25,32 +25,39 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 // require("!css!less!./divider.less");
 
 var Divider = (function (_React$Component) {
-  _inherits(Divider, _React$Component);
+    _inherits(Divider, _React$Component);
 
-  function Divider(props) {
-    _classCallCheck(this, Divider);
+    function Divider(props) {
+        _classCallCheck(this, Divider);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Divider).call(this, props));
+        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Divider).call(this, props));
 
-    _this.state = {
-      classes: (0, _classnames2.default)('e-divider', _this.props.className, _this.props.classes)
-    };
-    return _this;
-  }
-
-  _createClass(Divider, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        _extends({}, this.props, {
-          className: this.state.classes }),
-        this.props.children
-      );
+        _this.state = {
+            classes: (0, _classnames2.default)('e-divider', _this.props.className, _this.props.classes)
+        };
+        return _this;
     }
-  }]);
 
-  return Divider;
+    _createClass(Divider, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                classes: (0, _classnames2.default)('e-divider', nextProps.className, nextProps.classes)
+            });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                _extends({}, this.props, {
+                    className: this.state.classes }),
+                this.props.children
+            );
+        }
+    }]);
+
+    return Divider;
 })(_react2.default.Component);
 
 module.exports = Divider;

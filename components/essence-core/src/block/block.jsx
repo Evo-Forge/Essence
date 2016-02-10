@@ -10,6 +10,12 @@ class Block extends React.Component {
         	classes: ClassNames(this.props.className, this.props.classes)
         };
     }
+    
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames(nextProps.className, nextProps.classes)
+        });
+    }
 
     renderBlock() {
     	let blockType = this.props.type;

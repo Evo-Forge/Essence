@@ -3101,28 +3101,55 @@ class AppIcons extends React.Component {
 
         return (
 			<Block classes={ClassNames('e-container e-padding-top-25', this.state.classes)}>
-				<Block classes={'brick brick-6'}>
-		        	<Card>
-		        		<CardHeader> 
-		        			<Text type={'h3'} classes={'e-text-indigo-400'}>ICONS</Text>
-		        			<Divider classes={'thick short e-background-indigo-400'} />
-		        		</CardHeader>
-		        		<CardContent classes={'e-text-center'}>
-		        			{this.renderIcon()}
+	        	<Card>
+	        		<CardHeader> 
+	        			<Text type={'h3'} classes={'e-text-indigo-400'}>ICONS</Text>
+	        			<Divider classes={'thick short e-background-indigo-400'} />
+	        		</CardHeader>
+	        		<CardContent>
+	        			<Block>
+	        				<Block className={'e-text-center'}>
+		        				{this.renderIcon()}
+	        				</Block>
+	        				
+	        				<Divider />
 
-			        		<Divider />
-			        		
-			        		<Block className={'e-padding-top-25 e-padding-bottom-25 e-text-left'}>
-			        			<Text type={'h4'}>
-			        				Icon name: <strong>{this.state.icon.name}</strong>
-			        			</Text>
-			        			<Text type={'h4'}>
-			        				Icon title: <strong>{this.state.icon.title}</strong>
-			        			</Text>
-			        		</Block>
-		        			
-		        			<Divider />
-		        			
+	        				<Block>
+				        		<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE YOUR ICON:</Text>
+				        		<Divider classes={'thick short e-background-indigo-400'} />
+						        		
+				        		<Tab 
+									data={{
+										'header': [{
+												'context': (<Text>Icons</Text>)
+											},{
+												'context': (<Text>Colors</Text>)
+											}
+										],
+										'rows': [ 
+											(
+												<Block classes={'colors'}>
+													<Block type={'div'}>
+														{this.renderSearch()}
+													</Block>
+													{this.renderIcons.bind(this)()}
+												</Block>
+											),
+											(
+												<Block classes={'colors'}>
+													<Block type={'div'}>
+														<Text type={'h3'} classes={'e-text-indigo-400'}>
+															COLORS
+														</Text>
+													</Block>
+													{this.renderColors.bind(this)()}
+												</Block>
+											)
+										]
+									}}
+									classes={'e-background-indigo-400 e-text-grey-50'} />
+							</Block>
+
 		        			<Block className={'e-padding-top-25 e-text-left'}>
 		        				<Text type={'h4'}>HOW TO USE:</Text>
 		        				<pre className={'e-background-grey-100 e-text-black'}>
@@ -3134,41 +3161,9 @@ class AppIcons extends React.Component {
 			        				</code>
 		        				</pre>
 		        			</Block>
-		        		</CardContent>
-					</Card>
-				</Block>
-				<Block classes={'brick brick-6'}>
-		        	<Tab 
-						data={{
-							'header': [{
-									'context': (<Text>Icons</Text>)
-								},{
-									'context': (<Text>Colors</Text>)
-								}
-							],
-							'rows': [ 
-								(
-									<Block classes={'colors'}>
-										<Block type={'div'}>
-											{this.renderSearch()}
-										</Block>
-										{this.renderIcons.bind(this)()}
-									</Block>
-								),
-								(
-									<Block classes={'colors'}>
-										<Block type={'div'}>
-											<Text type={'h3'} classes={'e-text-indigo-400'}>
-												COLORS
-											</Text>
-										</Block>
-										{this.renderColors.bind(this)()}
-									</Block>
-								)
-							]
-						}}
-						classes={'e-background-indigo-400 e-text-grey-50'} />
-				</Block>
+		        		</Block>
+	        		</CardContent>
+				</Card>
 			</Block>
 		);
     }

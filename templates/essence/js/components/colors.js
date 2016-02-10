@@ -1264,7 +1264,7 @@ class AppColors extends React.Component {
 
     renderColor() {
     	return (
-    		<p className={ClassNames('e-padding-top-25 e-padding-bottom-25', this.state.backgroundColor)}>
+    		<p className={ClassNames('e-padding-top-25 e-padding-bottom-25 e-text-center', this.state.backgroundColor)}>
 				<span className={ClassNames(this.state.textColor)}>
 					This is your text to test the colors for background & text.
 				</span>
@@ -1275,73 +1275,68 @@ class AppColors extends React.Component {
     render() {
         return (
 			<Block classes={ClassNames('e-container e-padding-top-25', this.state.classes)}>
-				<Block classes={'brick brick-6'}>
 		        	<Card>
 		        		<CardHeader> 
 		        			<Text type={'h3'} classes={'e-text-indigo-400'}>COLORS</Text>
 		        			<Divider classes={'thick short e-background-indigo-400'} />
+		        			<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+								Colors are pretty. And Essence has them all, powered by Google.
+							</Text>
 		        		</CardHeader>
-		        		<CardContent classes={'e-text-center'}>
-		        			{this.renderColor()}
-			        		<Divider />
-			        		<Block className={'e-padding-top-25 e-padding-bottom-25 e-text-left'}>
-			        			<Text type={'h4'}>
-			        				Text color: <strong>{this.state.textColor}</strong>
-			        			</Text>
-			        			<Text type={'h4'}>
-			        				Background color: <strong>{this.state.backgroundColor}</strong>
-			        			</Text>
-			        		</Block>
-		        			
-		        			<Divider />
-		        			
-		        			<Block className={'e-padding-top-25 e-text-left'}>
-		        				<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
-		        				<Divider classes={'thick short e-background-indigo-400'} />
+		        		<CardContent>
+							<Block>
+			        			{this.renderColor()}
+				        		<Divider />
+				        		<Block>
+				        			<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE YOUR COLOURS:</Text>
+			        				<Divider classes={'thick short e-background-indigo-400'} />
+					        		<Tab data={{
+											'header': [{
+													'context': (<Text>Text Color</Text>)
+												},{
+													'context': (<Text>Background Color</Text>)
+												}
+											],
+											'rows': [ 
+												(
+													<Block classes={'colors'}>
+														{this.renderTextColors()}
+													</Block>
+												),
+												(
+													<Block classes={'colors'}>
+														{this.renderBackgroundColors()}
+													</Block>
+												)
+											]
+										}}
+										classes={'e-background-indigo-400 e-text-grey-50'} />
+			        			</Block>
 
-		        				<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
-										import &#123;Block, Text&#125; from 'essence-core';
-										<br />
-										<br />
-										&lt;Block className=&#123;"{ClassNames(this.state.backgroundColor)}"&#125;&gt;
-										<br />
-										&nbsp;&nbsp;&lt;Text className=&#123;"{ClassNames(this.state.textColor)}"&#125;&gt;
-										<br />
-										&nbsp;&nbsp;&nbsp;&nbsp;This is your text to test the colors for background &amp; text.
-										<br />
-										&nbsp;&nbsp;&lt;/Text&gt;
-										<br />
-										&lt;/Block&gt;
-			        				</code>
-		        				</pre>
-		        			</Block>
+			        			<Block className={'e-padding-top-25 e-text-left'}>
+			        				<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+			        				<Divider classes={'thick short e-background-indigo-400'} />
+
+			        				<pre className={'e-background-grey-100 e-text-black'}>
+				        				<code>
+											import &#123;Block, Text&#125; from 'essence-core';
+											<br />
+											<br />
+											&lt;Block className=&#123;"{ClassNames(this.state.backgroundColor)}"&#125;&gt;
+											<br />
+											&nbsp;&nbsp;&lt;Text className=&#123;"{ClassNames(this.state.textColor)}"&#125;&gt;
+											<br />
+											&nbsp;&nbsp;&nbsp;&nbsp;This is your text to test the colors for background &amp; text.
+											<br />
+											&nbsp;&nbsp;&lt;/Text&gt;
+											<br />
+											&lt;/Block&gt;
+				        				</code>
+			        				</pre>
+			        			</Block>
+							</Block>
 		        		</CardContent>
 					</Card>
-				</Block>
-				<Block classes={'brick brick-6'}>
-		        	<Tab data={{
-							'header': [{
-									'context': (<Text>Text Color</Text>)
-								},{
-									'context': (<Text>Background Color</Text>)
-								}
-							],
-							'rows': [ 
-								(
-									<Block classes={'colors'}>
-										{this.renderTextColors()}
-									</Block>
-								),
-								(
-									<Block classes={'colors'}>
-										{this.renderBackgroundColors()}
-									</Block>
-								)
-							]
-						}}
-						classes={'e-background-indigo-400 e-text-grey-50'} />
-				</Block>
 			</Block>
 		);
     }
