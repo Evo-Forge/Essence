@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
 import Btn from 'essence-button';
+import Tab from 'essence-tab';
 import {Block, Text, Divider} from 'essence-core';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
@@ -10,12 +11,26 @@ class AppCore extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
+        	textType: 'span',
+			textClass: 'e-text-center',
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
             )
         };
     }
+
+    renderType() {
+    	return ('renderType');
+    }
+
+	renderPosition() {
+		return ('renderPosition');
+	}
+
+	renderTypography() {
+		return ('renderTypography');
+	}
 
     render() {
         return (
@@ -33,7 +48,7 @@ class AppCore extends React.Component {
 
 		        		<CardContent>
 		        			<Block>
-		        				<Text type={'h4'} classes={'e-text-indigo-400'}>1. GRID SYSTEM</Text>
+		        				<Text type={'h4'} classes={'e-background-indigo-400 e-padding-top-15 e-padding-bottom-15 e-text-white'}>&nbsp; 1. GRID SYSTEM</Text>
 								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
 									When it comes to organizing content, grids come in handy. Take a look at the examples below to pick the best system for your content.
 								</Text>
@@ -126,10 +141,11 @@ class AppCore extends React.Component {
 				    				</code>
 								</pre>
 		        			</Block>
+
 		        			<br />
 		        			<br />
 		        			<Block>
-		        				<Text type={'h4'} classes={'e-text-indigo-400'}>2. DIVIDER</Text>
+		        				<Text type={'h4'} classes={'e-background-indigo-400 e-padding-top-15 e-padding-bottom-15 e-text-white'}>&nbsp; 2. DIVIDER</Text>
 								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
 									According to our needs we created some dividers and stored them in a .less file called, you've guest it, dividers.
 									
@@ -198,10 +214,11 @@ class AppCore extends React.Component {
 			        				</code>
 		        				</pre>
 		        			</Block>
-		        			<br />
-		        			<br />
-		        			<Block>
-		        				<Text type={'h4'} classes={'e-text-indigo-400'}>3. RIPPLE INK</Text>
+
+							<br />
+							<br />
+							<Block>
+								<Text type={'h4'} classes={'e-background-indigo-400 e-padding-top-15 e-padding-bottom-15 e-text-white'}>&nbsp; 3. RIPPLE INK</Text>
 								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
 									This component is design for Btn component to simulate a color ripple effect on the background element.
 								</Text>
@@ -218,16 +235,16 @@ class AppCore extends React.Component {
 								<br />
 
 								<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
-		        				<Divider classes={'thick short e-background-indigo-400'} />
+								<Divider classes={'thick short e-background-indigo-400'} />
 
-		        				<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
+								<pre className={'e-background-grey-100 e-text-black'}>
+				    				<code>
 										npm install <strong>essence-core</strong>
-			        				</code>
-		        				</pre>
+				    				</code>
+								</pre>
 
-		        				<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-									Include the RippleInk component inside an element's container where style position must be "relative".
+								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+									Include the RippleInk component inside an element container where style position must be 'relative'.
 									<br />
 									<br />
 									- The RippleInk will generate a div with style position absolute and the Ripple Effect with the background color calculated from the element.
@@ -236,7 +253,7 @@ class AppCore extends React.Component {
 								</Text>
 
 								<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
+				    				<code>
 										import &#123;Utils, RippleInk&#125; from 'essence-core';
 										<br />
 										<br />
@@ -248,9 +265,143 @@ class AppCore extends React.Component {
 										<br />
 										<br />
 										&lt;RippleInk color=&#123;color&#125; position=&#123;position&#125;/&gt;
-			        				</code>
-		        				</pre>
-		        			</Block>
+				    				</code>
+								</pre>
+							</Block>
+							
+							<br />
+							<br />
+							<Block>
+								<Text type={'h4'} classes={'e-background-indigo-400 e-padding-top-15 e-padding-bottom-15 e-text-white'}>&nbsp; 4. TEXT TYPOGRAPHY</Text>
+								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+									Typography is such an important part of a catchy website, so you must use it carefully. You are just a few classes away of doing it! To do that, we are here helping you with predefined classes.
+								</Text>
+
+								<Block className={'e-padding-top-15 e-padding-bottom-25 e-text-center'}>
+									<Block className={'e-text-center e-body1 e-background-teal-500 e-text-white e-padding-top-15 e-padding-bottom-15'}>
+										<Text 
+											type={this.state.textType}
+											classes={ClassNames('e-text-white', this.state.textClass)}
+											href={'http://essence.pearlhq.com'}
+											target={'_blank'}>
+
+											&lt;Text type=&#123;'{this.state.textType}'&#125; classes=&#123;'{this.state.textClass}'&#125;&gt;
+											 Text Typography Example
+											&lt;/Text&gt;
+
+										</Text>
+									</Block>
+								</Block>
+								
+								<Divider />
+								
+								<Block className={'e-padding-top-25 e-padding-bottom-25'}>
+
+									<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE TEXT STYLING:</Text>
+									<Divider classes={'thick short e-background-indigo-400'} />
+
+									<Tab data={{
+										'header': [{
+												'context': (<Text>Type</Text>)
+											},{
+												'context': (<Text>Position</Text>)
+											},{
+												'context': (<Text>Typography</Text>)
+											}
+										],
+										'rows': [ 
+											(
+												<Block className={'e-text-center'}>
+													{this.renderType()}
+												</Block>
+											),
+											(
+												<Block className={'e-text-center'}>
+													{this.renderPosition()}
+												</Block>
+											),
+											(
+												<Block className={'e-text-center'}>
+													{this.renderTypography()}
+												</Block>
+											)
+										]
+									}}
+									classes={'e-background-indigo-400 e-text-grey-50'} />
+
+								</Block>
+
+								<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+								<Divider classes={'thick short e-background-indigo-400'} />
+
+								<pre className={'e-background-grey-100 e-text-black'}>
+				    				<code>
+										npm install <strong>essence-core</strong>
+				    				</code>
+								</pre>
+
+								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+									There are a list of available types that can be used as in the list bellow: 
+									<br />
+									<Text classes={'e-caption'}>
+										- a, 
+										p, 
+										label, 
+										strong, 
+										small, 
+										caption, 
+										h1, 
+										h2, 
+										h3, 
+										h4, 
+										h5, 
+										h6, 
+										sup, 
+										sub, 
+										em
+									</Text>
+									<br />
+									<br />
+								</Text>
+
+								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+									For typography styling there are a list of available options:
+									<br />
+									<Text classes={'e-caption'}>
+										- e-text-left, &nbsp;
+										e-text-right, &nbsp;
+										e-text-center, &nbsp;
+										e-text-justify, &nbsp;
+										e-text-uppercase, &nbsp;
+										e-text-capitalize, &nbsp;
+										e-text-lowercase
+										<br />
+										- e-display-4, &nbsp; 
+										e-display-3, &nbsp; 
+										e-display-2, &nbsp; 
+										e-display-1, &nbsp; 
+										e-headline, &nbsp; 
+										e-title, &nbsp; 
+										e-subhead, &nbsp; 
+										e-body2, &nbsp; 
+										e-body1, &nbsp; 
+										e-caption, &nbsp; 
+										e-button
+									</Text>
+								</Text>
+
+								<pre className={'e-background-grey-100 e-text-black'}>
+				    				<code>
+										import &#123;Text&#125; from 'essence-core';
+										<br />
+										<br />
+										&lt;Text type=&#123;a&#125; href=&#123;'http://essence.pearlhq.com'&#125; target=&#123;'_blank'&#125;&gt;
+											Discover Essence
+										&lt;Text/&gt;
+										<br />
+				    				</code>
+								</pre>
+							</Block>
 
 		        		</CardContent>
 					</Card>

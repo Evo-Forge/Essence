@@ -95,7 +95,7 @@ var Tab = (function (_React$Component) {
                         className: active },
                     _react2.default.createElement(
                         'a',
-                        { href: '#row-' + key },
+                        null,
                         item.context
                     ),
                     indicator

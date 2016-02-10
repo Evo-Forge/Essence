@@ -57,9 +57,7 @@ class Tab extends React.Component {
                         key={'tab-'+key}
                         ref={'tab-'+key}
                         className={active}>
-                        <a href={'#row-' + key}>
-                            {item.context}
-                        </a>
+                        <a>{item.context}</a>
                         {indicator}
                     </li>
                 )
