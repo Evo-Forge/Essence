@@ -194,96 +194,98 @@ class AppButton extends React.Component {
 							</Text>
 		        		</CardHeader>
 		        		<CardContent>
-
-			        		<Block classes={'e-text-center'}>
-		        				<Block className={ClassNames('e-padding-bottom-25')}>
-									<Btn
-										type={this.state.buttonType}
-										ripple={this.state.buttonRipple === true ? true : false}
-										label={'Button Example'}
-										isDisabled={this.state.buttonDisabled === true ? true : false}
-										className={ClassNames(this.state.buttonColor)} />
+		        			<Divider />
+		        			<Block className={'e-row'}>
+								<Block className={'brick brick-5'}>
+									<Text type={'h4'} classes={'e-text-indigo-400'}>LIVE EXAMPLE:</Text>
+									<Divider classes={'thick short e-background-indigo-400'} />
+									<Block className={'e-text-center e-padding-top-15'}>
+			        					<Btn
+											type={this.state.buttonType}
+											ripple={this.state.buttonRipple === true ? true : false}
+											label={'Button Example'}
+											isDisabled={this.state.buttonDisabled === true ? true : false}
+											className={ClassNames(this.state.buttonColor)} />
+									</Block>
 								</Block>
-		        			</Block>
-			        		<Divider />
-			        		
-			        		<Block className={'e-padding-top-25 e-padding-bottom-25'}>
-								<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE BUTTON TYPE</Text>
-								<Divider classes={'thick short e-background-indigo-400'} />
+								<Block className={'brick brick-7'}>
+									<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+									<Divider classes={'thick short e-background-indigo-400'} />
 
-			        			<Tab data={{
-									'header': [{
-											'context': (<Text>Raised</Text>)
-										},{
-											'context': (<Text>Flat</Text>)
-										},{
-											'context': (<Text>Fab</Text>)
-										},{
-											'context': (<Text>Options</Text>)
-										}
-									],
-									'rows': [ 
-										(
-											<Block className={'e-text-center'}>
-												{this.renderRaised()}
-											</Block>
-										),
-										(
-											<Block className={'e-text-center'}>
-												{this.renderFlat()}
-											</Block>
-										),
-										(
-											<Block className={'e-text-center'}>
-												{this.renderFab()}
-											</Block>
-										),
-										(
-											<Block className={'e-text-center'}>
-												<Block className={'e-padding-top-25'}>
-													<Text type={'p'}>Switch ON or OFF the option for <strong>Ripple Effect</strong></Text>
-													<Switch 
-														type={'switches'} 
-														afterText={'ON'} 
-														beforeText={'OFF'} 
-														name={'switch-ripple'} 
-														onClick={this.changeButton.bind(this, {ripple: !this.state.buttonRipple} )}/>
-												</Block>
-												<Block className={'e-padding-top-25 e-padding-bottom-25'}>
-													<Text type={'p'}>Switch ON or OFF the option for <strong>Disabled</strong> option</Text>
-													<Switch 
-														type={'switches'} 
-														afterText={'ON'} 
-														beforeText={'OFF'} 
-														name={'switch-disable'}
-														onClick={this.changeButton.bind(this, {disabled: !this.state.buttonDisabled} )}/>
-												</Block>
-											</Block>
-										)
-									]
-								}}
-								classes={'e-background-indigo-400 e-text-grey-50'} />
-			        		</Block>
-		        			
-		        			<Block className={'e-padding-top-25'}>
-		        				<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
-		        				<Divider classes={'thick short e-background-indigo-400'} />
-
-		        				<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
-										import Btn from 'essence-button';
-										<br />
-										<br />
-										&lt;Btn
-										label=&#123;'Button Example'&#125; 
-										ripple=&#123;{this.state.buttonRipple.toString()}&#125; 
-										type=&#123;'{this.state.buttonType}'&#125; 
-										className=&#123;'{ClassNames(this.state.buttonColor)}'&#125; /&gt; 
-			        				</code>
-		        				</pre>
-		        			</Block>
+									<pre className={'e-background-grey-100 e-text-black'}>
+										<code>
+											import Btn from 'essence-button';
+											<br />
+											<br />
+											&lt;Btn
+											label=&#123;'Button Example'&#125; 
+											ripple=&#123;{this.state.buttonRipple.toString()}&#125; 
+											type=&#123;'{this.state.buttonType}'&#125; 
+											className=&#123;'{ClassNames(this.state.buttonColor)}'&#125; /&gt; 
+										</code>
+									</pre>
+								</Block>
+	        				</Block>
 		        		</CardContent>
 					</Card>
+
+	        		<Block className={'e-padding-bottom-25'}>
+						<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE BUTTON TYPE</Text>
+						<Divider classes={'thick short e-background-indigo-400'} />
+
+	        			<Tab data={{
+							'header': [{
+									'context': (<Text>Raised</Text>)
+								},{
+									'context': (<Text>Flat</Text>)
+								},{
+									'context': (<Text>Fab</Text>)
+								},{
+									'context': (<Text>Options</Text>)
+								}
+							],
+							'rows': [ 
+								(
+									<Block className={'e-text-center e-padding-top-75 e-padding-bottom-75'}>
+										{this.renderRaised()}
+									</Block>
+								),
+								(
+									<Block className={'e-text-center e-padding-top-75 e-padding-bottom-75'}>
+										{this.renderFlat()}
+									</Block>
+								),
+								(
+									<Block className={'e-text-center e-padding-top-75 e-padding-bottom-75'}>
+										{this.renderFab()}
+									</Block>
+								),
+								(
+									<Block className={'e-text-center'}>
+										<Block className={'e-padding-top-25'}>
+											<Text type={'p'}>Switch ON or OFF the option for <strong>Ripple Effect</strong></Text>
+											<Switch 
+												type={'switches'} 
+												afterText={'ON'} 
+												beforeText={'OFF'} 
+												name={'switch-ripple'} 
+												onClick={this.changeButton.bind(this, {ripple: !this.state.buttonRipple} )}/>
+										</Block>
+										<Block className={'e-padding-top-25 e-padding-bottom-25'}>
+											<Text type={'p'}>Switch ON or OFF the option for <strong>Disabled</strong> option</Text>
+											<Switch 
+												type={'switches'} 
+												afterText={'ON'} 
+												beforeText={'OFF'} 
+												name={'switch-disable'}
+												onClick={this.changeButton.bind(this, {disabled: !this.state.buttonDisabled} )}/>
+										</Block>
+									</Block>
+								)
+							]
+						}}
+						classes={'e-background-indigo-400 e-text-grey-50'} />
+	        		</Block>
 				</Block>
 			</Block>
 		);

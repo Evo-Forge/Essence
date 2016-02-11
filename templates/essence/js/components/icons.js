@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _ from 'lodash/collection';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
@@ -3102,68 +3102,77 @@ class AppIcons extends React.Component {
         return (
 			<Block classes={ClassNames('e-container e-padding-top-25', this.state.classes)}>
 	        	<Card>
-	        		<CardHeader> 
-	        			<Text type={'h3'} classes={'e-text-indigo-400'}>ICONS</Text>
-	        			<Divider classes={'thick short e-background-indigo-400'} />
-	        		</CardHeader>
+					<CardHeader>
+						<Text type={'h3'} classes={'e-text-indigo-400'}>ICONS</Text>
+						<Divider classes={'thick short e-background-indigo-400'} />
+						<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+							We’ve included hundreds of icons that you can freely use for whatever your mind can conceive.
+						</Text>
+					</CardHeader>
+
 	        		<CardContent>
+						<Divider />
 	        			<Block>
-	        				<Block className={'e-text-center'}>
-		        				{this.renderIcon()}
+	        				<Block className={'e-row'}>
+								<Block className={'brick brick-5'}>
+		    						<Text type={'h4'} classes={'e-text-indigo-400'}>LIVE EXAMPLE:</Text>
+		    						<Divider classes={'thick short e-background-indigo-400'} />
+
+									<Block className={'e-text-center e-padding-top-25'}>
+										{this.renderIcon()}
+									</Block>
+								</Block>
+								<Block className={'brick brick-7'}>
+									<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+	        						<Divider classes={'thick short e-background-indigo-400'} />
+
+									<pre className={'e-background-grey-100 e-text-black'}>
+										<code>
+											import Icon from 'essence-icon';
+											<br />
+											<br />
+											&lt;Icon name=&#123;"{iconName}"&#125; className=&#123;"{iconColor}"&#125; /&gt;
+										</code>
+										<br />
+										<br />
+										<br />
+									</pre>
+								</Block>
 	        				</Block>
-	        				
-	        				<Divider />
-
-	        				<Block>
-				        		<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE YOUR ICON:</Text>
-				        		<Divider classes={'thick short e-background-indigo-400'} />
-						        		
-				        		<Tab 
-									data={{
-										'header': [{
-												'context': (<Text>Icons</Text>)
-											},{
-												'context': (<Text>Colors</Text>)
-											}
-										],
-										'rows': [ 
-											(
-												<Block classes={'colors'}>
-													<Block type={'div'}>
-														{this.renderSearch()}
-													</Block>
-													{this.renderIcons.bind(this)()}
-												</Block>
-											),
-											(
-												<Block classes={'colors'}>
-													<Block type={'div'}>
-														<Text type={'h3'} classes={'e-text-indigo-400'}>
-															COLORS
-														</Text>
-													</Block>
-													{this.renderColors.bind(this)()}
-												</Block>
-											)
-										]
-									}}
-									classes={'e-background-indigo-400 e-text-grey-50'} />
-							</Block>
-
-		        			<Block className={'e-padding-top-25 e-text-left'}>
-		        				<Text type={'h4'}>HOW TO USE:</Text>
-		        				<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
-										import Icon from 'essence-icon';
-										<br />
-										<br />
-										&lt;Icon name=&#123;"{iconName}"&#125; className=&#123;"{iconColor}"&#125; /&gt;
-			        				</code>
-		        				</pre>
-		        			</Block>
 		        		</Block>
 	        		</CardContent>
 				</Card>
+
+				<Block className={'e-padding-bottom-25'}>
+	        		<Text type={'h4'} classes={'e-text-indigo-400'}>CHOOSE YOUR ICON:</Text>
+	        		<Divider classes={'thick short e-background-indigo-400'} />
+					
+					<Tab 
+						data={{
+							'header': [{
+									'context': (<Text>Icons</Text>)
+								},{
+									'context': (<Text>Colors</Text>)
+								}
+							],
+							'rows': [ 
+								(
+									<Block classes={'colors'}>
+										<Block type={'div'}>
+											{this.renderSearch()}
+										</Block>
+										{this.renderIcons.bind(this)()}
+									</Block>
+								),
+								(
+									<Block classes={'colors'}>
+										{this.renderColors.bind(this)()}
+									</Block>
+								)
+							]
+						}}
+						classes={'e-background-indigo-400 e-text-grey-50'} />
+	        	</Block>
 			</Block>
 		);
     }

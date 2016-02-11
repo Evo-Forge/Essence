@@ -2,28 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
-import Image from 'essence-image';
-import Input from 'essence-input';
+import Switch from 'essence-switch';
 import {Block, Text, Divider} from 'essence-core';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
-class AppImage extends React.Component {
+class AppSwitch extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
-            ),
-            imageSrc: 'http://essence.pearlhq.com/assets/img/essence_icon.png'
+            )
         };
-    }
-
-    changeImage(event) {
-    	let src = event.target.value;
-    	this.setState({
-    		imageSrc: src || 'http://essence.pearlhq.com/assets/img/essence_icon.png'
-    	});
     }
 
     render() {
@@ -32,10 +23,10 @@ class AppImage extends React.Component {
 				<Block classes={'brick brick-12'}>
 		        	<Card>
 		        		<CardHeader> 
-		        			<Text type={'h3'} classes={'e-text-indigo-400'}>IMAGES</Text>
+		        			<Text type={'h3'} classes={'e-text-indigo-400'}>SWITCHES</Text>
 		        			<Divider classes={'thick short e-background-indigo-400'} />
 							<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-								They cannot be eaten. But can be used to show complex information, such as calendar events or contacts. Use them wisely by adding the e-chip-image/text/address class, as well as desired button class to your nifty code.
+								Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor.
 							</Text>
 		        		</CardHeader>
 
@@ -46,19 +37,24 @@ class AppImage extends React.Component {
 								<Block className={'brick brick-5'}>
 									<Text type={'h4'} classes={'e-text-indigo-400'}>LIVE EXAMPLE:</Text>
 									<Divider classes={'thick short e-background-indigo-400'} />
-									<Block className={'e-text-center e-padding-top-15 e-text-center'}>
-										<Block className={'brick brick-12'}>
-											<Input 
-												name={'image-src'}
-												classes={'has-success'}
-												onBlur={this.changeImage.bind(this)}
-												placeholder={'Paste an Image URL'}/>
+									<Block className={'e-padding-top-15'}>
+										<Block className={'e-padding-bottom-25'}>
+											<Text className={'e-text-indigo-400'}>Checkbox: </Text>
+											<br />
+											<Switch type={'checkbox'} text={'Default checkbox'} name={'switch-uncheckbox'} />
 										</Block>
-										<Image src={this.state.imageSrc} height={'150px'} />
-										<br />
-										<Image src={this.state.imageSrc} height={'75px'} />
-										<br />
-										<Image src={this.state.imageSrc} width={'50px'} />
+										<Block className={'e-padding-bottom-25'}>
+											<Text className={'e-text-indigo-400'}>Radio: </Text>
+											<br />
+											<Switch type={'radio'} text={'1st option'} name={'switch-radio'} />
+											<br />
+											<Switch type={'radio'} text={'2nd option'} name={'switch-radio'} />
+										</Block>
+										<Block className={'e-padding-bottom-25'}>
+											<Text className={'e-text-indigo-400'}>Switches: </Text>
+											<br />
+											<Switch type={'switches'} afterText={'ON'} beforeText={'OFF'} name={'switch-switches'} />
+										</Block>
 									</Block>
 								</Block>
 			        			
@@ -68,7 +64,7 @@ class AppImage extends React.Component {
 
 			        				<pre className={'e-background-grey-100 e-text-black'}>
 				        				<code>
-											npm install <strong>essence-image</strong>
+											npm install <strong>essence-switch</strong>
 				        				</code>
 			        				</pre>
 
@@ -78,24 +74,16 @@ class AppImage extends React.Component {
 
 			        				<pre className={'e-background-grey-100 e-text-black'}>
 				        				<code>
-											import Image from 'essence-image';
+											import Switch from 'essence-switch';
 											<br />
 											<br />
+											&lt;Switch type=&#123;'checkbox'&#125; text=&#123;'Default checkbox'&#125; name=&#123;'switch-uncheckbox'&#125; /&gt;
 											<br />
-											&lt;Image src=&#123;'{this.state.imageSrc}'&#125; /&gt;
+											&lt;Switch type=&#123;'radio'&#125; text=&#123;'1st option'&#125; name=&#123;'switch-radio'&#125; /&gt;
 											<br />
+											&lt;Switch type=&#123;'radio'&#125; text=&#123;'2nd option'&#125; name=&#123;'switch-radio'&#125; /&gt;
 											<br />
-											&lt;Image src=&#123;'{this.state.imageSrc}'&#125; height=&#123;'150px'&#125; /&gt;
-											<br />
-											<br />
-											&lt;Image src=&#123;'{this.state.imageSrc}'&#125; width=&#123;'50px'&#125; height=&#123;'100px'&#125; /&gt;
-											<br />
-											<br />
-											&lt;Image src=&#123;'{this.state.imageSrc}'&#125; height=&#123;'75px'&#125; /&gt;
-											<br />
-											<br />
-											&lt;Image src=&#123;'{this.state.imageSrc}'&#125; width=&#123;'50px'&#125; height=&#123;'50px'&#125; alt=&#123;'Essence Image'&#125; /&gt;
-											<br />
+											&lt;Switch type=&#123;'switches'&#125; afterText=&#123;'ON'&#125; beforeText=&#123;'OFF'&#125; name=&#123;'switch-switches'&#125; /&gt;
 											<br />
 				        				</code>
 			        				</pre>
@@ -109,4 +97,4 @@ class AppImage extends React.Component {
     }
 }
 
-exports.AppImage = AppImage;
+exports.AppSwitch = AppSwitch;

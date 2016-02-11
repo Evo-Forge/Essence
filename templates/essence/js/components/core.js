@@ -228,7 +228,7 @@ class AppCore extends React.Component {
 										&lt;Block classes=&#123;'brick brick-3'&#125;&gt;brick-3&lt;/Block&gt;
 										<br />
 										<br />
-										... more brick on the wall ...
+										... more bricks on the wall ...
 				    				</code>
 								</pre>
 		        			</Block>
@@ -368,21 +368,99 @@ class AppCore extends React.Component {
 									Typography is such an important part of a catchy website, so you must use it carefully. You are just a few classes away of doing it! To do that, we are here helping you with predefined classes.
 								</Text>
 
-								<Block className={'e-padding-top-15 e-padding-bottom-25'}>
-									<Block className={'e-background-teal-500 e-text-center e-padding-top-15 e-padding-bottom-15 e-body1'}>
-										<Block
-											classes={'e-text-white'}>
-											&lt;Text type=&#123;'{this.state.textType}'&#125; classes=&#123;'{ClassNames(this.state.textPosition, this.state.textTypography)}'&#125;&gt;
-											<Text 
-												target={'_blank'}
-												type={this.state.textType}
-												href={'http://essence.pearlhq.com'}
-												classes={ClassNames('e-text-yellow-400', this.state.textPosition, this.state.textTypography)}>
-												Text Typography Example
-											</Text>
-											&lt;/Text&gt;
+								<Block className={'e-row'}>
+									<Block className={'brick brick-5'}>
+										<Text type={'h4'} classes={'e-text-indigo-400'}>LIVE EXAMPLE:</Text>
+										<Divider classes={'thick short e-background-indigo-400'} />
+										<Block className={'e-padding-bottom-100'} />
 
+										<Block className={'e-background-teal-500 e-text-center e-padding-top-15 e-padding-bottom-15 e-body1'}>
+											<Block
+												classes={'e-text-white'}>
+												&lt;Text type=&#123;'{this.state.textType}'&#125; classes=&#123;'{ClassNames(this.state.textPosition, this.state.textTypography)}'&#125;&gt;
+												<Text 
+													target={'_blank'}
+													type={this.state.textType}
+													href={'http://essence.pearlhq.com'}
+													classes={ClassNames('e-text-yellow-400', this.state.textPosition, this.state.textTypography)}>
+													Text Typography Example
+												</Text>
+												&lt;/Text&gt;
+
+											</Block>
 										</Block>
+									</Block>
+									<Block className={'brick brick-7'}>
+										<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+										<Divider classes={'thick short e-background-indigo-400'} />
+
+										<pre className={'e-background-grey-100 e-text-black'}>
+						    				<code>
+												npm install <strong>essence-core</strong>
+						    				</code>
+										</pre>
+
+										<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+											There are a list of available types that can be used as in the list bellow: 
+											<br />
+											<Text classes={'e-caption'}>
+												- a, 
+												p, 
+												label, 
+												strong, 
+												small, 
+												caption, 
+												h1, 
+												h2, 
+												h3, 
+												h4, 
+												h5, 
+												h6, 
+												sup, 
+												sub, 
+												em
+											</Text>
+											<br />
+											<br />
+										</Text>
+
+										<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+											For typography styling there are a list of available options:
+											<br />
+											<Text classes={'e-caption'}>
+												- e-text-left, &nbsp;
+												e-text-right, &nbsp;
+												e-text-center, &nbsp;
+												e-text-justify, &nbsp;
+												e-text-uppercase, &nbsp;
+												e-text-capitalize, &nbsp;
+												e-text-lowercase
+												<br />
+												- e-display-4, &nbsp; 
+												e-display-3, &nbsp; 
+												e-display-2, &nbsp; 
+												e-display-1, &nbsp; 
+												e-headline, &nbsp; 
+												e-title, &nbsp; 
+												e-subhead, &nbsp; 
+												e-body2, &nbsp; 
+												e-body1, &nbsp; 
+												e-caption, &nbsp; 
+												e-button
+											</Text>
+										</Text>
+
+										<pre className={'e-background-grey-100 e-text-black'}>
+						    				<code>
+												import &#123;Text&#125; from 'essence-core';
+												<br />
+												<br />
+												&lt;Text type=&#123;a&#125; href=&#123;'http://essence.pearlhq.com'&#125; target=&#123;'_blank'&#125;&gt;
+													Discover Essence
+												&lt;Text/&gt;
+												<br />
+						    				</code>
+										</pre>
 									</Block>
 								</Block>
 								
@@ -417,76 +495,6 @@ class AppCore extends React.Component {
 									classes={'e-background-indigo-400 e-text-grey-50'} />
 								</Block>
 
-								<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
-								<Divider classes={'thick short e-background-indigo-400'} />
-
-								<pre className={'e-background-grey-100 e-text-black'}>
-				    				<code>
-										npm install <strong>essence-core</strong>
-				    				</code>
-								</pre>
-
-								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-									There are a list of available types that can be used as in the list bellow: 
-									<br />
-									<Text classes={'e-caption'}>
-										- a, 
-										p, 
-										label, 
-										strong, 
-										small, 
-										caption, 
-										h1, 
-										h2, 
-										h3, 
-										h4, 
-										h5, 
-										h6, 
-										sup, 
-										sub, 
-										em
-									</Text>
-									<br />
-									<br />
-								</Text>
-
-								<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-									For typography styling there are a list of available options:
-									<br />
-									<Text classes={'e-caption'}>
-										- e-text-left, &nbsp;
-										e-text-right, &nbsp;
-										e-text-center, &nbsp;
-										e-text-justify, &nbsp;
-										e-text-uppercase, &nbsp;
-										e-text-capitalize, &nbsp;
-										e-text-lowercase
-										<br />
-										- e-display-4, &nbsp; 
-										e-display-3, &nbsp; 
-										e-display-2, &nbsp; 
-										e-display-1, &nbsp; 
-										e-headline, &nbsp; 
-										e-title, &nbsp; 
-										e-subhead, &nbsp; 
-										e-body2, &nbsp; 
-										e-body1, &nbsp; 
-										e-caption, &nbsp; 
-										e-button
-									</Text>
-								</Text>
-
-								<pre className={'e-background-grey-100 e-text-black'}>
-				    				<code>
-										import &#123;Text&#125; from 'essence-core';
-										<br />
-										<br />
-										&lt;Text type=&#123;a&#125; href=&#123;'http://essence.pearlhq.com'&#125; target=&#123;'_blank'&#125;&gt;
-											Discover Essence
-										&lt;Text/&gt;
-										<br />
-				    				</code>
-								</pre>
 							</Block>
 							<br />
 							<br />

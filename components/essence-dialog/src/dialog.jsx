@@ -5,43 +5,71 @@ import './dialog.less'; // require('!css!less!./dialog.less');
 class Dialog extends React.Component {
 	constructor(props) {
         super(props);
-        let dialogVisible = this.props.visible;
         this.state = {
-            visible: dialogVisible,
-        	classes: ClassNames(
+            onOpen: this.props.onOpen,
+            onClose: this.props.onClose,
+            visible: this.props.visible,
+            classes: ClassNames(
                 this.props.classes,
                 this.props.className,
-                {'transparent': !dialogVisible},
+                {'transparent': !this.props.visible},
                 this.props.full ? 'e-dialog-full' : 'e-dialog'
             ),
+            dismissible: this.props.dismissible === undefined ? true : this.props.dismissible,
         };
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.onOpen && this.state.visible === true) {
+            return this.state.onOpen();
+        }
+
+        if (this.state.onClose && this.state.visible === false) {
+            return this.state.onClose();
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            onOpen: nextProps.onOpen,
+            onClose: nextProps.onClose,
+            visible: nextProps.visible,
+            classes: ClassNames(
+                nextProps.classes,
+                nextProps.className,
+                {'transparent': !nextProps.visible},
+                nextProps.full ? 'e-dialog-full' : 'e-dialog'
+            ),
+            dismissible: nextProps.dismissible === undefined ? true : nextProps.dismissible
+        });
     }
 
     toggle() {
         let newVisibleState = !this.state.visible;
 
-        this.setState({
-            visible: newVisibleState
-        });
-
-        if (!newVisibleState) {
+        if (this.state.dismissible) {
             this.setState({
-                classes: ClassNames(
-                    'transparent',
-                    this.state.classes
-                )
+                visible: newVisibleState
             });
+
+            if (!newVisibleState) {
+                this.setState({
+                    classes: ClassNames(
+                        'transparent',
+                        this.state.classes
+                    )
+                });
+            }
         }
     }
 
     overlay() {
       if (this.state.visible) {
         return (
-          <div
-            style={{display: 'block'}}
-            onClick={this.toggle.bind(this)}
-            className={'e-modal-bg'}
-          />
+          <div 
+            onClick={this.toggle.bind(this)} 
+            style={{display: 'block', zIndex: 6}} 
+            className={'e-modal-bg'} />
         );
       }
       return;

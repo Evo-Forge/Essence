@@ -32,27 +32,53 @@ var Dialog = (function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Dialog).call(this, props));
 
-        var dialogVisible = _this.props.visible;
         _this.state = {
-            visible: dialogVisible,
-            classes: (0, _classnames2.default)(_this.props.classes, _this.props.className, { 'transparent': !dialogVisible }, _this.props.full ? 'e-dialog-full' : 'e-dialog')
+            onOpen: _this.props.onOpen,
+            onClose: _this.props.onClose,
+            visible: _this.props.visible,
+            classes: (0, _classnames2.default)(_this.props.classes, _this.props.className, { 'transparent': !_this.props.visible }, _this.props.full ? 'e-dialog-full' : 'e-dialog'),
+            dismissible: _this.props.dismissible === undefined ? true : _this.props.dismissible
         };
         return _this;
     }
 
     _createClass(Dialog, [{
+        key: 'componentDidUpdate',
+        value: function componentDidUpdate(prevProps, prevState) {
+            if (this.state.onOpen && this.state.visible === true) {
+                return this.state.onOpen();
+            }
+
+            if (this.state.onClose && this.state.visible === false) {
+                return this.state.onClose();
+            }
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                onOpen: nextProps.onOpen,
+                onClose: nextProps.onClose,
+                visible: nextProps.visible,
+                classes: (0, _classnames2.default)(nextProps.classes, nextProps.className, { 'transparent': !nextProps.visible }, nextProps.full ? 'e-dialog-full' : 'e-dialog'),
+                dismissible: nextProps.dismissible === undefined ? true : nextProps.dismissible
+            });
+        }
+    }, {
         key: 'toggle',
         value: function toggle() {
             var newVisibleState = !this.state.visible;
 
-            this.setState({
-                visible: newVisibleState
-            });
-
-            if (!newVisibleState) {
+            if (this.state.dismissible) {
                 this.setState({
-                    classes: (0, _classnames2.default)('transparent', this.state.classes)
+                    visible: newVisibleState
                 });
+
+                if (!newVisibleState) {
+                    this.setState({
+                        classes: (0, _classnames2.default)('transparent', this.state.classes)
+                    });
+                }
             }
         }
     }, {
@@ -60,10 +86,9 @@ var Dialog = (function (_React$Component) {
         value: function overlay() {
             if (this.state.visible) {
                 return _react2.default.createElement('div', {
-                    style: { display: 'block' },
                     onClick: this.toggle.bind(this),
-                    className: 'e-modal-bg'
-                });
+                    style: { display: 'block', zIndex: 6 },
+                    className: 'e-modal-bg' });
             }
             return;
         }

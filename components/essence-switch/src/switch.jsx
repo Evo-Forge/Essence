@@ -7,6 +7,9 @@ class Switch extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
+            type: this.props.type,
+            onChange: this.props.onChange,
+            checked: false,
         	classes: ClassNames(
                 this.props.className, 
                 this.props.classes
@@ -14,75 +17,82 @@ class Switch extends React.Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames(
+                nextProps.className,
+                nextProps.classes
+            ),
+            type: nextProps.type,
+            checked: nextProps.checked,
+            onChange: nextProps.onChange
+        });
+    }
+
+    onChange(event) {
+        this.setState({
+            checked: event.target.checked
+        });
+
+        if (this.state.onChange) {
+            return this.state.onChange();
+        }
+    }
+
     renderSwitch() {
-    	let switchType = this.props.type;
+    	let switchType = this.state.type;
     	switch (switchType) {
             case 'switches':
-                let switchesClasses = ClassNames(
-                    'e-switches',
-                    this.state.classes
-                );
                 return (
-                    <div className={switchesClasses}>
+                    <span className={ClassNames('e-switches', this.state.classes)}>
                         <label>
                             {this.props.beforeText}
                             <input
                                 {...this.props}
-                                type='checkbox'
-                                defaultChecked={this.props.checked}
-                                disabled={this.props.disable}
+                                type={'checkbox'}
+                                defaultChecked={this.state.checked}
+                                onChange={this.onChange.bind(this)}
                             />
                             <span className={'e-switches-toggle'} />
                             {this.props.afterText}
                         </label>
-                    </div>
+                    </span>
                 );
                 break;
             case 'radio':
-                let radioClasses = ClassNames(
-                    'e-radio',
-                    'e-radio-success',
-                    this.state.classes
-                );
                 return (
-                    <div className={radioClasses}>
+                    <span className={ClassNames('e-radio', 'e-radio-success', this.state.classes)}>
                         <label>
                             <input
                                 {...this.props}
                                 type={'radio'}
-                                name={this.props.name}
-                                defaultChecked={this.props.checked}
-                                defaultValue={this.props.defaultValue}
+                                defaultChecked={this.state.checked}
+                                onChange={this.onChange.bind(this)}
                             />
                             <span className={'absolute circle'} />
                             <span className={'absolute e-check'} />
                             {this.props.text}
                         </label>
-                    </div>
+                    </span>
                 );
                 break;
-
     		case 'checkbox':
             default:
-                let checkboxClasses = ClassNames(
-                    'e-checkbox',
-                    this.state.classes
-                );
                 return (
-                    <div className={checkboxClasses}>
+                    <span className={ClassNames('e-checkbox', this.state.classes)}>
                         <label>
                             <input
                                 {...this.props}
                                 type={'checkbox'}
-                                name={this.props.name}
-                                defaultChecked={this.props.checked}
                                 className={'toggle'}
+                                defaultChecked={this.state.checked}
+                                onChange={this.onChange.bind(this)}
                             />
                             <span className={'absolute e-wave'} />
                             <span className={'absolute e-check-valid'} />
                             {this.props.text}
                         </label>
-                    </div>
+                    </span>
                 );
     			break;
     	}
@@ -90,9 +100,9 @@ class Switch extends React.Component {
 
 	render() {
 		return (
-            <div className={'e-switch'}>
+            <span className={'e-switch'}>
                 {this.renderSwitch()}
-            </div>
+            </span>
         );
 	}
 }

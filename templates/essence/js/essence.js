@@ -27,6 +27,7 @@ import {
 	AppCard,
 	AppChip,
 	AppCore,
+	AppDialog,
 	AppDataTable,
 	AppImage,
 	AppInput,
@@ -36,7 +37,10 @@ import {
 	AppProgress,
 	AppSlider,
 	AppSnackBar,
+	AppSwitch,
 	AppToast,
+	AppTab,
+	AppTouchPad,
 } from './components/';
 
 class AppHome extends React.Component {
@@ -104,12 +108,15 @@ class AppNavigation extends React.Component {
     renderMenu() {
 		let self = this;
 		let renderComponents = [];
+    	let componentHash = window.location.hash.replace('#', '');
 
 		Object.keys(Components).forEach(function(key) { 
 			var component = Components[key];
 			renderComponents.push(
 				(
-					<ListItem key={'component-'+key}>
+					<ListItem 
+						key={'component-'+key} 
+						className={componentHash === key ? 'e-background-grey-200' : ''}>
 						<Text type={'a'} href={'#'+key}>
 							<Block classes={'content e-left'}>
 								<Text type={'small'}>{component.title}</Text>
@@ -275,6 +282,9 @@ class App extends React.Component {
     		case 'core':
     			componentContent = <AppCore />;
     			break;
+    		case 'dialog':
+    			componentContent = <AppDialog />;
+    			break;
     		case 'data-table':
     			componentContent = <AppDataTable />;
     			break;
@@ -302,8 +312,17 @@ class App extends React.Component {
     		case 'snackbar':
     			componentContent = <AppSnackBar />;
     			break;
+    		case 'switch':
+    			componentContent = <AppSwitch />;
+    			break;
     		case 'toast':
     			componentContent = <AppToast />;
+    			break;
+    		case 'tab':
+    			componentContent = <AppTab />;
+    			break;
+    		case 'touchpad':
+    			componentContent = <AppTouchPad />;
     			break;
     		default:
     			componentContent = <AppHome />;
