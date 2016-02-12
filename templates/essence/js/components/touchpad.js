@@ -77,7 +77,7 @@ class AppTouchPad extends React.Component {
 		        			<Text type={'h3'} classes={'e-text-indigo-400'}>TOUCH PAD</Text>
 		        			<Divider classes={'thick short e-background-indigo-400'} />
 							<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-								Touch Pad is an experimental Essence component which can be used for text editing.
+								Touch Pad is an experimental Essence component which can be used for text editing, inline menu options or other ideas.
 							</Text>
 		        		</CardHeader>
 

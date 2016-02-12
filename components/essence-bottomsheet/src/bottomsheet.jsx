@@ -6,19 +6,59 @@ class BottomSheet extends React.Component {
 	
 	constructor(props) {
         super(props);
-        let overlayVisible = this.props.visible;
+        let overlayVisible = props.visible;
         this.state = {
             visible: overlayVisible,
         	classes: ClassNames(
                 'e-bottom-sheet',
                 { 'animate': overlayVisible },
                 { 'transparent': !overlayVisible },
-                this.props.className,
-                this.props.classes
-            )
+                props.className,
+                props.classes
+            ),
+            styles: {
+                overlay: {display: 'block', zIndex: '6'},
+                container: {position: 'relative'}
+            },
+            onStart: props.onStart,
+            onEnd: props.onEnd
         };
+
+        if (props.visible && props.onEnd) {
+            props.onEnd();
+        }
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            visible: nextProps.visible,
+            classes: ClassNames(
+                'e-bottom-sheet',
+                { 'animate': nextProps.visible },
+                { 'transparent': !nextProps.visible },
+                nextProps.className,
+                nextProps.classes
+            ),
+            onStart: nextProps.onStart,
+            onEnd: nextProps.onEnd
+        });
+        
+        if (!nextProps.visible) {
+            this.setState({
+                classes: ClassNames(
+                    'e-bottom-sheet',
+                    {'transparent': true},
+                    {'animate': false},
+                    nextProps.className,
+                    nextProps.classes
+                )
+            });
+        }
+
+        if (nextProps.visible && this.state.onStart) {
+            this.state.onStart();
+        }
+    }
 
     toggle() {
         let toggleVisible = !this.state.visible;
@@ -37,6 +77,10 @@ class BottomSheet extends React.Component {
                     this.props.classes
                 )
             });
+
+            if (this.props.visible && this.props.onEnd) {
+                this.props.onEnd();
+            }
         }
     }
 
@@ -44,7 +88,7 @@ class BottomSheet extends React.Component {
       if (this.state.visible) {
         return (
           <div
-            style={{display: 'block'}}
+            style={this.state.styles.overlay}
             onClick={this.toggle.bind(this)}
             className={'e-modal-bg'}
           />
@@ -55,7 +99,7 @@ class BottomSheet extends React.Component {
 
 	render() {
 		return (
-            <div style={{'position': 'relative'}}>
+            <div style={this.state.styles.container}>
                 <div {...this.props} className={this.state.classes}>
                     {this.props.children}
                 </div>

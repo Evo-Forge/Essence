@@ -13,7 +13,7 @@ class Input extends React.Component {
             },
             inputClasses: ClassNames(
                 'e-input',
-                { 'empty': true }
+                { 'empty': this.props.value || this.props.defaultValue ? false : true }
             ),
             inputValue: this.props.value || this.props.defaultValue || '',
         	classes: ClassNames('e-input-group', this.props.className, this.props.classes)

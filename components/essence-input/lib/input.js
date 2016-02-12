@@ -41,7 +41,7 @@ var Input = (function (_React$Component) {
                 current: 0,
                 maximum: parseInt(_this.props.counter) || 50
             },
-            inputClasses: (0, _classnames2.default)('e-input', { 'empty': true }),
+            inputClasses: (0, _classnames2.default)('e-input', { 'empty': _this.props.value || _this.props.defaultValue ? false : true }),
             inputValue: _this.props.value || _this.props.defaultValue || '',
             classes: (0, _classnames2.default)('e-input-group', _this.props.className, _this.props.classes)
         };

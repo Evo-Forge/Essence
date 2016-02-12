@@ -2,18 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
-import AppBar from 'essence-appbar';
-import Button from 'essence-button';
+import Tab from 'essence-tab';
 import Icon from 'essence-icon';
+import Menu from 'essence-menu';
 import Image from 'essence-image';
 import Input from 'essence-input';
-import Menu from 'essence-menu';
-import Navigation from 'essence-navigation';
 import Toast from 'essence-toast';
-import Tab from 'essence-tab';
-import {Block, Text, Divider, Utils} from 'essence-core';
+import AppBar from 'essence-appbar';
+import Button from 'essence-button';
+import Navigation from 'essence-navigation';
 import {List, ListItem} from 'essence-list';
-
+import {Block, Text, Divider, Utils} from 'essence-core';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
 // Components list
@@ -83,6 +82,121 @@ class AppHome extends React.Component {
 						<Text type={'a'} href={'http://pearlhq.com'}>Pearl Ventures</Text><Text> - an Evozon Company</Text>
 					</Text>
 
+				</Block>
+			</Block>
+		);
+    }
+}
+
+class AppGetStarted extends React.Component {
+	constructor(props) {
+        super(props);
+        this.state = {
+            classes: ClassNames(
+                this.props.classes,
+                this.props.className
+            )
+        };
+    }
+
+    render() {
+        return (
+        	<Block classes={'e-container e-padding-top-25'}>
+				<Block classes={'brick brick-12'}>
+		        	<Card>
+		        		<CardHeader> 
+		        			<Text type={'h3'} classes={'e-text-indigo-400 e-text-uppercase'}>Get Started with Essence</Text>
+		        			<Divider classes={'thick medium e-background-indigo-400'} />
+							<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+								Learn how to use Essence for your application
+							</Text>
+		        		</CardHeader>
+
+		        		<CardContent>
+		        			<Block className={'e-row'}>
+			        			<Block className={'brick brick-6'}>
+						        	<Block className={'e-padding-bottom-15'}>
+										<Text type={'h4'} classes={'e-text-indigo-400'}>INSTALL:</Text>
+										<Divider classes={'thick short e-background-indigo-400'} />
+
+										<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+											To install all Essence components you can use the command bellow.
+										</Text>
+
+										<pre classes={'e-background-grey-100 e-text-black'}>
+											<code>
+												npm install <strong>react-essence</strong>
+											</code>
+										</pre>
+									</Block>
+								</Block>
+								<Block className={'brick brick-6'}>
+									<Block className={'e-padding-bottom-15'}>
+										<Text type={'h4'} classes={'e-text-indigo-400'}>USE COMPONENTS:</Text>
+										<Divider classes={'thick short e-background-indigo-400'} />
+										
+										<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+											To install individual components please see the side menu. Each component has a live example and a "How To Use" instructions.
+										</Text>
+
+										<pre classes={'e-background-grey-100 e-text-black'}>
+											<code>
+												npm install <strong>essence-__component-name__</strong>
+											</code>
+										</pre>
+									</Block>
+								</Block>
+							</Block>
+
+		        			<Block className={'e-row'}>
+			        			<Block className={'brick brick-6'}>
+									<Block className={'e-padding-bottom-15'}>
+										<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO TEST/RUN:</Text>
+										<Divider classes={'thick short e-background-indigo-400'} />
+										
+										<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+											There are 3 options: <br />
+											1. <u>essence:test</u> runs a development instance with this template & is started from webpack-dev-server with content base from /templates/essence
+											<br />
+											2. <u>essence:live</u> runs a production instance with this template compiled with webpack & started with http-server on port 8080 and content base from /templates/essence
+											<br />
+											3. <u>essence:custom</u> runs a development instante of a boilerplate template & is started from webpack-dev-server with content base from /templates/boilerplate
+										</Text>
+
+										<pre classes={'e-background-grey-100 e-text-black'}>
+											<code>
+												npm run <strong>essence:custom</strong>
+											</code>
+										</pre>
+									</Block>
+								</Block>
+
+								<Block className={'brick brick-6'}>
+									<Block className={'e-padding-bottom-15'}>
+										<Text type={'h4'} classes={'e-text-indigo-400'}>MAKE A TEMPLATE:</Text>
+										<Divider classes={'thick short e-background-indigo-400'} />
+										
+										<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+											1. create a copy of the boilerplate template
+											<br />
+											2. choose a unique name for the template
+											<br />
+											3. use the Essence components & copy/paste the component code from "How to use"
+											<br />
+											4. run the command bellow & replace the <u>your-template-name</u> with the name for the template
+											<br />
+										</Text>
+
+										<pre classes={'e-background-grey-100 e-text-black'}>
+											<code>
+												npm run <strong>essence:your-template-name</strong>
+											</code>
+										</pre>
+									</Block>
+								</Block>
+							</Block>
+		        		</CardContent>
+					</Card>
 				</Block>
 			</Block>
 		);
@@ -159,6 +273,7 @@ class App extends React.Component {
         	showSideBar: false,
         	content: <AppHome />,
 			components: [
+				'get-started',
 				'icons',
 				'colors',
 				'appbar',
@@ -324,6 +439,9 @@ class App extends React.Component {
     		case 'touchpad':
     			componentContent = <AppTouchPad />;
     			break;
+    		case 'get-started':
+    			componentContent = <AppGetStarted />;
+    			break;
     		default:
     			componentContent = <AppHome />;
     			break;
@@ -343,24 +461,26 @@ class App extends React.Component {
     render() {
         return(
         	<div>
-				<AppBar classes={'e-background-indigo-400'}>
-					
+				<AppBar classes={'e-background-indigo-400'} style={{overflow: 'inherit'}}>
 					<Text className={'e-text-white'}>Essence - MD Framework</Text>
 					
-
-					{this.renderSideBarButton()}
-					
-					<Block className={'e-right'}>
-						{this.renderToast()}
-						<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-indigo-400 e-text-white e-right'} type={'primary'} icon={'action-favorite'}/>
-					</Block>
-					
-					
-					<Block className={'e-right search-block'}>
-						{this.renderSearch()}
-						<Button onClick={this.toggleSearch.bind(this)} className={'flat e-background-indigo-400 e-text-white e-right'} type={'primary'} icon={'action-search'}/>
-					</Block>
-					
+					<Menu type={'cover'} icon={'navigation-more-vert'} classes={'e-text-white e-right'}>
+						<Text className={'e-text-black'}>
+							<Text type={'a'} href={'#get-started'}>
+								Get Started with Essence
+							</Text>
+						</Text>
+						<Text className={'e-text-black'}>
+							<Text type={'a'} href={'https://github.com/PearlVentures/Essence'} target={'_blank'}>
+								Download from GitHub
+							</Text>
+						</Text>
+						<Text className={'e-text-black'}>
+							<Text type={'a'} href={'https://www.npmjs.com/~blogtools'} target={'_blank'}>
+								Install from NPM
+							</Text>
+						</Text>
+					</Menu>
 					
 					{this.props.children}
 				</AppBar>

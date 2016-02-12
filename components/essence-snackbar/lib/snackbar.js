@@ -39,24 +39,36 @@ var SnackBar = (function (_React$Component) {
         var self = _this;
         _this.timeOut = false;
         _this.state = {
-            visible: _this.props.visible,
             classes: (0, _classnames2.default)('snackbar', { 'snackbar-multiline': false }, _this.props.classes, _this.props.className),
+            visible: props.visible,
+            onStart: props.onStart,
+            onPause: props.onPause,
+            onResume: props.onResume,
+            onEnd: props.onEnd,
             delay: parseInt(_this.props.delay) > 0 ? parseInt(_this.props.delay) : 2000
         };
 
-        if (_this.props.visible) {
+        if (props.visible) {
             _this.timeOut = new _essenceCore.Utils.Timer(function () {
                 self.setState({
-                    style: {}
+                    style: {
+                        bottom: '-2000px',
+                        opacity: 0,
+                        zIndex: 0
+                    },
+                    visible: false
                 });
+                if (props.onEnd) {
+                    props.onEnd();
+                }
             }, self.state.delay);
         }
         return _this;
     }
 
     _createClass(SnackBar, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
+        key: 'snackbarStyle',
+        value: function snackbarStyle(visible) {
             var style = window.getComputedStyle ? getComputedStyle(this.snackBar, null) : this.snackBar.currentStyle;
             var height = parseInt(style['height']);
             var width = parseInt(style['width']);
@@ -64,19 +76,73 @@ var SnackBar = (function (_React$Component) {
             var isMultiLine = Math.floor(height / lineHeight) > 1 ? true : false;
 
             var containerStyle = window.getComputedStyle ? getComputedStyle(this.snackBarContainer, null) : this.snackBarContainer.currentStyle;
-            var snackbarStyle = {
-                bottom: this.props.visible ? '0' : 'initial',
-                opacity: this.props.visible ? 1 : 0,
-                zIndex: this.props.visible ? 1 : 0,
+            var inlineStyle = {
+                bottom: visible ? '20px' : '-2000px',
+                opacity: visible ? 1 : 0,
+                zIndex: visible ? 1 : 0,
                 marginRight: '-' + parseInt(containerStyle['width']) / 2 + 'px'
             };
 
+            return {
+                isMultiLine: isMultiLine,
+                inlineStyle: inlineStyle
+            };
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            var self = this;
+            var snackbarStyles = this.snackbarStyle(nextProps.visible);
+            var delay = parseInt(nextProps.delay) > 0 ? parseInt(nextProps.delay) : 2000;
+
             this.setState({
-                classes: (0, _classnames2.default)(this.state.classes, { 'snackbar-multiline': isMultiLine }),
-                style: snackbarStyle
+                classes: (0, _classnames2.default)('snackbar', nextProps.classes, nextProps.className, { 'snackbar-multiline': snackbarStyles.isMultiLine }),
+                delay: delay,
+                onStart: nextProps.onStart,
+                onPause: nextProps.onPause,
+                onResume: nextProps.onResume,
+                onEnd: nextProps.onEnd,
+                visible: nextProps.visible,
+                style: snackbarStyles.inlineStyle
             });
 
-            return;
+            if (nextProps.visible) {
+                this.timeOut = new _essenceCore.Utils.Timer(function () {
+                    self.setState({
+                        style: {
+                            bottom: '-2000px',
+                            opacity: 0,
+                            zIndex: 0
+                        },
+                        visible: false
+                    });
+                    if (nextProps.onEnd) {
+                        nextProps.onEnd();
+                    }
+                }, delay);
+                if (this.state.onStart) {
+                    this.state.onStart();
+                }
+            }
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var snackbarStyles = this.snackbarStyle(this.state.visible);
+            this.setState({
+                classes: (0, _classnames2.default)(this.state.classes, { 'snackbar-multiline': snackbarStyles.isMultiLine }),
+                style: snackbarStyles.inlineStyle
+            });
+            if (this.state.onStart && this.state.visible) {
+                this.state.onStart();
+            }
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            if (this.state.onEnd && this.state.visible) {
+                this.state.onEnd();
+            }
         }
     }, {
         key: 'actionBtn',
@@ -95,6 +161,9 @@ var SnackBar = (function (_React$Component) {
         value: function pauseTimer() {
             if (this.timeOut) {
                 this.timeOut.pause();
+                if (this.state.onPause && this.state.visible) {
+                    this.state.onPause();
+                }
             }
         }
     }, {
@@ -102,6 +171,9 @@ var SnackBar = (function (_React$Component) {
         value: function resumeTimer() {
             if (this.timeOut) {
                 this.timeOut.resume();
+                if (this.state.onResume && this.state.visible) {
+                    this.state.onResume();
+                }
             }
         }
     }, {

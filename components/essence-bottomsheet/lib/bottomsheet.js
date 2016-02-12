@@ -36,15 +36,45 @@ var BottomSheet = (function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(BottomSheet).call(this, props));
 
-        var overlayVisible = _this.props.visible;
+        var overlayVisible = props.visible;
         _this.state = {
             visible: overlayVisible,
-            classes: (0, _classnames2.default)('e-bottom-sheet', { 'animate': overlayVisible }, { 'transparent': !overlayVisible }, _this.props.className, _this.props.classes)
+            classes: (0, _classnames2.default)('e-bottom-sheet', { 'animate': overlayVisible }, { 'transparent': !overlayVisible }, props.className, props.classes),
+            styles: {
+                overlay: { display: 'block', zIndex: '6' },
+                container: { position: 'relative' }
+            },
+            onStart: props.onStart,
+            onEnd: props.onEnd
         };
+
+        if (props.visible && props.onEnd) {
+            props.onEnd();
+        }
         return _this;
     }
 
     _createClass(BottomSheet, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                visible: nextProps.visible,
+                classes: (0, _classnames2.default)('e-bottom-sheet', { 'animate': nextProps.visible }, { 'transparent': !nextProps.visible }, nextProps.className, nextProps.classes),
+                onStart: nextProps.onStart,
+                onEnd: nextProps.onEnd
+            });
+
+            if (!nextProps.visible) {
+                this.setState({
+                    classes: (0, _classnames2.default)('e-bottom-sheet', { 'transparent': true }, { 'animate': false }, nextProps.className, nextProps.classes)
+                });
+            }
+
+            if (nextProps.visible && this.state.onStart) {
+                this.state.onStart();
+            }
+        }
+    }, {
         key: 'toggle',
         value: function toggle() {
             var toggleVisible = !this.state.visible;
@@ -57,6 +87,10 @@ var BottomSheet = (function (_React$Component) {
                 this.setState({
                     classes: (0, _classnames2.default)('e-bottom-sheet', { 'transparent': true }, { 'animate': false }, this.props.className, this.props.classes)
                 });
+
+                if (this.props.visible && this.props.onEnd) {
+                    this.props.onEnd();
+                }
             }
         }
     }, {
@@ -64,7 +98,7 @@ var BottomSheet = (function (_React$Component) {
         value: function overlay() {
             if (this.state.visible) {
                 return _react2.default.createElement('div', {
-                    style: { display: 'block' },
+                    style: this.state.styles.overlay,
                     onClick: this.toggle.bind(this),
                     className: 'e-modal-bg'
                 });
@@ -76,7 +110,7 @@ var BottomSheet = (function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { style: { 'position': 'relative' } },
+                { style: this.state.styles.container },
                 _react2.default.createElement(
                     'div',
                     _extends({}, this.props, { className: this.state.classes }),

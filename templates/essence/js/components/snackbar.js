@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import ClassNames from 'classnames';
 
 import Btn from 'essence-button';
+import Input from 'essence-input';
 import SnackBar from 'essence-snackbar';
 import {Block, Text, Divider} from 'essence-core';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
@@ -11,7 +12,9 @@ class AppSnackBar extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-        	snackbar: false,
+        	delay: 5000,
+			visible: false,
+			message: 'You got a new message!',
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
@@ -19,23 +22,43 @@ class AppSnackBar extends React.Component {
         };
     }
 
-    renderSnackbar() {
-        if (this.state.snackbar) {
-            return (
-                <SnackBar classes={'e-text-blue-500'} visible={true} delay={5000}>
-                    You got a new message!
-                </SnackBar>
-            );
-        }
-        return;
+    snackbarStarted() {
+    	{/* console.log('snackbar started'); */}
+    }
+    
+    snackbarPaused() {
+    	{/* console.log('snackbar paused'); */}
     }
 
-    toggleSnackBar() {
-        var snackbarStatus = !this.state.snackbar;
+    snackbarResumed() {
+    	{/* console.log('snackbar resumed'); */}
+    }
 
-        this.setState({
-            snackbar: snackbarStatus
+    snackbarEnded() {
+    	{/* console.log('snackbar ended'); */}
+    	this.setState({
+            visible: false
         });
+    }
+
+    showSnackBar() {
+        this.setState({
+            visible: true
+        });
+    }
+
+    changeMessage(event) {
+    	let message = event.target.value;
+    	this.setState({
+    		message: message || 'You got a new message!'
+    	});
+    }
+
+    changeNumber(event) {
+    	let delay = event.target.value;
+    	this.setState({
+    		delay: delay || 5000
+    	});
     }
 
     render() {
@@ -52,45 +75,76 @@ class AppSnackBar extends React.Component {
 		        		</CardHeader>
 
 		        		<CardContent>
-			        		<Block classes={'e-text-center'}>
-		        				<Block className={ClassNames('e-row e-padding-bottom-25')}>
-									{this.renderSnackbar()}
-                					<Btn 
-                						type={'primary'} 
-                						label={'Snow Snackbar'}
-                						onClick={this.toggleSnackBar.bind(this)} 
-                						className={'flat'} />
-								</Block>
-		        			</Block>
+		        			<Block className={'e-row'}>
+		        				<Block className={'brick brick-6'}>
+									<Text type={'h4'} classes={'e-text-indigo-400'}>LIVE EXAMPLE:</Text>
+									<Divider classes={'thick short e-background-indigo-400'} />
+		        					<Block className={'e-row e-padding-top-15'}>
+			        					<Block className={'brick brick-8'}>
+				        					<Input
+												classes={'has-success'}
+												defaultValue={this.state.message}
+												onBlur={this.changeMessage.bind(this)}
+												label={'Toast message'}/>
+			        					</Block>
+			        					<Block className={'brick brick-4'}>
+											<Input 
+												type={'number'}
+												classes={'has-success'}
+												defaultValue={this.state.delay}
+												onBlur={this.changeNumber.bind(this)}
+											label={'Delay in ms'}/>
+			        					</Block>
+			        				</Block>
+					        		<Block classes={'e-text-center e-padding-bottom-25'}>
+										<SnackBar 
+											delay={this.state.delay}
+											visible={this.state.visible}
+											className={'e-text-blue-500'} 
+											onStart={this.snackbarStarted.bind(this)} 
+											onPause={this.snackbarPaused.bind(this)} 
+											onResume={this.snackbarResumed.bind(this)} 
+											onEnd={this.snackbarEnded.bind(this)} >
+											{this.state.message}
+										</SnackBar>
 
-		        			<Block>
-		        				<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
-		        				<Divider classes={'thick short e-background-indigo-400'} />
+										<Btn 
+											type={'primary'} 
+		                					className={'flat'} 
+											label={'Snow Snackbar'}
+											onClick={this.showSnackBar.bind(this)} />
+				        			</Block>
+				        		</Block>
 
-		        				<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
-										npm install <strong>essence-snackbar</strong>
-			        				</code>
-		        				</pre>
+			        			<Block className={'brick brick-6'}>
+			        				<Text type={'h4'} classes={'e-text-indigo-400'}>HOW TO USE:</Text>
+			        				<Divider classes={'thick short e-background-indigo-400'} />
 
-		        				<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
-									To customise the hide function for SnackBar modify the number from option <strong>delay</strong> with a delay in miliseconds. 
-								</Text>
+			        				<pre className={'e-background-grey-100 e-text-black'}>
+				        				<code>
+											npm install <strong>essence-snackbar</strong>
+				        				</code>
+			        				</pre>
 
-		        				<pre className={'e-background-grey-100 e-text-black'}>
-			        				<code>
-										import SnackBar from 'essence-snackbar';
-										<br />
-										<br />
-										&lt;SnackBar classes=&#123;'e-text-green-500'&#125; visible=&#123;true&#125; delay=&#123;5000&#125;&gt;
-										<br />
-										&nbsp;You got a new message!
-										<br />
-										&lt;/SnackBar&gt;
-										<br />
-			        				</code>
-		        				</pre>
-		        			</Block>
+			        				<Text type={'p'} classes={'e-body1 e-text-blue-grey-400'}>
+										To customise the hide function for SnackBar modify the number from option <strong>delay</strong> with a delay in miliseconds. 
+									</Text>
+
+			        				<pre className={'e-background-grey-100 e-text-black'}>
+				        				<code>
+											import SnackBar from 'essence-snackbar';
+											<br />
+											<br />
+											&lt;SnackBar classes=&#123;'e-text-green-500'&#125; visible=&#123;{this.state.visible.toString()}&#125; delay=&#123;{this.state.delay}&#125;&gt;
+											<br />
+											&nbsp;{this.state.message}
+											<br />
+											&lt;/SnackBar&gt;
+											<br />
+				        				</code>
+			        				</pre>
+			        			</Block>
+			        		</Block>
 		        		</CardContent>
 					</Card>
 				</Block>

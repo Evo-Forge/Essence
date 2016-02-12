@@ -36,13 +36,13 @@ class Menu extends React.Component {
     componentDidMount () {
         let self = this;
         document.addEventListener("click", function(event){
-            if (!self.currentMenu.contains(event.target) && !self.state.isHidden){
+            if (self.currentMenu && !self.currentMenu.contains(event.target) && !self.state.isHidden){
                 self.toggleMenu();
             }
         });
 
         document.addEventListener("touchend", function(event){
-            if (!self.currentMenu.contains(event.target) && !self.state.isHidden){
+            if (self.currentMenu && !self.currentMenu.contains(event.target) && !self.state.isHidden){
                 self.toggleMenu();
             }
         });
