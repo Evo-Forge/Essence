@@ -8,7 +8,7 @@ Options:
 
 ### How to use
 ```js
-import DataTable from 'essence-data-table/src/table.jsx';
+import DataTable from 'essence-data-table';
 
 var tableData = {
 	'header': [ 

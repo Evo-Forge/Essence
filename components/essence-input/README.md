@@ -2,7 +2,7 @@
 
 ### How to use
 ```js
-import Input from 'essence-input/src/input.jsx';
+import Input from 'essence-input';
 
 class TextfieldTest extends React.Component {
 	constructor(props) {

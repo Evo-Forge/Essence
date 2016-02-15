@@ -3,10 +3,10 @@
 ### How to use
 ```js
 import ClassNames from 'classnames';
-import AppBar from 'essence-appbar/src/appbar.jsx';
-import Input from 'essence-input/src/input.jsx';
-import Menu from 'essence-menu/src/menu.jsx';
-import Toast from 'essence-toast/src/toast.jsx';
+import AppBar from 'essence-appbar';
+import Input from 'essence-input';
+import Menu from 'essence-menu';
+import Toast from 'essence-toast';
 
 class AppBarTest extends React.Component {
 	constructor(props) {

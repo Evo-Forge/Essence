@@ -13,7 +13,7 @@ Ripple effect:
 
 ### How to use
 ```js
-import Btn from 'essence-button/src/button.jsx';
+import Btn from 'essence-button';
 
 <Block type={'div'} classes={'brick brick-12'}>
 	<Btn

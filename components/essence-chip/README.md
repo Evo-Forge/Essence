@@ -10,7 +10,7 @@ Options:
 - **onClose**: callback for on closing chip component
 
 ```js
-import Chip from 'essence-chip/src/chip.jsx';
+import Chip from 'essence-chip';
 
 var redbullChip = {
   name: 'redbullChip',

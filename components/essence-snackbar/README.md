@@ -6,7 +6,7 @@ Options:
 
 ### How to use
 ```js
-import SnackBar from 'essence-snackbar/src/snackbar.jsx';
+import SnackBar from 'essence-snackbar';
 
 class SnackBarTest extends React.Component {
 	constructor(props) {

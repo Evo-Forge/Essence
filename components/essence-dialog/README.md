@@ -5,10 +5,7 @@ Options:
 
 ### How to use
 ```js
-import Dialog from 'essence-dialog/src/dialog.jsx';
-import DialogHeader from 'essence-dialog/src/header.jsx';
-import DialogContent from 'essence-dialog/src/content.jsx';
-import DialogFooter from 'essence-dialog/src/footer.jsx';
+import {Dialog, DialogHeader, DialogContent, DialogFooter} from 'essence-dialog';
 
 <Dialog visible={true}>
 	<DialogHeader>

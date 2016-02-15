@@ -64,7 +64,13 @@ class Text extends React.Component {
     			return (<sub {...this.props} className={this.state.classes}>{this.props.children}</sub>);
     		break;
     		case 'em':
-    			return (<em {...this.props} className={this.state.classes}>{this.props.children}</em>);
+                return (<em {...this.props} className={this.state.classes}>{this.props.children}</em>);
+            break;
+            case 'blockquote':
+                return (<blockquote {...this.props} className={this.state.classes}>{this.props.children}</blockquote>);
+            break;
+            case 'cite':
+    			return (<cite {...this.props} className={this.state.classes}>{this.props.children}</cite>);
     		break;
     		default:
     			return (<span {...this.props} className={this.state.classes}>{this.props.children}</span>);

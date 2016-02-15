@@ -7,7 +7,7 @@ Options:
 
 **Bottom sheets simple**
 ```js
-import BottomSheets from 'essence-bottomsheet/src/bottomsheet.jsx';
+import BottomSheets from 'essence-bottomsheet';
 
 <BottomSheets classes={'e-background-white'} visible={true}>
 	<Block >

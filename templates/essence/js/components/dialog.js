@@ -57,7 +57,7 @@ class AppDialog extends React.Component {
 		        				<Block className={ClassNames('e-row e-padding-bottom-25')}>
                 					<Btn 
                 						type={'primary'} 
-                						label={'Snow Dialog'}
+                						label={'Show Dialog'}
                 						onClick={this.showDialog.bind(this)} 
                 						className={'flat'} />
 

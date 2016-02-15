@@ -2,10 +2,7 @@
 
 ### How to use
 ```js
-import Card from 'essence-card/src/card.jsx';
-import CardHeader from 'essence-card/src/header.jsx';
-import CardContent from 'essence-card/src/content.jsx';
-import CardFooter from 'essence-card/src/footer.jsx';
+import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 
 <Card>
 	<CardHeader>

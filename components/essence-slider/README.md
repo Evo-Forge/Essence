@@ -8,7 +8,7 @@ Options
 
 ### How to use
 ```js
-import Slider from 'essence-slider/src/slider.jsx';
+import Slider from 'essence-slider';
 
 <Slider discrete={true} step={10} />
 ```

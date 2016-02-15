@@ -6,7 +6,7 @@ Options:
 
 ### How to use
 ```js
-import Toast from 'essence-toast/src/toast.jsx';
+import Toast from 'essence-toast';
 
 class SnackBarTest extends React.Component {
 	constructor(props) {

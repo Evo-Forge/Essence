@@ -7,7 +7,7 @@ Options:
 
 ### How to use
 ```js
-import TouchPad from 'essence-touchpad/src/touchpad.jsx';
+import TouchPad from 'essence-touchpad';
 
 class TouchPadTest extends React.Component {
   constructor(props) {

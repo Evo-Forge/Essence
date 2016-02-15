@@ -2,8 +2,7 @@
 
 ### How to use
 ```js
-import List from 'essence-list/src/list.jsx';
-import ListItem from 'essence-list/src/item.jsx';
+import {List, ListItem} from 'essence-list';
 
 class ListTest extends React.Component {
 	constructor(props) {

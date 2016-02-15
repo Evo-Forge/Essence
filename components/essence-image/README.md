@@ -2,7 +2,7 @@
 
 ### How to use
 ```js
-import Image from 'essence-image/src/image.jsx';
+import Image from 'essence-image';
 
 <Image src='http://i.imgur.com/04zn19m.png' alt={'Star Wars'} />
 ```

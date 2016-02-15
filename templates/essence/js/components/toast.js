@@ -99,7 +99,7 @@ class AppToast extends React.Component {
 			        				<Block className={'e-text-center e-padding-top-15'}>
 	                					<Btn 
 	                						type={'succes'} 
-	                						label={'Snow Toast'}
+	                						label={'Show Toast'}
 	                						onClick={this.showToast.bind(this)} 
 	                						className={'flat'} />
 									</Block>

@@ -8,29 +8,70 @@ class Tooltip extends React.Component {
         let self = this;
         
         this.state = {
-            style: {
-                display: (this.props.visible ? 'block' : 'none')
-            },
+            style: null,
+            visible: props.visible,
+            target: props.target,
+            position: props.position || 'bottom',
             classes: ClassNames(
                 'e-tooltip',
-                this.props.classes,
-                this.props.className
+                props.classes,
+                props.className
             )
         }
     }
 
+    setStyle() {
+        if (!document.querySelector(this.state.target)) { return; }
+
+        let position = this.state.position;
+        let target = document.querySelector(this.state.target);
+        let props = target.getBoundingClientRect();
+
+        let style = {};
+        let left = props.left + (props.width / 2);
+        let top = props.top + (props.height / 2);
+        let marginLeft = -1 * (this.Tooltip.offsetWidth / 2);
+        let marginTop = -1 * (this.Tooltip.offsetHeight / 2);
+
+        style.left = left;
+        style.top = top;
+        style.marginLeft = marginLeft;
+        style.marginTop = marginTop + 'px';
+
+        if (left + marginLeft < 0) {
+            style.left = 0;
+            style.marginLeft = 0;
+        } else {
+            style.left = left + 'px';
+            style.marginLeft = marginLeft + 'px';
+        }
+
+        if (position === 'top') {
+            style.top = top - this.Tooltip.offsetHeight - 10 + 'px';
+        } else {
+            style.top = top + props.height + 10 + 'px';
+        }
+
+        return style;
+    }
+
     componentWillReceiveProps(nextProps) {
         this.setState({
-            style: { 
-                display: (nextProps.visible ? 'block' : 'none')
-            }
+            style: this.setStyle(),
+            visible: nextProps.visible,
+            target: nextProps.target
         });
     }
 
     render() {
         return (
-            <div style={this.state.style} className={this.state.classes} ref={(ref) => this.Tooltip = ref}>
-                <span>{this.props.text}</span>
+            <div className={this.state.classes} ref={(ref) => this.TooltipContainer = ref}>
+                <span 
+                    style={this.state.style} 
+                    ref={(ref) => this.Tooltip = ref} 
+                    className={(this.state.visible ? 'active' : '')}>
+                    {this.props.text || this.props.children}
+                </span>
             </div>
         );
     }

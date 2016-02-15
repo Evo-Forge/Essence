@@ -111,7 +111,7 @@ class AppSnackBar extends React.Component {
 										<Btn 
 											type={'primary'} 
 		                					className={'flat'} 
-											label={'Snow Snackbar'}
+											label={'Show Snackbar'}
 											onClick={this.showSnackBar.bind(this)} />
 				        			</Block>
 				        		</Block>

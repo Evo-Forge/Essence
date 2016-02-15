@@ -6,7 +6,7 @@ Options:
 
 ### How to use
 ```js
-import Navigation from 'essence-navigation/src/navigation.jsx';
+import Navigation from 'essence-navigation';
 
 <Navigation visible={true}>
 	<Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>

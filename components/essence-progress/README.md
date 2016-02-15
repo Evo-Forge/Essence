@@ -10,7 +10,7 @@ Options
 
 ### How to use
 ```js
-import Progress from 'essence-progress/src/progress.jsx';
+import Progress from 'essence-progress';
 
 <Progress type='dynamic' />
 ```

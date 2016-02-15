@@ -32,7 +32,31 @@
 			color: #999;
 		}
 		.e-nav-drawer nav .e-navigation-wrapper .e-nav-header {
-			padding: 6px!important;
+			padding: 6px 16px!important;
+		}
+		.e-nav-drawer nav .e-navigation-wrapper .e-list-navigation {
+			padding-top: 0!important;
+		}
+		.e-list-navigation > li:hover {
+			background: inherit!important;
+		}
+		.e-list-navigation > .e-list-navigation li:hover {
+			background: #e8e8e8!important;
+		}
+		
+		.e-list-navigation .group-list-title {
+			margin: 0;
+			padding: 16px;
+			font-weight: 400;
+			text-transform: uppercase;
+			border-top: 1px solid #CCC;
+			border-bottom: 1px solid #CCC;
+			background-color: #EEEEEE;
+			cursor: default;
+		}
+		.e-list-navigation .group-list-title img {
+			vertical-align: middle;
+			opacity: .6;
 		}
 		.e-search {
 			margin: 0!important;
@@ -55,6 +79,7 @@
 </head>
 <body>
 	<div class="app"></div>
-    <script src="/build/essence.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <script src="./build/essence.min.js"></script>
 </body>
 </html>

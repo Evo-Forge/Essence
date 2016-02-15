@@ -35,21 +35,60 @@ var Tooltip = (function (_React$Component) {
         var self = _this;
 
         _this.state = {
-            style: {
-                display: _this.props.visible ? 'block' : 'none'
-            },
-            classes: (0, _classnames2.default)('e-tooltip', _this.props.classes, _this.props.className)
+            style: null,
+            visible: props.visible,
+            target: props.target,
+            position: props.position || 'bottom',
+            classes: (0, _classnames2.default)('e-tooltip', props.classes, props.className)
         };
         return _this;
     }
 
     _createClass(Tooltip, [{
+        key: 'setStyle',
+        value: function setStyle() {
+            if (!document.querySelector(this.state.target)) {
+                return;
+            }
+
+            var position = this.state.position;
+            var target = document.querySelector(this.state.target);
+            var props = target.getBoundingClientRect();
+
+            var style = {};
+            var left = props.left + props.width / 2;
+            var top = props.top + props.height / 2;
+            var marginLeft = -1 * (this.Tooltip.offsetWidth / 2);
+            var marginTop = -1 * (this.Tooltip.offsetHeight / 2);
+
+            style.left = left;
+            style.top = top;
+            style.marginLeft = marginLeft;
+            style.marginTop = marginTop + 'px';
+
+            if (left + marginLeft < 0) {
+                style.left = 0;
+                style.marginLeft = 0;
+            } else {
+                style.left = left + 'px';
+                style.marginLeft = marginLeft + 'px';
+            }
+
+            if (position === 'top') {
+                style.top = top - this.Tooltip.offsetHeight - 10 + 'px';
+            } else {
+                style.top = top + props.height + 10 + 'px';
+            }
+
+            return style;
+        }
+    }, {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             this.setState({
-                style: {
-                    display: nextProps.visible ? 'block' : 'none'
-                }
+                style: this.setStyle(),
+                visible: nextProps.visible,
+                target: nextProps.target
             });
         }
     }, {
@@ -59,13 +98,18 @@ var Tooltip = (function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { style: this.state.style, className: this.state.classes, ref: function ref(_ref) {
-                        return _this2.Tooltip = _ref;
+                { className: this.state.classes, ref: function ref(_ref2) {
+                        return _this2.TooltipContainer = _ref2;
                     } },
                 _react2.default.createElement(
                     'span',
-                    null,
-                    this.props.text
+                    {
+                        style: this.state.style,
+                        ref: function ref(_ref) {
+                            return _this2.Tooltip = _ref;
+                        },
+                        className: this.state.visible ? 'active' : '' },
+                    this.props.text || this.props.children
                 )
             );
         }

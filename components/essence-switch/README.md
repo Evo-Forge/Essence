@@ -8,7 +8,7 @@ Options:
 
 ### How to use
 ```js
-import Switch from 'essence-switch/src/switch.jsx';
+import Switch from 'essence-switch';
 
 <Switch type='checkbox' classes = {'e-left'} name='switch-checkbox'/>
 <Switch type='radio' text='Checkbox Radio' name='switch-radio' checked={true} />

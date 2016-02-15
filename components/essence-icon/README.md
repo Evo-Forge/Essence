@@ -5,7 +5,7 @@ Options:
 
 ### How to use
 ```js
-import Icon from 'essence-icon/src/icon.jsx';
+import Icon from 'essence-icon';
 
 <Icon name={'action-account-circle'} classes={'e-text-red-100'} />
 ```

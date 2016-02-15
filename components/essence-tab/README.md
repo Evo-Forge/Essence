@@ -9,7 +9,7 @@ Options:
 
 ### How to use
 ```js
-import Tab from 'essence-tab/src/tab.jsx';
+import Tab from 'essence-tab';
 
 var tabData = {
 	'header': [
