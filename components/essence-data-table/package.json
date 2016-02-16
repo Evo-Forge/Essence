@@ -1,7 +1,7 @@
 {
   "name": "essence-data-table",
-  "version": "0.0.13",
-  "description": "Essence Data Table - Data Table component.",
+  "version": "0.0.14",
+  "description": "Essence Data Table - Data Table component",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
@@ -11,9 +11,11 @@
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/table.less lib/table.less",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
+  "devDependencies": {
+    "react": "*"
+  },
   "peerDependencies": {
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": "*"
   },
   "dependencies": {
     "classnames": "*",

@@ -3070,7 +3070,7 @@ class AppIcons extends React.Component {
     	return (
     		<Icon 
     			name={iconName}
-    			className={ClassNames('e-display-4 e-padding-top-25 e-padding-bottom-25', iconColor)} />
+    			className={ClassNames('e-display-4', iconColor)} />
     	);
     }
 
@@ -3118,7 +3118,7 @@ class AppIcons extends React.Component {
 		    						<Text type={'h4'} classes={'e-text-indigo-400'}>LIVE EXAMPLE:</Text>
 		    						<Divider classes={'thick short e-background-indigo-400'} />
 
-									<Block className={'e-text-center e-padding-top-25'}>
+									<Block className={'e-text-center'}>
 										{this.renderIcon()}
 									</Block>
 								</Block>

@@ -1,7 +1,11 @@
 # Essence Icon - Icon component
 
-Options:
+**Options**:
 - name: string for `icon` name
+
+**NOTE**: all props will be transferred from `Icon` to component `i`
+
+**EXAMPLE**: live example from essence website: [Essence Icons](http://essence.pearlhq.com/#icons)
 
 ### How to use
 ```js

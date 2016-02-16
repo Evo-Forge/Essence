@@ -1,7 +1,7 @@
 {
   "name": "essence-core",
-  "version": "0.0.16",
-  "description": "Essence Core - libs for Essence components.",
+  "version": "0.0.17",
+  "description": "Essence Core - Essence components",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
@@ -11,13 +11,17 @@
     "babel": "babel --presets react,es2015 src --out-dir lib; cd src; find . \\( -name '*.less' -o -name '*.eot' -o -name '*.svg' -o -name '*.ttf' -o -name '*.woff' \\)  -print0  | cpio -0pdmu ../lib; cd ../;",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
+  "devDependencies": {
+    "react": "*",
+    "react-addons-css-transition-group": "*",
+    "react-addons-transition-group": "*"
+  },
   "peerDependencies": {
-    "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react": "*"
   },
   "dependencies": {
-    "classnames": "^2.2.1",
-    "react-addons-css-transition-group": "^0.14.3",
-    "react-addons-transition-group": "^0.14.3"
+    "classnames": "*",
+    "react-addons-css-transition-group": "*",
+    "react-addons-transition-group": "*"
   }
 }

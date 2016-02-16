@@ -1,9 +1,8 @@
 # Essence TouchPad - TouchPad component
 
-Options:
-- visible: `true` - show the touchpad
-- visible: `false` (**default**) - hide the touchpad
-- position: `list` - top: offset pixels & left: offset pixels
+#### Options:
+- visible: `true` - show the touchpad or `false` (**default**) - hide the touchpad
+- position: `list` - **top**: offset pixels & **left**: offset pixels
 
 ### How to use
 ```js

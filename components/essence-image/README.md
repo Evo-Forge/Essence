@@ -1,5 +1,10 @@
 # Essence Image - Image component
 
+
+**NOTE**: all props will be transferred from `Image` to component `image`
+
+**EXAMPLE**: live example from essence website: [Essence Image](http://essence.pearlhq.com/#image)
+
 ### How to use
 ```js
 import Image from 'essence-image';

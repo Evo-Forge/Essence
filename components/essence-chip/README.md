@@ -9,6 +9,8 @@ Options:
 - **deletable**: boolean ( **true** or **false** ) - default: **false**
 - **onClose**: callback for on closing chip component
 
+**NOTE**: use the example below to customize your own chips
+
 ```js
 import Chip from 'essence-chip';
 
@@ -30,24 +32,24 @@ var goproChip = {
 
 class ChipTest extends React.Component {
   constructor(props) {
-        super(props);
-        this.state = {
-            classes: ClassNames(
-                this.props.classes,
-                this.props.className
-            )
-        };
-    }
+    super(props);
+    this.state = {
+      classes: ClassNames(
+        this.props.classes,
+        this.props.className
+      )
+    };
+  }
 
-    render() {
-        return (
-          <Chip {...this.props} />
-        );
-    }
+  render() {
+    return (
+      <Chip {...this.props} />
+    );
+  }
 };
 
 <Block>
-  <ChipTest data={redbullChip} className={'e-left'} />
-  <ChipTest data={goproChip} className={'e-left'} />
+  <ChipTest data={redbullChip} />
+  <ChipTest data={goproChip} />
 </Block>
 ```

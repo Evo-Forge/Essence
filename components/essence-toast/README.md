@@ -1,8 +1,12 @@
 # Essence Toast - Toast component
 
-Options:
+#### Options:
 - visible: `true` - show the toast & `false` (**default**) - hide the toast
 - delay: `2000` (**default**) - miliseconds delay to hide
+- onStart: callback function when Toast component has **visible** toggle to `true`
+- onEnd: callback function when Toast component has **visible** toggle to `false`
+- onPause: callback function when Toast component has an active `mouseOver` event
+- onResume: callback function when Toast component has an active `mouseOout` event
 
 ### How to use
 ```js

@@ -1,6 +1,6 @@
 # Essence Tab - Tab component
 
-Options:
+#### Options:
 - data: an object list with keys: `header`, `rows`, `footer`
 - header: an object list with keys: `context` & `callback` callback function
 - rows: an array list with the same number of columns as from header
