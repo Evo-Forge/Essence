@@ -44,6 +44,21 @@ import {
 	AppTooltip,
 } from './components/';
 
+let EssenceMenu = {
+	'home': {
+		title: 'Home'
+	},
+	'about': {
+		title: 'About'
+	},
+	'get-started': {
+		title: 'Getting started'
+	},
+	'contact': {
+		title: 'Contact'
+	}
+};
+
 class AppHome extends React.Component {
 	constructor(props) {
         super(props);
@@ -69,14 +84,14 @@ class AppHome extends React.Component {
 								<Text type={'h5'} classes={'e-headline e-text-white e-text-uppercase'}>
 									The Essential Material Design Framework
 								</Text>
-								<Text type={'a'} href={'#get-started'} classes={'e-btn raised e-background-indigo-800'}>
+								<Text type={'a'} href={'#get-started'} classes={'e-btn raised e-background-indigo-700'}>
 									Get Started with Essence
+								</Text>
+								<Text type={'a'} href={'https://www.npmjs.com/~pearlventures'} target={'_blank'} classes={'e-btn raised e-background-indigo-500 e-text-white'}>
+									Install from NPM
 								</Text>
 								<Text type={'a'} href={'https://github.com/PearlVentures/Essence'} target={'_blank'} classes={'e-btn raised e-background-white e-text-indigo-800'}>
 									Download from GitHub
-								</Text>
-								<Text type={'a'} href={'https://www.npmjs.com/~pearlventures'} target={'_blank'} classes={'e-btn raised e-background-teal-500 e-text-white'}>
-									Install from NPM
 								</Text>
 							</Block>
 						</Block>
@@ -515,20 +530,6 @@ class AppNavigationMenu extends React.Component {
     renderEssenceMenu() {
 		let self = this;
 		let renderComponents = [];
-    	let EssenceMenu = {
-    		'home': {
-    			title: 'Home'
-    		},
-    		'about': {
-    			title: 'About'
-    		},
-    		'get-started': {
-    			title: 'Getting started'
-    		},
-    		'contact': {
-    			title: 'Contact'
-    		}
-    	};
 
 		Object.keys(EssenceMenu).forEach(function(key) { 
 			var component = EssenceMenu[key];
@@ -582,10 +583,10 @@ class AppNavigationMenu extends React.Component {
 								width={'40px'} 
 								height={'40px'} 
 								style={{ verticalAlign: 'middle'}} 
-								src={'http://essence.pearlhq.com./assets/img/essence_icon.png'} />
-						</Text>
-						<Text type={'h2'} classes={'e-text-indigo-400 e-right'} style={{width: '74%', lineHeight: '45px'}}>
-							<Text>essence</Text>
+								src={'./assets/img/essence_icon.png'} />
+							<Text type={'h2'} classes={'e-text-indigo-400 e-right'} style={{width: '74%', lineHeight: '45px'}}>
+								<Text>essence</Text>
+							</Text>
 						</Text>
 					</Block>
 					<List type={'navigation'} classes={'e-background-white'}>
@@ -661,11 +662,27 @@ class App extends React.Component {
             classes: ClassNames(
                 this.props.classes,
                 this.props.className
-            )
+            ),
+            AppBarTitle: false,
+            essenceComponents: {}
         };
     }
 
+    changeTitle(string) {
+    	this.setState({
+    		AppBarTitle: string.toString()
+    	});
+    }
+
     componentDidMount() {
+    	let essenceComponents = this.state.essenceComponents;
+		for (var objKey in EssenceMenu) { essenceComponents[objKey] = EssenceMenu[objKey]; }
+		for (var objKey in Components) { essenceComponents[objKey] = Components[objKey]; }
+
+		this.setState({
+			essenceComponents: essenceComponents
+		});
+
     	return this.loadComponent();
     }
 
@@ -824,7 +841,9 @@ class App extends React.Component {
     			break;
     	}
 
+
     	if (this.state.components.indexOf(componentHash) > -1) {
+			this.changeTitle(this.state.essenceComponents[componentHash]['title']);
 			this.setState({
 				content: componentContent
 			});
@@ -841,8 +860,9 @@ class App extends React.Component {
         	<div>
 				<AppBar classes={'e-background-indigo-400'} style={{overflow: 'inherit'}}>
 					{this.renderSideBarButton()}
-					<Text className={'e-text-white'}>Essence - MD Framework</Text>
+					<Text className={'e-text-white'}>Essence - {this.state.AppBarTitle || 'MD Framework'}</Text>
 					
+					{/*
 					<Menu type={'cover'} icon={'navigation-more-vert'} classes={'e-text-white e-right'}>
 						<Text className={'e-text-black'}>
 							<Text type={'a'} href={'#about'}>
@@ -870,6 +890,7 @@ class App extends React.Component {
 							</Text>
 						</Text>
 					</Menu>
+					*/}
 					
 					{this.props.children}
 				</AppBar>
