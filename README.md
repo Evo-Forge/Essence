@@ -7,7 +7,7 @@ See [here](http://essence.pearlhq.com/) what you can build with Essence and how 
 
 ### Installation
 ```
-npm install react-essence@latest
+npm install react-essence
 ```
 
 ### Import components
