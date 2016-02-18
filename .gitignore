@@ -17,4 +17,5 @@ node_modules/
 .DS_Store?
 test/essence.js
 test/test.js
+*test*
 lib/essence.min.js
