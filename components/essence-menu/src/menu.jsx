@@ -35,13 +35,13 @@ class Menu extends React.Component {
 
     componentDidMount () {
         let self = this;
-        document.addEventListener("click", function(event){
+        document.addEventListener('click', function(event){
             if (self.currentMenu && !self.currentMenu.contains(event.target) && !self.state.isHidden){
                 self.toggleMenu();
             }
         });
 
-        document.addEventListener("touchend", function(event){
+        document.addEventListener('touchend', function(event){
             if (self.currentMenu && !self.currentMenu.contains(event.target) && !self.state.isHidden){
                 self.toggleMenu();
             }
@@ -49,8 +49,45 @@ class Menu extends React.Component {
     }
 
     componentWillUnmount () {
-        document.removeEventListener("click");
-        document.removeEventListener("touchend");
+        document.removeEventListener('click', function(event){
+            if ( event && event.hasOwnProperty('props') && event.props.callback) {
+                return event.props.callback();
+            }
+        });
+        document.removeEventListener('touchend', function(event){
+            if ( event && event.hasOwnProperty('props') && event.props.callback) {
+                return event.props.callback();
+            }
+        });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            isHidden: true,
+            isActive: false,
+            classes: ClassNames(
+                {
+                    'hide': true,
+                    'e-nav': true,
+                    'e-paper': true,
+                    'e-shadow-1': true,
+                    'right': nextProps.right,
+                    'fab-list': nextProps.type === 'fab'
+                }
+            ),
+            menuClasses: ClassNames(
+                {
+                    'e-fab-menu': nextProps.type === 'fab',
+                    'e-nav-menu': nextProps.type === 'fab' ? false : true,
+                    'cover': nextProps.type === 'cover',
+                    'fixed': nextProps.type === 'fab',
+                    'active': false
+                },
+                nextProps.classes,
+                nextProps.className
+            ),
+            placeholder: nextProps.placeholder
+        });     
     }
 
     toggleMenu(child) {

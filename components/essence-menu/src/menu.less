@@ -1,6 +1,7 @@
 @import '../../essence-core/src/less/mixins.less';
 
 .e-nav-menu {
+  display: inline-block;
   position: relative;
   cursor: pointer;
   z-index: 3;
@@ -21,7 +22,11 @@
 
   .e-nav {
     position: absolute;
-  }  
+  }
+  
+  i {
+    vertical-align: middle;
+  }
 }
 
 .e-nav-menu ul {
@@ -34,7 +39,7 @@
       }
     }
     i {
-
+      vertical-align: middle;
     }
   }
 

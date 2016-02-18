@@ -63,13 +63,13 @@ var Menu = (function (_React$Component) {
         key: 'componentDidMount',
         value: function componentDidMount() {
             var self = this;
-            document.addEventListener("click", function (event) {
+            document.addEventListener('click', function (event) {
                 if (self.currentMenu && !self.currentMenu.contains(event.target) && !self.state.isHidden) {
                     self.toggleMenu();
                 }
             });
 
-            document.addEventListener("touchend", function (event) {
+            document.addEventListener('touchend', function (event) {
                 if (self.currentMenu && !self.currentMenu.contains(event.target) && !self.state.isHidden) {
                     self.toggleMenu();
                 }
@@ -78,8 +78,40 @@ var Menu = (function (_React$Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            document.removeEventListener("click");
-            document.removeEventListener("touchend");
+            document.removeEventListener('click', function (event) {
+                if (event && event.hasOwnProperty('props') && event.props.callback) {
+                    return event.props.callback();
+                }
+            });
+            document.removeEventListener('touchend', function (event) {
+                if (event && event.hasOwnProperty('props') && event.props.callback) {
+                    return event.props.callback();
+                }
+            });
+        }
+    }, {
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                isHidden: true,
+                isActive: false,
+                classes: (0, _classnames2.default)({
+                    'hide': true,
+                    'e-nav': true,
+                    'e-paper': true,
+                    'e-shadow-1': true,
+                    'right': nextProps.right,
+                    'fab-list': nextProps.type === 'fab'
+                }),
+                menuClasses: (0, _classnames2.default)({
+                    'e-fab-menu': nextProps.type === 'fab',
+                    'e-nav-menu': nextProps.type === 'fab' ? false : true,
+                    'cover': nextProps.type === 'cover',
+                    'fixed': nextProps.type === 'fab',
+                    'active': false
+                }, nextProps.classes, nextProps.className),
+                placeholder: nextProps.placeholder
+            });
         }
     }, {
         key: 'toggleMenu',

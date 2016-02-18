@@ -1,24 +1,24 @@
 {
   "name": "essence-touchpad",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "description": "Essence TouchPad - TouchPad component",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
-  "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-touchpad",
+  "repository": "git://github.com/PearlVentures/Essence",
   "main": "lib/touchpad.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/touchpad.less lib/touchpad.less",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "devDependencies": {
-    "react": "*"
+    "react": "^0.14.x"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "^0.14.x"
   },
   "dependencies": {
-    "classnames": "*",
-    "essence-core": "*"
+    "classnames": "^2.x",
+    "essence-core": "^1.x"
   }
 }

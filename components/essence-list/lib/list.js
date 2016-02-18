@@ -38,6 +38,7 @@ var List = (function (_React$Component) {
                 'e-list-big-icon': _this.props.type === 'big-icon' ? true : false,
                 'e-list-navigation': _this.props.type === 'navigation' ? true : false,
                 'e-sublist-navigation': _this.props.type === 'sublist' ? true : false,
+                'e-list-inline': _this.props.type === 'inline' ? true : false,
                 'has-icon': _this.props.icon ? true : false,
                 'has-avatar': _this.props.avatar ? true : false,
                 'has-checkbox': _this.props.type === 'checkbox' ? true : false,
@@ -56,6 +57,31 @@ var List = (function (_React$Component) {
     }
 
     _createClass(List, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                classes: (0, _classnames2.default)(nextProps.classes, nextProps.className, {
+                    'e-list': nextProps.type === 'big-icon' || nextProps.type === 'navigation' || nextProps.type === 'expand' ? false : true,
+                    'e-list-big-icon': nextProps.type === 'big-icon' ? true : false,
+                    'e-list-navigation': nextProps.type === 'navigation' ? true : false,
+                    'e-sublist-navigation': nextProps.type === 'sublist' ? true : false,
+                    'e-list-inline': nextProps.type === 'inline' ? true : false,
+                    'has-icon': nextProps.icon ? true : false,
+                    'has-avatar': nextProps.avatar ? true : false,
+                    'has-checkbox': nextProps.type === 'checkbox' ? true : false,
+                    'has-right-checkbox': nextProps.position === 'right' ? true : false,
+                    'has-dropdown': nextProps.type === 'expand' ? true : false,
+                    'has-switches': nextProps.type === 'switch' ? true : false,
+                    'left': false,
+                    'right': false,
+                    'clearfix': nextProps.type === 'big-icon' ? true : false,
+                    'two-line': nextProps.type === 'two-line' ? true : false,
+                    'multi-line': nextProps.type === 'multi-line' ? true : false,
+                    'single-line': nextProps.type === 'single-line' && (nextProps.type !== 'navigation' || nextProps.type !== 'expand') ? true : false
+                })
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(

@@ -11,6 +11,15 @@ class ListItem extends React.Component {
             )
         };
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            classes: ClassNames(
+                nextProps.classes,
+                nextProps.className
+            )
+        });
+    }
     
 	render() {
 		return (

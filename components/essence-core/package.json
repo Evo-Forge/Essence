@@ -1,27 +1,27 @@
 {
   "name": "essence-core",
-  "version": "0.0.17",
+  "version": "1.0.1",
   "description": "Essence Core - Essence components",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
-  "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-core",
+  "repository": "git://github.com/PearlVentures/Essence",
   "main": "index.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib; cd src; find . \\( -name '*.less' -o -name '*.eot' -o -name '*.svg' -o -name '*.ttf' -o -name '*.woff' \\)  -print0  | cpio -0pdmu ../lib; cd ../;",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "devDependencies": {
-    "react": "*",
-    "react-addons-css-transition-group": "*",
-    "react-addons-transition-group": "*"
+    "react": "^0.14.x",
+    "react-addons-css-transition-group": "^0.14.x",
+    "react-addons-transition-group": "^0.14.x"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "^0.14.x"
   },
   "dependencies": {
-    "classnames": "*",
-    "react-addons-css-transition-group": "*",
-    "react-addons-transition-group": "*"
+    "classnames": "^2.x",
+    "react-addons-css-transition-group": "^0.14.x",
+    "react-addons-transition-group": "^0.14.x"
   }
 }

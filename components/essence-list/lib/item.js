@@ -35,6 +35,13 @@ var ListItem = (function (_React$Component) {
     }
 
     _createClass(ListItem, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                classes: (0, _classnames2.default)(nextProps.classes, nextProps.className)
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(

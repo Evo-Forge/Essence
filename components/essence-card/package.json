@@ -1,24 +1,24 @@
 {
   "name": "essence-card",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Essence Card - Card component",
   "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
   "homepage": "http://essence.pearlhq.com/",
   "license": "MIT",
-  "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-card",
+  "repository": "git://github.com/PearlVentures/Essence",
   "main": "index.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/card.less lib/card.less",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "devDependencies": {
-    "react": "*"
+    "react": "^0.14.x"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "^0.14.x"
   },
   "dependencies": {
-    "classnames": "*",
-    "essence-core": "*"
+    "classnames": "^2.x",
+    "essence-core": "^1.x"
   }
 }
