@@ -1,52 +1,51 @@
-import AppBar from 'essence-appbar';
-import BottomSheets from 'essence-bottomsheet';
-import Btn from 'essence-button';
-import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
-import {Block, Text, Divider, Utils} from 'essence-core';
-import DataTable from 'essence-data-table';
-import Icon from 'essence-icon';
-import Image from 'essence-image';
-import Input from 'essence-input';
-import {List, ListItem} from 'essence-list';
-import Menu from 'essence-menu';
-import Navigation from 'essence-navigation';
-import Paper from 'essence-paper';
-import Progress from 'essence-progress';
-import Slider from 'essence-slider';
-import SnackBar from 'essence-snackbar';
-import Switch from 'essence-switch';
-import Tab from 'essence-tab';
-import Toast from 'essence-toast';
-import Tooltip from 'essence-tooltip';
-import TouchPad from 'essence-touchpad';
+var AppBar = require('essence-appbar');
+var BottomSheets = require('essence-bottomsheet');
+var Btn = require('essence-button');
+var Card = require('essence-card');
+var Core = require('essence-core');
+var DataTable = require('essence-data-table');
+var Icon = require('essence-icon');
+var Image = require('essence-image');
+var Input = require('essence-input');
+var List = require('essence-list');
+var Menu = require('essence-menu');
+var Navigation = require('essence-navigation');
+var Paper = require('essence-paper');
+var Progress = require('essence-progress');
+var Slider = require('essence-slider');
+var SnackBar = require('essence-snackbar');
+var Switch = require('essence-switch');
+var Tab = require('essence-tab');
+var Toast = require('essence-toast');
+var Tooltip = require('essence-tooltip');
+var TouchPad = require('essence-touchpad');
 
-module.exports = { 
-	AppBar,
-	BottomSheets,
-	Btn,
-	Card, 
-	CardHeader, 
-	CardContent, 
-	CardFooter,
-	Block, 
-	Text, 
-	Divider, 
-	Utils,
-	DataTable,
-	Icon,
-	Image,
-	Input,
-	List, 
-	ListItem,
-	Menu,
-	Navigation,
-	Paper,
-	Progress,
-	Slider,
-	SnackBar,
-	Switch,
-	Tab,
-	Toast,
-	Tooltip,
-	TouchPad
-};
+exports.AppBar = AppBar;
+exports.BottomSheets = BottomSheets;
+exports.Btn = Btn;
+exports.Card = Card.Card; 
+exports.CardHeader = Card.CardHeader; 
+exports.CardContent = Card.CardContent; 
+exports.CardFooter = Card.CardFooter;
+exports.Core = Core; 
+exports.Block = Core.Block; 
+exports.Text = Core.Text; 
+exports.Divider = Core.Divider; 
+exports.Utils = Core.Utils;
+exports.DataTable = DataTable;
+exports.Icon = Icon;
+exports.Image = Image;
+exports.Input = Input;
+exports.List = List.List; 
+exports.ListItem = List.List;
+exports.Menu = Menu;
+exports.Navigation = Navigation;
+exports.Paper = Paper;
+exports.Progress = Progress;
+exports.Slider = Slider;
+exports.SnackBar = SnackBar;
+exports.Switch = Switch;
+exports.Tab = Tab;
+exports.Toast = Toast;
+exports.Tooltip = Tooltip;
+exports.TouchPad = TouchPad;

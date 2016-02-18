@@ -1,7 +1,11 @@
 {
   "name": "react-essence",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Essence Components - Google Material Design - UI framework",
+  "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
+  "homepage": "http://essence.pearlhq.com/",
+  "license": "MIT",
+  "repository": "git://github.com/PearlVentures/Essence",
   "main": "index.js",
   "babel": {
     "presets": [
@@ -23,8 +27,6 @@
     "framework",
     "less"
   ],
-  "author": "Hetmann W. Iohan",
-  "license": "MIT",
   "dependencies": {
     "essence-appbar": "^1.x",
     "essence-bottomsheet": "^1.x",
