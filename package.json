@@ -27,7 +27,7 @@
     "framework",
     "less"
   ],
-  "devDependencies": {
+  "dependencies": {
     "essence-appbar": "^1.x",
     "essence-bottomsheet": "^1.x",
     "essence-button": "^1.x",
