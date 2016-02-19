@@ -60,4 +60,4 @@ var DataTableRow = (function (_React$Component) {
     return DataTableRow;
 })(_react2.default.Component);
 
-exports.default = DataTableRow;
+module.exports = DataTableRow;

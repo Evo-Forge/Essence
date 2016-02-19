@@ -55,4 +55,4 @@ var DataTableFooter = (function (_React$Component) {
     return DataTableFooter;
 })(_react2.default.Component);
 
-exports.default = DataTableFooter;
+module.exports = DataTableFooter;

@@ -60,4 +60,4 @@ var DataTableColumn = (function (_React$Component) {
     return DataTableColumn;
 })(_react2.default.Component);
 
-exports.default = DataTableColumn;
+module.exports = DataTableColumn;

@@ -153,4 +153,4 @@ var Tab = (function (_React$Component) {
     return Tab;
 })(_react2.default.Component);
 
-exports.default = Tab;
+module.exports = Tab;

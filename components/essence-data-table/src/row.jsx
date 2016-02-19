@@ -26,4 +26,4 @@ class DataTableRow extends React.Component {
     }
 }
 
-export default DataTableRow;
+module.exports = DataTableRow;

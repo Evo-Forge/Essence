@@ -22,4 +22,4 @@ class DataTableBody extends React.Component {
     }
 }
 
-export default DataTableBody;
+module.exports = DataTableBody;

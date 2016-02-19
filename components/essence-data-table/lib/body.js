@@ -55,4 +55,4 @@ var DataTableBody = (function (_React$Component) {
     return DataTableBody;
 })(_react2.default.Component);
 
-exports.default = DataTableBody;
+module.exports = DataTableBody;

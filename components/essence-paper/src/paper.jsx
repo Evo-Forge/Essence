@@ -28,4 +28,4 @@ class Paper extends React.Component {
 	}
 }
 
-export default Paper;
+module.exports = Paper;

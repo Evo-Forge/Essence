@@ -238,4 +238,4 @@ var Slider = (function (_React$Component) {
     return Slider;
 })(_react2.default.Component);
 
-exports.default = Slider;
+module.exports = Slider;

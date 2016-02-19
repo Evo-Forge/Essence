@@ -190,4 +190,3 @@ var Text = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = Text;
-// export default Text;

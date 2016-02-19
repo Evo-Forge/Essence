@@ -112,4 +112,4 @@ var TouchPad = (function (_React$Component) {
     return TouchPad;
 })(_react2.default.Component);
 
-exports.default = TouchPad;
+module.exports = TouchPad;

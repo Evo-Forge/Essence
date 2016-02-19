@@ -203,4 +203,4 @@ class Slider extends React.Component {
 	}
 }
 
-export default Slider;
+module.exports = Slider;

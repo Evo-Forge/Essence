@@ -55,4 +55,3 @@ var Card = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = Card;
-// export default Card;

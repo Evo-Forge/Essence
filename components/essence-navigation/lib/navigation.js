@@ -102,4 +102,4 @@ var Navigation = (function (_React$Component) {
     return Navigation;
 })(_react2.default.Component);
 
-exports.default = Navigation;
+module.exports = Navigation;

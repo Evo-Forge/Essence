@@ -72,4 +72,3 @@ var RippleInk = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = RippleInk;
-// export default RippleInk;

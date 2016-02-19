@@ -101,4 +101,4 @@ class Chip extends React.Component {
     }
 }
 
-export default Chip;
+module.exports = Chip;

@@ -124,4 +124,4 @@ var BottomSheet = (function (_React$Component) {
     return BottomSheet;
 })(_react2.default.Component);
 
-exports.default = BottomSheet;
+module.exports = BottomSheet;

@@ -114,4 +114,3 @@ var Dialog = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = Dialog;
-// export default Dialog;

@@ -85,4 +85,4 @@ class Progress extends React.Component {
 	}
 }
 
-export default Progress;
+module.exports = Progress;

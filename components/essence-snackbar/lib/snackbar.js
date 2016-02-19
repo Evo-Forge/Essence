@@ -210,4 +210,4 @@ var SnackBar = (function (_React$Component) {
     return SnackBar;
 })(_react2.default.Component);
 
-exports.default = SnackBar;
+module.exports = SnackBar;

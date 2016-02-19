@@ -53,4 +53,3 @@ var DialogHeader = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = DialogHeader;
-// export default DialogHeader;

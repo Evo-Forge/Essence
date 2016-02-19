@@ -25,4 +25,3 @@ class CardContent extends React.Component {
 
 
 module.exports = CardContent;
-// export default CardContent;

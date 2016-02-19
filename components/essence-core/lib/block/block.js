@@ -119,4 +119,3 @@ var Block = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = Block;
-// export default Block;

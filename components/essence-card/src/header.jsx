@@ -25,4 +25,3 @@ class CardHeader extends React.Component {
 }
 
 module.exports = CardHeader;
-// export default CardHeader;

@@ -53,4 +53,3 @@ var DialogContent = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = DialogContent;
-// export default DialogContent;

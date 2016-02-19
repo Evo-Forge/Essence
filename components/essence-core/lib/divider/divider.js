@@ -61,4 +61,3 @@ var Divider = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = Divider;
-// export default Divider;

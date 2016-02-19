@@ -303,4 +303,4 @@ class DataTable extends React.Component {
     }
 }
 
-export default DataTable;
+module.exports = DataTable;

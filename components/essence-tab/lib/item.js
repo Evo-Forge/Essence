@@ -275,4 +275,4 @@ var TabItem = (function (_React$Component) {
     return TabItem;
 })(_react2.default.Component);
 
-exports.default = TabItem;
+module.exports = TabItem;

@@ -166,4 +166,4 @@ var Input = (function (_React$Component) {
     return Input;
 })(_react2.default.Component);
 
-exports.default = Input;
+module.exports = Input;

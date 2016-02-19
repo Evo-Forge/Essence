@@ -159,4 +159,4 @@ var Btn = (function (_React$Component) {
     return Btn;
 })(_react2.default.Component);
 
-exports.default = Btn;
+module.exports = Btn;

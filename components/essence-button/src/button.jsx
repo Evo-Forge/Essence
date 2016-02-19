@@ -121,4 +121,4 @@ class Btn extends React.Component {
 	}
 }
 
-export default Btn;
+module.exports = Btn;

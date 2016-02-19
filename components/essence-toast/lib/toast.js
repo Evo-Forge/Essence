@@ -197,4 +197,4 @@ var ToastBar = (function (_React$Component) {
     return ToastBar;
 })(_react2.default.Component);
 
-exports.default = ToastBar;
+module.exports = ToastBar;

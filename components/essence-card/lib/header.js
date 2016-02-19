@@ -53,4 +53,3 @@ var CardHeader = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = CardHeader;
-// export default CardHeader;

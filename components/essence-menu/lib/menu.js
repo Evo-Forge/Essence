@@ -256,4 +256,4 @@ var Menu = (function (_React$Component) {
     return Menu;
 })(_react2.default.Component);
 
-exports.default = Menu;
+module.exports = Menu;

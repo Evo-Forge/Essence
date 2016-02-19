@@ -118,4 +118,4 @@ var Tooltip = (function (_React$Component) {
     return Tooltip;
 })(_react2.default.Component);
 
-exports.default = Tooltip;
+module.exports = Tooltip;

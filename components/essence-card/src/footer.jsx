@@ -25,4 +25,3 @@ class CardFooter extends React.Component {
 }
 
 module.exports = CardFooter;
-// export default CardFooter;

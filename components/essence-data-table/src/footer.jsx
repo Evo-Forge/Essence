@@ -22,4 +22,4 @@ class DataTableFooter extends React.Component {
     }
 }
 
-export default DataTableFooter;
+module.exports = DataTableFooter;

@@ -58,4 +58,3 @@ var ListItem = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = ListItem;
-// export default ListItem;

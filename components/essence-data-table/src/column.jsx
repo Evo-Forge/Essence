@@ -26,4 +26,4 @@ class DataTableColumn extends React.Component {
     }
 }
 
-export default DataTableColumn;
+module.exports = DataTableColumn;

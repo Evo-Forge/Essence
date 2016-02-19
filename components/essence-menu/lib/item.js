@@ -54,4 +54,4 @@ var MenuItem = (function (_React$Component) {
     return MenuItem;
 })(_react2.default.Component);
 
-exports.default = MenuItem;
+module.exports = MenuItem;

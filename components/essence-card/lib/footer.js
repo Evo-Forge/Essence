@@ -53,4 +53,3 @@ var CardFooter = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = CardFooter;
-// export default CardFooter;

@@ -395,4 +395,4 @@ var DataTable = (function (_React$Component) {
     return DataTable;
 })(_react2.default.Component);
 
-exports.default = DataTable;
+module.exports = DataTable;

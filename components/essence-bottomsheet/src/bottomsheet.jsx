@@ -109,4 +109,4 @@ class BottomSheet extends React.Component {
 	}
 }
 
-export default BottomSheet;
+module.exports = BottomSheet;

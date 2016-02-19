@@ -24,4 +24,3 @@ class DialogHeader extends React.Component {
 }
 
 module.exports = DialogHeader;
-// export default DialogHeader;

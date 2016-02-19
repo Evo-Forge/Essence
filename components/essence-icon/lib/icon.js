@@ -59,4 +59,4 @@ var Icon = (function (_React$Component) {
     return Icon;
 })(_react2.default.Component);
 
-exports.default = Icon;
+module.exports = Icon;

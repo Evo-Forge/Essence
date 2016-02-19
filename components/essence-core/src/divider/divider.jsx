@@ -29,4 +29,3 @@ class Divider extends React.Component {
 }
 
 module.exports = Divider;
-// export default Divider;

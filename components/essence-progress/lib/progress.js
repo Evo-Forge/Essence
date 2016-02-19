@@ -127,4 +127,4 @@ var Progress = (function (_React$Component) {
     return Progress;
 })(_react2.default.Component);
 
-exports.default = Progress;
+module.exports = Progress;

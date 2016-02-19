@@ -78,4 +78,4 @@ var AppBar = (function (_React$Component) {
     return AppBar;
 })(_react2.default.Component);
 
-exports.default = AppBar;
+module.exports = AppBar;

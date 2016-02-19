@@ -22,4 +22,4 @@ class DataTableHeader extends React.Component {
     }
 }
 
-export default DataTableHeader;
+module.exports = DataTableHeader;

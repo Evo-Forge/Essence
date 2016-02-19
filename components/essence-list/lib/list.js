@@ -96,4 +96,3 @@ var List = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = List;
-// export default List;

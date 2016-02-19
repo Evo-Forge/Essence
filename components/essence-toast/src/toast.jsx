@@ -165,4 +165,4 @@ class ToastBar extends React.Component {
     }
 }
 
-export default ToastBar;
+module.exports = ToastBar;

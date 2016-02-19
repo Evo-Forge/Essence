@@ -45,4 +45,4 @@ class AppBar extends React.Component {
 	}
 }
 
-export default AppBar;
+module.exports = AppBar;

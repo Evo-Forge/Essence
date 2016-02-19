@@ -107,4 +107,4 @@ class Switch extends React.Component {
 	}
 }
 
-export default Switch;
+module.exports = Switch;

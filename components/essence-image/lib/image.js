@@ -52,4 +52,4 @@ var Image = (function (_React$Component) {
   return Image;
 })(_react2.default.Component);
 
-exports.default = Image;
+module.exports = Image;

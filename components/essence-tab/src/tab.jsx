@@ -103,4 +103,4 @@ class Tab extends React.Component {
 	}
 }
 
-export default Tab;
+module.exports = Tab;

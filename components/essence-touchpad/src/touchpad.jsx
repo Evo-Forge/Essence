@@ -73,4 +73,4 @@ class TouchPad extends React.Component {
     }
 }
 
-export default TouchPad;
+module.exports = TouchPad;

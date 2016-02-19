@@ -229,4 +229,4 @@ class TabItem extends React.Component {
 	}
 }
 
-export default TabItem;
+module.exports = TabItem;

@@ -55,4 +55,4 @@ var DataTableHeader = (function (_React$Component) {
     return DataTableHeader;
 })(_react2.default.Component);
 
-exports.default = DataTableHeader;
+module.exports = DataTableHeader;

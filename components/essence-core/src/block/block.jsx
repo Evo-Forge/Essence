@@ -57,4 +57,3 @@ class Block extends React.Component {
 }
 
 module.exports = Block;
-// export default Block;

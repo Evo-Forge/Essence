@@ -151,4 +151,4 @@ class ChipItem extends React.Component {
 	}
 }
 
-export default ChipItem;
+module.exports = ChipItem;

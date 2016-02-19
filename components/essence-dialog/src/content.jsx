@@ -24,4 +24,3 @@ class DialogContent extends React.Component {
 }
 
 module.exports = DialogContent;
-// export default DialogContent;

@@ -27,4 +27,3 @@ class Card extends React.Component {
 }
 
 module.exports = Card;
-// export default Card;

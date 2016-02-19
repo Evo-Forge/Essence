@@ -48,4 +48,3 @@ class Highlighter extends React.Component {
 }
 
 module.exports = Highlighter;
-// export default Highlighter;

@@ -176,4 +176,4 @@ class SnackBar extends React.Component {
 	}
 }
 
-export default SnackBar;
+module.exports = SnackBar;

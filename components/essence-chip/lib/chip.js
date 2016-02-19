@@ -144,4 +144,4 @@ var Chip = (function (_React$Component) {
     return Chip;
 })(_react2.default.Component);
 
-exports.default = Chip;
+module.exports = Chip;

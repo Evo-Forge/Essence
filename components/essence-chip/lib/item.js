@@ -176,4 +176,4 @@ var ChipItem = (function (_React$Component) {
     return ChipItem;
 })(_react2.default.Component);
 
-exports.default = ChipItem;
+module.exports = ChipItem;

@@ -57,4 +57,4 @@ var Paper = (function (_React$Component) {
   return Paper;
 })(_react2.default.Component);
 
-exports.default = Paper;
+module.exports = Paper;

@@ -143,4 +143,4 @@ var Switch = (function (_React$Component) {
     return Switch;
 })(_react2.default.Component);
 
-exports.default = Switch;
+module.exports = Switch;

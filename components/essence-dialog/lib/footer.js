@@ -53,4 +53,3 @@ var DialogFooter = (function (_React$Component) {
 })(_react2.default.Component);
 
 module.exports = DialogFooter;
-// export default DialogFooter;
