@@ -9,20 +9,21 @@ class TouchPad extends React.Component {
         let self = this;
         
         this.state = {
-            visible: this.props.visible || false,
+            visible: props.visible || false,
             close: false,
             style: {},
             classes: ClassNames(
                 'e-touchpad',
-                this.props.classes,
-                this.props.className
+                {'inline': props.inline},
+                props.classes,
+                props.className
             )
         };
     }
 
     componentWillReceiveProps(nextProps) {
-        let top = (nextProps.position.top - 108),
-            left = (nextProps.position.left - 108);
+        let top = (nextProps.position.top - (nextProps.inline ? 54 : 108)),
+            left = (nextProps.position.left - (nextProps.inline ? 54 : 108));
 
         this.setState({
             style: {
@@ -31,6 +32,12 @@ class TouchPad extends React.Component {
             },
             visible: (nextProps.visible ? true : false),
             close: (nextProps.visible ? true : false),
+            classes: ClassNames(
+                'e-touchpad',
+                {'inline': nextProps.inline},
+                nextProps.classes,
+                nextProps.className
+            )
         });
     }
 
@@ -58,18 +65,31 @@ class TouchPad extends React.Component {
         });
     }
 
-    render() {
+    renderTouchPad() {
+        if (this.props.inline) {
+            return (
+                <div
+                    style={this.state.style}
+                    className={ ClassNames( this.state.classes, {'show' : this.state.visible} ) }
+                    ref={(ref) => this.TouchPadContainer = ref}>
+                    {this.props.children}
+                </div>
+            );
+        }
         return (
             <div
                 style={this.state.style}
                 className={ ClassNames( this.state.classes, {'show' : this.state.visible} ) }
-                ref={(ref) => this.TouchPadContainer = ref}
-            >
+                ref={(ref) => this.TouchPadContainer = ref}>
                 <div className={'blur'} />
                 {this.props.children}
                 {this.renderClose()}
             </div>
-        );
+        )
+    }
+
+    render() {
+        return this.renderTouchPad();
     }
 }
 

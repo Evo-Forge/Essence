@@ -2,10 +2,6 @@
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -35,10 +31,10 @@ var TouchPad = (function (_React$Component) {
         var self = _this;
 
         _this.state = {
-            visible: _this.props.visible || false,
+            visible: props.visible || false,
             close: false,
             style: {},
-            classes: (0, _classnames2.default)('e-touchpad', _this.props.classes, _this.props.className)
+            classes: (0, _classnames2.default)('e-touchpad', { 'inline': props.inline }, props.classes, props.className)
         };
         return _this;
     }
@@ -46,8 +42,8 @@ var TouchPad = (function (_React$Component) {
     _createClass(TouchPad, [{
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
-            var top = nextProps.position.top - 108,
-                left = nextProps.position.left - 108;
+            var top = nextProps.position.top - (nextProps.inline ? 54 : 108),
+                left = nextProps.position.left - (nextProps.inline ? 54 : 108);
 
             this.setState({
                 style: {
@@ -55,7 +51,8 @@ var TouchPad = (function (_React$Component) {
                     left: (left < 0 ? 4 : left) + 'px'
                 },
                 visible: nextProps.visible ? true : false,
-                close: nextProps.visible ? true : false
+                close: nextProps.visible ? true : false,
+                classes: (0, _classnames2.default)('e-touchpad', { 'inline': nextProps.inline }, nextProps.classes, nextProps.className)
             });
         }
     }, {
@@ -89,23 +86,39 @@ var TouchPad = (function (_React$Component) {
             });
         }
     }, {
-        key: 'render',
-        value: function render() {
+        key: 'renderTouchPad',
+        value: function renderTouchPad() {
             var _this2 = this;
 
+            if (this.props.inline) {
+                return _react2.default.createElement(
+                    'div',
+                    {
+                        style: this.state.style,
+                        className: (0, _classnames2.default)(this.state.classes, { 'show': this.state.visible }),
+                        ref: function ref(_ref) {
+                            return _this2.TouchPadContainer = _ref;
+                        } },
+                    this.props.children
+                );
+            }
             return _react2.default.createElement(
                 'div',
                 {
                     style: this.state.style,
                     className: (0, _classnames2.default)(this.state.classes, { 'show': this.state.visible }),
-                    ref: function ref(_ref) {
-                        return _this2.TouchPadContainer = _ref;
-                    }
-                },
+                    ref: function ref(_ref2) {
+                        return _this2.TouchPadContainer = _ref2;
+                    } },
                 _react2.default.createElement('div', { className: 'blur' }),
                 this.props.children,
                 this.renderClose()
             );
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return this.renderTouchPad();
         }
     }]);
 
