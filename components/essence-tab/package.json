@@ -1,11 +1,11 @@
 {
   "name": "essence-tab",
   "version": "1.0.2",
-  "description": "Essence Tab - Tab &amp; TabItem components",
-  "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
-  "homepage": "http://essence.pearlhq.com/",
+  "description": "Essence Tab - Tab & TabItem components",
+  "author": "Hetmann W. Iohan <iohan@getessence.io>",
+  "homepage": "http://getessence.io/",
   "license": "MIT",
-  "repository": "git://github.com/PearlVentures/Essence",
+  "repository": "git://github.com/Evo-Forge/Essence",
   "main": "lib/tab.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/tab.less lib/tab.less",

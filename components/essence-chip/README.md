@@ -6,6 +6,7 @@ Options:
 - **name**: string for input name, default: chip
 - **text**: string or html or component
 - **icon**: string or image url
+- **iconColor**: string from the Colors list
 - **deletable**: boolean ( **true** or **false** ) - default: **false**
 - **onClose**: callback for on closing chip component
 
@@ -49,7 +50,7 @@ class ChipTest extends React.Component {
 };
 
 <Block>
-  <ChipTest data={redbullChip} />
+  <ChipTest data={redbullChip} iconColor='e-background-indigo-400' />
   <ChipTest data={goproChip} />
 </Block>
 ```

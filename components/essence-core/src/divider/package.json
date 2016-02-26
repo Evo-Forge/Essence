@@ -2,10 +2,10 @@
     "name": "essence-divider",
     "version": "0.0.1",
     "description": "Essence Divider - Divider component.",
-    "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
-    "homepage": "http://essence.pearlhq.com/",
+    "author": "Hetmann W. Iohan <iohan@getessence.io>",
+    "homepage": "http://getessence.io/",
     "license": "MIT",
-    "repository": "https://github.com/PearlVentures/Essence/tree/refactoring/components/essence-core/src/divider",
+    "repository": "https://github.com/Evo-Forge/Essence",
     "main": "divider.js",
     "dependencies": {
         "classnames": "^2.2.1",

@@ -9,12 +9,24 @@ class Chip extends React.Component {
         this.state = {
             selected: 0,
             value: '',
+            iconColor: this.props.iconColor,
             classes: ClassNames(
                 'chips',
                 this.props.classes,
                 this.props.className
             )
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            iconColor: nextProps.iconColor,
+            classes: ClassNames(
+                'chips',
+                nextProps.classes,
+                nextProps.className
+            )
+        });
     }
 
     selectContact(data) {
@@ -52,7 +64,7 @@ class Chip extends React.Component {
     renderIcon() {
         return (
             this.props.data.icon ? 
-            <span className={'icon'}>{this.props.data.icon}</span> :
+            <span className={ClassNames('icon', this.state.iconColor)}>{this.props.data.icon}</span> :
             <span className={'empty'} /> 
         );
     }

@@ -2,10 +2,6 @@
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -37,12 +33,21 @@ var Chip = (function (_React$Component) {
         _this.state = {
             selected: 0,
             value: '',
+            iconColor: _this.props.iconColor,
             classes: (0, _classnames2.default)('chips', _this.props.classes, _this.props.className)
         };
         return _this;
     }
 
     _createClass(Chip, [{
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            this.setState({
+                iconColor: nextProps.iconColor,
+                classes: (0, _classnames2.default)('chips', nextProps.classes, nextProps.className)
+            });
+        }
+    }, {
         key: 'selectContact',
         value: function selectContact(data) {
             this.setState({
@@ -85,7 +90,7 @@ var Chip = (function (_React$Component) {
         value: function renderIcon() {
             return this.props.data.icon ? _react2.default.createElement(
                 'span',
-                { className: 'icon' },
+                { className: (0, _classnames2.default)('icon', this.state.iconColor) },
                 this.props.data.icon
             ) : _react2.default.createElement('span', { className: 'empty' });
         }

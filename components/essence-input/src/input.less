@@ -102,7 +102,7 @@ fieldset[disabled] .e-input, .e-input-group .e-input, .e-input  {
     height: 18px;
     width: 100px;
     margin-top: -1px;
-    top: 7px;
+    top: 0;
     left: 0;
     pointer-events: none;
     opacity: 0.9;
@@ -162,10 +162,10 @@ fieldset[disabled] .e-input, .e-input-group .e-input, .e-input  {
   }
   &.has-success {
     .e-input-efects:before, input.e-input:focus ~ .e-input-efects:after, input.e-input.focus ~ .e-input-efects:after {
-      background: @input-success;
+      background: @input-default;
     }
     .control-label, input.e-input:not(.empty) ~ .floating-label , .e-count {
-      color: @input-success ;
+      color: @input-default ;
     }
   }
   &.has-info {

@@ -5,7 +5,7 @@
 
 **NOTE**: all props will be transferred from `Icon` to component `i`
 
-**EXAMPLE**: live example from essence website: [Essence Icons](http://essence.pearlhq.com/#icons)
+**EXAMPLE**: live example from essence website: [Essence Icons](http://getessence.io/#icons)
 
 ### How to use
 ```js

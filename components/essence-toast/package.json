@@ -2,10 +2,10 @@
   "name": "essence-toast",
   "version": "1.0.2",
   "description": "Essence Toast - Toast component",
-  "author": "Hetmann W. Iohan <wilhelm.hetmann@evozon.com>",
-  "homepage": "http://essence.pearlhq.com/",
+  "author": "Hetmann W. Iohan <iohan@getessence.io>",
+  "homepage": "http://getessence.io/",
   "license": "MIT",
-  "repository": "git://github.com/PearlVentures/Essence",
+  "repository": "git://github.com/Evo-Forge/Essence",
   "main": "lib/toast.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/toast.less lib/toast.less",

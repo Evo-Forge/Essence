@@ -52,7 +52,7 @@ let position = Utils.ClickPosition(event, boundingClient);
 import {Text} from 'essence-core';
 
 {/* type: a, p, label, strong, small, caption, h1, h2, h3, h4, h5, h6, sup, sub, em */}
-<Text type={a} href={'http://essence.pearlhq.com'} target={'_blank'}> Discover Essence <Text/>
+<Text type={a} href={'http://getessence.io'} target={'_blank'}> Discover Essence <Text/>
 
 {/* position: e-text-left, e-text-right, e-text-center, e-text-justify, e-text-uppercase, e-text-capitalize, e-text-lowercase */}
 <Text type={'span'} classes={'e-text-right e-headline'}>Text Typography Example</Text>

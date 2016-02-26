@@ -1,6 +1,7 @@
 # Essence Progress - Progress component
 
 #### Options:
+- **color** - string from Colors list for the indicator color
 - **small** - `true` or `false` with type: circle will render a small circle visualization - type:
 1. `slider`: appends "slider" to the class name `e-progress-slider`
 2. `circle`: appends "circle" to the class name `e-progress-circle`

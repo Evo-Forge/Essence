@@ -3,7 +3,7 @@
 
 **NOTE**: all props will be transferred from `Image` to component `image`
 
-**EXAMPLE**: live example from essence website: [Essence Image](http://essence.pearlhq.com/#image)
+**EXAMPLE**: live example from essence website: [Essence Image](http://getessence.io/#image)
 
 ### How to use
 ```js
