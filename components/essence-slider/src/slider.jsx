@@ -49,9 +49,9 @@ class Slider extends React.Component {
         return (
             <div className={'e-slider'}>
                 <input type='range' {...this.props} ref={(ref) => this.sliderInput = ref} defaultValue={this.state.start} />
-                <div className={'background'}>
-                    <div className={ClassNames('lower', this.state.lowerColor)} style={{width: this.state.lowerWidth}} />
-                    <div className={ClassNames('upper', this.state.upperColor)} style={{width: this.state.upperWidth}} />
+                <div className={'track'}>
+                    <div className={ClassNames('left', this.state.lowerColor)} style={{width: this.state.lowerWidth}} />
+                    <div className={ClassNames('right', this.state.upperColor)} style={{width: this.state.upperWidth}} />
                 </div>
             </div>
         );
