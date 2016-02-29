@@ -1,0 +1,371 @@
+<div class="e-container">
+  <!--   Component - Dialog       -->
+
+  <div class="dialog e-padding-top-50" id="components-dialogs">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Dialogs</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">As you might expect, dialog boxes pop. And they have actions - set the dialog content and its actions with <code>.e-dialogs-content</code> and <code>.e-dialogs-actions</code>, as well as the button type &amp; text. That’s it.</p>
+      </div>
+      <div class="brick brick-6 e-dialog-container e-margin-bottom-25">
+        <div id="components-dialogs-button-simple"></div>
+        <div id="components-dialogs-simple">
+          <div id="dialog-simple" class="e-dialog">
+            <div class="e-dialogs-header">
+              <h2>Dialog title</h2>
+            </div>
+            <div class="e-dialogs-content">
+              <p>
+                When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+              </p>
+            </div>
+            <div class="e-dialogs-actions">
+              <button class="flat e-btn-danger">Disagree</button>
+              <button class="flat e-btn-primary">Agree</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/dialog.jpg" alt="Dialog Essence Native component" width="360">
+      </div>
+    </div>
+    <div class="e-row">
+      
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type='primary'
+    classes={'raised'}
+    label='Show Simple Dialog'
+    rippleEffect={true}
+    actionClick='dialog'
+    actionType={{
+      'action': 'show',
+      'id': 'dialog-simple'
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;Dialog&gt;
+  &lt;DialogItem id='dialog-simple'&gt;
+    &lt;DialogItemHeader&gt;
+      &lt;Text type='h2'&gt;Dialog title&lt;/Text&gt;
+    &lt;/DialogItemHeader&gt;
+
+    &lt;DialogItemContent&gt;
+      &lt;Text type='p'&gt;
+        When text labels exceed the maximum button width,
+        use stacked buttons to accommodate the text.
+        Affirmative actions are stacked above dismissive actions.
+      &lt;/Text&gt;
+    &lt;/DialogItemContent&gt;
+
+    &lt;DialogItemFooter&gt;
+      &lt;Btn&gt;
+        &lt;BtnItem
+          type='danger'
+          classes={'flat'}
+          label='Disagree'
+          actionClick='dialog'
+          actionType={{
+            'action': 'hide',
+            'id': 'dialog-simple'
+          }}
+        /&gt;
+        &lt;BtnItem
+          type='primary'
+          classes={'flat'}
+          label='Agree'
+          actionClick='dialog'
+          actionType={{
+            'action': 'hide',
+            'id': 'dialog-simple'
+          }}
+        /&gt;
+      &lt;/Btn&gt;
+    &lt;/DialogItemFooter&gt;
+  &lt;/DialogItem&gt;
+&lt;/Dialog&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;DialogItem 
+  title={"Dialog title"} 
+  message={"Dialog message"}
+  &gt;
+  {[
+    {
+      text: 'OK', 
+      onPress: () =&gt; customOKFunction()
+    },
+    {
+      text: 'Cancel',
+      onPress: () =&gt; customCancelFunction()
+    },
+  ]}
+&lt;/DialogItem&gt;
+          </code>
+        </pre>
+      </div>
+      
+ 
+     <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+          <pre class="e-paper e-shadow-2">
+            <code class="language-markup">
+&lt;button class=&quot;raised e-btn-primary e-ripple&quot;&gt;
+    &lt;div class=&quot;e-ripple-container&quot;&gt;
+      &lt;span&gt;
+        &lt;div class=&quot;e-ripple-effect&quot; style=&quot;left:164.953125px; top:26px; background-color:rgba(255, 255, 255, 0.5);&quot;&gt;&lt;/div&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span&gt;Show Simple Dialog&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;div id=&quot;dialog-simple&quot; class=&quot;e-dialog&quot;&gt;
+  &lt;div class=&quot;e-dialogs-header&quot;&gt;
+    &lt;h2&gt;Dialog title&lt;/h2&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;e-dialogs-content&quot;&gt;
+    &lt;p&gt;
+      When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+    &lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;e-dialogs-actions&quot;&gt;
+    &lt;button class=&quot;flat e-btn-danger&quot;&gt;Disagree&lt;/button&gt;
+    &lt;button class=&quot;flat e-btn-primary&quot;&gt;Agree&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+            
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row brick brick-12 e-margin-bottom-15 e-padding-top-50">
+      <div id="components-dialogs-button-full"></div>
+      <div id="components-dialogs-full" style="position: relative;">
+        <div id="dialog-full" class="e-dialog-full">
+          <div class="e-dialogs-header clearfix">
+            <a class="e-dialog-header-action e-left" href="#">
+              <i class="e-icon-action-settings-bluetooth"></i>
+            </a>
+            <span class="e-dialog-header-text">New event</span>
+            <span class="e-dialog-header-action e-right">
+              <button class="e-button">X</button>
+            </span>
+          </div>
+          <div class="e-dialogs-content">
+            <h2 class="e-dialog-second-title">Event</h2>
+            <p>
+              When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type='warning'
+    classes={'raised'}
+    label='Show Full Dialog'
+    rippleEffect={true}
+    actionClick='dialog'
+    actionType={{
+      'action': 'show',
+      'id': 'dialog-full'
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;Dialog&gt;
+  &lt;DialogItem id='dialog-full' full={true}&gt;
+    &lt;DialogItemHeader classes={'clearfix'}&gt;
+      &lt;Text type='a' href='#' classes={'e-dialog-header-action e-left'}&gt;
+        &lt;Icon name={'action-settings-bluetooth'} /&gt;
+      &lt;/Text&gt;
+      &lt;Text classes={'e-dialog-header-text'}&gt;New event&lt;/Text&gt;
+      &lt;Text classes={'e-dialog-header-action e-right'}&gt;
+        &lt;Btn&gt;
+          &lt;BtnItem
+            classes={'e-button'}
+            label='X'
+            actionClick='dialog'
+            actionType={{
+              'action': 'hide',
+              'id': 'dialog-full'
+            }}
+          /&gt;
+        &lt;/Btn&gt;
+      &lt;/Text&gt;
+    &lt;/DialogItemHeader&gt;
+
+    &lt;DialogItemContent&gt;
+      &lt;Text type='h2' classes={'e-dialog-second-title'}&gt;
+        Event
+      &lt;/Text&gt;
+      &lt;Text type='p'&gt;
+        When text labels exceed the maximum button width,
+        use stacked buttons to accommodate the text.
+        Affirmative actions are stacked above dismissive actions.
+      &lt;/Text&gt;
+    &lt;/DialogItemContent&gt;
+  &lt;/DialogItem&gt;
+&lt;/Dialog&gt;
+        </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+The DialogItem is a AlertIOS Native component. 
+You can find all the options below. 
+        </code>
+        </pre>
+      </div>
+      
+ 
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;button class=&quot;raised e-btn-warning e-ripple&quot;&gt;
+    &lt;div class=&quot;e-ripple-container&quot;&gt;
+      &lt;span&gt;
+        &lt;div class=&quot;e-ripple-effect&quot; style=&quot;left:0px; top:0px; &quot;&gt;&lt;/div&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+    &lt;span&gt;Show Full Dialog&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;div id=&quot;dialog-full&quot; class=&quot;e-dialog-full&quot;&gt;
+  &lt;div class=&quot;e-dialogs-header clearfix&quot;&gt;
+    &lt;a class=&quot;e-dialog-header-action e-left&quot; href=&quot;#&quot;&gt;
+      &lt;i class=&quot;e-icon-action-settings-bluetooth&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+    &lt;span class=&quot;e-dialog-header-text&quot;&gt;New event&lt;/span&gt;
+    &lt;span class=&quot;e-dialog-header-action e-right&quot;&gt;
+      &lt;button class=&quot;e-button&quot;&gt;X&lt;/button&gt;
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;e-dialogs-content&quot;&gt;
+    &lt;h2 class=&quot;e-dialog-second-title&quot;&gt;Event&lt;/h2&gt;
+    &lt;p&gt;
+      When text labels exceed the maximum button width, use stacked buttons to accommodate the text. Affirmative actions are stacked above dismissive actions.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+            
+      
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Dialog" Essence component to render a group or single "DialogItem" components. The "Dialog" Essence component will return a div container with a group or single &lt;div&gt; html tag with the class name "e-dialog".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Dialog&gt;</span>
+  <span class="e-text-blue-500">&lt;DialogItem&gt;</span>
+    <span class="e-text-indigo-400">&lt;DialogItemHeader&gt;</span>
+      <span class="e-text-indigo-400">Header: can be used to include Image and/or Text</span>
+    <span class="e-text-indigo-400">&lt;/DialogItemHeader&gt;</span>
+    <span class="e-text-indigo-600">&lt;DialogItemContent&gt;</span>
+      <span class="e-text-indigo-600">Content: can be used to include any component</span>
+    <span class="e-text-indigo-600">&lt;/DialogItemContent&gt;</span>
+    <span class="e-text-indigo-800">&lt;DialogItemFooter&gt;</span>
+      <span class="e-text-indigo-800">Footer: used for actions from single or multiple BtnItem items</span>
+    <span class="e-text-indigo-800">&lt;/DialogItemFooter&gt;</span>
+  <span class="e-text-blue-500">&lt;/DialogItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Dialog&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any Dialog component or subcomponent from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - id: required for unique DialogItem to be shown
+          - use the examples from above to structure your own Dialog
+        </p>
+      </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use "DialogItem" to render native iOS "AlertIOS" component with "title" and "message" options.<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;DialogItem </span>
+<span class="e-text-indigo-400">  title={'<span class="e-text-green-400">Dialog title</span>'} 
+<span class="e-text-indigo-400">  message={<span class="e-text-green-400">'Dialog message</span>'}
+<span class="e-text-blue-400">  &gt; </span>
+  {[<span class="e-text-grey-400">
+    {
+      text: <span class="e-text-green-400">'OK'</span>, 
+      onPress: () =&gt; <span class="e-text-orange-400">customOKFunction()</span>
+    }</span>,
+    <span class="e-text-grey-400">{
+      text: <span class="e-text-green-400">'Cancel'</span>,
+      onPress: () =&gt; <span class="e-text-orange-400">customCancelFunction()</span>
+    }</span>
+  ]}
+<span class="e-text-blue-500">&lt;/DialogItem&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>no styling supported</u>
+          <br />
+          <br />
+          &bull; Options<br />
+          - <u>title</u>: required for AlertIOS "title" option<br />
+          - <u>message</u>: optional for AlertIOS "message" option<br />
+          <br />
+          &bull; Content<br />
+          - array format: "text" as string and "onPress" as function
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- END Component - Dialog       -->
+</div>

@@ -1,0 +1,332 @@
+body {
+  /* your css stylings */
+}
+.header-image{
+  background: url('../img/header-image.png') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* Set rules to fill background */
+  min-height: 100%;
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: 1010px;
+  /* Set up positioning */
+  top: 0;
+  left: 0;
+  position: relative;
+}
+.navigation li{
+  display: inline-block;
+  font-size: 2rem;
+}
+.navigation li a{
+  margin: 20px;
+  color: #fff;
+  font-weight: bold;
+}
+.e-appbar{
+  background: transparent;
+  margin-top: 150px;
+  padding: 0 20%;
+  height: 90px;
+  box-shadow: none;
+  position: absolute;
+}
+.e-appbar > span{
+  background: #fff;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  padding:0;
+  line-height: 5;
+  text-align: center;
+  color: #533b2f;
+  font-size: 15px;
+}
+
+[class^="e-icon"], [class*="e-icon"]{
+  display: none;
+}
+.e-nav-menu .e-nav{
+  position: absolute;
+  right: 0;
+}
+.e-right{
+  margin-top: 20px;
+}
+.wrapper{
+  max-width: 1180px;
+  background-color: red;
+  margin: auto;
+}
+.text .e-display-3{
+  max-width: 325px;
+  margin: auto;
+  left: 20%;
+  top: 30%;
+  position: absolute;
+}
+.about-text{
+  max-width: 450px;
+  left: 20%;
+  position: absolute;
+  top: 50%;
+}
+.magic-button{
+  border-radius: 20px;
+  position: absolute;
+  left: 20%;
+  top: 61%;
+  width: 120px;
+  height: 40px;
+}
+.magic-button.raised{
+  text-transform: none;
+}
+
+/*home*/
+  .home-section{
+    padding:250px;
+    padding-bottom: 0;
+  }
+  .home-section .photo-image{
+    text-align: center;
+  }
+  .text-black .e-display-3{
+    font-size: 8.6rem;
+    color: #000;
+    margin-bottom: 20px;
+  }
+  .home-text{
+    line-height: 30px;
+  }
+  .home-section .brick-6{
+    margin-left: 50px;
+    width: 45%;
+  }
+  .photo-image .e-img-rsp{
+    width: 100%;
+  }
+/*/home*/
+/*subscribe*/
+  .subscribe-section{
+    background: url('../img/subscribe-image.png') no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* Set rules to fill background */
+    min-height: 100%;
+
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: 400px;
+    /* Set up positioning */
+    top: 0;
+    left: 0;
+    border-radius: 15px;
+    position: relative;
+  }
+  .subscribe-section .e-display-4{
+    font-weight: bold;
+  }
+  .subscribe-section .e-headline{
+    line-height: 0;
+    margin-bottom: 40px;
+  }
+/*/subscribe*/
+/*testemonials*/
+.testemonials{
+  margin-bottom: 50px;
+}
+  .testemonials .e-display-3{
+    font-weight: bolder;
+    color: #000;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+/*/testemonials*/
+
+/*footer*/
+.footer-section{
+  padding-top: 30px;
+  color: #fff;
+}
+  .fa-facebook{
+    background-color: #3162a2;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .fa-twitter{
+    background-color: #2eb1eb;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .fa-dribbble{
+    background-color: #f552b6;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .fa-vimeo-square{
+    background-color: #3498b9;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .fa-google-plus{
+    background-color: #f25c58;
+    font-size: 18px;
+    padding: 10px;
+  }
+  .footer-text{
+    margin-bottom: 0;
+    padding: 0 20px 70px;
+    color: #9c9b9b;
+    font-weight: bold;
+  }
+/*/footer*/
+.e-btn, .e-btn-fab, .flat, .raised, .e-btn-fab-mini{
+  line-height: 22px;
+}
+@media all and (max-width: 768px){
+  [class^="e-icon"], [class*="e-icon"]{
+    display: block;
+  }
+  .navigation li{
+    display: none;
+  }
+  .e-appbar{
+    margin-top: 0;
+    padding: 4px 12px;
+    background: #fff;
+  }
+   #header [class^="e-icon"], [class*="e-icon"]{
+    color: #000;
+  }
+  .e-appbar > span{
+    background: #000;
+    color: #fff;
+  }
+  /*home-section*/
+  .home-section{
+    padding: 0;
+  }
+  .text-black .e-display-3{
+    font-size: 3.6rem;
+  }
+  .home-section .brick-6{
+    margin: 0 0.5% 0.5%;
+    width: 49%;
+  }
+  /*/home*/
+}
+
+
+/*Blog*/
+  .blog-content{
+     padding: 200px 200px 50px;
+  }
+  .blog-content .e-display-3{
+    color: #f3ba18;
+    padding-bottom: 20px;
+    padding-top: 125px;
+    font-weight: bold;
+  }
+  .blog-content .home-text{
+     margin: 0 0 30px;
+  }
+  .blog-content .e-img-rsp{
+    width: 100%;
+    padding-top: 35px;
+  }
+  .blog-content-after{
+    padding: 0 200px 50px;
+  }
+  @media all and (max-width: 768px){
+    .blog .blog-content{
+      padding: 0;
+    }
+    .blog-content-after{
+      padding: 0;
+    }
+    .blog-content .e-img-rsp{
+      padding: 0;
+    }
+  }
+/*/Blog*/
+
+/*content*/
+#content .e-appbar{
+  margin-top: 0;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 3px 3px rgba(0, 0, 0, 0.28);
+  position: fixed;
+  background-color: #333333;
+  color: #fff;
+  padding: 21px 20%;
+  height: 125px;
+}
+@media all and (max-width: 768px){
+  #content .e-appbar{
+    padding: 20px;
+  }
+  #content .e-appbar > span {
+    background: #fff none repeat scroll 0 0;
+    color: #000;
+  }
+  #content [class^="e-icon"], [class*="e-icon"]{
+    color: #fff;
+  }
+  #content .e-nav-menu ul a{
+    color: #000;
+  }
+}
+/*/content*/
+/*contact*/
+.contact-content{
+     padding: 200px 200px 0;
+  }
+  .contact{
+    padding-bottom: 100px;
+  }
+  .contact-content .e-display-3{
+    color: #f3ba18;
+    padding-bottom: 20px;
+    padding-top: 125px;
+    font-weight: bold;
+  }
+  .small-text .home-text{
+    text-align: center;
+    padding-left: 33%;
+    padding-right: 33%;
+    padding-bottom: 50px;
+    line-height: 2;
+  }
+  .e-input-group{
+    margin: 30px 20%;
+  }
+  textarea.e-input.empty{
+    height: 160px;
+    border-bottom: 2px solid #2ca4fb;
+  }
+  button.raised.e-btn-submit.e-ripple{
+    left: 20%;
+    background-color: #2ca4fb;
+  }
+  @media all and (max-width: 768px){
+    .contact .e-appbar > span {
+    background: #fff none repeat scroll 0 0;
+    color: #000;
+  }
+    .contact [class^="e-icon"], [class*="e-icon"]{
+      color: #fff;
+    }
+    .contact-content .e-display-3{
+      padding-top: 60px;
+    }
+    .small-text .home-text{
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+/*/contact*/

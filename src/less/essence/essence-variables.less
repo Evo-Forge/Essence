@@ -1,0 +1,144 @@
+//Typography
+// Font, line-height, body text & headings
+@roboto-font-path: '../font/roboto';
+
+@font-family-roboto:  'Roboto Regular', 'Noto', sans-serif;
+@font-family-noto:  'Noto', sans-serif;
+@font-family-base:  @font-family-roboto;
+
+//General unit variable
+@e-unit:8px;
+
+//Buttons variables
+@btn-unit: @e-unit;
+
+//Typography
+@font-size-base:  14px;
+@font-size-display4:  (@font-size-base * 8); // 112px
+@font-size-display3:  (@font-size-base * 4); // 56px
+@font-size-display2:  ceil((@font-size-base * 3.21)); // 45px
+@font-size-display1:  ceil((@font-size-base * 2.42)); // 34px
+
+@font-size-headline:  ceil((@font-size-base * 1.71)); // 24px
+@font-size-title:  ceil((@font-size-base * 1.42)); // 20px
+@font-size-subhead:  ceil((@font-size-base * 1.07)); //15px (desktop)
+@font-size-body:  (@font-size-base - 1); // 13px (desktop)
+@font-size-caption:  ceil((@font-size-base * 0.85)); // 12px
+@font-size-button:  (@font-size-base); // 14px
+
+//** Unit-less `line-height` for use in components like buttons.
+@e-line-height-base:  1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@e-line-height-computed:    floor(((@e-unit * 1.75) * @e-line-height-base)); // 20px
+@e-headings-line-height:  1.1;
+@e-text-color: @e-color-black; // Text color in Basic styles
+
+// menu
+@e-menu-width: 36px;
+
+//FAB-floating active button
+@fab-color: #E91E63;
+@fab-color-lighter: lighten(@fab-color , 15%);
+
+//Flat batton
+@flat-color:#fff;
+@flat-color-text:#111;
+
+//Raised button
+@raised-color:#fff;
+@raised-color-text:#111;
+
+//Default ripple color
+@e-ripple-color: #ff7373;
+
+//Disable button
+@bg-disable:#a8a8a8;
+
+//Snackbar backgroun
+@bg-snackbar:#323232;
+
+//Tooltip position
+@pos-tooltip: attr(data-position);
+
+//variables for text-fields
+
+@invalid-color:@e-color-red-500;
+@focus-color:@e-color-blue-500;
+@box-shadow-color:@e-color-red-500;
+@search-backround-color:@e-color-light-blue-900;
+@border:none;
+@input-border-bottom:1px solid @e-color-grey-300;
+@input-error-color:@e-color-red-500;
+
+//end of variabels for text-fields
+
+
+// menu
+@e-menu-width: 36px;
+
+
+// Slider variables
+
+@e-slider-track-size: 2px;
+@e-slider-track-color: @e-color-black;
+@e-slider-track-color-selected: @e-color-grey-500;
+@e-slider-handle-size: 12px;
+@e-slider-handle-size-active: @e-slider-handle-size * 2;
+@e-slider-handle-size-disabled: 8px;
+@e-slider-handle-color-zero: @e-color-grey-400;
+@e-slider-selection-color: @e-color-indigo-500;
+@e-slider-disabled-color: @e-color-grey-500;
+@e-container-color: @e-color-white;
+@e-discrete-position0-color: @e-color-black;
+
+
+// Subheaders variables
+@e-subheader-text-color: @e-color-cyan-500;
+@e-subheader-defaut-color: lighten(@e-color-black, 46%);
+@e-subheader-background-color: @e-color-white;
+
+//switches
+
+//colors
+@e-red:@e-color-red-500;
+@e-lightblue: @e-color-light-blue-500;
+@e-cyan: @e-color-cyan-500;
+@e-lightgreen: @e-color-light-green-500;
+@e-orange: @e-color-orange-500;
+@e-deeporange: @e-color-deep-orange-500;
+@e-lightbg-text: rgba(0,0,0,0.84);
+
+// shades
+@e-primary: #009587;
+@e-success: #0F9D58;
+@e-info: @e-lightblue;
+@e-warning: @e-deeporange;
+@e-danger: @e-red;
+
+
+//checkbox
+@input-unchecked: rgba(137, 137, 137, 0.3);
+@input-checked: rgba(15, 157, 88, 0.3);
+
+@radio-default: @e-lightbg-text;
+@radio-primary: @e-primary;
+@radio-success: @e-success;
+@radio-info:    @e-info;
+@radio-warning: @e-warning;
+@radio-danger:  @e-danger;
+
+@input-danger: @e-danger;
+@input-default: @e-primary;
+@input-warning: @e-warning;
+@input-success: @e-success;
+@input-info:    @e-info;
+
+@alert-success: @e-success;
+@alert-info: @e-info;
+@alert-warning: @e-warning;
+@alert-danger: @e-danger;
+
+//end of switches
+
+
+

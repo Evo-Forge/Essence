@@ -1,0 +1,225 @@
+.e-nav-menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.e-nav-menu .e-paper {
+  padding: 0 !important;
+  min-width: 200px;
+}
+
+.e-nav-menu .e-nav {
+  position: absolute;
+  &.right {
+    right: 0;
+  }
+}
+
+.e-nav-menu ul {
+  li {
+    display: block;
+    font-size: 15px;
+    &.active {
+      >  ul {
+        display: inline-block;
+      }
+    }
+    i {
+
+    }
+  }
+
+}
+
+.e-nav-menu ul{
+  background-color: #fff;
+  display: table;
+  z-index: 1;
+  margin: 0;
+
+  a {
+    white-space: nowrap;
+    color: inherit;
+    display: block;
+  }
+
+  li {
+    position: relative;
+    height: @e-unit * 4;
+    line-height: @e-unit * 4;
+    padding: 0 @e-unit;
+
+    &:hover {
+      background-color: @e-color-grey-300;
+    }
+
+  }
+
+  .e-nav {
+    position: absolute;
+    top: 0;
+    left: 100%;
+
+    display: none;
+    padding: @e-unit 0;
+    z-index: 50;
+  }
+
+  .e-nav li {
+    position: relative;
+    padding: 0 @e-unit * 2;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: @e-color-grey-300;
+    }
+
+    &.more {
+      padding-right: @e-unit * 3.5;
+
+      &.active > ul {
+        display: block !important;
+      }
+    }
+  }
+}
+
+.e-nav-menu.mobile ul li {
+  height: @e-unit * 6;
+  line-height: @e-unit * 6;
+
+  .more:before {
+    top: @e-unit * 2.5;
+  }
+}
+
+.e-nav-menu .divider {
+  display: block;
+  margin: @e-unit 0;
+  background-color: rgba(0,0,0, 0.12);
+  height: 1px !important;
+}
+
+.e-nav-menu.cover ul.e-nav {
+  top: 0;
+}
+
+.e-menu-shortcut {
+  min-width: 150px;
+  text-align: right;
+
+  opacity: 0.5;
+}
+
+
+//FAB MENUS
+
+
+.e-fab-menu {
+  position: relative;
+  display: table;
+  z-index: 1;
+  
+  &.fixed {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .fab-list {
+    bottom: 100%;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    
+    li {
+      display: block;
+      margin: 1rem 0;
+      a {
+        display: inline-block;
+        width: @e-unit*5;
+        height: @e-unit*5;
+        line-height: @e-unit*5;
+      }
+    }
+  }
+}
+@button-size : 3.5rem; 
+@transition: .3s; // increase this to see the transformations in slow-motion
+ 
+.lines-button {
+  display: inline-block;
+//  padding: @button-size/2 @button-size/4;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  line-height: 48px;
+//  border-radius: @button-size/7;
+ 
+  &:hover {
+    opacity: 1;
+  }
+ 
+  &:active {
+    transition: 0;
+    background: rgba(0,0,0,.1);
+  }
+}
+.line {
+  display: inline-block;
+  width: @button-size;
+  height: @button-size/7;
+  background: white;
+  border-radius: @button-size/14; 
+  transition: @transition;
+}
+.lines {
+   //create middle line
+  .line;
+  position: relative; 
+//  top: -(@button-size/7)/2;
+ 
+  /*create the upper and lower lines as pseudo-elements of the middle line*/
+  &:before, &:after {
+   
+    .line;
+    position: absolute;
+    left:0;
+    content: '';
+    transform-origin: @button-size/14 center;
+  }
+  &:before { top: @button-size/4; }
+  &:after { top: -@button-size/4; }
+}
+
+//.lines-button.x.active .lines{
+//  transform: scale3d(.9,.9,.9);
+//}
+.e-fab-menu.active .fab-list {
+  max-height: 1000px;
+}
+.e-fab-menu.active .lines-button .lines{
+ 
+    /*hide the middle line*/
+    background: transparent;
+ 
+    /*overlay the lines by setting both their top values to 0*/
+    &:before, &:after{
+      transform-origin: 50% 50%;
+      top:0;
+      width: @button-size;
+    }
+ 
+    // rotate the lines to form the x shape
+    &:before{
+      transform: rotate3d(0,0,1,45deg); 
+    }
+    &:after{
+      transform: rotate3d(0,0,1,-45deg); 
+    }
+}

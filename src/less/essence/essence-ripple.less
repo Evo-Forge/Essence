@@ -1,0 +1,67 @@
+//Ripple effect
+
+//Ripple effect animation
+/*
+@-webkit-keyframes ripple-animation {
+    from {
+      transform: scale(0);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+      visibility: hidden;
+    }
+}
+
+@keyframes ripple-animation {
+    from {
+      transform: scale(0);
+      opacity: 0.4;
+    }
+    to {
+      transform: scale(100);
+      opacity: 0;
+      visibility: hidden;
+    }
+}*/
+
+.e-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.e-ripple-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.e-ripple-effect {
+  position: relative;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background-color:  #fff;
+  background-clip: border-box;
+  .transition(all 600ms ease);
+  opacity: 0;
+
+  &-enter {
+    .transform( scale(0) );
+    opacity: 0.4;
+
+    &-active {
+      .transform( scale(50) );
+      opacity: 0.4;
+    }
+  }
+
+  &-leave {
+    .transition(all 300ms ease);
+    opacity: 0.01;
+  }
+}

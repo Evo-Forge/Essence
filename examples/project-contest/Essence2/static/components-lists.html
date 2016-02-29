@@ -1,0 +1,1038 @@
+<div class="e-container">
+  <!--  Component - Lists       -->
+  <div class="lists e-padding-top-50" id="components-lists">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Lists</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">Lists are best suited to presenting a homogeneous data type or sets of data types, such as images and text. Take a look at the examples below and pick one - and keep it consistent as much as possible.</p>
+        <h3>Single line list with avatar and icon</h3>
+      </div>
+      <div class="brick brick-6 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-lists-single-line">
+        <ul class="e-list single-line">
+          <li>
+              <a class="brick-11" href="#attractions">
+                  <div class="e-list-content">
+                    <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Attractions">
+                    <span>Attractions</span>
+                  </div>
+              </a>
+              <a class="brick-1" href="#attractions">
+                <i class="e-icon-communication-contacts"></i>
+              </a>
+          </li>
+          <li>
+              <a class="brick-11" href="#fun">
+                  <div class="e-list-content">
+                    <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Fun">
+                    <span>Fun</span>
+                  </div>
+              </a>
+              <a class="brick-1" href="#fun">
+                <i class="e-icon-communication-vpn-key"></i>
+              </a>
+          </li>
+          <li>
+              <a class="brick-11" href="#food">
+                  <div class="e-list-content">
+                    <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Food">
+                    <span>Food</span>
+                  </div>
+              </a>
+              <a class="brick-1" href="#food">
+                <i class="e-icon-editor-insert-emoticon"></i>
+              </a>
+          </li>
+          <li>
+              <a class="brick-11" href="#kids">
+                  <div class="e-list-content">
+                    <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Kids">
+                    <span>Kids</span>
+                  </div>
+              </a>
+              <a class="brick-1" href="#kids">
+                <i class="e-icon-hardware-security"></i>
+              </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/list-single-line.jpg" alt="List Essence Native component" width="360">
+      </div>
+
+    </div>
+
+    <div class="e-row">
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List type={'single-line'}&gt;
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block type='div' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Attractions'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Text&gt;Attractions&lt;/Text&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#attractions'&gt;
+        &lt;Icon name='communication-contacts' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#fun'&gt;
+        &lt;Block type='div' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Fun'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Text&gt;Fun&lt;/Text&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#fun'&gt;
+        &lt;Icon name='communication-vpn-key' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#food'&gt;
+        &lt;Block type='div' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Food'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Text&gt;Food&lt;/Text&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#food'&gt;
+        &lt;Icon name='editor-insert-emoticon' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#kids'&gt;
+        &lt;Block type='div' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Kids'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Text&gt;Kids&lt;/Text&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#kids'&gt;
+        &lt;Icon name='hardware-security' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List style={[Helpers['e-shadow-2']]}&gt;
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text&gt;Attractions&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+  
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text&gt;Fun&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+  
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text&gt;Food&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+  
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text&gt;Kids&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      
+<!--  <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list single-line&quot;&gt;
+  &lt;li&gt;
+      &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+          &lt;div class=&quot;e-list-content&quot;&gt;
+            &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Attractions&quot;&gt;
+            &lt;span&gt;Attractions&lt;/span&gt;
+          &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;brick-1&quot; href=&quot;#attractions&quot;&gt;
+        &lt;i class=&quot;e-icon-communication-contacts&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;a class=&quot;brick-11&quot; href=&quot;#fun&quot;&gt;
+          &lt;div class=&quot;e-list-content&quot;&gt;
+            &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Fun&quot;&gt;
+            &lt;span&gt;Fun&lt;/span&gt;
+          &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;brick-1&quot; href=&quot;#fun&quot;&gt;
+        &lt;i class=&quot;e-icon-communication-vpn-key&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;a class=&quot;brick-11&quot; href=&quot;#food&quot;&gt;
+          &lt;div class=&quot;e-list-content&quot;&gt;
+            &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Food&quot;&gt;
+            &lt;span&gt;Food&lt;/span&gt;
+          &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;brick-1&quot; href=&quot;#food&quot;&gt;
+        &lt;i class=&quot;e-icon-editor-insert-emoticon&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+      &lt;a class=&quot;brick-11&quot; href=&quot;#kids&quot;&gt;
+          &lt;div class=&quot;e-list-content&quot;&gt;
+            &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Kids&quot;&gt;
+            &lt;span&gt;Kids&lt;/span&gt;
+          &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;brick-1&quot; href=&quot;#kids&quot;&gt;
+        &lt;i class=&quot;e-icon-hardware-security&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div> -->
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3>Two-line list with avatar and icon</h3>
+      </div>
+      <div class="brick brick-6 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-lists-two-line">
+        <ul class="e-list two-line">
+          <li>
+            <a class="brick-11" href="#attractions">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Attractions">
+                  <span>
+                    <strong>
+                      <span>Attractions</span>
+                    </strong>
+                    <br />
+                    <span>Here are more information about Attractions</span>
+                  </span>
+              </span>
+            </a>
+            <a class="brick-1" href="#attractions">
+              <i class="e-icon-communication-contacts"></i>
+            </a>
+          </li>
+          <li>
+            <a class="brick-11" href="#fun">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Fun">
+                  <span>
+                    <strong>
+                      <span>Fun</span>
+                    </strong>
+                    <br />
+                    <span>Here are more information about Fun</span>
+                  </span>
+              </span>
+            </a>
+            <a class="brick-1" href="#fun">
+              <i class="e-icon-communication-vpn-key"></i>
+            </a>
+          </li>
+          <li>
+            <a class="brick-11" href="#food">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Food">
+                  <span>
+                    <strong>
+                      <span>Food</span>
+                    </strong>
+                    <br />
+                    <span>Here are more information about Food</span>
+                  </span>
+              </span>
+            </a>
+            <a class="brick-1" href="#food">
+              <i class="e-icon-editor-insert-emoticon"></i>
+            </a>
+          </li>
+          <li>
+            <a class="brick-11" href="#kids">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Kids">
+                  <span>
+                    <strong>
+                      <span>Kids</span>
+                    </strong>
+                    <br />
+                    <span>Here are more information about Kids</span>
+                  </span>
+              </span>
+            </a>
+            <a class="brick-1" href="#kids
+              "><i class="e-icon-hardware-security"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/list-two-line.jpg" alt="List Essence Native component" width="360">
+      </div>
+    </div>
+
+    <div class="e-row">
+
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list two-line&quot;&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Attractions&quot;&gt;
+          &lt;span&gt;
+            &lt;strong&gt;
+              &lt;span&gt;Attractions&lt;/span&gt;
+            &lt;/strong&gt;
+            &lt;br /&gt;
+            &lt;span&gt;Here are more information about Attractions&lt;/span&gt;
+          &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#attractions&quot;&gt;
+      &lt;i class=&quot;e-icon-communication-contacts&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#fun&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Fun&quot;&gt;
+          &lt;span&gt;
+            &lt;strong&gt;
+              &lt;span&gt;Fun&lt;/span&gt;
+            &lt;/strong&gt;
+            &lt;br /&gt;
+            &lt;span&gt;Here are more information about Fun&lt;/span&gt;
+          &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#fun&quot;&gt;
+      &lt;i class=&quot;e-icon-communication-vpn-key&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#food&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Food&quot;&gt;
+          &lt;span&gt;
+            &lt;strong&gt;
+              &lt;span&gt;Food&lt;/span&gt;
+            &lt;/strong&gt;
+            &lt;br /&gt;
+            &lt;span&gt;Here are more information about Food&lt;/span&gt;
+          &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#food&quot;&gt;
+      &lt;i class=&quot;e-icon-editor-insert-emoticon&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#kids&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Kids&quot;&gt;
+          &lt;span&gt;
+            &lt;strong&gt;
+              &lt;span&gt;Kids&lt;/span&gt;
+            &lt;/strong&gt;
+            &lt;br /&gt;
+            &lt;span&gt;Here are more information about Kids&lt;/span&gt;
+          &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#kids
+      &quot;&gt;&lt;i class=&quot;e-icon-hardware-security&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div>
+
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List type='two-line'&gt;
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Attractions'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Attractions&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Attractions&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#attractions'&gt;
+        &lt;Icon name='communication-contacts' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#fun'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Fun'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Fun&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Fun&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#fun'&gt;
+        &lt;Icon name='communication-vpn-key' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#food'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Food'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Food&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Food&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#food'&gt;
+        &lt;Icon name='editor-insert-emoticon' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#kids'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Kids'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Kids&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Kids&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#kids'&gt;
+        &lt;Icon name='hardware-security' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List style={[Helpers['e-shadow-2']]}&gt;
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Attractions&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Attractions&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Fun&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Fun&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Food&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Food&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Kids&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Kids&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3>Multi-line list with avatar and icon</h3>
+      </div>
+      <div class="brick brick-6 e-margin-top-25 e-margin-bottom-25 e-shadow-2" id="components-lists-multi-line">
+        <ul class="e-list multi-line">
+          <li>
+              <a class="brick-11" href="#attractions">
+                <div class="e-list-content">
+                  <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Attractions">
+                  <span>
+                    <strong>Attractions</strong>
+                    <br />
+                    <em>Attractions subtitle</em>
+                    <br />
+                    <span>Here are more information about Attractions</span>
+                  </span>
+                </div>
+              </a>
+              <a class="brick-1" href="#attractions">
+                <i class="e-icon-communication-contacts"></i>
+              </a>
+          </li>
+          <li>
+            <a class="brick-11" href="#fun">
+              <div class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Fun">
+                <span>
+                  <strong>Fun</strong>
+                  <br>
+                  <em>Fun subtitle</em>
+                  <br>
+                  <span>Here are more information about Fun</span>
+                </span>
+              </div>
+            </a>
+            <a class="brick-1" href="#fun">
+              <i class="e-icon-communication-vpn-key"></i>
+            </a>
+          </li>
+          <li>
+            <a class="brick-11" href="#food">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Food">
+                <span>
+                  <strong>
+                    <span>Food</span>
+                  </strong>
+                  <br>
+                  <em>
+                    <span>Food subtitle</span>
+                  </em>
+                  <br>
+                  <span>Here are more information about Food</span>
+                </span>
+              </span>
+            </a>
+            <a class="brick-1" href="#food">
+              <i class="e-icon-editor-insert-emoticon"></i>
+            </a>
+          </li>
+          <li>
+            <a class="brick-11" href="#kids">
+              <span class="e-list-content">
+                <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Kids">
+                <span>
+                  <strong>
+                    <span>Kids</span>
+                  </strong>
+                  <br>
+                  <em>
+                    <span>Kids subtitle</span>
+                  </em>
+                  <br>
+                  <span>Here are more information about Kids</span>
+                </span>
+              </span>
+            </a>
+            <a class="brick-1" href="#kids">
+              <i class="e-icon-hardware-security"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="brick brick-6 e-margin-bottom-25 e-text-center">
+          <img src="assets/img/components/list-multi-line.jpg" alt="List Essence Native component" width="360">
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;ul class=&quot;e-list multi-line&quot;&gt;
+  &lt;li&gt;
+      &lt;a class=&quot;brick-11&quot; href=&quot;#attractions&quot;&gt;
+        &lt;div class=&quot;e-list-content&quot;&gt;
+          &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Attractions&quot;&gt;
+          &lt;span&gt;
+            &lt;strong&gt;Attractions&lt;/strong&gt;
+            &lt;br /&gt;
+            &lt;em&gt;Attractions subtitle&lt;/em&gt;
+            &lt;br /&gt;
+            &lt;span&gt;Here are more information about Attractions&lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/a&gt;
+      &lt;a class=&quot;brick-1&quot; href=&quot;#attractions&quot;&gt;
+        &lt;i class=&quot;e-icon-communication-contacts&quot;&gt;&lt;/i&gt;
+      &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#fun&quot;&gt;
+      &lt;div class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Fun&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;Fun&lt;/strong&gt;
+          &lt;br&gt;
+          &lt;em&gt;Fun subtitle&lt;/em&gt;
+          &lt;br&gt;
+          &lt;span&gt;Here are more information about Fun&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#fun&quot;&gt;
+      &lt;i class=&quot;e-icon-communication-vpn-key&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#food&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Food&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            &lt;span&gt;Food&lt;/span&gt;
+          &lt;/strong&gt;
+          &lt;br&gt;
+          &lt;em&gt;
+            &lt;span&gt;Food subtitle&lt;/span&gt;
+          &lt;/em&gt;
+          &lt;br&gt;
+          &lt;span&gt;Here are more information about Food&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#food&quot;&gt;
+      &lt;i class=&quot;e-icon-editor-insert-emoticon&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;a class=&quot;brick-11&quot; href=&quot;#kids&quot;&gt;
+      &lt;span class=&quot;e-list-content&quot;&gt;
+        &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Kids&quot;&gt;
+        &lt;span&gt;
+          &lt;strong&gt;
+            &lt;span&gt;Kids&lt;/span&gt;
+          &lt;/strong&gt;
+          &lt;br&gt;
+          &lt;em&gt;
+            &lt;span&gt;Kids subtitle&lt;/span&gt;
+          &lt;/em&gt;
+          &lt;br&gt;
+          &lt;span&gt;Here are more information about Kids&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/span&gt;
+    &lt;/a&gt;
+    &lt;a class=&quot;brick-1&quot; href=&quot;#kids&quot;&gt;
+      &lt;i class=&quot;e-icon-hardware-security&quot;&gt;&lt;/i&gt;
+    &lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+          </code>
+        </pre>
+      </div>
+
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List type='multi-line'&gt;
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#attractions'&gt;
+        &lt;Block type='div' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Attractions'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Attractions&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text type='em'&gt;Attractions subtitle&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Attractions&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#attractions'&gt;
+        &lt;Icon name='communication-contacts' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#fun'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Fun'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Fun&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text type='em'&gt;Fun subtitle&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Fun&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#fun'&gt;
+        &lt;Icon name='communication-vpn-key' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#food'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Food'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Food&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text type='em'&gt;Food subtitle&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Food&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#food'&gt;
+        &lt;Icon name='editor-insert-emoticon' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+
+  &lt;ListItem&gt;
+    &lt;Block type='li'&gt;
+      &lt;Text type='a' classes={'brick-11'} href='#kids'&gt;
+        &lt;Block type='span' classes={'e-list-content'}&gt;
+          &lt;Image
+            src='assets/img/card-user-img.jpg'
+            alt='Kids'
+            classes={'e-list-avatar'}
+          /&gt;
+          &lt;Block type='span'&gt;
+            &lt;Text type='strong'&gt;Kids&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text type='em'&gt;Kids subtitle&lt;/Text&gt;
+            &lt;br /&gt;
+            &lt;Text&gt;Here are more information about Kids&lt;/Text&gt;
+          &lt;/Block&gt;
+        &lt;/Block&gt;
+      &lt;/Text&gt;
+      &lt;Text type='a' classes={'brick-1'} href='#kids'&gt;
+        &lt;Icon name='hardware-security' /&gt;
+      &lt;/Text&gt;
+    &lt;/Block&gt;
+  &lt;/ListItem&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;List style={[Helpers['e-shadow-2']]}&gt;
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Attractions&lt;/Text&gt;
+        &lt;Text style={[Typography['em']]}&gt;Subtitle Attractions&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Attractions&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Fun&lt;/Text&gt;
+        &lt;Text style={[Typography['em']]}&gt;Subtitle Fun&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Fun&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Food&lt;/Text&gt;
+        &lt;Text style={[Typography['em']]}&gt;Subtitle Food&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Food&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+
+  &lt;TouchableHighlight
+    underlayColor='#5C6BC0' 
+    onPress={this.openLink.bind(this, 'http://essence.pearlhq.com/')}&gt;
+    &lt;View style={Helpers['e-list-item']}&gt;
+      &lt;View style={Helpers['e-list-content']}&gt;
+        &lt;Image 
+          style={[Helpers['e-list-avatar'], Helpers['e-left']]} 
+          source={{uri: 'http://essence.pearlhq.com/assets/img/card-user-img.jpg'}}/&gt;
+      &lt;/View&gt;
+      &lt;View style={[Helpers['e-list-text']]}&gt;
+        &lt;Text style={[Typography['strong']]}&gt;Kids&lt;/Text&gt;
+        &lt;Text style={[Typography['em']]}&gt;Subtitle Kids&lt;/Text&gt;
+        &lt;Text&gt;Here are more information about Kids&lt;/Text&gt;
+      &lt;/View&gt;
+    &lt;/View&gt;
+  &lt;/TouchableHighlight&gt;
+&lt;/List&gt;
+          </code>
+        </pre>
+      </div>
+      
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "List" Essence component to render a group or single "ListItem" component. The "List" Essence component will return a div container with a single or multiple &lt;ListItem&gt; Essence components with the class name "e-list".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;List&gt;</span>
+  <span class="e-text-blue-500">&lt;ListItem&gt;</span>
+    __li-style-block-or-react-components__
+  <span class="e-text-blue-500">&lt;/ListItem&gt;</span>
+<span class="e-text-blue-500">&lt;/List&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to List or ListItem component from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>type</u>: single-line (for a single line text), two-line (for a two lines text) or multi-line (for 3 lines text)<br />
+          - use the examples from above to structure your own List
+        </p>
+      </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "List" Essence component to render a View component with custom content including "TouchableHighlight", "View" or "Text" native iOS components.<br />
+          Each child from inside of List component will be rendered as a View native component.
+          <br />
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-500">&lt;List style={[<span class="e-text-green-500">__HelpersStyles__</span>]}&gt;</span>
+  <span class="e-text-blue-500">&lt;TouchableHighlight /&gt;</span>,
+  <span class="e-text-blue-500">&lt;View /&gt;</span> or
+  <span class="e-text-blue-500">&lt;Text /&gt;</span>
+<span class="e-text-indigo-500">&lt;/List&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>style</u>: add styling class names to List component from Styles > Colors menu<br />
+          <br />
+          &bull; Options<br />
+          - <u>no options</u><br />
+          <br />
+          &bull; Content<br />
+          - can be use together with "TouchableHighlight", "View" or "Text" native iOS components
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!-- END Component - Lists       -->
+</div>

@@ -1,0 +1,111 @@
+body {
+  /* your css stylings */
+}
+
+.navigation li {
+  display: inline-block;
+  font-size: 2rem;
+  margin-right: 30px;
+}
+
+.navigation li a {
+  color: #fff;
+}
+
+.line-button {
+  margin-right: 10%;
+}
+.e-nav-menu .e-paper {
+  min-width: 115px;
+}
+
+.logo {
+  color: #fff !important;
+}
+
+
+@media (min-width: 768px){
+  .line-button {
+    display: none;
+  }
+}
+
+
+@media (max-width: 768px){
+  .navigation {
+    display: none;
+  }
+}
+
+
+.e-appbar {
+  background-color: #00bcd4;
+}
+
+.header{
+  margin-top: 20px;
+  background-image: url("../img/header.jpg");
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header img {
+  width: 100%;
+}
+
+.wrapper {
+  max-width: 1180px;
+  margin: auto;
+}
+
+.modified {
+  padding-left: 50px;
+  padding-right: 50px;
+  margin-bottom: 90px;
+}
+
+.join {
+  background-image: url("../img/join.jpg");
+  background-position: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.contact {
+  padding-top: 90px;
+}
+
+.text .e-input-efects:before {
+  color: #00b0ff !important;
+}
+
+.card {
+  background-color: #fff;
+}
+
+.blogs {
+  padding-top: 90px;
+}
+
+.links a{
+  display: block;
+  color: #00b0ff;
+}
+
+.inline {
+  display: inline;
+}
+
+.time a{
+  color: #00b0ff !important;
+}
+
+.time {
+  margin-right: 20px;
+}
+
+.card-text p {
+  margin-bottom: 20px !important;
+}
+

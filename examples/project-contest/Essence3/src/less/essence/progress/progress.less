@@ -1,0 +1,911 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:100);
+
+//three dots slider bar
+.e-progress-slider {
+  width:100%;
+  height:2px;
+  .e-progress-slider-line{
+    position:absolute;
+    background: #139FC2;
+    width:100%;
+    height:2px;
+  }
+  .break{
+    position:absolute;
+    background:#fff;
+    width:6px;
+    height:2px;  
+  }
+    .dot1{
+    -webkit-animation: loading 2s infinite;
+    -moz-animation: loading 2s infinite;
+    -ms-animation: loading 2s infinite;
+    -o-animation: loading 2s infinite;
+    animation: loading 2s infinite;
+    }
+    .dot2{
+    -webkit-animation: loading 2s 0.5s infinite;
+    -moz-animation: loading 2s 0.5s infinite;
+    -ms-animation: loading 2s 0.5s infinite;
+    -o-animation: loading 2s 0.5s infinite;
+    animation: loading 2s 0.5s infinite;
+    }
+    .dot3{
+    -webkit-animation: loading 2s 1s infinite;
+    -moz-animation: loading 2s 1s infinite;
+    -ms-animation: loading 2s 1s infinite;
+    -o-animation: loading 2s 1s infinite;
+    animation: loading 2s 1s infinite;
+    }
+}
+
+
+@-moz-keyframes loading {
+ from { left: 0; }
+ to { left: 100%; }
+}
+@-webkit-keyframes loading {
+ from { left: 0; }
+ to { left: 100%; }
+}
+@-ms-keyframes loading {
+	from { left: 0; }
+ to { left: 100%; }
+}
+@-o-keyframes loading {
+  from { left: 0; }
+to { left: 100%; }
+}
+@keyframes loading {
+ from { left: 0; }
+ to { left: 100%; }
+}
+
+
+
+//windows 8 style loader 
+.e-progress-circle {
+  position: relative;
+  margin: 0 auto;
+  width: 90px;
+  height:90px;
+  &.small {
+    width: 30px;
+    height:30px;
+    .ball-frame {
+      width: 25px;
+      height: 25px;
+      .round-ball {
+        width: 5px;
+        height: 5px;
+      }
+    }
+  }
+  .ball-frame {
+    position: absolute;
+    width: 86px;
+    height: 86px;
+    opacity: 0;
+    -moz-transform: rotate(225deg);
+    -moz-animation: orbit 3.8499999999999996s infinite;
+    -webkit-transform: rotate(225deg);
+    -webkit-animation: orbit 3.8499999999999996s infinite;
+    -ms-transform: rotate(225deg);
+    -ms-animation: orbit 3.8499999999999996s infinite;
+    -o-transform: rotate(225deg);
+    -o-animation: orbit 3.8499999999999996s infinite;
+    transform: rotate(225deg);
+    animation: orbit 3.8499999999999996s infinite;
+    .round-ball{
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #139FC2;
+      left:0px;
+      top:0px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
+      border-radius: 5px;
+    }
+    
+
+  }
+  .ball-frame-1 {
+    -moz-animation-delay: 0.84s;
+    -webkit-animation-delay: 0.84s;
+    -ms-animation-delay: 0.84s;
+    -o-animation-delay: 0.84s;
+    animation-delay: 0.84s;
+  }
+
+  .ball-frame-2 {
+    -moz-animation-delay: 0.17s;
+    -webkit-animation-delay: 0.17s;
+    -ms-animation-delay: 0.17s;
+    -o-animation-delay: 0.17s;
+    animation-delay: 0.17s;
+  }
+
+  .ball-frame-3 {
+    -moz-animation-delay: 0.34s;
+    -webkit-animation-delay: 0.34s;
+    -ms-animation-delay: 0.34s;
+    -o-animation-delay: 0.34s;
+    animation-delay: 0.34s;
+  }
+
+  .ball-frame-4 {
+    -moz-animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    -ms-animation-delay: 0.5s;
+    -o-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+  }
+
+  .ball-frame-5 {
+    -moz-animation-delay: 0.67s;
+    -webkit-animation-delay: 0.67s;
+    -ms-animation-delay: 0.67s;
+    -o-animation-delay: 0.67s;
+    animation-delay: 0.67s;
+  }
+
+}
+
+@-moz-keyframes orbit {
+  0% {
+  opacity: 1;
+  z-index:99;
+  -moz-transform: rotate(180deg);
+  -moz-animation-timing-function: ease-out;
+  }
+
+  7% {
+  opacity: 1;
+  -moz-transform: rotate(300deg);
+  -moz-animation-timing-function: linear;
+  -moz-origin:0%;
+  }
+
+  30% {
+  opacity: 1;
+  -moz-transform:rotate(410deg);
+  -moz-animation-timing-function: ease-in-out;
+  -moz-origin:7%;
+  }
+
+  39% {
+  opacity: 1;
+  -moz-transform: rotate(645deg);
+  -moz-animation-timing-function: linear;
+  -moz-origin:30%;
+  }
+
+  70% {
+  opacity: 1;
+  -moz-transform: rotate(770deg);
+  -moz-animation-timing-function: ease-out;
+  -moz-origin:39%;
+  }
+
+  75% {
+  opacity: 1;
+  -moz-transform: rotate(900deg);
+  -moz-animation-timing-function: ease-out;
+  -moz-origin:70%;
+  }
+
+  76% {
+  opacity: 0;
+  -moz-transform:rotate(900deg);
+  }
+
+  100% {
+  opacity: 0;
+  -moz-transform: rotate(900deg);
+  }
+
+}
+
+@-webkit-keyframes orbit {
+  0% {
+  opacity: 1;
+  z-index:99;
+  -webkit-transform: rotate(180deg);
+  -webkit-animation-timing-function: ease-out;
+  }
+
+  7% {
+  opacity: 1;
+  -webkit-transform: rotate(300deg);
+  -webkit-animation-timing-function: linear;
+  -webkit-origin:0%;
+  }
+
+  30% {
+  opacity: 1;
+  -webkit-transform:rotate(410deg);
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-origin:7%;
+  }
+
+  39% {
+  opacity: 1;
+  -webkit-transform: rotate(645deg);
+  -webkit-animation-timing-function: linear;
+  -webkit-origin:30%;
+  }
+
+  70% {
+  opacity: 1;
+  -webkit-transform: rotate(770deg);
+  -webkit-animation-timing-function: ease-out;
+  -webkit-origin:39%;
+  }
+
+  75% {
+  opacity: 1;
+  -webkit-transform: rotate(900deg);
+  -webkit-animation-timing-function: ease-out;
+  -webkit-origin:70%;
+  }
+
+  76% {
+  opacity: 0;
+  -webkit-transform:rotate(900deg);
+  }
+
+  100% {
+  opacity: 0;
+  -webkit-transform: rotate(900deg);
+  }
+
+}
+
+@-ms-keyframes orbit {
+  0% {
+  opacity: 1;
+  z-index:99;
+  -ms-transform: rotate(180deg);
+  -ms-animation-timing-function: ease-out;
+  }
+
+  7% {
+  opacity: 1;
+  -ms-transform: rotate(300deg);
+  -ms-animation-timing-function: linear;
+  -ms-origin:0%;
+  }
+
+  30% {
+  opacity: 1;
+  -ms-transform:rotate(410deg);
+  -ms-animation-timing-function: ease-in-out;
+  -ms-origin:7%;
+  }
+
+  39% {
+  opacity: 1;
+  -ms-transform: rotate(645deg);
+  -ms-animation-timing-function: linear;
+  -ms-origin:30%;
+  }
+
+  70% {
+  opacity: 1;
+  -ms-transform: rotate(770deg);
+  -ms-animation-timing-function: ease-out;
+  -ms-origin:39%;
+  }
+
+  75% {
+  opacity: 1;
+  -ms-transform: rotate(900deg);
+  -ms-animation-timing-function: ease-out;
+  -ms-origin:70%;
+  }
+
+  76% {
+  opacity: 0;
+  -ms-transform:rotate(900deg);
+  }
+
+  100% {
+  opacity: 0;
+  -ms-transform: rotate(900deg);
+  }
+
+}
+
+@-o-keyframes orbit {
+  0% {
+  opacity: 1;
+  z-index:99;
+  -o-transform: rotate(180deg);
+  -o-animation-timing-function: ease-out;
+  }
+
+  7% {
+  opacity: 1;
+  -o-transform: rotate(300deg);
+  -o-animation-timing-function: linear;
+  -o-origin:0%;
+  }
+
+  30% {
+  opacity: 1;
+  -o-transform:rotate(410deg);
+  -o-animation-timing-function: ease-in-out;
+  -o-origin:7%;
+  }
+
+  39% {
+  opacity: 1;
+  -o-transform: rotate(645deg);
+  -o-animation-timing-function: linear;
+  -o-origin:30%;
+  }
+
+  70% {
+  opacity: 1;
+  -o-transform: rotate(770deg);
+  -o-animation-timing-function: ease-out;
+  -o-origin:39%;
+  }
+
+  75% {
+  opacity: 1;
+  -o-transform: rotate(900deg);
+  -o-animation-timing-function: ease-out;
+  -o-origin:70%;
+  }
+
+  76% {
+  opacity: 0;
+  -o-transform:rotate(900deg);
+  }
+
+  100% {
+  opacity: 0;
+  -o-transform: rotate(900deg);
+  }
+
+}
+
+@keyframes orbit {
+  0% {
+  opacity: 1;
+  z-index:99;
+  transform: rotate(180deg);
+  animation-timing-function: ease-out;
+  }
+
+  7% {
+  opacity: 1;
+  transform: rotate(300deg);
+  animation-timing-function: linear;
+  origin:0%;
+  }
+
+  30% {
+  opacity: 1;
+  transform:rotate(410deg);
+  animation-timing-function: ease-in-out;
+  origin:7%;
+  }
+
+  39% {
+  opacity: 1;
+  transform: rotate(645deg);
+  animation-timing-function: linear;
+  origin:30%;
+  }
+
+  70% {
+  opacity: 1;
+  transform: rotate(770deg);
+  animation-timing-function: ease-out;
+  origin:39%;
+  }
+
+  75% {
+  opacity: 1;
+  transform: rotate(900deg);
+  animation-timing-function: ease-out;
+  origin:70%;
+  }
+
+  76% {
+  opacity: 0;
+  transform:rotate(900deg);
+  }
+
+  100% {
+  opacity: 0;
+  transform: rotate(900deg);
+  }
+
+}
+
+//balls that follow eachother
+.e-progress-dots {
+  position:relative;
+  width:100%;
+  height:20px;
+  overflow: hidden;
+  .e-progress-dot {
+    opacity: 0.2;
+    background-color:#139FC2;
+    position:absolute;
+    top:0;
+    left:0;
+    width:10px;
+    height:10px;
+    -moz-border-radius:5px;
+    -moz-animation-name:bounce_following-balls;
+    -moz-animation-duration:1.5s;
+    -moz-animation-iteration-count:infinite;
+    -moz-transition-timing-function: ease-in-out;
+    -webkit-border-radius:5px;
+    -webkit-animation-name:bounce_following-balls;
+    -webkit-animation-duration:1.5s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-transition-timing-function: ease-in-out;
+    -ms-border-radius:5px;
+    -ms-animation-name:bounce_following-balls;
+    -ms-animation-duration:1.5s;
+    -ms-animation-iteration-count:infinite;
+    -ms-transition-timing-function: ease-in-out;
+    -o-border-radius:5px;
+    -o-animation-name:bounce_following-balls;
+    -o-animation-duration:1.5s;
+    -o-animation-iteration-count:infinite;
+    -o-transition-timing-function: ease-in-out;
+    border-radius:5px;
+    animation-name:bounce_following-balls;
+    animation-duration:1.5s;
+    animation-iteration-count:infinite;
+    transition-timing-function: ease-in-out;
+  }
+
+  .e-progress-dot-1{
+  -moz-animation-delay:0s;
+  }
+
+  .e-progress-dot-1{
+  -webkit-animation-delay:0s;
+  }
+
+  .e-progress-dot-1{
+  -ms-animation-delay:0s;
+  }
+
+  .e-progress-dot-1{
+  -o-animation-delay:0s;
+  }
+
+  .e-progress-dot-1{
+  animation-delay:0s;
+  }
+
+  .e-progress-dot-2{
+  -moz-animation-delay:0.08s;
+  -webkit-animation-delay:0.08s;
+  -ms-animation-delay:0.08s;
+  -o-animation-delay:0.08s;
+  animation-delay:0.08s;
+  }
+
+  .e-progress-dot-3{
+  -moz-animation-delay:0.16s;
+  -webkit-animation-delay:0.16s;
+  -ms-animation-delay:0.16s;
+  -o-animation-delay:0.16s;
+  animation-delay:0.16s;
+  }
+
+  .e-progress-dot-4{
+  -moz-animation-delay:0.24s;
+  -webkit-animation-delay:0.24s;
+  -ms-animation-delay:0.24s;
+  -o-animation-delay:0.24s;
+  animation-delay:0.24s;
+  }
+
+  .e-progress-dot-5{
+  -moz-animation-delay:0.32s;
+  -webkit-animation-delay:0.32s;
+  -ms-animation-delay:0.32s;
+  -o-animation-delay:0.32s;
+  animation-delay:0.32s;
+  }
+}
+
+    
+
+  @-moz-keyframes bounce_following-balls{
+    0%{
+      left:0px;
+      opacity: 0.2;
+    }
+
+    40%{
+      opacity: 1;
+    }
+
+    100%{
+      margin-right: -10px;
+      left: 100%;
+      opacity: 0;
+    }
+
+  }
+
+  @-webkit-keyframes bounce_following-balls{
+    0%{
+      left:0px;
+      opacity: 0.2;
+    }
+
+    40%{
+      opacity: 1;
+    }
+
+    100%{
+      margin-right: -10px;
+      left: 100%;
+      opacity: 0;
+    }
+
+  }
+
+  @-ms-keyframes bounce_following-balls{
+    0%{
+      left:0px;
+      opacity: 0.2;
+    }
+
+    40%{
+      opacity: 1;
+    }
+
+    100%{
+      margin-right: -10px;
+      left: 100%;
+      opacity: 0;
+    }
+
+  }
+
+  @-o-keyframes bounce_following-balls{
+    0%{
+      left:0px;
+      opacity: 0.2;
+    }
+
+    40%{
+      opacity: 1;
+    }
+
+    100%{
+      margin-right: -10px;
+      left: 100%;
+      opacity: 0;
+    }
+
+  }
+
+  @keyframes bounce_following-balls{
+    0%{
+      left:0px;
+      opacity: 0.2;
+    }
+
+    40%{
+      opacity: 1;
+    }
+
+    100%{
+      margin-right: -10px;
+      left: 100%;
+      opacity: 0;
+  }
+
+}
+//determinate progress slider
+.e-progress-fix {
+  background: lighten(#139FC2, 20%);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 2px;
+  .e-progress-fix-slider {
+    background: #139FC2;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -moz-animation-name:determinate-simple;
+    -moz-animation-duration:2.5s;
+    -moz-animation-iteration-count:infinite;
+    -moz-transition-timing-function: ease-in-out;
+    -webkit-animation-name:determinate-simple;
+    -webkit-animation-duration:2.5s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-transition-timing-function: ease-in-out;
+    -ms-animation-name:determinate-simple;
+    -ms-animation-duration:2.5s;
+    -ms-animation-iteration-count:infinite;
+    -ms-transition-timing-function: ease-in-out;
+    -o-animation-name:determinate-simple;
+    -o-animation-duration:2.5s;
+    -o-animation-iteration-count:infinite;
+    -o-transition-timing-function: ease-in-out;
+    animation-name:determinate-simple;
+    animation-duration:2.5s;
+    animation-iteration-count:infinite;
+    transition-timing-function: ease-in-out;
+  }
+}
+@-moz-keyframes determinate-simple{
+  0%{
+    width:0;
+  }
+
+  100%{
+    width: 100%;
+  }
+
+}
+
+@-webkit-keyframes determinate-simple{
+  0%{
+    width:0;
+  }
+
+  100%{
+    width: 100%;
+  }
+
+}
+
+@-ms-keyframes determinate-simple{
+  0%{
+    width:0;
+  }
+
+  100%{
+    width: 100%;
+  }
+
+}
+
+@-o-keyframes determinate-simple{
+  0%{
+    width:0;
+  }
+
+  100%{
+    width: 100%;
+  }
+
+}
+
+@keyframes determinate-simple{
+  0%{
+    width:0;
+  }
+
+  100%{
+    width: 100%;
+  }
+
+}
+
+//indeterminate progress with two sliding lines
+.e-progress-dynamic {
+  background: lighten(#139FC2, 20%);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 2px;
+  .e-progress-dynamic-slider {
+    background: #139FC2;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -moz-animation-name:indeterminate-slide;
+    -moz-animation-duration:2.5s;
+    -moz-animation-iteration-count:infinite;
+    -webkit-animation-name:indeterminate-slide;
+    -webkit-animation-duration:2.5s;
+    -webkit-animation-iteration-count:infinite;
+    -ms-animation-name:indeterminate-slide;
+    -ms-animation-duration:2.5s;
+    -ms-animation-iteration-count:infinite;
+    -o-animation-name:indeterminate-slide;
+    -o-animation-duration:2.5s;
+    -o-animation-iteration-count:infinite;
+    animation-name:indeterminate-slide;
+    animation-duration:2.5s;
+    animation-iteration-count:infinite;
+    &.second-slider {
+      -moz-animation-name:indeterminate-slide-second;
+      -moz-animation-duration:2.5s;
+      -moz-animation-iteration-count:infinite;
+      -webkit-animation-name:indeterminate-slide-second;
+      -webkit-animation-duration:2.5s;
+      -webkit-animation-iteration-count:infinite;
+      -ms-animation-name:indeterminate-slide-second;
+      -ms-animation-duration:2.5s;
+      -ms-animation-iteration-count:infinite;
+      -o-animation-name:indeterminate-slide-second;
+      -o-animation-duration:2.5s;
+      -o-animation-iteration-count:infinite;
+      animation-name:indeterminate-slide-second;
+      animation-duration:2.5s;
+      animation-iteration-count:infinite;
+      -moz-animation-delay:0.8s;
+      -webkit-animation-delay:0.8s;
+      -ms-animation-delay:0.8s;
+      -o-animation-delay:0.8s;
+      animation-delay:0.8s;
+    }
+  }
+  
+  
+}
+@-moz-keyframes indeterminate-slide{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 40%;
+  }
+  60% {
+    width: 10%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@-webkit-keyframes indeterminate-slide{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 40%;
+  }
+  60% {
+    width: 10%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@-ms-keyframes indeterminate-slide{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 40%;
+  }
+  60% {
+    width: 10%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@-o-keyframes indeterminate-slide{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 40%;
+  }
+  60% {
+    width: 10%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@keyframes indeterminate-slide{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 40%;
+  }
+  60% {
+    width: 10%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+//second slider animation for indeterminate slide
+@-moz-keyframes indeterminate-slide-second{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 30%;
+  }
+  80% {
+    width: 5%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@-webkit-keyframes indeterminate-slide-second{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 30%;
+  }
+  80% {
+    width: 5%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@-ms-keyframes indeterminate-slide-second{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 30%;
+  }
+  80% {
+    width: 5%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@-o-keyframes indeterminate-slide-second{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 30%;
+  }
+  80% {
+    width: 5%;
+  }
+  100%{
+    left: 110%;
+  }
+}
+
+@keyframes indeterminate-slide-second{
+  0%{
+    width:0;
+  }
+  10% {
+    width: 30%;
+  }
+  80% {
+    width: 5%;
+  }
+  100%{
+    left: 110%;
+  }
+}

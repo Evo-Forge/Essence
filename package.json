@@ -1,55 +1,55 @@
 {
-  "name": "react-essence",
-  "version": "1.0.6",
-  "description": "React Essence Components - Google Material Design - UI framework",
-  "author": "Hetmann W. Iohan <iohan@getessence.io>",
-  "homepage": "http://getessence.io/",
-  "license": "MIT",
-  "repository": "git://github.com/Evo-Forge/Essence",
-  "main": "index.js",
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
-  },
-  "keywords": [
-    "essence",
-    "react",
-    "react-essence",
-    "react-component",
-    "google",
-    "google-material",
-    "google-material-design",
-    "basic",
-    "frontend",
-    "ui",
-    "framework",
-    "less"
-  ],
-  "dependencies": {
-    "essence-appbar": "^1.x",
-    "essence-bottomsheet": "^1.x",
-    "essence-button": "^1.x",
-    "essence-card": "^1.x",
-    "essence-chip": "^1.x",
-    "essence-core": "^1.x",
-    "essence-data-table": "^1.x",
-    "essence-dialog": "^1.x",
-    "essence-icon": "^1.x",
-    "essence-image": "^1.x",
-    "essence-input": "^1.x",
-    "essence-list": "^1.x",
-    "essence-menu": "^1.x",
-    "essence-navigation": "^1.x",
-    "essence-paper": "^1.x",
-    "essence-progress": "^1.x",
-    "essence-slider": "^1.x",
-    "essence-snackbar": "^1.x",
-    "essence-switch": "^1.x",
-    "essence-tab": "^1.x",
-    "essence-toast": "^1.x",
-    "essence-tooltip": "^1.x",
-    "essence-touchpad": "^1.x"
-  }
+"name": "react-essence",
+"version": "1.0.6",
+"description": "React Essence Components - Google Material Design - UI framework",
+"author": "Hetmann W. Iohan <iohan@getessence.io>",
+"homepage": "http://getessence.io/",
+"license": "MIT",
+"repository": "git://github.com/Evo-Forge/Essence",
+"main": "index.js",
+"babel": {
+"presets": [
+"es2015",
+"react"
+]
+},
+"keywords": [
+"essence",
+"react",
+"react-essence",
+"react-component",
+"google",
+"google-material",
+"google-material-design",
+"basic",
+"frontend",
+"ui",
+"framework",
+"less"
+],
+"dependencies": {
+"essence-appbar": "^1.x",
+"essence-bottomsheet": "^1.x",
+"essence-button": "^1.x",
+"essence-card": "^1.x",
+"essence-chip": "^1.x",
+"essence-core": "^1.x",
+"essence-data-table": "^1.x",
+"essence-dialog": "^1.x",
+"essence-icon": "^1.x",
+"essence-image": "^1.x",
+"essence-input": "^1.x",
+"essence-list": "^1.x",
+"essence-menu": "^1.x",
+"essence-navigation": "^1.x",
+"essence-paper": "^1.x",
+"essence-progress": "^1.x",
+"essence-slider": "^1.x",
+"essence-snackbar": "^1.x",
+"essence-switch": "^1.x",
+"essence-tab": "^1.x",
+"essence-toast": "^1.x",
+"essence-tooltip": "^1.x",
+"essence-touchpad": "^1.x"
+}
 }

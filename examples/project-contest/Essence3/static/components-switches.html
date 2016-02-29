@@ -1,0 +1,224 @@
+<div class="e-container">
+  <!--   Component - Switches       -->
+
+  <div class="switches e-padding-top-50" id="components-switches">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Switches</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+      </div>
+      <div class="brick brick-6 e-padding-top-25 e-text-center">
+        <div id="components-switches-reactjs">
+          <div class="e-switch">
+            <div class="e-radio e-radio-success">
+              <label>
+                <input type="radio" name="radioButton" value="value1"><span class="absolute circle"></span><span class="absolute e-check"></span><span>Radio Button 1</span>
+              </label>
+            </div>
+          </div>
+          <div class="e-switch">
+            <div class="e-radio e-radio-success">
+              <label>
+                <input type="radio" name="radioButton" value="value2"><span class="absolute circle"></span><span class="absolute e-check"></span><span>Radio Button 2</span>
+              </label>
+            </div>
+          </div>
+          <div class="e-switch">
+            <div class="e-checkbox">
+              <label>
+                <input type="checkbox" name="checkbox1" class="toggle"><span class="absolute e-wave"></span><span class="absolute e-check-valid"></span><span>Switch Checkbox</span>
+              </label>
+            </div>
+          </div>
+          <div class="e-switch">
+            <div class="e-switches">
+              <label><span>Switches before</span>
+                <input type="checkbox"><span class="e-switches-toggle"></span><span>Switches after</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <p class="e-body1 e-text-blue-grey-400 e-text-left e-padding-top-50">Switches allow the user to select options. There are three kinds: checkboxes, radio buttons, and on/off switches. Here they are, in all their splendor. </p>
+      </div>
+      <div class="brick brick-6 e-text-center">
+        <img src="assets/img/components/switch.jpg" alt="Switch Essence Native component" width="360">
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-radio e-radio-success"&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="radioButton" value="value1"&gt;&lt;span class="absolute circle"&gt;&lt;/span&gt;&lt;span class="absolute e-check"&gt;&lt;/span&gt;&lt;span&gt;Radio Button 1&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-radio e-radio-success"&gt;
+    &lt;label&gt;
+      &lt;input type="radio" name="radioButton" value="value2"&gt;&lt;span class="absolute circle"&gt;&lt;/span&gt;&lt;span class="absolute e-check"&gt;&lt;/span&gt;&lt;span&gt;Radio Button 2&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-checkbox"&gt;
+    &lt;label&gt;
+      &lt;input type="checkbox" name="checkbox1" class="toggle"&gt;&lt;span class="absolute e-wave"&gt;&lt;/span&gt;&lt;span class="absolute e-check-valid"&gt;&lt;/span&gt;&lt;span&gt;Switch Checkbox&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="e-switch"&gt;
+  &lt;div class="e-switches"&gt;
+    &lt;label&gt;&lt;span&gt;Switches before&lt;/span&gt;
+      &lt;input type="checkbox"&gt;&lt;span class="e-switches-toggle"&gt;&lt;/span&gt;&lt;span&gt;Switches after&lt;/span&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+        </pre>
+      </div>
+
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Switch&gt;
+  &lt;SwitchItem
+    type='radio'
+    text='Radio Button 1'
+    name='radioButton'
+    defaultValue='value1'
+  &gt;
+  &lt;/SwitchItem&gt;
+
+  &lt;SwitchItem
+    type='radio'
+    text='Radio Button 2'
+    name='radioButton'
+    defaultValue='value2'
+  &gt;
+  &lt;/SwitchItem&gt;
+
+  &lt;SwitchItem
+    type='checkbox'
+    text='Switch Checkbox'
+    name='checkbox1'
+  &gt;
+  &lt;/SwitchItem&gt;
+
+  &lt;SwitchItem
+    type='switches'
+    beforeText='Switches before'
+    afterText='Switches after'
+    checked={false}
+    name='switches1'
+  &gt;
+  &lt;/SwitchItem&gt;
+&lt;/Switch&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;SwitchItem
+   textStyle={Colors['e-text-white']}
+   containerStyle={Colors['e-background-indigo-300']}
+   beforeText='Switches before'
+   afterText='Switches after'
+/&gt;
+          </code>
+        </pre>
+      </div>
+      
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "Switch" Essence component to render a group of "SwitchItem" components. Inside the Switch Essence component you can include only the <strong class="e-text-red">SwitchItem</strong> component. <br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Switch&gt;</span>
+  <span class="e-text-blue-500">&lt;SwitchItem
+    <span class="e-text-indigo-600">type='__radio-or-checkbox-or-switches'</span>
+    <span class="e-text-indigo-600">text='__your-text__'</span>
+    <span class="e-text-indigo-600">name='__input-name__'</span>
+    <span class="e-text-indigo-600">checked='__true-or-false__'</span>
+    <span class="e-text-indigo-600">beforeText='__preppend-your-text__'</span>
+    <span class="e-text-indigo-600">afterText='__append-your-text__'</span>
+  &gt;</span>
+  <span class="e-text-blue-500">&lt;/SwitchItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Switch&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - no styling required<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> with type: <strong>circle</strong> will render a small circle visualization
+          - <u>type</u>
+          <br />
+           1. <strong>slider</strong>: appends "slider" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           2. <strong>circle</strong>: appends "circle" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           3. <strong>dots</strong>: appends "dots" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           4. <strong>fix</strong>: appends "fix" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+           5. <strong>dynamic</strong>: appends "dynamic" to the class name <strong>"e-progress-"</strong> in the following format <strong>"e-btn-"</strong> + type<br />
+          - <u>defaultValue</u> - set the default value of input<br />
+          - <u>checked</u> - <strong>true</strong> or <strong>false</strong> set the checked attribute value<br />
+          <br />
+        </p>
+      </div>
+      
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use - Essence Native
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "SwitchItem" Essence component to render iOS native SwitchIOS component. SwitchIOS component does not render "radio" or "checkbox" types, it will render only "switch" type.<br />
+
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-indigo-600">&lt;SwitchItem
+   textStyle={<span class="e-text-green-500">__ColorsStyles__</span>}
+   containerStyle={<span class="e-text-blue-500">__ColorsStyles__</span>}
+   beforeText=<span class="e-text-orange-500">'Switches before'</span>
+   afterText=<span class="e-text-orange-500">'Switches after'</span>
+/&gt;
+</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>containerStyle</u>: add styling class names to View component from Styles > Colors menu<br />
+          - <u>textStyle</u>: add styling class names to Text component from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>small</u> - <strong>true</strong> or <strong>false</strong> with type: <strong>circle</strong> will render a small circle visualization<br />
+          - <u>checked</u> - <strong>true</strong> or <strong>false</strong> set the checked attribute value<br />
+          - <u>beforeText</u> - if set to any text string will render a Text component before SwitchIOS component<br />
+          - <u>afterText</u> - if set to any text string will render a Text component after SwitchIOS component<br />
+          <br />
+        </p>
+      </div>
+      
+    </div>
+
+  </div>
+
+  <!-- END Component - Switches       -->
+</div>

@@ -1,0 +1,297 @@
+<!--   Getting Started Page       -->
+
+<div id="components-getting-started">
+  <div class="bg-banner home-header">
+    <div class="clearfix e-padding-bottom-50 e-padding-top-50">
+
+      <div class="brick brick-12 e-text-center">
+        <h3 class="e-display-3 e-text-white">Get Started with Essence</h3>
+        <h3 class="e-display-2 e-text-white">Learn how to use Essence for your application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="e-container">
+    <div class="e-row e-margin-bottom-100">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Get Essence</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          Being an open source project, Essence is available on <a target="_blank" href="https://github.com/PearlVentures/Essence">Github</a>. To start using it you can clone it using <code>git</code> from <a target="_blank" href="https://github.com/PearlVentures/Essence">here</a>, or download it as a .zip archive from <a href="https://github.com/PearlVentures/Essence/archive/master.zip">here</a>. Make sure you have <code>node</code> and <code>grunt</code> installed correctly on your system.
+        </h3>
+
+        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">The files</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          The files where you will work are separated from the components. Inside the project you can find all the components, and also the Essence website. They can be found in the <code>static</code> folder. But the files where we created an empty skeleton are located in <code>examples/project-template</code>. Here you'll find the <code>index.html</code> file, and two folders: <code>css</code> and <code>js</code>. The <code>index.html</code> file already includes all the dependencies needed to take advantage of Essence. Use the <code>project.css</code> file from the <code>css</code> directory to create your custom styling.
+        </h3>
+
+        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">Creating HTML with React</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          The recommended way to use Essence is with React. Don't worry: if you can write HTML, you can write React because we organized things for you in a very easy-to-use manner.
+          The simplest way to use Essence is explained here. <br> <br> Using your favourite editor, open the <code>examples/project-template/dist/js/project.js</code> file. Everything you want to see in your browser goes here. You don't need to touch the index.html file. In the <code>project.js</code> file all the components are included, and below you'll find <code>React.render()</code>. All your content goes between those paranthesis. <br><br>
+          You will find the code for every ready-to-use component in their specific page, under the visual part. Use the left navigation menu to navigate between them. To make it really clear: if you copy the react code from the buttons component page, to your <code>project.js</code> file, inside the parenthesis, your page will show the buttons we included in the Essence website. Simple, right?
+        </h3>
+
+        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">Viewing in the browser</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          If you open the index.html example file in your browser you won't see anything. It's because the files must be placed on a web server. Use one of the web server below, and view your files project on localhost:
+          <br />
+          - For Windows users
+          <a href="https://www.apachefriends.org/index.html" target="_new">Xampp</a> or <a href="http://www.wampserver.com/en/" target="_new">Wamp</a>
+          <br />
+          - For Linux/Mac users
+          <a href="http://httpd.apache.org/" target="_new">Apache Web Server</a> or <a href="http://nginx.org/en/" target="_new">Nginx</a>
+        </h3>
+
+        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">How to use the elements and components</h3>
+          <h3 class="e-headline e-text-blue-grey-400">
+          Of course, you will have your own structure, but it doesn't mean it gets harder.
+          You get all the HTML tags, only used in a slightly different way. <br><br>
+          All the tags you need are splited in two main categories: BLOCK elements, and TEXT elements. So if you need to create a <i>div</i> element, you will write <code>&lt;Block type='div'&gt;</code><code>&lt;/Block&gt;</code>. Or if you need a text element, say a <i>paragraph</i> you'll use <code>&lt;Text type='p'&gt;your text here&lt;/Text&gt;</code>. Below are all the block and text elements you can use. <br>
+          <sub>Note: If no type is selected for an element, React will wrap your content inside a <code>span</code> element.</sub>
+        </h3>
+
+        <br>
+        <div class="e-text-blue-grey-400">
+          <h4 class="e-headline e-text-blue-grey-400">Block elements:</h4>
+          <ul>
+            <li>
+              <i>span</i> -
+              <code>
+                &lt;Block&gt;your text or _components_ here&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>div</i> -
+              <code>
+                &lt;Block type='div'&gt;your text or _components_ here&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>header</i> -
+              <code>
+                &lt;Block type='header'&gt;your text or _components_ here&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>footer</i> -
+              <code>
+                &lt;Block type='footer'&gt;your text or _components_ here&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>ul</i> -
+              <code>
+                &lt;Block type='ul'&gt;_components_&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>li</i> -
+              <code>
+                &lt;Block type='li'&gt;your content here&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>hr</i> -
+              <code>
+                &lt;Block type='hr' /&gt;
+              </code>
+            </li>
+            <li>
+              <i>br</i> -
+              <code>
+                &lt;Block type='br' /&gt;
+              </code>
+            </li>
+          </ul>
+
+          <br />
+
+          <h4 class="e-headline e-text-blue-grey-400">Text elements:</h4>
+          <ul>
+            <li>
+              <i>span</i> -
+              <code>
+                &lt;Text type='span'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>a</i> -
+              <code>
+                &lt;Text type='a' href='_link_'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>p</i> -
+              <code>
+                &lt;Text type='p'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>label</i> -
+              <code>
+                &lt;Text type='label'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>strong</i> -
+              <code>
+                &lt;Text type='strong'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>small</i> -
+              <code>
+                &lt;Text type='small'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+
+            <li>
+              <i>caption</i> -
+              <code>
+                &lt;Text type='caption'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h1</i> -
+              <code>
+                &lt;Text type='h1'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h2</i> -
+              <code>
+                &lt;Text type='h2'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h3</i> -
+              <code>
+                &lt;Text type='h3'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h4</i> -
+              <code>
+                &lt;Text type='h4'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h5</i> -
+              <code>
+                &lt;Text type='h5'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h6</i> -
+              <code>
+                &lt;Text type='h6'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>sup</i> -
+              <code>
+                &lt;Text type='sup'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>sub</i> -
+              <code>
+                &lt;Text type='sub'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>em</i> -
+              <code>
+                &lt;Text type='em'&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+          </ul>
+
+          <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">Styling the elements using predefined classes</h3>
+          <h3 class="e-headline e-text-blue-grey-400">To style the elements with the material design recommended colors, just add the class names according to your needs. To set text color use <code>e-text-color-</code> and the color name and value. To set the background color for any element use <code>e-background-</code> and the color name and value. Where in the HTML, you would write <code>class="e-background-green-400"</code>, here because we are using React we add the classes using a <code>Classes</code> property, just like we used <code>type</code> before when we created a <i>div</i>. <br>
+          Below are a few examples, but there are many variations. Make sure to check all the available colors in the Styles -> Colors section from the menu.
+          </h3>
+          <ul>
+            <li>
+              <i>div</i> -
+              <code>
+                &lt;Block type='div' classes=<span class="e-background-green-400 e-text-white">{'e-background-green-400'}</span> &gt;&lt;/Block&gt;
+              </code>
+            </li>
+            <li>
+              <i>span</i> -
+              <code>
+                &lt;Text type='span' classes=<span class="e-text-red-600">{'e-text-red-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+
+            <li>
+              <i>h1</i> -
+              <code>
+                &lt;Text type='h1' classes=<span class="e-text-lime-600">{'e-text-lime-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h2</i> -
+              <code>
+                &lt;Text type='h2' classes=<span class="e-text-amber-600">{'e-text-amber-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h3</i> -
+              <code>
+                &lt;Text type='h3' classes=<span class="e-text-yellow-600">{'e-text-yellow-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h4</i> -
+              <code>
+                &lt;Text type='h4' classes=<span class="e-text-orange-600">{'e-text-orange-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h5</i> -
+              <code>
+                &lt;Text type='h5' classes=<span class="e-text-brown-600">{'e-text-grey-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>h6</i> -
+              <code>
+                &lt;Text type='h6' classes=<span class="e-text-blue-grey-800">{'e-text-blue-grey-800'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>sup</i> -
+              <code>
+                &lt;Text type='sup' classes=<span class="e-text-light-green-700">{'e-text-light-green-700'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>sub</i> -
+              <code>
+                &lt;Text type='sub' classes=<span class="e-text-teal-600">{'e-text-teal-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+            <li>
+              <i>em</i> -
+              <code>
+                &lt;Text type='em' classes=<span class="e-text-light-blue-600">{'e-text-light-blue-600'}</span>&gt;your text here&lt;/Text&gt;
+              </code>
+            </li>
+          </ul>
+        </div>
+
+        <h3 class="e-display-1 e-padding-top-50 e-text-indigo-400 e-text-uppercase">Advanced use</h3>
+        <h3 class="e-headline e-text-blue-grey-400">
+          If you are an advanced user please follow the instructions bellow:
+          <br />
+          <br />
+          After the cloning is completed, navigate using your console to the newly created folder called "Essence". If you have chosen to download the .zip archive, extract the "Essence-master" folder and navigate with your console inside it. Here you must run two commands in order to start working with Essence. First run <code>npm install</code> to install all the dependencies required for the development environment. Now, if you want to make changes in the less files, to customize variables or create mixins, you must run <code>grunt</code> so all your changes are watched and compiled on save.
+        </h3>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- End Getting Started Page -->

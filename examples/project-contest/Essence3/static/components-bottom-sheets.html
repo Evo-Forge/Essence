@@ -1,0 +1,565 @@
+<div class="e-container">
+  <!--   Component - BOTTOM SHEETS       -->
+  <div class="bottom-sheets e-padding-top-50" id="components-bottom-sheets">
+
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Bottom sheets:</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">You know those cool looking sheets that pop-up from the bottom of the screen? Yeah, we have those too. Depending on how you want information to be displayed, aligned or arranged, use the appropriate code. Here are some examples to get you started.</p>
+      </div>
+    </div>
+
+    <div>
+      <!-- Bottom Sheets - Single line-->
+      <div class="e-row">
+        <div class="brick brick-12"><h3>Simple bottom sheet</h3></div>
+
+        <div id="components-bottom-sheets-button-simple" class="brick brick-12"></div>
+        <div id="components-bottom-sheets-simple">
+          <div id="bottomsheet-simple" class="e-bottom-sheet hide">
+            <ul class="e-list has-icon single-line">
+              <li>
+                <a href="#share">
+                  <i class="e-list-icon e-icon-social-share"></i>
+                  <span>Share</span>
+                </a>
+              </li>
+              <li>
+                <a href="#upload">
+                  <i class="e-list-icon e-icon-file-cloud-upload"></i>
+                  <span>Upload</span>
+                </a>
+              </li>
+              <li>
+                <a href="#copy">
+                  <i class="e-list-icon e-icon-content-content-copy"></i>
+                  <span>Copy</span>
+                </a>
+              </li>
+              <li>
+                <a href="#print">
+                  <i class="e-list-icon e-icon-action-print"></i>
+                  <span>Print</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-row">
+        <div class="brick brick-6">
+          <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+          <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div id=&quot;bottomsheet-simple&quot; class=&quot;e-bottom-sheet animate&quot;&gt;
+  &lt;ul class=&quot;e-list has-icon single-line&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#share&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-social-share&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;Share&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#upload&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-file-cloud-upload&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;Upload&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#copy&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-content-content-copy&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;Copy&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#print&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-action-print&quot;&gt;&lt;/i&gt;
+        &lt;span&gt;Print&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+          </code>
+          </pre>
+        </div>
+
+        <div class="brick brick-6">
+          <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+          <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type=&#39;primary&#39;
+    classes={&#39;raised&#39;}
+    label=&#39;Show bottom sheets&#39;
+    rippleEffect={true}
+    actionClick=&#39;bottomsheets&#39;
+    actionType={{
+      &#39;action&#39;: &#39;show&#39;,
+      &#39;targetID&#39;: &#39;bottomsheet-simple&#39;
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;BottomSheets&gt;
+  &lt;BottomSheetsItem id={&#39;bottomsheet-simple&#39;}&gt;
+    &lt;List icon={true}&gt;
+      &lt;ListItem
+        contentLink=&#39;#share&#39;
+        contentText=&#39;Share&#39;
+        icon=&#39;social-share&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#upload&#39;
+        contentText=&#39;Upload&#39;
+        icon=&#39;file-cloud-upload&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#copy&#39;
+        contentText=&#39;Copy&#39;
+        icon=&#39;content-content-copy&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#print&#39;
+        contentText=&#39;Print&#39;
+        icon=&#39;action-print&#39;
+      /&gt;
+    &lt;/List&gt;
+  &lt;/BottomSheetsItem&gt;
+&lt;/BottomSheets&gt;
+          </code>
+          </pre>
+        </div>
+        <div class="brick brick-12">
+          <div class="e-divider thinnest e-background-grey-300"></div>
+        </div>
+      </div>
+      <!-- END Bottom Sheets - Single line-->
+
+      <!-- Bottom Sheets - Two line + avatar-->
+      <div class="e-row e-padding-top-50">
+        <div class="brick brick-12"><h3>Two lines bottom sheet with avatar</h3></div>
+
+        <div id="components-bottom-sheets-button-twolines" class="brick brick-12"></div>
+        <div id="components-bottom-sheets-twolines">
+          <div style="position:relative;">
+            <div id="bottomsheet-twolines" class="e-bottom-sheet hide">
+              <ul class="e-list has-icon has-avatar two-line">
+                <li>
+                  <a href="#aliconnors">
+                    <span class="e-list-content">
+                      <img class="e-list-avatar" src="assets/img/card-user-img.jpg" alt="Ali Connors">
+                      <span>
+                        <strong>Ali Connors</strong>
+                        <br />
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <span class="e-list-content">
+                      <span>
+                        <strong>(650) 555-1234</strong>
+                        <br />
+                        <span>Mobile</span>
+                      </span>
+                    </span>
+                  </a>
+                  <a href="#mobile">
+                    <i class="e-list-icon e-icon-maps-local-phone">
+                    </i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#work">
+                    <span class="e-list-content">
+                      <span>
+                        <strong>(323) 555-6789</strong>
+                        <br />
+                        <span>Work</span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <span class="e-list-content">
+                      <span>
+                        <strong>aliconnors@example.com</strong>
+                        <br />
+                        <span>Personal</span>
+                      </span>
+                    </span>
+                  </a>
+                  <a href="#">
+                    <i class="e-list-icon e-icon-maps-local-post-office">
+                    </i>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="e-list-content">
+                      <span>
+                        <strong>ali_connors@example.com</strong>
+                        <br />
+                        <span>Work</span>
+                      </span>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-row">
+        <div class="brick brick-6">
+          <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+          <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div style=&quot;position:relative;&quot;&gt;
+  &lt;div id=&quot;bottomsheet-twolines&quot; class=&quot;e-bottom-sheet hide&quot;&gt;
+    &lt;ul class=&quot;e-list has-icon has-avatar two-line&quot;&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#aliconnors&quot;&gt;
+          &lt;span class=&quot;e-list-content&quot;&gt;
+            &lt;img class=&quot;e-list-avatar&quot; src=&quot;assets/img/card-user-img.jpg&quot; alt=&quot;Ali Connors&quot;&gt;
+            &lt;span&gt;
+              &lt;strong&gt;Ali Connors&lt;/strong&gt;
+              &lt;br /&gt;
+            &lt;/span&gt;
+          &lt;/span&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;&quot;&gt;
+          &lt;span class=&quot;e-list-content&quot;&gt;
+            &lt;span&gt;
+              &lt;strong&gt;(650) 555-1234&lt;/strong&gt;
+              &lt;br /&gt;
+              &lt;span&gt;Mobile&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#mobile&quot;&gt;
+          &lt;i class=&quot;e-list-icon e-icon-maps-local-phone&quot;&gt;
+          &lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#work&quot;&gt;
+          &lt;span class=&quot;e-list-content&quot;&gt;
+            &lt;span&gt;
+              &lt;strong&gt;(323) 555-6789&lt;/strong&gt;
+              &lt;br /&gt;
+              &lt;span&gt;Work&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;&quot;&gt;
+          &lt;span class=&quot;e-list-content&quot;&gt;
+            &lt;span&gt;
+              &lt;strong&gt;aliconnors@example.com&lt;/strong&gt;
+              &lt;br /&gt;
+              &lt;span&gt;Personal&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          &lt;i class=&quot;e-list-icon e-icon-maps-local-post-office&quot;&gt;
+          &lt;/i&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;a href=&quot;#&quot;&gt;
+          &lt;span class=&quot;e-list-content&quot;&gt;
+            &lt;span&gt;
+              &lt;strong&gt;ali_connors@example.com&lt;/strong&gt;
+              &lt;br /&gt;
+              &lt;span&gt;Work&lt;/span&gt;
+            &lt;/span&gt;
+          &lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </code>
+          </pre>
+        </div>
+
+        <div class="brick brick-6">
+          <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+          <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type=&#39;warning&#39;
+    classes={&#39;raised&#39;}
+    label=&#39;Show bottom sheets lines&#39;
+    rippleEffect={true}
+    actionClick=&#39;bottomsheets&#39;
+    actionType={{
+      &#39;action&#39;: &#39;show&#39;,
+      &#39;targetID&#39;: &#39;bottomsheet-twolines&#39;
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;BottomSheets&gt;
+  &lt;BottomSheetsItem
+    id={&#39;bottomsheet-twolines&#39;}
+  &gt;
+    &lt;List
+      type=&#39;two-line&#39;
+      avatar={true}
+      icon={true}
+    &gt;
+      &lt;ListItem
+        contentLink=&#39;#aliconnors&#39;
+        contentTitle=&#39;Ali Connors&#39;
+        avatarImg=&#39;assets/img/card-user-img.jpg&#39;
+        avatarAlt=&#39;Ali Connors&#39;
+        avatarLink=&#39;#aliconnors&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#mobile&#39;
+        contentTitle=&#39;(650) 555-1234&#39;
+        contentText=&#39;Mobile&#39;
+        icon=&#39;maps-local-phone&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#work&#39;
+        contentTitle=&#39;(323) 555-6789&#39;
+        contentText=&#39;Work&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#&#39;
+        contentTitle=&#39;aliconnors@example.com&#39;
+        contentText=&#39;Personal&#39;
+        icon=&#39;maps-local-post-office&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#&#39;
+        contentTitle=&#39;ali_connors@example.com&#39;
+        contentText=&#39;Work&#39;
+      /&gt;
+
+    &lt;/List&gt;
+  &lt;/BottomSheetsItem&gt;
+&lt;/BottomSheets&gt;
+          </code>
+          </pre>
+        </div>
+        <div class="brick brick-12">
+          <div class="e-divider thinnest e-background-grey-300"></div>
+        </div>
+      </div>
+      <!-- END Bottom Sheets - Two line + avatar-->
+
+      <!-- Bottom Sheets - big icons-->
+      <div class="e-padding-top-50 clearfix">
+        <div class="brick brick-12"><h3>Bottom sheet with big icons</h3></div>
+
+        <div id="components-bottom-sheets-button-bigicons" class="brick brick-12"></div>
+        <div id="components-bottom-sheets-bigicons" class="e-list-big-icon clearfix">
+          <div id="bottomsheet-bigicons" class="e-bottom-sheet hide">
+            <ul class="e-list-big-icon has-icon clearfix single-line">
+              <li class="brick brick-4">
+                <a href="#gmail">
+                  <i class="e-list-icon e-icon-communication-email"></i>
+                  <span class="e-bs-title">Gmail</span>
+                </a>
+              </li>
+              <li class="brick brick-4">
+                <a href="#phone">
+                  <i class="e-list-icon e-icon-notification-phone-in-talk"></i>
+                  <span class="e-bs-title">Phone</span>
+                </a>
+              </li>
+              <li class="brick brick-4">
+                <a href="#copy">
+                  <i class="e-list-icon e-icon-content-content-copy"></i>
+                  <span class="e-bs-title">Copy</span>
+                </a>
+              </li>
+              <li class="brick brick-4">
+                <a href="#social">
+                  <i class="e-list-icon e-icon-social-group"></i>
+                  <span class="e-bs-title">Group</span>
+                </a>
+              </li>
+              <li class="brick brick-4">
+                <a href="#map">
+                  <i class="e-list-icon e-icon-maps-map"></i>
+                  <span class="e-bs-title">Map</span>
+                </a>
+              </li>
+              <li class="brick brick-4">
+                <a href="#bar">
+                  <i class="e-list-icon e-icon-maps-local-bar"></i>
+                  <span class="e-bs-title">Bar</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-row e-padding-bottom-75">
+        <div class="brick brick-6">
+          <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+          <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;div id=&quot;bottomsheet-bigicons&quot; class=&quot;e-bottom-sheet hide&quot;&gt;
+  &lt;ul class=&quot;e-list-big-icon has-icon clearfix single-line&quot;&gt;
+    &lt;li class=&quot;brick brick-4&quot;&gt;
+      &lt;a href=&quot;#gmail&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-communication-email&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;e-bs-title&quot;&gt;Gmail&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;brick brick-4&quot;&gt;
+      &lt;a href=&quot;#phone&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-notification-phone-in-talk&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;e-bs-title&quot;&gt;Phone&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;brick brick-4&quot;&gt;
+      &lt;a href=&quot;#copy&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-content-content-copy&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;e-bs-title&quot;&gt;Copy&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;brick brick-4&quot;&gt;
+      &lt;a href=&quot;#social&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-social-group&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;e-bs-title&quot;&gt;Group&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;brick brick-4&quot;&gt;
+      &lt;a href=&quot;#map&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-maps-map&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;e-bs-title&quot;&gt;Map&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;brick brick-4&quot;&gt;
+      &lt;a href=&quot;#bar&quot;&gt;
+        &lt;i class=&quot;e-list-icon e-icon-maps-local-bar&quot;&gt;&lt;/i&gt;
+        &lt;span class=&quot;e-bs-title&quot;&gt;Bar&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+          </code>
+          </pre>
+        </div>
+
+        <div class="brick brick-6">
+          <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+          <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Btn&gt;
+  &lt;BtnItem
+    type=&#39;succes&#39;
+    classes={&#39;raised&#39;}
+    label=&#39;Show bottom sheets icons&#39;
+    rippleEffect={true}
+    actionClick=&#39;bottomsheets&#39;
+    actionType={{
+      &#39;action&#39;: &#39;show&#39;,
+      &#39;targetID&#39;: &#39;bottomsheet-bigicons&#39;
+    }}
+  /&gt;
+&lt;/Btn&gt;
+
+&lt;BottomSheets&gt;
+  &lt;BottomSheetsItem id={&#39;bottomsheet-bigicons&#39;}&gt;
+    &lt;List
+      type=&#39;big-icon&#39;
+      icon={true}
+    &gt;
+      &lt;ListItem
+        contentLink=&#39;#gmail&#39;
+        contentTitle=&#39;Gmail&#39;
+        icon=&#39;communication-email&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#phone&#39;
+        contentTitle=&#39;Phone&#39;
+        icon=&#39;notification-phone-in-talk&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#copy&#39;
+        contentTitle=&#39;Copy&#39;
+        icon=&#39;content-content-copy&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#social&#39;
+        contentTitle=&#39;Group&#39;
+        icon=&#39;social-group&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#map&#39;
+        contentTitle=&#39;Map&#39;
+        icon=&#39;maps-map&#39;
+      /&gt;
+      &lt;ListItem
+        contentLink=&#39;#bar&#39;
+        contentTitle=&#39;Bar&#39;
+        icon=&#39;maps-local-bar&#39;
+      /&gt;
+
+    &lt;/List&gt;
+  &lt;/BottomSheetsItem&gt;
+&lt;/BottomSheets&gt;
+          </code>
+          </pre>
+        </div>
+      </div>
+      <!-- END Bottom Sheets - big icons-->
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "BottomSheets" Essence component to render a group of "BottomSheetsItem" components. The "BottomSheets" Essence component will return a div container with class name "e-bottom-sheet". Inside the BottomSheets component you can include only the <strong>BottomSheetsItem</strong> component. <br />
+          A "BottomSheetsItem" Essence component will render one List component. <br />
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;BottomSheets&gt;</span>
+  <span class="e-text-blue-500">&lt;BottomSheetsItem&gt;</span>
+    <span class="e-text-indigo-600">can be used to include List component</span>
+  <span class="e-text-blue-500">&lt;/BottomSheetsItem&gt;</span>
+<span class="e-text-blue-500">&lt;/BottomSheets&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - use the List Styling in order to create your own styles
+          <br />
+          <br />
+          &bull; Options<br />
+          - <u>id</u>: required to work with a Btn component<br />
+          - in order to recreate the example above please use a BtnItem component with the options bellow, where <u>actionClick</u> is the BottomSheet event, <u>actionType.action</u> to show the BottomSheetsItem div and <u>actionType.targetID</u> is the BottomSheetsItem <strong>id option</strong> :<br />
+          &bull; <strong>actionClick='bottomsheets'</strong> and<br />
+          &bull; <strong>actionType={{<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;'action': 'show',<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;'targetID': 'bottomsheet-simple'<br />
+          }}</strong>
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!--   END Component - BOTTOM SHEETS       -->
+</div>

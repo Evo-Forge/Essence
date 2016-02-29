@@ -1,0 +1,145 @@
+
+ul.has-checkbox, ul.has-switches, ul.has-dropdown{
+   border: none;
+}
+.e-list .has-checkbox .e-checkbox{
+  margin-top: 0px;
+  label{
+    // padding-left: 0px;
+    span:last-child {
+      text-indent: @e-unit * 1.875;
+    }
+  }
+}
+
+//list controls right checkbox
+
+.e-list .has-right-checkbox {
+  .e-checkbox{
+    margin-top:  -10px;
+    /*
+    margin-right:  @e-unit * 1.25;
+    float: right;
+    */
+
+    label {
+      padding-left: 0;
+    }
+  }
+}
+
+//list controls switches
+.e-list .has-switches .e-switches{
+  position: absolute;
+  right: @e-unit * 3.5;
+  top: 13px;
+}
+.e-list .has-dropdown .e-submenu {
+  display: block !important;
+  border: 1px solid lightgrey;
+  margin-left: -@e-unit * 2.125;
+  margin-right: -@e-unit * 2.125;
+  margin-top: @e-unit * 1.625;
+}
+
+
+//list controls expand and colapse
+
+.e-list > li a.last-a{
+width: @e-unit * 4.75;
+}
+
+.e-list .has-dropdown a{
+  display:inline-block;
+  height: auto;
+  padding-top: @e-unit * 0.625;
+}
+.e-list .has-dropdown a:first-child{
+   width: 91%;
+}
+.e-list .has-dropdown .e-submenu li a{
+    display: block;
+    width: 100%;
+  }
+&.e-submenu-list .e-list-content:before{
+    width: @e-unit * 9.25;
+    height: @e-unit * 6;
+  }
+
+&ul, li {
+  list-style: none;
+}
+
+
+// Expanded icon state for list element
+.has-dropdown .expanded {
+    -ms-transform: rotate(180deg); /* IE 9 */
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+  }
+
+//Leave behinds
+
+.e-list .has-swipe-left{
+    overflow: hidden;
+    border-bottom: 1px solid lightgrey;
+    .e-swipe{
+      position: relative;
+      left: -@e-unit * 8.625;
+      width: 100%;
+      background-color: white;
+      z-index: 2;
+    }
+    .e-action{
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      background: @e-color-grey-200;
+      width: @e-unit * 10.75;
+      display: block;
+      height: 100%;
+      .box-shadow(inset 1px 1px 4px 1px rgba(0,0,0,0.4));
+      .e-list-icon{
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+.e-list .has-swipe-right{
+    overflow: hidden;
+    border-bottom: 1px solid lightgrey;
+    .e-swipe{
+      position: relative;
+      right: -@e-unit * 8.75;
+      width: 100%;
+      background-color: white;
+      z-index: 2;
+      padding-left: @e-unit * 2;
+    }
+    .e-action{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      background: @e-color-grey-200;
+      width: @e-unit * 10.75;
+      display: block;
+      height: 100%;
+      .box-shadow(inset -1px 1px 4px 1px rgba(0,0,0,0.4));
+      .e-list-icon{
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+

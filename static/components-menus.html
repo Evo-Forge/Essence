@@ -1,0 +1,743 @@
+<div class="e-container">
+  <!--   Component - Menus       -->
+
+  <div class="menus e-padding-top-50" id="components-menus">
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Menus</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">
+          Menus allow users to take an action by selecting from a list of choices revealed upon opening a temporary, new sheet of material. Menus in material design can be simple, covering the first item, and cascading. When working for a mobile environment use the <code>.mobile</code> class to make things more visible.
+        </p>
+
+        <div id="components-menus-fab">
+          <div class="e-fab-menu fixed">
+            <button class="e-btn-fab lines-button">
+              <span class="lines"></span>
+            </button>
+            <ul class="fab-list">
+              <li>
+                <a href="#" class="e-paper e-background-white circle e-shadow-1 no-min-size e-text-red-900">
+                  <i class="e-icon-action-assessment"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="e-paper e-background-white circle e-shadow-1 no-min-size e-text-green-900">
+                  <i class="e-icon-action-assignment-ind"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="e-paper e-background-white circle e-shadow-1 no-min-size e-text-blue-600">
+                  <i class="e-icon-action-loyalty"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="e-paper e-background-white circle e-shadow-1 no-min-size e-text-gray-600">
+                  <i class="e-icon-action-print"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>Simple menu</h3>
+        <div id="components-menus-simple">
+          <nav class="e-nav-menu">
+            <div>
+              <span id="text-for-menu-simple">
+                <span>SMS Notifications</span>
+                  <i class="e-icon-navigation-arrow-drop-down"></i>
+                </span>
+                <ul class="e-nav e-paper e-shadow-1 hide" id="menu-simple">
+                    <li><i class="e-icon-notification-sms"></i>
+                      <span>SMS Notifications</span>
+                    </li>
+                    <li><i class="e-icon-notification-tap-and-play"></i>
+                      <span>Tap &amp; Pay</span>
+                    </li>
+                    <li class="divider" id="menu-simple"></li>
+                    <li>
+                      <a href="http://www.pearlhq.com">Pearl</a>
+                    </li>
+                    <li>
+                      <a href="http://www.google.com">Google</a>
+                    </li>
+                </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-row">
+
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;nav class=&quot;e-nav-menu&quot;&gt;
+  &lt;div&gt;
+    &lt;span id=&quot;text-for-menu-simple&quot;&gt;
+      &lt;span&gt;SMS Notifications&lt;/span&gt;
+        &lt;i class=&quot;e-icon-navigation-arrow-drop-down&quot;&gt;&lt;/i&gt;
+      &lt;/span&gt;
+      &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;menu-simple&quot;&gt;
+          &lt;li&gt;&lt;i class=&quot;e-icon-notification-sms&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;SMS Notifications&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li&gt;&lt;i class=&quot;e-icon-notification-tap-and-play&quot;&gt;&lt;/i&gt;
+            &lt;span&gt;Tap &amp; Pay&lt;/span&gt;
+          &lt;/li&gt;
+          &lt;li class=&quot;divider&quot; id=&quot;menu-simple&quot;&gt;&lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;http://www.pearlhq.com&quot;&gt;Pearl&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li&gt;
+            &lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;
+          &lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Menu
+  id='menu-simple'
+  placeholder='Show Menu Simple'
+&gt;
+  &lt;MenuItem&gt;
+    &lt;Icon name='notification-sms' /&gt;
+    &lt;Text&gt;SMS Notifications&lt;/Text&gt;
+  &lt;/MenuItem&gt;
+
+  &lt;MenuItem&gt;
+    &lt;Icon name='notification-tap-and-play' /&gt;
+    &lt;Text&gt;Tap &amp; Pay&lt;/Text&gt;
+  &lt;/MenuItem&gt;
+
+  &lt;Block type='li' classes={'divider'} /&gt;
+
+  &lt;MenuItem&gt;
+    &lt;Text type='a' href='http://www.pearlhq.com'&gt;
+      Pearl
+    &lt;/Text&gt;
+  &lt;/MenuItem&gt;
+  &lt;MenuItem&gt;
+    &lt;Text type='a' href='http://www.google.com'&gt;
+      Google
+    &lt;/Text&gt;
+  &lt;/MenuItem&gt;
+&lt;/Menu&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Menu 
+  placeholder='Select option'
+  textStyle={Colors['e-text-indigo-800']}
+&gt;
+  {[
+      'Menu options 1',
+      'Menu options 2',
+      'Menu options 3',
+      'Menu options 4',
+  ]}
+&lt;/Menu&gt;
+
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3>Menu Covering first item</h3>
+
+        <div id="components-menus-cover">
+          <nav class="e-nav-menu cover mobile">
+            <div>
+              <span>SMS Notifications</span>
+              <i class="e-icon-navigation-arrow-drop-down"></i>
+              <ul class="e-nav e-paper e-shadow-1 hide" id="menu-cover">
+                  <li>
+                    <i class="e-icon-notification-sms"></i>
+                    <span>SMS Notifications</span>
+                  </li>
+                  <li>
+                    <i class="e-icon-notification-tap-and-play"></i>
+                    <span>Tap &amp; Pay</span>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="http://www.pearlhq.com">Pearl</a>
+                  </li>
+                  <li>
+                    <a href="http://www.google.com">Google</a>
+                  </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="brick brick-12">
+        <p class="e-body2  e-text-blue-grey-400">If you need to cover the 1st item, use the <code>.cover</code> class.</p>
+      </div>
+    </div>
+
+    <div class="e-row">
+
+      <div class="brick brick-6 hide">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;nav class=&quot;e-nav-menu cover mobile&quot;&gt;
+  &lt;div&gt;
+    &lt;span&gt;SMS Notifications&lt;/span&gt;
+    &lt;i class=&quot;e-icon-navigation-arrow-drop-down&quot;&gt;&lt;/i&gt;
+    &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;menu-cover&quot;&gt;
+        &lt;li&gt;
+          &lt;i class=&quot;e-icon-notification-sms&quot;&gt;&lt;/i&gt;
+          &lt;span&gt;SMS Notifications&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;i class=&quot;e-icon-notification-tap-and-play&quot;&gt;&lt;/i&gt;
+          &lt;span&gt;Tap &amp; Pay&lt;/span&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://www.pearlhq.com&quot;&gt;Pearl&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+          </code>
+        </pre>
+      </div>
+
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Menu
+  id='menu-cover'
+  classes={'cover mobile'}
+  placeholder='Show Menu Cover'
+&gt;
+  &lt;MenuItem&gt;
+    &lt;Icon name='notification-sms' /&gt;
+    &lt;Text&gt;SMS Notifications&lt;/Text&gt;
+  &lt;/MenuItem&gt;
+
+  &lt;MenuItem&gt;
+    &lt;Icon name='notification-tap-and-play' /&gt;
+    &lt;Text&gt;Tap & Pay&lt;/Text&gt;
+  &lt;/MenuItem&gt;
+
+  &lt;MenuItem classes={'divider'} /&gt;
+
+  &lt;MenuItem&gt;
+    &lt;Text type='a' href='http://www.pearlhq.com'&gt;
+      Pearl
+    &lt;/Text&gt;
+  &lt;/MenuItem&gt;
+  &lt;MenuItem&gt;
+    &lt;Text type='a' href='http://www.google.com'&gt;
+      Google
+    &lt;/Text&gt;
+  &lt;/MenuItem&gt;
+&lt;/Menu&gt;
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">ESSENCE NATIVE CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+You can find all the options for menus below, 
+in the "How to use" section.
+          </code>
+        </pre>
+      </div>
+      
+      <div class="brick brick-12">
+        <div class="e-divider thinnest e-background-grey-300"></div>
+      </div>
+    </div>
+<!--
+    <div class="e-row e-margin-bottom-15 e-padding-top-50 hide">
+      <div class="brick brick-12">
+        <h3>Cascading Menu</h3>
+        <div id="components-menus-cascade">
+          <nav class="e-nav-menu cover">
+            <span id="text-for-menu-multiple-cover">
+              <span>
+                Marvel
+              </span>
+              <i class="e-icon-navigation-arrow-drop-down">
+              </i>
+            </span>
+            <ul class="e-nav e-paper e-shadow-1 hide" id="menu-multiple-cover">
+              <li>
+                <a href="#">
+                  Twocows
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  Marvel
+                </a>
+              </li>
+              <li class="divider">
+              </li>
+              <li>
+                <a href="#">
+                  Shuheisha
+                </a>
+              </li>
+              <li class="more " id="more-4-DC%20Comics#5">
+                <a href="#">
+                  <span>
+                    DC Comics
+                  </span>
+                  <i class="e-icon-navigation-chevron-right e-right">
+                  </i>
+                </a>
+                <ul class="e-nav e-paper e-shadow-1">
+                  <li>
+                    <a href="#">
+                      Twocows
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Marvel
+                    </a>
+                  </li>
+                  <li class="divider">
+                  </li>
+                  <li>
+                    <a href="#">
+                      Shuheisha
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      DC Comics
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="brick brick-12">
+        <p class="e-body2  e-text-blue-grey-400">Cascading menus are used when you have sub-lists inside your main menu:</p>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;nav class=&quot;e-nav-menu cover&quot;&gt;
+  &lt;span id=&quot;text-for-menu-multiple-cover&quot;&gt;
+    &lt;span&gt;
+      Marvel
+    &lt;/span&gt;
+    &lt;i class=&quot;e-icon-navigation-arrow-drop-down&quot;&gt;
+    &lt;/i&gt;
+  &lt;/span&gt;
+  &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;menu-multiple-cover&quot;&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;
+        Twocows
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;
+        Marvel
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;divider&quot;&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;#&quot;&gt;
+        Shuheisha
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;more &quot; id=&quot;more-4-DC%20Comics#5&quot;&gt;
+      &lt;a href=&quot;#&quot;&gt;
+        &lt;span&gt;
+          DC Comics
+        &lt;/span&gt;
+        &lt;i class=&quot;e-icon-navigation-chevron-right e-right&quot;&gt;
+        &lt;/i&gt;
+      &lt;/a&gt;
+      &lt;ul class=&quot;e-nav e-paper e-shadow-1&quot;&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            Twocows
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            Marvel
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;divider&quot;&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            Shuheisha
+          &lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+          &lt;a href=&quot;#&quot;&gt;
+            DC Comics
+          &lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Menu items={menus_cascade} /&gt;
+
+var menus_cascade = [
+  {
+    id: 'menu-cascade-cover',
+    type: 'menu',
+    text: 'Options (Cascading Menu)',
+    link: '#',
+    hide: true,
+    classes: "cover",
+    items: [
+      {
+        type: 'menu',
+        text: 'Twocows',
+        link: '#'
+      },
+      {
+        type: 'menu',
+        text: 'Marvel',
+        link: '#'
+      },
+      {
+        type: 'divider'
+      },
+      {
+        type: 'menu',
+        text: 'Shuheisha',
+        link: '#'
+      },
+      {
+        type: 'more',
+        text: 'DC Comics',
+        link: '#',
+        items: [
+          {
+            type: 'menu',
+            text: 'Twocows',
+            link: '#'
+          },
+          {
+            type: 'menu',
+            text: 'Marvel',
+            link: '#'
+          },
+          {
+            type: 'divider'
+          },
+          {
+            type: 'menu',
+            text: 'Shuheisha',
+            link: '#'
+          },
+          {
+            type: 'more',
+            text: 'DC Comics',
+            link: '#'
+          }
+        ]
+      },
+    ]
+  }
+];
+          </code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15 e-padding-top-50">
+      <div class="brick brick-12">
+        <h3>Checkbox Menu</h3>
+        <div id="components-menus-checkbox">
+          <nav class="e-nav-menu brick-4">
+            <div>
+              <span id="text-for-menu-checkbox">
+                Menu with Switches
+                <i class="e-icon-navigation-arrow-drop-down"></i>
+                </span>
+                <ul class="e-nav e-paper e-shadow-1" id="menu-checkbox">
+                    <li>
+                        <div class="e-radio e-radio-success e-left">
+                            <div class="e-radio e-radio-success e-left">
+                                <label>
+                                  <input type="radio" name="notification-sms">
+                                  <span class="absolute circle"></span>
+                                  <span class="absolute e-check"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <span> Receive SMS Notifications</span>
+                        <i class="e-right e-text-green-400 e-icon-notification-sms"></i>
+                    </li>
+                    <li>
+                        <div class="e-radio e-radio-success e-left">
+                            <div class="e-radio e-radio-success e-left">
+                                <label>
+                                    <input type="radio" name="notification-sms"><span class="absolute circle"></span><span class="absolute e-check"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <span> Receive Alerts Notifications</span>
+                        <i class="e-right e-text-green-400 e-icon-alert-warning"></i>
+                    </li>
+                    <li>
+                        <div class="e-radio e-radio-success e-left">
+                            <div class="e-radio e-radio-success e-left">
+                                <label>
+                                    <input type="radio" name="notification-sms"><span class="absolute circle"></span><span class="absolute e-check"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <span> Receive Email Notifications</span>
+                        <i class="e-right e-text-green-400 e-icon-communication-email"></i>
+                    </li>
+                </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <div class="brick brick-12">
+        <p class="e-body2  e-text-blue-grey-400">Cascading menus are used when you have sub-lists inside your main menu:</p>
+      </div>
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-markup">
+&lt;nav class=&quot;e-nav-menu brick-4&quot;&gt;
+  &lt;div&gt;
+  &lt;span id=&quot;text-for-menu-checkbox&quot;&gt;
+    Menu with Switches
+    &lt;i class=&quot;e-icon-navigation-arrow-drop-down&quot;&gt;&lt;/i&gt;
+    &lt;/span&gt;
+    &lt;ul class=&quot;e-nav e-paper e-shadow-1&quot; id=&quot;menu-checkbox&quot;&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;e-radio e-radio-success e-left&quot;&gt;
+          &lt;div class=&quot;e-radio e-radio-success e-left&quot;&gt;
+            &lt;label&gt;
+              &lt;input type=&quot;radio&quot; name=&quot;notification-sms&quot;&gt;
+              &lt;span class=&quot;absolute circle&quot;&gt;&lt;/span&gt;
+              &lt;span class=&quot;absolute e-check&quot;&gt;&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span&gt; Receive SMS Notifications&lt;/span&gt;
+        &lt;i class=&quot;e-right e-text-green-400 e-icon-notification-sms&quot;&gt;&lt;/i&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;e-radio e-radio-success e-left&quot;&gt;
+          &lt;div class=&quot;e-radio e-radio-success e-left&quot;&gt;
+            &lt;label&gt;
+              &lt;input type=&quot;radio&quot; name=&quot;notification-sms&quot;&gt;
+              &lt;span class=&quot;absolute circle&quot;&gt;
+              &lt;/span&gt;&lt;span class=&quot;absolute e-check&quot;&gt;&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span&gt; Receive Alerts Notifications&lt;/span&gt;
+        &lt;i class=&quot;e-right e-text-green-400 e-icon-alert-warning&quot;&gt;&lt;/i&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;div class=&quot;e-radio e-radio-success e-left&quot;&gt;
+          &lt;div class=&quot;e-radio e-radio-success e-left&quot;&gt;
+            &lt;label&gt;
+              &lt;input type=&quot;radio&quot; name=&quot;notification-sms&quot;&gt;
+              &lt;span class=&quot;absolute circle&quot;&gt;&lt;/span&gt;
+              &lt;span class=&quot;absolute e-check&quot;&gt;&lt;/span&gt;
+            &lt;/label&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;span&gt; Receive Email Notifications&lt;/span&gt;
+        &lt;i class=&quot;e-right e-text-green-400 e-icon-communication-email&quot;&gt;&lt;/i&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;
+          </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+          <code class="language-jsx">
+&lt;Menu
+  id='menu-checkbox'
+  placeholder='Menu with Switches'
+  classes='brick-4'
+&gt;
+  &lt;MenuItem&gt;
+    &lt;SwitchItem
+      type='radio'
+      name='notification-sms'
+      classes={'e-left'}
+    /&gt;
+    &lt;Text&gt; Receive SMS Notifications&lt;/Text&gt;
+    &lt;Icon
+      name='notification-sms'
+      classes={'e-right e-text-green-400'}
+    /&gt;
+  &lt;/MenuItem&gt;
+
+  &lt;MenuItem&gt;
+    &lt;SwitchItem
+      type='radio'
+      name='notification-sms'
+      classes={'e-left'}
+    /&gt;
+    &lt;Text&gt; Receive Alerts Notifications&lt;/Text&gt;
+    &lt;Icon
+      name='alert-warning'
+      classes={'e-right e-text-green-400'}
+    /&gt;
+  &lt;/MenuItem&gt;
+
+  &lt;MenuItem&gt;
+    &lt;SwitchItem
+      type='radio'
+      name='notification-sms'
+      classes={'e-left'}
+    /&gt;
+    &lt;Text&gt; Receive Email Notifications&lt;/Text&gt;
+    &lt;Icon
+      name='communication-email'
+      classes={'e-right e-text-green-400'}
+    /&gt;
+  &lt;/MenuItem&gt;
+&lt;/Menu&gt;
+          </code>
+        </pre>
+      </div>
+    </div>
+-->
+
+  <div class="e-row e-margin-bottom-15">
+    <div class="brick brick-12">
+      <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+        How to use
+      </h3>
+      <div class="e-divider thick short e-background-indigo-400"></div>
+      <p class="e-body5 e-padding-top-15">
+        Use the "Menu" tag to render a group of "MenuItem" components. The "Menu" Essence component will return a nav container with class name "e-nav-menu". Inside the Menu component you can include only the <strong>MenuItem</strong> component. <br />
+        A "MenuItem" Essence component will render any component or html code.<br />
+        <br />
+        &bull; Structure <br />
+        <pre class="small">
+<span class="e-text-blue-500">&lt;Menu id='menu-cover'</span>
+  <span class="e-text-blue-500">classes={'cover mobile'}</span>
+  <span class="e-text-blue-500">placeholder='Show Menu Cover'</span>
+<span class="e-text-blue-500">&gt;</span>
+  <span class="e-text-blue-500">&lt;MenuItem&gt;</span>
+    <span class="e-text-indigo-600">can be used to include any component or html code</span>
+  <span class="e-text-blue-500">&lt;/MenuItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Menu&gt;</span>
+        </pre>
+
+        &bull; Styling <br />
+        - <u>classes</u>: add extra class names to any Menu component or subcomponent from Styles > Colors menu<br />
+        <br />
+        <br />
+        &bull; Options<br />
+        - id: required for unique Menu to be shown on click<br />
+        - placeholder: is the text to be shown at the render starting point<br />
+        - use the examples from above to structure your own Menu
+      </p>
+    </div>
+    
+    <div class="brick brick-12">
+      <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+        How to use - Essence Native
+      </h3>
+      <div class="e-divider thick short e-background-indigo-400"></div>
+      <p class="e-body5 e-padding-top-15">
+        Use the "Menu" Essence component to render a group of "MenuItem" components. The "Menu" Essence component will return a nav container with class name "e-nav-menu". Inside the Menu component you can include only the <strong>MenuItem</strong> component. <br />
+        A "MenuItem" Essence component will render any component or html code.<br />
+        <br />
+        &bull; Structure <br />
+        <pre class="small">
+<span class="e-text-indigo-500">&lt;Menu
+  placeholder='Select option'
+  textStyle={<span class="e-text-blue-500">__ColorsStyles__</span>}
+&gt;</span>
+  {[<span class="e-text-grey-400">
+    'Menu option 1',
+    'Menu option 2',
+    'Menu option 3',
+    'Menu option 4',</span>
+  ]}
+<span class="e-text-indigo-500">&lt;/Menu&gt;</span>
+        </pre>
+
+        &bull; Styling <br />
+        - <u>textStyle</u>: add styling class names to text Menu children from Styles > Colors menu<br />
+        <br />
+        <br />
+        &bull; Options<br />
+        - <u>placeholder</u>: is the text to be shown at the render starting point, on Menu option selection will be replaced with the option value or text<br />
+        <br />
+        &bull; Content<br />
+        - array format: children type as text string
+      </p>
+    </div>
+    
+  </div>
+
+  </div>
+
+  <!-- END Component - Menus       -->
+</div>

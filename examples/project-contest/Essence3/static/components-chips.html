@@ -1,0 +1,170 @@
+<div class="e-container">
+  <!--   Component - CHIPS       -->
+  <div class="chips e-padding-top-50" id="components-chips">
+    <div class="e-row">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Chips</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">They cannot be eaten. But can be used to show complex information, such as calendar events or contacts. Use them wisely by adding the e-chip-image/text/address class, as well as desired button class to your nifty code.</p>
+      </div>
+
+      <div class="brick brick-4" id="components-chips-reactjs">
+        <div id="chips" style="max-width: 400px; margin: 30px auto;">
+          <ul class="">
+            <li>
+              <div style="display:block;">
+                <div id="0" class="e-chip clearfix first">
+                  <div class="e-chip-image e-left"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+                  </div>
+                  <div class="e-chip-text e-left"><span class="e-chip-name">Gonzales</span><span class="e-chip-adress">gon@zal.es</span>
+                  </div>
+                  <button class="e-close-btn e-right"></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div style="display:none;">
+                <div id="1" class="e-chip clearfix">
+                  <div class="e-chip-image e-left"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+                  </div>
+                  <div class="e-chip-text e-left"><span class="e-chip-name">Iolanda Curtiz</span><span class="e-chip-adress">io@lan.da</span>
+                  </div>
+                  <button class="e-close-btn e-right"></button>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div style="display:none;">
+                <div id="2" class="e-chip clearfix">
+                  <div class="e-chip-image e-left"><img src="assets/img/card-user-img.jpg" alt="Card Image">
+                  </div>
+                  <div class="e-chip-text e-left"><span class="e-chip-name">Gizela Timliv</span><span class="e-chip-adress">gizela@timl.iv</span>
+                  </div>
+                  <button class="e-close-btn e-right"></button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-markup">
+&lt;div id="chips"&gt;
+  &lt;ul class=""&gt;
+    &lt;li&gt;
+      &lt;div style="display:block;"&gt;
+        &lt;div id="0" class="e-chip clearfix first"&gt;
+          &lt;div class="e-chip-image e-left"&gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image"&gt;
+          &lt;/div&gt;
+          &lt;div class="e-chip-text e-left"&gt;&lt;span class="e-chip-name"&gt;Gonzales&lt;/span&gt;&lt;span class="e-chip-adress"&gt;gon@zal.es&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;button class="e-close-btn e-right"&gt;&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;div style="display:none;"&gt;
+        &lt;div id="1" class="e-chip clearfix"&gt;
+          &lt;div class="e-chip-image e-left"&gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image"&gt;
+          &lt;/div&gt;
+          &lt;div class="e-chip-text e-left"&gt;&lt;span class="e-chip-name"&gt;Iolanda Curtiz&lt;/span&gt;&lt;span class="e-chip-adress"&gt;io@lan.da&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;button class="e-close-btn e-right"&gt;&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;div style="display:none;"&gt;
+        &lt;div id="2" class="e-chip clearfix"&gt;
+          &lt;div class="e-chip-image e-left"&gt;&lt;img src="assets/img/card-user-img.jpg" alt="Card Image"&gt;
+          &lt;/div&gt;
+          &lt;div class="e-chip-text e-left"&gt;&lt;span class="e-chip-name"&gt;Gizela Timliv&lt;/span&gt;&lt;span class="e-chip-adress"&gt;gizela@timl.iv&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;button class="e-close-btn e-right"&gt;&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</code>
+              </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;Chip&gt;
+  &lt;ChipItem
+    image='assets/img/card-user-img.jpg'
+    imageAlt='Card Image'
+    name='Gonzales'
+    email='gon@zal.es'
+  &gt;
+  &lt;/ChipItem&gt;
+  &lt;ChipItem
+    image='assets/img/card-user-img.jpg'
+    imageAlt='Card Image'
+    name='Iolanda Curtiz'
+    email='io@lan.da'
+  &gt;
+  &lt;/ChipItem&gt;
+  &lt;ChipItem
+    image='assets/img/card-user-img.jpg'
+    imageAlt='Card Image'
+    name='Gizela Timliv'
+    email='gizela@timl.iv'
+  &gt;
+  &lt;/ChipItem&gt;
+&lt;/Chip&gt;
+</code>
+              </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Chip components are used in the search results to display contact information. <br />
+          Use the "Chip" Essence component to render a group or single "ChipItem" components. The "Chip" Essence component will return a <strong>&lt;ul&gt;</strong> list container with a single or multiple &lt;li&gt; tag which contains a div with class "e-chip".<br />
+
+          <br />
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;Chip&gt;</span>
+  <span class="e-text-blue-600">&lt;ChipItem
+    image='<span class="e-text-blue-900">__image-url__</span>'
+    imageAlt='<span class="e-text-blue-900">__image-alt-text__</span>'
+    name='<span class="e-text-blue-900">__contact-text-or-name__</span>'
+    email='<span class="e-text-blue-900">__contact-email-address__</span>'
+  &gt;</span>
+  <span class="e-text-blue-600">&lt;/ChipItem&gt;</span>
+<span class="e-text-blue-500">&lt;/Chip&gt;</span>
+          </pre>
+
+          &bull; Styling <br />
+          - <u>classes</u>: add extra class names to any ChipItem subcomponent from Styles > Colors menu<br />
+
+          <br />
+          &bull; Options<br />
+          - <u>image</u>: image file for contact avatar<br />
+          - <u>imageAlt</u>: image alternative text for contact avatar<br />
+          - <u>name</u>: text for contact name<br />
+          - <u>email</u>: email address for contact name<br />
+        </p>
+      </div>
+    </div>
+
+  </div>
+  <!--   END Component - CHIPS       -->
+</div>

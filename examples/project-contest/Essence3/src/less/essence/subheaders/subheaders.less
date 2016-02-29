@@ -1,0 +1,35 @@
+
+.e-subheader {
+  margin: 0;
+  color: @e-subheader-defaut-color;
+  font-family: 'Roboto Medium';
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: .5px;
+}
+.e-list-subheader {
+  &:extend(.e-subheader);
+  padding: 16px 0 16px 16px;
+  background-color: @e-subheader-background-color;
+}
+.e-avatarlist-subheader {
+  &:extend(.e-subheader);
+  padding: 16px 0 16px 72px;
+  background-color: @e-subheader-background-color;
+}
+.e-list-subheader.colored,
+.e-avatarlist-subheader.colored {
+  color: @e-subheader-text-color;
+}
+// stick to top
+.e-sticky {
+  position: relative;
+  width: 100%;
+}
+ .e-sticky.active {
+  &:extend(.e-sticky);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}

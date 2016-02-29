@@ -1,0 +1,86 @@
+[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+
+//Hide the tooltip content by default
+   &:before, &:after {
+    visibility: hidden;
+    opacity: 0;
+   }
+
+//Position tooltip above the element on desktop&tablet
+    @media (min-width: 320px) {
+        /*
+      Desktop:
+        Text: Roboto Medium 10sp
+        Height: 22;
+        Margin top: 4;
+        Padding left&right: 8;
+        Background fill: 90% opaque
+      */
+      &:before {
+      position: absolute;
+      .positiontooltip-down();  //default position
+      z-index: 777;
+      display: inline-block;
+      width: @e-unit*11;
+      margin-top: @e-unit*0.5;
+      padding: 0 @e-unit;
+      -webkit-border-radius: 2px;
+      -moz-border-radius:    2px;
+      border-radius:         2px;
+      background-color: #383838;
+      opacity: 0.9;
+      color: #fff;
+      content: attr(data-tooltip);
+      font-family: @font-family-roboto;
+      text-align: center;
+      font-size: @e-unit*1.25;
+      line-height: @e-unit*2.75;
+      }
+    }
+
+
+//Position tooltip above the element on mobile
+  @media (max-width: 320px) {
+      /*
+      Mobile touch:
+        Text: Roboto Medium 14sp
+        Height: 44;
+        Margin top: 4;
+        Padding left&right: 16;
+        Background fill: 90% opaque
+      */
+      &:before {
+      position: absolute;
+      bottom: 140%;
+      left: 0%;
+      margin-top: @e-unit*0.5;
+      padding: 0 @e-unit;
+      display: inline-block;
+      -webkit-border-radius: 2px;
+      -moz-border-radius:    2px;
+      border-radius:         2px;
+      background-color: #383838;
+      opacity: 0.9;
+      color: #fff;
+      content: attr(data-tooltip);
+      font-family: @font-family-roboto;
+      text-align: center;
+      font-size: @e-unit*1.75;
+      line-height: @e-unit*5.5;
+      }
+  }
+
+//Show tooltip content on hover
+  &:hover:before, &:hover:after, &:focus:before, &:focus:after {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+
+#central {
+  margin: 0 780px;
+}
+

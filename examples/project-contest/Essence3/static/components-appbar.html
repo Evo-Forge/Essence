@@ -1,0 +1,241 @@
+<div class="e-container">
+  <!--   Component - APPBAR       -->
+  <div class="appbar e-padding-top-50" id="components-appbar">
+    <div class="e-row ">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">Appbar</h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body1 e-text-blue-grey-400 e-padding-top-15">It’s never been more fun to create an appbar with button and navigation and whatever. Start with the <code>.e-appbar</code> class then add buttons, menus and whatever you need.</p>
+      </div>
+
+      <div class="brick brick-12" id="components-appbar-reactjs">
+        <div class="e-appbar clearfix" >
+          <nav class="e-nav-menu e-text-color-blue-500 cover e-left" id="menu-0" >
+              <div >
+                <i class="e-icon-navigation-menu" ></i>
+                  <ul class="e-nav e-paper e-shadow-1 hide" id="0" >
+                      <li><span >New project</span></li>
+                      <li><span >New user</span></li>
+                      <li><span >More tools</span></li>
+                      <li><span >Exit</span></li>
+                  </ul>
+              </div>
+          </nav>
+          <nav class="e-nav-menu e-text-color-blue-500 cover e-left" id="1" >
+              <div >
+                <span id="text-for-1" >
+                  <span >Tap &amp; Pay</span>
+                  <i class="e-icon-navigation-arrow-drop-down"></i>
+                </span>
+                  <ul class="e-nav e-paper e-shadow-1 hide" id="1" >
+                      <li>
+                        <i class="e-icon-notification-sms"></i>
+                        <span>Notifications</span></span>
+                      </li>
+                      <li>
+                        <i class="e-icon-notification-tap-and-play"></i>
+                        <span>Tap &amp; Pay</span></span>
+                      </li>
+                      <li class="divider" id="1" ></li>
+                      <li><a href="http://www.pearlhq.com">Pearl</a></li>
+                      <li><a href="http://www.google.com">Google</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <nav class="e-nav-menu e-text-color-blue-500 cover e-right" id="2" >
+              <div >
+                <i class="e-icon-navigation-more-vert" ></i>
+                  <ul class="e-nav e-paper e-shadow-1 right hide" id="2" >
+                      <li><span >Profile</span></span></li>
+                      <li><span >Settings</span></span></li>
+                      <li class="divider" id="2" ></li>
+                      <li><span ><span >Support</span></span></li>
+                      <li><span ><span >Logout</span></span></li>
+                  </ul>
+              </div>
+          </nav>
+          <div >
+              <button class="simple-button e-right" >
+                <i class="e-icon-action-favorite" ></i>
+              </button>
+              <button class="simple-button e-right" >
+                <i class="e-icon-action-search" ></i>
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="e-row e-padding-bottom-75">
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">HTML CODE</h3>
+        <pre class="e-paper e-shadow-2 language-markup">
+        <code class="language-markup">
+&lt;div class=&quot;e-appbar clearfix&quot; &gt;
+  &lt;nav class=&quot;e-nav-menu e-text-color-blue-500 cover e-left&quot; id=&quot;menu-0&quot; &gt;
+      &lt;div &gt;
+        &lt;i class=&quot;e-icon-navigation-menu&quot; &gt;&lt;/i&gt;
+          &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;0&quot; &gt;
+              &lt;li&gt;&lt;span &gt;New project&lt;/span&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;span &gt;New user&lt;/span&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;span &gt;More tools&lt;/span&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;span &gt;Exit&lt;/span&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;nav class=&quot;e-nav-menu e-text-color-blue-500 cover e-left&quot; id=&quot;1&quot; &gt;
+      &lt;div &gt;
+        &lt;span id=&quot;text-for-1&quot; &gt;
+          &lt;span &gt;Tap &amp;amp; Pay&lt;/span&gt;
+          &lt;i class=&quot;e-icon-navigation-arrow-drop-down&quot;&gt;&lt;/i&gt;
+        &lt;/span&gt;
+          &lt;ul class=&quot;e-nav e-paper e-shadow-1 hide&quot; id=&quot;1&quot; &gt;
+              &lt;li&gt;
+                &lt;i class=&quot;e-icon-notification-sms&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Notifications&lt;/span&gt;&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li&gt;
+                &lt;i class=&quot;e-icon-notification-tap-and-play&quot;&gt;&lt;/i&gt;
+                &lt;span&gt;Tap &amp;amp; Pay&lt;/span&gt;&lt;/span&gt;
+              &lt;/li&gt;
+              &lt;li class=&quot;divider&quot; id=&quot;1&quot; &gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;http://www.pearlhq.com&quot;&gt;Pearl&lt;/a&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;a href=&quot;http://www.google.com&quot;&gt;Google&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;nav class=&quot;e-nav-menu e-text-color-blue-500 cover e-right&quot; id=&quot;2&quot; &gt;
+      &lt;div &gt;
+        &lt;i class=&quot;e-icon-navigation-more-vert&quot; &gt;&lt;/i&gt;
+          &lt;ul class=&quot;e-nav e-paper e-shadow-1 right hide&quot; id=&quot;2&quot; &gt;
+              &lt;li&gt;&lt;span &gt;Profile&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;span &gt;Settings&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+              &lt;li class=&quot;divider&quot; id=&quot;2&quot; &gt;&lt;/li&gt;
+              &lt;li&gt;&lt;span &gt;&lt;span &gt;Support&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;span &gt;&lt;span &gt;Logout&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+      &lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;div &gt;
+      &lt;button class=&quot;simple-button e-right&quot; &gt;
+        &lt;i class=&quot;e-icon-action-favorite&quot; &gt;&lt;/i&gt;
+      &lt;/button&gt;
+      &lt;button class=&quot;simple-button e-right&quot; &gt;
+        &lt;i class=&quot;e-icon-action-search&quot; &gt;&lt;/i&gt;
+      &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+       </code>
+        </pre>
+      </div>
+
+      <div class="brick brick-6">
+        <h3 class="e-subhead e-text-indigo-400">REACT CODE</h3>
+        <pre class="e-paper e-shadow-2">
+        <code class="language-jsx">
+&lt;AppBar&gt;
+  &lt;Menu
+    id='menu-appbar-icon-menu'
+    classes={'e-text-color-blue-500 cover e-left'}
+    icon='navigation-menu'
+  &gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;New project&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;New user&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;More tools&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;Exit&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+  &lt;/Menu&gt;
+
+  &lt;Menu
+    id='menu-appbar-left'
+    classes={'e-text-color-blue-500 cover e-left'}
+    placeholder='Options'
+  &gt;
+    &lt;MenuItem&gt;
+      &lt;Icon name='notification-sms' /&gt;
+      &lt;Text&gt;Notifications&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Icon name='notification-tap-and-play' /&gt;
+      &lt;Text&gt;Tap &amp; Pay&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;Block type='li' classes={'divider'} /&gt;
+    &lt;MenuItem&gt;
+      &lt;Text type='a' href='http://www.pearlhq.com'&gt;
+        Pearl
+      &lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Text type='a' href='http://www.google.com'&gt;
+        Google
+      &lt;/Text&gt;
+    &lt;/MenuItem&gt;
+  &lt;/Menu&gt;
+
+  &lt;Menu
+    id='menu-appbar-right'
+    classes={'e-text-color-blue-500 cover e-right'}
+    icon='navigation-more-vert'
+    right={true}
+  &gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;Profile&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;Settings&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;Block type='li' classes={'divider'} /&gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;Support&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+    &lt;MenuItem&gt;
+      &lt;Text&gt;Logout&lt;/Text&gt;
+    &lt;/MenuItem&gt;
+  &lt;/Menu&gt;
+
+  &lt;Btn&gt;
+    &lt;BtnItem
+      icon='action-favorite'
+      classes={'simple-button e-right'}
+    /&gt;
+    &lt;BtnItem
+      icon='action-search'
+      classes={'simple-button e-right'}
+    /&gt;
+  &lt;/Btn&gt;
+&lt;/AppBar&gt;
+       </code>
+        </pre>
+      </div>
+    </div>
+
+    <div class="e-row e-margin-bottom-15">
+      <div class="brick brick-12">
+        <h3 class="e-display-1 e-text-indigo-400 e-text-uppercase">
+          How to use
+        </h3>
+        <div class="e-divider thick short e-background-indigo-400"></div>
+        <p class="e-body5 e-padding-top-15">
+          Use the "AppBar" Essence component to render a div html tag with "e-appbar" classname.
+          Inside the AppBar Essence component you can include any type of components.<br />
+          </p>
+          &bull; Structure <br />
+          <pre class="small">
+<span class="e-text-blue-500">&lt;AppBar&gt;</span>
+    <span class="e-text-indigo-600">include any type of components like: Menu, Btn, etc</span>
+<span class="e-text-blue-500">&lt;/AppBar&gt;</span>
+          </pre>
+      </div>
+    </div>
+
+  </div>
+  <!--  END Component - APPBAR       -->
+</div>
