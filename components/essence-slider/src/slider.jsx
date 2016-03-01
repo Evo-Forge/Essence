@@ -10,6 +10,7 @@ class Slider extends React.Component {
                 this.props.className,
                 this.props.classes
             ),
+            zeroActive: false,
             discreteActive: false,
             start: props.start || 0,
             dataValue: props.start || 0,
@@ -42,6 +43,7 @@ class Slider extends React.Component {
 
             self.setState({
                 dataValue: sliderValue,
+                zeroActive: sliderValue < 1 ? true : false,
                 lowerFlex: (sliderValue / 100)+' 1 0%',
                 upperFlex: 1 - (sliderValue / 100)+' 1 0%'
             });
@@ -49,24 +51,9 @@ class Slider extends React.Component {
 
     }
 
-    discrete() {
-        let discreteStyles = this.state.discreteStyles;
-        if (this.props.discrete) {
-            return (
-                <div
-                    className={'e-discrete-value ' + this.state.discreteActive}
-                    style={discreteStyles}
-                >
-                    {this.state.discrete}
-                </div>
-            );
-        }
-        return;
-    }
-
 	render() {
         return (
-            <div className={ClassNames('e-slider', {'discrete': this.state.discreteActive})}>
+            <div className={ClassNames('e-slider', {'discrete': this.state.discreteActive}, {'zero': this.state.zeroActive})}>
                 <input type='range' {...this.props} ref={(ref) => this.sliderInput = ref} defaultValue={this.state.dataValue} data-discrete={this.state.dataValue} />
                 <div className={'track'}>
                     <div className={ClassNames('left', this.state.lowerColor)} style={{flex: this.state.lowerFlex}} />
