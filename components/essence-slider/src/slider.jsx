@@ -53,7 +53,11 @@ class Slider extends React.Component {
 
 	render() {
         return (
-            <div className={ClassNames('e-slider', {'discrete': this.state.discreteActive}, {'zero': this.state.zeroActive})}>
+            <div className={ClassNames('e-slider', 
+                {'discrete': this.state.discreteActive}, 
+                {'zero': this.state.zeroActive},
+                {'disabled': this.props.disabled}
+            )}>
                 <input type='range' {...this.props} ref={(ref) => this.sliderInput = ref} defaultValue={this.state.dataValue} data-discrete={this.state.dataValue} />
                 <div className={'track'}>
                     <div className={ClassNames('left', this.state.lowerColor)} style={{flex: this.state.lowerFlex}} />
