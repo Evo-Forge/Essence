@@ -149,3 +149,33 @@ input[type=range]{
       content: "5";      
     }
 }
+
+.e-slider.disabled {
+
+  .track {
+    .left {
+      background: @e-color-grey-100 !important;
+    }
+  }
+
+  input[type=range] {
+    &::-webkit-slider-thumb {  
+
+      background: @e-color-grey-400;
+
+      &:active {
+          height:@e-unit*1.5;
+          width: @e-unit*1.5;          
+        }
+
+    }
+
+    &:focus:not(:active)::-webkit-slider-thumb {
+      box-shadow: none;
+    }
+
+    &:focus:not(:active)::-moz-range-thumb {
+      box-shadow: none;
+    }
+  }
+}
