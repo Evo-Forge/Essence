@@ -11,6 +11,7 @@ class Slider extends React.Component {
                 this.props.classes
             ),
             start: props.start || 0,
+            dataValue: props.start || 0,
             lowerColor: props.lowerColor || 'e-background-indigo-400',
             lowerFlex: props.start ? (props.start / 100)+' 1 0%' : '0 1 0%',
             upperColor: props.upperColor || 'e-background-grey-100',
@@ -24,6 +25,7 @@ class Slider extends React.Component {
             let sliderValue = self.sliderInput.value;
 
             self.setState({
+                dataValue: sliderValue,
                 lowerFlex: (sliderValue / 100)+' 1 0%',
                 upperFlex: 1 - (sliderValue / 100)+' 1 0%'
             });
@@ -48,7 +50,7 @@ class Slider extends React.Component {
 	render() {
         return (
             <div className={'e-slider'}>
-                <input type='range' {...this.props} ref={(ref) => this.sliderInput = ref} defaultValue={this.state.start} />
+                <input type='range' {...this.props} ref={(ref) => this.sliderInput = ref} defaultValue={this.state.start} data-value={this.state.start} />
                 <div className={'track'}>
                     <div className={ClassNames('left', this.state.lowerColor)} style={{flex: this.state.lowerFlex}} />
                     <div className={ClassNames('right', this.state.upperColor)} style={{flex: this.state.upperFlex}} />
