@@ -242,24 +242,48 @@
 .e-slider {
   position: relative;
   width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  background: none;
+  height: 18px;
 
   .track {
+    background: transparent;
     position: absolute;
-    top: -5px;
-    height: 2px;        
+    height: 2px;
     width: 100%;
+    top: 50%;
+    left: 0;
+    margin: 0;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    -webkit-transform: translate(0,-1px);
+    transform: translate(0,-1px);
 
-    .left, .right {
-      display: inline-block;
-      height: inherit;    
-      z-index: -5;  
+    .right {      
+      -webkit-flex: 0;
+      -ms-flex: 0;
+      flex: 0;
+      position: relative;
+      border: 0;
+      padding: 0;
+      transition: left .18s cubic-bezier(.4,0,.2,1);
     }
-    .left {
-      margin-right: -2px;
-    }
-
-    .right {
-      margin-left: 2px;
+    .left {      
+      -webkit-flex: 0;
+      -ms-flex: 0;
+      flex: 0;
+      position: relative;
+      border: 0;
+      padding: 0;
     }
   }
 
@@ -274,17 +298,19 @@ input[type=range]::-webkit-slider-runnable-track {
     
 }
 
-input[type=range]::-webkit-slider-thumb {  
-  overflow: hidden;
-    z-index: 5555;  
+input[type=range]::-webkit-slider-thumb {    
     -webkit-appearance: none;
-    border: none;
-    height: 12px;
     width: 12px;
+    height: 12px;
+    box-sizing: border-box;
     border-radius: 50%;
-    background: @e-color-indigo-400;    
-    margin-top: -4px;
-    .transition(all 0.2s);
+    background: rgb(63,81,181);
+    border: none;
+    transition: border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.18s cubic-bezier(0.4, 0, 0.2, 1), border 0.18s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+  
+
     
     &:active {
       height:18px;
