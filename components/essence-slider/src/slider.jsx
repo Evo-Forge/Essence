@@ -10,7 +10,8 @@ class Slider extends React.Component {
                 this.props.className,
                 this.props.classes
             ),
-            zeroActive: false,
+            uniqueID: 'slider_'+Date.now(),
+            zeroActive: props.start ? false : true,
             discreteActive: false,
             start: props.start || 0,
             dataValue: props.start || 0,
@@ -51,16 +52,23 @@ class Slider extends React.Component {
 
     }
 
+    renderDiscreteStyle() {
+        return (
+            '#'+this.state.uniqueID+'.discrete input[type=range]::-webkit-slider-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},'+'#'+this.state.uniqueID+'.discrete input[type=range]::-moz-range-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},'+'#'+this.state.uniqueID+'.discrete input[type=range]::-ms-thumb:after{content: "' + parseInt(this.state.dataValue) + '"}'
+        );
+    }
+
 	render() {
         return (
-            <div className={ClassNames('e-slider', 
-                {'discrete': this.state.discreteActive}, 
-                {'zero': this.state.zeroActive},
-                {'disabled': this.props.disabled}
-            )}>
+            <div id={this.state.uniqueID} 
+                className={ClassNames('e-slider', 
+                    {'discrete': this.state.discreteActive}, 
+                    {'zero': this.state.zeroActive},
+                    {'disabled': this.props.disabled}
+                )}>
                 <input 
                     type='range'
-                    {...this.props} 
+                    {...this.props}
                     ref={(ref) => this.sliderInput = ref} 
                     defaultValue={this.state.dataValue} 
                     data-discrete={this.state.dataValue} 
@@ -69,6 +77,7 @@ class Slider extends React.Component {
                     <div className={ClassNames('left', this.state.lowerColor)} style={{flex: this.state.lowerFlex}} />
                     <div className={ClassNames('right', this.state.upperColor)} style={{flex: this.state.upperFlex}} />
                 </div>
+                <style key={'style_' + this.state.uniqueID} dangerouslySetInnerHTML={{__html: this.renderDiscreteStyle()}} />
             </div>
         );
 	}
