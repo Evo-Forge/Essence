@@ -46,6 +46,7 @@
     "essence-progress": "^1.x",
     "essence-slider": "^1.x",
     "essence-snackbar": "^1.x",
+    "essence-stepper": "^1.x",
     "essence-switch": "^1.x",
     "essence-tab": "^1.x",
     "essence-toast": "^1.x",

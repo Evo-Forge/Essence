@@ -28,6 +28,7 @@ import Paper from 'essence-paper';
 import Progress from 'essence-progress';
 import Slider from 'essence-slider';
 import SnackBar from 'essence-snackbar';
+import Stepper from 'essence-stepper';
 import Switch from 'essence-switch';
 import Tab from 'essence-tab';
 import Toast from 'essence-toast';

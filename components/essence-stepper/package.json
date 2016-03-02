@@ -1,14 +1,14 @@
 {
-  "name": "essence-slider",
-  "version": "1.0.6",
-  "description": "Essence Slider - Slider component",
+  "name": "essence-stepper",
+  "version": "1.0.3",
+  "description": "Essence Steppers - Stepper component",
   "author": "Hetmann W. Iohan <iohan@getessence.io>",
   "homepage": "http://getessence.io/",
   "license": "MIT",
   "repository": "git://github.com/Evo-Forge/Essence",
-  "main": "lib/slider.js",
+  "main": "lib/stepper.js",
   "scripts": {
-    "babel": "babel --presets react,es2015 src --out-dir lib && cp src/slider.less lib/slider.less",
+    "babel": "babel --presets react,es2015 src --out-dir lib && cp src/stepper.less lib/stepper.less",
     "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
   },
   "devDependencies": {
