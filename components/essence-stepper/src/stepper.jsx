@@ -127,7 +127,7 @@ class Stepper extends React.Component {
                         </div>
                         <div className={'e-steppers-container'}>
                             <div className={ClassNames('e-stepper-content', {active: (self.state.selected === key)})}>
-                                {(steps.length - 1) !== key ? <span className={'connector'} /> : null}
+                                <span className={'connector'} />
                                 {item.content}
                                 {self.renderActions()}
                             </div>
@@ -137,7 +137,7 @@ class Stepper extends React.Component {
             });
             
             return (
-                <div className={'e-steppers'}>{stepsItems}</div>
+                <div className={'e-steppers vertical'}>{stepsItems}</div>
             );
         }
         return;
@@ -146,7 +146,7 @@ class Stepper extends React.Component {
     renderActions() {
         if (this.props.steps.length > 0) {
             return (
-                <div className={'e-padding-top-10 clearfix'}>
+                <div className={'e-padding-top-10 clearfix e-stepper-actions'}>
                     {
                         this.props.onBack && this.state.currentStep > 0 ? 
                         (<button 
