@@ -189,3 +189,38 @@ blockquote {
     }
   }
 }
+
+.e-badge {
+  position : relative;
+  white-space: nowrap;
+  margin-right: (@e-badge-size + @e-badge-padding);
+
+  &:not([data-badge]) {
+    margin-right: auto;
+  }
+
+  &[data-badge]:after {
+    content: attr(data-badge);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: -(@e-badge-size / 2);
+    right: -(@e-badge-size + @e-badge-padding);
+
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 600;
+    font-size: @e-badge-font-size;
+    width: @e-badge-size;
+    height: @e-badge-size;
+    border-radius : 50%;
+
+    background: @e-badge-background!important;
+    color: @e-badge-color!important;
+  }
+}

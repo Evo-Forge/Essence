@@ -33,7 +33,7 @@ var Text = (function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Text).call(this, props));
 
         _this.state = {
-            classes: (0, _classnames2.default)(_this.props.className, _this.props.classes)
+            classes: (0, _classnames2.default)({ 'e-badge': props.badge ? true : false }, _this.props.className, _this.props.classes)
         };
         return _this;
     }
@@ -42,7 +42,7 @@ var Text = (function (_React$Component) {
         key: 'componentWillReceiveProps',
         value: function componentWillReceiveProps(nextProps) {
             this.setState({
-                classes: (0, _classnames2.default)(nextProps.className, nextProps.classes)
+                classes: (0, _classnames2.default)({ 'e-badge': nextProps.badge ? true : false }, nextProps.className, nextProps.classes)
             });
         }
     }, {
@@ -54,126 +54,126 @@ var Text = (function (_React$Component) {
                 case 'a':
                     return _react2.default.createElement(
                         'a',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'p':
                     return _react2.default.createElement(
                         'p',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'label':
                     return _react2.default.createElement(
                         'label',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'strong':
                     return _react2.default.createElement(
                         'strong',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'small':
                     return _react2.default.createElement(
                         'small',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'caption':
                     return _react2.default.createElement(
                         'caption',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'h1':
                     return _react2.default.createElement(
                         'h1',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'h2':
                     return _react2.default.createElement(
                         'h2',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'h3':
                     return _react2.default.createElement(
                         'h3',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'h4':
                     return _react2.default.createElement(
                         'h4',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'h5':
                     return _react2.default.createElement(
                         'h5',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'h6':
                     return _react2.default.createElement(
                         'h6',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'sup':
                     return _react2.default.createElement(
                         'sup',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'sub':
                     return _react2.default.createElement(
                         'sub',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'em':
                     return _react2.default.createElement(
                         'em',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'blockquote':
                     return _react2.default.createElement(
                         'blockquote',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 case 'cite':
                     return _react2.default.createElement(
                         'cite',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;
                 default:
                     return _react2.default.createElement(
                         'span',
-                        _extends({}, this.props, { className: this.state.classes }),
+                        _extends({}, this.props, { 'data-badge': this.props.badge, className: this.state.classes }),
                         this.props.children
                     );
                     break;

@@ -59,6 +59,9 @@ import {Text} from 'essence-core';
 
 {/* typography classes: e-display-4, e-display-3, e-display-2, e-display-1, e-headline, e-title, e-subhead, e-body2, e-body1, e-caption, e-button */}
 <Text type={'span'} classes={'e-text-center e-headline'}>Text Typography Example</Text>
+
+{/* text data-badge */}
+<Text badge={'3'}>Text with Badge</Text>
 ```
 
 ##### 5. UTILITIES
