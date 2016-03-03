@@ -1,11 +1,13 @@
 import React from 'react';
 import ClassNames from 'classnames';
+import {Utils} from 'essence-core';
 import './stepper.less';
 
 class Stepper extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            documentSize: Utils.Client.documentSize(),
             selected: props.currentStep,
             maxSteps: props.steps.length,
             currentStep: props.currentStep,
@@ -14,6 +16,16 @@ class Stepper extends React.Component {
                 props.className
             ),
         };
+    }
+
+    componentDidMount() {
+        let self = this;
+
+        window.addEventListener('resize', function() {
+            self.setState({
+                documentSize: Utils.Client.documentSize()
+            });
+        }, true);
     }
 
     selectStepper(callback, index) {
@@ -148,7 +160,7 @@ class Stepper extends React.Component {
             return (
                 <div className={'e-padding-top-10 clearfix e-stepper-actions'}>
                     {
-                        this.props.onBack && this.state.currentStep > 0 ? 
+                        (this.state.documentSize < 3) || (this.props.onBack && this.state.currentStep > 0) ? 
                         (<button 
                             onClick={this.backStepper.bind(this, this.props.onBack)} 
                             onTouch={this.backStepper.bind(this, this.props.onBack)} 
@@ -157,7 +169,7 @@ class Stepper extends React.Component {
                         : null
                     }
                     {
-                        this.props.onContinue && this.state.currentStep < this.state.maxSteps ? 
+                        (this.state.documentSize < 3) || (this.props.onContinue && this.state.currentStep < this.state.maxSteps) ? 
                         (<button 
                             onClick={this.continueStepper.bind(this, this.props.onContinue)} 
                             onTouch={this.continueStepper.bind(this, this.props.onContinue)} 
@@ -171,6 +183,10 @@ class Stepper extends React.Component {
     }
 
 	render() {
+        if (this.state.documentSize < 3) {
+            return this.renderVertical();
+        }
+
 		return (this.props.type === 'vertical') ? this.renderVertical() : this.renderHorizontal();
 	}
 }

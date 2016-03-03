@@ -10,6 +10,8 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _essenceCore = require('essence-core');
+
 require('./stepper.less');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -29,6 +31,7 @@ var Stepper = (function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Stepper).call(this, props));
 
         _this.state = {
+            documentSize: _essenceCore.Utils.Client.documentSize(),
             selected: props.currentStep,
             maxSteps: props.steps.length,
             currentStep: props.currentStep,
@@ -38,6 +41,17 @@ var Stepper = (function (_React$Component) {
     }
 
     _createClass(Stepper, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var self = this;
+
+            window.addEventListener('resize', function () {
+                self.setState({
+                    documentSize: _essenceCore.Utils.Client.documentSize()
+                });
+            }, true);
+        }
+    }, {
         key: 'selectStepper',
         value: function selectStepper(callback, index) {
             if (this.props.editable) {
@@ -79,16 +93,18 @@ var Stepper = (function (_React$Component) {
             }
         }
     }, {
-        key: 'renderSteppers',
-        value: function renderSteppers() {
+        key: 'renderHorizontal',
+        value: function renderHorizontal() {
             var _this2 = this;
 
             var self = this,
+                stepsHeader = null,
                 stepsContent = null,
                 steps = this.props.steps;
 
             if (steps.length > 0) {
-                var _stepsContent = steps.map(function (item, key) {
+                var _stepsHeader = steps.map(function (item, key) {
+                    if (!item.title) return;
                     return _react2.default.createElement(
                         'li',
                         {
@@ -101,7 +117,7 @@ var Stepper = (function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 'span',
-                                { className: 'step' },
+                                { className: 'step-icon' },
                                 self.state.currentStep > key ? _react2.default.createElement('i', { className: 'e-icon-action-done' }) : key + 1
                             ),
                             _react2.default.createElement(
@@ -114,32 +130,107 @@ var Stepper = (function (_React$Component) {
                                     item.optional
                                 ) : null
                             ),
-                            steps.length - 1 !== key ? _react2.default.createElement('span', { className: 'connector' }) : null
+                            steps.length - 1 !== key && item.title ? _react2.default.createElement('span', { className: 'connector' }) : null
+                        )
+                    );
+                });
+
+                var _stepsContent = steps.map(function (item, key) {
+                    var active = self.state.selected === key;
+                    return _react2.default.createElement(
+                        'div',
+                        { key: 'stepper-content-' + key, className: (0, _classnames2.default)('e-stepper-content', { active: active }) },
+                        item.content
+                    );
+                });
+
+                return _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                        'nav',
+                        { className: (0, _classnames2.default)('e-steppers', this.state.classes, { noneditable: !this.props.editable }) },
+                        _react2.default.createElement(
+                            'ul',
+                            { className: 'e-steppers-list e-no-padding', ref: function ref(_ref) {
+                                    return _this2.stepperList = _ref;
+                                } },
+                            _stepsHeader
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: (0, _classnames2.default)('e-steppers-container') },
+                        _stepsContent,
+                        this.renderActions()
+                    )
+                );
+            }
+            return;
+        }
+    }, {
+        key: 'renderVertical',
+        value: function renderVertical() {
+            var self = this,
+                stepsItems = null,
+                steps = this.props.steps;
+
+            if (steps.length > 0) {
+                var _stepsItems = steps.map(function (item, key) {
+                    if (!item.title) return;
+                    return _react2.default.createElement(
+                        'div',
+                        { key: 'stepper-' + key,
+                            className: (0, _classnames2.default)({ progress: self.state.currentStep > key, active: self.state.selected === key }) },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'e-steppers-list' },
+                            _react2.default.createElement(
+                                'span',
+                                { className: 'step-icon' },
+                                self.state.currentStep > key ? _react2.default.createElement('i', { className: 'e-icon-action-done' }) : key + 1
+                            ),
+                            _react2.default.createElement(
+                                'span',
+                                { className: (0, _classnames2.default)('title', { 'hasOptional': item.optional }) },
+                                item.title,
+                                item.optional ? _react2.default.createElement(
+                                    'div',
+                                    { className: 'optional' },
+                                    item.optional
+                                ) : null
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'e-steppers-container' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: (0, _classnames2.default)('e-stepper-content', { active: self.state.selected === key }) },
+                                _react2.default.createElement('span', { className: 'connector' }),
+                                item.content,
+                                self.renderActions()
+                            )
                         )
                     );
                 });
 
                 return _react2.default.createElement(
-                    'nav',
-                    { className: (0, _classnames2.default)('e-steppers', this.state.classes, { noneditable: !this.props.editable }) },
-                    _react2.default.createElement(
-                        'ul',
-                        { className: 'e-steppers-list e-no-padding', ref: function ref(_ref) {
-                                return _this2.stepperList = _ref;
-                            } },
-                        _stepsContent
-                    )
+                    'div',
+                    { className: 'e-steppers vertical' },
+                    _stepsItems
                 );
             }
+            return;
         }
     }, {
         key: 'renderActions',
         value: function renderActions() {
-            if (this.props.items.length > 0 || this.props.steps.length > 0) {
+            if (this.props.steps.length > 0) {
                 return _react2.default.createElement(
                     'div',
-                    { className: 'e-padding-top-10 clearfix' },
-                    this.props.onBack && this.state.currentStep > 0 ? _react2.default.createElement(
+                    { className: 'e-padding-top-10 clearfix e-stepper-actions' },
+                    this.state.documentSize < 3 || this.props.onBack && this.state.currentStep > 0 ? _react2.default.createElement(
                         'button',
                         {
                             onClick: this.backStepper.bind(this, this.props.onBack),
@@ -148,7 +239,7 @@ var Stepper = (function (_React$Component) {
                             style: { backgroundColor: 'transparent' } },
                         'BACK'
                     ) : null,
-                    this.props.onContinue && this.state.currentStep < this.state.maxSteps ? _react2.default.createElement(
+                    this.state.documentSize < 3 || this.props.onContinue && this.state.currentStep < this.state.maxSteps ? _react2.default.createElement(
                         'button',
                         {
                             onClick: this.continueStepper.bind(this, this.props.onContinue),
@@ -161,39 +252,13 @@ var Stepper = (function (_React$Component) {
             }
         }
     }, {
-        key: 'renderContent',
-        value: function renderContent() {
-            var self = this,
-                itemsContent = null,
-                items = this.props.items;
-
-            if (items.length > 0) {
-                itemsContent = items.map(function (step, key) {
-                    var active = self.state.selected === key;
-                    return _react2.default.createElement(
-                        'div',
-                        { key: 'stepper-content-' + key, className: (0, _classnames2.default)('e-stepper-content', { active: active }) },
-                        step.item
-                    );
-                });
-            }
-
-            return _react2.default.createElement(
-                'div',
-                { className: (0, _classnames2.default)('e-steppers-container') },
-                itemsContent,
-                this.renderActions()
-            );
-        }
-    }, {
         key: 'render',
         value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                this.renderSteppers(),
-                this.renderContent()
-            );
+            if (this.state.documentSize < 3) {
+                return this.renderVertical();
+            }
+
+            return this.props.type === 'vertical' ? this.renderVertical() : this.renderHorizontal();
         }
     }]);
 
@@ -202,7 +267,7 @@ var Stepper = (function (_React$Component) {
 
 Stepper.defaultProps = {
     steps: {},
-    items: {},
+    type: 'horizontal',
     editable: true,
     currentStep: 0,
     onContinue: null,
