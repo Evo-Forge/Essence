@@ -6,6 +6,8 @@
 - `discrete`: **true** it uses the `discrete` class name to render a indicator for the current value
 - `disabled`: **true** it uses the `disabled` class name to render a non-editable component
 - `onChange`: **callback function** returns current value of slider
+- `lowerColor`: default **e-background-indigo-400** or a background color for left side of slider
+- `upperColor`: default **e-background-grey-100** or a background color for right side of slider
 
 ### How to use
 ```js

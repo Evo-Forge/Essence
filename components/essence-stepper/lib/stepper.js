@@ -35,6 +35,8 @@ var Stepper = (function (_React$Component) {
             selected: props.currentStep,
             maxSteps: props.steps.length,
             currentStep: props.currentStep,
+            activeColor: props.activeColor,
+            inactiveColor: props.inactiveColor,
             classes: (0, _classnames2.default)(props.classes, props.className)
         };
         return _this;
@@ -117,7 +119,7 @@ var Stepper = (function (_React$Component) {
                             null,
                             _react2.default.createElement(
                                 'span',
-                                { className: 'step-icon' },
+                                { className: (0, _classnames2.default)('step-icon', self.state.currentStep > key || self.state.selected === key ? self.state.activeColor : '', self.state.currentStep < key ? self.state.inactiveColor : '') },
                                 self.state.currentStep > key ? _react2.default.createElement('i', { className: 'e-icon-action-done' }) : key + 1
                             ),
                             _react2.default.createElement(
@@ -187,7 +189,7 @@ var Stepper = (function (_React$Component) {
                             { className: 'e-steppers-list' },
                             _react2.default.createElement(
                                 'span',
-                                { className: 'step-icon' },
+                                { className: (0, _classnames2.default)('step-icon', self.state.currentStep > key || self.state.selected === key ? self.state.activeColor : '', self.state.currentStep < key ? self.state.inactiveColor : '') },
                                 self.state.currentStep > key ? _react2.default.createElement('i', { className: 'e-icon-action-done' }) : key + 1
                             ),
                             _react2.default.createElement(
@@ -207,7 +209,7 @@ var Stepper = (function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: (0, _classnames2.default)('e-stepper-content', { active: self.state.selected === key }) },
-                                _react2.default.createElement('span', { className: 'connector' }),
+                                steps.length - 1 !== key ? _react2.default.createElement('span', { className: 'connector' }) : null,
                                 item.content,
                                 self.renderActions()
                             )
@@ -268,6 +270,8 @@ var Stepper = (function (_React$Component) {
 Stepper.defaultProps = {
     steps: {},
     type: 'horizontal',
+    activeColor: 'e-background-indigo-400',
+    inactiveColor: 'e-background-grey-400',
     editable: true,
     currentStep: 0,
     onContinue: null,

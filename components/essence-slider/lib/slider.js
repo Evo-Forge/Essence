@@ -37,10 +37,10 @@ var Slider = (function (_React$Component) {
             discreteActive: false,
             start: props.start || 0,
             dataValue: props.start || 0,
-            lowerColor: props.lowerColor || 'e-background-indigo-400',
-            lowerFlex: props.start ? props.start / (props.max || 100) + ' 1 0%' : '0 1 0%',
-            upperColor: props.upperColor || 'e-background-grey-100',
-            upperFlex: props.start ? 1 - props.start / (props.max || 100) + ' 1 0%' : '1 1 0%'
+            lowerColor: props.lowerColor,
+            lowerFlex: props.start ? props.start / props.max + ' 1 0%' : '0 1 0%',
+            upperColor: props.upperColor,
+            upperFlex: props.start ? 1 - props.start / props.max + ' 1 0%' : '1 1 0%'
         };
         return _this;
     }
@@ -70,15 +70,18 @@ var Slider = (function (_React$Component) {
                 self.setState({
                     dataValue: sliderValue,
                     zeroActive: sliderValue < 1 ? true : false,
-                    lowerFlex: sliderValue / (self.props.max || 100) + ' 1 0%',
-                    upperFlex: 1 - sliderValue / (self.props.max || 100) + ' 1 0%'
+                    lowerFlex: sliderValue / self.props.max + ' 1 0%',
+                    upperFlex: 1 - sliderValue / self.props.max + ' 1 0%'
                 });
             }, false);
         }
     }, {
         key: 'renderDiscreteStyle',
         value: function renderDiscreteStyle() {
-            return '#' + this.state.uniqueID + '.discrete input[type=range]::-webkit-slider-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},' + '#' + this.state.uniqueID + '.discrete input[type=range]::-moz-range-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},' + '#' + this.state.uniqueID + '.discrete input[type=range]::-ms-thumb:after{content: "' + parseInt(this.state.dataValue) + '"}';
+            if (this.props.discrete && !this.props.disabled) {
+                var style = '#' + this.state.uniqueID + '.discrete input[type=range]::-webkit-slider-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},' + '#' + this.state.uniqueID + '.discrete input[type=range]::-moz-range-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},' + '#' + this.state.uniqueID + '.discrete input[type=range]::-ms-thumb:after{content: "' + parseInt(this.state.dataValue) + '"}';
+                return _react2.default.createElement('style', { key: 'style_' + this.state.uniqueID, dangerouslySetInnerHTML: { __html: style } });
+            }
         }
     }, {
         key: 'render',
@@ -104,12 +107,22 @@ var Slider = (function (_React$Component) {
                     _react2.default.createElement('div', { className: (0, _classnames2.default)('left', this.state.lowerColor), style: { flex: this.state.lowerFlex } }),
                     _react2.default.createElement('div', { className: (0, _classnames2.default)('right', this.state.upperColor), style: { flex: this.state.upperFlex } })
                 ),
-                _react2.default.createElement('style', { key: 'style_' + this.state.uniqueID, dangerouslySetInnerHTML: { __html: this.renderDiscreteStyle() } })
+                this.renderDiscreteStyle()
             );
         }
     }]);
 
     return Slider;
 })(_react2.default.Component);
+
+Slider.defaultProps = {
+    min: 0,
+    max: 100,
+    start: null,
+    disabled: null,
+    discrete: false,
+    lowerColor: 'e-background-indigo-400',
+    upperColor: 'e-background-grey-100'
+};
 
 module.exports = Slider;

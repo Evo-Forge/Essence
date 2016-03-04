@@ -7,6 +7,8 @@
 - **currentStep**: initial step `0`
 - **onContinue**: default callback `null`
 - **onBack**: default callback `null`
+- **activeColor**: default color `e-background-indigo-400`, use a background color class to change the default active color
+- **inactiveColor**: default color `e-background-grey-400`, use a background color class to change the default inactive color
 
 ### How to use
 ```js

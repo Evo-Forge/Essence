@@ -15,10 +15,10 @@ class Slider extends React.Component {
             discreteActive: false,
             start: props.start || 0,
             dataValue: props.start || 0,
-            lowerColor: props.lowerColor || 'e-background-indigo-400',
-            lowerFlex: props.start ? (props.start / (props.max || 100))+' 1 0%' : '0 1 0%',
-            upperColor: props.upperColor || 'e-background-grey-100',
-            upperFlex: props.start ? 1 - (props.start / (props.max || 100))+' 1 0%' : '1 1 0%'
+            lowerColor: props.lowerColor,
+            lowerFlex: props.start ? (props.start / props.max)+' 1 0%' : '0 1 0%',
+            upperColor: props.upperColor,
+            upperFlex: props.start ? 1 - (props.start / props.max)+' 1 0%' : '1 1 0%'
         };
     }
 
@@ -45,17 +45,20 @@ class Slider extends React.Component {
             self.setState({
                 dataValue: sliderValue,
                 zeroActive: sliderValue < 1 ? true : false,
-                lowerFlex: (sliderValue / (self.props.max || 100))+' 1 0%',
-                upperFlex: 1 - (sliderValue / (self.props.max || 100))+' 1 0%'
+                lowerFlex: (sliderValue / self.props.max)+' 1 0%',
+                upperFlex: 1 - (sliderValue / self.props.max)+' 1 0%'
             });
         }, false);
 
     }
 
     renderDiscreteStyle() {
-        return (
-            '#'+this.state.uniqueID+'.discrete input[type=range]::-webkit-slider-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},'+'#'+this.state.uniqueID+'.discrete input[type=range]::-moz-range-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},'+'#'+this.state.uniqueID+'.discrete input[type=range]::-ms-thumb:after{content: "' + parseInt(this.state.dataValue) + '"}'
-        );
+        if (this.props.discrete && !this.props.disabled) {
+            let style = '#'+this.state.uniqueID+'.discrete input[type=range]::-webkit-slider-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},'+'#'+this.state.uniqueID+'.discrete input[type=range]::-moz-range-thumb:after{content: "' + parseInt(this.state.dataValue) + '"},'+'#'+this.state.uniqueID+'.discrete input[type=range]::-ms-thumb:after{content: "' + parseInt(this.state.dataValue) + '"}';
+            return (
+                <style key={'style_' + this.state.uniqueID} dangerouslySetInnerHTML={{__html: style}} />
+            );
+        }
     }
 
 	render() {
@@ -77,10 +80,20 @@ class Slider extends React.Component {
                     <div className={ClassNames('left', this.state.lowerColor)} style={{flex: this.state.lowerFlex}} />
                     <div className={ClassNames('right', this.state.upperColor)} style={{flex: this.state.upperFlex}} />
                 </div>
-                <style key={'style_' + this.state.uniqueID} dangerouslySetInnerHTML={{__html: this.renderDiscreteStyle()}} />
+                {this.renderDiscreteStyle()}
             </div>
         );
 	}
 }
+
+Slider.defaultProps = {
+    min: 0,
+    max: 100,
+    start: null,
+    disabled: null,
+    discrete: false,
+    lowerColor: 'e-background-indigo-400',
+    upperColor: 'e-background-grey-100',
+};
 
 module.exports = Slider;
