@@ -31,7 +31,7 @@ var Block = (function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Block).call(this, props));
 
         _this.state = {
-            classes: (0, _classnames2.default)(_this.prdops.className, _this.props.classes)
+            classes: (0, _classnames2.default)(_this.props.className, _this.props.classes)
         };
         return _this;
     }

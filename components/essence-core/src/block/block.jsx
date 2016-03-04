@@ -6,7 +6,7 @@ class Block extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-        	classes: ClassNames(this.prdops.className, this.props.classes)
+        	classes: ClassNames(this.props.className, this.props.classes)
         };
     }
     
