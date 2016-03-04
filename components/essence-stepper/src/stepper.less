@@ -117,11 +117,10 @@
                 position: relative;
                 padding-left: 40px;
 
-                .e-stepper-actions {
-                    position: absolute;
-                    bottom: 5px;
-                    left: 30px;                    
-                    box-sizing:border-box;
+                .e-stepper-content {
+                    &.active {
+                        min-height: inherit;
+                    }
                 }
             }
         }
@@ -135,10 +134,6 @@
             background-color: @e-color-grey-400;
         }
     }
-
-
-
-
 }
 
 .e-steppers-container {    
@@ -163,4 +158,8 @@
             padding: @e-unit;
         }        
     }
+}
+
+.vertical .e-steppers-container .e-stepper-content.active {
+    min-height: inherit;
 }

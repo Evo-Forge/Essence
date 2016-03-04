@@ -139,7 +139,7 @@ class Stepper extends React.Component {
                         </div>
                         <div className={'e-steppers-container'}>
                             <div className={ClassNames('e-stepper-content', {active: (self.state.selected === key)})}>
-                                <span className={'connector'} />
+                                {(steps.length - 1) !== key ? <span className={'connector'} /> : null}
                                 {item.content}
                                 {self.renderActions()}
                             </div>
