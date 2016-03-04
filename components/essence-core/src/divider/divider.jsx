@@ -1,6 +1,6 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import './divider.less'; // require("!css!less!./divider.less");
+import './divider.less';
  
 class Divider extends React.Component {
 	

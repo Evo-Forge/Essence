@@ -1,7 +1,7 @@
 
 import React from 'react';
 import ClassNames from 'classnames';
-import './chip.less'; // require('!css!less!./chip.less');
+import './chip.less';
  
 class Chip extends React.Component {
     constructor(props) {
@@ -112,5 +112,10 @@ class Chip extends React.Component {
         );
     }
 }
+
+Chip.defaultProps = {
+    data: null,
+    iconColor: null
+};
 
 module.exports = Chip;

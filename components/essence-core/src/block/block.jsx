@@ -1,13 +1,12 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import './block.less'; // require("!css!less!./block.less");
+import './block.less';
  
 class Block extends React.Component {
-	
 	constructor(props) {
         super(props);
         this.state = {
-        	classes: ClassNames(this.props.className, this.props.classes)
+        	classes: ClassNames(this.prdops.className, this.props.classes)
         };
     }
     
@@ -55,5 +54,9 @@ class Block extends React.Component {
 		return this.renderBlock();
 	}
 }
+
+Block.defaultProps = {
+    type: 'div'
+};
 
 module.exports = Block;

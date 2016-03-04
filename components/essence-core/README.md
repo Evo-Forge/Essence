@@ -2,7 +2,10 @@
 
 #### Components:
 ##### 1. GRID SYSTEM
-&nbsp;
+
+###### Option:
+- **type**: default `div` or from the list: `span` `header` `footer` `section` `ul` `li` `hr` `br`
+
 ```js
 import {Block} from 'essence-core';
 
@@ -22,7 +25,10 @@ import {Block} from 'essence-core';
 ```
 
 ##### 2. DIVIDER
-&nbsp;
+
+###### Option:
+- **classes**: className from the list: `thinnest` `thin` `regular` `thick` `thickest` `short` `medium` `long`
+
 ```js
 import {Divider} from 'essence-core';
 
@@ -35,7 +41,11 @@ import {Divider} from 'essence-core';
 ```
 
 ##### 3. RIPPLE INK
-&nbsp;
+
+###### Options:
+- **position**: object with `x` for **left** position in px & `y` for **top** position in px 
+- **color**: for `backgroundColor`
+
 ```js
 import {Utils, RippleInk} from 'essence-core';
 
@@ -47,7 +57,11 @@ let position = Utils.ClickPosition(event, boundingClient);
 ```
 
 ##### 4. TEXT TYPOGRAPHY
-&nbsp;
+
+###### Options:
+- **type**: string from the list explained below
+- **badge**: for `data-badge` option with a maximum lenght of 3 chars
+
 ```js
 import {Text} from 'essence-core';
 
