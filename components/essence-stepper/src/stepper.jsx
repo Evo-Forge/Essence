@@ -11,6 +11,8 @@ class Stepper extends React.Component {
             selected: props.currentStep,
             maxSteps: props.steps.length,
             currentStep: props.currentStep,
+            activeColor: props.activeColor,
+            inactiveColor: props.inactiveColor,
         	classes: ClassNames(
                 props.classes,
                 props.className
@@ -82,7 +84,13 @@ class Stepper extends React.Component {
                         onTouch={self.selectStepper.bind(self, item.callback, key)}
                         className={ClassNames({progress: self.state.currentStep > key, active: self.state.selected === key})}>
                         <a>
-                            <span className={'step-icon'}>{self.state.currentStep > key ? <i className={'e-icon-action-done'} /> : (key + 1)}</span>
+                            <span className={
+                                ClassNames(
+                                    'step-icon', 
+                                    (self.state.currentStep > key || self.state.selected === key ? self.state.activeColor : ''), 
+                                    (self.state.currentStep < key ? self.state.inactiveColor : '')
+                                )}>
+                            {self.state.currentStep > key ? <i className={'e-icon-action-done'} /> : (key + 1)}</span>
                             <span className={ClassNames('title', {'hasOptional': item.optional})}>
                             {item.title}
                             {item.optional ? (<div className={'optional'}>{item.optional}</div>) : null}
@@ -131,7 +139,12 @@ class Stepper extends React.Component {
                     <div key={'stepper-'+key}
                         className={ClassNames({progress: self.state.currentStep > key, active: self.state.selected === key})}>
                         <div className={'e-steppers-list'}>
-                            <span className={'step-icon'}>{self.state.currentStep > key ? <i className={'e-icon-action-done'} /> : (key + 1)}</span>
+                            <span className={ClassNames(
+                                    'step-icon', 
+                                    (self.state.currentStep > key || self.state.selected === key ? self.state.activeColor : ''), 
+                                    (self.state.currentStep < key ? self.state.inactiveColor : '')
+                                )}>
+                            {self.state.currentStep > key ? <i className={'e-icon-action-done'} /> : (key + 1)}</span>
                             <span className={ClassNames('title', {'hasOptional': item.optional})}>
                             {item.title}
                             {item.optional ? (<div className={'optional'}>{item.optional}</div>) : null}
@@ -194,6 +207,8 @@ class Stepper extends React.Component {
 Stepper.defaultProps = {
     steps: {},
     type: 'horizontal',
+    activeColor: 'e-background-indigo-400',
+    inactiveColor: 'e-background-grey-400',
     editable: true,
     currentStep: 0,
     onContinue: null,

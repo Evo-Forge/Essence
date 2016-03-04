@@ -2,10 +2,6 @@
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -66,7 +62,6 @@ var DataTable = (function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DataTable).call(this, props));
 
-        var self = _this;
         _this.state = {
             sortIcon: {},
             classes: (0, _classnames2.default)('datatable', _this.props.classes, _this.props.className),
@@ -80,8 +75,7 @@ var DataTable = (function (_React$Component) {
     _createClass(DataTable, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            var self = this,
-                selected = {},
+            var selected = {},
                 dataObj = this.props.data;
 
             if (dataObj.rows) {
@@ -394,5 +388,9 @@ var DataTable = (function (_React$Component) {
 
     return DataTable;
 })(_react2.default.Component);
+
+DataTable.defaultProps = {
+    data: null
+};
 
 module.exports = DataTable;
