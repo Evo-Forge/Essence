@@ -90,4 +90,11 @@ class Dialog extends React.Component {
 	}
 }
 
+Dialog.defaultProps = {
+    visible: false,
+    onOpen: undefined,
+    onClose: undefined,
+    dismissible: undefined
+};
+
 module.exports = Dialog;

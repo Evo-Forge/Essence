@@ -3,12 +3,13 @@
 ### How to use
 
 Options:
+- **data**: object with properties:
 - **name**: string for input name, default: chip
 - **text**: string or html or component
 - **icon**: string or image url
-- **iconColor**: string from the Colors list
 - **deletable**: boolean ( **true** or **false** ) - default: **false**
 - **onClose**: callback for on closing chip component
+- **iconColor**: string from the Colors list
 
 **NOTE**: use the example below to customize your own chips
 

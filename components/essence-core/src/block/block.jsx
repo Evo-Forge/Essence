@@ -1,9 +1,8 @@
 import React from 'react';
 import ClassNames from 'classnames';
-import './block.less'; // require("!css!less!./block.less");
+import './block.less';
  
 class Block extends React.Component {
-	
 	constructor(props) {
         super(props);
         this.state = {
@@ -55,5 +54,9 @@ class Block extends React.Component {
 		return this.renderBlock();
 	}
 }
+
+Block.defaultProps = {
+    type: 'div'
+};
 
 module.exports = Block;

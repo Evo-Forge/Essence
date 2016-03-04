@@ -5,6 +5,7 @@
 - `fill`: return a colored track to indicate the current value position
 - `discrete`: **true** it uses the `discrete` class name to render a indicator for the current value
 - `disabled`: **true** it uses the `disabled` class name to render a non-editable component
+- `onChange`: **callback function** returns current value of slider
 
 ### How to use
 ```js

@@ -1,5 +1,8 @@
 # Essence List - List & ListItem components
 
+#### Option:
+- type: string from the list `navigation` or `big-icon`
+
 ### How to use
 ```js
 import {List, ListItem} from 'essence-list';

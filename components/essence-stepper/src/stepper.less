@@ -1,0 +1,165 @@
+@import '../../essence-core/src/less/mixins.less';
+
+.e-steppers {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 1px 1px rgba(0,0,0,.28);
+    .e-steppers-list {
+        display: table;
+        width: 100%;
+
+        li {
+            display: table-cell;
+            line-height: @e-unit * 9;
+            cursor: pointer;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+
+            a {
+                display: flex;
+                flex-direction: row;
+                color: @e-color-black;
+                font-size: @e-unit * 1.5;
+            }
+        }
+
+        .step-icon {
+            display: inline-block;
+            flex: flex-grow;
+            margin: @e-unit*3 @e-unit;
+            width: @e-unit * 3;
+            height: @e-unit * 3;
+            line-height: @e-unit * 3;
+            text-align: center;
+            background-color: @e-color-grey-400;
+            color: @e-color-white;
+            border-radius: 50%;
+            font-size: @e-unit * 1.5;
+        }
+        .title {
+            flex: flex-grow;
+            color: @e-color-grey-600;
+            margin-right: @e-unit;
+            font-size: @e-unit * 1.75;
+        }
+        
+        .optional {
+            flex: flex-grow;
+            color: @e-color-grey-400;
+            font-size: @e-unit * 1.5;
+            line-height: @e-unit * 1.5;
+            margin-top: -(@e-unit * 1.5);
+        }
+
+        .title.hasOptional {
+            line-height: 50px;
+        }
+
+        .connector {
+            flex: 1;
+            align-self: center;
+            height: @e-unit * 0.125;
+            background-color: @e-color-grey-400;
+            line-height: @e-unit * 3;
+        }
+
+        li:first-child .step-icon {
+            margin: @e-unit*3 @e-unit @e-unit*3 @e-unit*3;
+        }
+
+        li.active {
+            .step-icon {
+                background-color: @e-color-blue-500;
+            }
+            .title {
+                color: @e-color-grey-900;
+            }
+        }
+
+        li.progress {
+            .step-icon {
+                background-color: @e-color-blue-500;
+
+                .e-icon-action-done {
+                    line-height: 23px;
+                }
+            }
+            .title {
+                color: @e-color-grey-700;
+            }
+        }
+    }
+
+    &.vertical {
+
+        .active {
+            .e-steppers-list{
+                .step-icon {
+                    background-color: @e-color-blue-500;
+                }
+            }
+        }
+
+        .progress {
+            .e-steppers-list{
+                .step-icon {
+                    background-color: @e-color-blue-500;
+                }
+            }
+        }
+
+        .e-steppers-container {
+            box-shadow: none;
+
+            .e-stepper-content {
+                position: relative;
+                padding-left: 40px;
+
+                .e-stepper-content {
+                    &.active {
+                        min-height: inherit;
+                    }
+                }
+            }
+        }
+
+        .connector {
+            position: absolute;
+            left: 0;
+            width:  @e-unit * 0.125;
+            height: 100%;
+            margin: 0 20px;
+            background-color: @e-color-grey-400;
+        }
+    }
+}
+
+.e-steppers-container {    
+    margin-top: -14px;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 1px 1px rgba(0,0,0,.28);
+    
+    
+
+    .e-stepper-content {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+        overflow: hidden;
+        padding: 0;
+        box-sizing: border-box;
+
+        &.active {
+            visibility: visible;       
+            min-height: 200px;
+            width: 100%;
+            height: 100%;            
+            padding: @e-unit;
+        }        
+    }
+}
+
+.vertical .e-steppers-container .e-stepper-content.active {
+    min-height: inherit;
+}

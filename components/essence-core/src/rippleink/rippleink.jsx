@@ -1,6 +1,6 @@
 import React from 'react';
 import TransitionGroup from 'react-addons-css-transition-group';
-import './rippleink.less'; //require("!css!less!./rippleink.less");
+import './rippleink.less';
 
 class RippleInk extends React.Component {
 	constructor(props) {
@@ -38,5 +38,10 @@ class RippleInk extends React.Component {
 		return this.renderRipple();
 	}
 }
+
+RippleInk.defaultProps = {
+  position: {x: 0, y: 0},
+  color: '#FFFFFF'
+};
 
 module.exports = RippleInk;

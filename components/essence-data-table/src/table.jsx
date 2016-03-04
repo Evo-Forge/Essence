@@ -15,7 +15,6 @@ import './table.less';
 class DataTable extends React.Component {
     constructor(props) {
         super(props);
-        let self = this;
         this.state = {
             sortIcon: {},
             classes: ClassNames(
@@ -30,8 +29,7 @@ class DataTable extends React.Component {
     }
 
     componentDidMount() {
-        let self = this,
-            selected = {},
+        let selected = {},
             dataObj = this.props.data;
 
         if (dataObj.rows) {
@@ -302,5 +300,9 @@ class DataTable extends React.Component {
         );
     }
 }
+
+DataTable.defaultProps = {
+    data: null
+};
 
 module.exports = DataTable;
