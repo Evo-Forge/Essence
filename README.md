@@ -1,3 +1,8 @@
+[![view on npm](http://img.shields.io/npm/v/react-essence.svg)](https://www.npmjs.org/package/react-essence)
+[![view on npm](http://img.shields.io/npm/l/react-essence.svg)](https://www.npmjs.org/package/react-essence)
+[![npm module downloads](http://img.shields.io/npm/dt/react-essence.svg)](https://www.npmjs.org/package/react-essence)
+[![Dependency Status](https://david-dm.org/Evo-Forge/Essence.svg)](https://david-dm.org/Evo-Forge/Essence)
+
 #[Essence](http://getessence.io/) - The Essential Material Design Framework
 
 ### About Essence
