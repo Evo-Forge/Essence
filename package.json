@@ -50,6 +50,7 @@
     "essence-switch": "^1.x",
     "essence-tab": "^1.x",
     "essence-toast": "^1.x",
+    "essence-toolbar": "^1.x",
     "essence-tooltip": "^1.x",
     "essence-touchpad": "^1.x"
   }

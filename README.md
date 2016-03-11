@@ -38,6 +38,7 @@ import Stepper from 'essence-stepper';
 import Switch from 'essence-switch';
 import Tab from 'essence-tab';
 import Toast from 'essence-toast';
+import ToolBar from 'essence-toolbar';
 import Tooltip from 'essence-tooltip';
 import TouchPad from 'essence-touchpad';
 ```
