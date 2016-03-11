@@ -20,6 +20,7 @@ npm install react-essence
 import AppBar from 'essence-appbar';
 import BottomSheets from 'essence-bottomsheet';
 import Btn from 'essence-button';
+import Chip from 'essence-chip';
 import {Card, CardHeader, CardContent, CardFooter} from 'essence-card';
 import {Block, Text, Divider, Utils} from 'essence-core';
 import DataTable from 'essence-data-table';
