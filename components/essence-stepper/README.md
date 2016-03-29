@@ -1,7 +1,7 @@
 # Essence Steppers - Stepper component
 
 #### Options:
-- **steps**: default `{}` empty object, see the example bellow to customize 
+- **steps**: default `{}` empty object, see the example bellow to customize
 - **editable**: default `true` or `false`
 - **type**: default `horizontal` or `vertical`
 - **currentStep**: initial step `0`
@@ -15,38 +15,38 @@
 import Stepper from 'essence-stepper';
 
 const Steps = {
-   'editable': [
-      { 
-         'title': (<Text>Select campaign settings</Text>),
-         'content': (<Text className={'e-caption'}>Campaign settings</Text>)
-      },
-      { 
-         'title': (<Text>Create an ad group</Text>), 
-         'optional': (<Text>Optional</Text>),
-         'content': (<Text className={'e-caption'}>Ad group</Text>)
-      },
-      { 
-         'title': (<Text>Create an ad</Text>),
-         'content': (<Text className={'e-caption'}>Ad details</Text>)
-      }
-   ],
-   'non-editable': [
-      { 
-         'title': (<Text>Select campaign settings</Text>),
-         'content': (<Text className={'e-caption'}>Campaign settings</Text>)
-      },
-      { 
-         'title': (<Text>Create an ad group</Text>),
-         'content': (<Text className={'e-caption'}>Ad group</Text>)
-      },
-      { 
-         'title': (<Text>Create an ad</Text>),
-         'content': (<Text className={'e-caption'}>Ad details</Text>)
-      },
-      { 
-         'content': (<Text className={'e-caption'}>Summary</Text>)
-      }
-   ]
+  'editable': [
+    {
+      'title': (<Text>Select campaign settings</Text>),
+      'content': (<Text className={'e-caption'}>Campaign settings</Text>)
+    },
+    {
+      'title': (<Text>Create an ad group</Text>),
+      'optional': (<Text>Optional</Text>),
+      'content': (<Text className={'e-caption'}>Ad group</Text>)
+    },
+    {
+      'title': (<Text>Create an ad</Text>),
+      'content': (<Text className={'e-caption'}>Ad details</Text>)
+    }
+  ],
+  'non-editable': [
+    {
+      'title': (<Text>Select campaign settings</Text>),
+      'content': (<Text className={'e-caption'}>Campaign settings</Text>)
+    },
+    {
+      'title': (<Text>Create an ad group</Text>),
+      'content': (<Text className={'e-caption'}>Ad group</Text>)
+    },
+    {
+      'title': (<Text>Create an ad</Text>),
+      'content': (<Text className={'e-caption'}>Ad details</Text>)
+    },
+    {
+      'content': (<Text className={'e-caption'}>Summary</Text>)
+    }
+  ]
 };
 ```
 

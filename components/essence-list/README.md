@@ -1,4 +1,4 @@
-# Essence List - List & ListItem components
+# Essence List - List component
 
 #### Option:
 - type: string from the list `navigation` or `big-icon`

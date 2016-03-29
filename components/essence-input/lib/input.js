@@ -35,7 +35,7 @@ var Input = (function (_React$Component) {
         _this.state = {
             counter: {
                 current: 0,
-                maximum: parseInt(_this.props.counter) || 50
+                maximum: parseInt(_this.props.counter)
             },
             inputClasses: (0, _classnames2.default)('e-input', { 'empty': _this.props.value || _this.props.defaultValue ? false : true }),
             inputValue: _this.props.value || _this.props.defaultValue || '',
@@ -66,8 +66,12 @@ var Input = (function (_React$Component) {
             this.setState({
                 counter: counter,
                 inputValue: value,
-                inputClasses: (0, _classnames2.default)('e-input', { 'empty': counter.current === 0 ? true : false })
+                inputClasses: (0, _classnames2.default)('e-input', { 'empty': value.length > 0 ? false : true })
             });
+
+            if (this.props.onChange) {
+                return this.props.onChange(this);
+            }
         }
     }, {
         key: 'renderLabel',
@@ -121,7 +125,7 @@ var Input = (function (_React$Component) {
 
             switch (inputType) {
                 case 'textarea':
-                    return _react2.default.createElement('textarea', _extends({
+                    return _react2.default.createElement('textarea', _extends({}, this.props, {
                         className: this.state.inputClasses,
                         onChange: this.handleChange.bind(this),
                         defaultValue: this.state.inputValue,
@@ -129,10 +133,10 @@ var Input = (function (_React$Component) {
                         ref: function ref(_ref) {
                             return _this2.currentInput = _ref;
                         }
-                    }, this.props));
+                    }));
                     break;
                 default:
-                    return _react2.default.createElement('input', _extends({
+                    return _react2.default.createElement('input', _extends({}, this.props, {
                         className: this.state.inputClasses,
                         defaultValue: this.state.inputValue,
                         value: this.state.inputValue,
@@ -140,7 +144,7 @@ var Input = (function (_React$Component) {
                         ref: function ref(_ref2) {
                             return _this2.currentInput = _ref2;
                         }
-                    }, this.props));
+                    }));
                     break;
             }
         }
@@ -161,5 +165,14 @@ var Input = (function (_React$Component) {
 
     return Input;
 })(_react2.default.Component);
+
+Input.defaultProps = {
+    counter: 50,
+    value: undefined,
+    label: undefined,
+    placeholder: undefined,
+    hint: undefined,
+    type: 'text'
+};
 
 module.exports = Input;

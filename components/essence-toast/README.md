@@ -13,44 +13,44 @@
 import Toast from 'essence-toast';
 
 class SnackBarTest extends React.Component {
-	constructor(props) {
-        super(props);
-        this.state = {
-        	toast: false,
-            classes: ClassNames(
-                this.props.classes,
-                this.props.className
-            )
-        };
+  constructor(props) {
+    super(props);
+    this.state = {
+      toast: false,
+      classes: ClassNames(
+        this.props.classes,
+        this.props.className
+      )
+    };
+  }
+
+  renderToast() {
+    if (this.state.toast) {
+      return (
+        <Toast classes={'e-text-green-500'} visible={true} delay={5000}>
+          You've got a new message!
+        </Toast>
+      );
     }
 
-    renderToast() {
-    	if (this.state.toast) {
-    		return (
-    			<Toast classes={'e-text-green-500'} visible={true} delay={5000}>
-					You've got a new message!
-				</Toast>
-			);
-    	}
+    return;
+  }
 
-    	return;
-    }
+  toggleToast() {
+    var toastStatus = !this.state.toast;
 
-    toggleToast() {
-    	var toastStatus = !this.state.toast;
+    this.setState({
+      toast: toastStatus
+    });
+  }
 
-    	this.setState({
-    		toast: toastStatus
-    	});
-    }
-
-    render() {
-        return(
-			<Block>
-				{this.renderToast()}
-				<Button onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-green'} type={'primary'} icon={'action-favorite'}/>
-			</Block>
-        );
-    }
+  render() {
+    return(
+      <Block>
+        {this.renderToast()}
+        <Button onClick={this.toggleToast.bind(this)} className={'flat e-background-cyan-400 e-text-green'} type={'primary'} icon={'action-favorite'}/>
+      </Block>
+    );
+  }
 };
 ```

@@ -10,34 +10,34 @@ import TouchPad from 'essence-touchpad';
 
 class TouchPadTest extends React.Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        visible: false,
-        position: {
-        start: { top: 0, left: 0},
-        end: { top: 0, left: 0},
-        touchpad: { top: 0, left: 0}
-        },
-          classes: ClassNames(
-              this.props.classes,
-              this.props.className
-          )
-      };
+    super(props);
+    this.state = {
+      visible: false,
+      position: {
+      start: { top: 0, left: 0},
+      end: { top: 0, left: 0},
+      touchpad: { top: 0, left: 0}
+      },
+      classes: ClassNames(
+        this.props.classes,
+        this.props.className
+      )
+    };
   }
 
   getPosition(event) {
     var position = this.state.position,
-      mousePosition = this.mousePosition(event);
+        mousePosition = this.mousePosition(event);
 
-      position.start = {left: mousePosition.left, top: mousePosition.top };
-      position.touchpad = { 
-        top: position.start.top, 
-        left: position.start.left
-      };
+    position.start = {left: mousePosition.left, top: mousePosition.top };
+    position.touchpad = {
+      top: position.start.top,
+      left: position.start.left
+    };
 
-      this.setState({
-        position: position
-      });
+    this.setState({
+      position: position
+    });
   }
 
   mousePosition(event) {
@@ -65,8 +65,8 @@ class TouchPadTest extends React.Component {
   render() {
     return (
       <Block>
-        <Text 
-          className={'e-position-relative'} 
+        <Text
+          className={'e-position-relative'}
           onMouseUp={this.selectedText.bind(this)}>
           <Text type={'p'}>
             Lorem ipsum dolor sit amet, duo ex malis putent possit, ea dicta vitae intellegat vel, et tamquam integre mei. Debet invidunt ius ei, ex omnesque efficiendi vis, eu elit paulo ullamcorper eam. Probatus explicari ius an, ei diceret noluisse nam, eam modo mandamus no. Vis in iudico percipitur efficiantur, sea ne maiestatis neglegentur. Assum nonumes ei pro. Sit hinc audiam meliore id, tale justo solet vim ex, quodsi molestie cu his.
@@ -78,7 +78,7 @@ class TouchPadTest extends React.Component {
             Duo ei tale delectus theophrastus, urbanitas mnesarchum has et. Illum quando ex sed, posse perpetua elaboraret et ius. Atqui debet usu ea, no novum alterum eam, at sea dicant urbanitas. Duo nostrum accusata no.
           </Text>
         </Text>
-        <TouchPad 
+        <TouchPad
           classes={'e-text-green-500'}
           visible={this.state.visible}
           position={this.state.position.touchpad}

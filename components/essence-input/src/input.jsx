@@ -9,7 +9,7 @@ class Input extends React.Component {
         this.state = {
             counter: {
                 current: 0,
-                maximum: parseInt(this.props.counter) || 50
+                maximum: parseInt(this.props.counter)
             },
             inputClasses: ClassNames(
                 'e-input',
@@ -19,7 +19,7 @@ class Input extends React.Component {
         	classes: ClassNames('e-input-group', this.props.className, this.props.classes)
         };
     }
-    
+
     componentWillReceiveProps(nextProps) {
         this.setState({
             classes: ClassNames('e-input-group', nextProps.className, nextProps.classes)
@@ -41,9 +41,13 @@ class Input extends React.Component {
             inputValue: value,
             inputClasses: ClassNames(
                 'e-input',
-                { 'empty': counter.current === 0 ? true : false }
+                { 'empty': value.length > 0 ? false : true }
             )
         });
+
+        if (this.props.onChange) {
+            return this.props.onChange(this);
+        }
     }
 
     renderLabel() {
@@ -92,24 +96,24 @@ class Input extends React.Component {
     		case 'textarea':
     			return (
                     <textarea
+                        {...this.props}
                         className={this.state.inputClasses}
                         onChange={this.handleChange.bind(this)}
                         defaultValue={this.state.inputValue}
                         value={this.state.inputValue}
                         ref={(ref) => this.currentInput = ref}
-                        {...this.props}
                     />
                 );
     			break;
     		default:
     			return (
                     <input
+                        {...this.props}
                         className={this.state.inputClasses}
                         defaultValue={this.state.inputValue}
                         value={this.state.inputValue}
                         onChange={this.handleChange.bind(this)}
                         ref={(ref) => this.currentInput = ref}
-                        {...this.props}
                       />
                 );
     			break;
@@ -128,5 +132,14 @@ class Input extends React.Component {
         );
 	}
 }
+
+Input.defaultProps = {
+    counter: 50,
+    value: undefined,
+    label: undefined,
+    placeholder: undefined,
+    hint: undefined,
+    type: 'text'
+};
 
 module.exports = Input;
