@@ -1,13 +1,16 @@
 # Essence Navigation - Navigation component
 
-#### Option:
-- visible: `true` - show the bottom sheet or `false` (**default**) - hide the bottom sheet
+**Options**:
+- visible: boolean value with `true` for visible and `false` for hidden
+- onOpen: callback function when Navigation component has **visible** toggled to `true`
+- onClose: callback function when Navigation component has **visible** toggled to `false`
+- dismissible: `true` or `false` to toggle the **visible** prop when clicked on the overlay
 
 ### How to use
 ```js
 import Navigation from 'essence-navigation';
 
-<Navigation visible={true}>
+<Navigation visible={true} dismissible={false} onOpen={this.onOpenCallback.bind(this)} onClose={this.onCloseCallback.bind(this)}>
  <Block classes={'e-navigation-wrapper'} id={'navigationMenu'}>
   <Block type={'header'} classes={'e-nav-header'}>
    <Text>Navigation header</Text>

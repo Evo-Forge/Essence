@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 /*
 General properties for snackbar
@@ -12,7 +12,7 @@ Default background fill: #323232 100%;
 .snackbar {
   position: fixed;
   bottom: 0px;
-  display: block;  
+  display: block;
   box-sizing: border-box;
   min-height: @e-unit*6;
   line-height: @e-unit*2.5;
@@ -27,7 +27,7 @@ Default background fill: #323232 100%;
 }
 
 .snackbar-multiline {
-  &:extend(.snackbar);  
+  &:extend(.snackbar);
   padding: @e-unit*3;
 }
 
@@ -38,7 +38,7 @@ Default background fill: #323232 100%;
 }
 
 
-.snackbar .action , .snackbar-multiline .action  {  
+.snackbar .action , .snackbar-multiline .action  {
   float: right;
   border: none;
   background: inherit;
@@ -49,7 +49,7 @@ Default background fill: #323232 100%;
   margin-right:0;
   margin-bottom:0;
   margin-left: @e-unit*3;
-  padding: 0;  
+  padding: 0;
   min-width: -webkit-min-content;
   min-width: -moz-min-content;
   min-width: min-content;
@@ -64,24 +64,24 @@ Default background fill: #323232 100%;
 @media (min-width: 380px) {
   .snackbar , .snackbar-multiline {
     /*
-    Mobile&Tablet:      
+    Mobile&Tablet:
       Width: 100%;
-      Padding top/bottom 14dp; Padding left/rigth 24dp;      
+      Padding top/bottom 14dp; Padding left/rigth 24dp;
     */
 
-    width: 100%;          
+    width: 100%;
     bottom: -100px;
 
   }
 }
 
 @media (min-width: 768px) {
-  .snackbar , .snackbar-multiline {   
+  .snackbar , .snackbar-multiline {
     width:  inherit;
     bottom: -2000px;
-    right: 50%;    
+    right: 50%;
     min-width: @e-unit*36;
-    max-width: @e-unit*71; 
+    max-width: @e-unit*71;
     border-radius: @e-unit*0.25;
 
   }

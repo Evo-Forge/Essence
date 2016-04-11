@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 .datatable {
 	width: 100%;
@@ -6,12 +6,12 @@
 
 	td {
 		text-align: right;
-		padding-left: @e-unit*4;		 
+		padding-left: @e-unit*4;
 	}
 
 	tr {
 		> td:first-child {
-			padding:  0 @e-unit*3;			
+			padding:  0 @e-unit*3;
 		}
 
 		> td:nth-child(2) {
@@ -26,10 +26,10 @@
 			padding: 0 @e-unit*3 0 @e-unit*4;
 		}
 	}
-	
+
 	> thead {
 
-		> tr { 			
+		> tr {
 			line-height: @e-unit*7.875;
 			border-bottom: @e-unit*0.125 solid @e-color-grey-200;
 			color: #8b8b8b;
@@ -38,9 +38,9 @@
 
 			> td {
 
-				max-width: @e-unit*10; 
+				max-width: @e-unit*10;
 			    overflow: hidden;
-			    text-overflow: ellipsis; 
+			    text-overflow: ellipsis;
 			    white-space: nowrap;
 
 				.e-icon-hardware-keyboard-arrow-up, .e-icon-hardware-keyboard-arrow-down {
@@ -51,23 +51,23 @@
 					color: #3f3f3f;
 					cursor: default;
 				}
-			}		
+			}
 		}
 
-		
+
 
 	}
 
 	> tbody {
-		tr { 
-			line-height: @e-unit*5.875; 
-			border-bottom: @e-unit*0.125 solid #EEE; 		
+		tr {
+			line-height: @e-unit*5.875;
+			border-bottom: @e-unit*0.125 solid #EEE;
 			font-size: 1.3rem;
 		}
 
 		tr:hover {
 			background: @e-color-grey-200;
-		}	
+		}
 
 		> .selected {
 			background: @e-color-grey-100;
@@ -81,7 +81,7 @@
 	> tfoot {
 		position: relative;
 
-		> tr { 
+		> tr {
 			position: absolute;
 			right: @e-unit*3;
 			line-height: @e-unit*6.875;
@@ -90,7 +90,7 @@
 			td {
 				display: -webkit-box;
 
-				> .e-nav-menu { 
+				> .e-nav-menu {
 					margin: 0 @e-unit*4 0 @e-unit*5;
 
 					> .e-paper {
@@ -100,7 +100,7 @@
 
 					&.cover {
 						ul.e-nav {
-							top: initial;						
+							top: initial;
 							bottom: 0;
 						}
 					}
@@ -124,7 +124,7 @@
 
 	}
 
-	.e-switch { 
+	.e-switch {
 
 		.e-wave {
 			top: @e-unit * (-3.75);
@@ -134,7 +134,7 @@
 		.e-check-valid {
 			top: @e-unit * (-1.875);
 		}
-		
+
 		.e-checkbox {
 			width: @e-unit*2.25;
 
@@ -147,7 +147,7 @@
 					height: @e-unit*1.75;
 				}
 			}
-		}		
+		}
 	}
 
 	.e-nav-menu {

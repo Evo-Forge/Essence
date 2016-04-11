@@ -1,11 +1,11 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 .e-touchpad {
     position: fixed;
     width: @e-unit*27;
     height: @e-unit*27;
     border-radius: 50%;
-    .e-shadow-1();    
+    .e-shadow-1();
     color: @e-color-grey-700!important;
     transform:scale(0);
     .transition(transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28));
@@ -15,7 +15,7 @@
     // height: 0;
     top: '50%';
     left: '50%';
-  
+
     &.show {
       opacity: 1!important;
       visibility: visible!important;
@@ -36,14 +36,14 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      background: #FFF;            
+      background: #FFF;
       -o-filter: opacity(97%);
       -ms-filter: opacity(97%);
       -moz-filter: opacity(97%);
       -webkit-filter: opacity(97%);
       filter: opacity(97%);
     }
-    
+
     button {
       position: absolute;
       width: @btn-unit*6;
@@ -72,14 +72,14 @@
           }
         }
       }
-  
+
       &:hover {
         background: @e-color-grey-300;
         .box-shadow(0 0 0 1px @e-color-grey-400);
       }
-      
-      &:focus {       
-        z-index: 1; 
+
+      &:focus {
+        z-index: 1;
         background: @e-color-grey-400;
         .box-shadow(0 0 0 1px @e-color-grey-400);
         outline: none;
@@ -119,7 +119,7 @@
         bottom: @e-unit*2.75;
         left: @e-unit*2.75;
       }
-      
+
       &.undo {
         top: @e-unit*9.5;
         left: @e-unit*(-0.125);

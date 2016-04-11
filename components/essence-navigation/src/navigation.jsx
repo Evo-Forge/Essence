@@ -1,49 +1,66 @@
 import React from 'react';
 import ClassNames from 'classnames';
 import './navigation.less'; // require('!css!less!./navigation.less');
- 
+
 class Navigation extends React.Component {
 	constructor(props) {
         super(props);
-        let navigationVisible = this.props.visible;
         this.state = {
-            visible: navigationVisible,
+            onOpen: this.props.onOpen,
+            onClose: this.props.onClose,
+            visible: this.props.visible,
         	classes: ClassNames(
                 'e-nav-drawer',
                 this.props.classes,
                 this.props.className,
-                {'e-navigation-open': navigationVisible}
-            )
+                {'e-navigation-open': this.props.visible}
+            ),
+            dismissible: this.props.dismissible === undefined ? true : this.props.dismissible
         };
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.onOpen && this.state.visible === true) {
+            return this.state.onOpen();
+        }
+
+        if (this.state.onClose && this.state.visible === false) {
+            return this.state.onClose();
+        }
     }
 
     componentWillReceiveProps(nextProps) {
         this.setState({
+            onOpen: nextProps.onOpen,
+            onClose: nextProps.onClose,
             visible: nextProps.visible,
             classes: ClassNames(
                 'e-nav-drawer',
                 nextProps.classes,
                 nextProps.className,
                 {'e-navigation-open': nextProps.visible}
-            )
+            ),
+            dismissible: nextProps.dismissible === undefined ? true : nextProps.dismissible
         });
     }
 
     toggle() {
         let newVisibleState = !this.state.visible;
 
-        this.setState({
-            visible: newVisibleState
-        });
+        if (this.state.dismissible) {
+            this.setState({
+                visible: newVisibleState
+            });
 
-        this.setState({
-            classes: ClassNames(
-                'e-nav-drawer',
-                this.props.classes,
-                this.props.className,
-                {'e-navigation-open': newVisibleState}
-            )
-        });
+            this.setState({
+                classes: ClassNames(
+                    'e-nav-drawer',
+                    this.props.classes,
+                    this.props.className,
+                    {'e-navigation-open': newVisibleState}
+                )
+            });
+        }
     }
 
     overlay() {
@@ -52,8 +69,7 @@ class Navigation extends React.Component {
           <div
             style={{display: 'block'}}
             onClick={this.toggle.bind(this)}
-            className={'e-modal-bg'}
-          />
+            className={'e-modal-bg'} />
         );
       }
       return;
@@ -73,5 +89,12 @@ class Navigation extends React.Component {
         );
 	}
 }
+
+Navigation.defaultProps = {
+    visible: false,
+    onOpen: undefined,
+    onClose: undefined,
+    dismissible: undefined
+};
 
 module.exports = Navigation;

@@ -1,11 +1,11 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
-.e-list-navigation {  
+.e-list-navigation {
   display: block;
   box-sizing: border-box;
   width: 100%;
   padding: @e-unit 0;
-  margin: 0;  
+  margin: 0;
 
   > li {
     position: relative;
@@ -13,30 +13,30 @@
     box-sizing: border-box;
     width: 100%;
     height: @e-unit * 6;
-    padding: 0;    
+    padding: 0;
 
     > a {
       display: table-cell;
-      height: 100%;      
-      color: inherit;      
+      height: 100%;
+      color: inherit;
 
 
       > .e-avatar {
         width: @e-unit*5;
-        height: @e-unit*5; 
-        margin: @e-unit*0.5 0;       
+        height: @e-unit*5;
+        margin: @e-unit*0.5 0;
         padding: 0 @e-unit*2;
         border-radius: 50%;
       }
 
       > i {
-        padding: @e-unit*1.5 @e-unit*2;        
-        font-size: 2.4rem;        
+        padding: @e-unit*1.5 @e-unit*2;
+        font-size: 2.4rem;
       }
 
-      > .content {        
-        padding: 0 @e-unit*2;   
-        line-height: @e-unit*6;          
+      > .content {
+        padding: 0 @e-unit*2;
+        line-height: @e-unit*6;
       }
 
       > .e-right, .e-switch .e-right {
@@ -46,7 +46,7 @@
     }
   }
 
-  .e-switch {    
+  .e-switch {
     line-height: @e-unit*2.25;
 
     .e-left {
@@ -69,7 +69,7 @@
   }
 }
 
-.e-twolinelist { 
+.e-twolinelist {
    &:extend(.e-list-navigation all);
 
   > li {
@@ -81,12 +81,12 @@
         margin: @e-unit*2 0;
       }
 
-      > i {        
+      > i {
         padding: @e-unit*3 @e-unit*2;
       }
 
       > .content {
-        line-height: @e-unit*9;        
+        line-height: @e-unit*9;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -100,7 +100,7 @@
           font-size: 1.6rem;
           overflow: hidden;
           white-space: nowrap;
-          text-overflow: ellipsis;          
+          text-overflow: ellipsis;
         }
 
         > .secondary {
@@ -112,7 +112,7 @@
           color: @e-color-grey-600;
           overflow: hidden;
           white-space: nowrap;
-          text-overflow: ellipsis;          
+          text-overflow: ellipsis;
         }
       }
     }
@@ -131,7 +131,7 @@
         margin: @e-unit*3 0;
       }
 
-      > i {        
+      > i {
        padding: @e-unit*4 @e-unit*2;
       }
 
@@ -139,12 +139,12 @@
 
         > .primary {
             height: @e-unit*5;
-            line-height: @e-unit*6.5;        
+            line-height: @e-unit*6.5;
         }
 
         > .secondary {
             height: @e-unit*3;
-            line-height: @e-unit*2.25;        
+            line-height: @e-unit*2.25;
         }
 
         > .tertiary {
@@ -157,7 +157,7 @@
           color: @e-color-grey-600;
           overflow: hidden;
           white-space: nowrap;
-          text-overflow: ellipsis;                   
+          text-overflow: ellipsis;
         }
       }
     }

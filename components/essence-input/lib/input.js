@@ -53,7 +53,7 @@ var Input = (function (_React$Component) {
         }
     }, {
         key: 'handleChange',
-        value: function handleChange() {
+        value: function handleChange(event) {
             var counter = this.state.counter;
             var value = this.currentInput.value;
 
@@ -70,7 +70,7 @@ var Input = (function (_React$Component) {
             });
 
             if (this.props.onChange) {
-                return this.props.onChange(this);
+                return this.props.onChange(event);
             }
         }
     }, {
@@ -167,7 +167,7 @@ var Input = (function (_React$Component) {
 })(_react2.default.Component);
 
 Input.defaultProps = {
-    counter: 50,
+    counter: false,
     value: undefined,
     label: undefined,
     placeholder: undefined,

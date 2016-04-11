@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 // General properties for toast
 .toast {
@@ -8,7 +8,7 @@
   min-width:  @e-unit*36;
   max-width:  @e-unit*71;
   min-height: @e-unit*2.5;
-  line-height:  @e-unit*2.5;  
+  line-height:  @e-unit*2.5;
   padding: @e-unit*1.75 @e-unit*3;
   opacity: 0;
   border-radius:  @e-unit*25;
@@ -23,12 +23,12 @@
 }
 
 .toast-multiline {
-  &:extend(.toast);  
+  &:extend(.toast);
   padding: @e-unit*3;
 }
 
 @media (min-width: 320px) {
-  .toast {     
+  .toast {
     bottom: -2000px;
   }
 }

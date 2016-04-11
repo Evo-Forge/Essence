@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 ul.chips {
     list-style: none;
@@ -11,7 +11,7 @@ ul.chips {
     background: @e-color-grey-300;
     .border-radius( (@e-unit * 2) );
     margin-right: (@e-unit * 0.5);
-    
+
     &:hover {
         background: @e-color-grey-700;
         border: (@e-unit * (0.125)) solid @e-color-grey-700;
@@ -35,7 +35,7 @@ ul.chips {
         font-size: 1.3rem;
         color: rgba(0, 0, 0, 0.87);
         position: relative;
-        padding-right: (@e-unit * 1.5);    
+        padding-right: (@e-unit * 1.5);
 
         .deletable {
             cursor: default;

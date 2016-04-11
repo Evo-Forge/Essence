@@ -1,5 +1,5 @@
 @import '../less/styles/fonts/roboto.less';
-@import '../less/mixins.less';
+@import (reference) '../less/mixins.less';
 
 @containerWidth: 1200px;
 @gutter: 1%;
@@ -8,10 +8,10 @@
 	margin-left  : auto;
 	margin-right : auto;
 	max-width    : @containerWidth;
-	position     : relative; 
+	position     : relative;
 }
 
-.e-row {  
+.e-row {
   box-sizing: border-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -41,7 +41,7 @@
 	}
 }
 
-.brick{	
+.brick{
 	box-sizing: border-box;
 	-webkit-flex: 0 0 auto;
 	-ms-flex: 0 0 auto;

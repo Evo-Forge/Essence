@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 .e-nav-drawer {
   position: fixed;
@@ -15,7 +15,7 @@
   nav {
     position: relative;
     height: 100%;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 
     .e-navigation-wrapper {
       height: 100%;
@@ -39,8 +39,8 @@
             float: left;
             margin: 0;
             margin-right: @e-unit*4;
-            line-height: @e-unit*6;          
-          }          
+            line-height: @e-unit*6;
+          }
         }
       }
       .e-nav-footer {
@@ -48,21 +48,21 @@
         bottom: 0;
         box-sizing: border-box;
         width: 100%;
-        padding: (@e-unit * 2);    
+        padding: (@e-unit * 2);
       }
     }
   }
 }
 
-.e-modal-bg {    
+.e-modal-bg {
   position: fixed;
   z-index: 4;
   left: 0;
-  top: 0;  
-  display: block; 
-  height: 100%;  
+  top: 0;
+  display: block;
+  height: 100%;
   width: 100%;
-  opacity: 1;  
+  opacity: 1;
   background-color: rgba(0, 0, 0, 0.5);
   animation-duration: 0.2s;
   animation-name: e-modal-anim;
@@ -100,12 +100,12 @@
       transform: translateX(0);
     }
   }
-} 
+}
 
 @media (min-width: 769px) {
-  
+
   // body, .e-appbar {
-  //   padding-left: 240px; 
+  //   padding-left: 240px;
   //   box-sizing: border-box;
   //   overflow-x: hidden;
   // }
@@ -113,7 +113,7 @@
 
 @keyframes e-modal-anim {
   from {
-    opacity: 0; 
+    opacity: 0;
   }
 
   to {

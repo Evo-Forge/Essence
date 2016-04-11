@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 // General buttons properties
 .e-btn {
@@ -9,7 +9,7 @@
   border: 0;
   margin:@btn-unit;
   cursor: pointer;
-  .border-radius(@btn-unit*0.25);  
+  .border-radius(@btn-unit*0.25);
   background-clip: padding-box;
   text-transform: uppercase;
   font-size: @btn-unit*1.75;
@@ -40,7 +40,7 @@
     border: none ;
     min-width: @btn-unit*11;
     font-weight: 500;
-    padding: 0 @btn-unit;    
+    padding: 0 @btn-unit;
 
     &:hover , &:focus {
       background-color:darken(hsl(0,0%,100%), 10%) ;
@@ -61,10 +61,10 @@
     width: @btn-unit*7;
     height: @btn-unit*7;
     padding: 0;
-    margin: @btn-unit*2;    
+    margin: @btn-unit*2;
     background-color: @fab-color;
     text-align: center;
-    .border-radius(50%); 
+    .border-radius(50%);
     background-clip: border-box;
 
     .e-shadow-1();
@@ -111,7 +111,7 @@
     .e-shadow-1();
 
     min-width: @btn-unit*8;
-    padding: 0 @btn-unit*2;    
+    padding: 0 @btn-unit*2;
     color:#fff;
 
     &:hover , &:focus {

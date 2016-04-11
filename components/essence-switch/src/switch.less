@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 /* switch */
 
@@ -11,8 +11,8 @@
     padding-left: 45px;
     cursor: pointer;
 
-    span.absolute {      
-      position: absolute;      
+    span.absolute {
+      position: absolute;
     }
 
 
@@ -46,7 +46,7 @@
       border-radius: 2px;
       overflow: hidden;
       position: relative;
-      left: 7px;      
+      left: 7px;
     }
     .e-check-valid:after {
       display: block;
@@ -503,14 +503,14 @@
     border-color: @e-switch;
   }
 
-  input[type=radio]:checked ~ .e-check {    
+  input[type=radio]:checked ~ .e-check {
     .e-transform(scale(0.68));
   }
 
   input[type=radio][disabled] ~ .e-check {
     border-color: @e-lightbg-text;
     background-color: @e-lightbg-text;
-  }  
+  }
 }
 
 /* switch */

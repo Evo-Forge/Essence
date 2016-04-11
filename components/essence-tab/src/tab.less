@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 .e-tabs {
     padding: 0;
@@ -43,7 +43,7 @@
     }
     &.scrollable,
     &.simple {
-        //    padding: 0 @e-unit * 10; 
+        //    padding: 0 @e-unit * 10;
         .e-tabs-list {
             box-sizing: border-box;
             > li {
@@ -81,8 +81,8 @@
 }
 
 .e-tabs-container {
-    
-    
+
+
     .e-tab-content {
         visibility: hidden;
         height: 0;
@@ -90,23 +90,23 @@
         overflow: hidden;
         padding: 0;
         box-sizing: border-box;
-        
+
         > * {
             position: relative;
             left: @e-unit*(-150);
         }
 
         &.active {
-            visibility: visible;       
+            visibility: visible;
             width: 100%;
-            height: 100%;            
+            height: 100%;
             padding: @e-unit;
 
                 > * {
-                left: 0;                
+                left: 0;
                 .transition(all .5s);
             }
-        }        
+        }
     }
 
     &.revert {

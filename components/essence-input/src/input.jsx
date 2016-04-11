@@ -4,7 +4,7 @@ import './input.less'; // require('!css!less!./input.less');
 
 class Input extends React.Component {
 
-	constructor(props) {
+    constructor(props) {
         super(props);
         this.state = {
             counter: {
@@ -16,7 +16,7 @@ class Input extends React.Component {
                 { 'empty': this.props.value || this.props.defaultValue ? false : true }
             ),
             inputValue: this.props.value || this.props.defaultValue || '',
-        	classes: ClassNames('e-input-group', this.props.className, this.props.classes)
+            classes: ClassNames('e-input-group', this.props.className, this.props.classes)
         };
     }
 
@@ -26,7 +26,7 @@ class Input extends React.Component {
         });
     }
 
-    handleChange() {
+    handleChange(event) {
         let counter = this.state.counter;
         let value = this.currentInput.value;
 
@@ -46,7 +46,7 @@ class Input extends React.Component {
         });
 
         if (this.props.onChange) {
-            return this.props.onChange(this);
+            return this.props.onChange(event);
         }
     }
 
@@ -90,11 +90,11 @@ class Input extends React.Component {
     }
 
     renderInput() {
-    	let inputType = this.props.type;
+        let inputType = this.props.type;
 
         switch (inputType) {
-    		case 'textarea':
-    			return (
+            case 'textarea':
+                return (
                     <textarea
                         {...this.props}
                         className={this.state.inputClasses}
@@ -104,9 +104,9 @@ class Input extends React.Component {
                         ref={(ref) => this.currentInput = ref}
                     />
                 );
-    			break;
-    		default:
-    			return (
+                break;
+            default:
+                return (
                     <input
                         {...this.props}
                         className={this.state.inputClasses}
@@ -116,12 +116,12 @@ class Input extends React.Component {
                         ref={(ref) => this.currentInput = ref}
                       />
                 );
-    			break;
-    	}
+                break;
+        }
     }
 
-	render() {
-		return (
+    render() {
+        return (
             <div className={this.state.classes}>
                 {this.renderInput()}
                 {this.renderCounter()}
@@ -130,11 +130,11 @@ class Input extends React.Component {
                 {this.renderHint()}
             </div>
         );
-	}
+    }
 }
 
 Input.defaultProps = {
-    counter: 50,
+    counter: false,
     value: undefined,
     label: undefined,
     placeholder: undefined,

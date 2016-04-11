@@ -1,4 +1,4 @@
-@import '../../essence-core/src/less/mixins.less';
+@import (reference) '../../essence-core/src/less/mixins.less';
 
 .e-steppers {
     padding: 0;
@@ -44,7 +44,7 @@
             margin-right: @e-unit;
             font-size: @e-unit * 1.75;
         }
-        
+
         .optional {
             flex: flex-grow;
             color: @e-color-grey-400;
@@ -136,11 +136,11 @@
     }
 }
 
-.e-steppers-container {    
+.e-steppers-container {
     margin-top: -14px;
     box-shadow: 0 0 4px rgba(0,0,0,.14),0 1px 1px rgba(0,0,0,.28);
-    
-    
+
+
 
     .e-stepper-content {
         visibility: hidden;
@@ -151,12 +151,12 @@
         box-sizing: border-box;
 
         &.active {
-            visibility: visible;       
+            visibility: visible;
             min-height: 200px;
             width: 100%;
-            height: 100%;            
+            height: 100%;
             padding: @e-unit;
-        }        
+        }
     }
 }
 
