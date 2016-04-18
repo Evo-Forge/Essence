@@ -62,7 +62,7 @@ class Input extends React.Component {
     }
 
     renderHint() {
-        if (!this.props.hint) {
+        if (this.props.hint) {
             return (
                 <span className='e-hint'>
                     {this.props.hint}
