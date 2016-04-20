@@ -14,7 +14,7 @@
   right: 0;
   top: 20%;
   z-index: 7;
-  padding: @e-unit*3 @e-unit*3 0;
+  padding: @e-unit*3 0 0 0;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -29,7 +29,7 @@
 
 
   .e-dialogs-header{
-    padding-bottom: @e-unit*2.5;
+    padding: 0 @e-unit*3 @e-unit*2.5 @e-unit*3;
 
     h2{
       color:@e-color-blue-grey-800;
@@ -38,8 +38,7 @@
   }
 
   .e-dialogs-content{
-    padding-bottom: @e-unit*3;
-    opacity: 0.6;
+    padding: 0 @e-unit*3 @e-unit*3 @e-unit*3;
 
     p{
       color:@e-color-blue-grey-600;
@@ -49,9 +48,10 @@
   }
 
   .e-dialogs-actions{
-    text-align: right;
     width: auto;
     min-height: @e-unit*6;
+    padding-left: @e-unit*3;
+    text-align: right;
   }
 }
 
@@ -62,5 +62,12 @@
       display: block;
       z-index: 6;
     }
+  }
+}
+
+@media (min-width: 769px) {
+
+  .e-dialog {
+    max-width: @e-dialogs-width/2;
   }
 }
