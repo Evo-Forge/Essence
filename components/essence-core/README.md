@@ -43,7 +43,7 @@ import {Divider} from 'essence-core';
 ##### 3. RIPPLE INK
 
 ###### Options:
-- **position**: object with `x` for **left** position in px & `y` for **top** position in px 
+- **position**: object with `x` for **left** position in px & `y` for **top** position in px
 - **color**: for `backgroundColor`
 
 ```js
@@ -57,6 +57,19 @@ let position = Utils.ClickPosition(event, boundingClient);
 ```
 
 ##### 4. TEXT TYPOGRAPHY
+
+###### Requirements:
+Import **Roboto** & **Roboto Condensed** from Google Fonts:
+
+```
+Roboto: Light, Italic & Bold
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,700italic,300italic,300,500,500italic,100italic,100,400italic' rel='stylesheet' type='text/css'>
+```
+
+```
+Roboto Condensed
+<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,700italic,300italic,400italic' rel='stylesheet' type='text/css'>
+```
 
 ###### Options:
 - **type**: string from the list explained below
