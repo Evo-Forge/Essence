@@ -88,7 +88,7 @@ var Input = (function (_React$Component) {
     }, {
         key: 'renderHint',
         value: function renderHint() {
-            if (!this.props.hint) {
+            if (this.props.hint) {
                 return _react2.default.createElement(
                     'span',
                     { className: 'e-hint' },
