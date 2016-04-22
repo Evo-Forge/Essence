@@ -78,7 +78,7 @@ class Btn extends React.Component {
 
     handleClick(event) {
         let boundingClient = this.currentButton.getBoundingClientRect();
-        
+
         this.setState({
             color: Utils.BackgroundColor(event),
             position: Utils.ClickPosition(event, boundingClient)
@@ -99,7 +99,7 @@ class Btn extends React.Component {
             disableOption = {};
         }
         return (
-            <button 
+            <button
                 {...this.props}
                 className={buttonClasses}
                 onClick={this.handleClick.bind(this)}

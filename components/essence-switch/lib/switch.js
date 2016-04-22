@@ -2,11 +2,7 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -28,7 +24,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // require('!css!less!./switch.less');
 
-var Switch = (function (_React$Component) {
+var Switch = function (_React$Component) {
     _inherits(Switch, _React$Component);
 
     function Switch(props) {
@@ -81,7 +77,7 @@ var Switch = (function (_React$Component) {
                             this.props.beforeText,
                             _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'checkbox',
-                                defaultChecked: this.state.checked,
+                                checked: this.state.checked,
                                 onChange: this.onChange.bind(this)
                             })),
                             _react2.default.createElement('span', { className: 'e-switches-toggle' }),
@@ -98,7 +94,7 @@ var Switch = (function (_React$Component) {
                             null,
                             _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'radio',
-                                defaultChecked: this.state.checked,
+                                checked: this.state.checked,
                                 onChange: this.onChange.bind(this)
                             })),
                             _react2.default.createElement('span', { className: 'absolute circle' }),
@@ -118,7 +114,7 @@ var Switch = (function (_React$Component) {
                             _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'checkbox',
                                 className: 'toggle',
-                                defaultChecked: this.state.checked,
+                                checked: this.state.checked,
                                 onChange: this.onChange.bind(this)
                             })),
                             _react2.default.createElement('span', { className: 'absolute e-wave' }),
@@ -141,6 +137,6 @@ var Switch = (function (_React$Component) {
     }]);
 
     return Switch;
-})(_react2.default.Component);
+}(_react2.default.Component);
 
 module.exports = Switch;

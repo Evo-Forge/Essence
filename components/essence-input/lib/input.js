@@ -2,7 +2,7 @@
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
 
@@ -24,7 +24,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 // require('!css!less!./input.less');
 
-var Input = (function (_React$Component) {
+var Input = function (_React$Component) {
     _inherits(Input, _React$Component);
 
     function Input(props) {
@@ -37,8 +37,8 @@ var Input = (function (_React$Component) {
                 current: 0,
                 maximum: parseInt(_this.props.counter)
             },
-            inputClasses: (0, _classnames2.default)('e-input', { 'empty': _this.props.value || _this.props.defaultValue ? false : true }),
-            inputValue: _this.props.value || _this.props.defaultValue || '',
+            inputClasses: (0, _classnames2.default)('e-input', { 'empty': _this.props.value ? false : true }),
+            inputValue: _this.props.value || '',
             classes: (0, _classnames2.default)('e-input-group', _this.props.className, _this.props.classes)
         };
         return _this;
@@ -55,7 +55,7 @@ var Input = (function (_React$Component) {
         key: 'handleChange',
         value: function handleChange() {
             var counter = this.state.counter;
-            var value = this.currentInput.value;
+            var value = this.refs.currentInput.value;
 
             if (value.length >= counter.maximum && this.props.counter) {
                 value = value.substr(0, counter.maximum);
@@ -119,8 +119,6 @@ var Input = (function (_React$Component) {
     }, {
         key: 'renderInput',
         value: function renderInput() {
-            var _this2 = this;
-
             var inputType = this.props.type;
 
             switch (inputType) {
@@ -128,22 +126,16 @@ var Input = (function (_React$Component) {
                     return _react2.default.createElement('textarea', _extends({}, this.props, {
                         className: this.state.inputClasses,
                         onChange: this.handleChange.bind(this),
-                        defaultValue: this.state.inputValue,
                         value: this.state.inputValue,
-                        ref: function ref(_ref) {
-                            return _this2.currentInput = _ref;
-                        }
+                        ref: 'currentInput'
                     }));
                     break;
                 default:
                     return _react2.default.createElement('input', _extends({}, this.props, {
                         className: this.state.inputClasses,
-                        defaultValue: this.state.inputValue,
                         value: this.state.inputValue,
                         onChange: this.handleChange.bind(this),
-                        ref: function ref(_ref2) {
-                            return _this2.currentInput = _ref2;
-                        }
+                        ref: 'currentInput'
                     }));
                     break;
             }
@@ -164,10 +156,10 @@ var Input = (function (_React$Component) {
     }]);
 
     return Input;
-})(_react2.default.Component);
+}(_react2.default.Component);
 
 Input.defaultProps = {
-    counter: 50,
+    counter: undefined,
     value: undefined,
     label: undefined,
     placeholder: undefined,

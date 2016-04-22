@@ -93,7 +93,7 @@ class Chip extends React.Component {
             return child;
         });
         return (
-            <li key={'chip-item'} ref={(ref) => this.chipItem = ref}>
+            <li key={'chip-item'} ref="chipItem">
                 {this.renderIcon()}
                 {childs}
                 {this.renderClose()}

@@ -73,7 +73,7 @@ class Slider extends React.Component {
                     type='range'
                     {...this.props}
                     ref={(ref) => this.sliderInput = ref} 
-                    defaultValue={this.state.dataValue} 
+                    defaultValue={this.state.dataValue}
                     data-discrete={this.state.dataValue} 
                 />
                 <div className={'track'}>

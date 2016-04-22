@@ -13,9 +13,9 @@ class Input extends React.Component {
             },
             inputClasses: ClassNames(
                 'e-input',
-                { 'empty': this.props.value || this.props.defaultValue ? false : true }
+                { 'empty': this.props.value ? false : true }
             ),
-            inputValue: this.props.value || this.props.defaultValue || '',
+            inputValue: this.props.value || '',
         	classes: ClassNames('e-input-group', this.props.className, this.props.classes)
         };
     }
@@ -28,7 +28,7 @@ class Input extends React.Component {
 
     handleChange() {
         let counter = this.state.counter;
-        let value = this.currentInput.value;
+        let value = this.refs.currentInput.value;
 
         if (value.length >= counter.maximum && this.props.counter) {
             value = value.substr(0, counter.maximum);
@@ -99,9 +99,8 @@ class Input extends React.Component {
                         {...this.props}
                         className={this.state.inputClasses}
                         onChange={this.handleChange.bind(this)}
-                        defaultValue={this.state.inputValue}
                         value={this.state.inputValue}
-                        ref={(ref) => this.currentInput = ref}
+                        ref="currentInput"
                     />
                 );
     			break;
@@ -110,10 +109,9 @@ class Input extends React.Component {
                     <input
                         {...this.props}
                         className={this.state.inputClasses}
-                        defaultValue={this.state.inputValue}
                         value={this.state.inputValue}
                         onChange={this.handleChange.bind(this)}
-                        ref={(ref) => this.currentInput = ref}
+                        ref="currentInput"
                       />
                 );
     			break;
@@ -134,7 +132,7 @@ class Input extends React.Component {
 }
 
 Input.defaultProps = {
-    counter: 50,
+    counter: undefined,
     value: undefined,
     label: undefined,
     placeholder: undefined,

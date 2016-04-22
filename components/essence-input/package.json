@@ -9,7 +9,7 @@
   "main": "lib/input.js",
   "scripts": {
     "babel": "babel --presets react,es2015 src --out-dir lib && cp src/input.less lib/input.less",
-    "webpack": "NODE_ENV=production webpack -p --config webpack.config.js"
+    "webpack": "webpack -p"
   },
   "keywords": [
     "color palette",
@@ -50,10 +50,10 @@
     "textarea"
   ],
   "devDependencies": {
-    "react": "^0.14.x"
+    "react": "^15.x"
   },
   "peerDependencies": {
-    "react": "^0.14.x"
+    "react": "^15.x"
   },
   "dependencies": {
     "classnames": "^2.x",
