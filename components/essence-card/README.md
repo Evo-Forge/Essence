@@ -3,7 +3,7 @@
 #### Option:
 - `classes` or `className`: css style class name
 
-**NOTE**: CardHeader, CardContent or CardFooter can be use or ignored as a child in Card component
+**NOTE**: CardHeader, CardContent or CardFooter can be used or ignored as a child in Card component
 
 ### How to use
 ```js
