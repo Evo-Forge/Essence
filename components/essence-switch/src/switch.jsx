@@ -7,12 +7,13 @@ class Switch extends React.Component {
 	constructor(props) {
         super(props);
         this.state = {
-            type: this.props.type,
-            onChange: this.props.onChange,
+            type: props.type,
+            onChange: props.onChange,
             checked: false,
+            value: props.value || props.defaultValue,
         	classes: ClassNames(
-                this.props.className, 
-                this.props.classes
+                props.className, 
+                props.classes
             )
         };
     }
@@ -25,13 +26,15 @@ class Switch extends React.Component {
             ),
             type: nextProps.type,
             checked: nextProps.checked,
+            value: nextProps.value || nextProps.defaultValue,
             onChange: nextProps.onChange
         });
     }
 
     onChange(event) {
         this.setState({
-            checked: event.target.checked
+            checked: event.target.checked,
+            value: event.target.value,
         });
 
         if (this.state.onChange) {
@@ -51,6 +54,7 @@ class Switch extends React.Component {
                                 {...this.props}
                                 type={'checkbox'}
                                 defaultChecked={this.state.checked}
+                                defaultValue={this.state.value}
                                 onChange={this.onChange.bind(this)}
                             />
                             <span className={'e-switches-toggle'} />
@@ -67,6 +71,7 @@ class Switch extends React.Component {
                                 {...this.props}
                                 type={'radio'}
                                 defaultChecked={this.state.checked}
+                                defaultValue={this.state.value}
                                 onChange={this.onChange.bind(this)}
                             />
                             <span className={'absolute circle'} />
@@ -86,6 +91,7 @@ class Switch extends React.Component {
                                 type={'checkbox'}
                                 className={'toggle'}
                                 defaultChecked={this.state.checked}
+                                defaultValue={this.state.value}
                                 onChange={this.onChange.bind(this)}
                             />
                             <span className={'absolute e-wave'} />
