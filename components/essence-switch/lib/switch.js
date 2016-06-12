@@ -33,10 +33,11 @@ var Switch = (function (_React$Component) {
         var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Switch).call(this, props));
 
         _this.state = {
-            type: _this.props.type,
-            onChange: _this.props.onChange,
+            type: props.type,
+            onChange: props.onChange,
             checked: false,
-            classes: (0, _classnames2.default)(_this.props.className, _this.props.classes)
+            value: props.value || props.defaultValue,
+            classes: (0, _classnames2.default)(props.className, props.classes)
         };
         return _this;
     }
@@ -48,6 +49,7 @@ var Switch = (function (_React$Component) {
                 classes: (0, _classnames2.default)(nextProps.className, nextProps.classes),
                 type: nextProps.type,
                 checked: nextProps.checked,
+                value: nextProps.value || nextProps.defaultValue,
                 onChange: nextProps.onChange
             });
         }
@@ -55,7 +57,8 @@ var Switch = (function (_React$Component) {
         key: 'onChange',
         value: function onChange(event) {
             this.setState({
-                checked: event.target.checked
+                checked: event.target.checked,
+                value: event.target.value
             });
 
             if (this.state.onChange) {
@@ -78,6 +81,7 @@ var Switch = (function (_React$Component) {
                             _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'checkbox',
                                 defaultChecked: this.state.checked,
+                                defaultValue: this.state.value,
                                 onChange: this.onChange.bind(this)
                             })),
                             _react2.default.createElement('span', { className: 'e-switches-toggle' }),
@@ -95,6 +99,7 @@ var Switch = (function (_React$Component) {
                             _react2.default.createElement('input', _extends({}, this.props, {
                                 type: 'radio',
                                 defaultChecked: this.state.checked,
+                                defaultValue: this.state.value,
                                 onChange: this.onChange.bind(this)
                             })),
                             _react2.default.createElement('span', { className: 'absolute circle' }),
@@ -115,6 +120,7 @@ var Switch = (function (_React$Component) {
                                 type: 'checkbox',
                                 className: 'toggle',
                                 defaultChecked: this.state.checked,
+                                defaultValue: this.state.value,
                                 onChange: this.onChange.bind(this)
                             })),
                             _react2.default.createElement('span', { className: 'absolute e-wave' }),
