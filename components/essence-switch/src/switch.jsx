@@ -1,9 +1,9 @@
 import React from 'react';
 import ClassNames from 'classnames';
 import './switch.less'; // require('!css!less!./switch.less');
- 
+
 class Switch extends React.Component {
-	
+
 	constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +12,7 @@ class Switch extends React.Component {
             checked: false,
             value: props.value || props.defaultValue,
         	classes: ClassNames(
-                props.className, 
+                props.className,
                 props.classes
             )
         };
@@ -38,7 +38,7 @@ class Switch extends React.Component {
         });
 
         if (this.state.onChange) {
-            return this.state.onChange();
+            return this.state.onChange(event);
         }
     }
 
