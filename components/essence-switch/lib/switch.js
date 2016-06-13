@@ -62,7 +62,7 @@ var Switch = (function (_React$Component) {
             });
 
             if (this.state.onChange) {
-                return this.state.onChange();
+                return this.state.onChange(event);
             }
         }
     }, {
