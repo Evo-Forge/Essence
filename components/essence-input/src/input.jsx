@@ -62,7 +62,7 @@ class Input extends React.Component {
     }
 
     renderHint() {
-        if (!this.props.hint) {
+        if (this.props.hint) {
             return (
                 <span className='e-hint'>
                     {this.props.hint}
@@ -100,7 +100,6 @@ class Input extends React.Component {
                         className={this.state.inputClasses}
                         onChange={this.handleChange.bind(this)}
                         defaultValue={this.state.inputValue}
-                        value={this.state.inputValue}
                         ref={(ref) => this.currentInput = ref}
                     />
                 );
@@ -111,7 +110,6 @@ class Input extends React.Component {
                         {...this.props}
                         className={this.state.inputClasses}
                         defaultValue={this.state.inputValue}
-                        value={this.state.inputValue}
                         onChange={this.handleChange.bind(this)}
                         ref={(ref) => this.currentInput = ref}
                       />

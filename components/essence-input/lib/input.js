@@ -88,7 +88,7 @@ var Input = (function (_React$Component) {
     }, {
         key: 'renderHint',
         value: function renderHint() {
-            if (!this.props.hint) {
+            if (this.props.hint) {
                 return _react2.default.createElement(
                     'span',
                     { className: 'e-hint' },
@@ -129,7 +129,6 @@ var Input = (function (_React$Component) {
                         className: this.state.inputClasses,
                         onChange: this.handleChange.bind(this),
                         defaultValue: this.state.inputValue,
-                        value: this.state.inputValue,
                         ref: function ref(_ref) {
                             return _this2.currentInput = _ref;
                         }
@@ -139,7 +138,6 @@ var Input = (function (_React$Component) {
                     return _react2.default.createElement('input', _extends({}, this.props, {
                         className: this.state.inputClasses,
                         defaultValue: this.state.inputValue,
-                        value: this.state.inputValue,
                         onChange: this.handleChange.bind(this),
                         ref: function ref(_ref2) {
                             return _this2.currentInput = _ref2;
