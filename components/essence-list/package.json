@@ -2,8 +2,7 @@
   "name": "essence-list",
   "version": "1.0.8",
   "description": "Essence List - List & ListItem components",
-  "author": "Hetmann W. Iohan <iohan@getessence.io>",
-  "homepage": "http://getessence.io/",
+
   "license": "MIT",
   "repository": "git://github.com/Evo-Forge/Essence",
   "main": "index.js",
