@@ -2,8 +2,7 @@
   "name": "essence-stepper",
   "version": "1.0.7",
   "description": "Essence Steppers - Stepper component",
-  "author": "Hetmann W. Iohan <iohan@getessence.io>",
-  "homepage": "http://getessence.io/",
+
   "license": "MIT",
   "repository": "git://github.com/Evo-Forge/Essence",
   "main": "lib/stepper.js",
