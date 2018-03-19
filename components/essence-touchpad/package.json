@@ -2,8 +2,7 @@
   "name": "essence-touchpad",
   "version": "1.0.12",
   "description": "Essence TouchPad - TouchPad component",
-  "author": "Hetmann W. Iohan <iohan@getessence.io>",
-  "homepage": "http://getessence.io/",
+
   "license": "MIT",
   "repository": "git://github.com/Evo-Forge/Essence",
   "main": "lib/touchpad.js",
