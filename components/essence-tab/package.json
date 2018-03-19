@@ -2,8 +2,7 @@
   "name": "essence-tab",
   "version": "1.0.6",
   "description": "Essence Tab - Tab & TabItem components",
-  "author": "Hetmann W. Iohan <iohan@getessence.io>",
-  "homepage": "http://getessence.io/",
+
   "license": "MIT",
   "repository": "git://github.com/Evo-Forge/Essence",
   "main": "lib/tab.js",
